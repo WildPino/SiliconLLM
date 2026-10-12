@@ -3,6 +3,13 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Conditional RAW affine charts and all fixed-decoder choices](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
+now COMPLETE/full audits PASS/quality proxies FAIL. FIT-only4/16 charts at0/12/24,
+<=256 active directions,required norm cross/bias/skip offsets are implemented and
+stored. Oracle source routing and injected coordinates remain nondeployable.
+Every final fixed decoder tested:25/72 source decisions unavailable in any16
+candidate. Selected next:exact categorical residual-factor gradient/correction,
+[specified but UNIMPLEMENTED](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_NEXT_20261012.md).
 [Source-function residual read/write compiler and stored audit](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
 now COMPLETE:actual normalized source readers/metric,seven distinct V/W/G bases,
 six skips,all336 histories and DEV72 full-V outputs. FIT quadratic optimality
@@ -53,10 +60,10 @@ be counted separately. Arbitrary source architectures are not supported yet.
 5. Choose new experiments to resolve the current measured defect, preserving
    earlier valid controls and all execution/scientific failures.
 
-Current decision:fixed-P,angular256 and tested source-function global256 encodings
-fail. Test conditional RAW affine coordinates with fixed active width, explicit
-source-RMS weighting,centers/norm/reader biases/chart-transition offsets before
-another long epoch. Oracle source chart selection can screen geometry only;
+Current decision:fixed-P,angular256,global source-function256 and tested conditional
+RAW charts fail. Correct the finite categorical objective/read-write factors:
+complete source head/RMS/center Jacobian and a checked bounded FIT update before
+another epoch. Initial Fisher or more unchanged charts do not certify finite loss;
 available causal compact routing and composed own-history remain mandatory.
 [Exact prospective path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md).
 No blindly continued donor-adaptation or new T4 job.
@@ -116,10 +123,11 @@ three sites/39 injected F64 inputs; F32 coefficient export and independent all-f
 audit complete. This is not F32 arithmetic/native/chatbot parity. Correct norm transfer
 requires folding gamma into each source input projection and accounting for
 G=P^T P and dimension-scaled epsilon; averaging a diagonal norm is insufficient
-for an exact restriction identity. Preserve source nonlinear generators and24
-layers in a costed shadow control before introducing additional approximation.
-A shadow with projections between residual sublayers remains approximate and
-must demonstrate useful behavior; it cannot conclude the native goal itself.
+for an exact restriction identity. The costed24-layer trained shadow has now been
+completed/audited and FAILED quality;new global/conditional raw state encodings
+also completed/audited and failed their local proxies. Do not repeat those same
+geometry objectives as if their qualification were still pending. Exact finite
+categorical residual-factor correction is the next new variable to bind.
 
 Then a cheap conditional nonlinear representation must replace costly source
 features/FFNs while preserving useful composed behavior. Original packed LUT/

@@ -1,36 +1,24 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
-Newest: [source-function read/write coordinates, full audit and finite-logit diagnostic](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
-COMPLETE/arithmetic PASS/all proxies FAIL. Seven global256 bases improve readings,
-but DEV own errors23%-52%;actual DEV72 head changes26 decisions/KL2.7278.
-FIT final metric97.48% does not certify quality:one state local Fisher.035 versus
-actual KL9.462/source winner rank2668. Exact finite KL/path-curvature algebra
-recorded. Selected next:conditional RAW affine charts, fixed active256;oracle
-geometry distinguished from causal affordable routing. No training/GPU job live.
-Latest: [seven FIT-only angular bases plus actual source output probability/audits](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
-COMPLETE. New DEV angular errors37%-61% beat old P but fail every proxy;all336
-cases/spectra/transports audited. At fixed DEV72 actual source h24,new angular256
-still changes31 argmaxes with ORACLE source norm,meanKL2.7064;own normKL2.9971.
-Direction loss matters to actual probabilities;final scalar norm cannot repair
-argmax. Euclidean energy is not task information. Function-sensitive encoding NEXT.
-Newest: [ACTUAL fully trained24-layer projected shadow and full audit](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
-COMPLETE/mechanical PASS/quality FAIL0/16,followup false,DEV KL22.6229/dis100%.
-All411 coefficient maps/17 greedy traces/4386 labels/168 trajectories audited.
-Stored source comparison:initial coordinate error.149%;by layer4~194%,cos.301;
-fixed P retains~12%-14% intermediate source energy, not a task-information bound.
-The fixed-P warm route is closed under this quality screen. Older NEXTs below
-are superseded by the exact resumption at the end; new coordinate encoding needed.
-Latest: [restricted D256 trained compiler and full field audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
-PASS on three sites/39 injected positions; max exact1.4094e-15,
-F32 coefficient-roundtrip4.5539e-8. Diagonal norm control loses19%-92% output.
-Three F32 core packages available; source state/feature widths remain costly.
-Recovered numerical worker COMPLETE; final holder isolation FAILED and preserved.
-New native chatbot capture/audit COMPLETE: **0/16; own-answer followup false**.
-New trained generator transport component passes; compact conversion still open.
-[Latest evidence and decision](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
-All previous LIVE/resume instructions are historical in the byte-preserved
-[index archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
+Latest: [conditional raw charts AND every-decoder output choice](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
+COMPLETE/full audits PASS/all quality proxies FAIL. K4/16,active<=256 at0/12/24;
+60 chart constructions/288 histories/544 affine skips audited. Nearest-center
+DEV72 head wrong27 for both K. Trying ALL frozen16 encoders/decoders leaves25
+source decisions unavailable;best-KL own mean1.7233. Selector alone can repair
+at most2 of27 errors for these fixed candidates. No general capacity bound.
+Next:exact categorical residual-factor gradient and bounded FIT correction.
+
+Recent controls: [global source-function coordinates/finite-loss algebra](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md),
+[angular256](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md),
+[trained24-layer shadow](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
+all complete/audited/quality FAIL. Shadow0/16/followup false/KL22.6229;
+global256 wrong26/72;initial Fisher cannot certify finite KL. Exact local
+[D256 trained generator transport](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
+passes39 injected positions,source feature/state widths remain expensive.
+[Recovered campaign/native outcome](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md)
+complete/quality FAIL;historical holder isolation failure retained. Prior LIVE
+instructions are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Goal and constraints
 
@@ -84,14 +72,15 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind conditional RAW residual charts**, representative
-boundaries0/12/24,K4/16,active256. [Prospective specification](CONDITIONAL_RAW_RESIDUAL_CHARTS_NEXT_20261012.md)
-UNIMPLEMENTED:FIT source-RMS-weighted raw centers/covariances;full affine norm,
-reader bias and chart-transition offsets;actual held-out observables/full-V KL.
-Reuse audited source/global controls. An oracle source chart assignment is only
-a geometric ceiling;causal compact routing must follow if geometry passes.
-Price distinct storage and K-scaling route/transition costs. Exact finite loss
-required for later learning;initial Fisher is no quality certificate. No T4 selected.
+**Implement/freeze/bind exact categorical residual-factor correction**,
+[prospective specification](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_NEXT_20261012.md)
+UNIMPLEMENTED:actual source FIT72 RAW h24 and normalized fixed trained head;
+global256 V/W plus raw center,exact full KL and complete RMS/factor Jacobian.
+Verify directional derivatives before one bounded FIT-selected correction;
+DEV72 only after immutable selection. Generic corrected factors need not remain
+idempotent;do not silently orthogonalize or claim the old quadratic optimum.
+No chart-count expansion,router training or long dose on the unchanged failed
+bank. Causal compact dynamics/ternary/native/physical costs still required.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient

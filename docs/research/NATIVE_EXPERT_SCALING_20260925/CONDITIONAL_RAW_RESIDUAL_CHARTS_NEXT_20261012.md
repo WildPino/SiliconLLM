@@ -1,5 +1,10 @@
 # Conditional raw residual charts: prospective next record
 
+**Superseded12 October2026:** implementation,both4/16 runs and full audits are
+COMPLETE. [Actual results and exhaustive decoder-choice check](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
+FAIL quality;next is exact categorical residual-factor correction. Original
+prospective text below is historical,not an instruction to repeat the run.
+
 12 October2026. **PROPOSED, UNIMPLEMENTED, UNBOUND**. No result, useful router
 or instruction to launch an unfrozen job. Select following completed global
 source-function256 failure and exact finite-logit diagnostic.

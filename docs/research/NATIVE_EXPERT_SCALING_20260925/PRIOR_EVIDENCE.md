@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Raw affine charts and exhaustive fixed decoder choice](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
+COMPLETE/full independent audits PASS/proxies FAIL. K4/16 at0/12/24,60 chart
+spectra/288 histories/544 affine offsets/maps;all2880 output candidates audited.
+DEV72 nearest wrong27;no fixed16 candidate preserves25 source decisions,best-KL
+own mean1.7233. Selection alone cannot repair these frozen encoder/decoder
+candidates;not a bound on new codes/directions or conditional256 capacity.
+Next exact categorical factor/center gradient with complete RMS Jacobian,
+bounded FIT correction before long dose. Earlier conditional NEXT is now complete.
 [Function-sensitive coordinates/full audit/exact finite loss](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
 COMPLETE:seven FIT global256 read/write bases,all336 histories/source projections/
 full head audited PASS;all quality proxies FAIL. Actual DEV72 wrong26/KL2.7278

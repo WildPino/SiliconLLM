@@ -1,0 +1,146 @@
+{
+  "schema": "CONDITIONAL_RAW_RESIDUAL_CHARTS_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\conditional_raw_residual_charts_stored_audit.py",
+    "bytes": 18114,
+    "sha256": "9adb1e6bb0ab38ce911230e4cbf6d2f5b96d40bd9f9820b01adf4edec3333294"
+  },
+  "freeze": "5bc9454c994de19b0f607c480c207aee5ff20919",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_raw_residual_charts_result_20261012.json",
+    "bytes": 3866132,
+    "sha256": "4fd44e9b032dc6c8bf1c4975f5d06c9f3100a0d3839ed027353deac14a1249e4"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_raw_residual_charts_result_20261012.terminal.json",
+    "bytes": 1583,
+    "sha256": "94aa8bc2c13beb5007b90c8fb55ae22c4604aacf004d7603a631d829faaf2976"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_raw_residual_charts_binding_20261012.json",
+    "bytes": 1143001,
+    "sha256": "0042e9af9c6f7f9aa9584db28c6bfeb869943ec0fbcb9f7b0b8a754bc69a8d08"
+  },
+  "checks": [
+    {
+      "boundary": 0,
+      "K": 4,
+      "charts": 4,
+      "active_dimensions": [
+        3,
+        23,
+        256,
+        86
+      ],
+      "cases": 48
+    },
+    {
+      "boundary": 0,
+      "K": 16,
+      "charts": 16,
+      "active_dimensions": [
+        1,
+        8,
+        2,
+        56,
+        1,
+        10,
+        194,
+        35,
+        2,
+        38,
+        256,
+        38,
+        159,
+        256,
+        84,
+        154
+      ],
+      "cases": 48
+    },
+    {
+      "boundary": 12,
+      "K": 4,
+      "charts": 4,
+      "active_dimensions": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "cases": 48
+    },
+    {
+      "boundary": 12,
+      "K": 16,
+      "charts": 16,
+      "active_dimensions": [
+        29,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        1,
+        256,
+        256,
+        256
+      ],
+      "cases": 48
+    },
+    {
+      "boundary": 24,
+      "K": 4,
+      "charts": 4,
+      "active_dimensions": [
+        87,
+        256,
+        256,
+        256
+      ],
+      "cases": 48
+    },
+    {
+      "boundary": 24,
+      "K": 16,
+      "charts": 16,
+      "active_dimensions": [
+        80,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        179
+      ],
+      "cases": 48
+    }
+  ],
+  "all60_chart_covariances_full_spectra_centers_maps_and198_clustering_states_checked": true,
+  "all288_histories_affine_norms_coordinates_and128_observable_metrics_checked": true,
+  "all2_full_readout_packets_288_probability_rows_and544_affine_skip_pairs_checked": true,
+  "ambiguous_nearest_center_rounding_rows": 0,
+  "max_numeric_relative": 2.640059844023767e-13,
+  "max_scalar_delta": 1.3796963571621745e-11,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "scientific_decision": "COMPLETED_ORACLE_PROXY_FAILURE",
+  "seconds": 235.5460000000021,
+  "OS_peak": 1503277056,
+  "scope": "Independent source-space factor distances, all Lloyd updates, covariance reaccumulation and fixed-spectrum reconstruction; source-width projection/head sums, expanded quadratic errors and direct decoded norms. No chart/covariance eigensolver refit (metric Cholesky only), source/shadow/optimizer/native/GPU/T4 calls. Oracle geometry, no causal routing qualification."
+}
