@@ -1,0 +1,35 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_NATIVE_CHAT_LAUNCH_V1",
+  "command": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/recovered_categorical_native_chat.py",
+    "capture",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_categorical_native_chat_binding_20261012.json",
+    "--binding-sha",
+    "f75ea321bb9053aa3f94ae3cbacc4fe913246e48e19239068c07b6cfa5e23c84",
+    "--directory",
+    "results/native_expert_scaling/recovered_categorical_native_chat_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_categorical_native_chat_result_20261012.json",
+    "--freeze",
+    "9eb0e1b46d0cd42d4752dca94d863d1c22968414"
+  ],
+  "binding_sha256": "f75ea321bb9053aa3f94ae3cbacc4fe913246e48e19239068c07b6cfa5e23c84",
+  "inputs": 468,
+  "input_bytes": 580520201,
+  "limits": {
+    "seconds": 900,
+    "reserve_seconds": 120,
+    "OS_bytes": 8589934592,
+    "output_bytes": 536870912,
+    "child_seconds": 100,
+    "stream_seconds": 300
+  },
+  "scope": "One unchanged final pack, 16 canonical tasks plus own-answer followup, no training/export/forced-case replay; no timing admission"
+}
