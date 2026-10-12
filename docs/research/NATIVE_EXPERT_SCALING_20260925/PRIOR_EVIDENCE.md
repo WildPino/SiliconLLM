@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Function-sensitive coordinates/full audit/exact finite loss](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
+COMPLETE:seven FIT global256 read/write bases,all336 histories/source projections/
+full head audited PASS;all quality proxies FAIL. Actual DEV72 wrong26/KL2.7278
+own norm. FIT97.48% quadratic head energy still fails finite probability loss;
+one actual state source-local Fisher.035 but KL9.462/winner rank2668. Exact
+log-moment/path-curvature algebra documented. Next conditional RAW affine charts
+K4/16 at0/12/24;oracle choice is not cheap causal routing. Previous read/write
+NEXT paragraphs below now historical. No training/native/GPU/T4 job live.
 [Actual residual angular bases/readout probability/full audits](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
 COMPLETE:7 FIT eigensystems/336 cases/6 skip transports numericPASS/proxyFAIL;
 DEV angular37%-61%. Source DEV72 readout:new angular256 changes31 decisions even

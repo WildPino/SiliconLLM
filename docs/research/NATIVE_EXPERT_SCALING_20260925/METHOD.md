@@ -3,6 +3,13 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Source-function residual read/write compiler and stored audit](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
+now COMPLETE:actual normalized source readers/metric,seven distinct V/W/G bases,
+six skips,all336 histories and DEV72 full-V outputs. FIT quadratic optimality
+validated;quality proxies all FAIL. Tool can reproduce algebraic construction,
+not acquire deployed causal coordinates. New finite-logit diagnostic proves
+why source-local Fisher is no finite-loss bound. Selected next conditional RAW
+charts is [specified but UNIMPLEMENTED](CONDITIONAL_RAW_RESIDUAL_CHARTS_NEXT_20261012.md).
 [Seven residual bases and actual probability sensitivity](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
 now COMPLETE/full audits PASS/proxies FAIL. Angular256 optimal FIT reconstruction
 still changes31/72 source-readout argmaxes with oracle norm. Function-sensitive
@@ -46,9 +53,11 @@ be counted separately. Arbitrary source architectures are not supported yet.
 5. Choose new experiments to resolve the current measured defect, preserving
    earlier valid controls and all execution/scientific failures.
 
-Current decision: fixed-P and tested boundary-specific angular256 encodings fail.
-Test function-sensitive source read/write coordinates or conditional encoding,
-with explicit radial information/residual transport before another long epoch.
+Current decision:fixed-P,angular256 and tested source-function global256 encodings
+fail. Test conditional RAW affine coordinates with fixed active width, explicit
+source-RMS weighting,centers/norm/reader biases/chart-transition offsets before
+another long epoch. Oracle source chart selection can screen geometry only;
+available causal compact routing and composed own-history remain mandatory.
 [Exact prospective path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md).
 No blindly continued donor-adaptation or new T4 job.
 

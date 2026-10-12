@@ -1,6 +1,13 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Newest: [source-function read/write coordinates, full audit and finite-logit diagnostic](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
+COMPLETE/arithmetic PASS/all proxies FAIL. Seven global256 bases improve readings,
+but DEV own errors23%-52%;actual DEV72 head changes26 decisions/KL2.7278.
+FIT final metric97.48% does not certify quality:one state local Fisher.035 versus
+actual KL9.462/source winner rank2668. Exact finite KL/path-curvature algebra
+recorded. Selected next:conditional RAW affine charts, fixed active256;oracle
+geometry distinguished from causal affordable routing. No training/GPU job live.
 Latest: [seven FIT-only angular bases plus actual source output probability/audits](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
 COMPLETE. New DEV angular errors37%-61% beat old P but fail every proxy;all336
 cases/spectra/transports audited. At fixed DEV72 actual source h24,new angular256
@@ -77,14 +84,14 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Bind one source-function-sensitive residual read/write encoding**:FIT state
-covariance plus actual source normalized input projection/head reading metric,
-distinct decode/read bases and explicit non-Euclidean norm/residual skip map.
-Evaluate actual source observables/probabilities,not another angular-energy optimum.
-[Evidence/conditional or wider-active alternatives](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md).
-Use existing source states/spectra/weights;new code/proxy/native cost binding still
-required. Conditional affine charts must charge index/center/bias/radius information
-and learnable routing;oracle source selection is not a deployment. No T4 run selected.
+**Implement/freeze/bind conditional RAW residual charts**, representative
+boundaries0/12/24,K4/16,active256. [Prospective specification](CONDITIONAL_RAW_RESIDUAL_CHARTS_NEXT_20261012.md)
+UNIMPLEMENTED:FIT source-RMS-weighted raw centers/covariances;full affine norm,
+reader bias and chart-transition offsets;actual held-out observables/full-V KL.
+Reuse audited source/global controls. An oracle source chart assignment is only
+a geometric ceiling;causal compact routing must follow if geometry passes.
+Price distinct storage and K-scaling route/transition costs. Exact finite loss
+required for later learning;initial Fisher is no quality certificate. No T4 selected.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient
