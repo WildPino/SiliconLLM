@@ -134,10 +134,10 @@ def bind(a):
     for e in inputs:
         if e['path'] in parent_pins: assert e == parent_pins[e['path']],e['path']
     gpu = subprocess.run([shutil.which('nvidia-smi'),
-        '--query-gpu=uuid,name,driver_version,memory.total,memory.used',
+        '--query-gpu=uuid,name,driver_version,memory.total,memory.used,memory.free',
         '--format=csv,noheader,nounits'],capture_output=True,text=True,check=True,timeout=15).stdout.strip()
     assert 'GPU-1cce7fba-8103-2d4b-ad9b-df8e162f8221' in gpu
-    assert int(gpu.split(',')[-2])-int(gpu.split(',')[-1]) >= 10240
+    assert int(gpu.split(',')[-1]) >= 7168,'actual free GPU memory < allocated cap6GiB +1GiB margin'
     binding = dict(schema='FFN_OPERAND_CAPTURE_BINDING_V1',freeze=a.freeze,python=pb['python'],
         source=pb['source'],source_revision=pb['source_revision'],checkpoint_tensors=pb['checkpoint_tensors'],
         MuP_bits=pb['MuP_bits'],prior_source_method=pb['prior_source_method'],versions=pb['versions'],
@@ -145,7 +145,12 @@ def bind(a):
         parent_report=extent(rp),parent_audit=extent(ap),parent_closure=extent(cp),
         fields=FIELDS,gate_multiplier=alpha,down_multiplier=beta,
         fields_payload_bytes=fields_bytes,calculated_payload_bound=fields_bytes+snapshots_bytes+labels_bytes,
-        inputs=inputs,limits=LIMITS,GPU_query=gpu,output_directory=str(a.directory.resolve()),
+        inputs=inputs,limits=LIMITS,GPU_query=gpu,minimum_free_GPU_MiB=7168,
+        allocation_preflight='Measured parent peak allocated3187002368B/reserved3265265664B; '
+            'serial batch1/native CPU states,additional observer rows only,no GPU history '
+            'buffer. Actual memory.free>=6GiB allocated ceiling+1GiB margin. '
+            'Reserved10GiB is a maximum guard,not a planned reservation.',
+        output_directory=str(a.directory.resolve()),
         worker_path=str(Path(__file__).resolve()),preparation_seconds=time.monotonic()-begin,
         criteria=dict(source_matrix_each_case_field_relative_RMS=.01,
                       actual_feature_node_relative_RMS=1e-4,gate_scalar_bits_exact=True,

@@ -51,7 +51,14 @@ node kernels are declared;no independent GPU attention reproduction.
 Local RTX3060,worker7200s/reserve180s,OS8GiB,GPU allocated6GiB/reserved10GiB,
 family32GiB. Holder7200s/exact owned PID/create time and resource watchdog,
 DETACHED8 worker. Separate CPU audit7200s/OS8GiB,no CUDA initialization.
-At least34GiB free before allocation. Announce hours-long purpose/budget and
+At least34GiB disk free before allocation. GPU preflight uses ACTUAL
+memory.free>=7GiB (allocated ceiling6GiB+1GiB margin),not total-used on WDDM.
+Parent measured3.187GB allocated/3.265GB reserved;new collector stores observer
+history on CPU/disk,not GPU. Reserved10GiB is a maximum guard,not a planned
+allocation. Original preparation37ce5b1 required10GiB free and stopped80.031s/
+exit1 before any model/CUDA initialization;preserve its terminal. Resource
+preflight correction does not change source code path,data or numeric gates.
+Announce hours-long purpose/budget and
 pause goal after verified live startup under explicit human instruction.
 No delegated monitor/Luna/T4/RESERVED/optimizer/new generation/model speed.
 No restarts from observation timeout. Require real terminal0 before full audit.

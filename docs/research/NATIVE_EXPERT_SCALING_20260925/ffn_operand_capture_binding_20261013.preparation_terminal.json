@@ -1,0 +1,27 @@
+{
+  "schema": "FFN_OPERAND_CAPTURE_BIND_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/ffn_operand_capture.py",
+    "--bind",
+    "--freeze",
+    "37ce5b1",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\ffn_operand_capture_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/ffn_operand_capture_binding_20261013.json"
+  ],
+  "pid": 27656,
+  "creation_time": 1791900452.8116188,
+  "freeze": "37ce5b1",
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture.py\", line 359, in <module>\n    try: bind(a); receipt.update(exit_code=0,error=None,result=extent(a.out))\n         ^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture.py\", line 140, in bind\n    assert int(gpu.split(',')[-2])-int(gpu.split(',')[-1]) >= 10240\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 80.03100000000268,
+  "OS_peak": 450535424
+}
