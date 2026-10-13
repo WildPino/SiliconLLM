@@ -1,0 +1,37 @@
+{
+  "report_sha256": "e0063e31363552567fbb26eb1226d5799baea4525cce9ad8a16be0cf1a35c15a",
+  "scope": "All48 full native field/core/norm/I16/I64/raw/BF16 words/ring/IDs/masses,independent F64 equations and separate full continuation/qualified prefix replay/source and baseline gates/hash;no cost/model rate",
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/token_state_audit.py",
+    "--freeze",
+    "6b370d1",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_state_result_20261013.json",
+    "--report-sha",
+    "e0063e31363552567fbb26eb1226d5799baea4525cce9ad8a16be0cf1a35c15a",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_state_result_20261013.terminal.json",
+    "--terminal-sha",
+    "9f801bb0e3c1a540f1cd331024ef50e9028b3a58f8b98ccc6f5814cee697d79a",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_state_adjudication_20261013.json"
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "freeze": "6b370d1",
+  "terminal_sha256": "9f801bb0e3c1a540f1cd331024ef50e9028b3a58f8b98ccc6f5814cee697d79a",
+  "schema": "TOKEN_STATE_AUDIT_LAUNCH_V1"
+}
