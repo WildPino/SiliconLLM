@@ -40,18 +40,28 @@ forcing decomposition/survival-sum audit2,064,384 final state/component words
 PASS:delta forcing largest ordered term,decay partially cancels;native arithmetic
 error~5e-7 original-state units much smaller than1.125798%. Not unique causal
 percentages or proof of unlimited future instability;whole numeric failure remains.
-Next [TRUE generator inputs](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
-IMPLEMENTED/FROZEN/BOUND/LIVE94907;no data or continuity admission yet.
-Same48 source prefills capture BF16 H at ALL24
-layers/full7 continuity fields at0/12/23,then actual-source replay qualifies
-before [FIT response-rank compression](SOURCE_FUNCTION_RANK_NEXT_20261013.md).
-Proposed local RTX3060 family1800s/OS12GiB/GPU10GiB allocated11GiB reserved/new
-E6GiB;localGPU allocated,no T4. Original detached launch mode restored after
-recorded conhost descendant failure;all411 parameter bytes checked before/after.
-All-layer input capture avoids future
-source forwards solely for missing input data;it does not prove all-layer
-operator or own-history capacity. Compact causal input/output/conditional
-ternary functions still missing;offline inverse is not runtime encoding.
+[TRUE all-layer generator inputs](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
+now IMPLEMENTED/INDEPENDENT_DATA_AND_SOURCE_CONTINUITY_PASS. Same48 source
+prefills capture actual BF16 H atALL24 layers,1152 arrays/1,108,230,144 words;
+full7 recurrent fields0/12/23 EXACT match original/all799,787,184 words/zero
+bit or metric differences. All411 loaded source parameters BF16,1,554,863,488
+canonical coefficient words verified before/after against bound checkpoint;
+source method/actual MuP buffers match. Data boundary now observed,not inferred.
+V3 detached source worker and full audit completed334s/80s,OS/GPU/6GiB output
+capsPASS;new E4.233GB/noLMhead/answers/fit/T4/RESERVED. All owned PID absent.
+Pre-freeze CPU binding inadmissible/two zero-data stopped launches retained;
+V2 conhost observed,V3 original detached flag8 restored. No numerical gates
+changed. Detailed CPU preparation PID receipts were not recorded;actual
+source/worker/audit identities/resources are recorded.
+Next [actual-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:actualH/explicit source generator stages/all144
+field1%/own-output1%/final-state1% and full audits before compression admission.
+Historical inferred-input temporal/BF16 failures remain. No source/GPU needed.
+Then [FIT response-rank compression](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
+and conditional ternary functions around shared OWN-history core. Observed H
+at other21 layers is actual data,not independently replayed generator/state
+qualification. Whole-layer/causal/categorical/chatbot/multi-scale/same useful50
+pipeline still missing;offline data capture is not runtime encoding.
 Numerical package alias custody gap in prior native input enumeration is explicit
 in its report;new preparations bind resolved ABI/BLAS files directly.
 [Actual C mixed384x96 operator](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) now

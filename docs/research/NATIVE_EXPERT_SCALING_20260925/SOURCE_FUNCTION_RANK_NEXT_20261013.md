@@ -3,8 +3,9 @@
 13 October2026. **CONDITIONAL PROPOSAL / UNIMPLEMENTED / UNBOUND.**
 The recovered-input temporal gate FAILED one final-state case;full audit and
 mechanism are in [result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md). Execute
-with qualified TRUE inputs after [selected capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
-and actual replay. Keep inferred inputs as explicit diagnostics,not ground truth.
+with qualified TRUE inputs after [completed capture](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
+and [actual replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md). Capture data
+PASS alone does not admit compressed functions or temporal replay. Keep inferred inputs as explicit diagnostics,not ground truth.
 No compressed model or rank has been admitted here.
 
 ## Uncertainty and connection to the goal

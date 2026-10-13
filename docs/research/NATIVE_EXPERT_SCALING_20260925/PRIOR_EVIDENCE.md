@@ -1,6 +1,30 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;TRUE-input capture LIVE94907.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Actual all24 source inputs](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
+COMPLETE/full data and source continuity auditPASS.48 complete source base
+prefills/1152 actualBF16 H arrays afterSSMin.625/beforein_proj,
+1,108,230,144 words checked. Full7 recurrent fields at0/12/23 EXACT agree
+original/all1008 observations/799,787,184 words/zero bit/metric differences.
+All411 runtime source parameters BF16/1,554,863,488 canonical coefficients
+verified before/after against each checkpoint tensor hash;actual method/MuP
+buffers unchanged. Source334.422s/audit80.437s,OS3.725GB/GPUallocated6.013GB/
+reserved9.938GB,new ordered E4,233,125,811B/2211files within6GiB. No LMhead/
+answers/fit/native/T4/RESERVED. [Closure](true_generator_input_capture_session_closure_20261013.json)
+source94907/audit70443 CLOSED0/all PID absent/GPU679MiB desktop baseline,
+engine/foreign hashes preserved. Initial pre-freeze CPU binding inadmissible,
+two zero-data stopped launches retained;V2 fresh conhost,V3 exact original
+detached mode8 completes. CPU-preparation PID/peak receipts unavailable,
+explicit limit;actual source/worker/audit identities/resources recorded.
+True inputs are observed data,not CPU generator/causal/chatbot proof. Earlier
+inverse state1.125798% and separate BF16 smooth1e-4 failures not waived.
+Next [true-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND;field/own-output/final-state gates and full audits
+before cheap input/output/conditional ternary fitting. Other21 layer inputs
+not yet generator/state-replay qualification. Useful n/routing/realDRAM/
+O(n) masters/multi-family/OWN histories/same useful50 remain required.
+
+**Historical temporal result/source-live state retained below.**
 [Temporal recovered-input result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
 COMPLETE/all144 actual native histories/full independent audit. Current own-output
 1%PASS144/144;final-state1%FAILone site23 DEV Numina1.125798%. Source-relative
