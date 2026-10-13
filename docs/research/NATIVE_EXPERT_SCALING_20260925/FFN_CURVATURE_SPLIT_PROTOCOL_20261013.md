@@ -15,6 +15,12 @@ to each and require exact reconstruction relative<=1e-10 percase. Report
 their norms AND cross inner product;do not add norms as squared energies or
 interpret cancellations as independence.
 
+Pre-execution correction: term indicators are ||term||/||reference||,
+not ||term-reference||/||reference||. No diagnostic observations preceded
+this correction. Also require finite metrics and the energy identity
+||error||^2=||gate||^2+||cross||^2+2<gate,cross>, with all terms divided
+by reference energy, absolute tolerance1e-10.
+
 Second-order correction = s'(gc)*du*dg +.5*uc*s''(gc)*dg^2,
 s''(g)=sigmoid(g)(1-sigmoid(g))*[2+g(1-2sigmoid(g))]. Compare affine,
 affine+exact cross,affine+bilinear,and complete quadratic proxy with real

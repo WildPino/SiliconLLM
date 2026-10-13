@@ -1,0 +1,110 @@
+{
+  "schema": "FFN_AFFINE_PILOT_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_affine_pilot_audit.py",
+    "bytes": 9528,
+    "sha256": "f5d7e64c8ae0c2c7e6263d93e4b0149c9831b79084b96b72702b7b604bbcc045"
+  },
+  "freeze": "b22ee53",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_affine_pilot_result_20261013.json",
+    "bytes": 289500,
+    "sha256": "b19243cfdf292ece9b14830d01b1cfb12ddc57ff7a7e598237a79d2721ef9e8b"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_affine_pilot_result_20261013.terminal.json",
+    "bytes": 1135,
+    "sha256": "b9ce678d40e5dca346295b03d75863ef4c8c3ac7bd765c060480fd6f5e3ce4ba"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_affine_pilot_binding_20261013.json",
+    "bytes": 1812123,
+    "sha256": "38affb161447013d7d1b9f03b5352112d34e2e31617fbf7bb3f9a472051bde3d"
+  },
+  "checked_predictions": 432,
+  "numeric_gates": {
+    "FIT_centers_replay": true,
+    "u_center": true,
+    "g_center": true,
+    "s": true,
+    "derivative": true,
+    "offset": true,
+    "jacobian_action": true,
+    "finite_difference": true,
+    "stored_prediction_F32": true,
+    "source_proxy_fidelity": true
+  },
+  "maximum": {
+    "FIT_centers_replay": 0,
+    "u_center": 0,
+    "g_center": 0,
+    "s": 1.358382181232187e-16,
+    "derivative": 5.462172986407708e-16,
+    "offset": 2.9326762125640675e-16,
+    "jacobian_action": 3.694562457684628e-16,
+    "finite_difference": 1.5624634114165363e-09,
+    "stored_prediction_F32": 2.6436027922734503e-08
+  },
+  "all_numeric_pass": true,
+  "proxy_controls_pass": true,
+  "eligibility": [
+    {
+      "site": 0,
+      "count": 1,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 0,
+      "count": 16,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 0,
+      "count": 64,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "count": 1,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "count": 16,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "count": 64,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 23,
+      "count": 1,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 23,
+      "count": 16,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 23,
+      "count": 64,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    }
+  ],
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 455.6399999999994,
+  "OS_peak": 935526400,
+  "scope": "Three actual own-input FFN sites,all48 histories. Full-output affine Taylor cells with exact implicit Jacobians,not physical compiled bank. Local eligibility only;no whole-model substitution/GPU/RESERVED/TPS/useful-n claim. Independent source/chain-rule/distance calculations;FIT kmeans replays frozen clustering code and shares NumPy BLAS. No independent clustering optimality claim."
+}

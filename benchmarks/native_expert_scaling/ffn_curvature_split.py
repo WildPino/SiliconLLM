@@ -62,14 +62,19 @@ def main():
                 denominator = max(float(np.sum(truth*truth)),1e-30)
                 row = dict(site=site,id=rec['id'],split=rec['split'],domain=rec['domain'],
                     exact_remainder_identity_relative=identity,
-                    affine_error=rel(affine,truth),gate_remainder_relative=rel(gate_curve,np.zeros_like(truth)+truth),
-                    cross_remainder_relative=rel(cross,truth),
+                    affine_error=rel(affine,truth),
+                    gate_remainder_relative=float(np.linalg.norm(gate_curve)/max(np.linalg.norm(truth),1e-30)),
+                    cross_remainder_relative=float(np.linalg.norm(cross)/max(np.linalg.norm(truth),1e-30)),
                     gate_cross_inner_over_reference_energy=float(np.sum(gate_curve*cross)/denominator),
                     retain_exact_cross_error=rel(affine+cross,truth),
                     add_bilinear_error=rel(affine+bilinear,truth),
                     full_quadratic_error=rel(affine+bilinear+quadratic_gate,truth),
                     full_quadratic_error_to_BF=rel(affine+bilinear+quadratic_gate,actual),
                     proxy_error_to_BF=rel(truth,actual))
+                assert all(np.isfinite(value) for value in row.values() if isinstance(value,float))
+                energy = (row['gate_remainder_relative']**2+row['cross_remainder_relative']**2+
+                          2*row['gate_cross_inner_over_reference_energy'])
+                assert abs(energy-row['affine_error']**2) <= 1e-10
                 assert abs(row['affine_error']-saved['error_to_proxy']) <= 1e-10
                 rows.append(row)
             print(json.dumps(dict(site=site,records=len(rows),seconds=time.monotonic()-begin)),flush=True)
