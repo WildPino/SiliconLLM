@@ -1,6 +1,11 @@
 # Next capacity hypothesis: full-size affine experts for nonlinear source FFNs
 
-13 October2026. **AFFINE BANK PROPOSED/UNIMPLEMENTED;OPERAND PRODUCER COMPLETE/AUDIT RUNNING.**
+13 October2026. **HISTORICAL PROPOSAL: operand capture and affine pilot now
+COMPLETE/full auditsPASS;tested affine geometry FAILS eligibility.**
+[Qualified result/current next action](FFN_AFFINE_DEFECT_RESULT_20261013.md)
+supersedes all proposed/running statuses below. Physical bank remains
+unimplemented. Next inspect FIT-selected combined exact neuron remainders;
+do not restart operand capture or the unchanged affine pilot.
 [Bound collector/state](FFN_OPERAND_CAPTURE_STATE_20261013.md) now observes
 all24 actual pre-FFN input/up/raw+scaled gate/product/output with strict parent
 continuity and full audit pending. Source6e3f80e/binding c14c2a8,32GiB/2h local

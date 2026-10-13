@@ -20,19 +20,23 @@ Scoped CUDA quality diagnostic;final CPU/conditional n/same useful50 remain
 open. FIT token-prototype/common residual factorization was fully tried/audited
 and rejected;ANY token-only prototype needs shared rank>=1408/1857/1857
 under1% preconv gate at1/12/23. This is not a bound on nonlinear/routed models.
-Next inspect actual nonlinear FFN operands,then source-derived full-size affine
-cells with input-dependent Jacobians. Their active coefficient count D^2 versus
-3DI motivates investigation,not a speed/quality claim. Capturing actual pre-FFN
-own inputs and testing cell remainder/routing/whole model/CPU cost are missing.
+Actual nonlinear FFN operands and the source-derived full-size affine pilot
+are now complete. Their active coefficient count D^2 versus3DI remains an
+algebraic motivation,not a speed/quality claim. The tested1/16/64 Euclidean
+cells fail all frozen FIT eligibility gates at0/12/23;all432 predictions and
+derivative/routing/proxy controls passed the complete independent audit.
 Actual pre-FFN operand dataset COMPLETE/full auditPASS;all24/known48/six BF
 nodes/12.191B words. Gate scalar/features/labels/final states/rings exact,
 source controls within budgets (down+scalar worst.004684,not yet isolated).
-All6 owned commands closed0/source+hash custody sealed. Affine pilot now
-running on actual inputs at0/12/23:full-output Jacobians/FIT-only1/16/64 cells,
-all histories/finite difference/proxy controls/fixed local eligibility gates.
-Affine expert bank/cell/router/precision/model tests remain unimplemented.
-See FFN_OPERAND_CAPTURE_STATE_20261013.md for exact process/audit continuation
-and FULL_RANK_FFN_EXPERT_NEXT_20261013.md for the subsequent hypothesis.
+All6 owned commands closed0/source+hash custody sealed. [Affine failure and
+exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md) now have full
+audits:144 cases/exact remainder and energy identities/pass,separate gate
+curvature/cross interaction. Full quadratic correction still fails and worsens
+site23;exact terms can cancel. Next implement a FIT-selected subset of source
+neurons retaining BOTH exact remainder terms on top of a full-output affine
+cell,as specified in FFN_EXACT_REMAINDER_SUBSET_NEXT_20261013.md. No subset
+fit/export/model substitution or CPU timing is implemented yet. Physical
+ternary banks/structured routing/DRAM/whole-model composition remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

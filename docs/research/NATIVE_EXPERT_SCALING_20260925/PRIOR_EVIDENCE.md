@@ -2,6 +2,19 @@
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
 
+[Affine FFN failure and exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md)
+COMPLETE/full432-prediction and144-case diagnostic auditsPASS. All1/16/64
+full-output cells FIT-ineligible. At64,DEV mean errors.622/.928/.134 at0/12/23.
+Exact gate/cross remainder identity<=6.82e-16;all per-case metric differences
+<=5.56e-16. Cross interaction is large at0/12;projected terms partially cancel
+at23 and full quadratic correction worsens it. All four producer/auditor
+commands closed0;1.711GB/441-file E family/protected source hashes sealed.
+Next FIT-selected exact combined neuron remainder coverage,not more unchanged
+affine cells or separate removal of one cancelling term. No subset candidate,
+physical ternary expert,model substitution/scalable routing/DRAM/useful50 proof.
+Latest statements below that describe the affine pilot as future work are
+historical;the result above supersedes their execution status.
+
 [Actual FFN operands](FFN_OPERAND_RESULT_20261013.md) COMPLETE/full auditPASS,
 all24/known48/six fields/12.191B words. Gate scalar/features/parent labels/
 states/rings exact,up/gate<=4.75e-5/down+scalar<=.004684 within1% gate.
