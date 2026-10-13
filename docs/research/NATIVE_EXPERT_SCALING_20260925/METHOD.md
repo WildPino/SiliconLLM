@@ -3,6 +3,18 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[FIT source-function response ranks](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
+now IMPLEMENTED/FULL INDEPENDENT AUDITPASS. Equal-case uncentered actual-H
+covariance/section-balanced source generator and native raw-score covariance;
+all matrices/spectra/root/energies/full rectangular direct SVDs qualified.
+Rank256 inputRMS24.87/33.64/31.13%,output53.27/54.40/34.15%;rank1024
+output12.22--18.94%. These globally-linear finite response envelopes guide
+the next [conditional output bank](CONDITIONAL_OUTPUT_FUNCTION_NEXT_20261013.md),
+proposed observable-input tree16/r128 versus64/r32,similar bank coefficient
+budget/smaller active functions. No conditional factor/native kernel/held-out
+or OWN-history quality/DRAM/model-rate admission;ternary conversion remains.
+Old failures retained and full audit repeated after serialization-only fault.
+
 [Full trained3072 channels/state96](FULL_CHANNEL_NATIVE_RESULT_20261013.md)
 now IMPLEMENTED/INDEPENDENTLY VERIFIED for all48 histories/all3 sites0/12/23.
 Every CPU state timestep/all final states,all277,057,536 raw F32 score bits,

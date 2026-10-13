@@ -1,6 +1,17 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[FIT source-function rank geometry](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
+COMPLETE/full independent auditPASS:all88,118,943 stored array words/
+136,986,624 FIT H+score words/both direct rectangular SVDs/all2048 modes/site.
+Rank256 balanced input RMS24.87/33.64/31.13%,output53.27/54.40/34.15%;
+even rank1024 output16.11/18.94/12.22%. Finite global linear proxies only;
+no compressed kernel/new quality/latency admission. Both mechanical faults
+retained,full V2 audit repeated,704,960,778B new orderedE,all owned jobs closed.
+Next [conditional redundant output functions](CONDITIONAL_OUTPUT_FUNCTION_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:observable-input binary routing,16/r128 versus
+64/r32,similar total coefficient budget/lower active work;ternary/n unproven.
+
 [Actual-input source functions/native state](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
 COMPLETE/BOTH independent auditsPASS/all144 source field and temporal gatesPASS.
 453,465,264 generatedBF16 words/every native latent timestep/full final states/
@@ -10,8 +21,8 @@ operator/gates. Both BF16 smooth modes pass original1e-4;old failures retained.
 Calibration boundary qualified locally,not OWN-history chatbot or cheap functions.
 Extra compiler evidence:22547 H0 rows/3816 words/18731 repeats,word identity exact;
 initial word->source generator lookup possible,proposed878.72MB/not built.
-Next [FIT source-function rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
-SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND;recognize finite-input compiler alternatives.
+The [original FIT response-rank proposal](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
+is now completed as linked above;recognize finite-input compiler alternatives.
 
 ## Goal and constraints
 

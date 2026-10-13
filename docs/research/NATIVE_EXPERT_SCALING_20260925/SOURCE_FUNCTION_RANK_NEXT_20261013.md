@@ -1,6 +1,13 @@
 # Source-function active cost: FIT response-rank envelope
 
-13 October2026. **SELECTED NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **COMPLETED / FULL INDEPENDENT AUDITPASS.**
+[Qualified result](SOURCE_FUNCTION_RANK_RESULT_20261013.md),
+[closure](source_function_rank_session_closure_20261013.json).
+Original proposal and equations retained below. Fixed global low ranks show
+large FIT residuals;next observable-route conditional output bank is proposed
+in [the new plan](CONDITIONAL_OUTPUT_FUNCTION_NEXT_20261013.md). No compressed
+model/OWN-history chatbot/quality-speed or useful-n admission.
+
 [Actual-input source function/native temporal replay](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
 is COMPLETE/BOTH full independent auditsPASS and all field/state/output gatesPASS.
 Use actual qualified H and actual-input native own-norm BF16/raw-score packets

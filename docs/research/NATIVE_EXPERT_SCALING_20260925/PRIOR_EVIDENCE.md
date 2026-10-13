@@ -1,6 +1,19 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Finite FIT input/output rank geometry](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_PASS:all72 FIT histories/equal-case uncentered
+moments/all88,118,943 array words/136,986,624 data words/full direct SVDs.
+Rank256 input24.87/33.64/31.13%,output53.27/54.40/34.15% RMS;global low-rank
+linear response compression poor already on FIT. Class-specific numerical
+envelopes,not conditional/nonlinear impossibility or whole-model quality.
+Source54.594s/audit149.813s/newE704,960,778B,no source/GPU/T4/native rerun.
+Initial schema and audit JSON bool faults/partial bytes preserved;complete
+V2 audit repeated/all gatesPASS/owned matching processes absent. Protected
+engine/foreign hashes unchanged. Next observable-route redundant output bank
+16/r128 versus64/r32 PROPOSED/UNIMPLEMENTED/UNBOUND;real factors/DEV/DRAM
+and native kernels still required. No useful-n/quality-speed admission.
+
 [Actual-input generator/temporal qualification](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
 COMPLETE/BOTH independent auditsPASS:all144 source field1%/own-output1%/final-
 state1% gatesPASS,full453,465,264 generatedBF16 words/all138,528,768 trueH+
@@ -17,8 +30,8 @@ hashes preserved,no source/GPU/T4/RESERVED/fit/teacher answers/timing.
 Additional initial-source word-input witness exact22547 rows/3816 words/18731
 repeats;H0 token-only source graph. Full65537x6704BF16table878,720,096B proposed,
 not built/DRAM/timed/ternary capacity;conv/state and other23 layers still causal.
-Next [FIT response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
-SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND. Actual local boundary qualified,not
+[FIT response-rank envelope](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
+now COMPLETE as above. Actual local boundary qualified,not
 cheap function/OWN all-layer chatbot. Useful n/routing/DRAM/mastersO(n)/other
 families/scales/same useful50 remain unresolved. No completion admission.
 
