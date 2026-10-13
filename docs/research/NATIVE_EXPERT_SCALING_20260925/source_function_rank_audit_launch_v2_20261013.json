@@ -1,0 +1,39 @@
+{
+  "schema": "SOURCE_FUNCTION_RANK_AUDIT_LAUNCH_V2",
+  "implementation_freeze": "9b5b6e1",
+  "auditor_freeze": "859b306",
+  "report_sha256": "0d4e97138c8b4ad72b569ea8710427c8a5a8863d4cd902006056b2e922cc022e",
+  "terminal_sha256": "c84af3c9905dff0b8448000ee242b7bb2c3876b9f36a057725e5b1eb1dec558b",
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/source_function_rank_audit_v2.py",
+    "--freeze",
+    "859b306",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_function_rank_result_20261013.json",
+    "--report-sha",
+    "0d4e97138c8b4ad72b569ea8710427c8a5a8863d4cd902006056b2e922cc022e",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_function_rank_result_20261013.terminal.json",
+    "--terminal-sha",
+    "c84af3c9905dff0b8448000ee242b7bb2c3876b9f36a057725e5b1eb1dec558b",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_function_rank_adjudication_v2_20261013.json"
+  ],
+  "limits": {
+    "seconds": 1200,
+    "OS_bytes": 6442450944
+  },
+  "scope": "Complete stored audit plus independent direct SVDs; no producer rerun or quality/speed admission",
+  "prior_partial_adjudication_sha256": "164360f239b7287b3cd1276bb0b191224e9901990624815718a55b6501fff234"
+}
