@@ -1,8 +1,8 @@
 # Progetto della chat locale
 
-Proposta del 13 ottobre 2026. L'implementazione inizia dopo la revisione del
-[goal](GOAL.md). Questa fase prepara branch e documenti; non avvia inferenze,
-training o modifiche al motore.
+Architettura scelta il 13 ottobre 2026. L'implementazione del
+[goal](GOAL.md) è avviata. I test della finestra e del protocollo usano fixture
+separate; la verifica sul modello reale attende il runtime CPU approvato.
 
 ## Esperienza dell'utente
 
@@ -146,7 +146,8 @@ Politiche iniziali:
 ## Statistiche e verifica dell'overhead
 
 Separare durata di caricamento, prefill, decode e tempo complessivo.
-Il tempo al primo token parte dall'invio e finisce al primo contenuto visibile;
+Il tempo al primo token parte dall'invio e finisce al primo contenuto inserito
+nel widget di testo; la presentazione fisica del frame non è misurata.
 eventuali tempi interni del motore hanno etichette diverse.
 La velocità decode usa il contatore dei token e la finestra dichiarata dal
 runtime; la velocità complessiva include preparazione e trasporto.

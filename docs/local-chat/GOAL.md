@@ -1,6 +1,6 @@
 # Goal della chat locale
 
-Stato: proposta da rileggere e modificare prima di iniziare l'implementazione.
+Stato: implementazione avviata; il goal resta aperto fino alla verifica sul runtime reale.
 Data: 13 ottobre 2026.
 Branch: `feature/local-chat`.
 

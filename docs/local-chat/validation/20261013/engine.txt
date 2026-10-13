@@ -1,0 +1,22 @@
+********* Start testing of EngineTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 13.1.0), windows 11
+PASS   : EngineTests::initTestCase()
+PASS   : EngineTests::streamingCompletesWithUnicodeAndMetrics()
+PASS   : EngineTests::reusesPersistentProcessAndSendsReset()
+PASS   : EngineTests::cancellationStopsProcessAndNextRequestRestarts()
+PASS   : EngineTests::cancellationKillsWindowsChildProcess()
+PASS   : EngineTests::destructorKillsWindowsChildProcess()
+PASS   : EngineTests::timeoutStopsRequest()
+PASS   : EngineTests::fixtureContextRejectionFailsAndStopsProcess()
+PASS   : EngineTests::concurrentRequestIsRejectedWithoutDisturbingActiveRequest()
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(invalid-json)
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(request-id)
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(capabilities)
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(response-parity)
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(token-limit)
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(bad-metrics)
+PASS   : EngineTests::malformedProtocolEventsFailAndStop(oversized-event)
+PASS   : EngineTests::nonStreamingHasNoDeltaOrFirstTokenMetric()
+PASS   : EngineTests::cleanupTestCase()
+Totals: 18 passed, 0 failed, 0 skipped, 0 blacklisted, 2949ms
+********* Finished testing of EngineTests *********

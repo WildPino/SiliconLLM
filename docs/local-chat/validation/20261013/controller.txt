@@ -1,0 +1,12 @@
+********* Start testing of ControllerTests *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 13.1.0), windows 11
+PASS   : ControllerTests::initTestCase()
+QWARN  : ControllerTests::twoTurnsPersistAndReloadWithDisplayedFirstContentTime() QFontDatabase: Cannot find font directory C:/Users/giosa/AppData/Local/SiliconLLM/devtools/Qt/6.8.3/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : ControllerTests::twoTurnsPersistAndReloadWithDisplayedFirstContentTime()
+PASS   : ControllerTests::modelSwitchCreatesIsolatedConversationState()
+PASS   : ControllerTests::stopPersistsInterruptedPartialAssistant()
+PASS   : ControllerTests::engineFailureWithoutPartialDoesNotInventAssistantMessage()
+PASS   : ControllerTests::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped, 0 blacklisted, 1653ms
+********* Finished testing of ControllerTests *********

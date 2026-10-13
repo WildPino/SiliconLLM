@@ -1,0 +1,35 @@
+name: local-chat
+
+on:
+  push:
+    paths:
+      - 'apps/local-chat/**'
+      - 'tests/local_chat/**'
+      - '.github/workflows/local-chat.yml'
+  pull_request:
+    paths:
+      - 'apps/local-chat/**'
+      - 'tests/local_chat/**'
+      - '.github/workflows/local-chat.yml'
+
+jobs:
+  desktop-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install desktop build dependencies
+        shell: pwsh
+        run: |
+          python -m pip install aqtinstall==3.3.0 ninja
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m aqt install-qt windows desktop 6.8.3 win64_mingw --archives qtbase -O "$env:RUNNER_TEMP/qt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m aqt install-tool windows desktop tools_mingw1310 qt.tools.win64_mingw1310 -O "$env:RUNNER_TEMP/qt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Compile and test desktop application
+        shell: pwsh
+        run: |
+          ./apps/local-chat/build.ps1 -QtPath "$env:RUNNER_TEMP/qt/6.8.3/mingw_64" -CompilerPath "$env:RUNNER_TEMP/qt/Tools/mingw1310_64/bin"
