@@ -2,6 +2,22 @@
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
 
+[Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
+COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
+source-only24 canonical core/conv/p6 packets,every150,994,944 q and1,686,912
+core/conv coefficients verified;maxW^TV dual residual2.27e-14. All48 actual
+initial-layer histories22547 positions/every array EXACT to admitted token
+branch,516,523,046 archive elements independently checked. All24 parameter
+sets on arbitrary16 FIT rows:field/norm0,scan/state<=1.13e-7,786432 integer/
+raw/BF words each exact. These controls are NOT actual later-layer input or
+whole-chatbot quality. Nonfinite input rejects before state changes.
+New orderedE2,131,959,652B/all3 commands terminal0/owned PIDs absent/source
+checkpoint/protected hashes unchanged/no GPU/T4/RESERVED. Generic ABI and
+all24 export prerequisite now ready. NEXT implement/bind/launch actual
+full-width source quality bridge,retain hidden2048/original source operators,
+own native states/readout;no more operator-only refinements. Full CHATBOT/
+CPU engine/semantic useful-n/same useful50 remain open.
+
 [Native token-to-own-state branch](TOKEN_STATE_RESULT_20261013.md) COMPLETE/
 full independent auditPASS/all48 numeric/temporal/local donor gatesPASS.
 Actual uint32 IDs/F0 rows,persistent own conv3072x96 trained state,full skip/
@@ -151,30 +167,33 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Implement/freeze/qualify generic native preconv-row/state ABI,then all24
-source parameter/basis/p6 source-only exports for
-[full-width own-state quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md).
-Latest admitted artifact:token_state_result/adjudication/session_closure_20261013.json,
-DLL E:/SiliconLLM/results/native_expert_scaling/token_state_20261013/token_state.dll.
-All48 actual-ID histories and complete incremental/core/integer auditsPASS,
-state-ready cost ledger complete;no rerun or first-branch tuning needed.
+Implement source-model quality bridge and independent whole-model audit;
+CPU generic-row/export prerequisite COMPLETE as
+[here](ROW_STATE_RESULT_20261013.md),no rerun needed. Actual shared library:
+E:/SiliconLLM/results/native_expert_scaling/row_state_20261013/row_state.dll,
+site00..23.parameters.npz immutable source-only exports. Original F0 token
+table remains available;ts_block token API and rs_block preconv-row API share
+qualified arithmetic. All48 first-layer histories match old token archive;
+arbitrary-input24 controls verify math only,not actual later-layer quality.
 
-Basis availability original_falcon_recurrent_projection_finish_result_20261009.json
-24 sites0..23;stored audit adopts24 bases,scope algebra/stored metrics only.
-Other21 native matrices/actual full model unqualified. Retain hidden2048/
-source FFN/attention/head/tokenizer,avoid failed old globalD256 projection.
-Source GPU contextual generators/other operators allowed only as explicit
-quality bridge,NOT final native CPU deployment or speed proof. Map original
-full-model gates to new ABI before outputs;known16 chat/self-generated followup
-and FIT/DEV labels,complete audits/source411 parameter continuity. Source
-token compiler is complete/immutable;initial-layer F0 available,other23
-contextual generators need actual source row interface. Local gates cannot
-replace full chatbot behavior. No GPU/T4/new all-layer job allocated now.
+[Full-width quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md):retain
+source hidden2048/FFN/attention/head/tokenizer,initial native F0 and later
+original source contextual in_proj/MuP BF16 rows,own native conv/state96/
+own norm/integer output,SSMout multiplier once. Clear own states only between
+sequences,never teacher reset. Map full-model/cache/prefix/integer/route gates
+before observations. Known16 tasks/own generated followup plusknown FIT/DEV
+teacher BF16 logits;original failed-family teacher custody remains inherited.
+No oldD256 projection. actual source parameters411/runtime MuP/scalar/binary
+continuity before/after. Source GPU operators are QUALITY BRIDGE only,
+not final CPU engine/performance/n proof. Required native/source traces and
+labels/state artifacts determine actual ordered E cap and auditor budget.
 
-Full width quality bridge/source-only export/resource/launch policies are
-UNBOUND until implementation and actual byte/budget estimates. Announce local
-3060 budget before using it;hours jobs follow standing human PAUSE instruction.
-Protected original engine and foreign work untouched,all owned runs closed.
+Successful source infrastructure true_generator_input_capture_v3.py supplies
+detached8 launcher/load/identity policies;older projected shadow supplies
+known task/gates/tokenizer infrastructure only. No GPU/T4/model job allocated
+now. Announce local3060 resource and stop budgets before use;hours jobs obey
+standing human PAUSE instruction. Stop operator-only testing:next evidence
+must address actual source chatbot behavior. All current CPU commands closed.
 
 104 new+64 older RESERVED/longalign8186-20874 remain unqueried. Need actual
 cheap source functions/conditional ternary bank/CPU IDs AND masses/realDRAM,

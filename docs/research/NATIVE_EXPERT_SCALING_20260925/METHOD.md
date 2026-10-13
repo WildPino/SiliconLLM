@@ -4,6 +4,22 @@
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
 
+[Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
+COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
+source-only24 canonical core/conv/p6 packets,every150,994,944 q and1,686,912
+core/conv coefficients verified;maxW^TV dual residual2.27e-14. All48 actual
+initial-layer histories22547 positions/every array EXACT to admitted token
+branch,516,523,046 archive elements independently checked. All24 parameter
+sets on arbitrary16 FIT rows:field/norm0,scan/state<=1.13e-7,786432 integer/
+raw/BF words each exact. These controls are NOT actual later-layer input or
+whole-chatbot quality. Nonfinite input rejects before state changes.
+New orderedE2,131,959,652B/all3 commands terminal0/owned PIDs absent/source
+checkpoint/protected hashes unchanged/no GPU/T4/RESERVED. Generic ABI and
+all24 export prerequisite now ready. NEXT implement/bind/launch actual
+full-width source quality bridge,retain hidden2048/original source operators,
+own native states/readout;no more operator-only refinements. Full CHATBOT/
+CPU engine/semantic useful-n/same useful50 remain open.
+
 [Native token-to-own-state branch](TOKEN_STATE_RESULT_20261013.md) COMPLETE/
 full independent auditPASS/all48 numeric/temporal/local donor gatesPASS.
 Actual uint32 IDs/F0 rows,persistent own conv3072x96 trained state,full skip/
@@ -321,6 +337,26 @@ shadow now also complete and failed; see the newer result above.
 [Operational index](INDEX.md), [latest actual outcomes](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
 Earlier method/status history is byte-preserved in
 [METHOD through V4 launch](METHOD_THROUGH_RECOVERED_V4_LIVE_20261011.md).
+
+## Available contextual-row interface and source exports
+
+row_state.c/.py and independent row_state_audit.py/row_state_close.py produce
+verified24 actual source/basis/core/conv/p6 packets and explicit BF16
+preconv-row/own-state ABI. token interface retained,nonfinite row guards
+before mutation. Source-only exports/no response-selected coefficients.
+All48 actual initial-layer data EXACT to admitted token archive;all24 actual
+coefficient sets on arbitrary16-row inputs checked by F64 equations/exact
+integer references. This is mathematical/operator qualification,not proof of
+actual later-layer trajectories or full-model source quality. New2.132GB E,
+prepare33.531s/producer132.375s/audit46.593s,all three terminal0.
+
+A caller must provide owned contiguous BF16 uint16 scaled-generator rows,
+uint32 provenance tags,correct layer parameters and persistent context.
+Contextual source generators remain required. Next source-model quality
+bridge uses original source GPU GG/FFN/attention/head and native own states,
+retains full2048 hidden information. Source GPU resources/outputs and final
+CPU-engine requirement must stay distinct;prototype quality cannot establish
+accepted50/s/useful semantic expert-n. No further operator-only prerequisite.
 
 ## Available native initial-branch composition
 

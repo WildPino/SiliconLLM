@@ -2,6 +2,22 @@
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
 
+[Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
+COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
+source-only24 canonical core/conv/p6 packets,every150,994,944 q and1,686,912
+core/conv coefficients verified;maxW^TV dual residual2.27e-14. All48 actual
+initial-layer histories22547 positions/every array EXACT to admitted token
+branch,516,523,046 archive elements independently checked. All24 parameter
+sets on arbitrary16 FIT rows:field/norm0,scan/state<=1.13e-7,786432 integer/
+raw/BF words each exact. These controls are NOT actual later-layer input or
+whole-chatbot quality. Nonfinite input rejects before state changes.
+New orderedE2,131,959,652B/all3 commands terminal0/owned PIDs absent/source
+checkpoint/protected hashes unchanged/no GPU/T4/RESERVED. Generic ABI and
+all24 export prerequisite now ready. NEXT implement/bind/launch actual
+full-width source quality bridge,retain hidden2048/original source operators,
+own native states/readout;no more operator-only refinements. Full CHATBOT/
+CPU engine/semantic useful-n/same useful50 remain open.
+
 [Native token-to-own-state branch](TOKEN_STATE_RESULT_20261013.md) COMPLETE/
 full independent auditPASS/all48 numeric/temporal/local donor gatesPASS.
 Actual uint32 IDs/F0 rows,persistent own conv3072x96 trained state,full skip/

@@ -1,0 +1,62 @@
+{
+  "schema": "ROW_STATE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\row_state_audit.py",
+    "bytes": 10209,
+    "sha256": "296d744a8db7cf5f1cecc7a9d0ce7a00df6bc5e15531a3c7f4e42e47b42771fc"
+  },
+  "freeze": "665c7b6",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\row_state_result_20261013.json",
+    "bytes": 54023,
+    "sha256": "09f3130d0751a8b2c4bb379182491d011253bfb0b00a8d66c549884bf584c40a"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\row_state_result_20261013.terminal.json",
+    "bytes": 1106,
+    "sha256": "99330622e884c6290050c17e5103fc496fc93eeed05bf1aa8e7ff00e19506c1a"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\row_state_binding_20261013.json",
+    "bytes": 1619857,
+    "sha256": "aca71aa4b9e464ae29b3afb3a804b88f69f268d6c6285f2b1da5c3193adb7890"
+  },
+  "counts": {
+    "exported_sites": 24,
+    "q_coefficients": 150994944,
+    "core_and_conv_coefficients": 1686912,
+    "archive_words": 516523046,
+    "arbitrary_field_words": 2574336,
+    "arbitrary_latent_words": 1179648,
+    "arbitrary_dot_words": 786432,
+    "dot_mismatches": 0,
+    "raw_bit_mismatches": 0,
+    "BF16_mismatches": 0
+  },
+  "maximum": {
+    "fields": 0.0,
+    "B_projection": 1.8971355909984744e-07,
+    "C_projection": 1.990448981338686e-07,
+    "scan": 1.124959664391435e-07,
+    "state": 9.331303591685382e-08,
+    "norm": 0.0
+  },
+  "numeric_gates": {
+    "archive_bits": true,
+    "fields": true,
+    "B_projection": true,
+    "C_projection": true,
+    "scan": true,
+    "state": true,
+    "norm": true,
+    "integer_exact": true,
+    "raw_exact": true,
+    "BF16_exact": true
+  },
+  "all_numeric_pass": true,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 46.57800000000134,
+  "OS_peak": 489361408,
+  "scope": "Every actual source/basis/q/core/conv export and48 initial-layer new-row history words checked to complete admitted archive;all24 arbitrary16-row controls independently verify projections/scan/norm/exact integers. Producer continuation and nonfinite controls checked as receipts;no later21 actual-input/model-quality/GPU/speed admission."
+}

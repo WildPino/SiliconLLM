@@ -1,6 +1,9 @@
 # Next: full-width source chatbot quality with own native recurrent states
 
-13 October2026. **PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **GENERIC ABI/ALL24 EXPORTS COMPLETE;MODEL BRIDGE UNIMPLEMENTED/UNBOUND.**
+[Qualified row ABI/source packets](ROW_STATE_RESULT_20261013.md) now complete.
+Original proposal below retained;do not repeat the CPU prerequisite. Next
+implement actual source-model quality bridge and full recorded-output audit.
 [Joined native token branch](TOKEN_STATE_RESULT_20261013.md) is complete:
 actual IDs/own conv/state/normalization/integer readout/full audit/local gates,
 same-artifact state-ready~1ms. The next uncertainty is whether these choices
