@@ -1,6 +1,22 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+
+[Complete source-only token generator](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/all48 source norm/field/incremental gates
+PASS. Canonical embedding/first norm/in_proj/MuP compile ALL65537 vocabulary
+rows BEFORE captured-response comparison. Every134,219,776 H0/439,360,048 F0
+BF16 word and151,155,088 causal field words independently reproduced,bit
+differences0 to DECLARED CPU equation. Original CUDA H0 differences357 words/
+11 cases retained,worst0.0092775% under fixed0.01% norm budget;field worst
+0.0433294% under original1%. Python embedding scalar F32 witness exact on
+33026 bounded BF16 values;premature BF16 scalar rounding changes772 results.
+New orderedE1,449,937,450B/3 commands closed0/no GPU/T4/SSM/RESERVED,full
+canonical source/protected hashes preserved. F0 selected row13,408B,uint32
+IDs. Source-only finite compiler available;native persistent conv/state/own
+norm/accepted integer readout composition and SAME cost UNIMPLEMENTED/UNBOUND.
+No whole CHATBOT/useful expert-n/DRAM/same useful50 admission.
+
 [Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
 COMPLETE/full independent auditPASS/NO new precision loss. Original packed
 header and literal byte-accumulator reused,six trit planes/four exact input
@@ -13,8 +29,8 @@ Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
 DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
 readout retained. Stop readout variants. Next
 [token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:compile complete source vocabulary table,
-join actual uint32 IDs/conv/own state/accepted readout. Initial-layer scope,
+Compiler now COMPLETE/qualified as above;native ID/conv/own-state/readout
+composition UNIMPLEMENTED/UNBOUND. Initial-layer scope,
 not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
 
 [Same-p6 integer readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/full
@@ -118,26 +134,29 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Implement/freeze/bind [source token generator and causal composition](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md).
-The exact integer byte-LUT campaign is COMPLETE/correct/cost-rejected;
-no byte-LUT/dense/integer cost rerun required. Reference records:
-exact_integer_lut_result/adjudication/cost_review_20261013.json and accepted
-integer_readout_result/adjudication_v3/cost_review_20261013.json. Keep
-PMADDWD readout,stop its variants. All scientific commands terminal0/no
-owned process live. No hours/GPU/T4/new source/RESERVED allocated now.
+Implement/freeze/bind the NATIVE composition part of
+[source token generator and causal composition](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md).
+Compiler COMPLETE/eligible:token_generator_compiler_result/adjudication/
+session_closure_20261013.json. Immutable E family token_generator_compiler_20261013:
+H0.BF16/F0.BF16/source_conv_parameters.npz/all48 field packets. All65537
+rows source-only/all full auditsPASS,no compiler rerun needed. Retain CPU
+normalization approximation and357 original-source H0 differences;do not
+pretend CUDA identity. Scope note/table proof in compiler result.
 
-Source token witness22547 H0 rows/3816 tokens/repeated word bits exact;
-complete65537x6704 BF16 source-only preconv generator table would878,720,096B,
-13,408B selected row,uint32 IDs. Build complete vocabulary from canonical
-embedding/first norm/in_proj/MuP,not captured responses;preserve literal dtype/
-rounding boundaries,independently audit before native own-state composition.
-Joined path must consume token IDs/table/own convolution and SSM state with
-accepted readout,compare incremental/prefill and inherited source/temporal
-criteria. Initial SSM branch only;attention/residual/FFN/all24/chatbot missing.
-Later23 generators contextual,token table does not generalize to them.
-Actual source-input replay/native state at0/12/23 remains locally qualified;
-other21 functions and whole OWN-history pipeline still pending. Source global
-ranks/fixed affine-bank coverage failures remain unchanged constraints.
+Next fixed native ABI consumes actual uint32 token IDs/F0 table,maintains own
+conv4 ring and SAME trained3072x96 SSM state,full skip/own gate-RMS/BF16 norm,
+accepted p6/integer readout. Preserve source/backend/numeric/temporal/donor
+gates. Compare every own latent step/final state/normalized/output word and
+prefix-versus-continuation identity,independent full audit before cost. Actual
+source table initial-layer ONLY;parallel attention/residual/FFN/later23
+contextual generators/whole chatbot still missing. Count buffers/archives/
+conversion before allocating new orderedE. No hours planned,no GPU/T4/state
+job allocated now. PMADDWD readout available;readout variants stopped.
+
+Actual source-input replay/native state at0/12/23 locally qualified;other21
+functions and all-layer OWN-history pipeline pending. Source global ranks/
+fixed affine-bank coverage failures unchanged. Actual IDs/masses/DRAM/useful
+RAM-driven n/cross-family quality and same useful50 need separate evidence.
 
 104 new+64 older RESERVED/longalign8186-20874 remain unqueried. Need actual
 cheap source functions/conditional ternary bank/CPU IDs AND masses/realDRAM,

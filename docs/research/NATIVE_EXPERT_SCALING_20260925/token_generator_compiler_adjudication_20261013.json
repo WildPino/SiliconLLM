@@ -1,0 +1,51 @@
+{
+  "schema": "TOKEN_GENERATOR_COMPILER_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\token_generator_compiler_audit.py",
+    "bytes": 12474,
+    "sha256": "c1b3bacf30091ca4831ce7ad2308010666b4706ce1c6eb91b488395449117e20"
+  },
+  "freeze": "140267f",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_generator_compiler_result_20261013.json",
+    "bytes": 120889,
+    "sha256": "fac01645c30fffbb82bcdcf4469065923765c865e8f8ddd8d0eff573d9774e67"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_generator_compiler_result_20261013.terminal.json",
+    "bytes": 1211,
+    "sha256": "910612f595fa137f1e5a813c90ac50864eb3052237bef9e19873edb09c46ad00"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_generator_compiler_binding_20261013.json",
+    "bytes": 1787612,
+    "sha256": "440fce2def09965c2127ce09948460e22c4b16b4fe02d0ac95709654eebe92dc"
+  },
+  "counts": {
+    "H0_words": 134219776,
+    "F0_words": 439360048,
+    "H0_bit_mismatches": 0,
+    "F0_bit_mismatches": 0,
+    "scalar_control_words": 33026,
+    "source_H0_words": 46176256,
+    "field_words": 151155088,
+    "independent_field_BF16_mismatches": 0
+  },
+  "maximum": {
+    "metadata": 0.0,
+    "gate": 0.0,
+    "x": 0.0,
+    "B": 0.0,
+    "C": 0.0,
+    "delta": 0.0
+  },
+  "numeric_all_pass": true,
+  "H0_all_pass": true,
+  "source_fields_all_pass": true,
+  "incremental_fields_all_pass": true,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 88.39099999999598,
+  "OS_peak": 2763546624,
+  "scope": "Every complete vocabulary H0/F0 BF16 word/extracted source conv parameter/scalar control/all48 calibration fields/actual source norms/metrics/flags/hash independently recomputed. CPU norm uses separate program with same literal Torch primitive backend,not independent Torch kernel implementation or original CUDA identity. No native state/causal chatbot/cost/DRAM/useful-n admission."
+}

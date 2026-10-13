@@ -1,6 +1,22 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+
+[Complete source-only token generator](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/all48 source norm/field/incremental gates
+PASS. Canonical embedding/first norm/in_proj/MuP compile ALL65537 vocabulary
+rows BEFORE captured-response comparison. Every134,219,776 H0/439,360,048 F0
+BF16 word and151,155,088 causal field words independently reproduced,bit
+differences0 to DECLARED CPU equation. Original CUDA H0 differences357 words/
+11 cases retained,worst0.0092775% under fixed0.01% norm budget;field worst
+0.0433294% under original1%. Python embedding scalar F32 witness exact on
+33026 bounded BF16 values;premature BF16 scalar rounding changes772 results.
+New orderedE1,449,937,450B/3 commands closed0/no GPU/T4/SSM/RESERVED,full
+canonical source/protected hashes preserved. F0 selected row13,408B,uint32
+IDs. Source-only finite compiler available;native persistent conv/state/own
+norm/accepted integer readout composition and SAME cost UNIMPLEMENTED/UNBOUND.
+No whole CHATBOT/useful expert-n/DRAM/same useful50 admission.
+
 [Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
 COMPLETE/full independent auditPASS/NO new precision loss. Original packed
 header and literal byte-accumulator reused,six trit planes/four exact input
@@ -13,8 +29,8 @@ Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
 DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
 readout retained. Stop readout variants. Next
 [token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:compile complete source vocabulary table,
-join actual uint32 IDs/conv/own state/accepted readout. Initial-layer scope,
+Compiler now COMPLETE/qualified as above;native ID/conv/own-state/readout
+composition UNIMPLEMENTED/UNBOUND. Initial-layer scope,
 not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
 
 [Same-p6 I16 readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/V3 full

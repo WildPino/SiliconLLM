@@ -3,6 +3,22 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+
+[Complete source-only token generator](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/all48 source norm/field/incremental gates
+PASS. Canonical embedding/first norm/in_proj/MuP compile ALL65537 vocabulary
+rows BEFORE captured-response comparison. Every134,219,776 H0/439,360,048 F0
+BF16 word and151,155,088 causal field words independently reproduced,bit
+differences0 to DECLARED CPU equation. Original CUDA H0 differences357 words/
+11 cases retained,worst0.0092775% under fixed0.01% norm budget;field worst
+0.0433294% under original1%. Python embedding scalar F32 witness exact on
+33026 bounded BF16 values;premature BF16 scalar rounding changes772 results.
+New orderedE1,449,937,450B/3 commands closed0/no GPU/T4/SSM/RESERVED,full
+canonical source/protected hashes preserved. F0 selected row13,408B,uint32
+IDs. Source-only finite compiler available;native persistent conv/state/own
+norm/accepted integer readout composition and SAME cost UNIMPLEMENTED/UNBOUND.
+No whole CHATBOT/useful expert-n/DRAM/same useful50 admission.
+
 [Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
 COMPLETE/full independent auditPASS/NO new precision loss. Original packed
 header and literal byte-accumulator reused,six trit planes/four exact input
@@ -15,8 +31,8 @@ Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
 DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
 readout retained. Stop readout variants. Next
 [token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:compile complete source vocabulary table,
-join actual uint32 IDs/conv/own state/accepted readout. Initial-layer scope,
+Compiler now COMPLETE/qualified as above;native ID/conv/own-state/readout
+composition UNIMPLEMENTED/UNBOUND. Initial-layer scope,
 not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
 
 [Same-p6 integer shared readout](INTEGER_READOUT_RESULT_20261013.md) now
@@ -288,6 +304,31 @@ shadow now also complete and failed; see the newer result above.
 [Operational index](INDEX.md), [latest actual outcomes](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
 Earlier method/status history is byte-preserved in
 [METHOD through V4 launch](METHOD_THROUGH_RECOVERED_V4_LIVE_20261011.md).
+
+## Available finite-input compiler variant
+
+Tool benchmarks/native_expert_scaling/token_generator_compiler.py with
+--prepare/--run;complete independent token_generator_compiler_audit.py,
+resource/custody token_generator_compiler_close.py. Exact commands,source/
+runtime hashes and thresholds in frozen compiler launch/binding/protocol;
+current artifact source-only65537x6704 BF16 F0 table plus norm witnesses and
+all48 calibration fields. CPU139.797s/full audit88.407s,OS peaks2.80/2.76GB,
+new1.45GB orderedE. No new training/source model forward/native state.
+
+Applicability requires a finite token-ID-only initial function in eval,
+known canonical embedding/norm/projection/constants/dtype order and enough
+RAM/storage for V*function_width*2 bytes. Current implementation is fixed
+Falcon-H1 initial SSM branch,not a generic other-family converter. Preserve
+Python scalar versus BF16 vector semantics;do not prematurely quantize all
+constants alike. Original CUDA approximate boundary independently measured.
+Other23 contextual generators fail the token-only structural prerequisite.
+
+Next compose this immutable table with native persistent convolution/state/
+own normalization/accepted integer readout. Field fidelity does not prove
+recurrent/final/output quality or accepted chatbot token rate. Freeze state
+ABI/weights/numerics/quality/storage then full own-history admission before
+measuring SAME joined artifact. Whole attention/FFN/head/tokenizer pipeline
+and useful semantic expert-n/conversion O(n) remain research requirements.
 
 ## Starting models and applicability
 

@@ -1,6 +1,11 @@
 # Return to composition: source token generator -> causal state -> accepted readout
 
-13 October2026. **PROPOSED / UNIMPLEMENTED / UNBOUND.** The exact byte-LUT
+13 October2026. **COMPILER COMPLETE / NATIVE COMPOSITION UNIMPLEMENTED / UNBOUND.**
+[Full compiler result](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md): complete
+source-only vocabulary/all norm+fields gates/full independent auditPASS.
+Original proposal below retained;resume at native persistent state ABI,
+full temporal/output/prefix-continuation audits then joined cost. No repeated
+compiler build or isolated readout variants. The exact byte-LUT
 comparison is [complete and cost-rejected](EXACT_INTEGER_LUT_RESULT_20261013.md).
 Keep the accepted integer readout. Stop readout variants and remove a supplied
 input boundary from the actual source-to-native path.
