@@ -1,0 +1,36 @@
+{
+  "producer_session": 45667,
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/true_input_function_replay_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_input_function_replay_result_20261013.json",
+    "--report-sha",
+    "ef32465a969334aa2236fc7592f07aade68bd6256951780521aefe2808863cf8",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_input_function_replay_result_20261013.terminal.json",
+    "--terminal-sha",
+    "a26c4087282963479b2a43f9d28ac9fc7c58bc0700dc8b0b6d5dd0c9bee84b80",
+    "--freeze",
+    "15303f503553d420b969804ee58426e73271ed59",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_input_function_replay_adjudication_20261013.json"
+  ],
+  "created_at": "2026-10-13T04:12:16.8867288+02:00",
+  "schema": "TRUE_INPUT_FUNCTION_REPLAY_AUDIT_LAUNCH_V1",
+  "freeze": "15303f503553d420b969804ee58426e73271ed59",
+  "limits": {
+    "seconds": 1200,
+    "OS_bytes": 6442450944
+  }
+}
