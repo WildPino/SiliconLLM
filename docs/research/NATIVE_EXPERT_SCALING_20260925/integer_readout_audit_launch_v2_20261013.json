@@ -1,0 +1,39 @@
+{
+  "schema": "INTEGER_READOUT_AUDIT_LAUNCH_V2",
+  "implementation_freeze": "85dda17",
+  "auditor_freeze": "1832b53",
+  "report_sha256": "f4e3d831f83edd42eb3bd54073a89c9fe3465ea3fb8a7a693c6964707708ee95",
+  "terminal_sha256": "f803590fed77ff6f29442730c115d8c2a4334a8bfcbe7d7a6c51b40574eaa5d8",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/integer_readout_audit_v2.py",
+    "--freeze",
+    "1832b53",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_result_20261013.json",
+    "--report-sha",
+    "f4e3d831f83edd42eb3bd54073a89c9fe3465ea3fb8a7a693c6964707708ee95",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_result_20261013.terminal.json",
+    "--terminal-sha",
+    "f803590fed77ff6f29442730c115d8c2a4334a8bfcbe7d7a6c51b40574eaa5d8",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_adjudication_v2_20261013.json"
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "scope": "All I16 inputs/scales/exact I64 dots/scaled F64 and BF16 words/source gates,complete regardless of failure",
+  "retained_V1_adjudication_sha256": "c7deadcb0cb66528e44afdec29de170cfbfb4396f8b6a89ddbf3c247e76a7a7b"
+}
