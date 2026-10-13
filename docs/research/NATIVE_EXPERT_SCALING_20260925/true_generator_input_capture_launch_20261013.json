@@ -1,0 +1,49 @@
+{
+  "gpu_observation": "GPU-1cce7fba-8103-2d4b-ad9b-df8e162f8221, NVIDIA GeForce RTX 3060, 610.47, 12288, 679",
+  "inadmissible_first_binding_not_used": true,
+  "schema": "TRUE_GENERATOR_INPUT_CAPTURE_LAUNCH_V1",
+  "preparation_session": 31243,
+  "worker_environment": {
+    "HF_HUB_DISABLE_TELEMETRY": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HUB_OFFLINE": "1",
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "TOKENIZERS_PARALLELISM": "false",
+    "OPENBLAS_NUM_THREADS": "1",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/true_generator_input_capture.py",
+    "--launch",
+    "--freeze",
+    "da20dacc21dcf4618c83cf7f3c5eb7ed6df55796",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_generator_input_capture_binding_v2_20261013.json",
+    "--binding-sha",
+    "655c3ff8bb6d0856dcb90e4ca8f68e85946fec08f6617a39b8ae18d76770256c",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\true_generator_input_capture_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_generator_input_capture_result_20261013.json"
+  ],
+  "freeze": "da20dacc21dcf4618c83cf7f3c5eb7ed6df55796",
+  "limits": {
+    "seconds": 1800,
+    "reserve_seconds": 90,
+    "OS_bytes": 12884901888,
+    "GPU_allocated_bytes": 10737418240,
+    "GPU_reserved_bytes": 11811160064,
+    "output_bytes": 6442450944,
+    "audit_seconds": 1200,
+    "audit_OS_bytes": 6442450944
+  },
+  "created_at": "2026-10-13T03:32:28.7255675+02:00"
+}
