@@ -1,0 +1,38 @@
+{
+  "schema": "CONDITIONAL_OUTPUT_FUNCTION_AUDIT_LAUNCH_V1",
+  "implementation_freeze": "9d911d8",
+  "auditor_freeze": "7a320b6",
+  "report_sha256": "fbb9fc0b1095fa2200d09e6e2577112f6934e2a354e847c8b849658ce458a77a",
+  "terminal_sha256": "d9b6b7b4331d625aa3c3fdb36fbf151374699d7ddf6b7df613d504f810e48abb",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/conditional_output_function_audit.py",
+    "--freeze",
+    "7a320b6",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/conditional_output_function_result_20261013.json",
+    "--report-sha",
+    "fbb9fc0b1095fa2200d09e6e2577112f6934e2a354e847c8b849658ce458a77a",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/conditional_output_function_result_20261013.terminal.json",
+    "--terminal-sha",
+    "d9b6b7b4331d625aa3c3fdb36fbf151374699d7ddf6b7df613d504f810e48abb",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/conditional_output_function_adjudication_20261013.json"
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "scope": "Full independent trees means spectra factors predictions FIT DEV source gates and immutable hashes; complete even quality failures"
+}
