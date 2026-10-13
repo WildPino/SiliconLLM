@@ -1,0 +1,37 @@
+{
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "scope": "Every full-vocabulary H0/F0 BF16 word/all scalar-controls/all48 independent conv/activation/delta source calibration fields/metrics/hash,complete regardless of numeric or quality failure",
+  "terminal_sha256": "910612f595fa137f1e5a813c90ac50864eb3052237bef9e19873edb09c46ad00",
+  "schema": "TOKEN_GENERATOR_COMPILER_AUDIT_LAUNCH_V1",
+  "freeze": "140267f",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/token_generator_compiler_audit.py",
+    "--freeze",
+    "140267f",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_generator_compiler_result_20261013.json",
+    "--report-sha",
+    "fac01645c30fffbb82bcdcf4469065923765c865e8f8ddd8d0eff573d9774e67",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_generator_compiler_result_20261013.terminal.json",
+    "--terminal-sha",
+    "910612f595fa137f1e5a813c90ac50864eb3052237bef9e19873edb09c46ad00",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_generator_compiler_adjudication_20261013.json"
+  ],
+  "report_sha256": "fac01645c30fffbb82bcdcf4469065923765c865e8f8ddd8d0eff573d9774e67"
+}
