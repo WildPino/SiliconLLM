@@ -2,6 +2,19 @@
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
 
+[Per-token importance oracle](FFN_REMAINDER_ORACLE_RESULT_20261013.md)
+COMPLETE/full720-prediction/all literal neuron ID auditPASS. At0/512 DEV
+mean.400908=>.062173,12/2048:.404537=>.048711,23/32:.113219=>.072805.
+Guide counts determined from FIT only. Strong fixed-cell aggregation loss
+for the tested energy rule;not an optimal subset or sparsity lower bound.
+IDs require ALL source projections/nonlinearity,so no cheap candidate/model
+admission. V1 timed out1800.141s (expanded3.014TB working tensor payload);
+complete block V2 passed509.563s/OS1.549GB,same scope/gates. All720 trajectories/
+selected IDs/3.143GB E family/source/protected hashes/receipts sealed;original
+fault retained. Next source-linear input sketch for actual cheap importance
+prediction,full selected correction/output retained. Final useful50/DRAM/n/
+general family transfer still open. All owned commands closed/no GPU/T4.
+
 [FIT-selected exact FFN subsets](FFN_EXACT_SUBSET_RESULT_20261013.md)
 COMPLETE/full720-prediction numeric auditPASS/NO ADMITTED SELECTED CANDIDATE.
 All<=2048 fail FIT at0/12;2048 DEV means.243356/.404537. At23,FIT selects128
@@ -12,8 +25,8 @@ correct stable index ranking;independent algebra yields tiny noise. V2
 literal scores/ranks replay exactly AND every independent prediction passes.
 These cells lack learned subset preference,26/11399 DEV tokens;no claim they
 explain all loss. All commands closed,723 files/2.786GB plus7.08MB diagnostic/
-all source and protected hashes sealed. Next per-token importance oracle
-tests fixed-cell aggregation loss,not cheap routing or optimal sparsity.
+all source and protected hashes sealed. The subsequent per-token importance
+oracle above qualifies aggregation loss,not cheap routing or optimal sparsity.
 
 [Affine FFN failure and exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md)
 COMPLETE/full432-prediction and144-case diagnostic auditsPASS. All1/16/64

@@ -41,11 +41,19 @@ independent score/prediction algebra passes. This reveals null calibration
 support in11 site0 cells,not an error in the producer's declared index tie-break.
 All receipts/hash/723-file family/diagnostic values closed as recorded in
 FFN_EXACT_SUBSET_STATE_20261013.md. Next per-token oracle selection diagnostic
-from FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md separates fixed subset
-aggregation loss from per-token coverage;it uses ALL source neurons and is
-not a cheap router,optimal subset or deployable candidate. Its producer/
-complete auditor/closure are now frozen cb5f4fe,bindingdc78161,producer CPU
-running as documented in FFN_REMAINDER_ORACLE_STATE_20261013.md. Physical
+from FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md now COMPLETE/full720
+prediction/ID/source/control auditPASS. At0/512 DEV mean.400908=>.062173,
+12/2048:.404537=>.048711,23/32:.113219=>.072805. These guide counts are the
+first tested budgets satisfying FIT local gates,not selected on DEV. Oracle
+evaluates ALL source functions first;it is not a cheap router,optimal subset
+or deployable candidate. V1 timed out1800.141s;full block V2 passed509.563s/
+OS1.549GB,all cases retained. Source/hash/720-file family/receipts sealed,
+as recorded in FFN_REMAINDER_ORACLE_STATE_20261013.md.
+Next FIT-only uncentered input-delta second moment and projected source U/G
+importance router from FFN_SOURCE_SKETCH_ROUTER_NEXT_20261013.md;true selected
+functions/full outputs retained. It remains unimplemented/unproven;local
+rank selection,actual CPU cost/DRAM/precision and own-model quality required.
+Physical
 ternary banks/structured routing/DRAM/whole-model composition remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)

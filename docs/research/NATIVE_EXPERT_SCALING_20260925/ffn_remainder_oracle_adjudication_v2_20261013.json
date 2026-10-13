@@ -1,0 +1,41 @@
+{
+  "schema": "FFN_REMAINDER_ORACLE_AUDIT_V2",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_remainder_oracle_audit_v2.py",
+    "bytes": 11116,
+    "sha256": "785ac8c827c9c0617366fcc630b11f7294070b3188de2bb57eac96dbe081a06e"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_remainder_oracle_result_20261013.json",
+    "bytes": 489205,
+    "sha256": "a419e5e9c5c8b8780542d9ac4f9fdb5921876203a4ecc12c294811979e9d4c5a"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_remainder_oracle_result_20261013.terminal.json",
+    "bytes": 1167,
+    "sha256": "0026aab3fad7d0525b8b547136f62cdefdb10c3b94a92f21c52b79a62d3bfcad"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_remainder_oracle_binding_20261013.json",
+    "bytes": 2130760,
+    "sha256": "81ee4d216006eca2af0a1ccfee98ce24694bc672c9db0b6d0ee53e572161b116"
+  },
+  "repair_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_remainder_oracle_audit_v2_binding_20261013.json",
+    "bytes": 3762,
+    "sha256": "0104cef7e879247bff1fc40f1bb181ece0c1d5a617ceb3ce35594d1fbe98d839"
+  },
+  "checked_predictions": 720,
+  "all_numeric_pass": true,
+  "literal_selected_IDs_exact": true,
+  "maximum": {
+    "prediction_F32_relative": 2.6621073377009025e-08,
+    "independent_score_frobenius_difference": 1.1158928928276154e-09,
+    "remainder_feature_relative": 3.9842249841641756e-16,
+    "identity": 6.681011046137913e-16
+  },
+  "decision": "INDEPENDENT_STORED_PASS_DIAGNOSTIC_ONLY",
+  "seconds": 509.3590000000113,
+  "OS_peak": 1549312000,
+  "scope": "Per-token energy heuristic with oracle access to ALL source neurons. Existing64 FIT cells,actual48 own histories/sites0,12,23/full2048 output. No learned cheap routing,optimal subset,sparsity impossibility,new whole model,physical ternary bank,DRAM,useful expert-n or CPU TPS admission. Literal floating score IDs plus independent direct Euclidean routing/chain rule/feature-minus-affine remainders/partitioned256-column projection/all metrics. Each source column block is multiplied once instead of expanding(N,r,2048) weights. Shares BLAS matrix primitive with producer but has separate deltas,remainder and projection association. No candidate admission."
+}

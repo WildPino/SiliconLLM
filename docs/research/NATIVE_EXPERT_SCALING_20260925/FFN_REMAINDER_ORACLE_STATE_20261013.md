@@ -1,28 +1,33 @@
 # Per-token full-source importance diagnostic: execution state
 
-13 October2026. Goal ACTIVE/INCOMPLETE. Producer COMPLETE/AUDIT RUNNING;
-no result qualified yet. Producer35256/create1791922649.1720388 closed0/
-470.750s/OS1,242,435,584B. All720 trajectories written. Audit34864 started
-22:26:02 Europe/Rome/tool68151 live;CPU6/1800s/OS8GiB. Same handle re-poll,
-no restart on observation timeout. No candidate admitted.
+13 October2026. Goal ACTIVE/INCOMPLETE. COMPLETE/full auditPASS/all owned
+commands closed. [Result/current next action](FFN_REMAINDER_ORACLE_RESULT_20261013.md).
+Producer35256/create1791922649.1720388 closed0/
+470.750s/OS1,242,435,584B. All720 trajectories written. Original34864/
+create1791923162.9831893 terminated1 at1800.141s/OS2,985,328,640B by its
+time guard;240 site0 predictions had been checked at1319.953s. Full V2
+audit now complete. Original source/receipt preserved in7de0585. No candidate admitted.
 
-V1 audit still authoritatively live at22:43:10 (34864/CPU1081.094s/current
-resident866,279,424B),no complete site log yet. Its1800s deadline is near
-22:56:02;wait for its real terminal,not a poll timeout. [Complete layout
-variant](FFN_REMAINDER_ORACLE_AUDIT_LAYOUT_20261013.md) source6a15e65 is
-prepared,NOT EXECUTED. It avoids per-token weight expansion with256-column
-block projection,retaining every prediction/ID/metric/hash and all numeric
-gates. If V1 fully passes,do not run optional V2. If V1 is terminal1,preserve
-its original receipt,bind V2 source/protocol/report/producer+V1 terminal,
-then run ffn_remainder_oracle_audit_v2.py once and close with
-ffn_remainder_oracle_close_v2.py. Do not rerun the producer. No hours job
-or goal pause has been allocated;this is the original bounded30-minute audit.
+V2 worker27732/create1791925005.3858 closed0/509.563s/OS1,549,312,000B,
+tool72095 terminal0. Full720 predictions/IDs/masses/metrics/source controls
+PASS. Four preparation/producer/audit receipts closed0 and original failed
+audit absent. Closure34744/create1791925521.441972 closed0/21.484s/
+OS30,806,016B. All source/input/output/protected hashes sealed,720 E files/
+3,143,325,180B. No live owned handles.
+Source6a15e65/preparationd93a999/closure4af9a80,binding7de0585,prep terminal0/
+.032s/OS25,903,104B. Binding SHA256
+0104cef7e879247bff1fc40f1bb181ece0c1d5a617ceb3ce35594d1fbe98d839.
+[Layout](FFN_REMAINDER_ORACLE_AUDIT_LAYOUT_20261013.md):256-column projection
+avoids expanded(N,r,2048) weights,retains every720 prediction/ID/metric/hash
+and numeric gate. Exact before/after original data pins;producer not rerun.
+ffn_remainder_oracle_close_v2.py sealed both preparations/producer/V2 and
+original fault,all hashes/PID absences. No hours job or goal pause allocated.
 Sourcecb5f4fe/bindingdc78161. Preparation terminal0/18.688s/OS43,425,792B.
 Binding2,130,760B/SHA256
 81ee4d216006eca2af0a1ccfee98ce24694bc672c9db0b6d0ee53e572161b116.
 
 Historical producer35256 started22:17:29 Europe/Rome/tool65147 closed0.
-Current audit described above;verify its PID/create/command or re-poll68151.
+V2 audit/closure also completed as above. Do not restart closed handles.
 CPU6/1800s/OS8GiB/output3GiB,array payload3,142,600,860B. No GPU/source model/
 T4/delegation. OutputE:/SiliconLLM/results/native_expert_scaling/ffn_remainder_oracle_20261013.
 
@@ -38,10 +43,9 @@ identity control. Oracle calculates ALL source projections/nonlinearity
 before choosing IDs. No fitted cheap predictor or local/model candidate.
 Save all720 complete predictions,cell IDs/mass1 and selected uint16 neuron IDs.
 
-Producer terminal0 confirmed;ffn_remainder_oracle_audit.py (no arguments) live,
-CPU6/1800s/OS8GiB. Exact literal IDs plus independent chain-rule/score and
-streamed selected-column predictions;every case/control/metric/hash. Then
-ffn_remainder_oracle_close.py verifies preparation/producer/auditor exit0,
-owned PID-create absence/exact720-file family/protected hashes. Complete all
-audits on failure;preserve faults. No threshold relaxation or oracle admission
+Original ffn_remainder_oracle_audit.py timed out and is preserved. V2 kept
+every case/control/metric/hash;literal IDs plus independent chain-rule/score
+and block projection. Closure verified all preparation/producer/auditor exit0,
+owned PID-create absence/exact720-file family/protected hashes and original
+fault. No threshold relaxation or oracle admission
 as a cheap router,useful n,physical bank,whole model or CPU useful50.

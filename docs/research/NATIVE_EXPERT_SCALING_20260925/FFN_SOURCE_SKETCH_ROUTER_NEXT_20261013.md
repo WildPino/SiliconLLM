@@ -11,9 +11,13 @@ nonlinear correction and every output coordinate remains full size.
 ## Algebra and FIT-only construction
 
 At existing routed center mu,use delta=x-mu. Fit an orthonormal input basis
-P_k on the token-weighted covariance of actual FIT deltas,with ranks
-64/128/256/512. Compute the whole2048 spectrum once per site;save covariance,
-eigenvalues and basis. Verify reconstruction/orthogonality/eigen residuals.
+P_k on the token-weighted UNCENTERED second moment of actual FIT deltas,
+with ranks64/128/256/512. This minimizes FIT squared error of the linear
+projection delta=>delta P_k P_k^T. Store the FIT delta mean and verify
+second_moment=centered_covariance+mean^T mean;finite-iteration kmeans does
+not guarantee an exactly zero residual mean. No additional query centering.
+Compute the whole2048 spectrum once per site;save second moment,covariance,
+mean,eigenvalues and basis. Verify reconstruction/orthogonality/eigen residuals.
 No DEV directions or center changes. This is a declared PCA heuristic,
 not an optimal importance feature or an expressivity bound.
 

@@ -1,7 +1,8 @@
 # Separate fixed-cell selection loss from token-dependent remainder coverage
 
-13 October2026. PROPOSED/NOT EXECUTED. Only after the complete exact-subset
-audit and closure. No new quality admission or physical implementation.
+13 October2026. HISTORICAL PROPOSAL,NOW EXECUTED/fully audited.
+[Qualified result/current next action](FFN_REMAINDER_ORACLE_RESULT_20261013.md)
+supersedes execution statuses below. No candidate/physical implementation admitted.
 
 The64-cell FIT energy rule fixes one neuron subset for every token in a cell.
 The remaining error can have at least two causes:the important neurons change

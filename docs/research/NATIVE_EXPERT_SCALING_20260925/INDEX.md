@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. CPU per-token importance audit running.**
+13 October2026. **Goal ACTIVE/INCOMPLETE. All owned commands closed.**
 
 ## Goal and architecture
 
@@ -12,6 +12,17 @@ families/scales and conversion master/gradient costs remain required.
 [Method](METHOD.md),[prior evidence](PRIOR_EVIDENCE.md),[older index snapshot](INDEX_THROUGH_FFN_AFFINE_PILOT_20261013.md).
 
 ## Latest decisive evidence
+
+[Per-token remainder oracle](FFN_REMAINDER_ORACLE_RESULT_20261013.md)
+COMPLETE/full720-prediction auditPASS/all literal IDs exact. Conditional
+selection improves DEV mean at0/512:.400908=>.062173,12/2048:.404537=>.048711,
+23/32:.113219=>.072805. These are the first tested counts meeting FIT local
+mean/worst gates;corresponding DEV/domain gates pass. It is an oracle using
+ALL original projections before choosing IDs,not a cheap router/candidate.
+V1 time-limit failure1800.141s preserved;V2 block audit509.563s/OS1.549GB
+checks every case/ID/mass/metric/hash. [Closure](ffn_remainder_oracle_session_closure_v2_20261013.json)
+all successful receipts/PID-create absent/original fault retained,720 E
+files3.143GB/protected hashes sealed. No model/TPS/DRAM admission.
 
 [Exact neuron remainder subsets](FFN_EXACT_SUBSET_RESULT_20261013.md)
 COMPLETE/full720-prediction numeric auditPASS;NO ADMITTED FIT-selected candidate.
@@ -53,6 +64,8 @@ are qualified at all24 sites/all48 histories/six fields,12.191B BF words,
 has no isolated mechanism yet. Affine-cell and quadratic approximations above
 fail. Exact combined nonlinear remainder subsets have now been fully tested:
 the fixed-cell FIT rule does not yield an admitted selected candidate.
+Per-token oracle improves coverage as above;cheap selection is now the next
+transfer question,with especially large active width at the middle site.
 Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Available components and closed paths
@@ -73,21 +86,19 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Producer/auditor/closure frozen cb5f4fe/bindingdc78161 for
-[per-token remainder importance oracle](FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md).
-Keep64 existing FIT cells/routes/all2048 outputs/same neuron budgets/control,
-but diagnostic IDs vary per token using actual full-source remainder energy.
-Separate fixed-cell aggregation loss from per-token sparse coverage. This
-oracle evaluates ALL source neurons before choosing IDs:it is not a cheap
-router,candidate,optimal subset or universal sparsity lower bound. Save
-every predicted trajectory and selected IDs,full audits/terminal/hash closure.
-Producer closed0,audit live:[state](FFN_REMAINDER_ORACLE_STATE_20261013.md),worker34864/
-handle68151. No oracle result qualified yet.
-V1 audit's expanded selected-weight tensor is slow;complete256-column block
-variant6a15e65 is prepared,not executed. Wait for V1 real terminal under its
-original1800s limit. On V1 completePASS,close it;on terminal1,preserve fault,
-bind/run V2 with identical full scope/numeric gates. Never restart producer
-or treat a poll timeout as failure. [Layout detail](FFN_REMAINDER_ORACLE_AUDIT_LAYOUT_20261013.md).
+Implement/freeze producer,auditor and binding for
+[source-linear sketch router](FFN_SOURCE_SKETCH_ROUTER_NEXT_20261013.md).
+Same64 FIT cells/full2048 outputs;active neuron counts512/2048/32 determined
+ONLY from qualified FIT oracle curves. FIT input delta uncentered second
+moment bases64/128/256/512;mean/covariance/eigen identities saved/audited.
+Projected original U/G estimate importance to select IDs;true selected rows
+compute exact remainder. No full original U/G pass in the proposed ID path.
+Select sketch rank on FIT,then check same choice on DEV. No router observation
+or compiled candidate exists yet. Full audits/hash custody,then physical
+CPU IDs AND masses/precision/loaded bytes/DRAM/cost screen before all24/bank
+expansion. Middle width2048 offers modest coefficient saving;do not infer TPS.
+[Oracle execution history](FFN_REMAINDER_ORACLE_STATE_20261013.md) is closed;
+do not rerun it or old failed paths without a new variable.
 [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md) is closed;
 do not rerun capture/affine/subset producer or promote512 based on
 DEV. Physical bank/ternary error/routing/DRAM and the
