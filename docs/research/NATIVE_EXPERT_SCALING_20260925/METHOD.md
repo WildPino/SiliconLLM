@@ -4,6 +4,24 @@
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
 
+[Native token-to-own-state branch](TOKEN_STATE_RESULT_20261013.md) COMPLETE/
+full independent auditPASS/all48 numeric/temporal/local donor gatesPASS.
+Actual uint32 IDs/F0 rows,persistent own conv3072x96 trained state,full skip/
+own gate-RMS/new exact C I16 quantizer/accepted readout. Full block versus
+EVERY token continuation and old qualified prefix core BIT-EXACT;all151M
+fields/69M latent steps/46M integer/raw/BF16 outputs checked,integer/BF16
+mismatches0. Extra output worst0.06174%,finalstate0.01502%;DEV source mean
+7.63946%/worst9.34119%. Same audited state-ready single-token cost median
+1.013ms warm/1.044ms source-flushed,all60 output/ledger records matched.
+Source eviction not PMU DRAM/whole-model rate. All5 commands closed0/newE
+1,763,186,800B/protected hashes unchanged/no GPU/T4/RESERVED or owned run.
+Initial SSM branch ONLY;no complete decoder/model/source chatbot yet. Next
+[full-width all-layer quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Existing24 trained basis records algebra-
+audited;verify all24 native identities,retain source hidden2048 and source
+operators,then test full own-history/chat/held-out composition before more
+single-branch tuning. Final CPU/conditional useful-n/same useful50 remain open.
+
 [Complete source-only token generator](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md)
 COMPLETE/full independent auditPASS/all48 source norm/field/incremental gates
 PASS. Canonical embedding/first norm/in_proj/MuP compile ALL65537 vocabulary
@@ -15,8 +33,7 @@ differences0 to DECLARED CPU equation. Original CUDA H0 differences357 words/
 33026 bounded BF16 values;premature BF16 scalar rounding changes772 results.
 New orderedE1,449,937,450B/3 commands closed0/no GPU/T4/SSM/RESERVED,full
 canonical source/protected hashes preserved. F0 selected row13,408B,uint32
-IDs. Source-only finite compiler available;native persistent conv/state/own
-norm/accepted integer readout composition and SAME cost UNIMPLEMENTED/UNBOUND.
+IDs. Source-only compiler and initial native composition now qualified above.
 No whole CHATBOT/useful expert-n/DRAM/same useful50 admission.
 
 [Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
@@ -304,6 +321,32 @@ shadow now also complete and failed; see the newer result above.
 [Operational index](INDEX.md), [latest actual outcomes](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
 Earlier method/status history is byte-preserved in
 [METHOD through V4 launch](METHOD_THROUGH_RECOVERED_V4_LIVE_20261011.md).
+
+## Available native initial-branch composition
+
+Tools benchmarks/native_expert_scaling/token_state.c/.py and complete
+independent token_state_audit.py;token_state_cost.py and token_state_close.py.
+Persistent context/actual IDs/conv/state/own norm/C input quantizer/integer
+readout,all48 prefill and one-token-continuation arrays qualified. Source
+fields match compiler bits,core matches old-qualified prefix bits,independent
+F64 scan/state error<=4.24e-7,all exact integer/raw/BF16 differences0.
+Full temporal/donor local gatesPASS;extra output worst0.06174%/state0.01502%.
+Source inputs no longer supplied as teacher values to this first branch.
+
+Source fixed initial function and trained basis/core compatible;state96
+approximation/source output error explicitly retained. Initial-state reset
+only between histories. Scope this branch only,not whole decoder/LM. New
+1.763GB orderedE,producer140.812s/audit120.047s,OS peaks0.541/0.928GB.
+State-ready one-token same-binary medians1.013/1.044ms,source operands12.97MB,
+all60 ledger records matched;prefix construction outside clock,state warmed,
+no physical PMU traffic or accepted model-rate admission. Exact commands and
+source/parameter/runtime extents in frozen bindings/launches/protocols.
+
+Next all-layer quality bridge retains actual source hidden2048/FFN/attention/
+head/tokenizer and replaces only native recurrent/readout choices before
+conditional function optimization. Existing24 bases verified algebraically,
+not all24 native kernels. Source GPU bridge must be explicitly separated
+from final native CPU runtime/speed/useful-n. Old D256 shadow failure retained.
 
 ## Available finite-input compiler variant
 

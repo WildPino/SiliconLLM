@@ -1,0 +1,157 @@
+{
+  "schema": "TOKEN_STATE_CLOSURE_COST_REVIEW_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\token_state_close.py",
+    "bytes": 5224,
+    "sha256": "c8b905b7c44b1ffe642591c63913543211a2073ca40526b4537525b90a6cf5cd"
+  },
+  "native_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_result_20261013.json",
+    "bytes": 110413,
+    "sha256": "e0063e31363552567fbb26eb1226d5799baea4525cce9ad8a16be0cf1a35c15a"
+  },
+  "native_adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_adjudication_20261013.json",
+    "bytes": 3085,
+    "sha256": "59b1ebfc63525caecaa97377d15ff211af1f7c77286bc0a66e1afbe0f2d47130"
+  },
+  "cost_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_cost_result_20261013.json",
+    "bytes": 22423,
+    "sha256": "4c66b34484dc33b9fac5fa21677a6eef27b21407391dc503ef767f426e0ecbca"
+  },
+  "cost_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_cost_binding_20261013.json",
+    "bytes": 1575901,
+    "sha256": "f9a83e24b38c7d634c89b291ea2e5e5d9ca1bd868faf8789a340043da78bb262"
+  },
+  "same_audited_DLL": true,
+  "all60_records_reconciled": true,
+  "summary": {
+    "warm_ready": {
+      "median_us": 1012.9,
+      "minimum_us": 658.9,
+      "maximum_us": 1638.1
+    },
+    "source_flushed": {
+      "median_us": 1044.05,
+      "minimum_us": 876.9,
+      "maximum_us": 2224.4
+    }
+  },
+  "sample_output_parity": "Producer verifies every warmup/measured archived output word/actual ID/count/ring;reviewer reconciles complete ledger without retiming.",
+  "owned_commands": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_binding_20261013.preparation_terminal.json",
+        "bytes": 950,
+        "sha256": "e7479df5753dcc8136ec0e8b26683e5e00933d4c7eaef5dcc0d03e9ab071aac3"
+      },
+      "pid": 18240,
+      "creation_time": 1791879251.8890743,
+      "exit_code": 0,
+      "seconds": 19.110000000000582,
+      "OS_peak": 47628288,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_result_20261013.terminal.json",
+        "bytes": 1130,
+        "sha256": "9f801bb0e3c1a540f1cd331024ef50e9028b3a58f8b98ccc6f5814cee697d79a"
+      },
+      "pid": 352,
+      "creation_time": 1791879983.3854103,
+      "exit_code": 0,
+      "seconds": 140.81199999999808,
+      "OS_peak": 541216768,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_adjudication_20261013.terminal.json",
+        "bytes": 1249,
+        "sha256": "b22e0c0775472032be1174193735f1fd9ff73e6c6d153f02dda41fcd9db287b8"
+      },
+      "pid": 20844,
+      "creation_time": 1791880531.9302492,
+      "exit_code": 0,
+      "seconds": 120.04699999999866,
+      "OS_peak": 927617024,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_cost_binding_20261013.preparation_terminal.json",
+        "bytes": 979,
+        "sha256": "eaad35c9ed13a425cc8f9b042f924da108234d20bff21660808d51e3d41db632"
+      },
+      "pid": 28484,
+      "creation_time": 1791881553.2315428,
+      "exit_code": 0,
+      "seconds": 1.2969999999986612,
+      "OS_peak": 42659840,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_state_cost_result_20261013.terminal.json",
+        "bytes": 1063,
+        "sha256": "c003accb821720deb07dd16217893c48561e7fcc830256910b3d2403aea72fbf"
+      },
+      "pid": 8484,
+      "creation_time": 1791881642.9383335,
+      "exit_code": 0,
+      "seconds": 39.17199999999866,
+      "OS_peak": 179437568,
+      "matching_process_absent": true
+    }
+  ],
+  "new_run_bytes": 1763094640,
+  "new_family_bytes": 1763186800,
+  "new_cost_family_bytes": 0,
+  "protected_files_unchanged": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ],
+  "foreign_publisher_snapshot": [
+    {
+      "name": "pythonw.exe",
+      "create_time": 1791837726.8771727,
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ],
+      "pid": 9832
+    },
+    {
+      "name": "pythonw.exe",
+      "create_time": 1791837726.7791085,
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ],
+      "pid": 21640
+    }
+  ],
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Initial native SSM branch complete/source calibration/temporal/output/custody and state-ready cost reviewed. Prefix setup/initialization/state warming outside clock,architectural source eviction not PMU DRAM bytes/cold storage I/O;no all-layer/chatbot/semantic-n/useful50 admission."
+}

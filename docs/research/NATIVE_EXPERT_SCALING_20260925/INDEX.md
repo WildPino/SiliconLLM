@@ -2,6 +2,24 @@
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
 
+[Native token-to-own-state branch](TOKEN_STATE_RESULT_20261013.md) COMPLETE/
+full independent auditPASS/all48 numeric/temporal/local donor gatesPASS.
+Actual uint32 IDs/F0 rows,persistent own conv3072x96 trained state,full skip/
+own gate-RMS/new exact C I16 quantizer/accepted readout. Full block versus
+EVERY token continuation and old qualified prefix core BIT-EXACT;all151M
+fields/69M latent steps/46M integer/raw/BF16 outputs checked,integer/BF16
+mismatches0. Extra output worst0.06174%,finalstate0.01502%;DEV source mean
+7.63946%/worst9.34119%. Same audited state-ready single-token cost median
+1.013ms warm/1.044ms source-flushed,all60 output/ledger records matched.
+Source eviction not PMU DRAM/whole-model rate. All5 commands closed0/newE
+1,763,186,800B/protected hashes unchanged/no GPU/T4/RESERVED or owned run.
+Initial SSM branch ONLY;no complete decoder/model/source chatbot yet. Next
+[full-width all-layer quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Existing24 trained basis records algebra-
+audited;verify all24 native identities,retain source hidden2048 and source
+operators,then test full own-history/chat/held-out composition before more
+single-branch tuning. Final CPU/conditional useful-n/same useful50 remain open.
+
 [Complete source-only token generator](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md)
 COMPLETE/full independent auditPASS/all48 source norm/field/incremental gates
 PASS. Canonical embedding/first norm/in_proj/MuP compile ALL65537 vocabulary
@@ -13,8 +31,7 @@ differences0 to DECLARED CPU equation. Original CUDA H0 differences357 words/
 33026 bounded BF16 values;premature BF16 scalar rounding changes772 results.
 New orderedE1,449,937,450B/3 commands closed0/no GPU/T4/SSM/RESERVED,full
 canonical source/protected hashes preserved. F0 selected row13,408B,uint32
-IDs. Source-only finite compiler available;native persistent conv/state/own
-norm/accepted integer readout composition and SAME cost UNIMPLEMENTED/UNBOUND.
+IDs. Source-only compiler and initial native composition now qualified above.
 No whole CHATBOT/useful expert-n/DRAM/same useful50 admission.
 
 [Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
@@ -134,29 +151,30 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Implement/freeze/bind the NATIVE composition part of
-[source token generator and causal composition](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md).
-Compiler COMPLETE/eligible:token_generator_compiler_result/adjudication/
-session_closure_20261013.json. Immutable E family token_generator_compiler_20261013:
-H0.BF16/F0.BF16/source_conv_parameters.npz/all48 field packets. All65537
-rows source-only/all full auditsPASS,no compiler rerun needed. Retain CPU
-normalization approximation and357 original-source H0 differences;do not
-pretend CUDA identity. Scope note/table proof in compiler result.
+Implement/freeze/qualify generic native preconv-row/state ABI,then all24
+source parameter/basis/p6 source-only exports for
+[full-width own-state quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md).
+Latest admitted artifact:token_state_result/adjudication/session_closure_20261013.json,
+DLL E:/SiliconLLM/results/native_expert_scaling/token_state_20261013/token_state.dll.
+All48 actual-ID histories and complete incremental/core/integer auditsPASS,
+state-ready cost ledger complete;no rerun or first-branch tuning needed.
 
-Next fixed native ABI consumes actual uint32 token IDs/F0 table,maintains own
-conv4 ring and SAME trained3072x96 SSM state,full skip/own gate-RMS/BF16 norm,
-accepted p6/integer readout. Preserve source/backend/numeric/temporal/donor
-gates. Compare every own latent step/final state/normalized/output word and
-prefix-versus-continuation identity,independent full audit before cost. Actual
-source table initial-layer ONLY;parallel attention/residual/FFN/later23
-contextual generators/whole chatbot still missing. Count buffers/archives/
-conversion before allocating new orderedE. No hours planned,no GPU/T4/state
-job allocated now. PMADDWD readout available;readout variants stopped.
+Basis availability original_falcon_recurrent_projection_finish_result_20261009.json
+24 sites0..23;stored audit adopts24 bases,scope algebra/stored metrics only.
+Other21 native matrices/actual full model unqualified. Retain hidden2048/
+source FFN/attention/head/tokenizer,avoid failed old globalD256 projection.
+Source GPU contextual generators/other operators allowed only as explicit
+quality bridge,NOT final native CPU deployment or speed proof. Map original
+full-model gates to new ABI before outputs;known16 chat/self-generated followup
+and FIT/DEV labels,complete audits/source411 parameter continuity. Source
+token compiler is complete/immutable;initial-layer F0 available,other23
+contextual generators need actual source row interface. Local gates cannot
+replace full chatbot behavior. No GPU/T4/new all-layer job allocated now.
 
-Actual source-input replay/native state at0/12/23 locally qualified;other21
-functions and all-layer OWN-history pipeline pending. Source global ranks/
-fixed affine-bank coverage failures unchanged. Actual IDs/masses/DRAM/useful
-RAM-driven n/cross-family quality and same useful50 need separate evidence.
+Full width quality bridge/source-only export/resource/launch policies are
+UNBOUND until implementation and actual byte/budget estimates. Announce local
+3060 budget before using it;hours jobs follow standing human PAUSE instruction.
+Protected original engine and foreign work untouched,all owned runs closed.
 
 104 new+64 older RESERVED/longalign8186-20874 remain unqueried. Need actual
 cheap source functions/conditional ternary bank/CPU IDs AND masses/realDRAM,

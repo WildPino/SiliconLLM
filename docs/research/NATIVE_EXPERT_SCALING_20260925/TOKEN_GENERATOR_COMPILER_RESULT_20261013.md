@@ -113,18 +113,16 @@ No source storage or conversion cost hidden behind a sparse-table claim.
 
 ## Next actual composition and complete objective
 
-Eligible for native composition;table read latency/DRAM cost not yet measured.
-Use this F0 table as immutable input to a uint32-ID native interface with
-persistent conv4 state and SAME trained full3072/state96 core. Preserve full
-skip,own gate-RMS,BF16 norm and accepted p6/integer readout;no source-target
-denominator or teacher-state reset. Freeze a serialized state/step ABI,weights,
-initial-state policy,numeric/source gates and storage before running. Validate
-all48 histories/every field/latent timestep/final state/output against complete
-prefix reference and independent equations;test prefix/continuation identity
-with actual own state. New norm/backend errors need temporal/output checks,
-not inherited admission from the fields. Then measure SAME joined artifact,
-including row lookup/conv/state/norm/quantization/readout/actual routing and
-source traffic conditions. No more isolated readout variants.
+[Initial native composition/cost](TOKEN_STATE_RESULT_20261013.md) is now
+COMPLETE/full independent auditPASS/all48 temporal/output/source local gates
+PASS. Actual token IDs ->own conv/state/norm ->accepted integer readout,
+full block versus every continuation exact,extra output worst0.06174%/final
+state0.01502%,same audited state-ready median~1.01--1.04ms. Retain original
+compiler and source differences;no rerun needed. Next
+[full-width all-layer quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md)
+proposed/unbound,source hidden2048 preserved,whole behavior before further
+component tuning. State-ready first-branch costs do not prove a complete
+chatbot or accepted50/s.
 
 This remains initial SSM branch only. Parallel attention,residual,FFN,other23
 contextual generators,head/tokenizer and full OWN-history chatbot are missing.
