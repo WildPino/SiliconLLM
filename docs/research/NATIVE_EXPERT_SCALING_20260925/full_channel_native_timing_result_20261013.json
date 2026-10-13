@@ -1,0 +1,6642 @@
+{
+  "schema": "FULL_CHANNEL_NATIVE_TIMING_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\full_channel_native_timing.py",
+    "bytes": 7784,
+    "sha256": "5b4b22ffefec76e426b3ec6665185ba4b6bcbfffaa329fc7743e6fde798e146c"
+  },
+  "freeze": "58a773c6869f410676a89a0c9a93383b2912992b",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_binding_20261013.json",
+    "bytes": 321212,
+    "sha256": "288b9ff3f565ebf8f11a169f54dc0f604d2857c2717e299029936fbaddd144e2"
+  },
+  "adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_adjudication_20261013.json",
+    "bytes": 334198,
+    "sha256": "0a476d816404b656060e7ea1dbbbcea56302a50ab73f1ec73d852855de55ef23"
+  },
+  "quality_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_result_20261013.json",
+    "bytes": 213586,
+    "sha256": "687e89f896c84c51b7927a01b12e28f3a78abb5aa7528f6682c3c33d5c226304"
+  },
+  "native_threads": 1,
+  "affinity": [
+    0
+  ],
+  "QPC_frequency": 10000000,
+  "python_perf_counter": {
+    "implementation": "QueryPerformanceCounter()",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-07
+  },
+  "warmups": [
+    {
+      "site": 0,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "histories": 3
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "histories": 3
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "histories": 3
+    }
+  ],
+  "operator_records": [
+    {
+      "site": 0,
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 0.9976514000009047,
+      "stage_seconds": {
+        "BC_projection": 0.005441899960715091,
+        "scan": 0.045050699982311926,
+        "gate_RMS": 0.0420855000083975,
+        "normalize_output": 0.9044870999641716
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.618063699999766,
+      "stage_seconds": {
+        "BC_projection": 0.003169499994328362,
+        "scan": 0.027881399992111255,
+        "gate_RMS": 0.025990900001488626,
+        "normalize_output": 0.5605810999859386
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4680186000005051,
+      "stage_seconds": {
+        "BC_projection": 0.0024142000129359076,
+        "scan": 0.021035199986727093,
+        "gate_RMS": 0.01978920002329687,
+        "normalize_output": 0.42439029999695776
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.47231529999953636,
+      "stage_seconds": {
+        "BC_projection": 0.0027593999857344897,
+        "scan": 0.021300499989592936,
+        "gate_RMS": 0.01994429999467684,
+        "normalize_output": 0.4279345000068133
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.0756005000002915,
+      "stage_seconds": {
+        "BC_projection": 0.0003974999981437577,
+        "scan": 0.003532099988660775,
+        "gate_RMS": 0.003165599997373647,
+        "normalize_output": 0.06821340000351483
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.11770059999980731,
+      "stage_seconds": {
+        "BC_projection": 0.000586599995585857,
+        "scan": 0.005401699998401455,
+        "gate_RMS": 0.004865700002483209,
+        "normalize_output": 0.1065550000021176
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.2709475999999995,
+      "stage_seconds": {
+        "BC_projection": 0.0013697000140382443,
+        "scan": 0.012121199986722786,
+        "gate_RMS": 0.01130269998611766,
+        "normalize_output": 0.24578080000719638
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.43860360000144283,
+      "stage_seconds": {
+        "BC_projection": 0.002218199999333592,
+        "scan": 0.019565199998396565,
+        "gate_RMS": 0.01833099999021215,
+        "normalize_output": 0.3981005000114237
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.41247570000086853,
+      "stage_seconds": {
+        "BC_projection": 0.002115300012519583,
+        "scan": 0.01836189999085036,
+        "gate_RMS": 0.017407800018190756,
+        "normalize_output": 0.37422419998074474
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.4970295000002807,
+      "stage_seconds": {
+        "BC_projection": 0.002671900001587346,
+        "scan": 0.02272340000308759,
+        "gate_RMS": 0.020761300012964057,
+        "normalize_output": 0.45045869999921706
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.41222100000049977,
+      "stage_seconds": {
+        "BC_projection": 0.0022016000148141757,
+        "scan": 0.01854990000720136,
+        "gate_RMS": 0.01727739999660116,
+        "normalize_output": 0.37380570000823354
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5693298000005598,
+      "stage_seconds": {
+        "BC_projection": 0.002860300002794247,
+        "scan": 0.025608199988710112,
+        "gate_RMS": 0.023900199999843608,
+        "normalize_output": 0.5165145999835659
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5635464999995747,
+      "stage_seconds": {
+        "BC_projection": 0.0030089000192674575,
+        "scan": 0.025726499989104923,
+        "gate_RMS": 0.023630200017578318,
+        "normalize_output": 0.5107446999918466
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.43638190000092436,
+      "stage_seconds": {
+        "BC_projection": 0.00224980000348296,
+        "scan": 0.019572499995774706,
+        "gate_RMS": 0.018466000001353677,
+        "normalize_output": 0.39572369999586954
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.3105458999998518,
+      "stage_seconds": {
+        "BC_projection": 0.0015860000039538136,
+        "scan": 0.014142399997581379,
+        "gate_RMS": 0.013943800000561168,
+        "normalize_output": 0.28052070000012463
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.38371039999947243,
+      "stage_seconds": {
+        "BC_projection": 0.002155299993319204,
+        "scan": 0.017337799981760327,
+        "gate_RMS": 0.016081200019470998,
+        "normalize_output": 0.34777970000322966
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.3328514999993786,
+      "stage_seconds": {
+        "BC_projection": 0.007138499973734724,
+        "scan": 0.059646600029736874,
+        "gate_RMS": 0.05628669999350677,
+        "normalize_output": 1.209160599979441
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.964016800000536,
+      "stage_seconds": {
+        "BC_projection": 0.010482399917236762,
+        "scan": 0.08812259997466754,
+        "gate_RMS": 0.08246510002572904,
+        "normalize_output": 1.7821268999505264
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.3282716999983677,
+      "stage_seconds": {
+        "BC_projection": 0.0016598000001977198,
+        "scan": 0.014919600020220969,
+        "gate_RMS": 0.013758200007941923,
+        "normalize_output": 0.29758280001078674
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.7229251000007935,
+      "stage_seconds": {
+        "BC_projection": 0.0036675000046670903,
+        "scan": 0.03313279998656071,
+        "gate_RMS": 0.03049679998184729,
+        "normalize_output": 0.655157400018652
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 1.0098896999988938,
+      "stage_seconds": {
+        "BC_projection": 0.005616099997496349,
+        "scan": 0.04540229996564449,
+        "gate_RMS": 0.042508699976679054,
+        "normalize_output": 0.9158136000442028
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.34639160000006086,
+      "stage_seconds": {
+        "BC_projection": 0.0019474000000627711,
+        "scan": 0.015549600018857745,
+        "gate_RMS": 0.014501899984679767,
+        "normalize_output": 0.3140469000190933
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.3129361999999674,
+      "stage_seconds": {
+        "BC_projection": 0.0070900999762670835,
+        "scan": 0.0592159999996511,
+        "gate_RMS": 0.05532460001813888,
+        "normalize_output": 1.1906488000113313
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.4089050999991741,
+      "stage_seconds": {
+        "BC_projection": 0.002344300011827727,
+        "scan": 0.018353100005697343,
+        "gate_RMS": 0.01716029998351587,
+        "normalize_output": 0.37066750000485627
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.1874468000005436,
+      "stage_seconds": {
+        "BC_projection": 0.006511999976282823,
+        "scan": 0.053310499992221594,
+        "gate_RMS": 0.050317499988523195,
+        "normalize_output": 1.0766819000091346
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.5951619999996183,
+      "stage_seconds": {
+        "BC_projection": 0.003012000015587546,
+        "scan": 0.027215999971303972,
+        "gate_RMS": 0.024966800021502422,
+        "normalize_output": 0.5395161000014923
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.4919780999989598,
+      "stage_seconds": {
+        "BC_projection": 0.0025775999911274994,
+        "scan": 0.022351600013280404,
+        "gate_RMS": 0.020563599982779124,
+        "normalize_output": 0.44607919997361023
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.25967540000056033,
+      "stage_seconds": {
+        "BC_projection": 0.001548399997773231,
+        "scan": 0.011665199983326602,
+        "gate_RMS": 0.010973300002660835,
+        "normalize_output": 0.23516050000762334
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.07973000000129105,
+      "stage_seconds": {
+        "BC_projection": 0.0003978000077040633,
+        "scan": 0.0036720999942190247,
+        "gate_RMS": 0.0033085000031860545,
+        "normalize_output": 0.07202289999622735
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.42114419999961683,
+      "stage_seconds": {
+        "BC_projection": 0.0021484000171767548,
+        "scan": 0.01888770001096418,
+        "gate_RMS": 0.017762599993147887,
+        "normalize_output": 0.38197799999943527
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.3159118000003218,
+      "stage_seconds": {
+        "BC_projection": 0.0016246999912254978,
+        "scan": 0.014192599988746224,
+        "gate_RMS": 0.013351000006878166,
+        "normalize_output": 0.28639080000175454
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.4586925000003248,
+      "stage_seconds": {
+        "BC_projection": 0.0023075999688444426,
+        "scan": 0.021027899985710974,
+        "gate_RMS": 0.019291200012958143,
+        "normalize_output": 0.41566589998728887
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.506230000000869,
+      "stage_seconds": {
+        "BC_projection": 0.0026457000112714013,
+        "scan": 0.02299510000011651,
+        "gate_RMS": 0.021400299983724835,
+        "normalize_output": 0.45879309999145335
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.4127961000012874,
+      "stage_seconds": {
+        "BC_projection": 0.002200599996285746,
+        "scan": 0.018492900026103598,
+        "gate_RMS": 0.017534000018713414,
+        "normalize_output": 0.3741970999762998
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.3803876999991189,
+      "stage_seconds": {
+        "BC_projection": 0.001979099988602684,
+        "scan": 0.017208000004757196,
+        "gate_RMS": 0.015874699976848206,
+        "normalize_output": 0.34496590001072036
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.46373789999961446,
+      "stage_seconds": {
+        "BC_projection": 0.002366799990340951,
+        "scan": 0.021622499991281074,
+        "gate_RMS": 0.019488100026137545,
+        "normalize_output": 0.41986099999303406
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.5404374000008829,
+      "stage_seconds": {
+        "BC_projection": 0.0027522999935172265,
+        "scan": 0.02359449997129559,
+        "gate_RMS": 0.022711800012984895,
+        "normalize_output": 0.4909689000196522
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.4626345000015135,
+      "stage_seconds": {
+        "BC_projection": 0.0023193999859358883,
+        "scan": 0.020728500001496286,
+        "gate_RMS": 0.019452800006547477,
+        "normalize_output": 0.4197448999984772
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.2485582000008435,
+      "stage_seconds": {
+        "BC_projection": 0.0014010999948368408,
+        "scan": 0.011267500016401755,
+        "gate_RMS": 0.010383499986346578,
+        "normalize_output": 0.22507009997207206
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.14091709999956947,
+      "stage_seconds": {
+        "BC_projection": 0.0007731000041530933,
+        "scan": 0.006529500002216082,
+        "gate_RMS": 0.0060920000014448306,
+        "normalize_output": 0.12721139999484876
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.647447999999713,
+      "stage_seconds": {
+        "BC_projection": 0.008789500012426288,
+        "scan": 0.07479929999317392,
+        "gate_RMS": 0.06902410001021053,
+        "normalize_output": 1.494124600001669
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.9319832999990467,
+      "stage_seconds": {
+        "BC_projection": 0.010551299994403962,
+        "scan": 0.08594830004767573,
+        "gate_RMS": 0.082953599978282,
+        "normalize_output": 1.7517589000326552
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6513236000009783,
+      "stage_seconds": {
+        "BC_projection": 0.003301600008853711,
+        "scan": 0.029538700024204445,
+        "gate_RMS": 0.027567199991608504,
+        "normalize_output": 0.590473899992503
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.4866433000006509,
+      "stage_seconds": {
+        "BC_projection": 0.002467200014507398,
+        "scan": 0.022316399994451785,
+        "gate_RMS": 0.02052179997190251,
+        "normalize_output": 0.4408295000066573
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.31734059999871533,
+      "stage_seconds": {
+        "BC_projection": 0.0016040999944380019,
+        "scan": 0.014098099982220447,
+        "gate_RMS": 0.013399400007983786,
+        "normalize_output": 0.2878915000001143
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2741183000016463,
+      "stage_seconds": {
+        "BC_projection": 0.006901899985678028,
+        "scan": 0.05691179999121232,
+        "gate_RMS": 0.05387319999135798,
+        "normalize_output": 1.1558279999881051
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.1534701000000496,
+      "stage_seconds": {
+        "BC_projection": 0.006394200014256057,
+        "scan": 0.05218170002262923,
+        "gate_RMS": 0.048897299986492726,
+        "normalize_output": 1.045429600015268
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.3870377000002918,
+      "stage_seconds": {
+        "BC_projection": 0.0019644999993033707,
+        "scan": 0.017345299993394292,
+        "gate_RMS": 0.016332900006091222,
+        "normalize_output": 0.3510295999876689
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 1.0016130000003614,
+      "stage_seconds": {
+        "BC_projection": 0.005177199989702785,
+        "scan": 0.044514600005641114,
+        "gate_RMS": 0.04237390000344021,
+        "normalize_output": 0.9090253000176745
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.6227632999998605,
+      "stage_seconds": {
+        "BC_projection": 0.0033246000166400336,
+        "scan": 0.027884500008440227,
+        "gate_RMS": 0.02648009998847556,
+        "normalize_output": 0.564637399993444
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4766120999993291,
+      "stage_seconds": {
+        "BC_projection": 0.002380100011578179,
+        "scan": 0.021874299987757695,
+        "gate_RMS": 0.020009000018035294,
+        "normalize_output": 0.4319589000133419
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.4772314000001643,
+      "stage_seconds": {
+        "BC_projection": 0.002510899990738835,
+        "scan": 0.02134400000977621,
+        "gate_RMS": 0.0202318999927229,
+        "normalize_output": 0.4327684000109002
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.07711290000042936,
+      "stage_seconds": {
+        "BC_projection": 0.0003992000056314282,
+        "scan": 0.0035219000001234235,
+        "gate_RMS": 0.0031911999994918006,
+        "normalize_output": 0.06971459999476792
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.11690139999882376,
+      "stage_seconds": {
+        "BC_projection": 0.0005930000043008476,
+        "scan": 0.005314100002578925,
+        "gate_RMS": 0.004905799996777205,
+        "normalize_output": 0.10579470000266156
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.2732088000011572,
+      "stage_seconds": {
+        "BC_projection": 0.001534299983177334,
+        "scan": 0.012346800001978409,
+        "gate_RMS": 0.011458700011644396,
+        "normalize_output": 0.24754209999082377
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.4367848000001686,
+      "stage_seconds": {
+        "BC_projection": 0.002214099999036989,
+        "scan": 0.019475199998851167,
+        "gate_RMS": 0.018458600017766003,
+        "normalize_output": 0.39625519997753145
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.4117547999994713,
+      "stage_seconds": {
+        "BC_projection": 0.002123799993569264,
+        "scan": 0.018536200006565196,
+        "gate_RMS": 0.01729679999880318,
+        "normalize_output": 0.3734251000041695
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.5061393999985739,
+      "stage_seconds": {
+        "BC_projection": 0.0024949999951786594,
+        "scan": 0.023105500013116398,
+        "gate_RMS": 0.021833599987076013,
+        "normalize_output": 0.45829149998826324
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.40953340000123717,
+      "stage_seconds": {
+        "BC_projection": 0.002121499992426834,
+        "scan": 0.01839329999347683,
+        "gate_RMS": 0.01717679999273969,
+        "normalize_output": 0.3714898000271205
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5610433000001649,
+      "stage_seconds": {
+        "BC_projection": 0.0028053999958501663,
+        "scan": 0.025540200022078352,
+        "gate_RMS": 0.023586700017403928,
+        "normalize_output": 0.508682499978022
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5580050000007759,
+      "stage_seconds": {
+        "BC_projection": 0.002861300017684698,
+        "scan": 0.025455799985138583,
+        "gate_RMS": 0.023468700022931444,
+        "normalize_output": 0.5057828000008158
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.43582859999878565,
+      "stage_seconds": {
+        "BC_projection": 0.002243899980385322,
+        "scan": 0.01980050000747724,
+        "gate_RMS": 0.018351600012465497,
+        "normalize_output": 0.3950561000347079
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.31107109999902605,
+      "stage_seconds": {
+        "BC_projection": 0.0015716999932919862,
+        "scan": 0.014046899992536055,
+        "gate_RMS": 0.01301039998725173,
+        "normalize_output": 0.2821144000063214
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.380375600001571,
+      "stage_seconds": {
+        "BC_projection": 0.001947999999174499,
+        "scan": 0.017025199991621776,
+        "gate_RMS": 0.016013300004487974,
+        "normalize_output": 0.34501530000306957
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.33850110000094,
+      "stage_seconds": {
+        "BC_projection": 0.0072203999352495885,
+        "scan": 0.059661699990101624,
+        "gate_RMS": 0.05644480000046315,
+        "normalize_output": 1.214531400011765
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.9431215999993583,
+      "stage_seconds": {
+        "BC_projection": 0.01041939998503949,
+        "scan": 0.08770040005765622,
+        "gate_RMS": 0.08218940000369912,
+        "normalize_output": 1.7620425000168325
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.32557209999868064,
+      "stage_seconds": {
+        "BC_projection": 0.0016537999981665052,
+        "scan": 0.014857800006211619,
+        "gate_RMS": 0.013732899997194181,
+        "normalize_output": 0.29496499999913794
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.722039300000688,
+      "stage_seconds": {
+        "BC_projection": 0.0037209999973129015,
+        "scan": 0.03270509998947091,
+        "gate_RMS": 0.030338900009155623,
+        "normalize_output": 0.6547986000023229
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 1.0085091999990254,
+      "stage_seconds": {
+        "BC_projection": 0.005140999999639462,
+        "scan": 0.04510770001797937,
+        "gate_RMS": 0.042613199966581305,
+        "normalize_output": 0.9151060999993206
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.34422409999933734,
+      "stage_seconds": {
+        "BC_projection": 0.0019229000008635921,
+        "scan": 0.015737500003524474,
+        "gate_RMS": 0.014448199988692068,
+        "normalize_output": 0.31176820000473526
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.3260978999987856,
+      "stage_seconds": {
+        "BC_projection": 0.006965600028706831,
+        "scan": 0.05947959998957231,
+        "gate_RMS": 0.05595770002764766,
+        "normalize_output": 1.2030592000046454
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.41068230000018957,
+      "stage_seconds": {
+        "BC_projection": 0.00251659999594267,
+        "scan": 0.018400700006168336,
+        "gate_RMS": 0.017179499995108927,
+        "normalize_output": 0.37220060002255195
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.192452900000717,
+      "stage_seconds": {
+        "BC_projection": 0.006468900031904923,
+        "scan": 0.05369340000470402,
+        "gate_RMS": 0.050130400029956945,
+        "normalize_output": 1.0815743999810365
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.5983022999989771,
+      "stage_seconds": {
+        "BC_projection": 0.0030470000019704457,
+        "scan": 0.026900200016825693,
+        "gate_RMS": 0.02627009998104768,
+        "normalize_output": 0.541660899969429
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.4863664999993489,
+      "stage_seconds": {
+        "BC_projection": 0.002490999995643506,
+        "scan": 0.022267499993176898,
+        "gate_RMS": 0.020411300001796917,
+        "normalize_output": 0.4407987000049616
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.26075739999942016,
+      "stage_seconds": {
+        "BC_projection": 0.0013202999743953114,
+        "scan": 0.011903199983862578,
+        "gate_RMS": 0.01093980001132877,
+        "normalize_output": 0.23625649999485177
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.08151500000167289,
+      "stage_seconds": {
+        "BC_projection": 0.0004225000029691728,
+        "scan": 0.0037128999993001344,
+        "gate_RMS": 0.003344100001413608,
+        "normalize_output": 0.07374789999812492
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.4190929000014876,
+      "stage_seconds": {
+        "BC_projection": 0.0021056999794382136,
+        "scan": 0.018882899976233603,
+        "gate_RMS": 0.01782980002462864,
+        "normalize_output": 0.3799064000031649
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.31610019999970973,
+      "stage_seconds": {
+        "BC_projection": 0.0015999000170268118,
+        "scan": 0.01501859999007138,
+        "gate_RMS": 0.013276300012876163,
+        "normalize_output": 0.2858532999871386
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.4574124999999185,
+      "stage_seconds": {
+        "BC_projection": 0.002329800005099969,
+        "scan": 0.02114009998513211,
+        "gate_RMS": 0.019242700007453095,
+        "normalize_output": 0.4143071000016789
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.5000902000010683,
+      "stage_seconds": {
+        "BC_projection": 0.002567800005635945,
+        "scan": 0.022586599983696942,
+        "gate_RMS": 0.0211417000318761,
+        "normalize_output": 0.45340530000976287
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.4114321999986714,
+      "stage_seconds": {
+        "BC_projection": 0.002079799978673691,
+        "scan": 0.01857150000068941,
+        "gate_RMS": 0.017316099992967793,
+        "normalize_output": 0.37310060001254897
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.3719693000002735,
+      "stage_seconds": {
+        "BC_projection": 0.0018749999999272404,
+        "scan": 0.016756299994085566,
+        "gate_RMS": 0.015605100001266692,
+        "normalize_output": 0.3373686000086309
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.4625287000017124,
+      "stage_seconds": {
+        "BC_projection": 0.0023569999939354602,
+        "scan": 0.02086569997300103,
+        "gate_RMS": 0.01934649999748217,
+        "normalize_output": 0.419556000006196
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.538402700000006,
+      "stage_seconds": {
+        "BC_projection": 0.0028062000128556974,
+        "scan": 0.02434070002345834,
+        "gate_RMS": 0.022789700004068436,
+        "normalize_output": 0.4880485999783559
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.46501399999942805,
+      "stage_seconds": {
+        "BC_projection": 0.002454400011629332,
+        "scan": 0.0214195999687945,
+        "gate_RMS": 0.01951100002406747,
+        "normalize_output": 0.4212361000081728
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.24360880000131147,
+      "stage_seconds": {
+        "BC_projection": 0.0012307999859331176,
+        "scan": 0.011131499997645733,
+        "gate_RMS": 0.010252499996568076,
+        "normalize_output": 0.22064680000039516
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.13842120000117575,
+      "stage_seconds": {
+        "BC_projection": 0.000697300018146052,
+        "scan": 0.006357400006891112,
+        "gate_RMS": 0.00580439999976079,
+        "normalize_output": 0.12525330000607937
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.6331136000007973,
+      "stage_seconds": {
+        "BC_projection": 0.008895599996321835,
+        "scan": 0.07328149999193556,
+        "gate_RMS": 0.06873629999063269,
+        "normalize_output": 1.4814778999916598
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.9349447000004147,
+      "stage_seconds": {
+        "BC_projection": 0.011053900005208561,
+        "scan": 0.0863258999925165,
+        "gate_RMS": 0.08178559998668788,
+        "normalize_output": 1.754931800031045
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6481074000002991,
+      "stage_seconds": {
+        "BC_projection": 0.0032824999962031143,
+        "scan": 0.029679099992790725,
+        "gate_RMS": 0.02732599999944796,
+        "normalize_output": 0.5873397000159457
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.49176690000058443,
+      "stage_seconds": {
+        "BC_projection": 0.002723800003877841,
+        "scan": 0.02237000000241096,
+        "gate_RMS": 0.020513199982815422,
+        "normalize_output": 0.44574000002285175
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.3160525000002963,
+      "stage_seconds": {
+        "BC_projection": 0.0016550999898754526,
+        "scan": 0.014211300001989002,
+        "gate_RMS": 0.013420899987977464,
+        "normalize_output": 0.2864317999974446
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.27324950000002,
+      "stage_seconds": {
+        "BC_projection": 0.006879899989144178,
+        "scan": 0.057002600022315164,
+        "gate_RMS": 0.053902199968433706,
+        "normalize_output": 1.1548598000354104
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.1553700000004028,
+      "stage_seconds": {
+        "BC_projection": 0.006343300034131971,
+        "scan": 0.052750800025023636,
+        "gate_RMS": 0.04887719995713269,
+        "normalize_output": 1.0468007000163198
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 0,
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.3844000999997661,
+      "stage_seconds": {
+        "BC_projection": 0.0019506999942677794,
+        "scan": 0.017137599987108842,
+        "gate_RMS": 0.01628949997939344,
+        "normalize_output": 0.3486587000206782
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 1.0110695000003034,
+      "stage_seconds": {
+        "BC_projection": 0.005229699967458146,
+        "scan": 0.04654909999590018,
+        "gate_RMS": 0.042755199981911574,
+        "normalize_output": 0.9159530000033556
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.6527583999995841,
+      "stage_seconds": {
+        "BC_projection": 0.0032401000116806244,
+        "scan": 0.029563199961557984,
+        "gate_RMS": 0.02686220001487527,
+        "normalize_output": 0.5926253999896289
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4801943000002211,
+      "stage_seconds": {
+        "BC_projection": 0.002500599990526098,
+        "scan": 0.021807899998748326,
+        "gate_RMS": 0.019936200013034977,
+        "normalize_output": 0.43556249998619023
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.5055811000001995,
+      "stage_seconds": {
+        "BC_projection": 0.002629300002809032,
+        "scan": 0.023388700012219488,
+        "gate_RMS": 0.020726500024466077,
+        "normalize_output": 0.45838320002258115
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.07744450000063807,
+      "stage_seconds": {
+        "BC_projection": 0.0003949000001739478,
+        "scan": 0.0036007999970024684,
+        "gate_RMS": 0.003175100002408726,
+        "normalize_output": 0.06998049999856448
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.11826769999970566,
+      "stage_seconds": {
+        "BC_projection": 0.0005541000027733389,
+        "scan": 0.005513499994776794,
+        "gate_RMS": 0.004951999988406897,
+        "normalize_output": 0.1069554000187054
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.2741100000002916,
+      "stage_seconds": {
+        "BC_projection": 0.001379199986331514,
+        "scan": 0.012403100010487833,
+        "gate_RMS": 0.012488299991673557,
+        "normalize_output": 0.24749099998371094
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.43992959999923187,
+      "stage_seconds": {
+        "BC_projection": 0.0022621000334765995,
+        "scan": 0.02016860000003362,
+        "gate_RMS": 0.01857059998656041,
+        "normalize_output": 0.3985203999927762
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.41735309999967285,
+      "stage_seconds": {
+        "BC_projection": 0.002243899984023301,
+        "scan": 0.018982799998411792,
+        "gate_RMS": 0.017487999977674917,
+        "normalize_output": 0.3782594999865978
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.4959586000004492,
+      "stage_seconds": {
+        "BC_projection": 0.0024247000001196284,
+        "scan": 0.022765300000173738,
+        "gate_RMS": 0.021038699989730958,
+        "normalize_output": 0.44930050000039046
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.4110326999998506,
+      "stage_seconds": {
+        "BC_projection": 0.0019911999988835305,
+        "scan": 0.018849799993404304,
+        "gate_RMS": 0.01725220001208072,
+        "normalize_output": 0.3725653999863425
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5661436000009417,
+      "stage_seconds": {
+        "BC_projection": 0.0028384999768604757,
+        "scan": 0.025597600000764942,
+        "gate_RMS": 0.02373979999902076,
+        "normalize_output": 0.5135312999846064
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5603537000006327,
+      "stage_seconds": {
+        "BC_projection": 0.002787999977954314,
+        "scan": 0.025172600007863366,
+        "gate_RMS": 0.024253800011138082,
+        "normalize_output": 0.5077395000025717
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.44665379999969446,
+      "stage_seconds": {
+        "BC_projection": 0.0022577000036108075,
+        "scan": 0.020244700026523788,
+        "gate_RMS": 0.018593399981909897,
+        "normalize_output": 0.40516379999462515
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.31113770000047225,
+      "stage_seconds": {
+        "BC_projection": 0.001508999985162518,
+        "scan": 0.014116699987425818,
+        "gate_RMS": 0.013130099985573906,
+        "normalize_output": 0.28202280002005864
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.3832884000003105,
+      "stage_seconds": {
+        "BC_projection": 0.0018613000083860243,
+        "scan": 0.017588000004252535,
+        "gate_RMS": 0.016087100020740763,
+        "normalize_output": 0.34737949998998374
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.339142400000128,
+      "stage_seconds": {
+        "BC_projection": 0.00682159998723364,
+        "scan": 0.061003599996183766,
+        "gate_RMS": 0.056287499974132515,
+        "normalize_output": 1.2143220000289148
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.955667700000049,
+      "stage_seconds": {
+        "BC_projection": 0.00982760000260896,
+        "scan": 0.08937569999761763,
+        "gate_RMS": 0.08247680000931723,
+        "normalize_output": 1.7731256999959442
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.32795439999972587,
+      "stage_seconds": {
+        "BC_projection": 0.001565100015795906,
+        "scan": 0.0147379999889381,
+        "gate_RMS": 0.013722899999265792,
+        "normalize_output": 0.2975724999942031
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.7223076999998739,
+      "stage_seconds": {
+        "BC_projection": 0.0034788000066328095,
+        "scan": 0.03325460001724423,
+        "gate_RMS": 0.030523399969752063,
+        "normalize_output": 0.6545411000133754
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 1.0022989999997662,
+      "stage_seconds": {
+        "BC_projection": 0.004786199999216478,
+        "scan": 0.04494129999693541,
+        "gate_RMS": 0.04212470001948532,
+        "normalize_output": 0.9098983999829215
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.3446082000009483,
+      "stage_seconds": {
+        "BC_projection": 0.0016515000043000327,
+        "scan": 0.01593540002068039,
+        "gate_RMS": 0.014440200000535697,
+        "normalize_output": 0.31222380000508565
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.3233172000000195,
+      "stage_seconds": {
+        "BC_projection": 0.006978900006288313,
+        "scan": 0.06049719995280611,
+        "gate_RMS": 0.055673100036074175,
+        "normalize_output": 1.1995071999663196
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.41124409999974887,
+      "stage_seconds": {
+        "BC_projection": 0.001969100025235093,
+        "scan": 0.018833000012818957,
+        "gate_RMS": 0.017216100004588952,
+        "normalize_output": 0.37276390000261017
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.2064360000003944,
+      "stage_seconds": {
+        "BC_projection": 0.005796000023110537,
+        "scan": 0.05497829999694659,
+        "gate_RMS": 0.050718300000880845,
+        "normalize_output": 1.0942756000513327
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.5978367000006983,
+      "stage_seconds": {
+        "BC_projection": 0.002968200022223755,
+        "scan": 0.027196299995921436,
+        "gate_RMS": 0.025271600006817607,
+        "normalize_output": 0.5419515000048705
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.4951065000004746,
+      "stage_seconds": {
+        "BC_projection": 0.0024961999915831257,
+        "scan": 0.02199409998866031,
+        "gate_RMS": 0.02071260000957409,
+        "normalize_output": 0.44949849996191915
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.26196770000024117,
+      "stage_seconds": {
+        "BC_projection": 0.0012470000219764188,
+        "scan": 0.011979499997323728,
+        "gate_RMS": 0.010996499997418141,
+        "normalize_output": 0.23739730000852433
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.08009630000015022,
+      "stage_seconds": {
+        "BC_projection": 0.00039599999399797525,
+        "scan": 0.0036155999969196273,
+        "gate_RMS": 0.003369899990502745,
+        "normalize_output": 0.07243360000575194
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.42289850000088336,
+      "stage_seconds": {
+        "BC_projection": 0.0023346000198216643,
+        "scan": 0.019296900005429052,
+        "gate_RMS": 0.01778889998786326,
+        "normalize_output": 0.38308639999195293
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.3164333999993687,
+      "stage_seconds": {
+        "BC_projection": 0.001526199985164567,
+        "scan": 0.0142730999905325,
+        "gate_RMS": 0.013412100015557371,
+        "normalize_output": 0.2868600999881892
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.46057219999966037,
+      "stage_seconds": {
+        "BC_projection": 0.002177300020775874,
+        "scan": 0.021095200014315196,
+        "gate_RMS": 0.019287299995994545,
+        "normalize_output": 0.4176045000021986
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.5038034999997762,
+      "stage_seconds": {
+        "BC_projection": 0.0026537000048847403,
+        "scan": 0.023592600007759756,
+        "gate_RMS": 0.021183600010772352,
+        "normalize_output": 0.4559363000244048
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.4178704000005382,
+      "stage_seconds": {
+        "BC_projection": 0.001988800006074598,
+        "scan": 0.01912260000790411,
+        "gate_RMS": 0.01752429999760352,
+        "normalize_output": 0.378855700020722
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.3776527999998507,
+      "stage_seconds": {
+        "BC_projection": 0.0018203000254288781,
+        "scan": 0.017097200008720392,
+        "gate_RMS": 0.016894999989744974,
+        "normalize_output": 0.34145850000822975
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.46125390000088373,
+      "stage_seconds": {
+        "BC_projection": 0.0022114999846962746,
+        "scan": 0.021220299999185954,
+        "gate_RMS": 0.019323700023960555,
+        "normalize_output": 0.4180976999941777
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.5449201999999786,
+      "stage_seconds": {
+        "BC_projection": 0.0026318000036553713,
+        "scan": 0.02501650001613598,
+        "gate_RMS": 0.022906599995621946,
+        "normalize_output": 0.4939125000310014
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.46898370000053546,
+      "stage_seconds": {
+        "BC_projection": 0.0022464999856310897,
+        "scan": 0.0213984999954846,
+        "gate_RMS": 0.019651400016300613,
+        "normalize_output": 0.4252682999922399
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.243681199999628,
+      "stage_seconds": {
+        "BC_projection": 0.0012036999960400863,
+        "scan": 0.011163400014993385,
+        "gate_RMS": 0.010349000005589915,
+        "normalize_output": 0.22060369999235263
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.13953770000080112,
+      "stage_seconds": {
+        "BC_projection": 0.0006785000114177819,
+        "scan": 0.006300699997154879,
+        "gate_RMS": 0.0059047000049758935,
+        "normalize_output": 0.12637690000337898
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.6435215000001335,
+      "stage_seconds": {
+        "BC_projection": 0.008314999966387404,
+        "scan": 0.07350899999983085,
+        "gate_RMS": 0.06901199999265373,
+        "normalize_output": 1.4919036999981472
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.9317964000001666,
+      "stage_seconds": {
+        "BC_projection": 0.010075000016513513,
+        "scan": 0.08798160003243538,
+        "gate_RMS": 0.08151420000103826,
+        "normalize_output": 1.7513022999974055
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6509690000002593,
+      "stage_seconds": {
+        "BC_projection": 0.003152099990984425,
+        "scan": 0.029777599977023783,
+        "gate_RMS": 0.02725339999778953,
+        "normalize_output": 0.5903606999909243
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.48359199999867997,
+      "stage_seconds": {
+        "BC_projection": 0.00251219998972374,
+        "scan": 0.021516900003916817,
+        "gate_RMS": 0.02043959999900835,
+        "normalize_output": 0.43871579998267407
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.314085600000908,
+      "stage_seconds": {
+        "BC_projection": 0.0015153000076679746,
+        "scan": 0.014311299984910875,
+        "gate_RMS": 0.013177600010749302,
+        "normalize_output": 0.28470000000379514
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2740451999998186,
+      "stage_seconds": {
+        "BC_projection": 0.006161000032079755,
+        "scan": 0.05883979999634903,
+        "gate_RMS": 0.054228000017246814,
+        "normalize_output": 1.1541621999531344
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.156394099998579,
+      "stage_seconds": {
+        "BC_projection": 0.005565499966905918,
+        "scan": 0.05307180002455425,
+        "gate_RMS": 0.048528900000746944,
+        "normalize_output": 1.048592799999824
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.3885067999999592,
+      "stage_seconds": {
+        "BC_projection": 0.0021302000095602125,
+        "scan": 0.017782199969587964,
+        "gate_RMS": 0.01630890001433727,
+        "normalize_output": 0.35190359999251086
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 1.0046421000006376,
+      "stage_seconds": {
+        "BC_projection": 0.0048073000070871785,
+        "scan": 0.04444180001519271,
+        "gate_RMS": 0.04224650001015107,
+        "normalize_output": 0.9125555999635253
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.6209779999990133,
+      "stage_seconds": {
+        "BC_projection": 0.0032990000036079437,
+        "scan": 0.028339799981040414,
+        "gate_RMS": 0.026097899995875196,
+        "normalize_output": 0.5627961999853142
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4702246000015293,
+      "stage_seconds": {
+        "BC_projection": 0.0024213999986386625,
+        "scan": 0.02178259999709553,
+        "gate_RMS": 0.019840000009935466,
+        "normalize_output": 0.42579179997301253
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.482242000000042,
+      "stage_seconds": {
+        "BC_projection": 0.002340699989872519,
+        "scan": 0.02177169998503814,
+        "gate_RMS": 0.02015550004034594,
+        "normalize_output": 0.4375683999951434
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.0818039999994653,
+      "stage_seconds": {
+        "BC_projection": 0.0004141000117670046,
+        "scan": 0.00385850000748178,
+        "gate_RMS": 0.003198099993824144,
+        "normalize_output": 0.07404340000721277
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.12368859999878623,
+      "stage_seconds": {
+        "BC_projection": 0.000665700004901737,
+        "scan": 0.005736099989007926,
+        "gate_RMS": 0.004935300003126031,
+        "normalize_output": 0.11205379999591969
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.27176300000064657,
+      "stage_seconds": {
+        "BC_projection": 0.0013758000222878763,
+        "scan": 0.012318699999013916,
+        "gate_RMS": 0.01149989999612444,
+        "normalize_output": 0.24621780001143634
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.4403182000005472,
+      "stage_seconds": {
+        "BC_projection": 0.0022799000071245246,
+        "scan": 0.02018530003260821,
+        "gate_RMS": 0.01840119999178569,
+        "normalize_output": 0.3990342999895802
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.4175259999992704,
+      "stage_seconds": {
+        "BC_projection": 0.0020316999798524193,
+        "scan": 0.0188322000176413,
+        "gate_RMS": 0.01750720000381989,
+        "normalize_output": 0.37875309998162265
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.4953654999990249,
+      "stage_seconds": {
+        "BC_projection": 0.0024859000022843247,
+        "scan": 0.022493500022392254,
+        "gate_RMS": 0.020906900010231766,
+        "normalize_output": 0.44908469999063527
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.4087253999987297,
+      "stage_seconds": {
+        "BC_projection": 0.0021154999867576407,
+        "scan": 0.0181538999931945,
+        "gate_RMS": 0.017185799983053585,
+        "normalize_output": 0.3708960000094521
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5651407999994262,
+      "stage_seconds": {
+        "BC_projection": 0.0028433999759727158,
+        "scan": 0.025956000008591218,
+        "gate_RMS": 0.02376320000803389,
+        "normalize_output": 0.5121319000136282
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5623600999988412,
+      "stage_seconds": {
+        "BC_projection": 0.002871099961339496,
+        "scan": 0.02545249998001964,
+        "gate_RMS": 0.0234912999876542,
+        "normalize_output": 0.5101107999871601
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.4375261999994109,
+      "stage_seconds": {
+        "BC_projection": 0.0022254999985307222,
+        "scan": 0.02005500000268512,
+        "gate_RMS": 0.018505100018956,
+        "normalize_output": 0.396359600010328
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.31113060000097903,
+      "stage_seconds": {
+        "BC_projection": 0.0015117000039026607,
+        "scan": 0.014527400015140302,
+        "gate_RMS": 0.01301590001276054,
+        "normalize_output": 0.2817207999796665
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.3819841999993514,
+      "stage_seconds": {
+        "BC_projection": 0.002103899980284041,
+        "scan": 0.017367999997077277,
+        "gate_RMS": 0.016062199996667914,
+        "normalize_output": 0.346063500002856
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.3471800999996049,
+      "stage_seconds": {
+        "BC_projection": 0.006891300005008816,
+        "scan": 0.060517299971252214,
+        "gate_RMS": 0.056614100032675196,
+        "normalize_output": 1.22248890001174
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.9543615999991744,
+      "stage_seconds": {
+        "BC_projection": 0.010132100025657564,
+        "scan": 0.08838740001920087,
+        "gate_RMS": 0.08226519999698212,
+        "normalize_output": 1.7728000999795768
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.32541630000014266,
+      "stage_seconds": {
+        "BC_projection": 0.0015805000166437821,
+        "scan": 0.01443219999782741,
+        "gate_RMS": 0.0137289000194869,
+        "normalize_output": 0.295314299997699
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.7211062999995193,
+      "stage_seconds": {
+        "BC_projection": 0.003490799985229387,
+        "scan": 0.033039699990695226,
+        "gate_RMS": 0.030369800018888782,
+        "normalize_output": 0.6537279000167473
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 1.012425599999915,
+      "stage_seconds": {
+        "BC_projection": 0.004942499996104743,
+        "scan": 0.045276500006366405,
+        "gate_RMS": 0.0427927999808162,
+        "normalize_output": 0.918853199986188
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.3420977000005223,
+      "stage_seconds": {
+        "BC_projection": 0.0017723999917507172,
+        "scan": 0.015586600004098727,
+        "gate_RMS": 0.014479500008746982,
+        "normalize_output": 0.30987919998187863
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.322928800000227,
+      "stage_seconds": {
+        "BC_projection": 0.006723599954057136,
+        "scan": 0.06141300000308547,
+        "gate_RMS": 0.05557939997379435,
+        "normalize_output": 1.19851029997335
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.41415069999857224,
+      "stage_seconds": {
+        "BC_projection": 0.002349400014281855,
+        "scan": 0.0185647000271274,
+        "gate_RMS": 0.017342100001769722,
+        "normalize_output": 0.375528899998244
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.1924435000000813,
+      "stage_seconds": {
+        "BC_projection": 0.005684800022208947,
+        "scan": 0.05448220001562731,
+        "gate_RMS": 0.05012869997699454,
+        "normalize_output": 1.0814042999918456
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.6054351000002498,
+      "stage_seconds": {
+        "BC_projection": 0.0029665000020031584,
+        "scan": 0.027522900001713424,
+        "gate_RMS": 0.025284700024712947,
+        "normalize_output": 0.549202600001081
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.49007829999936803,
+      "stage_seconds": {
+        "BC_projection": 0.002429399994070991,
+        "scan": 0.022040300005755853,
+        "gate_RMS": 0.020590300002368167,
+        "normalize_output": 0.4446008000340953
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.25954230000024836,
+      "stage_seconds": {
+        "BC_projection": 0.0012717999870801577,
+        "scan": 0.01167929999610351,
+        "gate_RMS": 0.010911399993347004,
+        "normalize_output": 0.2353613000104815
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.08174259999941569,
+      "stage_seconds": {
+        "BC_projection": 0.0004244999945512973,
+        "scan": 0.0036163000058877515,
+        "gate_RMS": 0.0033220999957848107,
+        "normalize_output": 0.07408370000666764
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.41766399999869463,
+      "stage_seconds": {
+        "BC_projection": 0.0023045000089041423,
+        "scan": 0.019139399999403395,
+        "gate_RMS": 0.017810499979532324,
+        "normalize_output": 0.3780221000160964
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.31902439999976195,
+      "stage_seconds": {
+        "BC_projection": 0.0015575999877910363,
+        "scan": 0.014288800015492598,
+        "gate_RMS": 0.013311599990629475,
+        "normalize_output": 0.28950390001409687
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.45903179999913846,
+      "stage_seconds": {
+        "BC_projection": 0.00222210001811618,
+        "scan": 0.020565400011037127,
+        "gate_RMS": 0.01929139999265317,
+        "normalize_output": 0.41656630000215955
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.5020457000009628,
+      "stage_seconds": {
+        "BC_projection": 0.0025018999876920134,
+        "scan": 0.023079100012182607,
+        "gate_RMS": 0.021144100004676147,
+        "normalize_output": 0.4548932000016066
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.4131006999996316,
+      "stage_seconds": {
+        "BC_projection": 0.0021395000057964353,
+        "scan": 0.018790800004353514,
+        "gate_RMS": 0.01732290001018555,
+        "normalize_output": 0.3744539000053919
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.3771281999997882,
+      "stage_seconds": {
+        "BC_projection": 0.0018426999886287376,
+        "scan": 0.01731379999728233,
+        "gate_RMS": 0.015775500001836917,
+        "normalize_output": 0.3418409999794676
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.46535880000010366,
+      "stage_seconds": {
+        "BC_projection": 0.0022685000112687703,
+        "scan": 0.021095200025229133,
+        "gate_RMS": 0.019578200010073488,
+        "normalize_output": 0.422032099979333
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.5398472999986552,
+      "stage_seconds": {
+        "BC_projection": 0.0026992000075551914,
+        "scan": 0.02484510000249429,
+        "gate_RMS": 0.022793999984060065,
+        "normalize_output": 0.48909390000335407
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.4654374000001553,
+      "stage_seconds": {
+        "BC_projection": 0.0022354000248014927,
+        "scan": 0.021185600005992455,
+        "gate_RMS": 0.019622699974206625,
+        "normalize_output": 0.4219647999652807
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.2439678000009735,
+      "stage_seconds": {
+        "BC_projection": 0.0012241999957041116,
+        "scan": 0.011212800007342594,
+        "gate_RMS": 0.01020659998539486,
+        "normalize_output": 0.2209780000266619
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.13894430000073044,
+      "stage_seconds": {
+        "BC_projection": 0.0007065000008878997,
+        "scan": 0.006299399994531996,
+        "gate_RMS": 0.005826400005389587,
+        "normalize_output": 0.12582299999485258
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.6438736000000063,
+      "stage_seconds": {
+        "BC_projection": 0.008332599985806155,
+        "scan": 0.07451269998455246,
+        "gate_RMS": 0.0690894999752345,
+        "normalize_output": 1.491193400019256
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.9438876999993226,
+      "stage_seconds": {
+        "BC_projection": 0.010014100047555985,
+        "scan": 0.08818109996718704,
+        "gate_RMS": 0.08139679998566862,
+        "normalize_output": 1.7633979999645817
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6519083000002865,
+      "stage_seconds": {
+        "BC_projection": 0.003132299996650545,
+        "scan": 0.029861300004995428,
+        "gate_RMS": 0.027261299994279398,
+        "normalize_output": 0.5911923000039678
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.48420439999972587,
+      "stage_seconds": {
+        "BC_projection": 0.0026081999858433846,
+        "scan": 0.021560500012128614,
+        "gate_RMS": 0.020511499997155624,
+        "normalize_output": 0.439092000009623
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.3162895999994362,
+      "stage_seconds": {
+        "BC_projection": 0.0015556999860564247,
+        "scan": 0.01424010001028364,
+        "gate_RMS": 0.013409799970759195,
+        "normalize_output": 0.2867148000132147
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2707805000009103,
+      "stage_seconds": {
+        "BC_projection": 0.006114500032708747,
+        "scan": 0.05804659996829287,
+        "gate_RMS": 0.05347010002697061,
+        "normalize_output": 1.1525048000039533
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.158370199998899,
+      "stage_seconds": {
+        "BC_projection": 0.0061241999464982655,
+        "scan": 0.05328160003045923,
+        "gate_RMS": 0.04882029997679638,
+        "normalize_output": 1.0495891000155098
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 12,
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.386987500000032,
+      "stage_seconds": {
+        "BC_projection": 0.0019591000072978204,
+        "scan": 0.017455500004871283,
+        "gate_RMS": 0.016334300000380608,
+        "normalize_output": 0.3508665000026667
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 1.0157737999998062,
+      "stage_seconds": {
+        "BC_projection": 0.005499299966686522,
+        "scan": 0.045258299964189064,
+        "gate_RMS": 0.04268499996396713,
+        "normalize_output": 0.9218194000077347
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.6218420000004699,
+      "stage_seconds": {
+        "BC_projection": 0.003522400029396522,
+        "scan": 0.028243799994015717,
+        "gate_RMS": 0.026070600011735223,
+        "normalize_output": 0.5635668999657355
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4693537999992259,
+      "stage_seconds": {
+        "BC_projection": 0.00264770002104342,
+        "scan": 0.0211596000190184,
+        "gate_RMS": 0.01976470000226982,
+        "normalize_output": 0.4253662999781227
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.47806110000055924,
+      "stage_seconds": {
+        "BC_projection": 0.00255429997741885,
+        "scan": 0.021681300009731785,
+        "gate_RMS": 0.020039499975609942,
+        "normalize_output": 0.4333980000083102
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.07572190000064438,
+      "stage_seconds": {
+        "BC_projection": 0.000419699998019496,
+        "scan": 0.003424700000323355,
+        "gate_RMS": 0.0031139000038820086,
+        "normalize_output": 0.06846409999889147
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.11709169999994629,
+      "stage_seconds": {
+        "BC_projection": 0.0006382000119629083,
+        "scan": 0.005438300000605523,
+        "gate_RMS": 0.004882400007772958,
+        "normalize_output": 0.10583290000977286
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.27070740000090154,
+      "stage_seconds": {
+        "BC_projection": 0.0014504999980999855,
+        "scan": 0.012473499977204483,
+        "gate_RMS": 0.01142729999810399,
+        "normalize_output": 0.24502269999175041
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.439986699999281,
+      "stage_seconds": {
+        "BC_projection": 0.002292999990459066,
+        "scan": 0.020291200004066923,
+        "gate_RMS": 0.018507799968574545,
+        "normalize_output": 0.3984921999854123
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.4121006999994279,
+      "stage_seconds": {
+        "BC_projection": 0.0021519999972952064,
+        "scan": 0.019079400022746995,
+        "gate_RMS": 0.017237399995792657,
+        "normalize_output": 0.3732441000211111
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.49647580000055314,
+      "stage_seconds": {
+        "BC_projection": 0.002670800022315234,
+        "scan": 0.022601200003919075,
+        "gate_RMS": 0.020621499988919822,
+        "normalize_output": 0.4501899000042613
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.4095886999984941,
+      "stage_seconds": {
+        "BC_projection": 0.0021499000049516326,
+        "scan": 0.01869950000400422,
+        "gate_RMS": 0.017164900000352645,
+        "normalize_output": 0.3711923000009847
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5627146999995603,
+      "stage_seconds": {
+        "BC_projection": 0.0029743999821221223,
+        "scan": 0.02532039996185631,
+        "gate_RMS": 0.02374100001179613,
+        "normalize_output": 0.5102840000217839
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5569256999988283,
+      "stage_seconds": {
+        "BC_projection": 0.0029412000039883424,
+        "scan": 0.02564869999878283,
+        "gate_RMS": 0.02333560000624857,
+        "normalize_output": 0.5045696999877691
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.44617440000001807,
+      "stage_seconds": {
+        "BC_projection": 0.002343399995879736,
+        "scan": 0.02035470000009809,
+        "gate_RMS": 0.018355300004259334,
+        "normalize_output": 0.4047448999917833
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.3098956999983784,
+      "stage_seconds": {
+        "BC_projection": 0.001655599988225731,
+        "scan": 0.013712300009501632,
+        "gate_RMS": 0.012951100008649519,
+        "normalize_output": 0.28121439998176356
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.3805140999993455,
+      "stage_seconds": {
+        "BC_projection": 0.002014099994994467,
+        "scan": 0.01729419999901438,
+        "gate_RMS": 0.01596669996615674,
+        "normalize_output": 0.3448639000143885
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.3366086999994877,
+      "stage_seconds": {
+        "BC_projection": 0.007373300026301877,
+        "scan": 0.06037839999407879,
+        "gate_RMS": 0.056193800000983174,
+        "normalize_output": 1.2120204000657395
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.9499863000000914,
+      "stage_seconds": {
+        "BC_projection": 0.01072839996595576,
+        "scan": 0.088833500045439,
+        "gate_RMS": 0.08226139994803816,
+        "normalize_output": 1.7673615000312566
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.3267250000008062,
+      "stage_seconds": {
+        "BC_projection": 0.001846200004365528,
+        "scan": 0.014967800001613796,
+        "gate_RMS": 0.013742900020588422,
+        "normalize_output": 0.29580320000059146
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.7218479999992269,
+      "stage_seconds": {
+        "BC_projection": 0.003924399990864913,
+        "scan": 0.03269290001117042,
+        "gate_RMS": 0.030089800007772283,
+        "normalize_output": 0.6546900999856007
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 1.0093823999995948,
+      "stage_seconds": {
+        "BC_projection": 0.005751399974542437,
+        "scan": 0.04610620001403731,
+        "gate_RMS": 0.042440500010343385,
+        "normalize_output": 0.9145165000009001
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.3426042999999481,
+      "stage_seconds": {
+        "BC_projection": 0.0018802000013238285,
+        "scan": 0.015408000004754285,
+        "gate_RMS": 0.014368499991178396,
+        "normalize_output": 0.31057159999545547
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.3211504999999306,
+      "stage_seconds": {
+        "BC_projection": 0.007133699989935849,
+        "scan": 0.05921280001712148,
+        "gate_RMS": 0.055693200025416445,
+        "normalize_output": 1.1984358000045177
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.4096623000004911,
+      "stage_seconds": {
+        "BC_projection": 0.0022683999995933846,
+        "scan": 0.018795799996951246,
+        "gate_RMS": 0.017200599977513775,
+        "normalize_output": 0.3709991000305308
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.1902408999994805,
+      "stage_seconds": {
+        "BC_projection": 0.006811900040702312,
+        "scan": 0.053725999994640006,
+        "gate_RMS": 0.050405200016029994,
+        "normalize_output": 1.0786945999825548
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.5980546000009781,
+      "stage_seconds": {
+        "BC_projection": 0.0031314000152633525,
+        "scan": 0.027039599995987373,
+        "gate_RMS": 0.02539820001402404,
+        "normalize_output": 0.5420817000012903
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.4974149000008765,
+      "stage_seconds": {
+        "BC_projection": 0.002757100022790837,
+        "scan": 0.02255839998178999,
+        "gate_RMS": 0.020745600008012843,
+        "normalize_output": 0.45097000000714615
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.2596547000011924,
+      "stage_seconds": {
+        "BC_projection": 0.0013596999888250139,
+        "scan": 0.01180350001232,
+        "gate_RMS": 0.010966199988615699,
+        "normalize_output": 0.23519749997649342
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.07998380000026373,
+      "stage_seconds": {
+        "BC_projection": 0.00045259998842084315,
+        "scan": 0.00358609999420878,
+        "gate_RMS": 0.0033729000024322886,
+        "normalize_output": 0.0722784000026877
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.41929349999918486,
+      "stage_seconds": {
+        "BC_projection": 0.0022463000004790956,
+        "scan": 0.01948839997749019,
+        "gate_RMS": 0.0178620000169758,
+        "normalize_output": 0.3792967999979737
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.31791899999916495,
+      "stage_seconds": {
+        "BC_projection": 0.0017849999985628529,
+        "scan": 0.014337800006614998,
+        "gate_RMS": 0.013689299994439352,
+        "normalize_output": 0.2877555999912147
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.4584642999998323,
+      "stage_seconds": {
+        "BC_projection": 0.0024595000249973964,
+        "scan": 0.020929199998136028,
+        "gate_RMS": 0.01926560000720201,
+        "normalize_output": 0.41540619997977046
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.5033401000000595,
+      "stage_seconds": {
+        "BC_projection": 0.0027307000036671525,
+        "scan": 0.02242439999645285,
+        "gate_RMS": 0.021336800013159518,
+        "normalize_output": 0.45644409998567426
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.4117171000016242,
+      "stage_seconds": {
+        "BC_projection": 0.0021351000086724525,
+        "scan": 0.019153600002027815,
+        "gate_RMS": 0.01830199999130855,
+        "normalize_output": 0.37173310000980564
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.3772366000011971,
+      "stage_seconds": {
+        "BC_projection": 0.002004000016313512,
+        "scan": 0.017482799990830244,
+        "gate_RMS": 0.015858300004765624,
+        "normalize_output": 0.3415070999726595
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.45919119999962277,
+      "stage_seconds": {
+        "BC_projection": 0.002471200003128615,
+        "scan": 0.021366500021031243,
+        "gate_RMS": 0.019335199995111907,
+        "normalize_output": 0.41559779998351587
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.5447515999985626,
+      "stage_seconds": {
+        "BC_projection": 0.0030067000006965827,
+        "scan": 0.025406299999303883,
+        "gate_RMS": 0.022741900000255555,
+        "normalize_output": 0.49318600001424784
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.46059779999995953,
+      "stage_seconds": {
+        "BC_projection": 0.002535399999032961,
+        "scan": 0.021352600000682287,
+        "gate_RMS": 0.01941719999194902,
+        "normalize_output": 0.416889199968864
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.24369039999874076,
+      "stage_seconds": {
+        "BC_projection": 0.0012916000050609,
+        "scan": 0.011053800000809133,
+        "gate_RMS": 0.010210500000539469,
+        "normalize_output": 0.22080189998632704
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.141106299999592,
+      "stage_seconds": {
+        "BC_projection": 0.0007392000043182634,
+        "scan": 0.006468099993071519,
+        "gate_RMS": 0.005904799998461385,
+        "normalize_output": 0.12770139998974628
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.64400089999981,
+      "stage_seconds": {
+        "BC_projection": 0.00903740002468112,
+        "scan": 0.07441520002612378,
+        "gate_RMS": 0.06931780001832522,
+        "normalize_output": 1.4904780999804643
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.936113400000977,
+      "stage_seconds": {
+        "BC_projection": 0.010509299971090513,
+        "scan": 0.08865289995264902,
+        "gate_RMS": 0.08180199999515025,
+        "normalize_output": 1.7542952000167134
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6561859000012191,
+      "stage_seconds": {
+        "BC_projection": 0.0035768000252573984,
+        "scan": 0.02961780001714942,
+        "gate_RMS": 0.02763409998442512,
+        "normalize_output": 0.5949197999907483
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.48431000000164204,
+      "stage_seconds": {
+        "BC_projection": 0.0028116000048612477,
+        "scan": 0.022199799999725656,
+        "gate_RMS": 0.02066819998253777,
+        "normalize_output": 0.43824049998693226
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.3257955999997648,
+      "stage_seconds": {
+        "BC_projection": 0.0018623000123625388,
+        "scan": 0.014579099995899014,
+        "gate_RMS": 0.013659900027050753,
+        "normalize_output": 0.29533459998492617
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2759640000003856,
+      "stage_seconds": {
+        "BC_projection": 0.006742300000041723,
+        "scan": 0.05918310000561178,
+        "gate_RMS": 0.053881999956502113,
+        "normalize_output": 1.1554954999992333
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.1587626000000455,
+      "stage_seconds": {
+        "BC_projection": 0.006355700021231314,
+        "scan": 0.05327349998151476,
+        "gate_RMS": 0.048983100010445924,
+        "normalize_output": 1.0495701000018016
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.3880469000014273,
+      "stage_seconds": {
+        "BC_projection": 0.002046199984761188,
+        "scan": 0.01756050000039977,
+        "gate_RMS": 0.016378999993321486,
+        "normalize_output": 0.3516841999880853
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 0
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 0.9999225999999908,
+      "stage_seconds": {
+        "BC_projection": 0.005533299981834716,
+        "scan": 0.04432659998201416,
+        "gate_RMS": 0.04240380000737787,
+        "normalize_output": 0.9070947999989585
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.6240859999998065,
+      "stage_seconds": {
+        "BC_projection": 0.003477999996903236,
+        "scan": 0.028746799995133188,
+        "gate_RMS": 0.026387300013084314,
+        "normalize_output": 0.5649392000050284
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4746257999995578,
+      "stage_seconds": {
+        "BC_projection": 0.002636499972140882,
+        "scan": 0.021667200004230835,
+        "gate_RMS": 0.01986039998701017,
+        "normalize_output": 0.4300534999820229
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.47361590000036813,
+      "stage_seconds": {
+        "BC_projection": 0.0026459999917278765,
+        "scan": 0.021277200014083064,
+        "gate_RMS": 0.019949300016378402,
+        "normalize_output": 0.4293430000088847
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.07564129999991565,
+      "stage_seconds": {
+        "BC_projection": 0.0004126999992877245,
+        "scan": 0.003518900006383774,
+        "gate_RMS": 0.003215799999452429,
+        "normalize_output": 0.0682016000027943
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.12509879999925033,
+      "stage_seconds": {
+        "BC_projection": 0.0006912000098964199,
+        "scan": 0.005700600004274747,
+        "gate_RMS": 0.00516879998940567,
+        "normalize_output": 0.1132482000048185
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.27233049999995274,
+      "stage_seconds": {
+        "BC_projection": 0.001457999997001025,
+        "scan": 0.012587799994435045,
+        "gate_RMS": 0.011448299987023347,
+        "normalize_output": 0.24650040002052265
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.43623049999951036,
+      "stage_seconds": {
+        "BC_projection": 0.0022619000119448174,
+        "scan": 0.02003100000001723,
+        "gate_RMS": 0.018342800009122584,
+        "normalize_output": 0.39518040000621113
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.41219679999994696,
+      "stage_seconds": {
+        "BC_projection": 0.0021577000043180306,
+        "scan": 0.0193739000151254,
+        "gate_RMS": 0.01726510000662529,
+        "normalize_output": 0.37300779998258804
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.49198919999980717,
+      "stage_seconds": {
+        "BC_projection": 0.002618999995320337,
+        "scan": 0.02220319997832121,
+        "gate_RMS": 0.020869899986792007,
+        "normalize_output": 0.4459094000303594
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.41238479999992705,
+      "stage_seconds": {
+        "BC_projection": 0.0023620999927516095,
+        "scan": 0.019017999995412538,
+        "gate_RMS": 0.01723399999718822,
+        "normalize_output": 0.3733825999916007
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5681218000008812,
+      "stage_seconds": {
+        "BC_projection": 0.002982099980727071,
+        "scan": 0.025739800023075077,
+        "gate_RMS": 0.02576009997574147,
+        "normalize_output": 0.513217599986092
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5556546000007074,
+      "stage_seconds": {
+        "BC_projection": 0.003160200007187086,
+        "scan": 0.02529929998854641,
+        "gate_RMS": 0.023628900007679476,
+        "normalize_output": 0.503146499995637
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.43796239999937825,
+      "stage_seconds": {
+        "BC_projection": 0.002300300002389122,
+        "scan": 0.020067299992660992,
+        "gate_RMS": 0.018356199982008548,
+        "normalize_output": 0.3968363000112731
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.3091655999996874,
+      "stage_seconds": {
+        "BC_projection": 0.0016339999929186888,
+        "scan": 0.013810299975375528,
+        "gate_RMS": 0.012944500002049608,
+        "normalize_output": 0.2804255000100966
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.38021569999909843,
+      "stage_seconds": {
+        "BC_projection": 0.002027000000452972,
+        "scan": 0.017804199995225645,
+        "gate_RMS": 0.016081799993116874,
+        "normalize_output": 0.34390830001029826
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.3443365000002814,
+      "stage_seconds": {
+        "BC_projection": 0.007378300009804661,
+        "scan": 0.06119440002839838,
+        "gate_RMS": 0.056454700006725034,
+        "normalize_output": 1.2186117000292143
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.9417203000011796,
+      "stage_seconds": {
+        "BC_projection": 0.010364800007664599,
+        "scan": 0.08736100003807223,
+        "gate_RMS": 0.08242030003748368,
+        "normalize_output": 1.7607551999790303
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.3294994999996561,
+      "stage_seconds": {
+        "BC_projection": 0.0018554000016592909,
+        "scan": 0.015071400017404812,
+        "gate_RMS": 0.0137848999875132,
+        "normalize_output": 0.2984258999931626
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.7156418999984453,
+      "stage_seconds": {
+        "BC_projection": 0.0038987999942037277,
+        "scan": 0.0324983000427892,
+        "gate_RMS": 0.030156599976180587,
+        "normalize_output": 0.6486125999836077
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 1.0048675000016374,
+      "stage_seconds": {
+        "BC_projection": 0.0057136000013997545,
+        "scan": 0.04486200000428653,
+        "gate_RMS": 0.042298399970604805,
+        "normalize_output": 0.9114863000031619
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.3419317999996565,
+      "stage_seconds": {
+        "BC_projection": 0.001875599993582,
+        "scan": 0.015452799987542676,
+        "gate_RMS": 0.014485800009424565,
+        "normalize_output": 0.3097509000035643
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.3223359000003256,
+      "stage_seconds": {
+        "BC_projection": 0.007042599994747434,
+        "scan": 0.060338700022839475,
+        "gate_RMS": 0.05579319999014842,
+        "normalize_output": 1.1984526000105689
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.41093759999967006,
+      "stage_seconds": {
+        "BC_projection": 0.0022203999978955835,
+        "scan": 0.018504400015444844,
+        "gate_RMS": 0.01726049999706447,
+        "normalize_output": 0.37256369997703587
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.185250200000155,
+      "stage_seconds": {
+        "BC_projection": 0.006474299929323024,
+        "scan": 0.05368560001079459,
+        "gate_RMS": 0.050134800001615076,
+        "normalize_output": 1.0743367999584734
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.6008687999983522,
+      "stage_seconds": {
+        "BC_projection": 0.0031704000030003954,
+        "scan": 0.02694879999580735,
+        "gate_RMS": 0.025222299995220965,
+        "normalize_output": 0.5451108999786811
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.488681999999244,
+      "stage_seconds": {
+        "BC_projection": 0.0027187999785383,
+        "scan": 0.02267509999910544,
+        "gate_RMS": 0.02069540000957204,
+        "normalize_output": 0.4421585999953095
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.2589681000008568,
+      "stage_seconds": {
+        "BC_projection": 0.0013549000086641172,
+        "scan": 0.011676999998599058,
+        "gate_RMS": 0.010884400004215422,
+        "normalize_output": 0.2347409000085463
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.07871069999964675,
+      "stage_seconds": {
+        "BC_projection": 0.0004527000019152183,
+        "scan": 0.0035372000002098503,
+        "gate_RMS": 0.003395599998839316,
+        "normalize_output": 0.07103410000672739
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.4198245000006864,
+      "stage_seconds": {
+        "BC_projection": 0.002200800005084602,
+        "scan": 0.019080399979429785,
+        "gate_RMS": 0.01743829999031732,
+        "normalize_output": 0.3807322000066051
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.31928399999924295,
+      "stage_seconds": {
+        "BC_projection": 0.001807700007702806,
+        "scan": 0.014320000003863242,
+        "gate_RMS": 0.013240700009191642,
+        "normalize_output": 0.2895570999899064
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.458500599999752,
+      "stage_seconds": {
+        "BC_projection": 0.002521799993701279,
+        "scan": 0.0213233000231412,
+        "gate_RMS": 0.01942749998124782,
+        "normalize_output": 0.4148316000118939
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.5010392000003776,
+      "stage_seconds": {
+        "BC_projection": 0.0026929000232485123,
+        "scan": 0.02260980000028212,
+        "gate_RMS": 0.021089200001370045,
+        "normalize_output": 0.454249600023104
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.41663189999962924,
+      "stage_seconds": {
+        "BC_projection": 0.0022027999948477373,
+        "scan": 0.019445800015091663,
+        "gate_RMS": 0.01740290000998357,
+        "normalize_output": 0.37720329997137014
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.37366990000009537,
+      "stage_seconds": {
+        "BC_projection": 0.001967499996680999,
+        "scan": 0.016978799976641312,
+        "gate_RMS": 0.01572600000872626,
+        "normalize_output": 0.33861700000124983
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.4633515000004991,
+      "stage_seconds": {
+        "BC_projection": 0.0025064000074053183,
+        "scan": 0.021316199983630213,
+        "gate_RMS": 0.01953740000317339,
+        "normalize_output": 0.41959170001064194
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.538635200000499,
+      "stage_seconds": {
+        "BC_projection": 0.0029212000081315637,
+        "scan": 0.02414439999847673,
+        "gate_RMS": 0.022811699996964308,
+        "normalize_output": 0.48834010001519346
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.4633727000000363,
+      "stage_seconds": {
+        "BC_projection": 0.0025898000039887847,
+        "scan": 0.02142230000208656,
+        "gate_RMS": 0.01950899999428657,
+        "normalize_output": 0.41944169999806036
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.24432589999923948,
+      "stage_seconds": {
+        "BC_projection": 0.001292700006160885,
+        "scan": 0.011164999987158808,
+        "gate_RMS": 0.010263600006510387,
+        "normalize_output": 0.22126540000499517
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.13839369999914197,
+      "stage_seconds": {
+        "BC_projection": 0.0007265999920491595,
+        "scan": 0.006343299995933194,
+        "gate_RMS": 0.005838999995830818,
+        "normalize_output": 0.12518210000052932
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.6428744999993796,
+      "stage_seconds": {
+        "BC_projection": 0.009015200012072455,
+        "scan": 0.07501200003571284,
+        "gate_RMS": 0.06966339997779869,
+        "normalize_output": 1.4884666999660112
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.9320185000015044,
+      "stage_seconds": {
+        "BC_projection": 0.010217699993518181,
+        "scan": 0.0866922000386694,
+        "gate_RMS": 0.08227799998712726,
+        "normalize_output": 1.7519583999728638
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6513203999984398,
+      "stage_seconds": {
+        "BC_projection": 0.003552099999069469,
+        "scan": 0.029382000009718467,
+        "gate_RMS": 0.02881409999463358,
+        "normalize_output": 0.5891530999761017
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.4870847000001959,
+      "stage_seconds": {
+        "BC_projection": 0.002804800044032163,
+        "scan": 0.02208249999966938,
+        "gate_RMS": 0.02054140003019711,
+        "normalize_output": 0.4412525000025198
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.3168223000011494,
+      "stage_seconds": {
+        "BC_projection": 0.0017734000048221787,
+        "scan": 0.014035599984708824,
+        "gate_RMS": 0.01333829997383873,
+        "normalize_output": 0.2873421000131202
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2646967000000586,
+      "stage_seconds": {
+        "BC_projection": 0.0066946999704669,
+        "scan": 0.056996100014657713,
+        "gate_RMS": 0.054079000001365785,
+        "normalize_output": 1.1462916000073164
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.1532772999998997,
+      "stage_seconds": {
+        "BC_projection": 0.00636839999606309,
+        "scan": 0.05272549999972398,
+        "gate_RMS": 0.049192599990419694,
+        "normalize_output": 1.0444573999957356
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    },
+    {
+      "site": 23,
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.3844246999997267,
+      "stage_seconds": {
+        "BC_projection": 0.002024999997956911,
+        "scan": 0.0174148000041896,
+        "gate_RMS": 0.016291400012050872,
+        "normalize_output": 0.34832720002486894
+      },
+      "all_qualified_bits_exact": true,
+      "rep": 1
+    }
+  ],
+  "operator_totals": [
+    {
+      "site": 0,
+      "rep": 0,
+      "positions": 22547,
+      "seconds": 29.285134300007485,
+      "us_per_supplied_position": 1298.8483745069182,
+      "stage_us_per_supplied_position": {
+        "BC_projection": 6.9052689869418025,
+        "scan": 58.55124406264406,
+        "gate_RMS": 54.79603938488321,
+        "normalize_output": 1177.659666471709
+      },
+      "instrumentation_and_call_remainder_us": 0.9361556007402392
+    },
+    {
+      "site": 0,
+      "rep": 1,
+      "positions": 22547,
+      "seconds": 29.255198000004384,
+      "us_per_supplied_position": 1297.5206457623801,
+      "stage_us_per_supplied_position": {
+        "BC_projection": 6.852481480174947,
+        "scan": 58.55042355974196,
+        "gate_RMS": 54.76622610596245,
+        "normalize_output": 1176.4308599905455
+      },
+      "instrumentation_and_call_remainder_us": 0.9206546259552058
+    },
+    {
+      "site": 12,
+      "rep": 0,
+      "positions": 22547,
+      "seconds": 29.419778700004827,
+      "us_per_supplied_position": 1304.8200958000987,
+      "stage_us_per_supplied_position": {
+        "BC_projection": 6.51908014608803,
+        "scan": 59.47674635183253,
+        "gate_RMS": 54.96394199126748,
+        "normalize_output": 1182.8911385084368
+      },
+      "instrumentation_and_call_remainder_us": 0.9691888024738637
+    },
+    {
+      "site": 12,
+      "rep": 1,
+      "positions": 22547,
+      "seconds": 29.342180399989957,
+      "us_per_supplied_position": 1301.3784716365794,
+      "stage_us_per_supplied_position": {
+        "BC_projection": 6.563844411603466,
+        "scan": 59.11146494638198,
+        "gate_RMS": 54.69457133785411,
+        "normalize_output": 1180.0532354595805
+      },
+      "instrumentation_and_call_remainder_us": 0.9553554811593684
+    },
+    {
+      "site": 23,
+      "rep": 0,
+      "positions": 22547,
+      "seconds": 29.31273180000062,
+      "us_per_supplied_position": 1300.0723732647634,
+      "stage_us_per_supplied_position": {
+        "BC_projection": 7.0826052291197055,
+        "scan": 59.19791990059497,
+        "gate_RMS": 54.774169508447535,
+        "normalize_output": 1178.0823745901027
+      },
+      "instrumentation_and_call_remainder_us": 0.9353040364985286
+    },
+    {
+      "site": 23,
+      "rep": 1,
+      "positions": 22547,
+      "seconds": 29.242541299996446,
+      "us_per_supplied_position": 1296.9592983543907,
+      "stage_us_per_supplied_position": {
+        "BC_projection": 7.041384659431531,
+        "scan": 58.87562869465535,
+        "gate_RMS": 54.924708382920024,
+        "normalize_output": 1175.176125425394
+      },
+      "instrumentation_and_call_remainder_us": 0.9414511919898323
+    }
+  ],
+  "retained_generator": [
+    {
+      "site": 0,
+      "rep": 0,
+      "positions": 128,
+      "seconds": 0.3227690999992774,
+      "checksum": 41.792519990354776,
+      "final_deterministic_output_F64_reference_relative": 5.4075217262221594e-08,
+      "reference_threshold": 1e-05,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "source_weight_bytes": 54919168
+    },
+    {
+      "site": 0,
+      "rep": 1,
+      "positions": 128,
+      "seconds": 0.3219924000004539,
+      "checksum": 41.792519990354776,
+      "final_deterministic_output_F64_reference_relative": 5.4075217262221594e-08,
+      "reference_threshold": 1e-05,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "source_weight_bytes": 54919168
+    },
+    {
+      "site": 12,
+      "rep": 0,
+      "positions": 128,
+      "seconds": 0.320220600000539,
+      "checksum": -1400.2680012881756,
+      "final_deterministic_output_F64_reference_relative": 5.419469317656185e-08,
+      "reference_threshold": 1e-05,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "source_weight_bytes": 54919168
+    },
+    {
+      "site": 12,
+      "rep": 1,
+      "positions": 128,
+      "seconds": 0.32120620000023337,
+      "checksum": -1400.2680012881756,
+      "final_deterministic_output_F64_reference_relative": 5.419469317656185e-08,
+      "reference_threshold": 1e-05,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "source_weight_bytes": 54919168
+    },
+    {
+      "site": 23,
+      "rep": 0,
+      "positions": 128,
+      "seconds": 0.3312014999992243,
+      "checksum": 824.7079659588635,
+      "final_deterministic_output_F64_reference_relative": 5.347918276127493e-08,
+      "reference_threshold": 1e-05,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "source_weight_bytes": 54919168
+    },
+    {
+      "site": 23,
+      "rep": 1,
+      "positions": 128,
+      "seconds": 0.3234288000003289,
+      "checksum": 824.7079659588635,
+      "final_deterministic_output_F64_reference_relative": 5.347918276127493e-08,
+      "reference_threshold": 1e-05,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "source_weight_bytes": 54919168
+    }
+  ],
+  "processes_before": [
+    {
+      "pid": 0,
+      "name": "System Idle Process",
+      "cpu_seconds": 120838.46875
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_seconds": 881.234375
+    },
+    {
+      "pid": 188,
+      "name": "",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 232,
+      "name": "Registry",
+      "cpu_seconds": 2.546875
+    },
+    {
+      "pid": 776,
+      "name": "smss.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 784,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 1056,
+      "name": "csrss.exe",
+      "cpu_seconds": 2.21875
+    },
+    {
+      "pid": 1148,
+      "name": "wininit.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 1172,
+      "name": "csrss.exe",
+      "cpu_seconds": 8.984375
+    },
+    {
+      "pid": 1192,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.515625
+    },
+    {
+      "pid": 1200,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.6875
+    },
+    {
+      "pid": 1240,
+      "name": "services.exe",
+      "cpu_seconds": 18.984375
+    },
+    {
+      "pid": 1268,
+      "name": "winlogon.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 1304,
+      "name": "LsaIso.exe",
+      "cpu_seconds": 0.3125
+    },
+    {
+      "pid": 1312,
+      "name": "lsass.exe",
+      "cpu_seconds": 9.828125
+    },
+    {
+      "pid": 1392,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1476,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.0625
+    },
+    {
+      "pid": 1508,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1516,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 1596,
+      "name": "svchost.exe",
+      "cpu_seconds": 14.671875
+    },
+    {
+      "pid": 1644,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.078125
+    },
+    {
+      "pid": 1700,
+      "name": "dwm.exe",
+      "cpu_seconds": 131.9375
+    },
+    {
+      "pid": 1844,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.71875
+    },
+    {
+      "pid": 1860,
+      "name": "svchost.exe",
+      "cpu_seconds": 16.859375
+    },
+    {
+      "pid": 1936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1952,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.25
+    },
+    {
+      "pid": 1992,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 2028,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 2032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 2064,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 2152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.84375
+    },
+    {
+      "pid": 2188,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.875
+    },
+    {
+      "pid": 2248,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.25
+    },
+    {
+      "pid": 2264,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 2436,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.015625
+    },
+    {
+      "pid": 2464,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 2676,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.921875
+    },
+    {
+      "pid": 2684,
+      "name": "FanControl.exe",
+      "cpu_seconds": 48.96875
+    },
+    {
+      "pid": 2744,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 2752,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 2796,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.71875
+    },
+    {
+      "pid": 2832,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 2904,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.15625
+    },
+    {
+      "pid": 2928,
+      "name": "pwsh.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 2936,
+      "name": "WUDFHost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 2948,
+      "name": "codex-computer-use-swift.exe",
+      "cpu_seconds": 6.59375
+    },
+    {
+      "pid": 2984,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 35.71875
+    },
+    {
+      "pid": 3020,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 3052,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.625
+    },
+    {
+      "pid": 3080,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 399.078125
+    },
+    {
+      "pid": 3144,
+      "name": "MemCompression",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 3172,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 3228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.6875
+    },
+    {
+      "pid": 3236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 3288,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 3300,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 3416,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.3125
+    },
+    {
+      "pid": 3640,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 3648,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 3696,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 3704,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 3892,
+      "name": "spoolsv.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 3976,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 8.296875
+    },
+    {
+      "pid": 4064,
+      "name": "svchost.exe",
+      "cpu_seconds": 8.359375
+    },
+    {
+      "pid": 4112,
+      "name": "taskhostw.exe",
+      "cpu_seconds": 1.109375
+    },
+    {
+      "pid": 4152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 4180,
+      "name": "Everything.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 4188,
+      "name": "svchost.exe",
+      "cpu_seconds": 7.453125
+    },
+    {
+      "pid": 4196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 4204,
+      "name": "updatesvc.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4212,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 4220,
+      "name": "svchost.exe",
+      "cpu_seconds": 11.796875
+    },
+    {
+      "pid": 4228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 4244,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4272,
+      "name": "spacedeskService.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 4284,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4292,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 4300,
+      "name": "MpDefenderCoreService.exe",
+      "cpu_seconds": 1.859375
+    },
+    {
+      "pid": 4308,
+      "name": "sqlwriter.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4324,
+      "name": "MsMpEng.exe",
+      "cpu_seconds": 373.40625
+    },
+    {
+      "pid": 4332,
+      "name": "WindscribeService.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4340,
+      "name": "wslservice.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 4352,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 4364,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 1.109375
+    },
+    {
+      "pid": 4840,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 5068,
+      "name": "python.exe",
+      "cpu_seconds": 14.328125
+    },
+    {
+      "pid": 5140,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 5288,
+      "name": "NgcIso.exe",
+      "cpu_seconds": 0.28125
+    },
+    {
+      "pid": 5296,
+      "name": "node.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 5452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 15.359375
+    },
+    {
+      "pid": 5864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 6012,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 6.578125
+    },
+    {
+      "pid": 6152,
+      "name": "svchost.exe",
+      "cpu_seconds": 14.28125
+    },
+    {
+      "pid": 6160,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.609375
+    },
+    {
+      "pid": 6284,
+      "name": "gamingservicesnet.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 6292,
+      "name": "codex-windows-sandbox-service.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 6304,
+      "name": "gamingservices.exe",
+      "cpu_seconds": 7.8125
+    },
+    {
+      "pid": 6400,
+      "name": "cowork-svc.exe",
+      "cpu_seconds": 0.8125
+    },
+    {
+      "pid": 6408,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 6528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.375
+    },
+    {
+      "pid": 6712,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.9375
+    },
+    {
+      "pid": 6748,
+      "name": "SecurityHealthService.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 6812,
+      "name": "AggregatorHost.exe",
+      "cpu_seconds": 0.4375
+    },
+    {
+      "pid": 6888,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 6952,
+      "name": "codex.exe",
+      "cpu_seconds": 80.1875
+    },
+    {
+      "pid": 7144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 7380,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 7592,
+      "name": "explorer.exe",
+      "cpu_seconds": 11.078125
+    },
+    {
+      "pid": 7700,
+      "name": "ShellHost.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 7708,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 7844,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 27.046875
+    },
+    {
+      "pid": 7944,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 7960,
+      "name": "spacedeskServiceTray.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8104,
+      "name": "DefenderSessionHelper.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 8160,
+      "name": "sihost.exe",
+      "cpu_seconds": 5.6875
+    },
+    {
+      "pid": 8300,
+      "name": "CrossDeviceService.exe",
+      "cpu_seconds": 68.828125
+    },
+    {
+      "pid": 8436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.25
+    },
+    {
+      "pid": 8560,
+      "name": "CrossDeviceResume.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 8644,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.515625
+    },
+    {
+      "pid": 8804,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8844,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.625
+    },
+    {
+      "pid": 8940,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 9044,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 9064,
+      "name": "wallpaper64.exe",
+      "cpu_seconds": 3.046875
+    },
+    {
+      "pid": 9176,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 9196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 9292,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 9496,
+      "name": "SearchHost.exe",
+      "cpu_seconds": 3.25
+    },
+    {
+      "pid": 9520,
+      "name": "StartMenuExperienceHost.exe",
+      "cpu_seconds": 5.21875
+    },
+    {
+      "pid": 9532,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 9780,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 9832,
+      "name": "pythonw.exe",
+      "cpu_seconds": 5.125
+    },
+    {
+      "pid": 9836,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 1.96875
+    },
+    {
+      "pid": 10040,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 10144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 10160,
+      "name": "node.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 10736,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 2.34375
+    },
+    {
+      "pid": 10824,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.90625
+    },
+    {
+      "pid": 10848,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 10888,
+      "name": "PowerToys.CropAndLock.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 10980,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 11036,
+      "name": "WmiPrvSE.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 11428,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 11476,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 11540,
+      "name": "PowerToys.exe",
+      "cpu_seconds": 12.484375
+    },
+    {
+      "pid": 11664,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 1.609375
+    },
+    {
+      "pid": 11688,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 11836,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 11948,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 12072,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12144,
+      "name": "ApplicationFrameHost.exe",
+      "cpu_seconds": 0.765625
+    },
+    {
+      "pid": 12332,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12344,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.703125
+    },
+    {
+      "pid": 12436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 12528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 12796,
+      "name": "vmcompute.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 13028,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 13188,
+      "name": "SearchIndexer.exe",
+      "cpu_seconds": 5.8125
+    },
+    {
+      "pid": 13380,
+      "name": "NisSrv.exe",
+      "cpu_seconds": 0.671875
+    },
+    {
+      "pid": 13556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 13748,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.78125
+    },
+    {
+      "pid": 13840,
+      "name": "PowerToys.ColorPickerUI.exe",
+      "cpu_seconds": 1.96875
+    },
+    {
+      "pid": 13864,
+      "name": "SystemSettings.exe",
+      "cpu_seconds": 3.390625
+    },
+    {
+      "pid": 13948,
+      "name": "ctfmon.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 13976,
+      "name": "TabTip.exe",
+      "cpu_seconds": 0.6875
+    },
+    {
+      "pid": 14148,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 15.625
+    },
+    {
+      "pid": 14232,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 5.671875
+    },
+    {
+      "pid": 14264,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 20.015625
+    },
+    {
+      "pid": 14492,
+      "name": "nvsphelper64.exe",
+      "cpu_seconds": 24.078125
+    },
+    {
+      "pid": 14516,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 16.984375
+    },
+    {
+      "pid": 14588,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 2.234375
+    },
+    {
+      "pid": 14632,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 15.15625
+    },
+    {
+      "pid": 14916,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 0.515625
+    },
+    {
+      "pid": 14920,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.609375
+    },
+    {
+      "pid": 15092,
+      "name": "PowerToys.AlwaysOnTop.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 15144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 15152,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 15184,
+      "name": "codex.exe",
+      "cpu_seconds": 1.6875
+    },
+    {
+      "pid": 15204,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 15296,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 2.34375
+    },
+    {
+      "pid": 15480,
+      "name": "Microsoft.CmdPal.UI.exe",
+      "cpu_seconds": 39.109375
+    },
+    {
+      "pid": 15504,
+      "name": "TextInputHost.exe",
+      "cpu_seconds": 3.90625
+    },
+    {
+      "pid": 15800,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 15804,
+      "name": "PowerToys.Awake.exe",
+      "cpu_seconds": 0.9375
+    },
+    {
+      "pid": 15820,
+      "name": "PhoneExperienceHost.exe",
+      "cpu_seconds": 4.65625
+    },
+    {
+      "pid": 15864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16048,
+      "name": "PowerToys.FancyZones.exe",
+      "cpu_seconds": 12.5
+    },
+    {
+      "pid": 16088,
+      "name": "Taskmgr.exe",
+      "cpu_seconds": 277.1875
+    },
+    {
+      "pid": 16144,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16796,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 16808,
+      "name": "PowerToys.Peek.UI.exe",
+      "cpu_seconds": 6.5
+    },
+    {
+      "pid": 16908,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 16964,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16968,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 203.453125
+    },
+    {
+      "pid": 17016,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 17108,
+      "name": "PowerToys.PowerLauncher.exe",
+      "cpu_seconds": 33.375
+    },
+    {
+      "pid": 17440,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 227.984375
+    },
+    {
+      "pid": 17452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 11.84375
+    },
+    {
+      "pid": 17544,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 17832,
+      "name": "codex-code-mode-host.exe",
+      "cpu_seconds": 1.0
+    },
+    {
+      "pid": 18016,
+      "name": "WindowsPackageManagerServer.exe",
+      "cpu_seconds": 0.734375
+    },
+    {
+      "pid": 18184,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 2.78125
+    },
+    {
+      "pid": 18440,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 18476,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 18568,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 65.546875
+    },
+    {
+      "pid": 18592,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 16.859375
+    },
+    {
+      "pid": 18644,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.265625
+    },
+    {
+      "pid": 18652,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 18700,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 18836,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 18856,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 19056,
+      "name": "node.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 19172,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 19868,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.515625
+    },
+    {
+      "pid": 19960,
+      "name": "powershell.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 20120,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 20156,
+      "name": "UserOOBEBroker.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 20312,
+      "name": "adb.exe",
+      "cpu_seconds": 5.484375
+    },
+    {
+      "pid": 20328,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 20416,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 20492,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 20508,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 20728,
+      "name": "tailscale-ipn.exe",
+      "cpu_seconds": 6.1875
+    },
+    {
+      "pid": 20988,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 21228,
+      "name": "ShellExperienceHost.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 21428,
+      "name": "svchost.exe",
+      "cpu_seconds": 12.234375
+    },
+    {
+      "pid": 21500,
+      "name": "MoNotificationUx.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21640,
+      "name": "pythonw.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21660,
+      "name": "dasHost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 21980,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 22088,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 22144,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 22356,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 22508,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 22516,
+      "name": "conhost.exe",
+      "cpu_seconds": 1.109375
+    }
+  ],
+  "processes_after": [
+    {
+      "pid": 0,
+      "name": "System Idle Process",
+      "cpu_seconds": 123016.15624999999
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_seconds": 894.796875
+    },
+    {
+      "pid": 188,
+      "name": "",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 232,
+      "name": "Registry",
+      "cpu_seconds": 2.546875
+    },
+    {
+      "pid": 776,
+      "name": "smss.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 784,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 1056,
+      "name": "csrss.exe",
+      "cpu_seconds": 2.234375
+    },
+    {
+      "pid": 1148,
+      "name": "wininit.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 1172,
+      "name": "csrss.exe",
+      "cpu_seconds": 9.015625
+    },
+    {
+      "pid": 1192,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.59375
+    },
+    {
+      "pid": 1200,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.734375
+    },
+    {
+      "pid": 1240,
+      "name": "services.exe",
+      "cpu_seconds": 19.40625
+    },
+    {
+      "pid": 1268,
+      "name": "winlogon.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 1304,
+      "name": "LsaIso.exe",
+      "cpu_seconds": 0.3125
+    },
+    {
+      "pid": 1312,
+      "name": "lsass.exe",
+      "cpu_seconds": 9.859375
+    },
+    {
+      "pid": 1392,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1476,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.109375
+    },
+    {
+      "pid": 1508,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1516,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 1596,
+      "name": "svchost.exe",
+      "cpu_seconds": 14.9375
+    },
+    {
+      "pid": 1644,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.15625
+    },
+    {
+      "pid": 1700,
+      "name": "dwm.exe",
+      "cpu_seconds": 131.9375
+    },
+    {
+      "pid": 1844,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.734375
+    },
+    {
+      "pid": 1860,
+      "name": "svchost.exe",
+      "cpu_seconds": 16.875
+    },
+    {
+      "pid": 1936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1952,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.265625
+    },
+    {
+      "pid": 1992,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 2028,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 2032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 2064,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 2152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.84375
+    },
+    {
+      "pid": 2188,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.875
+    },
+    {
+      "pid": 2248,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.25
+    },
+    {
+      "pid": 2264,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 2436,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.078125
+    },
+    {
+      "pid": 2464,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 2676,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.9375
+    },
+    {
+      "pid": 2684,
+      "name": "FanControl.exe",
+      "cpu_seconds": 49.984375
+    },
+    {
+      "pid": 2744,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 2752,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 2796,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.75
+    },
+    {
+      "pid": 2832,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 2904,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.15625
+    },
+    {
+      "pid": 2928,
+      "name": "pwsh.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 2936,
+      "name": "WUDFHost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 2948,
+      "name": "codex-computer-use-swift.exe",
+      "cpu_seconds": 6.671875
+    },
+    {
+      "pid": 2984,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 36.390625
+    },
+    {
+      "pid": 3020,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 3052,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.703125
+    },
+    {
+      "pid": 3080,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 400.25
+    },
+    {
+      "pid": 3144,
+      "name": "MemCompression",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 3172,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 3228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.6875
+    },
+    {
+      "pid": 3236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 3288,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 3300,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 3416,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.3125
+    },
+    {
+      "pid": 3640,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 3648,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 3696,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 3704,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 3892,
+      "name": "spoolsv.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 3976,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 8.421875
+    },
+    {
+      "pid": 4064,
+      "name": "svchost.exe",
+      "cpu_seconds": 8.4375
+    },
+    {
+      "pid": 4112,
+      "name": "taskhostw.exe",
+      "cpu_seconds": 1.109375
+    },
+    {
+      "pid": 4152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 4180,
+      "name": "Everything.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 4188,
+      "name": "svchost.exe",
+      "cpu_seconds": 7.53125
+    },
+    {
+      "pid": 4196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 4204,
+      "name": "updatesvc.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4212,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 4220,
+      "name": "svchost.exe",
+      "cpu_seconds": 11.96875
+    },
+    {
+      "pid": 4228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 4244,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4272,
+      "name": "spacedeskService.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 4284,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4292,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 4300,
+      "name": "MpDefenderCoreService.exe",
+      "cpu_seconds": 1.875
+    },
+    {
+      "pid": 4308,
+      "name": "sqlwriter.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4324,
+      "name": "MsMpEng.exe",
+      "cpu_seconds": 374.28125
+    },
+    {
+      "pid": 4332,
+      "name": "WindscribeService.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4340,
+      "name": "wslservice.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 4352,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 4364,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 1.125
+    },
+    {
+      "pid": 4840,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 5068,
+      "name": "python.exe",
+      "cpu_seconds": 214.265625
+    },
+    {
+      "pid": 5140,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 5288,
+      "name": "NgcIso.exe",
+      "cpu_seconds": 0.28125
+    },
+    {
+      "pid": 5296,
+      "name": "node.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 5452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 15.703125
+    },
+    {
+      "pid": 5864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 6012,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 6.640625
+    },
+    {
+      "pid": 6152,
+      "name": "svchost.exe",
+      "cpu_seconds": 14.28125
+    },
+    {
+      "pid": 6160,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.625
+    },
+    {
+      "pid": 6284,
+      "name": "gamingservicesnet.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 6292,
+      "name": "codex-windows-sandbox-service.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 6304,
+      "name": "gamingservices.exe",
+      "cpu_seconds": 7.890625
+    },
+    {
+      "pid": 6400,
+      "name": "cowork-svc.exe",
+      "cpu_seconds": 0.8125
+    },
+    {
+      "pid": 6408,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 6528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.375
+    },
+    {
+      "pid": 6712,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.9375
+    },
+    {
+      "pid": 6748,
+      "name": "SecurityHealthService.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 6812,
+      "name": "AggregatorHost.exe",
+      "cpu_seconds": 0.4375
+    },
+    {
+      "pid": 6888,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 6952,
+      "name": "codex.exe",
+      "cpu_seconds": 80.71875
+    },
+    {
+      "pid": 7144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 7380,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 7592,
+      "name": "explorer.exe",
+      "cpu_seconds": 11.078125
+    },
+    {
+      "pid": 7700,
+      "name": "ShellHost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 7708,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 7844,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 27.375
+    },
+    {
+      "pid": 7944,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 7960,
+      "name": "spacedeskServiceTray.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8104,
+      "name": "DefenderSessionHelper.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 8160,
+      "name": "sihost.exe",
+      "cpu_seconds": 5.71875
+    },
+    {
+      "pid": 8300,
+      "name": "CrossDeviceService.exe",
+      "cpu_seconds": 69.625
+    },
+    {
+      "pid": 8436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.25
+    },
+    {
+      "pid": 8560,
+      "name": "CrossDeviceResume.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 8644,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.515625
+    },
+    {
+      "pid": 8804,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8844,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.625
+    },
+    {
+      "pid": 8940,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 9044,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 9064,
+      "name": "wallpaper64.exe",
+      "cpu_seconds": 3.0625
+    },
+    {
+      "pid": 9176,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 9196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 9292,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 9496,
+      "name": "SearchHost.exe",
+      "cpu_seconds": 3.25
+    },
+    {
+      "pid": 9520,
+      "name": "StartMenuExperienceHost.exe",
+      "cpu_seconds": 5.21875
+    },
+    {
+      "pid": 9532,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 9632,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 9780,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 9832,
+      "name": "pythonw.exe",
+      "cpu_seconds": 5.125
+    },
+    {
+      "pid": 9836,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 1.96875
+    },
+    {
+      "pid": 10040,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 10144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 10160,
+      "name": "node.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 10736,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 2.359375
+    },
+    {
+      "pid": 10824,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.90625
+    },
+    {
+      "pid": 10848,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 10888,
+      "name": "PowerToys.CropAndLock.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 10980,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 11428,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 11476,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 11540,
+      "name": "PowerToys.exe",
+      "cpu_seconds": 12.671875
+    },
+    {
+      "pid": 11664,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 1.609375
+    },
+    {
+      "pid": 11688,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 11836,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 11948,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 12072,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12144,
+      "name": "ApplicationFrameHost.exe",
+      "cpu_seconds": 0.765625
+    },
+    {
+      "pid": 12332,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12344,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.75
+    },
+    {
+      "pid": 12436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 12528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 12796,
+      "name": "vmcompute.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 13028,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 13188,
+      "name": "SearchIndexer.exe",
+      "cpu_seconds": 5.828125
+    },
+    {
+      "pid": 13380,
+      "name": "NisSrv.exe",
+      "cpu_seconds": 0.671875
+    },
+    {
+      "pid": 13556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 13748,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.828125
+    },
+    {
+      "pid": 13840,
+      "name": "PowerToys.ColorPickerUI.exe",
+      "cpu_seconds": 1.96875
+    },
+    {
+      "pid": 13864,
+      "name": "SystemSettings.exe",
+      "cpu_seconds": 3.390625
+    },
+    {
+      "pid": 13948,
+      "name": "ctfmon.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 13976,
+      "name": "TabTip.exe",
+      "cpu_seconds": 0.6875
+    },
+    {
+      "pid": 14148,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 15.875
+    },
+    {
+      "pid": 14232,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 5.71875
+    },
+    {
+      "pid": 14264,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 20.203125
+    },
+    {
+      "pid": 14492,
+      "name": "nvsphelper64.exe",
+      "cpu_seconds": 24.5625
+    },
+    {
+      "pid": 14516,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 17.25
+    },
+    {
+      "pid": 14588,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 2.234375
+    },
+    {
+      "pid": 14632,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 15.421875
+    },
+    {
+      "pid": 14916,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 14920,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.625
+    },
+    {
+      "pid": 15092,
+      "name": "PowerToys.AlwaysOnTop.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 15144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 15152,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 15184,
+      "name": "codex.exe",
+      "cpu_seconds": 1.6875
+    },
+    {
+      "pid": 15204,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 15296,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 2.359375
+    },
+    {
+      "pid": 15480,
+      "name": "Microsoft.CmdPal.UI.exe",
+      "cpu_seconds": 39.3125
+    },
+    {
+      "pid": 15504,
+      "name": "TextInputHost.exe",
+      "cpu_seconds": 3.90625
+    },
+    {
+      "pid": 15800,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 15804,
+      "name": "PowerToys.Awake.exe",
+      "cpu_seconds": 0.9375
+    },
+    {
+      "pid": 15820,
+      "name": "PhoneExperienceHost.exe",
+      "cpu_seconds": 4.65625
+    },
+    {
+      "pid": 15864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 16048,
+      "name": "PowerToys.FancyZones.exe",
+      "cpu_seconds": 12.734375
+    },
+    {
+      "pid": 16088,
+      "name": "Taskmgr.exe",
+      "cpu_seconds": 279.015625
+    },
+    {
+      "pid": 16144,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16796,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 16808,
+      "name": "PowerToys.Peek.UI.exe",
+      "cpu_seconds": 6.59375
+    },
+    {
+      "pid": 16908,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 16964,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16968,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 204.71875
+    },
+    {
+      "pid": 17016,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 17108,
+      "name": "PowerToys.PowerLauncher.exe",
+      "cpu_seconds": 33.375
+    },
+    {
+      "pid": 17440,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 229.578125
+    },
+    {
+      "pid": 17452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 12.015625
+    },
+    {
+      "pid": 17544,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 17832,
+      "name": "codex-code-mode-host.exe",
+      "cpu_seconds": 1.0
+    },
+    {
+      "pid": 18016,
+      "name": "WindowsPackageManagerServer.exe",
+      "cpu_seconds": 0.734375
+    },
+    {
+      "pid": 18184,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 2.8125
+    },
+    {
+      "pid": 18440,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 18476,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 18568,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 65.984375
+    },
+    {
+      "pid": 18592,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 17.0625
+    },
+    {
+      "pid": 18644,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.265625
+    },
+    {
+      "pid": 18652,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 18700,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 18836,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 18856,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 19056,
+      "name": "node.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 19172,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 19868,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.515625
+    },
+    {
+      "pid": 19960,
+      "name": "powershell.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 20120,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.25
+    },
+    {
+      "pid": 20156,
+      "name": "UserOOBEBroker.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 20312,
+      "name": "adb.exe",
+      "cpu_seconds": 5.546875
+    },
+    {
+      "pid": 20328,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 20416,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 20492,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 20508,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 20728,
+      "name": "tailscale-ipn.exe",
+      "cpu_seconds": 6.28125
+    },
+    {
+      "pid": 20988,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 21228,
+      "name": "ShellExperienceHost.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 21428,
+      "name": "svchost.exe",
+      "cpu_seconds": 12.265625
+    },
+    {
+      "pid": 21500,
+      "name": "MoNotificationUx.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21640,
+      "name": "pythonw.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21660,
+      "name": "dasHost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 21980,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 22088,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 22144,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 22356,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 22508,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 22516,
+      "name": "conhost.exe",
+      "cpu_seconds": 1.109375
+    }
+  ],
+  "all_timed_bits_match_qualified_artifact": true,
+  "inputs_before_after_exact": true,
+  "clean_system_isolation_admitted": false,
+  "actual_DRAM_measured": false,
+  "whole_model_speed_admitted": false,
+  "seconds": 228.88426869999967,
+  "OS_peak": 278949888,
+  "scope": "All3 site fixed full3072x96 supplied-operand native operators,two all48 batch1 passes/site,all normalized/rawscore/output/finalstate bits matched. Retained generator arbitrary-input GEMV separate. No original source hidden/conv/attention/MLP/head/whole useful tokens/s or n/DRAM admission."
+}

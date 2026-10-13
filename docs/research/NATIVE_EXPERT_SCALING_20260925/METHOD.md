@@ -3,6 +3,23 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Full trained3072 channels/state96](FULL_CHANNEL_NATIVE_RESULT_20261013.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED for all48 histories/all3 sites0/12/23.
+Every CPU state timestep/all final states,all277,057,536 raw F32 score bits,
+normalized vectors/source metrics/flags/hash controls qualified. Ownnorm DEV
+mean.076342/.087177/.024904/all local gatesPASS;source-denominator controls
+FAIL0/12,retained. Same-component batch1 scan~59us,total~1300us versusold384
+~1249us across separate runs;8x state count does not impose8x whole cost here.
+Keep wider trained functions as a shared-core candidate;full source hidden/gen/
+conv/readout costs and all-layer/own-history quality remain missing.
+[Gate input-operator geometry](GATE_INPUT_OPERATOR_RESULT_20261013.md) now
+IMPLEMENTED/INDEPENDENTLY VERIFIED:all3 raw3072x2048 gate operators rank2048,
+conditions27/71/55,blockGram/direct rectangular SVD qualification. No input
+recovery/bit-supervision claim. [Next approximate-input consistency gate](GATE_INPUT_RECOVERY_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND,requires MuP/BF16 dtype/rounding and independent
+x/B/C/delta replay. Exact missing input must be captured if uncertainty too large.
+Numerical package alias custody gap in prior native input enumeration is explicit
+in its report;new preparations bind resolved ABI/BLAS files directly.
 [Actual C mixed384x96 operator](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) now
 IMPLEMENTED/INDEPENDENTLY VERIFIED for all48 source-injected site23 histories,
 including all rawF32 score bits (92,352,512) with separate scalar FMA reference.

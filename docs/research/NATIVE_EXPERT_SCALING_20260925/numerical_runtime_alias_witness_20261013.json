@@ -1,0 +1,82 @@
+{
+  "schema": "NUMERICAL_RUNTIME_ALIAS_WITNESS_V1",
+  "observed_at": "2026-10-13T01:56:39.7066498+02:00",
+  "older_witness": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gauged_native_readout_binding_20261012.json",
+    "sha256": "b8c2664da38a61305fc13b915fdb8620fe59bc4f74adaa22782bccd7b70da540"
+  },
+  "explicit_new_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_v2_20261013.json",
+    "sha256": "33dfe5b9f774a6d55a54e556c2f35df75d8dd63ec2317156135f0b6ffd1ab1e0"
+  },
+  "modules": [
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+        "bytes": 27550,
+        "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    },
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+        "bytes": 3714560,
+        "sha256": "80e7dc34f51cf6cef24da060e1e8620936b2cf188bae0ea367dc8619b2316204"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    },
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp312-win_amd64.pyd",
+        "bytes": 112128,
+        "sha256": "b465dda08f9238ae83b05a0acbfbddec969d0b5fc5de366bbbe312a4600d6e31"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    },
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+        "bytes": 92363,
+        "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    },
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "bytes": 20415488,
+        "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    },
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+        "bytes": 575056,
+        "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    },
+    {
+      "extent": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+        "bytes": 70656,
+        "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78"
+      },
+      "matches_older_explicit_primary_witness": true,
+      "current_bytes_match": true
+    }
+  ],
+  "cause": "SITE parent is ordinary directory with individually linked packages;canonical package files resolve under .venv outside SITE.resolve prefix",
+  "native_C_and_scalar_DLLs_were_directly_bound": true,
+  "native_checks": "Current decoded parameter bits and all native scores/state/normalized arrays already independently qualified",
+  "scope_limit": "Loaded NumPy/psutil modules were not directly enumerated in full-channel before-after input loop;this supplemental current byte equality to an older pinned witness is not a new before-run observation or proof against unobserved transient changes",
+  "next": "All new preparation explicitly enumerates resolved primary numerical ABI/BLAS modules"
+}

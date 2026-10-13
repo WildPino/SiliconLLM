@@ -1,6 +1,13 @@
 # Preserve trained functions where cheap;reduce actual active cost
 
-13 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **WIDTH COST AND MATRIX INFORMATION PREFLIGHT COMPLETE.**
+[Wide native result](FULL_CHANNEL_NATIVE_RESULT_20261013.md) and
+[gate operator geometry](GATE_INPUT_OPERATOR_RESULT_20261013.md) supersede those
+prospective portions below. All144 native operators/direct states/scores audited;
+ownnorm local gatesPASS/all3 sites,fixed-source-denominatorFAIL0/12. Full3072x96
+scan~59us/total~1300us versusold384x96~1249us,total difference~4% across separate
+runs. Gate matrices rank2048/conditions27/71/55;no source input recovered.
+[Current next](GATE_INPUT_RECOVERY_NEXT_20261013.md) is PROPOSED/UNIMPLEMENTED/UNBOUND.
 [Actual native cost result](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) changes
 the next action:state384x96~10us,normalize/output~1157us,retained input generator
 separately~2535us on one core. No joined-layer rate or whole chatbot admission.

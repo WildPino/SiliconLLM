@@ -1,0 +1,68 @@
+{
+  "schema": "GATE_INPUT_OPERATOR_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\gate_input_operator_audit.py",
+    "bytes": 6427,
+    "sha256": "fb5b302e970478c09946e064bbbca20838e0763fdd5be93e2af0a06d309089cd"
+  },
+  "freeze": "0b3639f4dcae4b248f935dfdd4d917ddefdab904",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_result_20261013.json",
+    "bytes": 3408,
+    "sha256": "f1c1bd27d7d4f5185261b29c4e2f97d484a37b102945e259d7ff6f05233c299b"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_result_20261013.terminal.json",
+    "bytes": 1256,
+    "sha256": "8b9c4a97583e553de81e3aba5ff37e6febc7618e6b62b33788e26a42b863963a"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_v2_20261013.json",
+    "bytes": 5939,
+    "sha256": "33dfe5b9f774a6d55a54e556c2f35df75d8dd63ec2317156135f0b6ffd1ab1e0"
+  },
+  "sites": [
+    {
+      "site": 0,
+      "robust_rank": 2048,
+      "condition": 27.27933106905561,
+      "unscaled_inverse_gain": 2.3844665267498035,
+      "recovery_preflight_eligible": true,
+      "Gram_relative": 1.101891718165467e-17,
+      "rectangular_sigma_relative": 3.1830362685217414e-15
+    },
+    {
+      "site": 12,
+      "robust_rank": 2048,
+      "condition": 71.26433370987216,
+      "unscaled_inverse_gain": 4.579480664705099,
+      "recovery_preflight_eligible": true,
+      "Gram_relative": 4.990741204040538e-18,
+      "rectangular_sigma_relative": 2.5112901542151163e-15
+    },
+    {
+      "site": 23,
+      "robust_rank": 2048,
+      "condition": 54.78735192346535,
+      "unscaled_inverse_gain": 3.3912346230051353,
+      "recovery_preflight_eligible": true,
+      "Gram_relative": 3.4148898675491567e-18,
+      "rectangular_sigma_relative": 2.0341335763503334e-15
+    }
+  ],
+  "all_matrix_spectrum_words_verified": 25178112,
+  "maximum": {
+    "Gram_relative": 1.101891718165467e-17,
+    "metadata": 3.6626714775657194e-20,
+    "rectangular_SVD_sigma_max_relative": 3.1830362685217414e-15,
+    "sigma_min": 5.745404152435185e-15,
+    "sigma_max": 2.2829910492864694e-16,
+    "condition": 2.6122772371245426e-14,
+    "inverse_gain": 2.6376847927361123e-14
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 18.575979900000675,
+  "OS_peak": 398135296,
+  "scope": "Complete blockwise Gram/eigenvectors/eigenvalues/direct rectangular source SVD all2048 singular values/site/classification/inverse gain/config/hash. Necessary unrounded information geometry only;no reconstructed source hidden/quantization/generator/causal quality/speed admission."
+}

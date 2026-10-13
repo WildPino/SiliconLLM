@@ -1,0 +1,83 @@
+{
+  "schema": "GATE_INPUT_OPERATOR_PREFLIGHT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_v2_20261013.json",
+    "bytes": 5939,
+    "sha256": "33dfe5b9f774a6d55a54e556c2f35df75d8dd63ec2317156135f0b6ffd1ab1e0"
+  },
+  "freeze": "59fe6edc3881bf7af21510c3f7a239cf52cbd7bd",
+  "records": [
+    {
+      "site": 0,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\gate_input_operator_20261013\\site00.gate_operator.npz",
+        "bytes": 67142686,
+        "sha256": "925fce5b00b46a916b1fc141e5c7b21ce6c92e45424c389ad5ee6f43b75554ec"
+      },
+      "source_key": "model.layers.0.mamba.in_proj.weight",
+      "rows": 3072,
+      "columns": 2048,
+      "sigma_min": 0.4193810182620049,
+      "sigma_max": 11.4404336412469,
+      "condition": 27.279331069055637,
+      "unscaled_inverse_gain": 2.3844665267498066,
+      "robust_rank": 2048,
+      "eigenvector_orthogonal_max": 4.524158825347513e-15,
+      "eigen_residual_relative": 1.7360497115418207e-15,
+      "negative_eigenvalue_relative": 0.0,
+      "recovery_preflight_eligible": true
+    },
+    {
+      "site": 12,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\gate_input_operator_20261013\\site12.gate_operator.npz",
+        "bytes": 67142686,
+        "sha256": "a0dfbf876199772961a8a70e04ec0b89a85aaac19eac70ccd4e81c903362f3f3"
+      },
+      "source_key": "model.layers.12.mamba.in_proj.weight",
+      "rows": 3072,
+      "columns": 2048,
+      "sigma_min": 0.21836537223689093,
+      "sigma_max": 15.561662757770655,
+      "condition": 71.26433370987402,
+      "unscaled_inverse_gain": 4.57948066470522,
+      "robust_rank": 2048,
+      "eigenvector_orthogonal_max": 5.093148125467906e-15,
+      "eigen_residual_relative": 1.6439275648533665e-15,
+      "negative_eigenvalue_relative": 0.0,
+      "recovery_preflight_eligible": true
+    },
+    {
+      "site": 23,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\gate_input_operator_20261013\\site23.gate_operator.npz",
+        "bytes": 67142686,
+        "sha256": "507d7665f1a101110887650aaeedcf6e2118a165916218bfd154e5ed70a209c3"
+      },
+      "source_key": "model.layers.23.mamba.in_proj.weight",
+      "rows": 3072,
+      "columns": 2048,
+      "sigma_min": 0.29487785752607726,
+      "sigma_max": 16.155576954718533,
+      "condition": 54.78735192346489,
+      "unscaled_inverse_gain": 3.391234623005106,
+      "robust_rank": 2048,
+      "eigenvector_orthogonal_max": 6.727257639838058e-15,
+      "eigen_residual_relative": 1.780785085761838e-15,
+      "negative_eigenvalue_relative": 0.0,
+      "recovery_preflight_eligible": true
+    }
+  ],
+  "gate_multiplier_config": 0.3535533905932738,
+  "input_multiplier_config": 0.625,
+  "before_after_hashes_exact": true,
+  "source_forwards": 0,
+  "hidden_recoveries": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "decision": "MATRIX_PREFLIGHT_COMPLETE_PENDING_AUDIT",
+  "output_bytes": 201428058,
+  "seconds": 16.803730199999336,
+  "OS_peak": 364679168,
+  "scope": "Exact BF16-promoted unscaled source in_proj gate row matrices3072x2048/all3 sites. Rank/condition/inverse noise-gain necessary geometry only;MuP nonzero scalar does not alter rank/condition. No reconstructed hidden/input/corpus fitting/source model/native/causal/quality/50 admission."
+}

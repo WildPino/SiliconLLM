@@ -1,6 +1,22 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Full3072/state96 native](FULL_CHANNEL_NATIVE_RESULT_20261013.md) COMPLETE/full
+independent audit PASS:all144 histories/sites0/12/23,207,793,152 scan values,
+42,467,328 final states,415,586,304 normalized values and277,057,536 rawscore
+bits exactly matched independent scalar FMA. Ownnorm local budgetsPASS/all3,
+DEVmeans.076342/.087177/.024904;fixed-source-denomFAIL0/12 retained.
+Same qualified artifacts/all288 timing histories:full state scan~59us,
+supplied-operand total~1300us versusold384~1249us (different runs/workloads).
+8x state count need not8x whole cost;generator/out functions still dominate.
+[Gate matrix information](GATE_INPUT_OPERATOR_RESULT_20261013.md) COMPLETE/full
+blockGram/directrectangularSVD audit PASS,rank2048/all3,conditions27/71/55,
+25,178,112 matrix/spectrum words qualified. No hidden input recovered.
+Runtime alias filtering gap retained/supplemented by older matching fingerprints;
+new gateV2 explicitly binds resolved ABI/BLAS. [Closure](full_channel_and_gate_operator_session_closure_20261013.json)
+retains eight completed commands/all outputs and one redundant closed-handle
+poll (no restart). [Offline recovery next](GATE_INPUT_RECOVERY_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND;no whole model/n/DRAM/same50 admission.
 [Actual mixed C operator/cost](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md)
 COMPLETE/full independent audit PASS:all48 new native384x96 histories/every
 direct CPU timestep/full final states/export bits/normalized/score/output/source

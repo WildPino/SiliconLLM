@@ -1,0 +1,287 @@
+{
+  "schema": "FULL_CHANNEL_AND_GATE_OPERATOR_SESSION_CLOSURE_V1",
+  "observed_at": "2026-10-13T02:07:51.3148517+02:00",
+  "previous_goal_turn": "PROGRESS",
+  "goal": "ACTIVE_INCOMPLETE",
+  "wide_native_audit": "INDEPENDENT_STORED_PASS",
+  "wide_ownnorm_quality": "PASS_ALL3_SITES",
+  "wide_source_denominator_quality": "FAIL_SITE0_AND12_PASS_SITE23",
+  "wide_timing_arithmetic": "FULL_AGGREGATE_ARITHMETIC_PASS",
+  "gate_operator_audit": "INDEPENDENT_STORED_PASS",
+  "gate_robust_rank_all_sites": 2048,
+  "hidden_inputs_recovered": 0,
+  "source_model_forwards": 0,
+  "native_qualification_histories": 144,
+  "optimizer_updates": 0,
+  "basis_fits": 0,
+  "DEV_selection": false,
+  "sessions": [
+    {
+      "seconds": 59.55570330000046,
+      "state": "CLOSED",
+      "terminal": "full_channel_native_binding_20261013.preparation_terminal.json",
+      "pid": 9920,
+      "error": null,
+      "OS_peak": 359628800,
+      "creation_time": 1791847456.3168633,
+      "handle": 23038,
+      "exit_code": 0
+    },
+    {
+      "seconds": 323.1775933000008,
+      "state": "CLOSED",
+      "terminal": "full_channel_native_result_20261013.terminal.json",
+      "pid": 19360,
+      "error": null,
+      "OS_peak": 443813888,
+      "creation_time": 1791847576.8449512,
+      "handle": 94414,
+      "exit_code": 0
+    },
+    {
+      "seconds": 468.00491039999906,
+      "state": "CLOSED",
+      "terminal": "full_channel_native_adjudication_20261013.terminal.json",
+      "pid": 1324,
+      "error": null,
+      "OS_peak": 770920448,
+      "creation_time": 1791847941.960064,
+      "handle": 15453,
+      "exit_code": 0
+    },
+    {
+      "seconds": 228.91999229999965,
+      "state": "CLOSED",
+      "terminal": "full_channel_native_timing_result_20261013.terminal.json",
+      "pid": 5068,
+      "error": null,
+      "OS_peak": 278949888,
+      "creation_time": 1791848712.766868,
+      "handle": 57125,
+      "exit_code": 0
+    },
+    {
+      "seconds": 5.331221099999311,
+      "state": "CLOSED",
+      "terminal": "gate_input_operator_binding_20261013.preparation_terminal.json",
+      "pid": 7208,
+      "error": null,
+      "OS_peak": 36974592,
+      "creation_time": 1791849031.0130484,
+      "handle": null,
+      "exit_code": 0
+    },
+    {
+      "seconds": 6.775076800000534,
+      "state": "CLOSED",
+      "terminal": "gate_input_operator_binding_v2_20261013.preparation_terminal.json",
+      "pid": 13404,
+      "error": null,
+      "OS_peak": 36118528,
+      "creation_time": 1791849224.6450267,
+      "handle": null,
+      "exit_code": 0
+    },
+    {
+      "seconds": 16.813778199999433,
+      "state": "CLOSED",
+      "terminal": "gate_input_operator_result_20261013.terminal.json",
+      "pid": 20288,
+      "error": null,
+      "OS_peak": 364679168,
+      "creation_time": 1791849289.3157687,
+      "handle": 8549,
+      "exit_code": 0
+    },
+    {
+      "seconds": 18.584599199999502,
+      "state": "CLOSED",
+      "terminal": "gate_input_operator_adjudication_20261013.terminal.json",
+      "pid": 6872,
+      "error": null,
+      "OS_peak": 398135296,
+      "creation_time": 1791849435.9070408,
+      "handle": 11216,
+      "exit_code": 0
+    }
+  ],
+  "receipts": [
+    {
+      "sha256": "519bec9a6108bba62e42c81694cba48a53a017ec6e8c5e8ab7411833e3db6c26",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_storage_20261013.json",
+      "bytes": 579
+    },
+    {
+      "sha256": "288b9ff3f565ebf8f11a169f54dc0f604d2857c2717e299029936fbaddd144e2",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_binding_20261013.json",
+      "bytes": 321212
+    },
+    {
+      "sha256": "b892fcdae16b5ec5969d7f18fcc2a2736362c7346785b21f8d06fee7abaa1c3f",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_launch_20261013.json",
+      "bytes": 1245
+    },
+    {
+      "sha256": "687e89f896c84c51b7927a01b12e28f3a78abb5aa7528f6682c3c33d5c226304",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_result_20261013.json",
+      "bytes": 213586
+    },
+    {
+      "sha256": "b76f9359a8207dccd538e0cad97d4a6af34458038afab7e606f80f67ed9b549e",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_audit_launch_20261013.json",
+      "bytes": 1207
+    },
+    {
+      "sha256": "0a476d816404b656060e7ea1dbbbcea56302a50ab73f1ec73d852855de55ef23",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_adjudication_20261013.json",
+      "bytes": 334198
+    },
+    {
+      "sha256": "f203a299f679f67df43fe223d9af95e02404ef8d6433c371581745d7d537d4a2",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_timing_launch_20261013.json",
+      "bytes": 1283
+    },
+    {
+      "sha256": "b1fa1a3a80be74b824cda433ae1c685994012b27107f32a5aa20aa728330b176",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_timing_result_20261013.json",
+      "bytes": 170638
+    },
+    {
+      "sha256": "11ba18b8567222970a678b50608b76d34bf2636357003afc39b1a678a6476575",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_timing_arithmetic_adjudication_20261013.json",
+      "bytes": 1102
+    },
+    {
+      "sha256": "35082e182f18457ef3ca4f75671cf548a5bf57e4cee16c7ebcf2babda8bfc1a1",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_storage_20261013.json",
+      "bytes": 362
+    },
+    {
+      "sha256": "016c1f62dcb2a367e0c53c6f0a6a916cde76bbe3fa4ed5aa7430ba5d9e1448cc",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_20261013.json",
+      "bytes": 4254
+    },
+    {
+      "sha256": "33dfe5b9f774a6d55a54e556c2f35df75d8dd63ec2317156135f0b6ffd1ab1e0",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_v2_20261013.json",
+      "bytes": 5939
+    },
+    {
+      "sha256": "248fcfdaef4b1b6db4c6a0f8170f34057aef600de435669694892a68be4c0a2e",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_launch_20261013.json",
+      "bytes": 1285
+    },
+    {
+      "sha256": "f1c1bd27d7d4f5185261b29c4e2f97d484a37b102945e259d7ff6f05233c299b",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_result_20261013.json",
+      "bytes": 3408
+    },
+    {
+      "sha256": "8f6483c7cf4a8a7366c8fc8700c83e8206878a4b76dd8ea085f394123f16e81a",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_audit_launch_20261013.json",
+      "bytes": 1178
+    },
+    {
+      "sha256": "82275feeb81f4cce7d78eb27f9871483503544c447656aab8ccda3dc55f6fa7d",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_adjudication_20261013.json",
+      "bytes": 2842
+    },
+    {
+      "sha256": "43fa975b5604298a75745df771c43a060913b136fc15d7d390cb9b8894ebd30c",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\numerical_runtime_alias_witness_20261013.json",
+      "bytes": 3949
+    },
+    {
+      "sha256": "ee9d778179ceab0b0f498b3e90197b33d94621cb915170250ea796ed9cb4e88f",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_binding_20261013.preparation_terminal.json",
+      "bytes": 1062
+    },
+    {
+      "sha256": "7e9783d0a40fa1f7e2fc510ba048f3e760655e5a0340c479f92efdd8d839bbe9",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_result_20261013.terminal.json",
+      "bytes": 1250
+    },
+    {
+      "sha256": "b9cd374b7ecfe5122f13dca386ce7f780c5b98fa879cb53d08dec9fd56991dbe",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_adjudication_20261013.terminal.json",
+      "bytes": 1363
+    },
+    {
+      "sha256": "9d2aabcf1a6467107bc4f9de2af49600258a67b7719cb058371a08f7e1d447ac",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_timing_result_20261013.terminal.json",
+      "bytes": 1387
+    },
+    {
+      "sha256": "3aa4625313f950e0b68fefa09100c7a989eedf40bb843f6d2549f2b2a25937b8",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_20261013.preparation_terminal.json",
+      "bytes": 962
+    },
+    {
+      "sha256": "675af7e39ee1fe95bad1f39bbb1355b004ab4bdd5c32b19c6e73d59fbbd3a235",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_binding_v2_20261013.preparation_terminal.json",
+      "bytes": 972
+    },
+    {
+      "sha256": "8b9c4a97583e553de81e3aba5ff37e6febc7618e6b62b33788e26a42b863963a",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_result_20261013.terminal.json",
+      "bytes": 1256
+    },
+    {
+      "sha256": "1c8b4651330cae3e72fdb868e5fe1cd2ab1779c4392723b754d297a3482ae96e",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_adjudication_20261013.terminal.json",
+      "bytes": 1362
+    }
+  ],
+  "external_storage": [
+    {
+      "run_bytes": 3546915264,
+      "directory": "E:\\SiliconLLM\\results\\native_expert_scaling\\full_channel_native_20261013",
+      "family_bytes": 3787944462.0
+    },
+    {
+      "directory": "E:\\SiliconLLM\\results\\native_expert_scaling\\gate_input_operator_20261013",
+      "bytes": 201428058.0
+    }
+  ],
+  "owned_processes_live": false,
+  "observed_processes": [
+    {
+      "ProcessId": 21640,
+      "CreationDate": "2026-10-12T22:42:06.779108+02:00",
+      "CommandLine": "\"D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe\"  \"d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py\""
+    },
+    {
+      "ProcessId": 9832,
+      "CreationDate": "2026-10-12T22:42:06.877172+02:00",
+      "CommandLine": "\"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe\" \"d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py\""
+    }
+  ],
+  "preserved_engine_and_foreign_hashes": [
+    {
+      "Hash": "5F948FC0DCD28B1647A2A2C73067BDC0A76A7D41AE7F34395EDE8120AEAA83CE",
+      "Path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c"
+    },
+    {
+      "Hash": "FCB168F0D2004BAF6C0F2938F997E095C9210E72B004C0A561ADD8608500E35D",
+      "Path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json"
+    },
+    {
+      "Hash": "C5C9ED40864989592664C15790E69E41A5EBBAD73D00EE7AC067D98E2BAF15E9",
+      "Path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py"
+    },
+    {
+      "Hash": "99B5B11C865D000F387C17120B918458AA8CAC8263628D7D040ABDDCD7EB5273",
+      "Path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md"
+    }
+  ],
+  "runtime_alias_limit": "Wide native before-after loop omitted canonical NumPy/psutil files;matching earlier explicit primary witness/current bytes is supplemental,not retroactive observation. GateV2 explicitly binds ABI/BLAS.",
+  "observations": [
+    "One redundant poll of already closed15453 returned Unknown process;terminal0/adjudication were revalidated,no run restarted"
+  ],
+  "gate_V1_preparation": "Incomplete runtime enumeration;no numeric run;binding/terminal preserved",
+  "clean_system_isolation_admitted": false,
+  "actual_expert_DRAM_measured": false,
+  "whole_model_quality_admitted": false,
+  "whole_model_speed_admitted": false,
+  "next": "Freeze BF16/MuP uncertainty-aware OFFLINE in_proj input recovery and independent x/B/C/delta replay;actual donor input capture if insufficient;keep wider trained state as a shared-core candidate"
+}
