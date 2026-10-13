@@ -1,0 +1,19 @@
+{
+  "schema": "FFN_EXACT_SUBSET_AUDIT_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/ffn_exact_subset_audit.py"
+  ],
+  "pid": 23204,
+  "creation_time": 1791920518.7829149,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_exact_subset_audit.py\", line 135, in <module>\n    try: main(); receipt.update(exit_code=0,error=None,result=extent(out))\n         ^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_exact_subset_audit.py\", line 73, in main\n    assert np.array_equal(saved['FIT_counts'],counts) and np.array_equal(saved['ranking'],ranking)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 106.875,
+  "OS_peak": 960466944
+}
