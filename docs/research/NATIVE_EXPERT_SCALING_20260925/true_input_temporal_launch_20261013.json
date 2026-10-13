@@ -1,0 +1,38 @@
+{
+  "actual_native_threads": 1,
+  "created_at": "2026-10-13T04:17:06.3163311+02:00",
+  "limits": {
+    "seconds": 900,
+    "audit_seconds": 1200,
+    "OS_bytes": 6442450944,
+    "output_bytes": 6442450944
+  },
+  "schema": "TRUE_INPUT_TEMPORAL_LAUNCH_V1",
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/true_input_temporal.py",
+    "--run",
+    "--freeze",
+    "b98353da360d2a7156e6991fe2a53370b4e31fd0",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_input_temporal_binding_20261013.json",
+    "--binding-sha",
+    "d44a207612f6cbe7aae6a869566e3a1212cd6eac312b53148478af75acf7575a",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\true_input_temporal_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_input_temporal_result_20261013.json"
+  ],
+  "preparation_session": 62293,
+  "freeze": "b98353da360d2a7156e6991fe2a53370b4e31fd0"
+}
