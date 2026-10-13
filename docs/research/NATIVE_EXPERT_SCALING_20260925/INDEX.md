@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. All owned commands closed.**
+13 October2026. **Goal ACTIVE/INCOMPLETE. CPU exact-remainder subset producer running.**
 
 ## Goal and architecture
 
@@ -59,14 +59,15 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Implement/freeze producer,auditor and binding for
+Producer/auditor/closure frozen18e7da7,bindinge9a9fa5 for
 [FIT-selected exact neuron remainder coverage](FFN_EXACT_REMAINDER_SUBSET_NEXT_20261013.md).
 Keep existing64 FIT cells/routes/all2048 outputs. Preserve BOTH exact omitted
 terms per selected neuron. FIT-only budgets32/128/512/2048 plus all4608 exact
 identity control. Apply unchanged local eligibility before any whole-model
 substitution;full audits even on failure. Score selection is a heuristic,
 not joint optimality;measure complete predicted output and cancellation.
-No subset observation or candidate exists yet. Do not rerun capture/affine
+Producer live:[execution state](FFN_EXACT_SUBSET_STATE_20261013.md),handle76408/
+owned worker6120. No subset result or candidate admitted yet. Do not rerun capture/affine
 pilot or tune against DEV. Physical bank/ternary error/routing/DRAM and the
 24-layer shared-core/attention/head20ms end-to-end budget remain open.
 

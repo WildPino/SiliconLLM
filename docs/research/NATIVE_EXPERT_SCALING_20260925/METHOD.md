@@ -35,7 +35,9 @@ curvature/cross interaction. Full quadratic correction still fails and worsens
 site23;exact terms can cancel. Next implement a FIT-selected subset of source
 neurons retaining BOTH exact remainder terms on top of a full-output affine
 cell,as specified in FFN_EXACT_REMAINDER_SUBSET_NEXT_20261013.md. No subset
-fit/export/model substitution or CPU timing is implemented yet. Physical
+result/export/model substitution or CPU timing is qualified yet. Subset producer/
+full auditor/closure now implemented/frozen18e7da7;bindinge9a9fa5,CPU producer
+running as recorded in FFN_EXACT_SUBSET_STATE_20261013.md. Physical
 ternary banks/structured routing/DRAM/whole-model composition remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
