@@ -1,0 +1,70 @@
+{
+  "schema": "TRUE_GENERATOR_INPUT_CAPTURE_TERMINAL_V2",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/true_generator_input_capture_v2.py",
+    "--launch",
+    "--freeze",
+    "b7ac11e56c94cc1f35bc2111d61fc8d0ec4627f5",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_generator_input_capture_binding_v3_20261013.json",
+    "--binding-sha",
+    "749641c24b1451902eda5225abc60cb6c945f676417e6588dc16c4ca52f1a0e4",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\true_generator_input_capture_v2_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/true_generator_input_capture_result_v2_20261013.json"
+  ],
+  "pid": 12276,
+  "creation_time": 1791855494.0198946,
+  "freeze": "b7ac11e56c94cc1f35bc2111d61fc8d0ec4627f5",
+  "timing_admitted": false,
+  "worker_pid": 22484,
+  "worker_creation_time": 1791855502.2459695,
+  "worker_argv": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\true_generator_input_capture_v2.py",
+    "--worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_generator_input_capture_binding_v3_20261013.json",
+    "--binding-sha",
+    "749641c24b1451902eda5225abc60cb6c945f676417e6588dc16c4ca52f1a0e4",
+    "--freeze",
+    "b7ac11e56c94cc1f35bc2111d61fc8d0ec4627f5",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\true_generator_input_capture_v2_20261013",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_generator_input_capture_result_v2_20261013.json"
+  ],
+  "descendant_observation": {
+    "root_pid": 22484,
+    "root_creation_time": 1791855502.2459695,
+    "fresh": [
+      {
+        "pid": 22424,
+        "ppid": 22484,
+        "creation_time": 1791855502.25372,
+        "name": "conhost.exe"
+      }
+    ],
+    "older_ppid_links": []
+  },
+  "exit_code": 1,
+  "error": "AssertionError({'root_pid': 22484, 'root_creation_time': 1791855502.2459695, 'fresh': [{'pid': 22424, 'ppid': 22484, 'creation_time': 1791855502.25372, 'name': 'conhost.exe'}], 'older_ppid_links': []})",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\true_generator_input_capture_v2.py\", line 55, in launch\n    assert not lineage['fresh'],lineage\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'root_pid': 22484, 'root_creation_time': 1791855502.2459695, 'fresh': [{'pid': 22424, 'ppid': 22484, 'creation_time': 1791855502.25372, 'name': 'conhost.exe'}], 'older_ppid_links': []}\n",
+  "termination_requested": true,
+  "worker_exit_code": 1,
+  "seconds": 8.28099999999904,
+  "worker_OS_peak": 23412736,
+  "OS_peak": 28725248
+}
