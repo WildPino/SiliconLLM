@@ -3,16 +3,21 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
-[Native full-size p6 LUT](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
-now COMPLETE/full independent native output auditPASS/all source-input quality
-gatesPASS,138M original F32 bits exact/LUT BF16 outputs exact/raw5.70e-17.
-Isolated18-sample exact-output warm/source-flushed costs~5.1--5.3ms versus
-original~1.2ms;full360-record/custody review,current F64-LUT rejected acceleration.
-Smaller packed bytes do not offset this implementation's work;no model-rate
-or physical expert-n DRAM admission. Next [bounded integer readout](INTEGER_READOUT_NEXT_20261013.md)
-PROPOSED/UNBOUND:retain p6 q/scales,explicit new int16 input approximation,
-formal PMADDWD block128/int64 overflow bound/full exact integer reference
-before accuracy/cost. Shared core primitive work,whole pipeline still open.
+[Same-p6 integer shared readout](INTEGER_READOUT_RESULT_20261013.md) now
+COMPLETE/full corrected V3 independent auditPASS/all144 local fidelity and
+source gatesPASS. Source-only p6 q/scales retained,explicit new max-scaled
+I16 activation approximation;PMADDWD block128/I64 accumulation exactly
+qualified for every dot/output. New activation incremental output worst
+0.02685%;all extra raw/BF16 each-case1% gates retained. Same audited DLL,
+actual BF16 decoding plus literal quantizer included,median0.674--0.858ms
+versus dense1.488--1.617ms on fixed paired samples;all360 records reconciled.
+Physically deploys12.60MB I16 weights/scales,not ternary lookups. Accurate
+lower-cost shared primitive available,no joined chatbot/DRAM/n admission.
+Next [exact byte-LUT representation](EXACT_INTEGER_LUT_NEXT_20261013.md)
+PROPOSED/UNBOUND:keep same integer arithmetic with four exact input digits,
+six trit planes and two-trit byte shuffles;qualify all words then cost. Full
+rank/source input geometry preserved. Original failed F64 gather implementation
+retained;two corrected audit mechanics fully documented without gate waivers.
 
 [Source-weight-only balanced ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
 now COMPLETE/full independent auditPASS. Preserve source O2048x3072 geometry,

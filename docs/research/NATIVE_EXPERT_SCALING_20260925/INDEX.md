@@ -1,18 +1,21 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
-[Native selected-p6 readout and isolated cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
-COMPLETE/INDEPENDENT_STORED_PASS/ALL numeric+extra1%+local donor gatesPASS.
-All138,528,768 LUT F64/original F32/BF16 words qualified;original F32 bits
-exact,independent BF16 differences0,raw max5.70e-17. Actual blocked F64 LUT
-implemented,but isolated call cost5.06--5.28ms versusoriginal1.16--1.22ms:
-4.2--4.6x slower. Explicit source CLFLUSH/sample raw+BF16 parity/all360 records
-reviewed;source eviction is not PMU DRAM bytes/n/model-rate admission.
-Current F64-LUT rejected as acceleration. Next
-[same-p6 bounded integer readout](INTEGER_READOUT_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:new input approximation must pass new accuracy
-and exact int64 overflow/accumulation controls before actual cost. Whole
-CHATBOT/OWN-history/useful selective ternary n/other donors/same useful50 open.
+[Same-p6 integer readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/full
+corrected independent V3 auditPASS/all144 fidelity and donor local gatesPASS.
+All207,793,152 input I16/138,528,768 exact I64 dots/scaled F64/BF16 words
+verified,independent integer/BF16 differences0. New input error worst0.03125%,
+incremental output0.02685%;extra raw/BF16 worst0.36744%/0.43167%. Same audited
+DLL with actual BF16 decode/quantizer included costs0.674--0.858ms median
+versus dense1.488--1.617ms,1.85--2.29x advantage. Full360-observation ledger
+and seven-command closurePASS;both prior audit faults retained and corrected,
+new orderedE2,909,894,600B/protected hashes unchanged/no owned job live.
+This executes int16 products,not ternary lookups;local readout evidence only.
+Next [exact byte-LUT representation](EXACT_INTEGER_LUT_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:four exact input digit slices,six trit planes,
+engine-style two-trit byte pshufb and explicit overflow/physical cost. No new
+activation loss or accuracy-budget change;full same-archive integer equality
+before cost. Whole CHATBOT/OWN-history/useful selective n/same useful50 open.
 
 [Source-only full-size ternary readout precision](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_PASS. p4/5/6 source-weight-only artifacts/all3 sites,
@@ -101,28 +104,24 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Implement/freeze/bind [FIT response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md).
-Qualified actualH/raw source input matrix/qualified own-norm BF16 vectors and
-raw F32 output responses at0/12/23;equal-case FIT-only covariances,section
-scales/full spectra/fixed128/256/512/1024/2048 diagnostic ranks. Freeze numerical
-residual/negative-eigenvalue/zero-mode policy before observation;no DEV basis/
-rank choice. Finite globally linear approximation envelopes,not generic
-capacity impossibility. Identify shared cheap part before conditional ternary
-residual functions. Count both factor matrices and measure actual kernels later.
+Freeze/bind/implement [exact integer byte LUT](EXACT_INTEGER_LUT_NEXT_20261013.md).
+Latest admitted parent:integer_readout_result_20261013.json,
+integer_readout_adjudication_v3_20261013.json and integer_readout_cost_review_20261013.json.
+All144 archived int16 inputs/scales/exact int64 dots/raw F64/BF16 words are
+available in E:/SiliconLLM/results/native_expert_scaling/integer_readout_20261013.
+Preserve p6 weights and current input quantizer,extend engine-style two-trit
+pshufb using exact unsigned-low/signed-top nibble decomposition. Formal byte/
+partial/full integer bounds,all-word equality and physical codes/traffic
+must be frozen before launch;no inherited speed claim. One bounded cost
+comparison after full audit,then return to joined causal functions. All
+current scientific jobs closed;no process to resume or timing to rerun.
 
-Initial-layer source chain is token-only in this eval/token-ID/no-padding mode:
-[exact witness](source_token_input_witness_20261013.json),22547 rows/3816 tokens/
-18731 repeats/zero2048-coordinate differences. Full65537x6704 BF16 generator
-lookup would878,720,096B/13,408B row,use32-bit IDs. Full table/derivation/rounding/
-field-native equivalence/DRAM/latency NOT built;conv/state/history still active.
-This compiler alternative complements rank tests;later23 layers context-dependent.
-No source/GPU/teacher response/RESERVED/fit allocated now.
-
-Current generator source15303f5/bindingf2a166c1.../producer45667/audit51577
-terminal0/PASS. Native sourceb98353d/bindingd44a2076.../producer34983/audit1131
-terminal0/PASS. Token witnesse7913b8/launch148eb06 terminal0. All gates retained;
-no unchanged source/generator/native replay needed. Actual all24 inputs remain
-available;other21 source functions not yet independently replay-qualified.
+FIT source-function global ranks and conditional affine-bank coverage are
+COMPLETE,failed compression paths as linked above;their former next step is
+superseded. Actual source input replay/native state at0/12/23 qualified;
+other21 source functions and OWN-history all-layer pipeline still pending.
+Initial token-only generator compiler alternative878,720,096B remains
+unbuilt;later23 layers context-dependent. No fresh donor/T4/RESERVED allocated.
 
 104 new+64 older RESERVED/longalign8186-20874 remain unqueried. Need actual
 cheap source functions/conditional ternary bank/CPU IDs AND masses/realDRAM,

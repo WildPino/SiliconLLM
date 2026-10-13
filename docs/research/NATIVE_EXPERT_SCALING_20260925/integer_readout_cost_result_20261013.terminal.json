@@ -1,0 +1,34 @@
+{
+  "schema": "INTEGER_READOUT_COST_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/integer_readout_cost.py",
+    "--run",
+    "--freeze",
+    "e4ea3fd",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_cost_binding_20261013.json",
+    "--binding-sha",
+    "91aff63ed2025aa89a473610563a6aba0ab9204868ba13e6f195ef2a3422363d",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_cost_result_20261013.json"
+  ],
+  "pid": 2952,
+  "creation_time": 1791873370.40712,
+  "freeze": "e4ea3fd",
+  "whole_model_rate_admitted": false,
+  "exit_code": 0,
+  "error": null,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\integer_readout_cost_result_20261013.json",
+    "bytes": 107320,
+    "sha256": "6fd57bc671a43b77f1251ed23679316af1eab8180bda7ae8986beb0d5ef0768b"
+  },
+  "seconds": 8.171999999998661,
+  "OS_peak": 125825024
+}

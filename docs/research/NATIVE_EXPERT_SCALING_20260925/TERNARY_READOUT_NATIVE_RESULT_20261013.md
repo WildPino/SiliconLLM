@@ -108,14 +108,15 @@ data pins checked;not a complete transient DLL-tree guarantee.
 
 ## Next and whole objective
 
-[Bounded integer readout](INTEGER_READOUT_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:preserve p6 q/scales,new explicitly quantified
-int16 input approximation,AVX2 PMADDWD block128/int64 accumulation with formal
-overflow bounds,full independent integer equality BEFORE accuracy/cost. More
-weight bytes than ternary pattern code may still reduce expensive operations;
-no untested speed promise. The accurate native F64-LUT remains an immutable
-reference/cost failure. [T-MAC primary-source check](NATIVE_LUT_PRIMARY_SOURCE_NOTE_20261013.md)
-suggests bitwise/table-size/hardware distinctions,not transferable benchmark rates.
+[Bounded integer readout](INTEGER_READOUT_RESULT_20261013.md) now COMPLETE:
+full V3 auditPASS/all144 fidelity gatesPASS/zero exact-dot or BF16 reference
+mismatches. Same full-audited binary with BF16 decode and quantizer included
+median0.674--0.858ms versus dense1.488--1.617ms on the separate fixed cost
+run;full ledger/custody reviewed. Physical I16 products,not ternary LUT.
+Next [exact digit-sliced byte LUT](EXACT_INTEGER_LUT_NEXT_20261013.md) proposed/
+unbound;accurate F64-LUT remains immutable reference/cost failure. Earlier
+[T-MAC source check](NATIVE_LUT_PRIMARY_SOURCE_NOTE_20261013.md) is limited
+primary-source context,not a transferable benchmark or exactness proof.
 
 Source CHATBOT->compact shared causal core+useful selective ternary functions->
 engine.c still requires generator/FFN/attention/tokenizer/head/OWN histories/

@@ -1,6 +1,22 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Same-p6 I16 readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/V3 full
+independent auditPASS/all144 fidelity+donor local gatesPASS. Exact reference
+verifies all207,793,152 input integers/67,641 scales/138,528,768 I64 dots/F64
+scores/BF16 words,zero dot/BF16 differences,metadata0. Activation incremental
+raw worst0.02685%;full extra raw0.36744%/BF160.43167%. Same audited binary,
+actual BF16 decode and literal quantizer diagnostic overhead INCLUDED:
+median0.674--0.858ms versus dense1.488--1.617ms,1.85--2.29x advantage under
+fixed18 FIT/360 paired core0 observations. Shared desktop tails retained;
+CLFLUSH source eviction is not PMU DRAM or model-rate evidence. Deployed
+weights12,599,296B incl scales are int16,not ternary lookup execution.
+V1 wrong diagnostic denominator numeric failure/V2 final hash-list shadow
+terminal1 preserved;full V3 rerun passes unchanged gates. Seven commands
+closed/newE2,909,894,600B/protected hashes unchanged/no source/GPU/T4/RESERVED.
+Next exact four-input-digit/six-trit byte LUT proposed/unbound,then joined
+causal pipeline. No OWN-history chatbot/useful-n/cross-family/same50 admission.
+
 [Native p6 LUT + cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS/all144 numeric/extra1%/local donor gates
 PASS. All138,528,768 LUT F64/original F32/BF16 words verified;original scores

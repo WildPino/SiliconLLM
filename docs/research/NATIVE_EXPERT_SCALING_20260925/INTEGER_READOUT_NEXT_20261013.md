@@ -1,6 +1,10 @@
 # Selected next: preserve p6 weights with bounded integer dot arithmetic
 
-13 October2026. **PROPOSED / UNIMPLEMENTED / UNBOUND.** Native five-trit F64
+13 October2026. **HISTORICAL PROPOSAL, NOW COMPLETE.**
+[Full integer result and cost](INTEGER_READOUT_RESULT_20261013.md): corrected
+full V3 auditPASS/all fidelity gatesPASS/same audited binary lower isolated
+cost. Original proposal below retained; next exact byte-LUT representation
+[here](EXACT_INTEGER_LUT_NEXT_20261013.md) remains proposed/unbound. Native five-trit F64
 LUT is numerically qualified but4.2--4.6x slower than original F32 output call
 on the declared samples/cache conditions. Do not repeat its unchanged cost
 campaign. Preserve successful p6 source q/scales,replace expensive floating
