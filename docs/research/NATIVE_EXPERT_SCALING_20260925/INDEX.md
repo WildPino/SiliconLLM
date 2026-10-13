@@ -7,7 +7,8 @@ IMPLEMENTED/BOUND/RUNNING:source37ce5b1/preflight6e3f80e/binding c14c2a8.
 All24 actual pre-FFN inputs/up/raw+scaled gate/features/output on known48
 histories. Native trace/state/cache/label words must match qualified parent.
 Source job7200s/OS8GiB/GPU6GiB allocated/10GiB reserved/E32GiB;bound28.07GB.
-Owned holder31288/worker28776,recorded creation times,live startup hash check.
+Owned holder31288/worker28776,recorded creation times,source411 parameters
+verified/observers active/first448 native stream steps exact to parent.
 9900 inputs pinned/CPU preparation38.594s exit0;original preflight failure
 preserved,no source allocation in that attempt. Full dataset/CPU audit pending.
 Exact resume in linked state;no delegated monitor/T4/RESERVED. Affine bank

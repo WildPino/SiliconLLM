@@ -20,8 +20,10 @@ GPU query12288MiB total/3419MiB used/8692MiB free.
 [Protocol](FFN_OPERAND_CAPTURE_PROTOCOL_20261013.md) and
 [launch](ffn_operand_capture_launch_20261013.json) fix exact source/data/gates.
 Launch16:23:56 Europe/Rome (14:23:56 UTC),holder31288/create1791901436.9364777,
-worker28776/create1791901469.5726664. Live startup input hashing observed;
-no completed dataset/FFN approximation/quality verdict yet.
+worker28776/create1791901469.5726664. Source loaded/all411 coefficients verified,
+all24 observers active. First448 consumed-token steps progressed with native
+parent stream comparisons exact;full history/cache/label closure still pending.
+No completed dataset/FFN approximation/quality verdict yet.
 
 All24 actual own pre-FFN inputs/up/raw gate/scaled gate/product feature/output,
 48 known histories/22547 positions/6912 BF16 files. Raw fields24,381,063,168B;
