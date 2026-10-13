@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE; temporal producer LIVE session50088.**
+**13 October2026: goal ACTIVE/INCOMPLETE; temporal audit LIVE session36813;producer50088 CLOSED0.**
 [Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
 COMPLETE/full independent audit PASS:all144 histories/sites0/12/23,
 453,465,264 regenerated BF16 field words,138,528,768 recovered H64 words,
@@ -9,8 +9,8 @@ EVERY case/EVERY gate/x/B/C/delta field passes frozen whole-history1% gate.
 Worst DEV field error.707236%; centered site23 B1.381059%/x1.070170% retained.
 These are approximate offline inputs,not true hidden bits or a causal encoder.
 Next [temporal propagation gate](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
-IMPLEMENTED/FROZEN/BOUND/PRODUCER LIVE:regenerated operands through SAME qualified
-full3072/state96 native recurrence before cheaper function calibration. No result
+IMPLEMENTED/FROZEN/BOUND/AUDIT LIVE:regenerated operands through SAME qualified
+full3072/state96 native recurrence before cheaper function calibration. Producer retained one final-state1% failure,all own-output flagsPASS. No numeric
 admission until full independent audit.
 
 ## Goal and constraints
@@ -50,11 +50,13 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-[Temporal propagation](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md) producer LIVE
-session50088;source/auditor/protocol freeze fd2f8a0,binding b8d9c09a...,
+[Temporal propagation](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md) producer CLOSED0
+session50088;full audit LIVE36813,launch4fd621f. Source/auditor/protocol freeze
+fd2f8a0,binding b8d9c09a...,
 launch4442738. Preparation29881 CLOSED0. Poll SAME live handle;timeout is not
-termination,never restart based only on missing observation. No temporal
-result admitted yet;finish all144 cases,then bind and run full independent audit.
+termination,never restart based only on missing observation. All144 producer cases complete;one site23 Numina final-state discrepancy1.125798%
+>1%,own-output.785487% PASS. Finish SAME audit handle;then frozen failed-state
+forcing/decay decomposition e594018 before calibration or compression admission.
 Current source and audit freezes f51f63c/7074212,launches2aec0c3/788071c;
 [recovery binding](gate_input_recovery_binding_20261013.json) SHA44f61d40...,
 [result](gate_input_recovery_result_20261013.json),
