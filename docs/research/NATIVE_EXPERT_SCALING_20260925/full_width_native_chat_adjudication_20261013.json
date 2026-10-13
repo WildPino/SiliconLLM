@@ -1,0 +1,145 @@
+{
+  "schema": "FULL_WIDTH_NATIVE_CHAT_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\full_width_native_chat_audit.py",
+    "bytes": 16469,
+    "sha256": "40b71094eec4bf18ffa39a619132fa628c977bb14ca8b5920de6e02cc696c9b2"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_result_20261013.json",
+    "bytes": 5294187,
+    "sha256": "1ab9c39cf7c48a7bc56cf5a4dc56e564a142250fad92314b12449ff6caada771"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_result_20261013.terminal.json",
+    "bytes": 2793,
+    "sha256": "5a1ac1bafc750466510cd2bac90ba67a85b22a7af7ac67d33c0722a01f382978"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_binding_20261013.json",
+    "bytes": 1256042,
+    "sha256": "de1b7d9edc63cde14e0cf0a5a4cb1a333826562a360d144413f00f1d0f574119"
+  },
+  "freeze": "16ae694",
+  "counts": {
+    "sequence_sites": 2328,
+    "contextual_rows": 555887,
+    "native_positions": 580056,
+    "output_words": 1187954688,
+    "output_mismatches": 0,
+    "integer_words": 1187954688,
+    "integer_mismatches": 0,
+    "raw_mismatches": 0,
+    "BF16_mismatches": 0,
+    "final_state_mismatches": 0,
+    "final_ring_mismatches": 0
+  },
+  "maxima": {
+    "fields": 0,
+    "B_projection": 1.7201655644526346e-07,
+    "C_projection": 2.943598773542601e-07,
+    "scan": 1.365297791639119e-06,
+    "state": 1.9092433137290745e-06,
+    "norm": 0,
+    "contextual_generator": 8.949342245419873e-05
+  },
+  "numeric_gates": {
+    "fields": true,
+    "B_projection": true,
+    "C_projection": true,
+    "scan": true,
+    "state": true,
+    "norm": true,
+    "activation_quantizer": true,
+    "contextual_generator": true,
+    "native_output_exact": true,
+    "final_state_exact": true,
+    "final_ring_exact": true,
+    "integer_witness_bit_exact": true
+  },
+  "quality": {
+    "categories": {
+      "arithmetic": 3,
+      "extraction": 4,
+      "history": 3,
+      "instruction": 4
+    },
+    "correct": 14,
+    "domains": {
+      "apigen-80k": {
+        "KL": 0.013232287835114095,
+        "disagreement": 0.009009009009009009
+      },
+      "everyday-conversations": {
+        "KL": 0.017677163475872053,
+        "disagreement": 0.07404563405002194
+      },
+      "explore-instruct-rewriting": {
+        "KL": 0.01138820111061233,
+        "disagreement": 0.029296875
+      },
+      "metamathqa-50k": {
+        "KL": 0.005007766281807774,
+        "disagreement": 0.028714005235602094
+      },
+      "numina-cot-100k": {
+        "KL": 0.009118283112065164,
+        "disagreement": 0.025390625
+      },
+      "openhermes-100k": {
+        "KL": 0.040014695225872754,
+        "disagreement": 0.07421875
+      },
+      "self-oss-instruct": {
+        "KL": 0.007420724496420873,
+        "disagreement": 0.009765625
+      },
+      "smol-constraints": {
+        "KL": 0.03081894039186711,
+        "disagreement": 0.05838709677419355
+      },
+      "smol-magpie-ultra": {
+        "KL": 0.025579767900509753,
+        "disagreement": 0.06640625
+      },
+      "smol-rewrite": {
+        "KL": 0.015680412837075886,
+        "disagreement": 0.053015873015873016
+      },
+      "smol-summarize": {
+        "KL": 0.05139347345089763,
+        "disagreement": 0.11104441776710683
+      },
+      "systemchats-30k": {
+        "KL": 0.03138579476689794,
+        "disagreement": 0.046875
+      }
+    },
+    "DEV_case_KL": 0.021559792573751114,
+    "DEV_case_disagreement": 0.048847430070983876,
+    "gates": {
+      "task_min": true,
+      "category_min": true,
+      "blank_max": true,
+      "no_special_leak": true,
+      "stop_policy": true,
+      "own_answer_followup": true,
+      "DEV_case_KL": true,
+      "DEV_case_disagreement": true,
+      "domain_KL": true,
+      "domain_disagreement": true,
+      "prefix_logits_routes_bit_exact": true,
+      "mass_defect": true
+    },
+    "all_pass": true
+  },
+  "all_numeric_pass": true,
+  "quality_pass": true,
+  "decision": "INDEPENDENT_STORED_QUALITY_PASS",
+  "before_after_hashes_exact": true,
+  "seconds": 2658.3280000000013,
+  "OS_peak": 1065394176,
+  "GPU_calls": 0,
+  "source_model_forwards": 0,
+  "scope": "All97 sequence traces/all24 own native states/fields/scan/norm/integer/readout and known categorical/generation decisions audited. GPU source attention/FFN/head are producer/source-identity witnesses,not independently replayed GPU arithmetic. No final CPU/useful-n/same useful50 admission."
+}
