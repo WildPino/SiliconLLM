@@ -1,0 +1,31 @@
+{
+  "schema": "TEMPORAL_ERROR_DECOMPOSITION_TERMINAL_V1",
+  "mode": "prepare",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/temporal_error_decomposition.py",
+    "--mode",
+    "prepare",
+    "--freeze",
+    "e594018ef58c3cc96484de763749747b4f86ca49",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/temporal_error_decomposition_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/temporal_error_decomposition_binding_20261013.json"
+  ],
+  "pid": 2404,
+  "creation_time": 1791852936.5164535,
+  "freeze": "e594018ef58c3cc96484de763749747b4f86ca49",
+  "timing_admitted": false,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "stage": "startup",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\temporal_error_decomposition.py\", line 27, in main\n    rp=DOC/'recovered_input_temporal_result_20261013.json';ap=DOC/'recovered_input_temporal_adjudication_20261013.json';r=json.loads(rp.read_bytes());ad=json.loads(ap.read_bytes());assert ad['decision']=='INDEPENDENT_STORED_PASS' and ad['report']==extent(rp) and ad['temporal_gates']==r['temporal_gates'];tb=json.loads(Path(r['binding']['path']).read_bytes());capture=json.loads(Path(tb['capture']['path']).read_bytes())['records'];cases={q['id']:q for q in capture};packets={q['site']:q for q in tb['exports']};failed=[q for q in r['records'] if not all(q['temporal_flags'].values())];assert failed;assert not a.directory.exists();storage=json.loads((DOC/'temporal_error_decomposition_storage_20261013.json').read_text(encoding='utf-8-sig'));assert str(a.directory.resolve())==str(Path(storage['new_output_directory']).resolve());items=[]\n                                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 0.14167099999940547,
+  "OS_peak": 36401152
+}
