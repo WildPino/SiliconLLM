@@ -1,0 +1,36 @@
+{
+  "freeze": "665c7b6",
+  "scope": "All48 initial-layer row-ABI archive and continuation controls;all24 source parameter sets on arbitrary first16 FIT rows,numeric control only,no later-layer/model quality claim",
+  "limits": {
+    "seconds": 900,
+    "family_bytes": 3221225472,
+    "OS_bytes": 6442450944
+  },
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "binding_sha256": "aca71aa4b9e464ae29b3afb3a804b88f69f268d6c6285f2b1da5c3193adb7890",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/row_state.py",
+    "--run",
+    "--freeze",
+    "665c7b6",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/row_state_binding_20261013.json",
+    "--binding-sha",
+    "aca71aa4b9e464ae29b3afb3a804b88f69f268d6c6285f2b1da5c3193adb7890",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/row_state_20261013/run",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/row_state_result_20261013.json"
+  ],
+  "schema": "ROW_STATE_LAUNCH_V1"
+}
