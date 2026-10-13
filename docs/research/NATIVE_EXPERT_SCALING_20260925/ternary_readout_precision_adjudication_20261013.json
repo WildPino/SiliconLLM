@@ -1,0 +1,209 @@
+{
+  "schema": "TERNARY_READOUT_PRECISION_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ternary_readout_precision_audit.py",
+    "bytes": 17957,
+    "sha256": "77c706d0a42f62e1a79be2317fb98f5bfe68a765c14d56bf39fdc434b465182a"
+  },
+  "freeze": "ffd585c",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_result_20261013.json",
+    "bytes": 833433,
+    "sha256": "213cc23053c6a9c9be24742f0c90166f8cc4707cfa2c9a1168323907de467664"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_result_20261013.terminal.json",
+    "bytes": 1199,
+    "sha256": "4f15ea52b2e75dcbbd8652ade85b95f662ee505eaaad5e05bf61085cac20c87c"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_binding_20261013.json",
+    "bytes": 561576,
+    "sha256": "cee77ca52d0bf65d4f4e03f3051b4d51d63c0a139e7716fee806671e5c8355f7"
+  },
+  "models": [
+    {
+      "site": 0,
+      "arms": [
+        {
+          "planes": 4,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.02176920017643331,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.02250002681380217,
+            "raw_Gram_negative_modes": 0
+          }
+        },
+        {
+          "planes": 5,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.02176920017643331,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.02178915861799433,
+            "raw_Gram_negative_modes": 0
+          }
+        },
+        {
+          "planes": 6,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.02176920017643331,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.02178177147532216,
+            "raw_Gram_negative_modes": 0
+          }
+        }
+      ]
+    },
+    {
+      "site": 12,
+      "arms": [
+        {
+          "planes": 4,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.020736042708617446,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.020994563896074504,
+            "raw_Gram_negative_modes": 0
+          }
+        },
+        {
+          "planes": 5,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.020736042708617446,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.02080968449208888,
+            "raw_Gram_negative_modes": 0
+          }
+        },
+        {
+          "planes": 6,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.020736042708617446,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.02075494118554408,
+            "raw_Gram_negative_modes": 0
+          }
+        }
+      ]
+    },
+    {
+      "site": 23,
+      "arms": [
+        {
+          "planes": 4,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.01436668462194958,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.017414389837841056,
+            "raw_Gram_negative_modes": 0
+          }
+        },
+        {
+          "planes": 5,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.01436668462194958,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.014854320630860195,
+            "raw_Gram_negative_modes": 0
+          }
+        },
+        {
+          "planes": 6,
+          "numeric_gates": {
+            "coefficient_bound": true,
+            "full_robust_rank": true
+          },
+          "original_Gram": {
+            "raw_Gram_minimum": 0.01436668462194958,
+            "raw_Gram_negative_modes": 0
+          },
+          "quantized_Gram": {
+            "raw_Gram_minimum": 0.014361791181357546,
+            "raw_Gram_negative_modes": 0
+          }
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "q_coefficients": 56623104,
+    "packed_codes": 56678400,
+    "scale_words": 18432,
+    "singular_values": 36864,
+    "stored_BF16_words": 415586304,
+    "independent_BF16_mismatches": 0,
+    "source_Z_Y_words": 346321920
+  },
+  "maximum": {
+    "scale_relative": 0.0,
+    "original_Gram_vs_squared_SVD": 5.741758774938365e-15,
+    "Gram_negative_relative": 0.0,
+    "quantized_Gram_vs_squared_SVD": 5.66144566901591e-15,
+    "metadata_absolute_or_relative": 3.469446951953614e-18,
+    "independent_BF16_smooth_relative": 0.0
+  },
+  "verification_gates": {
+    "scale_relative": true,
+    "original_Gram_vs_squared_SVD": true,
+    "Gram_negative_relative": true,
+    "quantized_Gram_vs_squared_SVD": true,
+    "metadata_absolute_or_relative": true,
+    "independent_BF16_smooth_relative": true
+  },
+  "FIT_selected_planes": 6,
+  "selected_DEV_all_pass": true,
+  "numeric_all_pass": true,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 116.81300000000192,
+  "OS_peak": 988246016,
+  "scope": "All source integer quantizer coordinates/digits/packed bytes/scales/full Gram spectra;all stored BF16 words and every unsaved raw-score metric independently recomputed from actual normalized inputs. No actual LUT kernel/activation quantization/model/DRAM/quality-speed admission."
+}
