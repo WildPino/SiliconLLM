@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+**13 October2026: goal ACTIVE/INCOMPLETE;actual-input native producer LIVE34983.**
 [Actual all-layer source inputs](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
 COMPLETE/data and source continuity auditPASS. All1152 actual BF16 H arrays/
 1,108,230,144 words at24 layers;three-site1008 recurrent fields/799,787,184
@@ -10,7 +10,8 @@ noLMhead/answers/fit/T4/RESERVED. E4.233GB;source334s/audit80s,all boundsPASS.
 This provides observed calibration inputs;CPU function/temporal replay and
 cheap causal capacity remain unproved. Earlier inverse state1.125798%failure
 and separate BF16 smooth1e-4 failure retained. Next [true-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND,no additional source/GPU needed.
+IMPLEMENTED/FROZEN/BOUND:generator full auditPASS,native producerLIVE34983.
+No new source/GPU;temporal/numerical admission pending full native audit.
 
 ## Goal and constraints
 
@@ -51,7 +52,14 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Implement/freeze/bind [actual-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md).
+[Actual-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
+generator45667/audit51577 CLOSED0/fullPASS;freeze15303f5/bindingf2a166c1...,
+all453,465,264 predictedBF16 words exactly reproduced. Actual-source field
+fidelityPASSall720 comparisons;original inverse roundedH DEVmeans~.506/.558/
+.651% now measured against true inputs. Nativeproducer34983 LIVE;source/audit
+freezeb98353d/bindingd44a2076.../launch35d8b29. Poll SAME handle;no restart
+on observation timeout. Complete all144 and full independent audit before
+state/output/whole numeric admission. No parent source/GPU rerun.
 Actual captured BF16 H is the fixed input,all48 histories/sites0/12/23,
 AFTER .625/BEFORE in_proj;no extra multiplier/weight fit/recovery selection.
 Use actual MuP/explicit BF16 stages;compare complete source fields under each-

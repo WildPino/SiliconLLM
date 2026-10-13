@@ -1,6 +1,6 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;actual-input native producer LIVE34983.**
 [Actual all24 source inputs](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
 COMPLETE/full data and source continuity auditPASS.48 complete source base
 prefills/1152 actualBF16 H arrays afterSSMin.625/beforein_proj,
@@ -19,7 +19,9 @@ explicit limit;actual source/worker/audit identities/resources recorded.
 True inputs are observed data,not CPU generator/causal/chatbot proof. Earlier
 inverse state1.125798% and separate BF16 smooth1e-4 failures not waived.
 Next [true-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND;field/own-output/final-state gates and full audits
+Generator45667/audit51577 CLOSED0/fullPASS;nativeproducerLIVE34983,all144
+actual-input regenerated operands through SAME trained recurrence. No new
+source/GPU/fit. Field/own-output/final-state gates and full audits
 before cheap input/output/conditional ternary fitting. Other21 layer inputs
 not yet generator/state-replay qualification. Useful n/routing/realDRAM/
 O(n) masters/multi-family/OWN histories/same useful50 remain required.

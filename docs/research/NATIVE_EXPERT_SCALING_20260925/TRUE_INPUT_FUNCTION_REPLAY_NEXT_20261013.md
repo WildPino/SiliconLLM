@@ -1,6 +1,9 @@
 # Actual source inputs -> qualified generator/recurrence calibration boundary
 
-13 October2026. **SELECTED AFTER DATA AUDIT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **IMPLEMENTED / FROZEN / BOUND / NATIVE PRODUCER LIVE34983.**
+Generator45667/audit51577 complete/fullPASS;native sourceb98353d/bindingd44a2076...
+/launch35d8b29 running SAME actualC operator. No temporal/numeric result admission
+until full native audit. Original pre-observation rationale below retained.
 No true-input replay or compressed function has been admitted yet. [Source capture](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)94907 and
 all-data/source continuity audit70443 now COMPLETE/PASS. All24 trueH arrays
 observed;three-site full recurrent fields bit exact original. This proposal

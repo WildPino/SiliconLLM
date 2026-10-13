@@ -54,7 +54,9 @@ V2 conhost observed,V3 original detached flag8 restored. No numerical gates
 changed. Detailed CPU preparation PID receipts were not recorded;actual
 source/worker/audit identities/resources are recorded.
 Next [actual-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:actualH/explicit source generator stages/all144
+Generator IMPLEMENTED/full independentPASSall144/453,465,264 BF16 field
+words,all source-field1% gatesPASS. Nativeproducer34983 LIVE,temporal/numeric
+admission pending:actualH/explicit source generator stages/all144
 field1%/own-output1%/final-state1% and full audits before compression admission.
 Historical inferred-input temporal/BF16 failures remain. No source/GPU needed.
 Then [FIT response-rank compression](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
