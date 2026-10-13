@@ -1,0 +1,37 @@
+{
+  "terminal_sha256": "a6cd6992f3ec3a7a5f92cbd01fa790d6e0e9f8b75668e848e129226bb945a331",
+  "report_sha256": "51c039a9f30e71269c52197376625eebba1d6805648bbd464d381b7043d50d07",
+  "scope": "All packed coefficients/exhaustive digits and table words/full144 exact I64/rawF64/BF16 histories/parent quality identity;complete regardless of numeric quality failure",
+  "limits": {
+    "seconds": 1200,
+    "OS_bytes": 6442450944
+  },
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "freeze": "29e5418",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/exact_integer_lut_audit.py",
+    "--freeze",
+    "29e5418",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_integer_lut_result_20261013.json",
+    "--report-sha",
+    "51c039a9f30e71269c52197376625eebba1d6805648bbd464d381b7043d50d07",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_integer_lut_result_20261013.terminal.json",
+    "--terminal-sha",
+    "a6cd6992f3ec3a7a5f92cbd01fa790d6e0e9f8b75668e848e129226bb945a331",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_integer_lut_adjudication_20261013.json"
+  ],
+  "schema": "EXACT_INTEGER_LUT_AUDIT_LAUNCH_V1"
+}
