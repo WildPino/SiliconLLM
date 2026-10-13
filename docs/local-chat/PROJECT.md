@@ -6,7 +6,7 @@ training o modifiche al motore.
 
 ## Esperienza dell'utente
 
-Una pagina locale con elenco delle conversazioni a sinistra, selettore del
+Una finestra desktop con elenco delle conversazioni a sinistra, selettore del
 modello e messaggi al centro, campo di composizione in basso. Le statistiche
 rimangono compatte sotto la risposta, con dettagli espandibili.
 Il testo cresce senza animazioni decorative, evidenzia il codice e permette
@@ -23,36 +23,47 @@ accumulare una coda di richieste o avviare altra inferenza.
 
 ## Architettura proposta
 
-Browser locale → piccolo servizio locale → adattatore → processo del runtime.
+Finestra C++ con Qt Widgets → adattatore → processo del runtime.
 
-Il servizio fa da ponte: riceve messaggi, applica tokenizer e template corretti,
-gestisce il processo e porta risposta e statistiche al browser. L'API è il
-contratto tra pagina e servizio, non un servizio esterno.
+La scelta è un'app compilata con controlli desktop, senza WebView, Qt WebEngine,
+server HTTP o runtime JavaScript. C++ gestisce interfaccia, cronologia e
+comunicazione. Il runtime scientifico mantiene il proprio processo e build.
 
-- Frontend TypeScript con build statica e dipendenze ridotte. Vite soltanto
-  durante lo sviluppo; nell'uso normale non parte un server di sviluppo.
-- Ponte Python per riusare la filiera tokenizer già presente, con un solo
-  processo server e I/O in attesa di eventi. La libreria HTTP sarà scelta
-  all'avvio dell'implementazione in base a semplicità, dipendenze e misura.
+- Qt Core, Gui e Widgets, compilati con CMake. Nessun ciclo di rendering continuo
+  o animazione decorativa. Aggiornare soltanto testo e zone che cambiano.
+- Adattatore con I/O guidato dagli eventi; Qt offre QProcess per avviare e
+  comunicare con processi esterni. Lettura e decodifica devono restare separate
+  dal rendering se le misure mostrano contesa nel thread della finestra.
+- Tokenizer e template devono restare identici al riferimento. Riutilizzare
+  un helper Python limitato a queste operazioni se necessario; una migrazione
+  nativa richiede parità prima di sostituirlo. Non caricare librerie di training
+  per il solo tokenizer. Il runtime finale può avere ulteriori dipendenze
+  approvate dalla ricerca: la scelta della UI non ne cambia la qualificazione.
 - Un processo di inferenza persistente: caricare il modello una volta evita
   di pagare il caricamento a ogni messaggio.
 - Comunicazione binaria per token e stato tra runtime e adattatore; nessun
   server HTTP o serializzazione JSON inseriti nei kernel di calcolo.
-- Trasporto progressivo HTTP verso il browser con eventi tipizzati e
-  cancellazione separata; preferenza per SSE letto attraverso una richiesta
-  POST, senza necessità di WebSocket nella prima versione.
+- Eventi progressivi locali verso l'interfaccia, con cancellazione separata
+  dalla pipe delle richieste; nessun SSE o WebSocket.
 - Persistenza delle conversazioni in una directory dati dell'utente, fuori
   dal repository, con scritture atomiche a fine turno o dopo un'interruzione.
   Il testo non viene salvato a ogni token.
 
-Servizio in ascolto soltanto su loopback, con controllo dell'origine e token
-locale di sessione per le operazioni di modifica. Nessuna esposizione sulla
-rete locale. I percorsi degli artefatti provengono dalla configurazione del
-catalogo, non da comandi o percorsi forniti dal modello.
+Nessuna porta di rete in ascolto. I percorsi degli artefatti provengono dalla
+configurazione del catalogo, non da comandi o percorsi forniti dal modello.
 
-Directory proposte: `apps/local-chat/web/`, `apps/local-chat/server/`,
+Directory proposte: `apps/local-chat/src/`, `apps/local-chat/resources/`,
 `apps/local-chat/adapters/`, `tests/local_chat/` e `docs/local-chat/`.
 Il nome dell'applicazione rimane quello del progetto.
+
+Qt Widgets offre layout e controlli desktop maturi, riducendo il lavoro rispetto
+a costruire manualmente la UI con Win32. Tauri conserva processi WebView:
+la scelta nativa elimina quel livello, ma il vantaggio CPU è un'ipotesi da
+misurare, non una garanzia. La dimensione dell'installer non misura il costo
+durante la generazione. Documentazione:
+[Qt Widgets](https://doc.qt.io/qt-6/qtwidgets-index.html),
+[QProcess](https://doc.qt.io/qt-6/qprocess.html),
+[processi Tauri](https://v2.tauri.app/concept/process-model/).
 
 ## Evidenze del motore alla base del progetto
 
@@ -83,7 +94,7 @@ Per lo streaming nativo, proporre un protocollo versionato e separato:
 inizio richiesta, ID prodotti, completamento con contatori e tempi, errore.
 Conservare il protocollo storico e i suoi consumer di ricerca.
 Emettere il primo ID appena disponibile; raggruppare gli altri soltanto per
-un intervallo breve, inizialmente 30–50 ms da misurare. Il browser può aggiornare
+un intervallo breve, inizialmente 30–50 ms da misurare. La finestra può aggiornare
 il testo ogni 50–100 ms senza attendere il completamento della risposta.
 La decodifica incrementale deve conservare correttamente Unicode, byte parziali
 e token speciali. Il risultato finale deve coincidere con la decodifica canonica.
@@ -93,7 +104,7 @@ su stdin non può essere letto da un runtime che sta ancora facendo decode.
 Preferenza per un segnale cooperativo controllato tra passi di generazione;
 se non disponibile, arresto e riavvio del solo processo posseduto dal servizio.
 Dopo lo Stop, validare o ricostruire lo stato dal transcript effettivo.
-Non basta chiudere lo streaming HTTP lasciando il motore a calcolare.
+Non basta interrompere la visualizzazione lasciando il motore a calcolare.
 
 I limiti di contesto devono essere controllati prima della richiesta. Nessuna
 troncatura silenziosa e nessun riassunto automatico nella prima versione.
@@ -102,10 +113,10 @@ troncatura silenziosa e nessun riassunto automatico nella prima versione.
 
 C non dispone automaticamente di code più efficienti: contano scheduling del
 sistema operativo, thread runnable, cache condivise, banda RAM e trasferimenti.
-Anche il browser può competere con il motore. Un processo ponte in attesa di
+Anche una finestra nativa può competere con il motore. Un processo ponte in attesa di
 I/O non equivale a un core impegnato continuamente; evitare il polling attivo.
 
-La lettura deve drenare stdout e stderr anche quando il browser rallenta.
+La lettura deve drenare stdout e stderr anche quando il rendering rallenta.
 Su Windows una pipe piena può bloccare la scrittura del processo produttore:
 [operazioni sulle pipe](https://learn.microsoft.com/en-us/windows/win32/ipc/anonymous-pipe-operations).
 Prevedere buffer limitati in byte, aggregazione degli aggiornamenti e una
@@ -139,7 +150,7 @@ Il tempo al primo token parte dall'invio e finisce al primo contenuto visibile;
 eventuali tempi interni del motore hanno etichette diverse.
 La velocità decode usa il contatore dei token e la finestra dichiarata dal
 runtime; la velocità complessiva include preparazione e trasporto.
-Non contare parole o frammenti SSE come token. Un tempo non disponibile
+Non contare parole o eventi di visualizzazione come token. Un tempo non disponibile
 rimane non disponibile. La memoria del processo non è equivalente alla
 dimensione dei pesi; riportare la metrica Windows utilizzata.
 
@@ -147,8 +158,8 @@ Confronto proposto sullo stesso artefatto, binario, prompt, limite di output,
 politica di generazione, thread e affinità:
 
 1. Percorso diretto senza UI.
-2. Ponte senza browser, con un consumer di riferimento.
-3. Ponte con browser aperto, testo e statistiche attivi.
+2. Adattatore senza finestra, con un consumer di riferimento.
+3. Adattatore con finestra aperta, testo e statistiche attivi.
 4. Variante progressiva contro variante completa, se entrambe disponibili.
 
 Riscaldamento separato dal caricamento a freddo. Almeno sette ripetizioni per
@@ -167,8 +178,9 @@ cronologia e isolamento dello stato tra conversazioni.
 ## Fasi di sviluppo
 
 1. Confermare o correggere goal, perimetro e budget di overhead.
-2. Costruire la pagina e l'API con adattatore simulato, esplicitamente segnalato
-   come demo di sviluppo; nessuna statistica simulata presentata come misura.
+2. Costruire la finestra e il contratto usando un adattatore simulato,
+   esplicitamente segnalato come demo di sviluppo; nessuna statistica simulata
+   presentata come misura.
 3. Qualificare il runtime e l'artefatto scelti dalla ricerca, collegare tokenizer,
    template e catalogo, verificare conversazioni complete.
 4. Aggiungere streaming reale e Stop, se richiedono estensioni al consumer.
@@ -203,7 +215,7 @@ il branch UI sopra il ramo principale e trasferire soltanto i commit UI,
 prima della revisione finale: il merge semplice potrebbe ripresentare
 modifiche della ricerca.
 
-Commit piccoli e separati per contratto, pagina, adattatore, streaming e avvio.
+Commit piccoli e separati per contratto, finestra, adattatore, streaming e avvio.
 Non modificare risultati, ricevute o manifest della ricerca. Eventuali
 estensioni native additive vanno concordate con il runtime finale e verificate
 contro il consumer storico. Nessuna firma o attribuzione automatica nei

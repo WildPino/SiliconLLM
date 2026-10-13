@@ -4,8 +4,8 @@ Stato: proposta da rileggere e modificare prima di iniziare l'implementazione.
 Data: 13 ottobre 2026.
 Branch: `feature/local-chat`.
 
-Realizzare un'interfaccia web locale per SiliconLLM, semplice come una normale
-chat: scegliere un modello supportato, aprire conversazioni, inviare messaggi,
+Realizzare un'app desktop locale in C++ con Qt Widgets per SiliconLLM,
+semplice come una normale chat: scegliere un modello supportato, aprire conversazioni, inviare messaggi,
 leggere le risposte e consultare statistiche reali. Tutta l'inferenza deve usare
 il runtime approvato del progetto sul computer dell'utente.
 
@@ -17,7 +17,7 @@ le conversazioni: queste sono operazioni dell'applicazione, non capacità del mo
 
 ## Risultato richiesto
 
-- Un comando avvia il servizio locale e apre l'interfaccia nel browser.
+- Un eseguibile apre una finestra desktop dedicata, senza browser o WebView.
 - Selettore dei soli modelli installati, supportati e validati per il runtime.
 - Cronologia locale persistente con creazione, rinomina e cancellazione delle chat.
 - Messaggi leggibili, Markdown, codice copiabile, stati di caricamento ed errori comprensibili.
@@ -34,12 +34,12 @@ le conversazioni: queste sono operazioni dell'applicazione, non capacità del mo
 
 Una conversazione reale su un artefatto approvato funziona per più turni,
 si conserva dopo il riavvio e non mescola lo stato tra chat o modelli.
-Stop, errori del motore, limiti di contesto e browser disconnesso sono gestiti.
+Stop, errori del motore, limiti di contesto e chiusura della finestra sono gestiti.
 Il risultato generato coincide con il percorso di riferimento, a parità di
 artefatto, messaggi, tokenizer, template e politica di generazione.
 
 Un confronto riproducibile misura l'overhead del ponte, dello streaming e della
-pagina sullo stesso hardware. Budget proposto: perdita della velocità mediana
+finestra sullo stesso hardware. Budget proposto: perdita della velocità mediana
 di decode non superiore al 5% rispetto al percorso diretto equivalente.
 La soglia è un requisito proposto, non un risultato già ottenuto.
 Se fallisce, si corregge o si propone esplicitamente una revisione del progetto.
