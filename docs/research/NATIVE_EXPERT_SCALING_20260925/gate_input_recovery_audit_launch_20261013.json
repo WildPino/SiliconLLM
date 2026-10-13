@@ -1,0 +1,37 @@
+{
+  "producer_session": 46665,
+  "producer_terminal_exit_code": 0,
+  "schema": "GATE_INPUT_RECOVERY_AUDIT_LAUNCH_V1",
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "freeze": "707421238b7009471843fe0c69b81be72395f68c",
+  "created_at": "2026-10-13T02:29:52.7741520+02:00",
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/gate_input_recovery_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_recovery_result_20261013.json",
+    "--report-sha",
+    "0ae19f5fcb114c42c37b0d7ba018136f4b638409f43b85516a9649eea79d7f6f",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_recovery_result_20261013.terminal.json",
+    "--terminal-sha",
+    "340e4c8a5e086234ae2d5cdbfe4e47bf4f03803e6a0d34287fc25c95ad7cee3a",
+    "--freeze",
+    "707421238b7009471843fe0c69b81be72395f68c",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_recovery_adjudication_20261013.json"
+  ]
+}
