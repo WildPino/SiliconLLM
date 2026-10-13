@@ -53,17 +53,28 @@ Pre-freeze CPU binding inadmissible/two zero-data stopped launches retained;
 V2 conhost observed,V3 original detached flag8 restored. No numerical gates
 changed. Detailed CPU preparation PID receipts were not recorded;actual
 source/worker/audit identities/resources are recorded.
-Next [actual-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
-Generator IMPLEMENTED/full independentPASSall144/453,465,264 BF16 field
-words,all source-field1% gatesPASS. Nativeproducer34983 LIVE,temporal/numeric
-admission pending:actualH/explicit source generator stages/all144
-field1%/own-output1%/final-state1% and full audits before compression admission.
-Historical inferred-input temporal/BF16 failures remain. No source/GPU needed.
-Then [FIT response-rank compression](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
-and conditional ternary functions around shared OWN-history core. Observed H
-at other21 layers is actual data,not independently replayed generator/state
-qualification. Whole-layer/causal/categorical/chatbot/multi-scale/same useful50
-pipeline still missing;offline data capture is not runtime encoding.
+[Actual-input function/native temporal replay](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
+now COMPLETE/BOTH independent numeric auditsPASS/all field and temporal gatesPASS.
+Every144 actualH source generator history/all453,465,264 BF16 words independently
+reproduced0;source-CUDA field differences explicitly measured<=1%,not bit equal.
+Full paired native scan/latents/final states/all normalized vectors/all277,057,536
+raw F32 scores qualified;ALL score bits exact with scalarFMA,both normalized
+vectors difference0,both smoothBF16<original1e-4. Every own-output/final-state1%
+gatePASS,original donor own local budgetsPASSall3. Former Numina statefailure
+1.125798% ->.006441% with actual inputs;old failures/gates unchanged and retained.
+Actual inverse errors DEVroundedH means.506/.558/.651% directly observed.
+These local observed-input boundaries can initialize/calibrate cheap functions;
+they do not supply an encoder creating its OWN trajectory or model-quality proof.
+Extra initial-source compiler witness:word-only H0 chain/all22547 rows/3816 unique
+words/18731 repeats exactly sameBF16 bits. Proposed full word->gate/rawconv/delta
+lookup878.72MB,use32-bit IDs,not built or timed. Conv/state remain history-dependent;
+not a ternary expert bank/extra intelligence. No extension to later source layers.
+Next [FIT function response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
+SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND with actual qualified source/native data;
+finite linear-class capacity/cost before conditional ternary residuals. Recognize
+initial discrete-input lookup alternative,not indiscriminate projection of every
+function. Own histories/whole layers/packed expert/routing/DRAM/multi-source/same
+useful50 requirements remain open. No source/GPU/T4/RESERVED/optimizer now.
 Numerical package alias custody gap in prior native input enumeration is explicit
 in its report;new preparations bind resolved ABI/BLAS files directly.
 [Actual C mixed384x96 operator](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) now

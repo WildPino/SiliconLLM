@@ -1,6 +1,28 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;actual-input native producer LIVE34983.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Actual-input generator/temporal qualification](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
+COMPLETE/BOTH independent auditsPASS:all144 source field1%/own-output1%/final-
+state1% gatesPASS,full453,465,264 generatedBF16 words/all138,528,768 trueH+
+each legacyH type/all metrics/flags/hashes verified. Inverse actualH rounded
+DEVmeans.506/.558/.651%. Native all207,793,152 latent scan values/full42,467,328
+final states/415,586,304 normalizedBF16/277,057,536 rawscore bits qualified;
+ALLrawscorebit exact,normalizeddifference0,bothBF16smooth max~6.29e-5<1e-4.
+Source ownnorm localmeans.076341/.087177/.024905;all localgatesPASS,source-
+denominator donor controlsFAIL0/12 retained. Numina previousstate1.125798%
+->.006441%,sameweights/method/gates with actualH;oldfailures remain immutable.
+[Closure](true_input_function_and_temporal_session_closure_20261013.json):six
+commands terminal0/all PID absent,newE907,118,592B+3,546,915,264B,engine/foreign
+hashes preserved,no source/GPU/T4/RESERVED/fit/teacher answers/timing.
+Additional initial-source word-input witness exact22547 rows/3816 words/18731
+repeats;H0 token-only source graph. Full65537x6704BF16table878,720,096B proposed,
+not built/DRAM/timed/ternary capacity;conv/state and other23 layers still causal.
+Next [FIT response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md)
+SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND. Actual local boundary qualified,not
+cheap function/OWN all-layer chatbot. Useful n/routing/DRAM/mastersO(n)/other
+families/scales/same useful50 remain unresolved. No completion admission.
+
+**Historical actual-input capture/native-live evidence retained below.**
 [Actual all24 source inputs](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
 COMPLETE/full data and source continuity auditPASS.48 complete source base
 prefills/1152 actualBF16 H arrays afterSSMin.625/beforein_proj,

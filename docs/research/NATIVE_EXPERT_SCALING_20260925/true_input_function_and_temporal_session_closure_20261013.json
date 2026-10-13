@@ -1,0 +1,239 @@
+{
+  "schema": "TRUE_INPUT_FUNCTION_AND_TEMPORAL_CLOSURE_V1",
+  "created_at": "2026-10-13T04:42:05.228559+02:00",
+  "goal_status": "active",
+  "owned_runs": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_binding_20261013.preparation_terminal.json",
+        "bytes": 1089,
+        "sha256": "bb326850aa6f9de6dae2fdd70bf3d132cad50edc8440643a1a54e713537b712d"
+      },
+      "session": null,
+      "pid": 20224,
+      "creation_time": 1791857330.4842873,
+      "owned_pid_creation_alive": false,
+      "exit_code": 0,
+      "seconds": 6.454917399998521,
+      "OS_peak": 45514752
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_result_20261013.terminal.json",
+        "bytes": 1286,
+        "sha256": "a26c4087282963479b2a43f9d28ac9fc7c58bc0700dc8b0b6d5dd0c9bee84b80"
+      },
+      "session": 45667,
+      "pid": 19644,
+      "creation_time": 1791857376.53096,
+      "owned_pid_creation_alive": false,
+      "exit_code": 0,
+      "seconds": 120.57598270000017,
+      "OS_peak": 563417088
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_adjudication_20261013.terminal.json",
+        "bytes": 1405,
+        "sha256": "fa2f156aa1b00b711cb16272224b77c91cf3647b6487fb5201aaadb335f4583f"
+      },
+      "session": 51577,
+      "pid": 8200,
+      "creation_time": 1791857544.815838,
+      "owned_pid_creation_alive": false,
+      "exit_code": 0,
+      "seconds": 116.17185120000067,
+      "OS_peak": 842792960
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_temporal_binding_20261013.preparation_terminal.json",
+        "bytes": 1054,
+        "sha256": "bde71404fc19d39c15b0e18b4cfd35b468d58335f67637866b93a8b255f59756"
+      },
+      "session": 62293,
+      "pid": 18608,
+      "creation_time": 1791857725.832842,
+      "owned_pid_creation_alive": false,
+      "exit_code": 0,
+      "seconds": 13.183196000001772,
+      "OS_peak": 64757760
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_temporal_result_20261013.terminal.json",
+        "bytes": 1245,
+        "sha256": "b9dbd7c224a8955edd395944e3dafba7b2333ef09c5a94044668d8bd26b675a3"
+      },
+      "session": 34983,
+      "pid": 7632,
+      "creation_time": 1791857836.1310887,
+      "owned_pid_creation_alive": false,
+      "exit_code": 0,
+      "seconds": 371.24912210000184,
+      "OS_peak": 614506496
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_temporal_adjudication_20261013.terminal.json",
+        "bytes": 1364,
+        "sha256": "2265eb65f9980f3df72c1c29192c842792a284c621fd051f0548aa0eb4212fe8"
+      },
+      "session": 1131,
+      "pid": 11908,
+      "creation_time": 1791858305.0236845,
+      "owned_pid_creation_alive": false,
+      "exit_code": 0,
+      "seconds": 516.1870084000002,
+      "OS_peak": 954839040
+    }
+  ],
+  "owned_run_alive": false,
+  "generator_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_result_20261013.json",
+    "bytes": 429224,
+    "sha256": "ef32465a969334aa2236fc7592f07aade68bd6256951780521aefe2808863cf8"
+  },
+  "generator_adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_adjudication_20261013.json",
+    "bytes": 120093,
+    "sha256": "14d8fdc04530bd4362659063251a016be3bf17229cf451278ee8730a53871942"
+  },
+  "native_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_temporal_result_20261013.json",
+    "bytes": 405610,
+    "sha256": "25aa8795660a8c9b027234fa02d61d79c36e0bfdebbc2ac13253d4a3c50548dd"
+  },
+  "native_adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_temporal_adjudication_20261013.json",
+    "bytes": 334271,
+    "sha256": "dcaecf742d461e8d1eabcafaa7181ebdb61dc3b85c9780500db6ad71a8d3eafc"
+  },
+  "generator_decision": "INDEPENDENT_STORED_PASS",
+  "native_decision": "INDEPENDENT_STORED_PASS",
+  "all_field_and_temporal_gates_pass": true,
+  "previous_counterexample": {
+    "id": "broad_dev_numina_cot_100k_035",
+    "site": 23,
+    "inferred_input_final_state_relative": 0.0112579817637366,
+    "actual_input_final_state_relative": 6.441330899268025e-05,
+    "inferred_input_own_output_relative": 0.007854874478819662,
+    "actual_input_own_output_relative": 0.0006704794397601692
+  },
+  "output_families": [
+    {
+      "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\true_input_function_replay_20261013",
+      "bytes": 907118592,
+      "files": 144
+    },
+    {
+      "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\true_input_temporal_20261013",
+      "bytes": 3546915264,
+      "files": 144
+    }
+  ],
+  "original_engine_and_foreign_hashes_preserved": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ],
+  "foreign_related_python_snapshot": [
+    {
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ],
+      "name": "pythonw.exe",
+      "pid": 9832,
+      "create_time": 1791837726.8771727,
+      "ppid": 21640
+    },
+    {
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\tools\\quiz_generator\\tiktok_android_uploader.py",
+        "--account",
+        "franklin",
+        "--schedule",
+        "auto",
+        "--limit",
+        "1"
+      ],
+      "name": "pythonw.exe",
+      "pid": 18888,
+      "create_time": 1791859249.473025,
+      "ppid": 9832
+    },
+    {
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ],
+      "name": "pythonw.exe",
+      "pid": 21640,
+      "create_time": 1791837726.7791085,
+      "ppid": 22488
+    },
+    {
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\tools\\quiz_generator\\tiktok_android_uploader.py",
+        "--account",
+        "franklin",
+        "--schedule",
+        "auto",
+        "--limit",
+        "1"
+      ],
+      "name": "pythonw.exe",
+      "pid": 22328,
+      "create_time": 1791859249.482334,
+      "ppid": 18888
+    }
+  ],
+  "no_foreign_interference": true,
+  "no_source_GPUT4_RESERVED_optimizer_or_new_teacher": true,
+  "original_gates_unchanged": true,
+  "historical_failures_not_waived": true,
+  "no_timeout_restart_or_closed_handle_poll": true,
+  "next": "SOURCE_FUNCTION_RANK_NEXT_20261013.md",
+  "next_status": "SELECTED_PROPOSED_UNIMPLEMENTED_UNBOUND",
+  "whole_model_quality_admitted": false,
+  "whole_model_speed_admitted": false,
+  "additional_compiler_witness_terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_token_input_witness_20261013.terminal.json",
+    "bytes": 938,
+    "sha256": "0a7d88a4cc20c93314f5971d51b81b222e250f3c531bf0d6f1e346d54bd1bad7"
+  },
+  "additional_compiler_witness": {
+    "decision": "EXACT_REPEATED_TOKEN_H0_INVARIANCE",
+    "pid": 8544,
+    "creation_time": 1791860244.1524763,
+    "alive": false,
+    "seconds": 0.6880000000019209,
+    "OS_peak": 65052672,
+    "positions": 22547,
+    "unique_tokens": 3816,
+    "repeated_observations": 18731,
+    "mismatches": 0,
+    "hypothetical_table_bytes": 878720096,
+    "table_built": false
+  }
+}

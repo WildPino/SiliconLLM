@@ -1,0 +1,5087 @@
+{
+  "schema": "TRUE_INPUT_FUNCTION_REPLAY_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\true_input_function_replay_audit.py",
+    "bytes": 10363,
+    "sha256": "867386a51d42d597f860a8c4241f53cf04e5e5b8fa6dde2b384bc851d8ce68a4"
+  },
+  "freeze": "15303f503553d420b969804ee58426e73271ed59",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_result_20261013.json",
+    "bytes": 429224,
+    "sha256": "ef32465a969334aa2236fc7592f07aade68bd6256951780521aefe2808863cf8"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_result_20261013.terminal.json",
+    "bytes": 1286,
+    "sha256": "a26c4087282963479b2a43f9d28ac9fc7c58bc0700dc8b0b6d5dd0c9bee84b80"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\true_input_function_replay_binding_20261013.json",
+    "bytes": 369927,
+    "sha256": "f2a166c17083cf4e559e9b10a07b4714c675e8e27b36f523eaf2cc2aee18c23b"
+  },
+  "case_sites": 144,
+  "counts": {
+    "H_actual": 138528768,
+    "H_unrounded": 138528768,
+    "H_candidate": 138528768,
+    "predicted_fields": 453465264
+  },
+  "maximum": {
+    "scalar": 0.0,
+    "replay_gate": 0.0,
+    "replay_x": 0.0,
+    "replay_B": 0.0,
+    "replay_C": 0.0,
+    "replay_delta": 0.0
+  },
+  "numeric_flags": [
+    {
+      "case": "0/broad_fit_apigen_80k_002",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_002",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_002",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_002",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_002",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_023",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_023",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_023",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_023",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_apigen_80k_023",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_002",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_002",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_002",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_002",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_002",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_010",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_010",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_010",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_010",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_everyday_conversations_010",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_023",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_023",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_023",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_023",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_metamathqa_50k_023",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_016",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_016",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_016",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_016",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_numina_cot_100k_016",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_004",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_004",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_004",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_004",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_004",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_028",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_028",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_028",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_028",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_openhermes_100k_028",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_006",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_006",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_006",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_006",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_006",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_012",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_012",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_012",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_012",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_self_oss_instruct_012",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_005",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_005",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_005",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_005",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_005",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_021",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_021",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_021",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_021",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_constraints_021",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_004",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_004",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_004",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_004",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_004",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_rewrite_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_003",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_003",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_003",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_003",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_003",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_024",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_024",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_024",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_024",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_smol_summarize_024",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_010",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_010",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_010",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_010",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_010",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_024",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_024",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_024",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_024",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_fit_systemchats_30k_024",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_apigen_80k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_everyday_conversations_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_037",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_037",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_037",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_037",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_metamathqa_50k_037",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_038",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_038",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_038",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_038",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_numina_cot_100k_038",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_037",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_037",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_037",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_037",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_openhermes_100k_037",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_self_oss_instruct_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_constraints_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_032",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_032",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_032",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_032",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_032",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_rewrite_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_039",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_039",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_039",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_039",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_smol_summarize_039",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_039",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_039",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_039",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_039",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "0/broad_dev_systemchats_30k_039",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_002",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_002",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_002",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_002",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_002",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_023",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_023",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_023",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_023",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_apigen_80k_023",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_002",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_002",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_002",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_002",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_002",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_010",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_010",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_010",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_010",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_everyday_conversations_010",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_023",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_023",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_023",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_023",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_metamathqa_50k_023",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_016",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_016",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_016",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_016",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_numina_cot_100k_016",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_004",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_004",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_004",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_004",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_004",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_028",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_028",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_028",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_028",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_openhermes_100k_028",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_006",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_006",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_006",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_006",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_006",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_012",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_012",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_012",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_012",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_self_oss_instruct_012",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_005",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_005",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_005",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_005",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_005",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_021",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_021",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_021",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_021",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_constraints_021",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_004",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_004",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_004",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_004",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_004",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_rewrite_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_003",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_003",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_003",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_003",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_003",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_024",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_024",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_024",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_024",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_smol_summarize_024",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_010",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_010",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_010",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_010",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_010",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_024",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_024",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_024",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_024",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_fit_systemchats_30k_024",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_apigen_80k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_everyday_conversations_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_037",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_037",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_037",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_037",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_metamathqa_50k_037",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_038",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_038",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_038",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_038",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_numina_cot_100k_038",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_037",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_037",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_037",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_037",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_openhermes_100k_037",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_self_oss_instruct_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_constraints_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_032",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_032",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_032",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_032",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_032",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_rewrite_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_039",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_039",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_039",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_039",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_smol_summarize_039",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_039",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_039",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_039",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_039",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "12/broad_dev_systemchats_30k_039",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_002",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_002",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_002",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_002",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_002",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_023",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_023",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_023",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_023",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_apigen_80k_023",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_002",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_002",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_002",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_002",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_002",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_010",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_010",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_010",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_010",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_everyday_conversations_010",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_008",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_explore_instruct_rewriting_009",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_023",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_023",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_023",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_023",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_metamathqa_50k_023",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_016",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_016",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_016",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_016",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_numina_cot_100k_016",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_004",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_004",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_004",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_004",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_004",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_028",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_028",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_028",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_028",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_openhermes_100k_028",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_006",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_006",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_006",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_006",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_006",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_012",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_012",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_012",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_012",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_self_oss_instruct_012",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_005",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_005",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_005",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_005",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_005",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_021",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_021",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_021",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_021",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_constraints_021",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_000",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_magpie_ultra_022",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_004",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_004",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_004",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_004",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_004",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_015",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_015",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_015",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_015",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_rewrite_015",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_003",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_003",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_003",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_003",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_003",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_024",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_024",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_024",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_024",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_smol_summarize_024",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_010",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_010",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_010",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_010",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_010",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_024",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_024",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_024",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_024",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_fit_systemchats_30k_024",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_apigen_80k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_everyday_conversations_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_explore_instruct_rewriting_038",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_037",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_037",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_037",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_037",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_metamathqa_50k_037",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_038",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_038",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_038",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_038",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_038",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_037",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_037",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_037",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_037",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_openhermes_100k_037",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_033",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_033",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_033",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_033",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_033",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_self_oss_instruct_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_035",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_035",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_035",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_035",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_constraints_035",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_magpie_ultra_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_032",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_032",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_032",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_032",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_032",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_036",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_036",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_036",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_036",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_rewrite_036",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_039",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_039",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_039",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_039",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_smol_summarize_039",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_034",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_034",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_034",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_034",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_034",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_039",
+      "control": "replay_gate",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_039",
+      "control": "replay_x",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_039",
+      "control": "replay_B",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_039",
+      "control": "replay_C",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_systemchats_30k_039",
+      "control": "replay_delta",
+      "relative": 0.0,
+      "threshold": 1e-06,
+      "passed": true
+    }
+  ],
+  "before_after_hashes_exact": true,
+  "consistency_all_fields": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 116.14222949999748,
+  "OS_peak": 842792960,
+  "scope": "Actual observed H/all144 independent generator window/activation/delta replay/all BF16 arrays/source metrics/bit flags/aggregates/old-inverse metrics/hash. No inverse refit/source/GPU/native/causal/quality/speed admission."
+}

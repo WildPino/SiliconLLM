@@ -1,12 +1,12 @@
 # Source-function active cost: FIT response-rank envelope
 
-13 October2026. **CONDITIONAL PROPOSAL / UNIMPLEMENTED / UNBOUND.**
-The recovered-input temporal gate FAILED one final-state case;full audit and
-mechanism are in [result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md). Execute
-with qualified TRUE inputs after [completed capture](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
-and [actual replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md). Capture data
-PASS alone does not admit compressed functions or temporal replay. Keep inferred inputs as explicit diagnostics,not ground truth.
-No compressed model or rank has been admitted here.
+13 October2026. **SELECTED NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+[Actual-input source function/native temporal replay](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
+is COMPLETE/BOTH full independent auditsPASS and all field/state/output gatesPASS.
+Use actual qualified H and actual-input native own-norm BF16/raw-score packets
+at0/12/23. Historical inferred-input and BF16 failures remain retained. No
+compressed model/rank or OWN-history quality admitted. Before implementing,
+recognize the additional initial-layer token-only compiler alternative below.
 
 ## Uncertainty and connection to the goal
 
@@ -100,3 +100,19 @@ After function compression,join source-informed layers and test OWN histories/
 source categorical and chatbot tasks. Cheap local operators do not establish
 the full pipeline. Useful n/multiple donor scales/conversionO(n) masters and
 gradients/same useful artifact>=50 batch1 tokens/s remain explicit requirements.
+
+## Initial discrete-input alternative,not a rank-class obstruction
+
+The [complete token-input witness](source_token_input_witness_20261013.json)
+confirms every repeated token has identical actualH0 BF16 bits across this
+corpus (22547 rows/3816 words/18731 repeats/zero mismatches);pinned source
+embedding->RMSNorm->SSMin graph is token-only atlayer0. A full65537x6704BF16
+gate/raw-conv/delta table would878,720,096B/13,408B per row with32-bit IDs.
+It trades redundant storage for direct known-input lookup,same trained capacity.
+Full-vocabulary derivation/rounding/field/native equivalence/kernel/physical
+DRAM/latency are NOT implemented;source causal conv/state remain. Later23
+inputs are context-dependent,so no token-only extrapolation. Compare this
+compiler path for layer0 with global rank compression;finite input dictionaries
+are a different function class from a shared low-rank matrix. No synthetic n
+or duplicate-parameter intelligence claim. This does not replace the general
+cheap context-dependent/conditional ternary transfer problem.
