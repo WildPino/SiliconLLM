@@ -1,0 +1,157 @@
+{
+  "schema": "CONDITIONAL_OUTPUT_COVERAGE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\conditional_output_coverage_audit.py",
+    "bytes": 10361,
+    "sha256": "239783c265372eda0eb93af414a6c788db6165c6bbfcb45e9495262b49b1968b"
+  },
+  "freeze": "c60cd7c",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_output_coverage_result_20261013.json",
+    "bytes": 223717,
+    "sha256": "6b60c6b47485498c41566a349535da8d19f73b2b59b7c7723485af33afc5375d"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_output_coverage_result_20261013.terminal.json",
+    "bytes": 1223,
+    "sha256": "f66b6cdb877270e055ae658b484b2eb228e7686beeee7cc58f9d0c485007b247"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_output_coverage_binding_20261013.json",
+    "bytes": 1328980,
+    "sha256": "33bb5fa45216e16a561701b157e34ce6ade1736421c835a6feaba2eb07769eaf"
+  },
+  "all_token_expert_errors_verified": 5411280,
+  "all_actual_and_oracle_IDs_verified": 270564,
+  "negative_roundoff_errors_in_identity": 0,
+  "independent_identity_argmin_differences": 0,
+  "maximum": {
+    "token_error_scaled_absolute": 4.41189769904942e-15,
+    "metadata_absolute_or_relative": 4.833021420321281e-15
+  },
+  "verification_gates": {
+    "token_error_scaled_absolute": true,
+    "metadata_absolute_or_relative": true
+  },
+  "aggregates": {
+    "0": {
+      "FIT": {
+        "tree16_r128": {
+          "oracle_mean": 0.3397496640442406,
+          "oracle_worst": 0.6231549253824118,
+          "routed_mean": 0.35461989640361263,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 2840,
+          "selector_excess_mean_relative_squared": 0.011646163693598563
+        },
+        "tree64_r32": {
+          "oracle_mean": 0.3992343433933538,
+          "oracle_worst": 0.7202820338351186,
+          "routed_mean": 0.43208756137431253,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 4490,
+          "selector_excess_mean_relative_squared": 0.030468559327445743
+        }
+      },
+      "DEV": {
+        "tree16_r128": {
+          "oracle_mean": 0.6732605222997435,
+          "oracle_worst": 0.7829733220345021,
+          "routed_mean": 0.7196223188708991,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 7287,
+          "selector_excess_mean_relative_squared": 0.06395255725569272
+        },
+        "tree64_r32": {
+          "oracle_mean": 0.7413657962659913,
+          "oracle_worst": 0.8518752958784455,
+          "routed_mean": 0.8090706593862804,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 8686,
+          "selector_excess_mean_relative_squared": 0.10370517142406259
+        }
+      }
+    },
+    "12": {
+      "FIT": {
+        "tree16_r128": {
+          "oracle_mean": 0.4521156856474175,
+          "oracle_worst": 0.7095828220069131,
+          "routed_mean": 0.457752285969739,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 2589,
+          "selector_excess_mean_relative_squared": 0.006018084955362917
+        },
+        "tree64_r32": {
+          "oracle_mean": 0.5354701623293746,
+          "oracle_worst": 0.8470027317015718,
+          "routed_mean": 0.5556012148138096,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 5002,
+          "selector_excess_mean_relative_squared": 0.024827863101382405
+        }
+      },
+      "DEV": {
+        "tree16_r128": {
+          "oracle_mean": 0.7586770532939097,
+          "oracle_worst": 0.8226754436704744,
+          "routed_mean": 0.7984560669814856,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 9017,
+          "selector_excess_mean_relative_squared": 0.06079363731825727
+        },
+        "tree64_r32": {
+          "oracle_mean": 0.8482614091224449,
+          "oracle_worst": 0.9086561147773862,
+          "routed_mean": 0.9040511860352133,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 10152,
+          "selector_excess_mean_relative_squared": 0.09593637813986393
+        }
+      }
+    },
+    "23": {
+      "FIT": {
+        "tree16_r128": {
+          "oracle_mean": 0.30061827143933567,
+          "oracle_worst": 0.5399894211763324,
+          "routed_mean": 0.304204641137155,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 2481,
+          "selector_excess_mean_relative_squared": 0.0029070961568027514
+        },
+        "tree64_r32": {
+          "oracle_mean": 0.3707007990682567,
+          "oracle_worst": 0.6313890560713694,
+          "routed_mean": 0.38213890433260506,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 4358,
+          "selector_excess_mean_relative_squared": 0.010816334178405176
+        }
+      },
+      "DEV": {
+        "tree16_r128": {
+          "oracle_mean": 0.4490014424914616,
+          "oracle_worst": 0.595604381225096,
+          "routed_mean": 0.4844000774117769,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 8356,
+          "selector_excess_mean_relative_squared": 0.0323705711730415
+        },
+        "tree64_r32": {
+          "oracle_mean": 0.5191416578628809,
+          "oracle_worst": 0.6738460975612853,
+          "routed_mean": 0.5839855205563217,
+          "oracle_one_percent_passed": 0,
+          "oracle_different_IDs": 9652,
+          "selector_excess_mean_relative_squared": 0.06987258974064571
+        }
+      }
+    }
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 141.53099999999904,
+  "OS_peak": 181665792,
+  "scope": "Every frozen affine plane/every FIT+DEV token error by independent expanded norm identity, full minima/actual route excess and statistics. Target-aware all-expert diagnosis, not an admissible router or native/chatbot quality-speed claim."
+}
