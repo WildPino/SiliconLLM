@@ -1,6 +1,19 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Native selected-p6 readout and isolated cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_PASS/ALL numeric+extra1%+local donor gatesPASS.
+All138,528,768 LUT F64/original F32/BF16 words qualified;original F32 bits
+exact,independent BF16 differences0,raw max5.70e-17. Actual blocked F64 LUT
+implemented,but isolated call cost5.06--5.28ms versusoriginal1.16--1.22ms:
+4.2--4.6x slower. Explicit source CLFLUSH/sample raw+BF16 parity/all360 records
+reviewed;source eviction is not PMU DRAM bytes/n/model-rate admission.
+Current F64-LUT rejected as acceleration. Next
+[same-p6 bounded integer readout](INTEGER_READOUT_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:new input approximation must pass new accuracy
+and exact int64 overflow/accumulation controls before actual cost. Whole
+CHATBOT/OWN-history/useful selective ternary n/other donors/same useful50 open.
+
 [Source-only full-size ternary readout precision](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_PASS. p4/5/6 source-weight-only artifacts/all3 sites,
 56,623,104 q coefficients/56,678,400 packed codes/36,864 spectra qualified;
@@ -9,8 +22,8 @@ DEV verifies it:all144 extra raw/BF16 each-case1%/all original donor local gates
 PASS;all-case worst raw.367%/BF16.431%. Full numerical rank2048 preserved.
 Source-input function accuracy only;no activation quantization/native LUT/
 chatbot/DRAM/model-rate/useful-n admission. NewE1,001,656,242B,all3 scientific
-commands terminal0/no owned run live. Next [native p6 LUT](TERNARY_READOUT_NATIVE_NEXT_20261013.md)
-SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND;same accurate artifact before real cost.
+commands terminal0/no owned run live. [Native p6 LUT/cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
+now complete as above;same accurate artifact,current lookup backend too slow.
 
 [Input-routed redundant affine output banks and coverage](CONDITIONAL_OUTPUT_RESULT_20261013.md)
 COMPLETE/BOTH full independent auditsPASS/ALL quality gatesFAIL. All277,057,536

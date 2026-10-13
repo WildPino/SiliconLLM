@@ -1,6 +1,16 @@
 # Selected next: execute the qualified six-plane readout through a native LUT
 
-13 October2026. **PROPOSED / UNIMPLEMENTED / UNBOUND.** Six source-weight-only
+13 October2026. **COMPLETED / FULL NATIVE AUDITPASS / COST REJECTED.**
+[Native/cost result](TERNARY_READOUT_NATIVE_RESULT_20261013.md),
+[native closure](ternary_readout_native_session_closure_20261013.json),
+[independent cost review](ternary_readout_cost_review_20261013.json).
+All144 output histories/138M original F32 bits/LUT raw and BF16 outputs
+qualified. Isolated same-p6 call costs4.2--4.6x original F32 despite fewer
+source bytes;current F64-LUT is not an accelerator. Next
+[bounded integer readout](INTEGER_READOUT_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Original plan retained below.
+
+Six source-weight-only
 balanced ternary planes now fully qualified:all144 actual-input histories,
 FIT-selected p6 passes DEV/additional raw and BF16 each-case1% and original
 donor local gates. All packed codes/q/scales/spectra/BF16 outputs independently

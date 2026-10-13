@@ -1,0 +1,73 @@
+{
+  "schema": "TERNARY_READOUT_COST_REVIEW_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ternary_readout_cost_review.py",
+    "bytes": 4470,
+    "sha256": "d9c49c88ecf5a357136920415ea34ed911ed18ff84a6ef42f6f68858024d4e29"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_cost_result_20261013.json",
+    "bytes": 106344,
+    "sha256": "9981751919050297df5168792e7c60dfe9cd8ccb385de30afd7a7f28d72b553b"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_cost_result_20261013.terminal.json",
+    "bytes": 1090,
+    "sha256": "24727cda0b6f261e131e70ae7054a82d008dfe533efb39d7363255ee3bebb8c3"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_cost_binding_20261013.json",
+    "bytes": 701512,
+    "sha256": "17059201eba6447211bd1455b32afcb16e49233e267af97cb2b8d0d08808714a"
+  },
+  "all360_observations_reconciled": true,
+  "source_transform_verified": true,
+  "sample_output_parity": "Producer measured-call assertions with archived raw/BF16 reference;not independent full wrapper-history reproduction.",
+  "median_LUT_over_dense": {
+    "0": {
+      "warm_repeat": 4.224601777159003,
+      "source_flushed": 4.360553490293267
+    },
+    "12": {
+      "warm_repeat": 4.3066688771915285,
+      "source_flushed": 4.412490072315345
+    },
+    "23": {
+      "warm_repeat": 4.274158821294382,
+      "source_flushed": 4.553186898545721
+    }
+  },
+  "owned_commands": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_cost_binding_20261013.preparation_terminal.json",
+        "bytes": 1002,
+        "sha256": "49953a6b4e8de7bb61940da3d805646c09d28366e4d276ab1a7596d7d03cc221"
+      },
+      "pid": 5308,
+      "creation_time": 1791869969.9321048,
+      "exit_code": 0,
+      "seconds": 2.327999999997701,
+      "OS_peak": 39751680,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_cost_result_20261013.terminal.json",
+        "bytes": 1090,
+        "sha256": "24727cda0b6f261e131e70ae7054a82d008dfe533efb39d7363255ee3bebb8c3"
+      },
+      "pid": 7992,
+      "creation_time": 1791870004.5637698,
+      "exit_code": 0,
+      "seconds": 7.109000000000378,
+      "OS_peak": 120004608,
+      "matching_process_absent": true
+    }
+  ],
+  "compiled_family_bytes": 71938,
+  "before_after_hashes_exact": true,
+  "decision": "REJECT_CURRENT_F64_LUT_AS_ACCELERATION",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Full immutable timing ledger/source/sample/count/summary/custody review. No retiming/PMU DRAM measurement/new full-history wrapper audit/whole chatbot/useful-n/model rate. Original fully audited native data retained."
+}

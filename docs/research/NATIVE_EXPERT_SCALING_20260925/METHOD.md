@@ -3,6 +3,17 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Native full-size p6 LUT](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
+now COMPLETE/full independent native output auditPASS/all source-input quality
+gatesPASS,138M original F32 bits exact/LUT BF16 outputs exact/raw5.70e-17.
+Isolated18-sample exact-output warm/source-flushed costs~5.1--5.3ms versus
+original~1.2ms;full360-record/custody review,current F64-LUT rejected acceleration.
+Smaller packed bytes do not offset this implementation's work;no model-rate
+or physical expert-n DRAM admission. Next [bounded integer readout](INTEGER_READOUT_NEXT_20261013.md)
+PROPOSED/UNBOUND:retain p6 q/scales,explicit new int16 input approximation,
+formal PMADDWD block128/int64 overflow bound/full exact integer reference
+before accuracy/cost. Shared core primitive work,whole pipeline still open.
+
 [Source-weight-only balanced ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
 now COMPLETE/full independent auditPASS. Preserve source O2048x3072 geometry,
 p4/5/6 fixed row scales from source coefficients,exact balanced digits/five-
@@ -10,8 +21,8 @@ trit uint8 patterns. Source-only objects before responses,FIT-selected p6
 passes all144 extra1% raw/BF16 and donor local FIT+DEV gates. All415,586,304
 archived BF16 outputs bit-reproduced/56M q+packed coordinates/all spectra/
 metrics qualified. No actual LUT execution/activation quantization or model
-admission. Next [native p6 LUT](TERNARY_READOUT_NATIVE_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND;actual engine2-trit int8 pshufb qualification
+admission. [Native p6 LUT](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
+now implemented/qualified/cost-rejected;actual engine2-trit int8 pshufb qualification
 does not transfer to the new five-trit floating backend. Preserve same source-
 derived accurate artifact while measuring real cost/DRAM;whole CHATBOT/OWN
 histories/useful conditional ternary n/other donors/scales/same useful50 open.

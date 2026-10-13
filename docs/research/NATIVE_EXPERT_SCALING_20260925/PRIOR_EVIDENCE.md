@@ -1,6 +1,19 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Native p6 LUT + cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/all144 numeric/extra1%/local donor gates
+PASS. All138,528,768 LUT F64/original F32/BF16 words verified;original scores
+bit-exact/BF16 differences0,raw error<=5.70e-17. Native source532.094s/
+audit45.125s/newE1,939,648,768B/protected hashes unchanged/3 commands closed0.
+Isolated generated wrapper18 FIT samples/360 timed calls matched archived bits;
+full ledger/source/custody reviewPASS. Warm/cold-source call LUT~5.1--5.3ms
+versus dense~1.16--1.22ms,4.2--4.6x slower despite7.57MB versus25.17MB source.
+Current F64-LUT rejected acceleration,not every LUT. CLFLUSH initial eviction
+not actual PMU DRAM traffic or accepted model-rate/n. Next same-p6 integer
+dot/new int16 activation preflight proposed/unbound;old source geometry and
+global CHATBOT/OWN-history/n/multiple families/scales/same useful50 remain open.
+
 [Full-size source-only ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_PASS/all144 selected-p6 raw/BF16 extra1% and
 original donor local gatesPASS. FIT selects6 before DEV;DEV rawmeans at0/12/23
@@ -11,8 +24,8 @@ All9 matrices robust numerical rank2048;no low-rank bottleneck imposed.
 Sourceweight-only/no activation quantization;actual LUT not built/timed.
 Source162.5s/audit116.828s/newE1,001,656,242B/3 scientific commands terminal0,
 protected hashes preserved/no owned run live/no GPU/T4/source/native/RESERVED.
-Next SAME-artifact C LUT accuracy then warm/cold source cost/explicit DRAM
-limits PROPOSED/UNBOUND;whole pipeline/useful-n/same useful50 still missing.
+SAME-artifact C LUT accuracy/cost now completed above;current backend too
+slow. Whole pipeline/useful-n/same useful50 still missing.
 
 [Conditional output bank/coverage result](CONDITIONAL_OUTPUT_RESULT_20261013.md)
 COMPLETE/BOTH INDEPENDENT_STORED_PASS/all qualityFAIL. Bank277,057,536 F64
