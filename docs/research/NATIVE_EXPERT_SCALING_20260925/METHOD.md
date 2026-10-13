@@ -43,7 +43,9 @@ All receipts/hash/723-file family/diagnostic values closed as recorded in
 FFN_EXACT_SUBSET_STATE_20261013.md. Next per-token oracle selection diagnostic
 from FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md separates fixed subset
 aggregation loss from per-token coverage;it uses ALL source neurons and is
-not a cheap router,optimal subset or deployable candidate. Physical
+not a cheap router,optimal subset or deployable candidate. Its producer/
+complete auditor/closure are now frozen cb5f4fe,bindingdc78161,producer CPU
+running as documented in FFN_REMAINDER_ORACLE_STATE_20261013.md. Physical
 ternary banks/structured routing/DRAM/whole-model composition remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)

@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. All owned commands closed.**
+13 October2026. **Goal ACTIVE/INCOMPLETE. CPU per-token importance producer running.**
 
 ## Goal and architecture
 
@@ -73,7 +73,7 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Implement/freeze producer,auditor and binding for
+Producer/auditor/closure frozen cb5f4fe/bindingdc78161 for
 [per-token remainder importance oracle](FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md).
 Keep64 existing FIT cells/routes/all2048 outputs/same neuron budgets/control,
 but diagnostic IDs vary per token using actual full-source remainder energy.
@@ -81,7 +81,8 @@ Separate fixed-cell aggregation loss from per-token sparse coverage. This
 oracle evaluates ALL source neurons before choosing IDs:it is not a cheap
 router,candidate,optimal subset or universal sparsity lower bound. Save
 every predicted trajectory and selected IDs,full audits/terminal/hash closure.
-No oracle observation exists yet. [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md)
+Producer live:[state](FFN_REMAINDER_ORACLE_STATE_20261013.md),worker35256/
+handle65147. No oracle result qualified yet. [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md)
 is closed;do not rerun capture/affine/subset producer or promote512 based on
 DEV. Physical bank/ternary error/routing/DRAM and the
 24-layer shared-core/attention/head20ms end-to-end budget remain open.
