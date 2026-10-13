@@ -19,7 +19,9 @@ def main():
     assert a['report'] == extent(rp) and a['all_numeric_pass'] and a['checked_predictions'] == 720
     assert a['decision'] == 'INDEPENDENT_STORED_PASS_DIAGNOSTIC_ONLY' and a['literal_selected_IDs_exact']
     commands = []
-    for p,suffix in ((Path(r['binding']['path']),'.preparation_terminal.json'),(rp,'.terminal.json'),(ap,'.terminal.json')):
+    for p,suffix in ((Path(r['binding']['path']),'.preparation_terminal.json'),
+                     (Path(a['repair_binding']['path']),'.preparation_terminal.json'),
+                     (rp,'.terminal.json'),(ap,'.terminal.json')):
         tp = p.with_suffix(suffix); t = json.loads(tp.read_bytes())
         assert t['exit_code'] == 0 and t['error'] is None and t['result'] == extent(p)
         if psutil.pid_exists(t['pid']): assert abs(psutil.Process(t['pid']).create_time()-t['creation_time']) > .001
