@@ -1,0 +1,33 @@
+{
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 900
+  },
+  "freeze": "458426c",
+  "binding_sha256": "f9a83e24b38c7d634c89b291ea2e5e5d9ca1bd868faf8789a340043da78bb262",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "schema": "TOKEN_STATE_COST_LAUNCH_V1",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/token_state_cost.py",
+    "--run",
+    "--freeze",
+    "458426c",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_state_cost_binding_20261013.json",
+    "--binding-sha",
+    "f9a83e24b38c7d634c89b291ea2e5e5d9ca1bd868faf8789a340043da78bb262",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_state_cost_result_20261013.json"
+  ],
+  "scope": "60 state-ready same-audited-kernel continuation calls,own prefix regenerated before each warmup/measurement outside clock,all output bits matched;no chatbot token rate"
+}
