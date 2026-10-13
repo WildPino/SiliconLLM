@@ -1,0 +1,46 @@
+{
+  "schema": "TOKEN_CONTEXT_RANK_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_result_20261013.json",
+    "bytes": 921904,
+    "sha256": "b914a3618349f29e533ea559858d11a8714da911b24a6f55a125fa3847d6ee87"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_result_20261013.terminal.json",
+    "bytes": 1145,
+    "sha256": "f3ce7dd065b186acfc6b24e7cabff738833df6fb68f3cf098284195be41df209"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_binding_20261013.json",
+    "bytes": 504364,
+    "sha256": "1e8695ecd4f4f691a8dd327d20152e3b7e003324b20959a76a16b172df25078f"
+  },
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\token_context_rank_audit.py",
+    "bytes": 9746,
+    "sha256": "96fc211bb1428434d624f64ef7b7f79276988822f7602644b494ae0d61973ec0"
+  },
+  "freeze": "686fff5",
+  "checked_candidates": 1440,
+  "numeric_gates": {
+    "FIT_covariance": true,
+    "covariance_root": true,
+    "basis_orthogonal": true,
+    "source_factor": true,
+    "weighted_eigen_identity": true,
+    "dense_controls": true
+  },
+  "maximum": {
+    "FIT_covariance": 0,
+    "covariance_root": 3.159940162183917e-15,
+    "basis_orthogonal": 1.1115879794272335e-14,
+    "source_factor": 7.360512691414456e-15,
+    "weighted_eigen_identity": 1.0574227112224416e-14
+  },
+  "all_numeric_pass": true,
+  "compact_candidates": [],
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 730.2660000000033,
+  "OS_peak": 2113642496,
+  "scope": "Three actual own-history sites1/12/23:FIT-only BF16 token prototypes,weighted linear residual projection. ALL48 histories/unknown DEV fallback included. No model substitution/SSM/GPU/RESERVED/CPU cost/useful-n/TPS admission. Independent FIT moments/source-factor/eigen identities and every field curve checked; NumPy BLAS arithmetic shared."
+}

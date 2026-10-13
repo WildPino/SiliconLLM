@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE;CPU algebra assay running.**
+**13 October2026: goal ACTIVE/INCOMPLETE;all owned runs closed.**
 
 [Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16,own-answer followup correct,
@@ -10,12 +10,18 @@ Maxscan/state1.37e-6/1.91e-6,fields/norm0. All6 commands closed0;source/
 protected hashes preserved. Source GPU FFN/attention/head witness and
 historical transitive pin limit remain explicit;final CPU/useful-n/same50 open.
 
-NEXT [token-conditioned context residual rank](TOKEN_CONTEXT_RANK_PROTOCOL_20261013.md),
-source686fff5/binding450a746. Reuse actual qualified own H at1/12/23:
-FIT token prototype lookup + low-rank contextual correction,global mean control,
-all48 cases/unknown DEV fallback included. Pure CPU/no GPU/source rerun/
-RESERVED. Fixed ranks0/128/256/512/1024,1% all-field gate,compact<=256.
-Result/audit pending;do not infer quality/cost from this algebra assay.
+[Token-conditioned context rank](TOKEN_CONTEXT_RANK_RESULT_20261013.md)
+COMPLETE/NUMERIC AUDIT PASS/REPRESENTATION FAIL. All6 FIT variants fail<=1024;
+1440 full field curves independently checked,all numeric identities pass.
+ANY token-only prototype/ONE shared linear residual needs at least1408/1857/
+1857 ranks at1/12/23 for frozen1% preconv gate,including BF rounding/source
+reference allowances. No universal/model-quality bound. All3 commands closed0,
+newE888.6MB/inputs+matrices hash verified/no GPU/SSM/RESERVED.
+NEXT [full-size conditional FFN operators](FULL_RANK_FFN_EXPERT_NEXT_20261013.md):
+capture actual pre-FFN own inputs/all source nodes,then investigate input-
+dependent full2048x2048 affine cells. Collector/affine bank UNIMPLEMENTED,
+no resource allocated. Do not reuse before-SSM H as FFN inputs or retry the
+closed common-rank/token-mean family. Final CPU/useful-n/same50 remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

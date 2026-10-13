@@ -1,0 +1,75 @@
+{
+  "schema": "TOKEN_CONTEXT_RANK_CLOSURE_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\token_context_rank_close.py",
+    "bytes": 3344,
+    "sha256": "c88e0080e5a6314b9627920494a1a30c2dd7322a89a44c19a827e5ce327c5e16"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_result_20261013.json",
+    "bytes": 921904,
+    "sha256": "b914a3618349f29e533ea559858d11a8714da911b24a6f55a125fa3847d6ee87"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_adjudication_20261013.json",
+    "bytes": 2069,
+    "sha256": "1398090eade6a38eeaf1c3e8b40ace0507983ed7a75b426b9d00f41c86a50fe5"
+  },
+  "bound": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_bound_20261013.json",
+    "bytes": 58729,
+    "sha256": "8e340a41fa37df8779a69ffba3b92e42b9d5a50909293d9f5d490f3a4de498c6"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_binding_20261013.json",
+    "bytes": 504364,
+    "sha256": "1e8695ecd4f4f691a8dd327d20152e3b7e003324b20959a76a16b172df25078f"
+  },
+  "commands": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_result_20261013.terminal.json",
+        "bytes": 1145,
+        "sha256": "f3ce7dd065b186acfc6b24e7cabff738833df6fb68f3cf098284195be41df209"
+      },
+      "pid": 1740,
+      "creation_time": 1791895765.0832813,
+      "exit_code": 0,
+      "seconds": 673.0149999999994,
+      "OS_peak": 1858924544,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_adjudication_20261013.terminal.json",
+        "bytes": 1269,
+        "sha256": "171d407dbc74b094a49c73f23e786d1782ec5def9476ec7bfdf9dc22b6696765"
+      },
+      "pid": 24148,
+      "creation_time": 1791896558.6732054,
+      "exit_code": 0,
+      "seconds": 730.2660000000033,
+      "OS_peak": 2113642496,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\token_context_rank_bound_20261013.terminal.json",
+        "bytes": 679,
+        "sha256": "baa42c89625ba210ea2d805bc7c7884a6203e57876711a7c6f62616eaabcf042"
+      },
+      "pid": 24496,
+      "creation_time": 1791897336.1383915,
+      "exit_code": 0,
+      "seconds": 29.735000000000582,
+      "OS_peak": 883474432,
+      "matching_process_absent": true
+    }
+  ],
+  "family_bytes": 888591804,
+  "family_files": 6,
+  "all_inputs_and_outputs_hash_verified": true,
+  "decision": "TOKEN_ONLY_PROTOTYPE_SHARED_COMPACT_LINEAR_CORRECTION_REJECTED",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "All1440 source/causal field curves checked;common residual rank<=256 rejected in this model family. Necessary FIT ranks1408/1857/1857 include prototype/BF rounding allowances. Does not rule out routed token-dependent operators or nonlinear/full-rank expert representations;no whole-model new-candidate/speed claim."
+}

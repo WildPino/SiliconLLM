@@ -17,10 +17,14 @@ Backbone qualified on known data;all6 commands closed0 and artifacts sealed.
 Historical transitive producer pin limitation remains explicit;current496
 supplemental audit pins strengthen current replay without retroactive custody.
 Scoped CUDA quality diagnostic;final CPU/conditional n/same useful50 remain
-open. Next mathematical capacity/cost step subtracts a FIT token prototype
-before output-aware residual factorization of actual own contextual H.
-This reuses existing traces,no source model/GPU. Unknown DEV tokens retain
-global fallback in full metrics;no token-coverage or whole-model claims yet.
+open. FIT token-prototype/common residual factorization was fully tried/audited
+and rejected;ANY token-only prototype needs shared rank>=1408/1857/1857
+under1% preconv gate at1/12/23. This is not a bound on nonlinear/routed models.
+Next inspect actual nonlinear FFN operands,then source-derived full-size affine
+cells with input-dependent Jacobians. Their active coefficient count D^2 versus
+3DI motivates investigation,not a speed/quality claim. Capturing actual pre-FFN
+own inputs and testing cell remainder/routing/whole model/CPU cost are missing.
+See FULL_RANK_FFN_EXPERT_NEXT_20261013.md for exact unimplemented next step.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

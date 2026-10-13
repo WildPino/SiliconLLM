@@ -3,7 +3,9 @@
 13 October2026. **Producer/audit COMPLETE/QUALIFIED. Goal ACTIVE/INCOMPLETE.**
 [Final known-corpus result](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md) and
 closure are authoritative;all6 preparation/producer/audit instances closed0.
-New CPU token_context_rank assay on existing own H is running;see INDEX.
+CPU token_context_rank assay on existing own H and its full audit/bound are
+complete;representation failed,numerics pass,no owned process live. See INDEX
+and FULL_RANK_FFN_EXPERT_NEXT_20261013.md for the exact next hypothesis.
 Previous run instructions below are preserved launch history,not current state.
 
 ## Current evidence and exact next action

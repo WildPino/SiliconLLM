@@ -10,8 +10,13 @@ scan/state max1.37e-6/1.91e-6,fields/norm0. All6 commands closed0,source/
 protected hashes preserved. Historical transitive producer pin limitation
 and source GPU attention/FFN/head witness remain explicit. No final CPU/
 semantic useful-n/acceptedTPS or RESERVED/other-family admission.
-Next token-conditioned generator residual uses actual own H/new FIT bias
-decomposition;global rank/fixed output-bank failures are not repeated.
+[Token-conditioned generator residual](TOKEN_CONTEXT_RANK_RESULT_20261013.md)
+also COMPLETE/NUMERIC PASS/COMPACT REPRESENTATION FAIL. Six FIT variants
+fail<=1024,1440 curves/all identities verified. Necessary shared ranks1408/
+1857/1857 for ANY token-only prototype at1/12/23,with rounding allowances,
+within the specified FIT linear/field family only. All3 commands closed0.
+Next nonlinear FFN/full-size affine expert hypothesis changes operators across
+cells;its capture/procedure/quality/speed remain unimplemented/unproven.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
