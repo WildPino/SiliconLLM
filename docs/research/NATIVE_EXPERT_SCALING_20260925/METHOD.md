@@ -51,7 +51,11 @@ OS1.549GB,all cases retained. Source/hash/720-file family/receipts sealed,
 as recorded in FFN_REMAINDER_ORACLE_STATE_20261013.md.
 Next FIT-only uncentered input-delta second moment and projected source U/G
 importance router from FFN_SOURCE_SKETCH_ROUTER_NEXT_20261013.md;true selected
-functions/full outputs retained. It remains unimplemented/unproven;local
+functions/full outputs retained. Producer/auditor/closure now frozen5be0cda/
+binding592a77d,CPU producer live as recorded in FFN_SKETCH_ROUTER_STATE_20261013.md.
+Projected-only ID function is separated from AFTER-ID full source reference;
+no physical speed claim. First preparation revision typo corrected before
+any numerical fit,original preserved. Routing result still unqualified;local
 rank selection,actual CPU cost/DRAM/precision and own-model quality required.
 Physical
 ternary banks/structured routing/DRAM/whole-model composition remain open.

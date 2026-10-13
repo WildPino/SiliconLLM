@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. All owned commands closed.**
+13 October2026. **Goal ACTIVE/INCOMPLETE. CPU sketch selector producer running.**
 
 ## Goal and architecture
 
@@ -86,15 +86,17 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Implement/freeze producer,auditor and binding for
+Producer/auditor/closure frozen5be0cda/binding592a77d for
 [source-linear sketch router](FFN_SOURCE_SKETCH_ROUTER_NEXT_20261013.md).
 Same64 FIT cells/full2048 outputs;active neuron counts512/2048/32 determined
 ONLY from qualified FIT oracle curves. FIT input delta uncentered second
 moment bases64/128/256/512;mean/covariance/eigen identities saved/audited.
 Projected original U/G estimate importance to select IDs;true selected rows
 compute exact remainder. No full original U/G pass in the proposed ID path.
-Select sketch rank on FIT,then check same choice on DEV. No router observation
-or compiled candidate exists yet. Full audits/hash custody,then physical
+Select sketch rank on FIT,then check same choice on DEV. Producer live:
+[state](FFN_SKETCH_ROUTER_STATE_20261013.md),35620/tool64726,CPU30min/OS8GiB/
+3GiB. Incorrect preliminary revision metadata preserved/corrected before
+any fit. No router result qualified or compiled candidate exists yet. Full audits/hash custody,then physical
 CPU IDs AND masses/precision/loaded bytes/DRAM/cost screen before all24/bank
 expansion. Middle width2048 offers modest coefficient saving;do not infer TPS.
 [Oracle execution history](FFN_REMAINDER_ORACLE_STATE_20261013.md) is closed;
