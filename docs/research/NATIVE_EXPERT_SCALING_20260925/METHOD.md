@@ -3,6 +3,22 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/NO new precision loss. Original packed
+header and literal byte-accumulator reused,six trit planes/four exact input
+digits. All138,528,768 I64/rawF64/BF16 words BIT-EQUAL accepted integer
+archive;28.3M packed bytes/262,144 digit words/4,194,304 table entries checked.
+Same audited DLL/current integer paired cost6.86--7.73ms versus0.807--0.875ms,
+LUT8.50--9.10x slower at every site/mode. Full360-record ledger/campaign
+closurePASS,all5 commands closed0/newE2,526,781,296B/protected hashes unchanged.
+Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
+DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
+readout retained. Stop readout variants. Next
+[token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:compile complete source vocabulary table,
+join actual uint32 IDs/conv/own state/accepted readout. Initial-layer scope,
+not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
+
 [Same-p6 integer shared readout](INTEGER_READOUT_RESULT_20261013.md) now
 COMPLETE/full corrected V3 independent auditPASS/all144 local fidelity and
 source gatesPASS. Source-only p6 q/scales retained,explicit new max-scaled
@@ -13,9 +29,8 @@ actual BF16 decoding plus literal quantizer included,median0.674--0.858ms
 versus dense1.488--1.617ms on fixed paired samples;all360 records reconciled.
 Physically deploys12.60MB I16 weights/scales,not ternary lookups. Accurate
 lower-cost shared primitive available,no joined chatbot/DRAM/n admission.
-Next [exact byte-LUT representation](EXACT_INTEGER_LUT_NEXT_20261013.md)
-PROPOSED/UNBOUND:keep same integer arithmetic with four exact input digits,
-six trit planes and two-trit byte shuffles;qualify all words then cost. Full
+[Exact byte-LUT representation](EXACT_INTEGER_LUT_RESULT_20261013.md) now
+qualified/cost-rejected above;no more readout variants. Full
 rank/source input geometry preserved. Original failed F64 gather implementation
 retained;two corrected audit mechanics fully documented without gate waivers.
 

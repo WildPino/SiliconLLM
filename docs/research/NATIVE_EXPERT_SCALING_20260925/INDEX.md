@@ -1,6 +1,22 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/NO new precision loss. Original packed
+header and literal byte-accumulator reused,six trit planes/four exact input
+digits. All138,528,768 I64/rawF64/BF16 words BIT-EQUAL accepted integer
+archive;28.3M packed bytes/262,144 digit words/4,194,304 table entries checked.
+Same audited DLL/current integer paired cost6.86--7.73ms versus0.807--0.875ms,
+LUT8.50--9.10x slower at every site/mode. Full360-record ledger/campaign
+closurePASS,all5 commands closed0/newE2,526,781,296B/protected hashes unchanged.
+Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
+DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
+readout retained. Stop readout variants. Next
+[token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:compile complete source vocabulary table,
+join actual uint32 IDs/conv/own state/accepted readout. Initial-layer scope,
+not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
+
 [Same-p6 integer readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/full
 corrected independent V3 auditPASS/all144 fidelity and donor local gatesPASS.
 All207,793,152 input I16/138,528,768 exact I64 dots/scaled F64/BF16 words
@@ -11,11 +27,9 @@ versus dense1.488--1.617ms,1.85--2.29x advantage. Full360-observation ledger
 and seven-command closurePASS;both prior audit faults retained and corrected,
 new orderedE2,909,894,600B/protected hashes unchanged/no owned job live.
 This executes int16 products,not ternary lookups;local readout evidence only.
-Next [exact byte-LUT representation](EXACT_INTEGER_LUT_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:four exact input digit slices,six trit planes,
-engine-style two-trit byte pshufb and explicit overflow/physical cost. No new
-activation loss or accuracy-budget change;full same-archive integer equality
-before cost. Whole CHATBOT/OWN-history/useful selective n/same useful50 open.
+[Exact byte-LUT](EXACT_INTEGER_LUT_RESULT_20261013.md) now complete/correct/
+cost-rejected as above;next joined source compiler,not more readout variants.
+Whole CHATBOT/OWN-history/useful selective n/same useful50 open.
 
 [Source-only full-size ternary readout precision](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_PASS. p4/5/6 source-weight-only artifacts/all3 sites,
@@ -104,24 +118,26 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Freeze/bind/implement [exact integer byte LUT](EXACT_INTEGER_LUT_NEXT_20261013.md).
-Latest admitted parent:integer_readout_result_20261013.json,
-integer_readout_adjudication_v3_20261013.json and integer_readout_cost_review_20261013.json.
-All144 archived int16 inputs/scales/exact int64 dots/raw F64/BF16 words are
-available in E:/SiliconLLM/results/native_expert_scaling/integer_readout_20261013.
-Preserve p6 weights and current input quantizer,extend engine-style two-trit
-pshufb using exact unsigned-low/signed-top nibble decomposition. Formal byte/
-partial/full integer bounds,all-word equality and physical codes/traffic
-must be frozen before launch;no inherited speed claim. One bounded cost
-comparison after full audit,then return to joined causal functions. All
-current scientific jobs closed;no process to resume or timing to rerun.
+Implement/freeze/bind [source token generator and causal composition](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md).
+The exact integer byte-LUT campaign is COMPLETE/correct/cost-rejected;
+no byte-LUT/dense/integer cost rerun required. Reference records:
+exact_integer_lut_result/adjudication/cost_review_20261013.json and accepted
+integer_readout_result/adjudication_v3/cost_review_20261013.json. Keep
+PMADDWD readout,stop its variants. All scientific commands terminal0/no
+owned process live. No hours/GPU/T4/new source/RESERVED allocated now.
 
-FIT source-function global ranks and conditional affine-bank coverage are
-COMPLETE,failed compression paths as linked above;their former next step is
-superseded. Actual source input replay/native state at0/12/23 qualified;
-other21 source functions and OWN-history all-layer pipeline still pending.
-Initial token-only generator compiler alternative878,720,096B remains
-unbuilt;later23 layers context-dependent. No fresh donor/T4/RESERVED allocated.
+Source token witness22547 H0 rows/3816 tokens/repeated word bits exact;
+complete65537x6704 BF16 source-only preconv generator table would878,720,096B,
+13,408B selected row,uint32 IDs. Build complete vocabulary from canonical
+embedding/first norm/in_proj/MuP,not captured responses;preserve literal dtype/
+rounding boundaries,independently audit before native own-state composition.
+Joined path must consume token IDs/table/own convolution and SSM state with
+accepted readout,compare incremental/prefill and inherited source/temporal
+criteria. Initial SSM branch only;attention/residual/FFN/all24/chatbot missing.
+Later23 generators contextual,token table does not generalize to them.
+Actual source-input replay/native state at0/12/23 remains locally qualified;
+other21 functions and whole OWN-history pipeline still pending. Source global
+ranks/fixed affine-bank coverage failures remain unchanged constraints.
 
 104 new+64 older RESERVED/longalign8186-20874 remain unqueried. Need actual
 cheap source functions/conditional ternary bank/CPU IDs AND masses/realDRAM,

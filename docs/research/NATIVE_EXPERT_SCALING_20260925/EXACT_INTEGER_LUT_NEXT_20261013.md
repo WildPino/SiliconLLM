@@ -1,6 +1,10 @@
 # Next representation question: exact integer arithmetic in engine-style byte LUTs
 
-13 October2026. **PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **HISTORICAL PROPOSAL, NOW COMPLETE.**
+[Full exact byte-LUT result](EXACT_INTEGER_LUT_RESULT_20261013.md): complete
+independent auditPASS/same integer words/ALL sampled cost comparisonsFAIL.
+Original proposal retained below; next joined source compiler
+[here](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md) proposed/unbound.
 [Full integer readout result](INTEGER_READOUT_RESULT_20261013.md) supplies an
 accurate, measured faster reference. Existing p6 F64 gather LUT is slower;
 PMADDWD uses int16 physical weights. The remaining representation uncertainty

@@ -1,6 +1,22 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/NO new precision loss. Original packed
+header and literal byte-accumulator reused,six trit planes/four exact input
+digits. All138,528,768 I64/rawF64/BF16 words BIT-EQUAL accepted integer
+archive;28.3M packed bytes/262,144 digit words/4,194,304 table entries checked.
+Same audited DLL/current integer paired cost6.86--7.73ms versus0.807--0.875ms,
+LUT8.50--9.10x slower at every site/mode. Full360-record ledger/campaign
+closurePASS,all5 commands closed0/newE2,526,781,296B/protected hashes unchanged.
+Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
+DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
+readout retained. Stop readout variants. Next
+[token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:compile complete source vocabulary table,
+join actual uint32 IDs/conv/own state/accepted readout. Initial-layer scope,
+not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
+
 [Same-p6 I16 readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/V3 full
 independent auditPASS/all144 fidelity+donor local gatesPASS. Exact reference
 verifies all207,793,152 input integers/67,641 scales/138,528,768 I64 dots/F64
@@ -14,7 +30,7 @@ weights12,599,296B incl scales are int16,not ternary lookup execution.
 V1 wrong diagnostic denominator numeric failure/V2 final hash-list shadow
 terminal1 preserved;full V3 rerun passes unchanged gates. Seven commands
 closed/newE2,909,894,600B/protected hashes unchanged/no source/GPU/T4/RESERVED.
-Next exact four-input-digit/six-trit byte LUT proposed/unbound,then joined
+Exact digit-sliced byte LUT now complete/cost-rejected above;next joined
 causal pipeline. No OWN-history chatbot/useful-n/cross-family/same50 admission.
 
 [Native p6 LUT + cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)

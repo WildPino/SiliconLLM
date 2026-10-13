@@ -1,0 +1,169 @@
+{
+  "schema": "EXACT_INTEGER_LUT_COST_REVIEW_CLOSURE_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\exact_integer_lut_cost_review.py",
+    "bytes": 7160,
+    "sha256": "a1e4c36a6c1bdb86f3c56967f38c6dd7492b5a4cbd2e81b17321685aff688758"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_cost_result_20261013.json",
+    "bytes": 106791,
+    "sha256": "4c0be377d5d1f03331308a99b7fea3a8781034417e689ceaef3e95d7a157769e"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_cost_result_20261013.terminal.json",
+    "bytes": 1086,
+    "sha256": "ef3c9febcc0acf5ff7a10c19a519971397871cb8b25c0d6e479e622a514a7263"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_cost_binding_20261013.json",
+    "bytes": 610795,
+    "sha256": "663b5bad65ffa9efd99604f2ec3700b3a37ff1eaf144402ded86f7fde377e35d"
+  },
+  "parent_adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_adjudication_20261013.json",
+    "bytes": 2727,
+    "sha256": "a410c175cf66944b52a5acc277f7230e0942d691cf8d8d8ace233752cae3ec90"
+  },
+  "all360_observations_reconciled": true,
+  "same_full_audited_LUT_and_integer_DLLs": true,
+  "original_packed_header_and_literal_accumulator_verified": true,
+  "sample_output_parity": "Producer verifies every warmup/measured input/scale/I64/raw/BF16 against complete audited archives;ledger reviewer does not rerun timed calls.",
+  "median_LUT_over_integer": {
+    "0": {
+      "warm_repeat": 8.504897706137632,
+      "source_flushed": 9.078540694503364
+    },
+    "12": {
+      "warm_repeat": 8.7415743173769,
+      "source_flushed": 9.10171605011579
+    },
+    "23": {
+      "warm_repeat": 9.053906935908692,
+      "source_flushed": 8.952770155876
+    }
+  },
+  "logical_code_vector_load_bytes_per_input": 37748736,
+  "owned_commands": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_binding_20261013.preparation_terminal.json",
+        "bytes": 980,
+        "sha256": "0997dcce487787932d9449e5ccd226da5576f105b8e5a7e1472eb472e817f629"
+      },
+      "pid": 12456,
+      "creation_time": 1791874442.0269432,
+      "exit_code": 0,
+      "seconds": 14.546999999998661,
+      "OS_peak": 172359680,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_result_20261013.terminal.json",
+        "bytes": 1167,
+        "sha256": "a6cd6992f3ec3a7a5f92cbd01fa790d6e0e9f8b75668e848e129226bb945a331"
+      },
+      "pid": 10164,
+      "creation_time": 1791874498.5069025,
+      "exit_code": 0,
+      "seconds": 599.4060000000027,
+      "OS_peak": 212774912,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_adjudication_20261013.terminal.json",
+        "bytes": 1272,
+        "sha256": "a7eedc821bb35905c5a00cf8e1737fb4c5ac525adbc0d5ab1f28b4fd37823656"
+      },
+      "pid": 27700,
+      "creation_time": 1791875138.3078277,
+      "exit_code": 0,
+      "seconds": 39.75,
+      "OS_peak": 370327552,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_cost_binding_20261013.preparation_terminal.json",
+        "bytes": 1013,
+        "sha256": "2b2ca4cad1ded4747d4d8a9ff0dc4eb13d52b984bf45cd5e1e90d1ae05faefad"
+      },
+      "pid": 26668,
+      "creation_time": 1791875319.998268,
+      "exit_code": 0,
+      "seconds": 1.1410000000032596,
+      "OS_peak": 40865792,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_cost_result_20261013.terminal.json",
+        "bytes": 1086,
+        "sha256": "ef3c9febcc0acf5ff7a10c19a519971397871cb8b25c0d6e479e622a514a7263"
+      },
+      "pid": 27164,
+      "creation_time": 1791875345.96111,
+      "exit_code": 0,
+      "seconds": 10.75,
+      "OS_peak": 85139456,
+      "matching_process_absent": true
+    }
+  ],
+  "new_array_files": 147,
+  "new_run_bytes": 2498349442,
+  "new_family_bytes": 2526781296,
+  "new_cost_family_bytes": 0,
+  "protected_files_unchanged": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\nibble_pack.h",
+      "bytes": 9465,
+      "sha256": "915ffd79dd1db0b2d3dc35fb79bfb7ae41da44dbbc062daf2c31f3f9e0001d23"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ],
+  "foreign_publisher_snapshot": [
+    {
+      "pid": 9832,
+      "name": "pythonw.exe",
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ],
+      "create_time": 1791837726.8771727
+    },
+    {
+      "pid": 21640,
+      "name": "pythonw.exe",
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ],
+      "create_time": 1791837726.7791085
+    }
+  ],
+  "before_after_hashes_exact": true,
+  "decision": "REJECT_CURRENT_EXACT_BYTE_LUT_AS_ACCELERATION",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Complete immutable observations/counts/summaries/source bytes/full custody. Exact representation qualified without new approximation. Logical code loads are not PMU DRAM bytes. No retiming/tail guarantee/selective useful-n/own-history chatbot/model-rate/cross-family admission."
+}

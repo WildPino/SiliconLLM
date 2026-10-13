@@ -140,10 +140,12 @@ Retain this as an accurate, lower-cost shared readout option and a reference
 for exact integer implementations. It preserves full output dimensions and
 adds negligible measured local error; it does not create selective capacity.
 Do not call it proof of a fast ternary LUT: it physically deploys int16 weights.
-[Next exact byte-table representation](EXACT_INTEGER_LUT_NEXT_20261013.md)
-asks whether this SAME accepted arithmetic can use engine-style two-trit
-pshufb with no further activation approximation. The original dense/F64-LUT/
-integer measurements remain frozen; new representation must earn its own cost.
+[Exact byte-table representation](EXACT_INTEGER_LUT_RESULT_20261013.md) now
+COMPLETE/full independent auditPASS,all archived arithmetic identical,but
+same audited paired cost8.50--9.10x slower than integer. Preserve original
+measurements;reject that24-path implementation as acceleration,stop readout
+variants. Next [source token generator/causal composition](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
+proposed/unbound,initial-layer scope explicitly separated from full model.
 
 Whole source CHATBOT ->compact reusable causal core +useful selective ternary
 functions ->engine.c still needs joined generator/FFN/attention/head/tokenizer,
