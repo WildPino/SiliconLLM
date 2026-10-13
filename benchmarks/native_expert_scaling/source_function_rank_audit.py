@@ -108,6 +108,7 @@ def main(a):
         assert cad['decision']=='INDEPENDENT_DATA_AND_SOURCE_CONTINUITY_PASS' and cad['report']==b['capture']
         assert tad['decision']=='INDEPENDENT_STORED_PASS' and tad['report']==b['temporal']
         c=json.loads(Path(b['capture']['path']).read_bytes())
+        assert c['binding_sha256']==b['capture_binding']['sha256']
         native=json.loads(Path(b['temporal']['path']).read_bytes())
         source={q['id']:q for q in c['records'] if q['split']=='FIT'}
         expected=[]

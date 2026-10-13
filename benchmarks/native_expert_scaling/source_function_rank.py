@@ -33,6 +33,8 @@ def prepare(a):
     assert cad['decision'] == 'INDEPENDENT_DATA_AND_SOURCE_CONTINUITY_PASS'
     assert tad['decision'] == 'INDEPENDENT_STORED_PASS'
     assert cad['report'] == extent(cp) and tad['report'] == extent(tp)
+    cb = DOC / 'true_generator_input_capture_binding_v4_20261013.json'
+    assert extent(cb)['sha256'] == c['binding_sha256']
     assert t['temporal_all_pass'] and all(all(t['gates'][str(s)]['reconstructed_denominator'].values())
                                          for s in [0,12,23])
     previous = DOC / 'true_input_function_replay_binding_20261013.json'
@@ -58,7 +60,7 @@ def prepare(a):
     paths = [Path(__file__), B / 'source_function_rank_audit.py',
              B / 'falcon_auxiliary_s6_transport.py',
              DOC / 'SOURCE_FUNCTION_RANK_PROTOCOL_20261013.md', storage,
-             cp, ca, tp, ta, previous, Path(c['binding']['path']),
+             cp, ca, tp, ta, previous, cb,
              Path(t['binding']['path']), Path(pb['source_weights']), Path(pb['source_config']),
              Path(sys.executable), Path(sys.executable).parent / 'python312.dll',
              Path(np.__file__), Path(np._core._multiarray_umath.__file__),
@@ -78,6 +80,7 @@ def prepare(a):
              versions=dict(numpy=np.__version__, psutil=psutil.__version__),
              source_weights=pb['source_weights'], source_config=pb['source_config'],
              capture=extent(cp), capture_adjudication=extent(ca),
+             capture_binding=extent(cb),
              temporal=extent(tp), temporal_adjudication=extent(ta),
              sites=[0, 12, 23], sections=SECTIONS, ranks=RANKS, records=records,
              output_key=OWN, inputs=inputs, output_directory=str(a.directory.resolve()),

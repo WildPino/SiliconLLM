@@ -1,0 +1,28 @@
+{
+  "schema": "SOURCE_FUNCTION_RANK_PREPARATION_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/source_function_rank.py",
+    "--prepare",
+    "--freeze",
+    "f0dd108",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_function_rank_binding_20261013.json",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/source_function_rank_20261013"
+  ],
+  "pid": 3992,
+  "creation_time": 1791861855.069425,
+  "freeze": "f0dd108",
+  "timing_admitted": false,
+  "exit_code": 1,
+  "error": "KeyError('binding')",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\source_function_rank.py\", line 266, in <module>\n    prepare(a)\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\source_function_rank.py\", line 61, in prepare\n    cp, ca, tp, ta, previous, Path(c['binding']['path']),\n                                   ~^^^^^^^^^^^\nKeyError: 'binding'\n",
+  "seconds": 0.17199999999866122,
+  "OS_peak": 41836544
+}
