@@ -1,0 +1,33 @@
+{
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "schema": "EXACT_INTEGER_LUT_COST_LAUNCH_V1",
+  "freeze": "e52821f",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/exact_integer_lut_cost.py",
+    "--run",
+    "--freeze",
+    "e52821f",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_integer_lut_cost_binding_20261013.json",
+    "--binding-sha",
+    "663b5bad65ffa9efd99604f2ec3700b3a37ff1eaf144402ded86f7fde377e35d",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_integer_lut_cost_result_20261013.json"
+  ],
+  "limits": {
+    "seconds": 900,
+    "OS_bytes": 6442450944
+  },
+  "binding_sha256": "663b5bad65ffa9efd99604f2ec3700b3a37ff1eaf144402ded86f7fde377e35d",
+  "scope": "360 fixed paired same input-ready BF16 decode/quantizer plus audited LUT or integer call observations;no whole model rate"
+}
