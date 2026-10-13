@@ -1,0 +1,42 @@
+{
+  "freeze": "eaeccfd616d5ced411621ee0ff688b0ccb94b93b",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 2147483648,
+    "output_bytes": 134217728
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/temporal_error_decomposition_v2.py",
+    "--mode",
+    "audit",
+    "--freeze",
+    "eaeccfd616d5ced411621ee0ff688b0ccb94b93b",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/temporal_error_decomposition_binding_v2_20261013.json",
+    "--binding-sha",
+    "cd317a4eea792334d51ca2ca93ae2fb15fbeb4b10240f33077f67f6867eef90a",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/temporal_error_decomposition_result_v2_20261013.json",
+    "--report-sha",
+    "7239e3cc5f51d82ad56830224cfa0d9bbe0b3bdba1582c599d99b5eef4db8000",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/temporal_error_decomposition_result_v2_20261013.run_terminal.json",
+    "--terminal-sha",
+    "1e66b5165b7c499ac458c4e777873b7f34c91f3f0131e0bc936f84a690931115",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/temporal_error_decomposition_adjudication_v2_20261013.json"
+  ],
+  "created_at": "2026-10-13T03:04:23.0353098+02:00",
+  "schema": "TEMPORAL_ERROR_DECOMPOSITION_AUDIT_LAUNCH_V2"
+}
