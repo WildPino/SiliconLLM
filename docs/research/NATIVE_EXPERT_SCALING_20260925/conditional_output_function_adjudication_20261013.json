@@ -1,0 +1,222 @@
+{
+  "schema": "CONDITIONAL_OUTPUT_FUNCTION_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\conditional_output_function_audit.py",
+    "bytes": 25191,
+    "sha256": "862f017f2de355da26ad2255bf84d5db6d6250a6642244b350879a20da7b4ca1"
+  },
+  "freeze": "7a320b6",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_output_function_result_20261013.json",
+    "bytes": 1082921,
+    "sha256": "fbb9fc0b1095fa2200d09e6e2577112f6934e2a354e847c8b849658ce458a77a"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_output_function_result_20261013.terminal.json",
+    "bytes": 1224,
+    "sha256": "d9b6b7b4331d625aa3c3fdb36fbf151374699d7ddf6b7df613d504f810e48abb"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\conditional_output_function_binding_20261013.json",
+    "bytes": 577123,
+    "sha256": "6b56efe0ed686847d833d26490bc22a405147f6257838fd4e11d997436db633b"
+  },
+  "models": [
+    {
+      "site": 0,
+      "banks": [
+        {
+          "name": "tree16_r128",
+          "orthogonality": true,
+          "eigen_residual": true,
+          "energy_identity": true,
+          "replayed_energy": true
+        },
+        {
+          "name": "tree64_r32",
+          "orthogonality": true,
+          "eigen_residual": true,
+          "energy_identity": true,
+          "replayed_energy": true
+        }
+      ]
+    },
+    {
+      "site": 12,
+      "banks": [
+        {
+          "name": "tree16_r128",
+          "orthogonality": true,
+          "eigen_residual": true,
+          "energy_identity": true,
+          "replayed_energy": true
+        },
+        {
+          "name": "tree64_r32",
+          "orthogonality": true,
+          "eigen_residual": true,
+          "energy_identity": true,
+          "replayed_energy": true
+        }
+      ]
+    },
+    {
+      "site": 23,
+      "banks": [
+        {
+          "name": "tree16_r128",
+          "orthogonality": true,
+          "eigen_residual": true,
+          "energy_identity": true,
+          "replayed_energy": true
+        },
+        {
+          "name": "tree64_r32",
+          "orthogonality": true,
+          "eigen_residual": true,
+          "energy_identity": true,
+          "replayed_energy": true
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "bank_float_words": 66668082,
+    "bank_integer_words": 73512,
+    "predicted_F64_words": 277057536,
+    "routed_IDs": 135282,
+    "masses": 67641,
+    "FIT_Z_Y_words": 171233280,
+    "evaluated_Z_Y_words": 346321920,
+    "rounded_BF16_words": 277057536,
+    "independent_BF16_mismatches": 0,
+    "full_leaf_singular_values": 66888
+  },
+  "maximum": {
+    "global_B": 0.0,
+    "metadata_absolute_or_relative": 1.4587541682569873e-15,
+    "mean_Z": 1.4560519085265314e-15,
+    "mean_Y": 1.1300871098470919e-15,
+    "local_direct_squared_spectrum": 5.20566192579616e-15,
+    "local_orthogonal_max": 3.9968028886505635e-15,
+    "local_eigen_residual": 5.757530251683469e-15,
+    "local_B": 0.0,
+    "local_bias_equation_backward": 7.076066663699345e-16,
+    "full_factor_prediction": 3.8289400437136307e-16
+  },
+  "verification_gates": {
+    "global_B": true,
+    "metadata_absolute_or_relative": true,
+    "mean_Z": true,
+    "mean_Y": true,
+    "local_direct_squared_spectrum": true,
+    "local_orthogonal_max": true,
+    "local_eigen_residual": true,
+    "local_B": true,
+    "local_bias_equation_backward": true,
+    "full_factor_prediction": true,
+    "independent_BF16_bits": true
+  },
+  "numeric_all_pass": true,
+  "additional_all_cases": {
+    "tree16_r128": false,
+    "tree64_r32": false
+  },
+  "donor_gates": {
+    "0": {
+      "tree16_r128": {
+        "FIT": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        },
+        "DEV": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        }
+      },
+      "tree64_r32": {
+        "FIT": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        },
+        "DEV": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        }
+      }
+    },
+    "12": {
+      "tree16_r128": {
+        "FIT": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        },
+        "DEV": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        }
+      },
+      "tree64_r32": {
+        "FIT": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        },
+        "DEV": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        }
+      }
+    },
+    "23": {
+      "tree16_r128": {
+        "FIT": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        },
+        "DEV": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        }
+      },
+      "tree64_r32": {
+        "FIT": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        },
+        "DEV": {
+          "mean": false,
+          "worst": false,
+          "centered": false,
+          "domain": false
+        }
+      }
+    }
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 117.32900000000154,
+  "OS_peak": 1139048448,
+  "scope": "Complete reconstructed input-only trees/IDs/masses/FIT local weighted means/spectra/eigenbasis/factors;every stored F64 prediction/all144 histories/independent rounded BF16 outputs/source metrics and gates. Stored F64 operator pilot;no native kernels/DRAM/causal/chatbot/quality-speed or useful ternary-n admission."
+}
