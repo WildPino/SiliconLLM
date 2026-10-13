@@ -63,13 +63,13 @@ After a successful build, start `apps/local-chat/build/silicon-chat.exe`. The ap
 silicon-chat.exe --catalog path\to\models.json --data-dir path\to\chat-data
 ```
 
-`--catalog` opens the supplied local JSON catalog. Without it, the app uses the last catalog selected through **Modelli**; before one is saved, the list is empty. `--data-dir` overrides the conversation directory for this run. Use `--help` to see all options. `--capture path.png` and `--capture-settings path.png` save verification screenshots and exit. `--theme light|dark` selects and saves the appearance.
+`--catalog` opens the supplied local JSON catalog. Without it, the app uses the last catalog selected through **Models**; before one is saved, the list is empty. `--data-dir` overrides the conversation directory for this run. Use `--help` to see all options. `--capture path.png` and `--capture-settings path.png` save verification screenshots and exit. `--theme light|dark` selects and saves the appearance.
 
 ## Appearance and controls
 
-**Impostazioni** saves the light/dark theme, text size, statistics visibility and optional bright panel edges. Glass-like separation uses opaque surfaces and static borders: no blur, shadow effects, decorative animation or idle redraw timer. The first streaming text appears immediately; later changes are grouped every 75 ms without postponing updates when deltas arrive faster. Markdown is formatted on completion.
+**Settings** uses segmented buttons for light/dark themes and text size, plus a generation statistics toggle. Preferences are saved locally. Both themes share one fixed visual style. Glass-like separation uses opaque surfaces and static borders: no blur, shadow effects, decorative animation or idle redraw timer. The first streaming text appears immediately; later changes are grouped every 75 ms without postponing updates when deltas arrive faster. Markdown is formatted on completion.
 
-The model selector, **Modelli** and **Impostazioni** sit above the conversation. Send switches to Stop during generation. Right-click a conversation (or use the keyboard context-menu key) to rename or delete it. The current **Modelli** action imports a local catalog; downloading models is a future feature described in [`DISTRIBUTION.md`](../../docs/local-chat/DISTRIBUTION.md).
+The model selector, **Models** and **Settings** sit above the conversation. Send switches to Stop during generation. Right-click a conversation (or use the keyboard context-menu key) to rename or delete it. The current **Models** action imports a local catalog; downloading models is a future feature described in [`DISTRIBUTION.md`](../../docs/local-chat/DISTRIBUTION.md).
 
 The optional `LOCAL_CHAT_BUILD_UI_PROBE=ON` CMake target and `tests/local_chat/benchmark-ui.ps1` compare native window CPU and memory with a synthetic transcript. They are development tools, excluded from the portable package. Results and limits are in [`VALIDATION.md`](../../docs/local-chat/VALIDATION.md).
 

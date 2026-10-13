@@ -70,7 +70,6 @@ private:
     bool busy_ = false;
     bool firstContentDisplayedForRequest_ = false;
     bool showStatistics_ = true;
-    bool staticGlass_ = true;
     int textSize_ = 11;
     QString themeName_ = QStringLiteral("light");
     QString draft_;

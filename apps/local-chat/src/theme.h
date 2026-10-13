@@ -27,7 +27,7 @@ class Theme final {
 public:
     static QString normalize(const QString &name);
     static ThemePalette palette(const QString &name);
-    static QString styleSheet(const QString &name, int textSize, bool staticGlass);
+    static QString styleSheet(const QString &name, int textSize);
     static QString markdownStyle(const QString &name);
 };
 

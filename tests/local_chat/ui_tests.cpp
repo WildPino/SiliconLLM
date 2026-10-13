@@ -1,6 +1,7 @@
 #include "../../apps/local-chat/src/mainwindow.h"
 
 #include <QComboBox>
+#include <QButtonGroup>
 #include <QApplication>
 #include <QAction>
 #include <QCheckBox>
@@ -350,16 +351,16 @@ private slots:
         QTimer::singleShot(0, [] {
             auto *dialog = qobject_cast<QDialog *>(QApplication::activeModalWidget());
             if (!dialog) return;
-            auto *theme = dialog->findChild<QComboBox *>(QStringLiteral("themeSelector"));
-            auto *size = dialog->findChild<QComboBox *>(QStringLiteral("textSizeSelector"));
+            auto *theme = dialog->findChild<QButtonGroup *>(QStringLiteral("themeSelector"));
+            auto *size = dialog->findChild<QButtonGroup *>(QStringLiteral("textSizeSelector"));
             auto *statistics = dialog->findChild<QCheckBox *>(QStringLiteral("statisticsToggle"));
-            auto *glass = dialog->findChild<QCheckBox *>(QStringLiteral("glassToggle"));
+            QVERIFY(!dialog->findChild<QCheckBox *>(QStringLiteral("glassToggle")));
+            QVERIFY(dialog->findChildren<QComboBox *>().isEmpty());
             auto *buttons = dialog->findChild<QDialogButtonBox *>(QStringLiteral("settingsButtons"));
-            if (!theme || !size || !statistics || !glass || !buttons) return;
-            theme->setCurrentIndex(theme->findData(QStringLiteral("light")));
-            size->setCurrentIndex(size->findData(12));
+            if (!theme || !size || !statistics || !buttons) return;
+            theme->button(0)->click();
+            size->button(12)->click();
             statistics->setChecked(false);
-            glass->setChecked(false);
             buttons->button(QDialogButtonBox::Ok)->click();
         });
         QTimer::singleShot(1000, [] {
@@ -372,7 +373,7 @@ private slots:
         QCOMPARE(settings.value(QStringLiteral("ui/theme")).toString(), QStringLiteral("light"));
         QCOMPARE(settings.value(QStringLiteral("ui/textSize")).toInt(), 12);
         QVERIFY(!settings.value(QStringLiteral("ui/showStatistics")).toBool());
-        QVERIFY(!settings.value(QStringLiteral("ui/staticGlass")).toBool());
+        QVERIFY(!settings.contains(QStringLiteral("ui/staticGlass")));
         QVERIFY(!window.findChild<QLabel *>(QStringLiteral("messageStatistics")));
         auto *markdown = window.findChild<QTextBrowser *>(QStringLiteral("messageMarkdown"));
         QVERIFY(markdown);
@@ -401,8 +402,8 @@ private slots:
         auto *list = window.findChild<QListWidget *>(QStringLiteral("conversationList"));
         QVERIFY(list);
         for (auto *button : window.findChildren<QPushButton *>()) {
-            QVERIFY(button->text() != QStringLiteral("Rinomina…"));
-            QVERIFY(button->text() != QStringLiteral("Elimina"));
+            QVERIFY(button->text() != QStringLiteral("Rename…"));
+            QVERIFY(button->text() != QStringLiteral("Delete"));
         }
 
         QSignalSpy deleted(&window, &MainWindow::deleteConversationRequested);

@@ -21,7 +21,7 @@ AppController::AppController(MainWindow& window, QString dataDirectory, QObject*
     if (!error.isEmpty()) QTimer::singleShot(0, this, [this, error] { window_.showError(error); });
     connect(&window_, &MainWindow::catalogRequested, this, [this] {
         if (engine_.busy() || catalogWatcher_.isRunning()) return;
-        const auto file = QFileDialog::getOpenFileName(&window_, tr("Catalogo dei modelli"), {}, tr("Cataloghi JSON (*.json)"));
+        const auto file = QFileDialog::getOpenFileName(&window_, tr("Model catalog"), {}, tr("JSON catalogs (*.json)"));
         if (!file.isEmpty()) loadCatalog(file);
     });
     connect(&window_, &MainWindow::newConversationRequested, this, &AppController::create);
@@ -66,20 +66,20 @@ AppController::AppController(MainWindow& window, QString dataDirectory, QObject*
             visibleResponseTimer_.invalidate();
             chat->messages.append(Message{"assistant", text, interrupted, stats});
             chat->updatedAt = QDateTime::currentDateTimeUtc(); save(*chat);
-            window_.setBusy(false, interrupted ? tr("Interrotto. Il motore sarà ricaricato al prossimo invio.") : tr("Pronto"));
+            window_.setBusy(false, interrupted ? tr("Stopped. The engine will reload on the next message.") : tr("Ready"));
             refresh(); window_.showConversation(*chat);
         }
     });
     connect(&engine_, &EngineSession::failed, this, [this](const QString& error) {
         firstVisibleMs_ = -1;
         visibleResponseTimer_.invalidate();
-        window_.setBusy(engine_.busy(), tr("Errore del motore")); window_.showError(error);
+        window_.setBusy(engine_.busy(), tr("Engine error")); window_.showError(error);
     });
     connect(&catalogWatcher_, &QFutureWatcher<CatalogResult>::finished, this, [this] {
         const auto result = catalogWatcher_.result();
-        if (!result.error.isEmpty()) { window_.setBusy(false, tr("Catalogo non valido")); window_.showError(result.error); return; }
+        if (!result.error.isEmpty()) { window_.setBusy(false, tr("Invalid catalog")); window_.showError(result.error); return; }
         engine_.shutdown(); models_ = result.models; window_.setModels(models_);
-        window_.setBusy(false, models_.isEmpty() ? tr("Nessun runtime CPU approvato installato") : tr("Catalogo verificato"));
+        window_.setBusy(false, models_.isEmpty() ? tr("No approved CPU runtime installed") : tr("Catalog verified"));
         QSettings().setValue("catalog", loadingCatalog_);
         if (auto* chat = conversation()) window_.showConversation(*chat);
     });
@@ -90,7 +90,7 @@ AppController::~AppController() { engine_.shutdown(); catalogWatcher_.waitForFin
 void AppController::loadCatalog(const QString& file) {
     if (engine_.busy() || catalogWatcher_.isRunning()) return;
     loadingCatalog_ = QFileInfo(file).absoluteFilePath();
-    window_.setBusy(true, tr("Verifica del catalogo e degli artefatti…"));
+    window_.setBusy(true, tr("Verifying catalog and artifacts…"));
     catalogWatcher_.setFuture(QtConcurrent::run([file] {
         CatalogResult result; result.models = ModelCatalog::load(file, &result.error); return result;
     }));
@@ -110,12 +110,12 @@ void AppController::refresh() { window_.setConversations(conversations_); }
 
 bool AppController::save(const Conversation& chat) {
     QString error; if (store_.save(chat, &error)) return true;
-    window_.showError(tr("Impossibile salvare la conversazione: %1").arg(error)); return false;
+    window_.showError(tr("Cannot save conversation: %1").arg(error)); return false;
 }
 
 void AppController::create(const QString& modelId) {
     if (engine_.busy() || catalogWatcher_.isRunning() || !model(modelId)) return;
-    Conversation chat{QUuid::createUuid().toString(QUuid::WithoutBraces), tr("Nuova conversazione"), modelId, {}, QDateTime::currentDateTimeUtc()};
+    Conversation chat{QUuid::createUuid().toString(QUuid::WithoutBraces), tr("New conversation"), modelId, {}, QDateTime::currentDateTimeUtc()};
     if (!save(chat)) return;
     conversations_.prepend(chat); selected_ = chat.id; refresh(); window_.showConversation(chat);
 }
@@ -129,10 +129,10 @@ void AppController::select(const QString& id) {
 void AppController::send(const QString& text) {
     if (engine_.busy() || catalogWatcher_.isRunning() || text.trimmed().isEmpty()) return;
     auto* chat = conversation();
-    if (!chat) { window_.showError(tr("Crea una conversazione con un modello approvato.")); return; }
+    if (!chat) { window_.showError(tr("Create a conversation with an approved model.")); return; }
     const auto* spec = model(chat->modelId);
-    if (!spec) { window_.showError(tr("Il modello di questa conversazione non è disponibile nel catalogo.")); return; }
-    if (text.toUtf8().size() > 1024 * 1024) { window_.showError(tr("Il messaggio supera il limite di 1 MiB.")); return; }
+    if (!spec) { window_.showError(tr("The model for this conversation is unavailable in the catalog.")); return; }
+    if (text.toUtf8().size() > 1024 * 1024) { window_.showError(tr("Message exceeds the 1 MiB limit.")); return; }
     chat->messages.append(Message{"user", text, false, {}});
     if (chat->messages.size() == 1) chat->title = text.simplified().left(60);
     chat->updatedAt = QDateTime::currentDateTimeUtc();
@@ -140,11 +140,11 @@ void AppController::send(const QString& text) {
     refresh(); window_.showConversation(*chat);
     firstVisibleMs_ = -1;
     visibleResponseTimer_.start();
-    window_.setBusy(true, tr("Avvio…"));
+    window_.setBusy(true, tr("Starting…"));
     if (!engine_.generate(*spec, *chat, std::min(256, spec->maxNewTokens))) {
         firstVisibleMs_ = -1;
         visibleResponseTimer_.invalidate();
-        window_.setBusy(false, tr("Invio non riuscito"));
+        window_.setBusy(false, tr("Send failed"));
     }
 }
 

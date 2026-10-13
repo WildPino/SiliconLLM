@@ -199,7 +199,7 @@ private slots:
         QSignalSpy failed(&session, &EngineSession::failed);
         QVERIFY(session.generate(spec, conversation(), 16));
         QVERIFY(waitForSignal(failed, 3000));
-        QVERIFY(failed.first().at(0).toString().contains(QStringLiteral("tempo massimo")));
+        QVERIFY(failed.first().at(0).toString().contains(QStringLiteral("timed out")));
         QVERIFY(!session.busy());
         QCOMPARE(session.processId(), qint64(0));
     }

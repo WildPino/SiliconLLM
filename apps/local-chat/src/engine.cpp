@@ -43,7 +43,7 @@ void sampleProcessMemory(QJsonObject& stats, qint64 pid) {
 
 EngineSession::EngineSession(QObject* parent) : QObject(parent) {
     deadline_.setSingleShot(true);
-    connect(&deadline_, &QTimer::timeout, this, [this] { fail(tr("Il motore ha superato il tempo massimo della richiesta.")); });
+    connect(&deadline_, &QTimer::timeout, this, [this] { fail(tr("Engine request timed out.")); });
     connect(&process_, &QProcess::readyReadStandardOutput, this, &EngineSession::readOutput);
     connect(&process_, &QProcess::readyReadStandardError, this, &EngineSession::readErrors);
     connect(&process_, &QProcess::started, this, [this] {
@@ -51,29 +51,29 @@ EngineSession::EngineSession(QObject* parent) : QObject(parent) {
         const HANDLE handle = OpenProcess(PROCESS_SET_QUOTA | PROCESS_TERMINATE, FALSE, static_cast<DWORD>(process_.processId()));
         const bool assigned = handle && AssignProcessToJobObject(static_cast<HANDLE>(processJob_), handle);
         if (handle) CloseHandle(handle);
-        if (!assigned) fail(tr("Impossibile garantire l'arresto dei processi del motore."));
+        if (!assigned) fail(tr("Cannot guarantee termination of engine processes."));
 #endif
     });
     connect(&process_, &QProcess::errorOccurred, this, [this](QProcess::ProcessError error) {
-        if (!stopping_ && error != QProcess::Crashed) fail(tr("Impossibile comunicare con il motore: %1").arg(process_.errorString()));
+        if (!stopping_ && error != QProcess::Crashed) fail(tr("Cannot communicate with the engine: %1").arg(process_.errorString()));
     });
     connect(&process_, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
             [this](int code, QProcess::ExitStatus) {
         if (stopping_) return;
         readOutput(); readErrors(); ready_ = false;
-        if (busy()) fail(tr("Il motore è terminato (codice %1). %2").arg(code).arg(QString::fromUtf8(errors_)));
+        if (busy()) fail(tr("Engine exited (code %1). %2").arg(code).arg(QString::fromUtf8(errors_)));
     });
 }
 
 EngineSession::~EngineSession() { shutdown(); }
 
 bool EngineSession::generate(const ModelSpec& model, const Conversation& conversation, int maxNewTokens) {
-    if (busy()) { emit failed(tr("È già in corso una generazione.")); return false; }
+    if (busy()) { emit failed(tr("A generation is already running.")); return false; }
     if (!model.available || !model.approved || model.protocol != QStringLiteral("silicon-chat-v1")) {
-        emit failed(tr("Il modello non dispone di un runtime CPU approvato e disponibile.")); return false;
+        emit failed(tr("This model has no approved, available CPU runtime.")); return false;
     }
     if (maxNewTokens < 1 || maxNewTokens > model.maxNewTokens || conversation.messages.isEmpty()) {
-        emit failed(tr("Parametri della richiesta non validi.")); return false;
+        emit failed(tr("Invalid request parameters.")); return false;
     }
     if (model_.id != model.id || process_.state() == QProcess::NotRunning) {
         stopProcess(); model_ = model; ready_ = false;
@@ -95,7 +95,7 @@ bool EngineSession::generate(const ModelSpec& model, const Conversation& convers
         JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits{};
         limits.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
         if (!processJob_ || !SetInformationJobObject(static_cast<HANDLE>(processJob_), JobObjectExtendedLimitInformation, &limits, sizeof(limits))) {
-            fail(tr("Impossibile creare il gruppo dei processi del motore.")); return false;
+            fail(tr("Cannot create the engine process group.")); return false;
         }
 #endif
         output_.clear(); errors_.clear();
@@ -111,7 +111,7 @@ bool EngineSession::generate(const ModelSpec& model, const Conversation& convers
         auto environment = QProcessEnvironment::systemEnvironment();
         environment.insert("PYTHONUTF8", "1");
         process_.setProcessEnvironment(environment);
-        emit statusChanged(tr("Caricamento del modello…"));
+        emit statusChanged(tr("Loading model…"));
         process_.start();
     } else if (ready_) sendPending();
     return true;
@@ -121,10 +121,10 @@ void EngineSession::sendPending() {
     if (!busy() || pending_.isEmpty()) return;
     const QByteArray bytes = QJsonDocument(pending_).toJson(QJsonDocument::Compact) + '\n';
     if (bytes.size() > MaxResponse || process_.write(bytes) != bytes.size()) {
-        fail(tr("Invio della richiesta al motore non riuscito.")); return;
+        fail(tr("Failed to send the request to the engine.")); return;
     }
     pending_ = {};
-    emit statusChanged(tr("Preparazione del prompt e generazione…"));
+    emit statusChanged(tr("Preparing prompt and generating…"));
 }
 
 void EngineSession::readErrors() {
@@ -137,18 +137,18 @@ void EngineSession::readOutput() {
     while (true) {
         const auto end = output_.indexOf('\n');
         if (end < 0) break;
-        if (end > MaxLine) { fail(tr("Il motore ha inviato un evento troppo grande.")); return; }
+        if (end > MaxLine) { fail(tr("Engine event exceeds the size limit.")); return; }
         const auto line = output_.left(end); output_.remove(0, end + 1);
         if (line.trimmed().isEmpty()) continue;
         QJsonParseError parse;
         const auto document = QJsonDocument::fromJson(line, &parse);
         if (parse.error != QJsonParseError::NoError || !document.isObject()) {
-            fail(tr("Risposta del motore non valida: %1").arg(parse.errorString())); return;
+            fail(tr("Invalid engine response: %1").arg(parse.errorString())); return;
         }
         event(document.object());
         if (stopping_) return;
     }
-    if (output_.size() > MaxLine) fail(tr("Il motore non ha terminato un evento entro il limite previsto."));
+    if (output_.size() > MaxLine) fail(tr("Engine event was not terminated within the size limit."));
 }
 
 void EngineSession::event(const QJsonObject& object) {
@@ -157,28 +157,28 @@ void EngineSession::event(const QJsonObject& object) {
         if (ready_ || object.value("protocol").toString() != "silicon-chat-v1" ||
             object.value("max_context").toInt() != model_.maxContext ||
             !object.value("streaming").isBool() || object.value("streaming").toBool() != model_.streaming) {
-            fail(tr("Le capacità del motore non corrispondono al catalogo.")); return;
+            fail(tr("Engine capabilities do not match the catalog.")); return;
         }
         ready_ = true; sendPending(); return;
     }
     if (!busy() || object.value("request_id").toString() != requestId_) {
-        fail(tr("Il motore ha inviato un evento per una richiesta inattesa.")); return;
+        fail(tr("Engine event belongs to an unexpected request.")); return;
     }
     if (type == "status") {
         const auto stage = object.value("stage").toString();
-        if (stage == "prefill") emit statusChanged(tr("Preparazione del prompt…"));
-        else if (stage == "decode") emit statusChanged(tr("Generazione…"));
-        else { fail(tr("Fase del motore non riconosciuta.")); }
+        if (stage == "prefill") emit statusChanged(tr("Preparing prompt…"));
+        else if (stage == "decode") emit statusChanged(tr("Generating…"));
+        else { fail(tr("Unknown engine stage.")); }
     } else if (type == "delta") {
         const auto text = object.value("text");
         const auto tokens = object.value("generated_tokens");
         const double count = tokens.toDouble(-1);
         if (!model_.streaming || !text.isString() || !tokens.isDouble() || count != std::floor(count) ||
             count < generated_ || count > requestedLimit_) {
-            fail(tr("Evento progressivo del motore non valido.")); return;
+            fail(tr("Invalid streaming event.")); return;
         }
         response_.append(text.toString()); generated_ = static_cast<int>(count); streamed_ = true;
-        if (response_.toUtf8().size() > MaxResponse) { fail(tr("Risposta oltre il limite di memoria.")); return; }
+        if (response_.toUtf8().size() > MaxResponse) { fail(tr("Response exceeds the memory limit.")); return; }
         if (firstTokenMs_ < 0 && !text.toString().isEmpty()) firstTokenMs_ = monotonicMilliseconds() - requestStarted_;
         emit responseChanged(response_);
     } else if (type == "completed") {
@@ -190,10 +190,10 @@ void EngineSession::event(const QJsonObject& object) {
             (streamed_ && text.toString() != response_) || count < generated_ ||
             count > requestedLimit_ || count < 0 || count != std::floor(count) ||
             (termination != "eos" && termination != "length")) {
-            fail(tr("Completamento del motore non coerente con la richiesta.")); return;
+            fail(tr("Engine completion does not match the request.")); return;
         }
         for (const auto key : {"decode_seconds", "prefill_seconds", "load_seconds", "working_set_bytes"}) {
-            if (!validMetric(stats, key)) { fail(tr("Statistiche del motore non valide.")); return; }
+            if (!validMetric(stats, key)) { fail(tr("Invalid engine statistics.")); return; }
         }
         stats.insert("total_seconds", (monotonicMilliseconds() - requestStarted_) / 1000.0);
         stats.remove("first_token_seconds");
@@ -203,9 +203,9 @@ void EngineSession::event(const QJsonObject& object) {
         response_ = text.toString(); deadline_.stop(); requestId_.clear(); pending_ = {};
         emit completed(response_, stats, false);
     } else if (type == "error") {
-        fail(object.value("message").toString(tr("Errore del motore.")));
+        fail(object.value("message").toString(tr("Engine error.")));
     } else {
-        fail(tr("Tipo di evento del motore non supportato."));
+        fail(tr("Unsupported engine event type."));
     }
 }
 
@@ -229,7 +229,7 @@ void EngineSession::cancel() {
     deadline_.stop(); stopProcess();
     if (streamed_) stats.insert("generated_tokens", generated_);
     requestId_.clear(); pending_ = {};
-    emit statusChanged(tr("Generazione interrotta. Il motore sarà ricaricato al prossimo invio."));
+    emit statusChanged(tr("Generation stopped. The engine will reload on the next message."));
     emit completed(response_, stats, true);
 }
 

@@ -11,15 +11,15 @@ int main(int argc, char** argv) {
     QApplication app(argc, argv);
     QCoreApplication::setApplicationName("SiliconLLM");
     QCoreApplication::setOrganizationName("SiliconLLM");
-    QCoreApplication::setApplicationVersion("0.2.0");
+    QCoreApplication::setApplicationVersion("0.2.1");
     QCommandLineParser parser;
-    parser.setApplicationDescription("Chat desktop locale per SiliconLLM");
+    parser.setApplicationDescription("Local desktop chat for SiliconLLM");
     parser.addHelpOption(); parser.addVersionOption();
-    parser.addOption({"catalog", "Catalogo locale degli artefatti qualificati", "file"});
-    parser.addOption({"data-dir", "Directory delle conversazioni", "directory"});
-    parser.addOption({"capture", "Salva una schermata della finestra e termina (verifica UI)", "png"});
-    parser.addOption({"theme", "Tema della finestra: light o dark", "name"});
-    parser.addOption({"capture-settings", "Salva una schermata delle impostazioni e termina (verifica UI)", "png"});
+    parser.addOption({"catalog", "Local catalog of qualified artifacts", "file"});
+    parser.addOption({"data-dir", "Conversation directory", "directory"});
+    parser.addOption({"capture", "Save a window screenshot and exit (UI verification)", "png"});
+    parser.addOption({"theme", "Window theme: light or dark", "name"});
+    parser.addOption({"capture-settings", "Save a settings screenshot and exit (UI verification)", "png"});
     parser.process(app);
     MainWindow window;
     if (parser.isSet("theme")) {

@@ -46,6 +46,13 @@ Il workflow Windows in `.github/workflows/local-chat.yml` è predisposto ma non
 
 ## Redesign 0.2.0
 
+La revisione successiva 0.2.1 traduce tutta l'interfaccia in inglese, usa pulsanti
+affiancati nelle impostazioni e un selettore del modello piatto, con uno stile
+unico per entrambi i temi e senza opzione dei contorni. Le quattro suite passano;
+schermate e verifiche del pacchetto sono in
+[validation/20261013-ui-english](validation/20261013-ui-english/README.md).
+I numeri riportati sotto restano riferiti al confronto 0.2.0.
+
 Quattro suite passate sulla versione finale: store 8, engine 18, UI 15,
 controller 6, zero fallimenti. I nuovi casi verificano preferenze salvate,
 menu delle conversazioni, larghezza/altezza dei messaggi e aggiornamento
