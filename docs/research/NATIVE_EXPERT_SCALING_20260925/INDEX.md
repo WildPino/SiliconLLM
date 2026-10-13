@@ -1,17 +1,18 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal PAUSED/INCOMPLETE per human hours-long-run instruction.**
+**13 October2026: goal ACTIVE/INCOMPLETE;CPU affine-cell pilot running.**
 
-[Actual FFN operand capture](FFN_OPERAND_CAPTURE_STATE_20261013.md)
-PRODUCER COMPLETE/CPU AUDIT RUNNING:both source commands terminal0/~80min,
-all48/all24/six fields,all parent native/state/cache/label bits exact,411
-coefficients exact before/after. All9900 inputs/8163 outputs28.079GB hashes
-verified in closure preparation62.515s/exit0.6912 BF files/12.191B words.
-Owned CPU audit started18:09:26 Europe/Rome:holder13028/worker24928,recorded
-creation times,worker2h/OS8GiB/no CUDA. Full data/numeric admission pending.
-Original preflight failure retained. Source c3dc8b0/binding freeze479985f.
-Exact resume in linked state;no delegated monitor/T4/RESERVED. Affine bank
-still unimplemented,no capacity/speed admission.
+[Actual FFN operands](FFN_OPERAND_RESULT_20261013.md) COMPLETE/full auditPASS.
+All24/known48/six fields/12.191B BF words checked,parent state/cache/labels
+exact. Up/gate controls<=4.75e-5,gate scalar/feature exact,down+scalar<=.004684
+within1% gate. All6 owned commands closed0,28.079GB/source/hash custody sealed.
+Down discrepancy mechanism not isolated;keep numeric floor separate from
+cell approximation. No expert/new model/CPU speed/useful-n admission.
+NEXT [affine-cell pilot](FFN_AFFINE_PILOT_PROTOCOL_20261013.md),source b22ee53/
+binding b240d5f:FIT-only full2048 centroids1/16/64 at0/12/23,all48 histories,
+implicit full Jacobians/directional finite differences,source proxy fidelity
+and fixed local eligibility gates. CPU/no source model/GPU/RESERVED. Physical
+bank/model substitution/scalable routing/cost still unimplemented.
 
 [Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16,own-answer followup correct,

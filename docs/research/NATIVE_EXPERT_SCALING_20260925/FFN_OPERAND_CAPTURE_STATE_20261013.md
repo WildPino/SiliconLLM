@@ -1,7 +1,9 @@
 # FFN operand collection: owned run and exact continuation
 
-13 October2026. **PRODUCER COMPLETE;FULL CPU AUDIT RUNNING.**
-Goal PAUSED/INCOMPLETE under the human's explicit hours-long-run instruction.
+13 October2026. **PRODUCER/AUDIT COMPLETE;DATA QUALIFIED. Goal ACTIVE/INCOMPLETE.**
+[Final result](FFN_OPERAND_RESULT_20261013.md) and closure authoritative:
+all6 commands closed0,no matching instance live. Previous run instructions
+below preserved as history. CPU affine-cell pilot now running;see INDEX.
 No delegated monitor/automation. Full affine expert bank remains UNIMPLEMENTED.
 
 ## Current authoritative evidence and next action

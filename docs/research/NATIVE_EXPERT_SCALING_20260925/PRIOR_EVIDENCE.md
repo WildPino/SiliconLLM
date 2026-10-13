@@ -1,13 +1,13 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal PAUSED/INCOMPLETE per human hours-long-run instruction.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
 
-[Actual FFN operands](FFN_OPERAND_CAPTURE_STATE_20261013.md) producer
-COMPLETE,both source commands terminal0/~80min,parent words/states/cache/
-labels exact. Six BF fields/all24/known48,8163 files28.079GB/all9900 input
-and output hashes verified at closure. Full owned CPU audit live2h/OS8GiB,
-no CUDA initialization. Data/numeric admission still pending;no expert fit/
-new model quality/speed/useful-n claim.
+[Actual FFN operands](FFN_OPERAND_RESULT_20261013.md) COMPLETE/full auditPASS,
+all24/known48/six fields/12.191B words. Gate scalar/features/parent labels/
+states/rings exact,up/gate<=4.75e-5/down+scalar<=.004684 within1% gate.
+All6 commands closed0/source/hash custody sealed,28.079GB. Down discrepancy
+mechanism not isolated. Next full-coordinate affine cells use actual own
+pre-FFN inputs;physical bank/model substitution/useful-n/TPS unproven.
 Original memory preflight failure retained;actual free>=7GiB uses measured
 parent3.19GB allocated peak,own allocated6GiB cap. No delegated monitor/T4.
 
