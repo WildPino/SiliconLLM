@@ -41,11 +41,14 @@ PASS:delta forcing largest ordered term,decay partially cancels;native arithmeti
 error~5e-7 original-state units much smaller than1.125798%. Not unique causal
 percentages or proof of unlimited future instability;whole numeric failure remains.
 Next [TRUE generator inputs](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND. Same48 source prefills capture BF16 H at ALL24
+IMPLEMENTED/FROZEN/BOUND/LIVE94907;no data or continuity admission yet.
+Same48 source prefills capture BF16 H at ALL24
 layers/full7 continuity fields at0/12/23,then actual-source replay qualifies
 before [FIT response-rank compression](SOURCE_FUNCTION_RANK_NEXT_20261013.md).
 Proposed local RTX3060 family1800s/OS12GiB/GPU10GiB allocated11GiB reserved/new
-E6GiB;no source/GPU/T4 allocated now. All-layer input capture avoids future
+E6GiB;localGPU allocated,no T4. Original detached launch mode restored after
+recorded conhost descendant failure;all411 parameter bytes checked before/after.
+All-layer input capture avoids future
 source forwards solely for missing input data;it does not prove all-layer
 operator or own-history capacity. Compact causal input/output/conditional
 ternary functions still missing;offline inverse is not runtime encoding.

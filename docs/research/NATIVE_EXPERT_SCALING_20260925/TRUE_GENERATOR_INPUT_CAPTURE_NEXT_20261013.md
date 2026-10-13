@@ -1,6 +1,12 @@
 # True generator-input calibration after the temporal counterexample
 
-13 October2026. **SELECTED NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **IMPLEMENTED / FROZEN / BOUND / LIVE94907.**
+V3 source freeze479e2dc,bindingV4 e106dbb8...,launch393b4be. LocalRTX3060;
+launcher22188/worker4572 exact creation times in owned-process receipt.
+V1/V2 stopped without data;V2 observed fresh conhost,V3 uses original detached
+creationflags8. Pre-freeze CPU binding inadmissible/retained. Scope/gates/caps
+unchanged;no dataset/source continuity admission until full independent audit.
+Original pre-observation rationale below is retained.
 The full temporal audit retained one BF16 smooth diagnostic failure;the
 coordinate-complete rounding witness adjudicates it without waiving it.
 All state/primary own-output controls qualify the independently verified

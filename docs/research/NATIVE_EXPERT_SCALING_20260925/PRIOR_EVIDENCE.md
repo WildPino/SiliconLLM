@@ -1,6 +1,6 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;TRUE-input capture LIVE94907.**
 [Temporal recovered-input result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
 COMPLETE/all144 actual native histories/full independent audit. Current own-output
 1%PASS144/144;final-state1%FAILone site23 DEV Numina1.125798%. Source-relative
@@ -23,9 +23,12 @@ No source/GPU/T4/RESERVED/optimizer/new answers. Decomposition uses qualified
 state/own controls only;global BF16 numeric failure remains. Canonical F64-norm
 units explicitly reconciled with producer's F32-computed norm,not overwritten.
 Next [true input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md) selected/
-PROPOSED/UNIMPLEMENTED/UNBOUND:all24 H layers in same48 source prefills,full7
+IMPLEMENTED/FROZEN/BOUND/LIVE94907:all24 H layers in same48 source prefills,full7
 continuity fields0/12/23,localGPU1800s/OS12GiB/GPU10/11GiB/newE6GiB proposed.
-No job started. Cheap function/conditional ternary/OWN causal layer conversion,
+V3 freeze479e2dc/bindingV4 e106dbb8.../launch393b4be,ownedworker4572.
+Retain pre-freeze CPU metadata fault and two zero-data stopped launches;V2
+recorded conhost,V3 restores original detached mode. No result admission yet.
+Cheap function/conditional ternary/OWN causal layer conversion,
 useful n/CPU IDs+masses/realDRAM/multi-family/mastersO(n)/same useful50 remain.
 
 **Historical field-recovery and temporal-live state,retained below.**

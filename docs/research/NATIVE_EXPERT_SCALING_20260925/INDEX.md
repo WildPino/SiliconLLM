@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+**13 October2026: goal ACTIVE/INCOMPLETE;TRUE-input capture LIVE94907.**
 [Temporal recovered-input result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
 COMPLETE/full144 audit. Own-output1% gatesPASS144/144;final-state1%FAIL1/144
 (site23 DEV Numina1.125798%). All primary own/state numeric controlsPASS;
@@ -11,8 +11,9 @@ State-error decomposition independentlyPASS:largest ordered term is changed
 delta forcing,with partial decay cancellation;no native state-arithmetic fault
 found at the1e-4 control. Inferred inputs NOT admitted for temporal calibration.
 Next [TRUE in_proj input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:all24 input layers in same48 source prefills,
-full continuity fields0/12/23. No source/GPU/T4 allocated now.
+IMPLEMENTED/FROZEN/BOUND/LIVE:all24 input layers in same48 source prefills,
+full continuity fields0/12/23. LocalRTX3060 allocated;no T4. No data/continuity
+admission until complete independent audit.
 
 ## Goal and constraints
 
@@ -52,7 +53,14 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-Implement/freeze/bind [TRUE generator-input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md).
+[TRUE generator-input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md) LIVE94907.
+Actual code V3 freeze479e2dc,bindingV4 e106dbb8...,launch393b4be.
+Launcher22188 creation1791855743.0246823;worker4572 creation1791855751.0668464.
+Poll SAME live session,do not restart after an observation timeout. Finish
+full48 histories,then bind/run independent all-data/source continuity audit.
+V1/V2 parent-stopped attempts had no dataset;V2 recorded fresh conhost. V3
+restores original detached creationflags8,no visible console. CPU pre-freeze
+binding marked inadmissible and retained. No numerical/source data gate changed.
 Actual H BEFORE in_proj/AFTER .625 at all24 layers,same48 histories/zero-state
 base-model prefills/noLMhead/use_cacheFalse;full7 recurrent fields at0/12/23.
 Capture original BF16 bits,not casted input. Independently verify continuum
@@ -61,9 +69,9 @@ terminal/resource evidence before fitting. Original observed inputs at other
 layers are actual data,not yet generator/recurrence qualification.
 
 Proposed local RTX3060 family1800s/reserve90s/OS12GiB/GPU10GiB allocated11GiB
-reserved/new E6GiB,payload4,231,620,960B. No job started. Announce purpose/budget/
-stops,check actual GPU/runtime/source availability,pin resolved CUDA/ABI/BLAS/
-HF/source/helper/corpus and exact launch first. User's hours-run PAUSE rule
+reserved/new E6GiB,payload4,231,620,960B. Bound localGPU job started;purpose/budget/stops communicated. Actual GPU
+availability/resolvedCUDA/ABI/BLAS/HF/source/helper/corpus/launch pinned.
+Before/after all411 source parameter canonical checks required. User's hours-run PAUSE rule
 remains;do not extrapolate precise runtime from interrupted older source capture.
 No T4/RESERVED/new teacher answers. Preserve foreign Python processes.
 
