@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. CPU per-token importance producer running.**
+13 October2026. **Goal ACTIVE/INCOMPLETE. CPU per-token importance audit running.**
 
 ## Goal and architecture
 
@@ -81,8 +81,13 @@ Separate fixed-cell aggregation loss from per-token sparse coverage. This
 oracle evaluates ALL source neurons before choosing IDs:it is not a cheap
 router,candidate,optimal subset or universal sparsity lower bound. Save
 every predicted trajectory and selected IDs,full audits/terminal/hash closure.
-Producer live:[state](FFN_REMAINDER_ORACLE_STATE_20261013.md),worker35256/
-handle65147. No oracle result qualified yet. [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md)
+Producer closed0,audit live:[state](FFN_REMAINDER_ORACLE_STATE_20261013.md),worker34864/
+handle68151. No oracle result qualified yet. [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md)
+V1 audit's expanded selected-weight tensor is slow;complete256-column block
+variant6a15e65 is prepared,not executed. Wait for V1 real terminal under its
+original1800s limit. On V1 completePASS,close it;on terminal1,preserve fault,
+bind/run V2 with identical full scope/numeric gates. Never restart producer
+or treat a poll timeout as failure. [Layout detail](FFN_REMAINDER_ORACLE_AUDIT_LAYOUT_20261013.md).
 is closed;do not rerun capture/affine/subset producer or promote512 based on
 DEV. Physical bank/ternary error/routing/DRAM and the
 24-layer shared-core/attention/head20ms end-to-end budget remain open.
