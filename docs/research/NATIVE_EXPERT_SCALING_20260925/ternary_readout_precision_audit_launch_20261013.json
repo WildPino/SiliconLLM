@@ -1,0 +1,38 @@
+{
+  "schema": "TERNARY_READOUT_PRECISION_AUDIT_LAUNCH_V1",
+  "implementation_freeze": "4d759bb",
+  "auditor_freeze": "ffd585c",
+  "report_sha256": "213cc23053c6a9c9be24742f0c90166f8cc4707cfa2c9a1168323907de467664",
+  "terminal_sha256": "4f15ea52b2e75dcbbd8652ade85b95f662ee505eaaad5e05bf61085cac20c87c",
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/ternary_readout_precision_audit.py",
+    "--freeze",
+    "ffd585c",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/ternary_readout_precision_result_20261013.json",
+    "--report-sha",
+    "213cc23053c6a9c9be24742f0c90166f8cc4707cfa2c9a1168323907de467664",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/ternary_readout_precision_result_20261013.terminal.json",
+    "--terminal-sha",
+    "4f15ea52b2e75dcbbd8652ade85b95f662ee505eaaad5e05bf61085cac20c87c",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/ternary_readout_precision_adjudication_20261013.json"
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "scope": "Full quantizer packed digits Gram spectra BF16 outputs/raw-metric/FIT-policy audit; no native LUT or throughput admission"
+}
