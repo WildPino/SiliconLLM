@@ -1,8 +1,10 @@
 # Full-width native chatbot: exact continuation point
 
-13 October2026. **Producer COMPLETE; independent CPU audit RUNNING.**
-**Goal PAUSED/INCOMPLETE under the human's explicit long-run instruction.**
-Bounded CPU audit continues in hidden background. No delegated monitor/automation.
+13 October2026. **Producer/audit COMPLETE/QUALIFIED. Goal ACTIVE/INCOMPLETE.**
+[Final known-corpus result](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md) and
+closure are authoritative;all6 preparation/producer/audit instances closed0.
+New CPU token_context_rank assay on existing own H is running;see INDEX.
+Previous run instructions below are preserved launch history,not current state.
 
 ## Current evidence and exact next action
 

@@ -1,16 +1,17 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal PAUSED/INCOMPLETE per human long-run instruction.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
 
-[Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md)
-PRODUCER COMPLETE/CPU AUDIT RUNNING. Both source commands terminal0/~1h,
-all411 source parameters exact before/after,4805 outputs17.24GB/188 declared
-input hashes verified in custody closure. PROVISIONAL14/16/own-answer
-followup correct/DEV KL.02156/dis4.8847%,all domain/prefix gates pass.
-Independent all97 sequences/24sites F64/bit/categorical audit live with
-2h worker cap,no GPU;goal pauses under human instruction. No admission yet.
-Historical transitive producer import pin limit documented,current extra
-audit pins496. No final CPU/semantic useful-n/accepted TPS admission.
+[Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16/followup correct/DEV
+KL.02156/dis4.8847%,all domain/prefix gates pass. Full97 trajectories/
+24sites F64/bit/categorical audit:1.188B output/integer words,all mismatches0,
+scan/state max1.37e-6/1.91e-6,fields/norm0. All6 commands closed0,source/
+protected hashes preserved. Historical transitive producer pin limitation
+and source GPU attention/FFN/head witness remain explicit. No final CPU/
+semantic useful-n/acceptedTPS or RESERVED/other-family admission.
+Next token-conditioned generator residual uses actual own H/new FIT bias
+decomposition;global rank/fixed output-bank failures are not repeated.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

@@ -1,20 +1,26 @@
 # Pretrained-to-native conditional-capacity method
 
-13 October2026. **PAUSED/INCOMPLETE per human long-run instruction**. This is the reproducible procedure under
-construction. It currently produces a failed chatbot and validated analysis/
-conversion components, not a capacity-preserving universal converter.
+13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
+construction. It now produces a qualified known-corpus full-width native
+recurrent chatbot quality bridge and conversion components. The final CPU
+engine,conditional capacity and general converter remain research.
 
-[Full-width native chatbot quality bridge](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md)
-has completed its producer run;independent CPU audit is running. Original trained hidden2048/source attention/
+[Full-width native chatbot quality bridge](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_QUALITY_PASS. Original trained hidden2048/source attention/
 FFN/head, first compiled F0 and all24 own native state96/p6 readouts. Consumer
 ABI test48 calls exact/no GPU;411 source parameters exact before/after.
 Both producer commands terminal0/~1h,17.24GB full traces/hashes verified.
-Provisional14/16/followup correct/DEV KL.02156/dis4.8847%,all16 prefix controls
-exact. Complete97-sequence/24site CPU audit pending,so no backbone admission.
+14/16/followup correct/DEV KL.02156/dis4.8847%,all16 prefix controls exact.
+Complete97-sequence/24site CPU audit passes:1.188B output/integer words,
+zero mismatches/state/ring exact,independent scan/state within1.91e-6.
+Backbone qualified on known data;all6 commands closed0 and artifacts sealed.
 Historical transitive producer pin limitation remains explicit;current496
 supplemental audit pins strengthen current replay without retroactive custody.
 Scoped CUDA quality diagnostic;final CPU/conditional n/same useful50 remain
-open. The goal pauses while the owned2h CPU audit continues under its watchdog.
+open. Next mathematical capacity/cost step subtracts a FIT token prototype
+before output-aware residual factorization of actual own contextual H.
+This reuses existing traces,no source model/GPU. Unknown DEV tokens retain
+global fallback in full metrics;no token-coverage or whole-model claims yet.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

@@ -1,18 +1,21 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal PAUSED/INCOMPLETE per human long-run instruction.**
+**13 October2026: goal ACTIVE/INCOMPLETE;CPU algebra assay running.**
 
-[Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md) now
-PRODUCER COMPLETE/CPU AUDIT RUNNING. Full16 tasks/followup/FIT24+DEV24,
-both source commands closed0/~1h,411 parameters exact before/after,
-all4805 outputs/17.24GB and188 declared inputs hash verified. Provisional
-14/16,own-answer followup correct,DEV KL.02156/dis4.8847%,all domain/prefix
-gates pass. Not independently admitted. Owned2h CPU audit started13:38:58
-Europe/Rome;holder27116/worker16028 with recorded creation times. Full97
-trajectories/24sites/580056 positions;no GPU. Transitive producer pin scope
-limit documented;496 current audit pins. Resume at
-the linked process/terminal/audit instructions; no new component-only work.
-Final engine/useful-n/same useful50 and other families/scales remain open.
+[Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16,own-answer followup correct,
+DEV KL.02156/dis4.8847%,all domain/prefix gates pass. All97 trajectories/
+24sites/580056 positions/1.188B output+integer words audited;all mismatches0.
+Maxscan/state1.37e-6/1.91e-6,fields/norm0. All6 commands closed0;source/
+protected hashes preserved. Source GPU FFN/attention/head witness and
+historical transitive pin limit remain explicit;final CPU/useful-n/same50 open.
+
+NEXT [token-conditioned context residual rank](TOKEN_CONTEXT_RANK_PROTOCOL_20261013.md),
+source686fff5/binding450a746. Reuse actual qualified own H at1/12/23:
+FIT token prototype lookup + low-rank contextual correction,global mean control,
+all48 cases/unknown DEV fallback included. Pure CPU/no GPU/source rerun/
+RESERVED. Fixed ranks0/128/256/512/1024,1% all-field gate,compact<=256.
+Result/audit pending;do not infer quality/cost from this algebra assay.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
