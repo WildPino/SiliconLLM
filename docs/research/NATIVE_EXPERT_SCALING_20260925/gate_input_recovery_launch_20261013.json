@@ -1,0 +1,40 @@
+{
+  "schema": "GATE_INPUT_RECOVERY_LAUNCH_V1",
+  "created_at": "2026-10-13T02:22:56.2447114+02:00",
+  "freeze": "f51f63c2ffa533c29cffc5a781ba5500fd3159be",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/gate_input_recovery.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_recovery_binding_20261013.json",
+    "--binding-sha",
+    "44f61d400d980cc1550eae8d7440a913c60b811bc65c865cf538c035cd5e8536",
+    "--freeze",
+    "f51f63c2ffa533c29cffc5a781ba5500fd3159be",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/gate_input_recovery_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_recovery_result_20261013.json"
+  ],
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "HF_HUB_OFFLINE": "1",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "limits": {
+    "audit_seconds": 1200,
+    "output_bytes": 3221225472,
+    "seconds": 900,
+    "OS_bytes": 6442450944
+  },
+  "preparation_session": 80263,
+  "no_source_model_forwards": true
+}
