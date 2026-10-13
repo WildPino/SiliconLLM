@@ -1,6 +1,6 @@
 # Fixed complete audited integer readout call cost,with input conversion
 
-Require full corrected V2 integer auditPASS/all144 exact-dot/BF16/numeric and
+Require full corrected V3 integer auditPASS/all144 exact-dot/BF16/numeric and
 extra1%/incremental0.1%/source local gatesPASS. Same p6 q/scales and EXACT
 integer DLL from full audit;no new binary or arithmetic variant. Dense-control/
 CLFLUSH functions reused from prior reviewed timing DLL. No LUT retiming.
