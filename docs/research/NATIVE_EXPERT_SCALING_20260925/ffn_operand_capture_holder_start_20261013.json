@@ -1,0 +1,38 @@
+{
+  "schema": "FFN_OPERAND_CAPTURE_HOLDER_START_V1",
+  "pid": 31288,
+  "start_UTC": "2026-10-13T14:23:56.9364776Z",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture.py",
+    "--launch",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_binding_v2_20261013.json",
+    "--binding-sha",
+    "9903f7f0719909406225f095963753f8edb776247257050a0868eb0e0510b3e4",
+    "--freeze",
+    "6e3f80e",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\ffn_operand_capture_20261013",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.json"
+  ],
+  "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.holder_stdout.log",
+  "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.holder_stderr.log",
+  "launch_commit": "c14c2a8",
+  "binding_sha256": "9903f7f0719909406225f095963753f8edb776247257050a0868eb0e0510b3e4",
+  "limits": {
+    "seconds": 7200,
+    "reserve_seconds": 180,
+    "OS_bytes": 8589934592,
+    "GPU_allocated_bytes": 6442450944,
+    "GPU_reserved_bytes": 10737418240,
+    "output_bytes": 34359738368,
+    "audit_seconds": 7200
+  }
+}

@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
+**AUTHORITATIVE 13 October2026: goal PAUSED/INCOMPLETE per human hours-long-run instruction.**
+
+[Actual FFN operands](FFN_OPERAND_CAPTURE_STATE_20261013.md) collector now
+implemented/bound/running with parent word/state/cache/logit exact controls.
+Six BF16 fields/all24 sites/known48 histories;9900 current input pins,
+28.07GB calculated new payload bound,32GiB cap/local RTX3060/2h watchdog.
+Data/full independent audit pending;no source expert/model/speed admission.
+Original memory preflight failure retained;actual free>=7GiB uses measured
+parent3.19GB allocated peak,own allocated6GiB cap. No delegated monitor/T4.
 
 [Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16/followup correct/DEV

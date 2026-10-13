@@ -1,6 +1,11 @@
 # Next capacity hypothesis: full-size affine experts for nonlinear source FFNs
 
-13 October2026. **PROPOSED/UNIMPLEMENTED.** This changes the function family;
+13 October2026. **AFFINE BANK PROPOSED/UNIMPLEMENTED;OPERAND COLLECTOR RUNNING.**
+[Bound collector/state](FFN_OPERAND_CAPTURE_STATE_20261013.md) now observes
+all24 actual pre-FFN input/up/raw+scaled gate/product/output with strict parent
+continuity and full audit pending. Source6e3f80e/binding c14c2a8,32GiB/2h local
+RTX3060 budget. Original proposal below retained;do not restart allocation.
+This changes the function family;
 it is not another low-rank output bank or a token-mean/shared-rank retry.
 Known-corpus all24 native backbone is qualified. Token-only/common linear
 generator correction is rejected with necessary ranks1408/1857/1857.

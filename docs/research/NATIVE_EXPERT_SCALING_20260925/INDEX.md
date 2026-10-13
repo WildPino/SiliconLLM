@@ -1,6 +1,17 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE;all owned runs closed.**
+**13 October2026: goal PAUSED/INCOMPLETE per human hours-long-run instruction.**
+
+[Actual FFN operand capture](FFN_OPERAND_CAPTURE_STATE_20261013.md)
+IMPLEMENTED/BOUND/RUNNING:source37ce5b1/preflight6e3f80e/binding c14c2a8.
+All24 actual pre-FFN inputs/up/raw+scaled gate/features/output on known48
+histories. Native trace/state/cache/label words must match qualified parent.
+Source job7200s/OS8GiB/GPU6GiB allocated/10GiB reserved/E32GiB;bound28.07GB.
+Owned holder31288/worker28776,recorded creation times,live startup hash check.
+9900 inputs pinned/CPU preparation38.594s exit0;original preflight failure
+preserved,no source allocation in that attempt. Full dataset/CPU audit pending.
+Exact resume in linked state;no delegated monitor/T4/RESERVED. Affine bank
+still unimplemented,no capacity/speed admission.
 
 [Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16,own-answer followup correct,
@@ -19,8 +30,8 @@ reference allowances. No universal/model-quality bound. All3 commands closed0,
 newE888.6MB/inputs+matrices hash verified/no GPU/SSM/RESERVED.
 NEXT [full-size conditional FFN operators](FULL_RANK_FFN_EXPERT_NEXT_20261013.md):
 capture actual pre-FFN own inputs/all source nodes,then investigate input-
-dependent full2048x2048 affine cells. Collector/affine bank UNIMPLEMENTED,
-no resource allocated. Do not reuse before-SSM H as FFN inputs or retry the
+dependent full2048x2048 affine cells. Collector running above;affine bank
+UNIMPLEMENTED. Do not reuse before-SSM H as FFN inputs or retry the
 closed common-rank/token-mean family. Final CPU/useful-n/same50 remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)

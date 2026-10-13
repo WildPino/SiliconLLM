@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
+13 October2026. **PAUSED/INCOMPLETE per human hours-long-run instruction**. This is the reproducible procedure under
 construction. It now produces a qualified known-corpus full-width native
 recurrent chatbot quality bridge and conversion components. The final CPU
 engine,conditional capacity and general converter remain research.
@@ -24,7 +24,12 @@ Next inspect actual nonlinear FFN operands,then source-derived full-size affine
 cells with input-dependent Jacobians. Their active coefficient count D^2 versus
 3DI motivates investigation,not a speed/quality claim. Capturing actual pre-FFN
 own inputs and testing cell remainder/routing/whole model/CPU cost are missing.
-See FULL_RANK_FFN_EXPERT_NEXT_20261013.md for exact unimplemented next step.
+Actual pre-FFN operand collector now implemented/bound/running under2h
+watchdog;all24/known48/six BF16 nodes with exact parent continuity controls,
+9900 current input pins,32GiB output cap. Its data/full audit are pending.
+Affine expert bank/cell/router/precision/model tests remain unimplemented.
+See FFN_OPERAND_CAPTURE_STATE_20261013.md for exact process/audit continuation
+and FULL_RANK_FFN_EXPERT_NEXT_20261013.md for the subsequent hypothesis.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
