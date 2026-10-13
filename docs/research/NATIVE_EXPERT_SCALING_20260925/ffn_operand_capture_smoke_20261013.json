@@ -1,0 +1,30 @@
+{
+  "schema": "FFN_OPERAND_CAPTURE_STREAM_SMOKE_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture_smoke.py",
+    "bytes": 2267,
+    "sha256": "d22d702e3fac602b45ea71933e8fdb189e650e0628fc3bcc2b3552c56550d57d"
+  },
+  "collector_source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture.py",
+    "bytes": 23659,
+    "sha256": "ddcec50c90a23d5344064e7b2ae3d48729293c19a610ccda7cd0d47d2b3afa32"
+  },
+  "fixture": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\ffn_operand_capture_smoke_20261013\\fixture.bf16",
+    "bytes": 12,
+    "sha256": "212a90a95dc500c130fb390a36b67966dd90e9ecc94e03c94758afb81e835e80",
+    "shape": [
+      2,
+      3
+    ],
+    "dtype": "BF16"
+  },
+  "segmented_write_exact": true,
+  "mismatch_rejected": true,
+  "truncation_rejected": true,
+  "write_after_close_rejected": true,
+  "source_model_forwards": 0,
+  "GPU_calls": 0,
+  "scope": "Strict readonly stream verifier wiring only;not source FFN/model/numerical qualification."
+}
