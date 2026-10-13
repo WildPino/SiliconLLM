@@ -1,0 +1,25 @@
+{
+  "schema": "BF16_ROUNDING_WITNESS_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/bf16_rounding_witness.py",
+    "--freeze",
+    "48e82b7d89797782f313e3130c120ec84bf6c051",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_input_temporal_bf16_witness_20261013.json"
+  ],
+  "pid": 13676,
+  "creation_time": 1791853160.6379273,
+  "freeze": "48e82b7d89797782f313e3130c120ec84bf6c051",
+  "timing_admitted": false,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\bf16_rounding_witness.py\", line 24, in main\n    av=float(dec(actual[ti,oi:oi+1])[0]);ev=float(dec(expected[ti,oi:oi+1])[0]);mid=(av+ev)/2;sv=float(score[ti,oi]);rv=float(smooth32[ti,oi]);adj=abs(int(actual[ti,oi])-int(expected[ti,oi]))==1;cross=min(sv,rv)<=mid<=max(sv,rv);points.append(dict(position=int(ti),output=int(oi),actual_score=sv,F64_reference=float(smooth64[ti,oi]),F64_cast_F32_reference=rv,actual_BF16_bits=int(actual[ti,oi]),reference_BF16_bits=int(expected[ti,oi]),actual_BF16=av,reference_BF16=ev,midpoint=mid,actual_minus_midpoint=sv-mid,reference_minus_midpoint=rv-mid,adjacent_bins=adj,midpoint_crossing=cross));assert adj and cross\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 1.0159999999996217,
+  "OS_peak": 196722688
+}
