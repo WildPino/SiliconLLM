@@ -1,6 +1,14 @@
 # Selected next: preserve donor output geometry with multi-plane ternary LUT
 
-13 October2026. **SELECTED NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.** Prior globally-linear
+13 October2026. **PRECISION PREFLIGHT COMPLETE / FULL INDEPENDENT AUDITPASS.**
+[Qualified result](TERNARY_READOUT_PRECISION_RESULT_20261013.md),
+[closure](ternary_readout_precision_session_closure_20261013.json).
+FIT-selected p6 passes every extra1%/donor local gate on FIT+DEV/all144 cases,
+all415,586,304 BF16 words independently bit-reproduced. Native LUT is NOT
+implemented/timed;next [actual C LUT execution](TERNARY_READOUT_NATIVE_NEXT_20261013.md)
+SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND. Original proposal retained below.
+
+Prior globally-linear
 rank envelopes and observable-route local affine banks show large response
 losses; fixed-bank exhaustive coverage is now fully independently qualified.
 Main expensive readout function should preserve its full2048-coordinate

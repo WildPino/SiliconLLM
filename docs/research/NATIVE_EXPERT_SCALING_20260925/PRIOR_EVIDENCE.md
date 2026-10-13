@@ -1,6 +1,19 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Full-size source-only ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_PASS/all144 selected-p6 raw/BF16 extra1% and
+original donor local gatesPASS. FIT selects6 before DEV;DEV rawmeans at0/12/23
+.2896/.3503/.2964%,BF16 .3615/.4153/.3663%,all-case BF16worst.4315%.
+All56.6M integercoefficients/56.7M packed bytes/18k scales/36k spectra and
+415,586,304 BF16 output words qualified,ZERO independent bit differences.
+All9 matrices robust numerical rank2048;no low-rank bottleneck imposed.
+Sourceweight-only/no activation quantization;actual LUT not built/timed.
+Source162.5s/audit116.828s/newE1,001,656,242B/3 scientific commands terminal0,
+protected hashes preserved/no owned run live/no GPU/T4/source/native/RESERVED.
+Next SAME-artifact C LUT accuracy then warm/cold source cost/explicit DRAM
+limits PROPOSED/UNBOUND;whole pipeline/useful-n/same useful50 still missing.
+
 [Conditional output bank/coverage result](CONDITIONAL_OUTPUT_RESULT_20261013.md)
 COMPLETE/BOTH INDEPENDENT_STORED_PASS/all qualityFAIL. Bank277,057,536 F64
 predictions/BF16 outputs,135,282 IDs/67,641 masses,240 leaf SVDs qualified;
@@ -11,8 +24,8 @@ max4.41e-15:DEV16/r12867.33/75.87/44.90% atsites0/12/23 respectively;
 cannot repair these fixed banks. NewE2,751,110,214B+44,614,992B,all6 commands
 terminal0/owned matching processes absent,protected hashes preserved. No
 source/native/GPU/T4/optimizer/RESERVED or chatbot/n/DRAM/speed admission.
-Next full-rank multi-plane ternary readout preserves source response geometry,
-PROPOSED/UNIMPLEMENTED/UNBOUND. Current engine2-trit int8 pshufb;candidate
+Full-rank multi-plane ternary precision now qualified above;actual native
+backend still PROPOSED/UNIMPLEMENTED/UNBOUND. Current engine2-trit int8 pshufb;candidate
 5-trit floating LUT must qualify as a new backend,old rates don't transfer.
 
 [Finite FIT input/output rank geometry](SOURCE_FUNCTION_RANK_RESULT_20261013.md)

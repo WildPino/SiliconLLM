@@ -3,6 +3,19 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Source-weight-only balanced ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
+now COMPLETE/full independent auditPASS. Preserve source O2048x3072 geometry,
+p4/5/6 fixed row scales from source coefficients,exact balanced digits/five-
+trit uint8 patterns. Source-only objects before responses,FIT-selected p6
+passes all144 extra1% raw/BF16 and donor local FIT+DEV gates. All415,586,304
+archived BF16 outputs bit-reproduced/56M q+packed coordinates/all spectra/
+metrics qualified. No actual LUT execution/activation quantization or model
+admission. Next [native p6 LUT](TERNARY_READOUT_NATIVE_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND;actual engine2-trit int8 pshufb qualification
+does not transfer to the new five-trit floating backend. Preserve same source-
+derived accurate artifact while measuring real cost/DRAM;whole CHATBOT/OWN
+histories/useful conditional ternary n/other donors/scales/same useful50 open.
+
 [Observable-route redundant affine banks](CONDITIONAL_OUTPUT_RESULT_20261013.md)
 now COMPLETE/BOTH full independent auditsPASS/all quality gatesFAIL. All
 FIT trees/leaf means/full spectra/bases/factors/all277M predictions/BF16 bits
@@ -10,9 +23,9 @@ qualified;actual factors agree ideal projections~1e-7. Exhaustive fixed-bank
 target-aware oracle proves finite numerical coverage failure0/24 case1% at
 every site/arm/split,DEV~45--85%;route-only changes insufficient for these
 unchanged affine images. Next preserve full response dimensions via
-[multi-plane ternary readout](TERNARY_FULL_RANK_READOUT_NEXT_20261013.md),
-PROPOSED/UNIMPLEMENTED/UNBOUND;first source numerical precision/packing,
-then actual C primitive/DRAM. Current engine2-trit int8 pshufb/nibble is
+[multi-plane ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md),
+now precision/packing qualified above;actual C primitive/DRAM still pending.
+Current engine2-trit int8 pshufb/nibble is
 different from proposed5-trit floating tables;no borrowed speed claim.
 SSM state96 qualification remains local/source-informed;full source CHATBOT
 pipeline/OWN histories/useful conditional ternary n/same useful50 still missing.

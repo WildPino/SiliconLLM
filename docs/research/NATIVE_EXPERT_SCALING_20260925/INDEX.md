@@ -1,6 +1,17 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Source-only full-size ternary readout precision](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_PASS. p4/5/6 source-weight-only artifacts/all3 sites,
+56,623,104 q coefficients/56,678,400 packed codes/36,864 spectra qualified;
+all415,586,304 stored BF16 output words independently bit-exact. FIT selects6,
+DEV verifies it:all144 extra raw/BF16 each-case1%/all original donor local gates
+PASS;all-case worst raw.367%/BF16.431%. Full numerical rank2048 preserved.
+Source-input function accuracy only;no activation quantization/native LUT/
+chatbot/DRAM/model-rate/useful-n admission. NewE1,001,656,242B,all3 scientific
+commands terminal0/no owned run live. Next [native p6 LUT](TERNARY_READOUT_NATIVE_NEXT_20261013.md)
+SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND;same accurate artifact before real cost.
+
 [Input-routed redundant affine output banks and coverage](CONDITIONAL_OUTPUT_RESULT_20261013.md)
 COMPLETE/BOTH full independent auditsPASS/ALL quality gatesFAIL. All277,057,536
 F64 predictions/roundedBF16 words,135,282 actual IDs,240 leaves verified;
@@ -8,9 +19,9 @@ independent BF16 differences0. DEV16/r12848.44--79.85%,64/r3258.40--90.41%.
 Full frozen-bank oracle5,411,280 errors qualified:DEV16/r12844.90--75.87%,
 64/r3251.91--84.83%,0/24 each-case1%passes every site/arm/split. Fixed-bank
 coverage fails even with target-aware ideal selection;no router-only rescue.
-Next [full-rank multi-plane ternary LUT readout](TERNARY_FULL_RANK_READOUT_NEXT_20261013.md)
-SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND;preserve trained output directions,
-qualify precision before real native cost/DRAM. Actual engine has2-trit int8
+[Full-rank multi-plane ternary readout precision](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
+now complete/qualified above;preserve trained output directions,
+real native LUT cost/DRAM still pending. Actual engine has2-trit int8
 pshufb/nibble paths;5-trit float243 LUT would be a new backend. Useful ternary
 n/OWN-history/source CHATBOT pipeline/same useful50 all remain unresolved.
 

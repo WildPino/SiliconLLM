@@ -1,0 +1,122 @@
+{
+  "schema": "TERNARY_READOUT_PRECISION_CLOSURE_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ternary_readout_precision_close.py",
+    "bytes": 4187,
+    "sha256": "4c36dc3df433bff9159995e2f9fcfcb242d35713a6e4290aee7c8ca22f92b118"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_result_20261013.json",
+    "bytes": 833433,
+    "sha256": "213cc23053c6a9c9be24742f0c90166f8cc4707cfa2c9a1168323907de467664"
+  },
+  "adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_adjudication_20261013.json",
+    "bytes": 6552,
+    "sha256": "1da534e497ac53c331793c70166a60946f9e6ec8277a99e496b1b407d64e4da9"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_binding_20261013.json",
+    "bytes": 561576,
+    "sha256": "cee77ca52d0bf65d4f4e03f3051b4d51d63c0a139e7716fee806671e5c8355f7"
+  },
+  "owned_commands": [
+    {
+      "role": "preparation",
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_binding_20261013.preparation_terminal.json",
+        "bytes": 1017,
+        "sha256": "9e74f7b1bc81ceab22c125948c559bbc09110d003a1c1436598043620e8b7a74"
+      },
+      "pid": 2292,
+      "creation_time": 1791866474.8407652,
+      "exit_code": 0,
+      "seconds": 14.28099999999904,
+      "OS_peak": 40906752,
+      "matching_process_absent": true
+    },
+    {
+      "role": "producer",
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_result_20261013.terminal.json",
+        "bytes": 1199,
+        "sha256": "4f15ea52b2e75dcbbd8652ade85b95f662ee505eaaad5e05bf61085cac20c87c"
+      },
+      "pid": 13280,
+      "creation_time": 1791866563.1157646,
+      "exit_code": 0,
+      "seconds": 162.5,
+      "OS_peak": 528916480,
+      "matching_process_absent": true
+    },
+    {
+      "role": "audit",
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_precision_adjudication_20261013.terminal.json",
+        "bytes": 1332,
+        "sha256": "f7865b0a6380d000b5858796b710884d622c03923bba35a75892422b65e47f37"
+      },
+      "pid": 4512,
+      "creation_time": 1791866921.2478497,
+      "exit_code": 0,
+      "seconds": 116.82800000000134,
+      "OS_peak": 988246016,
+      "matching_process_absent": true
+    }
+  ],
+  "all_owned_matching_processes_absent": true,
+  "new_array_files": 153,
+  "new_E_bytes": 1001656242,
+  "protected_files_unchanged": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ],
+  "foreign_publisher_snapshot": [
+    {
+      "create_time": 1791837726.8771727,
+      "name": "pythonw.exe",
+      "pid": 9832,
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    },
+    {
+      "create_time": 1791837726.7791085,
+      "name": "pythonw.exe",
+      "pid": 21640,
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    }
+  ],
+  "FIT_selected_planes": 6,
+  "selected_DEV_all_pass": true,
+  "source_forwards": 0,
+  "native_calls": 0,
+  "activation_quantizations": 0,
+  "optimizer_updates": 0,
+  "GPU_jobs": 0,
+  "T4_allocations": 0,
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Full source-weight-only ternary packing/numerical response assay fully audited; BF16 output words archived,raw F64 metrics recomputed without archived raw arrays. No native LUT/physical DRAM/OWN-history chatbot/useful conditional-n/same useful50 admission. Three scientific commands terminal0/no owned run live/no new mechanical scientific fault."
+}
