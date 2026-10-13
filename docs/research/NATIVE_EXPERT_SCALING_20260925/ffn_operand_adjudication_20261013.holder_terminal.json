@@ -1,0 +1,67 @@
+{
+  "schema": "FFN_OPERAND_AUDIT_HOLDER_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_audit_binding_20261013.json",
+    "bytes": 3420,
+    "sha256": "eb202033a6cbaac1101cfeb67796b5facc928528a82f2ae6788eb87af41ce4e2"
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_audit_launch.py",
+    "--launch",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_audit_binding_20261013.json",
+    "--binding-sha",
+    "eb202033a6cbaac1101cfeb67796b5facc928528a82f2ae6788eb87af41ce4e2",
+    "--freeze",
+    "c3dc8b0"
+  ],
+  "worker_argv": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture_audit.py",
+    "--report",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.json",
+    "--report-sha",
+    "8d4b6dc8c647243a5a8c981440c04359ea3e4b0d48d2202a741330cc407424ec",
+    "--terminal",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.terminal.json",
+    "--terminal-sha",
+    "6df20aa0b9d88cb35aba91e6f9630ac6ba146c5be65c01f20ea8adea828b6ae7",
+    "--freeze",
+    "c3dc8b0",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_adjudication_20261013.json"
+  ],
+  "pid": 13028,
+  "creation_time": 1791907766.77454,
+  "freeze": "c3dc8b0",
+  "GPU_calls": 0,
+  "worker_pid": 24928,
+  "worker_creation_time": 1791907766.983233,
+  "worker_exit_code": 0,
+  "exit_code": 0,
+  "error": null,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_adjudication_20261013.json",
+    "bytes": 2481,
+    "sha256": "ed3c638dd96a03009cb01a58bbf2827103089ce19c7324535adca3342c87f0ed"
+  },
+  "worker_terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_adjudication_20261013.terminal.json",
+    "bytes": 1392,
+    "sha256": "62bd1537e5d402005ae0f279926e92fd504b24e887c8a6652df78eb6baad89b8"
+  },
+  "seconds": 1109.328999999998,
+  "worker_OS_peak": 1066868736,
+  "OS_peak": 28139520
+}

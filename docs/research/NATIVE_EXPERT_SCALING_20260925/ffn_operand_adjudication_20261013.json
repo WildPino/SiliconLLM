@@ -1,0 +1,59 @@
+{
+  "schema": "FFN_OPERAND_CAPTURE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture_audit.py",
+    "bytes": 10147,
+    "sha256": "842e77e9676664a2cabc31d1af14ecb1007f355f8b5168a46f02cb0adbe70be3"
+  },
+  "freeze": "c3dc8b0",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.json",
+    "bytes": 6709346,
+    "sha256": "8d4b6dc8c647243a5a8c981440c04359ea3e4b0d48d2202a741330cc407424ec"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.terminal.json",
+    "bytes": 2738,
+    "sha256": "6df20aa0b9d88cb35aba91e6f9630ac6ba146c5be65c01f20ea8adea828b6ae7"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_binding_v2_20261013.json",
+    "bytes": 5587940,
+    "sha256": "9903f7f0719909406225f095963753f8edb776247257050a0868eb0e0510b3e4"
+  },
+  "counts": {
+    "case_sites": 1152,
+    "FFN_positions": 541128,
+    "field_words": 12190531584,
+    "gate_scalar_mismatches": 0,
+    "label_words": 577249896,
+    "label_mismatches": 0,
+    "final_state_mismatches": 0,
+    "final_ring_mismatches": 0,
+    "parent_trace_bytes": 11293702112
+  },
+  "maximum": {
+    "up_matrix": 4.265994503188927e-05,
+    "gate_matrix": 4.747064465213518e-05,
+    "feature_node": 0,
+    "down_matrix_and_scalar": 0.004683556826006855
+  },
+  "numeric_gates": {
+    "up_matrix": true,
+    "gate_matrix": true,
+    "feature_node": true,
+    "down_matrix_and_scalar": true,
+    "gate_scalar_exact": true,
+    "label_bits_exact": true,
+    "final_state_exact": true,
+    "final_ring_exact": true
+  },
+  "all_numeric_pass": true,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 1103.2339999999967,
+  "OS_peak": 1066868736,
+  "GPU_initialized": false,
+  "source_model_forwards": 0,
+  "scope": "All source FFN field values/F64 matrix controls/literal CPU scalar and SiLU/product nodes plus actual final states/rings/label logits audited. Native input/output continuous stream and attention cache hashes are producer exact-comparison receipts to qualified parent;source parameter identity inherits before/after worker witnesses. No independent GPU attention arithmetic/new expert fit/model quality/speed claim."
+}
