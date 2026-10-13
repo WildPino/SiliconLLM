@@ -1,6 +1,10 @@
 # Recovered source-function inputs: temporal propagation before calibration
 
-13 October 2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October 2026. **IMPLEMENTED / FROZEN / BOUND / PRODUCER LIVE.**
+Source/protocol freeze fd2f8a0; [binding](recovered_input_temporal_binding_20261013.json)
+SHA b8d9c09a...;[launch](recovered_input_temporal_launch_20261013.json)4442738,
+producer session50088. Original pre-observation rationale below is retained;
+no result or temporal fidelity admitted until the complete independent audit.
 Execute only after the full [input recovery audit](GATE_INPUT_RECOVERY_RESULT_20261013.md)
 passes its frozen numerical controls. This is the next uncertainty to resolve,
 before treating recovered inputs as a usable calibration proxy for cheaper

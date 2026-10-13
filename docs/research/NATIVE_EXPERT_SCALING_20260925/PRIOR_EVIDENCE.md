@@ -1,6 +1,6 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; temporal producer LIVE session50088.**
 [Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
 COMPLETE/full independent audit PASS. ALL144 case/site pairs and ALL gate/x/B/C/
 delta fields pass frozen whole-history1% consistency;zero720-comparison failures.
@@ -17,7 +17,7 @@ B1.381059%/x1.070170% retained. NewE147NPZ/2,443,476,576B within3GiB.
 terminal0 ~25/177/140s,owned PID/creation pairs absent,engine+foreign hashes
 preserved,no source forward/GPU/T4/RESERVED/native/optimizer. No repeated run
 on resumption. [Temporal propagation next](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:fixed regenerated operands through SAME wide
+IMPLEMENTED/FROZEN/BOUND/PRODUCER LIVE;no result admission yet:fixed regenerated operands through SAME wide
 native trained recurrence,each-case own-output/final-state1% gates before
 approximate calibration admission. Original local source budgets/full audits
 remain. Useful conditional functions/own histories/multi-family/n/DRAM/same50

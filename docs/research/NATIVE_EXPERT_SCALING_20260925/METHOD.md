@@ -26,7 +26,8 @@ replay. No actual source input bits or true-input error bound. Worst centered
 site23 B1.381%/x1.070% retained. Approximate inputs may initialize calibration;
 temporal propagation must qualify before they become usable fitting proxies.
 [Next temporal gate](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:regenerated operands through SAME fixed native
+IMPLEMENTED/FROZEN/BOUND/PRODUCER LIVE session50088;no result admission yet:
+regenerated operands through SAME fixed native
 full3072/state96;each-case own-output and full-final-state1% gates,original
 source-relative budgets and complete independent audit. No source forward/GPU/
 T4/RESERVED. Compact causal input/output/conditional ternary functions remain
