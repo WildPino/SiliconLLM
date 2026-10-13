@@ -73,7 +73,7 @@ Prepare/run900s/audit1200s/OS6GiB/new orderedE1GiB. CPU0..5,BLAS/OMP/MKL6
 before interpreter. Principal actual resolved NumPy ABI/linalg/BLAS/Python/
 psutil pinned (not a complete transient DLL tree guarantee). All source,
 native/source-output packets/provenance/exports/old M398--400 evidence pinned.
-New9 parameter NPZ+144 BF16 prediction NPZ ~1.001GiB DECIMAL bytes (~955MiB),
+New9 parameter NPZ+144 BF16 prediction NPZ ~1.001GB DECIMAL bytes (~955MiB),
 under1GiB binary cap;no duplicate raw floating output histories.
 
 Prior M398 full-width input-ready synthetic-code decoder~.138--.165s and
