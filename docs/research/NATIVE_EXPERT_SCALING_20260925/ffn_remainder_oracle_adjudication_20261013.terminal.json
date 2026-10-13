@@ -1,0 +1,19 @@
+{
+  "schema": "FFN_REMAINDER_ORACLE_AUDIT_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/ffn_remainder_oracle_audit.py"
+  ],
+  "pid": 34864,
+  "creation_time": 1791923162.9831893,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_remainder_oracle_audit.py\", line 139, in <module>\n    try: main(); receipt.update(exit_code=0,error=None,result=extent(out))\n         ^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_remainder_oracle_audit.py\", line 77, in main\n    guard(); entry = next(x for x in r['records'] if x['site'] == site and x['count'] == count and x['id'] == rec['id'])\n    ^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_remainder_oracle_audit.py\", line 27, in guard\n    assert time.monotonic()-start <= b['limits']['audit_seconds'] and proc.memory_info().peak_wset <= b['limits']['OS_bytes']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 1800.1410000000033,
+  "OS_peak": 2985328640
+}
