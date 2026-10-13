@@ -1,0 +1,128 @@
+{
+  "schema": "FFN_EXACT_SUBSET_CLOSURE_V2",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_exact_subset_close_v2.py",
+    "bytes": 4312,
+    "sha256": "70444263db3ceb28a85daf32865d7a07533799b66ad7c8493b53f014e928b46a"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_result_20261013.json",
+    "bytes": 427167,
+    "sha256": "56e8a090da1230bb1bc8f838952a949c55dc352bc9701f1d56baf10f7f57e140"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_adjudication_v2_20261013.json",
+    "bytes": 5707,
+    "sha256": "0233675a7d84b8258adacfd95762d7c617cbec8c9f74db87d3a5fe1f2de89b31"
+  },
+  "repair_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_audit_v2_binding_20261013.json",
+    "bytes": 3244,
+    "sha256": "2a39fd9ff77713bf05fb5998764e31ce69d7063ef98697ec8ef9f25494823b2a"
+  },
+  "preserved_failed_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_adjudication_20261013.terminal.json",
+    "bytes": 1042,
+    "sha256": "ef1f9fdc75e440287b452d8bc37a8aaeda8a99583d69165eefbbb067797edb99"
+  },
+  "failed_audit_process_absent": true,
+  "diagnostic_arrays": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\ffn_exact_subset_rank_diagnostic_20261013\\rank_discrepancy.npz",
+    "bytes": 7080504,
+    "sha256": "becff45efba3099bc3f106433678e78d19acfe6d2e39fcb4d02d964618a9cc44"
+  },
+  "diagnostic_array_values_replayed_exactly": true,
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_binding_20261013.json",
+    "bytes": 1940238,
+    "sha256": "16acd77970ce6cbe6ceb00a23cc0b37a2723d4bb8bc95ed2bb9e7df4117393cb"
+  },
+  "commands": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_binding_20261013.preparation_terminal.json",
+        "bytes": 958,
+        "sha256": "b57d4a4b5f63c57a8d7817ea440d2f3fd8fc0130a32a6b6affb775f70c31961d"
+      },
+      "pid": 25180,
+      "creation_time": 1791919434.7818975,
+      "seconds": 12.828000000008615,
+      "OS_peak": 42618880,
+      "exit_code": 0,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_result_20261013.terminal.json",
+        "bytes": 1153,
+        "sha256": "c30593a4352c192eedb4706c5bff8866ebc3f0bd5739572fbb19f20e245cf9cd"
+      },
+      "pid": 6120,
+      "creation_time": 1791919515.1010284,
+      "seconds": 988.9529999999941,
+      "OS_peak": 1198706688,
+      "exit_code": 0,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_adjudication_v2_20261013.terminal.json",
+        "bytes": 684,
+        "sha256": "b96020995d6809245c6677eee10bfe64497b45124fd9e26e161d03b384373c4e"
+      },
+      "pid": 12308,
+      "creation_time": 1791921091.401058,
+      "seconds": 424.8590000000113,
+      "OS_peak": 1418113024,
+      "exit_code": 0,
+      "matching_process_absent": true
+    }
+  ],
+  "protected": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\nibble_pack.h",
+      "bytes": 9465,
+      "sha256": "915ffd79dd1db0b2d3dc35fb79bfb7ae41da44dbbc062daf2c31f3f9e0001d23"
+    }
+  ],
+  "all_inputs_and_outputs_hash_verified": true,
+  "family_files": 723,
+  "family_bytes": 2785911606,
+  "decision": "EXACT_SUBSET_COVERAGE_ASSAY_QUALIFIED",
+  "selections": [
+    {
+      "site": 0,
+      "FIT_selected_count": null
+    },
+    {
+      "site": 12,
+      "FIT_selected_count": null
+    },
+    {
+      "site": 23,
+      "FIT_selected_count": 128
+    }
+  ],
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Local coverage audit only;no physical ternary candidate,own-model substitution,useful-n/DRAM/final CPU or same useful50 admission."
+}

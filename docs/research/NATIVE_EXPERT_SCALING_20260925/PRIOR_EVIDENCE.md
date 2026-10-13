@@ -2,6 +2,19 @@
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
 
+[FIT-selected exact FFN subsets](FFN_EXACT_SUBSET_RESULT_20261013.md)
+COMPLETE/full720-prediction numeric auditPASS/NO ADMITTED SELECTED CANDIDATE.
+All<=2048 fail FIT at0/12;2048 DEV means.243356/.404537. At23,FIT selects128
+and DEV mean.101091 fails.10;512/2048 local curves pass but are not promoted
+through DEV selection. All4608 exact proxy identity<=6.89e-16. Original rank
+audit fault preserved:producer11 site0 cells have EXACT zero FIT scores and
+correct stable index ranking;independent algebra yields tiny noise. V2
+literal scores/ranks replay exactly AND every independent prediction passes.
+These cells lack learned subset preference,26/11399 DEV tokens;no claim they
+explain all loss. All commands closed,723 files/2.786GB plus7.08MB diagnostic/
+all source and protected hashes sealed. Next per-token importance oracle
+tests fixed-cell aggregation loss,not cheap routing or optimal sparsity.
+
 [Affine FFN failure and exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md)
 COMPLETE/full432-prediction and144-case diagnostic auditsPASS. All1/16/64
 full-output cells FIT-ineligible. At64,DEV mean errors.622/.928/.134 at0/12/23.
@@ -9,8 +22,8 @@ Exact gate/cross remainder identity<=6.82e-16;all per-case metric differences
 <=5.56e-16. Cross interaction is large at0/12;projected terms partially cancel
 at23 and full quadratic correction worsens it. All four producer/auditor
 commands closed0;1.711GB/441-file E family/protected source hashes sealed.
-Next FIT-selected exact combined neuron remainder coverage,not more unchanged
-affine cells or separate removal of one cancelling term. No subset candidate,
+Exact combined neuron subset coverage is now complete as above;the next
+question is per-token versus fixed-cell selection. No admitted subset candidate,
 physical ternary expert,model substitution/scalable routing/DRAM/useful50 proof.
 Latest statements below that describe the affine pilot as future work are
 historical;the result above supersedes their execution status.

@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. CPU exact-remainder subset producer running.**
+13 October2026. **Goal ACTIVE/INCOMPLETE. All owned commands closed.**
 
 ## Goal and architecture
 
@@ -12,6 +12,19 @@ families/scales and conversion master/gradient costs remain required.
 [Method](METHOD.md),[prior evidence](PRIOR_EVIDENCE.md),[older index snapshot](INDEX_THROUGH_FFN_AFFINE_PILOT_20261013.md).
 
 ## Latest decisive evidence
+
+[Exact neuron remainder subsets](FFN_EXACT_SUBSET_RESULT_20261013.md)
+COMPLETE/full720-prediction numeric auditPASS;NO ADMITTED FIT-selected candidate.
+At0/12,all budgets<=2048 fail FIT;2048 DEV mean24.34%/40.45%. At23,FIT selects
+128,then DEV mean10.109% fails10%;512/2048 local curves pass but are not
+promoted using DEV. All4608 reconstructs the smooth source<=6.89e-16.
+Original audit rank fault preserved:11 site0 FIT cells have zero scores and
+correct index tie-break;independent algebra introduced near-zero noise.
+V2 literal scores/ranks exact plus independent algebra/all predictions PASS.
+Selection has no learned importance in those null-support cells;26 DEV
+tokens use them. This count does not bound their error energy. [Closure](ffn_exact_subset_session_closure_v2_20261013.json):
+all source/input/output/protected hashes,723-file E family2.786GB plus7.08MB
+diagnostic sealed. No changed gates or physical/whole-model/speed admission.
 
 [Affine FFN pilot and exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md)
 COMPLETE. Full audits pass all432 affine predictions and144 diagnostic cases;
@@ -38,7 +51,8 @@ historical transitive producer pin limits remain explicit.
 are qualified at all24 sites/all48 histories/six fields,12.191B BF words,
 28.079GB on E. Source proxy controls pass;down+scalar discrepancy<=.004684
 has no isolated mechanism yet. Affine-cell and quadratic approximations above
-fail. Exact combined nonlinear remainder coverage is the next question.
+fail. Exact combined nonlinear remainder subsets have now been fully tested:
+the fixed-cell FIT rule does not yield an admitted selected candidate.
 Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Available components and closed paths
@@ -59,16 +73,17 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Producer/auditor/closure frozen18e7da7,bindinge9a9fa5 for
-[FIT-selected exact neuron remainder coverage](FFN_EXACT_REMAINDER_SUBSET_NEXT_20261013.md).
-Keep existing64 FIT cells/routes/all2048 outputs. Preserve BOTH exact omitted
-terms per selected neuron. FIT-only budgets32/128/512/2048 plus all4608 exact
-identity control. Apply unchanged local eligibility before any whole-model
-substitution;full audits even on failure. Score selection is a heuristic,
-not joint optimality;measure complete predicted output and cancellation.
-Producer live:[execution state](FFN_EXACT_SUBSET_STATE_20261013.md),handle76408/
-owned worker6120. No subset result or candidate admitted yet. Do not rerun capture/affine
-pilot or tune against DEV. Physical bank/ternary error/routing/DRAM and the
+Implement/freeze producer,auditor and binding for
+[per-token remainder importance oracle](FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md).
+Keep64 existing FIT cells/routes/all2048 outputs/same neuron budgets/control,
+but diagnostic IDs vary per token using actual full-source remainder energy.
+Separate fixed-cell aggregation loss from per-token sparse coverage. This
+oracle evaluates ALL source neurons before choosing IDs:it is not a cheap
+router,candidate,optimal subset or universal sparsity lower bound. Save
+every predicted trajectory and selected IDs,full audits/terminal/hash closure.
+No oracle observation exists yet. [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md)
+is closed;do not rerun capture/affine/subset producer or promote512 based on
+DEV. Physical bank/ternary error/routing/DRAM and the
 24-layer shared-core/attention/head20ms end-to-end budget remain open.
 
 104 new+64 older RESERVED and longalign remain unopened. No GPU/T4 allocation.

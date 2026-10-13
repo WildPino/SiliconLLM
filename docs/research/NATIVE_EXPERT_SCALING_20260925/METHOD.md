@@ -32,12 +32,18 @@ All6 owned commands closed0/source+hash custody sealed. [Affine failure and
 exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md) now have full
 audits:144 cases/exact remainder and energy identities/pass,separate gate
 curvature/cross interaction. Full quadratic correction still fails and worsens
-site23;exact terms can cancel. Next implement a FIT-selected subset of source
-neurons retaining BOTH exact remainder terms on top of a full-output affine
-cell,as specified in FFN_EXACT_REMAINDER_SUBSET_NEXT_20261013.md. No subset
-result/export/model substitution or CPU timing is qualified yet. Subset producer/
-full auditor/closure now implemented/frozen18e7da7;bindinge9a9fa5,CPU producer
-running as recorded in FFN_EXACT_SUBSET_STATE_20261013.md. Physical
+site23;exact terms can cancel. The [FIT-selected exact subset](FFN_EXACT_SUBSET_RESULT_20261013.md)
+is now COMPLETE/full720-prediction numeric auditPASS/no admitted selected candidate.
+At0/12 all<=2048 fail FIT. At23 FIT selects128 and then DEV fails10% mean;
+512/2048 locally pass but are not promoted by looking at DEV. Original audit
+fault on zero-score ranking preserved;V2 literal score/rank replay exact plus
+independent score/prediction algebra passes. This reveals null calibration
+support in11 site0 cells,not an error in the producer's declared index tie-break.
+All receipts/hash/723-file family/diagnostic values closed as recorded in
+FFN_EXACT_SUBSET_STATE_20261013.md. Next per-token oracle selection diagnostic
+from FFN_REMAINDER_SELECTION_ORACLE_NEXT_20261013.md separates fixed subset
+aggregation loss from per-token coverage;it uses ALL source neurons and is
+not a cheap router,optimal subset or deployable candidate. Physical
 ternary banks/structured routing/DRAM/whole-model composition remain open.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)

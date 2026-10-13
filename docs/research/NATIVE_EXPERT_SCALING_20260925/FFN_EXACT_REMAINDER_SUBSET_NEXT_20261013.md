@@ -1,7 +1,8 @@
 # Next question: conditional exact nonlinear remainder coverage
 
-13 October2026. PROPOSED/NOT EXECUTED. Run only after the complete affine
-and defect audits and process/hash closure. No current candidate admission.
+13 October2026. HISTORICAL PROPOSAL,NOW EXECUTED/fully audited.
+[Result/current next question](FFN_EXACT_SUBSET_RESULT_20261013.md) supersedes
+the proposed statuses below. No selected candidate admitted.
 
 ## Why this variable changes the experiment
 

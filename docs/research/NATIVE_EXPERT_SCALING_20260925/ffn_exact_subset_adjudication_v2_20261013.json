@@ -1,0 +1,218 @@
+{
+  "schema": "FFN_EXACT_SUBSET_AUDIT_V2",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_exact_subset_audit_v2.py",
+    "bytes": 13235,
+    "sha256": "f3b308aee3c4ad38a1d6676dffa5175d11ddf70852fb9f9315fb4fe3b13d1746"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_result_20261013.json",
+    "bytes": 427167,
+    "sha256": "56e8a090da1230bb1bc8f838952a949c55dc352bc9701f1d56baf10f7f57e140"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_result_20261013.terminal.json",
+    "bytes": 1153,
+    "sha256": "c30593a4352c192eedb4706c5bff8866ebc3f0bd5739572fbb19f20e245cf9cd"
+  },
+  "repair_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_audit_v2_binding_20261013.json",
+    "bytes": 3244,
+    "sha256": "2a39fd9ff77713bf05fb5998764e31ce69d7063ef98697ec8ef9f25494823b2a"
+  },
+  "literal_FIT_scores_and_ranks_exact": true,
+  "independent_rank_rounding_discrepancies": [
+    {
+      "site": 0,
+      "cells": [
+        8,
+        15,
+        23,
+        24,
+        26,
+        31,
+        40,
+        48,
+        56,
+        59,
+        63
+      ],
+      "FIT_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        24,
+        1,
+        1
+      ],
+      "max_literal_score_per_cell": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_independent_score_per_cell": [
+        8.713818073587982e-31,
+        8.880808413982643e-31,
+        4.2190387685591415e-30,
+        1.271107960403905e-31,
+        8.06395974240553e-32,
+        5.773585192930556e-29,
+        2.4931547613337148e-31,
+        1.2988328024634357e-31,
+        5.073952604968582e-30,
+        1.3384166639770855e-30,
+        2.1459215703090355e-31
+      ]
+    },
+    {
+      "site": 12,
+      "cells": [],
+      "FIT_counts": [],
+      "max_literal_score_per_cell": [],
+      "max_independent_score_per_cell": []
+    },
+    {
+      "site": 23,
+      "cells": [],
+      "FIT_counts": [],
+      "max_literal_score_per_cell": [],
+      "max_independent_score_per_cell": []
+    }
+  ],
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_exact_subset_binding_20261013.json",
+    "bytes": 1940238,
+    "sha256": "16acd77970ce6cbe6ceb00a23cc0b37a2723d4bb8bc95ed2bb9e7df4117393cb"
+  },
+  "checked_predictions": 720,
+  "maximum": {
+    "FIT_scores": 3.860313985865879e-15,
+    "down_column_energy": 4.364004454570123e-15,
+    "prediction_F32": 2.662107337411527e-08
+  },
+  "eligibility": [
+    {
+      "site": 0,
+      "count": 32,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 0,
+      "count": 128,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 0,
+      "count": 512,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 0,
+      "count": 2048,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 0,
+      "count": 4608,
+      "FIT_eligible": true,
+      "DEV_eligible": true,
+      "control_only": true
+    },
+    {
+      "site": 12,
+      "count": 32,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 12,
+      "count": 128,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 12,
+      "count": 512,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 12,
+      "count": 2048,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 12,
+      "count": 4608,
+      "FIT_eligible": true,
+      "DEV_eligible": true,
+      "control_only": true
+    },
+    {
+      "site": 23,
+      "count": 32,
+      "FIT_eligible": false,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 23,
+      "count": 128,
+      "FIT_eligible": true,
+      "DEV_eligible": false,
+      "control_only": false
+    },
+    {
+      "site": 23,
+      "count": 512,
+      "FIT_eligible": true,
+      "DEV_eligible": true,
+      "control_only": false
+    },
+    {
+      "site": 23,
+      "count": 2048,
+      "FIT_eligible": true,
+      "DEV_eligible": true,
+      "control_only": false
+    },
+    {
+      "site": 23,
+      "count": 4608,
+      "FIT_eligible": true,
+      "DEV_eligible": true,
+      "control_only": true
+    }
+  ],
+  "all_numeric_pass": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 424.68700000000536,
+  "OS_peak": 1418113024,
+  "scope": "All48 actual own histories/three sites/existing64 cells/full2048 outputs. Implicit affine plus exact selected source neurons. No physical compiled bank,ternary quantization,scalable routing,whole model,GPU,RESERVED or TPS claim. Independent direct Euclidean routing,chain-rule deltas,feature subtraction,FIT score grouping and dense masked predictions. Frozen floating-point FIT scores/ranks separately replayed exactly;independent score algebra retains1e-10 numeric gate,not bit-identical degenerate score ordering. Every prediction uses the unchanged frozen chosen IDs. Shares source tensor reader/BF decoding/NumPy BLAS;no selection optimality claim."
+}
