@@ -63,7 +63,15 @@ After a successful build, start `apps/local-chat/build/silicon-chat.exe`. The ap
 silicon-chat.exe --catalog path\to\models.json --data-dir path\to\chat-data
 ```
 
-`--catalog` opens the supplied local JSON catalog. Without it, the app uses the last catalog selected in the Import model catalog button; before one is saved, the list is empty. `--data-dir` overrides the conversation directory for this run. Use `--help` to see all options. `--capture path.png` is a UI verification option that saves a window screenshot and exits.
+`--catalog` opens the supplied local JSON catalog. Without it, the app uses the last catalog selected through **Modelli**; before one is saved, the list is empty. `--data-dir` overrides the conversation directory for this run. Use `--help` to see all options. `--capture path.png` and `--capture-settings path.png` save verification screenshots and exit. `--theme light|dark` selects and saves the appearance.
+
+## Appearance and controls
+
+**Impostazioni** saves the light/dark theme, text size, statistics visibility and optional bright panel edges. Glass-like separation uses opaque surfaces and static borders: no blur, shadow effects, decorative animation or idle redraw timer. The first streaming text appears immediately; later changes are grouped every 75 ms without postponing updates when deltas arrive faster. Markdown is formatted on completion.
+
+The model selector, **Modelli** and **Impostazioni** sit above the conversation. Send switches to Stop during generation. Right-click a conversation (or use the keyboard context-menu key) to rename or delete it. The current **Modelli** action imports a local catalog; downloading models is a future feature described in [`DISTRIBUTION.md`](../../docs/local-chat/DISTRIBUTION.md).
+
+The optional `LOCAL_CHAT_BUILD_UI_PROBE=ON` CMake target and `tests/local_chat/benchmark-ui.ps1` compare native window CPU and memory with a synthetic transcript. They are development tools, excluded from the portable package. Results and limits are in [`VALIDATION.md`](../../docs/local-chat/VALIDATION.md).
 
 The checked-in [`resources/catalog.example.json`](resources/catalog.example.json) contains `{"schemaVersion":1,"models":[]}`. It is a valid empty catalog and does not contain fake model paths or approval hashes. To add a runtime, place a catalog beside its local executable, model and tokenizer files, then select it in the app or pass it to `--catalog`. Relative paths in the file resolve from the catalog's directory. Each model must use the `silicon-chat-v1` protocol and include an admitted CPU-runtime receipt bound to the exact runtime executable, artifact, tokenizer and generation settings. Optional helper, adapter, template and tokenizer configuration files also need matching SHA-256 entries. See the protocol document for the complete schema and validation rules. The app does not download, repair or silently substitute model files.
 

@@ -1,0 +1,21 @@
+Baseline rendering source: commit 0c75b42, apps/local-chat.
+Prerequisite correction applied to baseline and candidate for equal work:
+
+- } else if (busy_) draftTimer_.start();
++ } else if (busy_) { if (!draftTimer_.isActive()) draftTimer_.start(); }
+
+Without this correction the original single-shot timer restarted on each 20ms
+delta and suppressed intermediate rendering. Comparing that behavior with a
+correct streaming implementation would not compare equivalent workloads.
+
+Both probes use tests/local_chat/ui_cost_probe.cpp from this change. Candidate
+has UI_COST_HAS_THEME=1; baseline exposes only its original light appearance.
+Both link the matching Qt 6.8.3 MinGW 13.1 Release libraries. The probe target
+links psapi on Windows and is excluded from deployment.
+
+Measurements: 1180x780 native Windows window, 12 synthetic messages, 600ms
+settling before sampling, 5000ms sample, 20ms synthetic stream deltas, seven
+iterations per configuration/scenario. Process CPU comes from GetProcessTimes;
+private bytes and working set from GetProcessMemoryInfo. Rendering is visible;
+no production engine, model, tokenizer or disk/network activity is exercised.
+Startup and final Markdown formatting are outside the measured window.

@@ -18,6 +18,7 @@
 #include <QScrollBar>
 #include <QTextBrowser>
 #include <QTextDocument>
+#include <QAbstractTextDocumentLayout>
 #include <QVBoxLayout>
 #include <QRegularExpression>
 #include <QFrame>
@@ -30,7 +31,22 @@
 #include <QLineEdit>
 #include <QStandardItemModel>
 #include <QtMath>
+#include <QSettings>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QMenu>
+#include <QSizePolicy>
+#include <QAction>
+#include <QStyle>
 #include <functional>
+
+#ifdef Q_OS_WIN
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#include <dwmapi.h>
+#endif
 
 namespace silicon {
 namespace {
@@ -70,21 +86,22 @@ QString metric(const QJsonObject &stats, const QString &key, const QString &labe
 QString statisticsText(const QJsonObject &stats) {
     QStringList items;
     const auto add = [&items](const QString &s) { if (!s.isEmpty()) items.append(s); };
-    add(metric(stats, QStringLiteral("generated_tokens"), QStringLiteral("Generated tokens")));
-    add(metric(stats, QStringLiteral("total_seconds"), QStringLiteral("Total"), QStringLiteral(" s")));
+    add(metric(stats, QStringLiteral("generated_tokens"), QStringLiteral("Token generati")));
+    add(metric(stats, QStringLiteral("total_seconds"), QStringLiteral("Durata"), QStringLiteral(" s")));
     const auto tokens = stats.value(QStringLiteral("generated_tokens"));
     const auto decode = stats.value(QStringLiteral("decode_seconds"));
     if (tokens.isDouble() && decode.isDouble() && decode.toDouble() > 0.0)
         items.append(QStringLiteral("Decode ") + QString::number(tokens.toDouble() / decode.toDouble(), 'f', 1) + QStringLiteral(" tok/s"));
-    add(metric(stats, QStringLiteral("working_set_bytes"), QStringLiteral("Process memory")));
-    add(metric(stats, QStringLiteral("first_token_seconds"), QStringLiteral("First text in UI"), QStringLiteral(" s")));
+    add(metric(stats, QStringLiteral("working_set_bytes"), QStringLiteral("Memoria processo")));
+    add(metric(stats, QStringLiteral("first_token_seconds"), QStringLiteral("Primo testo"), QStringLiteral(" s")));
     add(metric(stats, QStringLiteral("prefill_seconds"), QStringLiteral("Prompt"), QStringLiteral(" s")));
-    add(metric(stats, QStringLiteral("decode_seconds"), QStringLiteral("Decode time"), QStringLiteral(" s")));
-    add(metric(stats, QStringLiteral("load_seconds"), QStringLiteral("Load"), QStringLiteral(" s")));
+    add(metric(stats, QStringLiteral("decode_seconds"), QStringLiteral("Tempo decode"), QStringLiteral(" s")));
+    add(metric(stats, QStringLiteral("load_seconds"), QStringLiteral("Caricamento"), QStringLiteral(" s")));
     return items.join(QStringLiteral("  ·  "));
 }
 
-QTextBrowser *makeMarkdownView(const QString &markdown, QWidget *parent) {
+QTextBrowser *makeMarkdownView(const QString &markdown, QWidget *parent,
+                               const QString &themeName, int textSize) {
     auto *view = new SafeMarkdownBrowser(parent);
     auto *document = new SafeMarkdownDocument(view);
     view->setDocument(document);
@@ -99,10 +116,17 @@ QTextBrowser *makeMarkdownView(const QString &markdown, QWidget *parent) {
             QDesktopServices::openUrl(url);
     });
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    view->setStyleSheet(QStringLiteral("QTextBrowser { background: transparent; border: 0; padding: 0; color: #292923; selection-background-color: #d9e5df; }"));
+    view->setFont(QFont(QStringLiteral("Segoe UI"), textSize));
+    document->setDefaultFont(view->font());
+    document->setDefaultStyleSheet(Theme::markdownStyle(themeName));
     document->setMarkdown(markdown, QTextDocument::MarkdownNoHTML);
-    view->setMinimumHeight(28);
-    view->setMaximumHeight(1000);
+    view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    QObject::connect(document->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged,
+                     view, [view](const QSizeF &size) {
+        const int height = qBound(38, qCeil(size.height() + 10), 450);
+        if (view->height() != height) view->setFixedHeight(height);
+    });
+    view->setFixedHeight(qBound(38, qCeil(document->size().height() + 10), 450));
     return view;
 }
 
@@ -126,89 +150,103 @@ protected:
 } // namespace
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+    QSettings settings(QStringLiteral("SiliconLLM"), QStringLiteral("LocalChat"));
+    themeName_ = Theme::normalize(settings.value(QStringLiteral("ui/theme"), QStringLiteral("light")).toString());
+    textSize_ = settings.value(QStringLiteral("ui/textSize"), 11).toInt();
+    if (textSize_ != 11 && textSize_ != 12 && textSize_ != 14) textSize_ = 11;
+    showStatistics_ = settings.value(QStringLiteral("ui/showStatistics"), true).toBool();
+    staticGlass_ = settings.value(QStringLiteral("ui/staticGlass"), true).toBool();
     buildUi();
+    applyAppearance(false);
     draftTimer_.setSingleShot(true);
     draftTimer_.setInterval(75);
     connect(&draftTimer_, &QTimer::timeout, this, [this] { updateDraftView(false); });
 }
 
 void MainWindow::buildUi() {
-    setWindowTitle(QStringLiteral("SiliconLLM · Local chat"));
-    resize(1180, 780);
-    setMinimumSize(760, 560);
-    setStyleSheet(QStringLiteral(
-        "QMainWindow, QWidget { background: #f7f6f2; color: #292923; font-family: 'Segoe UI'; font-size: 10pt; }"
-        "QListWidget, QPlainTextEdit, QComboBox { background: #fffefa; border: 1px solid #deddd5; border-radius: 8px; padding: 8px; }"
-        "QListWidget::item { padding: 9px 8px; border-radius: 6px; } QListWidget::item:selected { background: #e6ebe6; color: #252b27; }"
-        "QPushButton { background: #eeede7; border: 1px solid #deddd5; border-radius: 7px; padding: 7px 11px; }"
-        "QPushButton:hover { background: #e5e4dc; } QPushButton:disabled { color: #a7a69f; }"
-        "QPushButton#sendButton { background: #34463c; border-color: #34463c; color: white; font-weight: 600; }"
-        "QPushButton#stopButton { background: #f4e9e5; color: #7a3023; }"
-        "QPushButton#sendButton:disabled, QPushButton#stopButton:disabled { background: #eeede7; border-color: #deddd5; color: #a7a69f; }"
-        "QLabel#statusLabel { color: #66675f; } QLabel#emptyState { color: #66675f; }"));
-
+    setWindowTitle(QStringLiteral("SiliconLLM"));
+    resize(1220, 820);
+    setMinimumSize(820, 620);
     auto *root = new QWidget(this);
+    root->setObjectName(QStringLiteral("windowRoot"));
     auto *rootLayout = new QHBoxLayout(root);
-    rootLayout->setContentsMargins(16, 14, 16, 14);
-    rootLayout->setSpacing(14);
+    rootLayout->setContentsMargins(18, 16, 18, 16);
+    rootLayout->setSpacing(16);
 
     auto *sidebar = new QWidget(root);
+    sidebar->setObjectName(QStringLiteral("sidebar"));
     sidebar->setFixedWidth(258);
     auto *sideLayout = new QVBoxLayout(sidebar);
-    sideLayout->setContentsMargins(0, 0, 0, 0);
-    sideLayout->setSpacing(9);
+    sideLayout->setContentsMargins(14, 10, 14, 12);
+    sideLayout->setSpacing(12);
     auto *brand = new QLabel(QStringLiteral("SiliconLLM"), sidebar);
-    QFont brandFont = brand->font(); brandFont.setPointSize(16); brandFont.setWeight(QFont::DemiBold); brand->setFont(brandFont);
+    brand->setObjectName(QStringLiteral("brandLabel"));
+    QFont brandFont = brand->font(); brandFont.setPointSize(23); brandFont.setWeight(QFont::DemiBold); brand->setFont(brandFont);
     sideLayout->addWidget(brand);
-    auto *newChat = new QPushButton(QStringLiteral("＋  New chat"), sidebar);
-    connect(newChat, &QPushButton::clicked, this, [this] {
+    auto *brandCaption = new QLabel(QStringLiteral("CHAT LOCALE"), sidebar);
+    brandCaption->setObjectName(QStringLiteral("brandCaption"));
+    QFont captionFont = brandCaption->font(); captionFont.setPointSize(8); captionFont.setWeight(QFont::DemiBold); brandCaption->setFont(captionFont);
+    sideLayout->addWidget(brandCaption);
+    newChatButton_ = new QPushButton(QStringLiteral("Nuova chat"), sidebar);
+    newChatButton_->setObjectName(QStringLiteral("newChatButton"));
+    newChatButton_->setEnabled(false);
+    connect(newChatButton_, &QPushButton::clicked, this, [this] {
         if (busy_) return;
         const QString id = modelSelector_->currentData().toString();
         if (!id.isEmpty()) emit newConversationRequested(id);
     });
-    sideLayout->addWidget(newChat);
+    sideLayout->addWidget(newChatButton_);
     conversationList_ = new QListWidget(sidebar);
     conversationList_->setObjectName(QStringLiteral("conversationList"));
+    conversationList_->setAccessibleName(QStringLiteral("Conversazioni"));
     conversationList_->setSelectionMode(QAbstractItemView::SingleSelection);
+    conversationList_->setContextMenuPolicy(Qt::CustomContextMenu);
     sideLayout->addWidget(conversationList_, 1);
     connect(conversationList_, &QListWidget::currentItemChanged, this, [this](QListWidgetItem *item) {
         if (!busy_ && item) emit conversationSelected(item->data(Qt::UserRole).toString());
     });
-    auto *chatActions = new QHBoxLayout;
-    auto *rename = new QPushButton(QStringLiteral("Rename"), sidebar);
-    auto *remove = new QPushButton(QStringLiteral("Delete"), sidebar);
-    chatActions->addWidget(rename); chatActions->addWidget(remove);
-    sideLayout->addLayout(chatActions);
-    connect(rename, &QPushButton::clicked, this, [this] {
-        auto *item = conversationList_->currentItem();
-        if (!item || busy_) return;
-        bool accepted = false;
-        const QString title = QInputDialog::getText(this, QStringLiteral("Rename conversation"),
-            QStringLiteral("Conversation name"), QLineEdit::Normal, item->text(), &accepted).trimmed();
-        if (accepted && !title.isEmpty()) emit renameConversationRequested(item->data(Qt::UserRole).toString(), title);
-    });
-    connect(remove, &QPushButton::clicked, this, [this] {
-        auto *item = conversationList_->currentItem();
-        if (item && !busy_) emit deleteConversationRequested(item->data(Qt::UserRole).toString());
-    });
+    connect(conversationList_, &QListWidget::customContextMenuRequested,
+            this, &MainWindow::showConversationMenu);
 
     auto *main = new QWidget(root);
+    main->setObjectName(QStringLiteral("mainPane"));
     auto *mainLayout = new QVBoxLayout(main);
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    mainLayout->setSpacing(10);
+    mainLayout->setSpacing(12);
+
+    auto *titleBar = new QWidget(main);
+    titleBar->setObjectName(QStringLiteral("topBar"));
+    auto *titleLayout = new QHBoxLayout(titleBar);
+    titleLayout->setContentsMargins(16, 11, 16, 11);
+    chatTitle_ = new QLabel(QStringLiteral("Nuova chat"), titleBar);
+    chatTitle_->setObjectName(QStringLiteral("chatTitle"));
+    QFont titleFont = chatTitle_->font(); titleFont.setPointSize(20); titleFont.setWeight(QFont::DemiBold); chatTitle_->setFont(titleFont);
+    titleLayout->addWidget(chatTitle_, 1);
+    modelDescription_ = new QLabel(titleBar);
+    modelDescription_->setObjectName(QStringLiteral("modelDescription"));
+    modelDescription_->setWordWrap(true);
+    titleLayout->addWidget(modelDescription_);
+    mainLayout->addWidget(titleBar);
+
     auto *top = new QHBoxLayout;
-    auto *modelLabel = new QLabel(QStringLiteral("Model"), main);
+    top->setSpacing(8);
     modelSelector_ = new QComboBox(main);
     modelSelector_->setObjectName(QStringLiteral("modelSelector"));
-    modelSelector_->setMinimumWidth(280);
+    modelSelector_->setMinimumWidth(260);
+    modelSelector_->setPlaceholderText(QStringLiteral("Scegli un modello"));
+    modelSelector_->setAccessibleName(QStringLiteral("Modello attivo"));
     modelSelector_->setEnabled(false);
-    modelDescription_ = new QLabel(main);
-    modelDescription_->setStyleSheet(QStringLiteral("color:#73736b;"));
-    catalogButton_ = new QPushButton(QStringLiteral("Import model catalog…"), main);
+    catalogButton_ = new QPushButton(QStringLiteral("Modelli"), main);
     catalogButton_->setObjectName(QStringLiteral("catalogButton"));
-    top->addWidget(modelLabel); top->addWidget(modelSelector_); top->addWidget(modelDescription_, 1); top->addWidget(catalogButton_);
+    catalogButton_->setAccessibleName(QStringLiteral("Modelli"));
+    catalogButton_->setToolTip(QStringLiteral("Importa o gestisci il catalogo locale dei modelli"));
+    settingsButton_ = new QPushButton(QStringLiteral("Impostazioni"), main);
+    settingsButton_->setObjectName(QStringLiteral("settingsButton"));
+    settingsButton_->setAccessibleName(QStringLiteral("Impostazioni"));
+    top->addWidget(modelSelector_, 1); top->addWidget(catalogButton_); top->addWidget(settingsButton_);
     mainLayout->addLayout(top);
     connect(catalogButton_, &QPushButton::clicked, this, &MainWindow::catalogRequested);
+    connect(settingsButton_, &QPushButton::clicked, this, &MainWindow::showSettingsDialog);
     connect(modelSelector_, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int index) {
         updateModelDescription();
         updateSendAvailability();
@@ -226,34 +264,48 @@ void MainWindow::buildUi() {
     transcriptLayout_->setSpacing(16);
     transcriptLayout_->addStretch(1);
     transcriptScroll_->setWidget(transcriptContent_);
-    emptyState_ = new QLabel(QStringLiteral("Choose an approved model, then start a conversation.\nUse “Import model catalog…” to load the validated local catalog."), transcriptContent_);
+    emptyState_ = new QLabel(QStringLiteral("Nessun modello installato.\nApri Modelli per configurare un modello locale."), transcriptContent_);
     emptyState_->setObjectName(QStringLiteral("emptyState"));
     emptyState_->setAlignment(Qt::AlignCenter);
     emptyState_->setWordWrap(true);
-    transcriptLayout_->insertWidget(0, emptyState_);
+    emptyState_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    transcriptLayout_->insertWidget(0, emptyState_, 1);
     mainLayout->addWidget(transcriptScroll_, 1);
 
-    statusLabel_ = new QLabel(QStringLiteral("Ready"), main);
+    auto *composerPanel = new QWidget(main);
+    composerPanel->setObjectName(QStringLiteral("composerPanel"));
+    auto *composerPanelLayout = new QVBoxLayout(composerPanel);
+    composerPanelLayout->setContentsMargins(12, 9, 12, 11);
+    composerPanelLayout->setSpacing(7);
+    statusLabel_ = new QLabel(QStringLiteral("Pronto"), composerPanel);
     statusLabel_->setObjectName(QStringLiteral("statusLabel"));
-    mainLayout->addWidget(statusLabel_);
+    composerPanelLayout->addWidget(statusLabel_);
     auto *composer = new QHBoxLayout;
-    auto *editor = new DraftEditor(main);
+    composer->setSpacing(10);
+    auto *editor = new DraftEditor(composerPanel);
     messageInput_ = editor;
     messageInput_->setObjectName(QStringLiteral("messageInput"));
-    messageInput_->setPlaceholderText(QStringLiteral("Message your model…  (Enter to send, Shift+Enter for a new line)"));
-    messageInput_->setMinimumHeight(76);
-    messageInput_->setMaximumHeight(150);
+    messageInput_->setAccessibleName(QStringLiteral("Messaggio"));
+    messageInput_->setPlaceholderText(QStringLiteral("Scrivi un messaggio…  (Invio invia, Maiusc+Invio va a capo)"));
+    messageInput_->setMinimumHeight(88);
+    messageInput_->setMaximumHeight(112);
     editor->send = [this] { submitDraft(); };
     auto *buttons = new QVBoxLayout;
-    sendButton_ = new QPushButton(QStringLiteral("Send"), main);
+    sendButton_ = new QPushButton(QStringLiteral("Invia"), composerPanel);
     sendButton_->setObjectName(QStringLiteral("sendButton"));
+    sendButton_->setAccessibleName(QStringLiteral("Invia messaggio"));
     sendButton_->setEnabled(false);
-    stopButton_ = new QPushButton(QStringLiteral("Stop"), main);
+    sendButton_->setMinimumWidth(100);
+    stopButton_ = new QPushButton(QStringLiteral("Ferma"), composerPanel);
     stopButton_->setObjectName(QStringLiteral("stopButton"));
+    stopButton_->setAccessibleName(QStringLiteral("Interrompi generazione"));
     stopButton_->setEnabled(false);
+    stopButton_->setMinimumWidth(100);
+    stopButton_->setVisible(false);
     buttons->addWidget(sendButton_); buttons->addWidget(stopButton_); buttons->addStretch();
     composer->addWidget(messageInput_, 1); composer->addLayout(buttons);
-    mainLayout->addLayout(composer);
+    composerPanelLayout->addLayout(composer);
+    mainLayout->addWidget(composerPanel);
     connect(sendButton_, &QPushButton::clicked, this, [this] { submitDraft(); });
     connect(stopButton_, &QPushButton::clicked, this, &MainWindow::stopRequested);
     rootLayout->addWidget(sidebar);
@@ -274,14 +326,14 @@ void MainWindow::setModels(const QList<ModelSpec> &models) {
         if (model.maxContext > 0) label += QStringLiteral(" · ") + QString::number(model.maxContext) + QStringLiteral(" ctx");
         if (!usable) {
             const QString reason = !model.unavailableReason.isEmpty() ? model.unavailableReason :
-                (!model.approved ? QStringLiteral("Not approved") : QStringLiteral("Unavailable"));
+                (!model.approved ? QStringLiteral("Non approvato") : QStringLiteral("Non disponibile"));
             label += QStringLiteral(" — ") + reason;
         }
         modelSelector_->addItem(label, model.id);
         const int row = modelSelector_->count() - 1;
         modelSelector_->setItemData(row, usable, Qt::UserRole + 1);
         modelSelector_->setItemData(row, model.unavailableReason, Qt::ToolTipRole);
-        modelSelector_->setItemData(row, QColor(QStringLiteral("#9a9992")), Qt::ForegroundRole);
+        modelSelector_->setItemData(row, QColor(Theme::palette(themeName_).muted), Qt::ForegroundRole);
         if (auto *standardModel = qobject_cast<QStandardItemModel *>(modelSelector_->model()))
             standardModel->item(row)->setEnabled(usable);
         hasAvailable |= usable;
@@ -295,21 +347,12 @@ void MainWindow::setModels(const QList<ModelSpec> &models) {
     }
     modelSelector_->setCurrentIndex(selected);
     modelSelector_->setEnabled(hasAvailable && !busy_);
-    modelSelector_->setPlaceholderText(hasAvailable ? QStringLiteral("Select a model") : QStringLiteral("Import an approved model catalog"));
+    modelSelector_->setPlaceholderText(QStringLiteral("Scegli un modello"));
     modelSelector_->blockSignals(false);
     if (!hasAvailable) {
-        QString explanation = models_.isEmpty()
-            ? QStringLiteral("No model catalog is loaded. Import a catalog containing an approved, available model.")
-            : QStringLiteral("No approved model is available.");
-        for (const auto &model : models_) {
-            if (!model.unavailableReason.isEmpty()) {
-                explanation += QStringLiteral("\n") + model.name + QStringLiteral(": ") + model.unavailableReason;
-                break;
-            }
-        }
-        emptyState_->setText(explanation);
+        emptyState_->setText(QStringLiteral("Nessun modello installato.\nApri Modelli per configurare un modello locale."));
     } else {
-        emptyState_->setText(QStringLiteral("Choose an approved model, then start a conversation.\nUse “Import model catalog…” to load the validated local catalog."));
+        emptyState_->setText(QStringLiteral("Scegli un modello per iniziare una chat."));
     }
     updateModelDescription();
     updateSendAvailability();
@@ -329,12 +372,27 @@ void MainWindow::setConversations(const QList<Conversation> &conversations) {
     if (selected >= 0) conversationList_->setCurrentRow(selected);
     conversationList_->setEnabled(!busy_);
     conversationList_->blockSignals(false);
+    if (hasConversation_ && !currentId.isEmpty()) {
+        for (const auto &conversation : conversations_) {
+            if (conversation.id == currentId) {
+                chatTitle_->setText(conversation.title.trimmed().isEmpty() ? QStringLiteral("Nuova chat") : conversation.title);
+                break;
+            }
+        }
+    }
 }
 
 void MainWindow::showConversation(const Conversation &conversation) {
     currentConversation_ = conversation;
     hasConversation_ = !conversation.id.isEmpty();
     if (!hasConversation_) currentConversation_ = Conversation{};
+    chatTitle_->setText(hasConversation_ && !conversation.title.trimmed().isEmpty()
+        ? conversation.title : QStringLiteral("Nuova chat"));
+    if (!hasConversation_) {
+        conversationList_->blockSignals(true);
+        conversationList_->setCurrentRow(-1);
+        conversationList_->blockSignals(false);
+    }
     draft_.clear();
     const int modelIndex = hasConversation_ ? modelSelector_->findData(conversation.modelId) : modelSelector_->currentIndex();
     modelSelector_->blockSignals(true);
@@ -356,10 +414,10 @@ void MainWindow::showConversation(const Conversation &conversation) {
 void MainWindow::clearTranscript() {
     while (transcriptLayout_->count() > 1) {
         QLayoutItem *item = transcriptLayout_->takeAt(0);
-        if (item->widget() && item->widget() != emptyState_) item->widget()->deleteLater();
+        if (item->widget() && item->widget() != emptyState_) delete item->widget();
         delete item;
     }
-    transcriptLayout_->insertWidget(0, emptyState_);
+    transcriptLayout_->insertWidget(0, emptyState_, 1);
     emptyState_->setVisible(!hasConversation_ || currentConversation_.messages.isEmpty());
 }
 
@@ -379,20 +437,26 @@ void MainWindow::renderConversation() {
 void MainWindow::appendMessage(const Message &message, bool draft) {
     auto *card = new QWidget(transcriptContent_);
     card->setObjectName(QStringLiteral("messageCard"));
-    card->setStyleSheet(QStringLiteral("QWidget#messageCard { background:#fffefa; border:1px solid #e6e4dc; border-radius:10px; }"));
+    const bool userMessage = message.role.compare(QStringLiteral("assistant"), Qt::CaseInsensitive) != 0;
+    card->setProperty("userMessage", userMessage);
+    card->setProperty("assistantMessage", !userMessage);
+    card->setMaximumWidth(790);
     auto *layout = new QVBoxLayout(card);
-    layout->setContentsMargins(14, 10, 14, 10);
-    layout->setSpacing(5);
+    layout->setContentsMargins(14, 12, 14, 14);
+    layout->setSpacing(7);
     auto *header = new QHBoxLayout;
-    auto *role = new QLabel(message.role.compare(QStringLiteral("assistant"), Qt::CaseInsensitive) == 0 ? QStringLiteral("SiliconLLM") : QStringLiteral("You"), card);
+    auto *role = new QLabel(userMessage ? QStringLiteral("Tu") : QStringLiteral("SiliconLLM"), card);
+    role->setObjectName(QStringLiteral("messageRole"));
     QFont f = role->font(); f.setWeight(QFont::DemiBold); role->setFont(f);
     header->addWidget(role); header->addStretch();
-    auto *copy = new QPushButton(QStringLiteral("Copy"), card);
-    copy->setMaximumWidth(72);
+    auto *copy = new QPushButton(QStringLiteral("Copia"), card);
+    copy->setObjectName(QStringLiteral("copyMessageButton"));
+    copy->setMaximumWidth(70);
     connect(copy, &QPushButton::clicked, this, [text = message.content] { QApplication::clipboard()->setText(text); });
     header->addWidget(copy);
     layout->addLayout(header);
-    auto *body = makeMarkdownView(message.content, card);
+    auto *body = makeMarkdownView(message.content, card, themeName_, textSize_);
+    body->setMinimumWidth(0);
     if (draft) {
         body->setHtml(QString());
         body->setPlainText(message.content);
@@ -400,24 +464,31 @@ void MainWindow::appendMessage(const Message &message, bool draft) {
     }
     body->setMinimumHeight(qMin(450, qMax(38, qCeil(body->document()->size().height() + 10))));
     layout->addWidget(body);
-    if (!draft && message.role.compare(QStringLiteral("assistant"), Qt::CaseInsensitive) == 0) {
+    if (!draft && !userMessage && showStatistics_) {
         const QString stats = statisticsText(message.statistics);
         if (!stats.isEmpty()) {
             auto *details = new QLabel(stats, card);
             details->setObjectName(QStringLiteral("messageStatistics"));
-            details->setStyleSheet(QStringLiteral("color:#77776f; font-size:9pt; border-top:1px solid #eeede7; padding-top:6px;"));
             details->setWordWrap(true);
             layout->addWidget(details);
         }
     }
-    transcriptLayout_->insertWidget(transcriptLayout_->count() - 1, card);
+    auto *row = new QWidget(transcriptContent_);
+    auto *rowLayout = new QHBoxLayout(row);
+    rowLayout->setContentsMargins(0, 0, 0, 0);
+    rowLayout->addStretch(1);
+    rowLayout->addWidget(card, 100);
+    rowLayout->addStretch(1);
+    row->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    transcriptLayout_->insertWidget(transcriptLayout_->count() - 1, row);
 
     static const QRegularExpression codePattern(QStringLiteral("```[^\\n]*\\n([\\s\\S]*?)```"));
     auto matches = codePattern.globalMatch(message.content);
     int index = 0;
     while (matches.hasNext()) {
         const QString code = matches.next().captured(1);
-        auto *copyCode = new QPushButton(QStringLiteral("Copy code %1").arg(++index), card);
+        auto *copyCode = new QPushButton(QStringLiteral("Copia codice %1").arg(++index), card);
+        copyCode->setObjectName(QStringLiteral("copyCodeButton"));
         copyCode->setMaximumWidth(120);
         connect(copyCode, &QPushButton::clicked, this, [code] { QApplication::clipboard()->setText(code); });
         layout->addWidget(copyCode, 0, Qt::AlignRight);
@@ -428,9 +499,15 @@ void MainWindow::setBusy(bool busy, const QString &status) {
     if (busy && !busy_) firstContentDisplayedForRequest_ = false;
     busy_ = busy;
     statusLabel_->setText(status);
+    statusLabel_->setProperty("error", false);
+    statusLabel_->style()->unpolish(statusLabel_);
+    statusLabel_->style()->polish(statusLabel_);
     updateSendAvailability();
     stopButton_->setEnabled(busy);
+    sendButton_->setVisible(!busy);
+    stopButton_->setVisible(busy);
     catalogButton_->setEnabled(!busy);
+    settingsButton_->setEnabled(!busy);
     messageInput_->setEnabled(!busy);
     conversationList_->setEnabled(!busy);
     bool hasAvailableModel = false;
@@ -446,10 +523,12 @@ void MainWindow::setBusy(bool busy, const QString &status) {
 void MainWindow::updateSendAvailability() {
     if (!sendButton_) return;
     const int index = modelSelector_->currentIndex();
-    bool canSend = index >= 0 && modelSelector_->itemData(index, Qt::UserRole + 1).toBool();
+    const bool hasUsableSelectedModel = index >= 0 && modelSelector_->itemData(index, Qt::UserRole + 1).toBool();
+    bool canSend = hasUsableSelectedModel;
     if (hasConversation_)
         canSend = canSend && modelSelector_->itemData(index).toString() == currentConversation_.modelId;
     sendButton_->setEnabled(!busy_ && canSend);
+    newChatButton_->setEnabled(!busy_ && hasUsableSelectedModel);
 }
 
 void MainWindow::setDraftResponse(const QString &cumulativeText) {
@@ -458,7 +537,9 @@ void MainWindow::setDraftResponse(const QString &cumulativeText) {
     if (busy_ && !draft_.isEmpty() && !firstContentDisplayedForRequest_) {
         draftTimer_.stop();
         updateDraftView(false);
-    } else if (busy_) draftTimer_.start();
+    } else if (busy_) {
+        if (!draftTimer_.isActive()) draftTimer_.start();
+    }
     else updateDraftView(true);
 }
 
@@ -480,26 +561,174 @@ void MainWindow::updateDraftView(bool finalize) {
 }
 
 void MainWindow::showError(const QString &message) {
-    statusLabel_->setText(QStringLiteral("Error: ") + message);
-    statusLabel_->setStyleSheet(QStringLiteral("color:#8b3528;"));
+    statusLabel_->setText(QStringLiteral("Errore: ") + message);
+    statusLabel_->setProperty("error", true);
+    statusLabel_->style()->unpolish(statusLabel_);
+    statusLabel_->style()->polish(statusLabel_);
+}
+
+QString MainWindow::theme() const
+{
+    return themeName_;
+}
+
+void MainWindow::setTheme(const QString &name)
+{
+    const QString normalized = Theme::normalize(name);
+    if (themeName_ == normalized) return;
+    themeName_ = normalized;
+    QSettings settings(QStringLiteral("SiliconLLM"), QStringLiteral("LocalChat"));
+    settings.setValue(QStringLiteral("ui/theme"), themeName_);
+    settings.sync();
+    applyAppearance(true);
+    emit appearanceChanged();
+}
+
+void MainWindow::applyAppearance(bool rerenderTranscript)
+{
+    setStyleSheet(Theme::styleSheet(themeName_, textSize_, staticGlass_));
+#ifdef Q_OS_WIN
+    const BOOL darkTitleBar = themeName_ == QStringLiteral("dark") ? TRUE : FALSE;
+    constexpr DWORD useImmersiveDarkMode = 20;
+    DwmSetWindowAttribute(reinterpret_cast<HWND>(winId()),
+                          static_cast<DWMWINDOWATTRIBUTE>(useImmersiveDarkMode),
+                          &darkTitleBar, sizeof(darkTitleBar));
+#endif
+    QPalette palette = QApplication::palette();
+    const ThemePalette colors = Theme::palette(themeName_);
+    palette.setColor(QPalette::Window, QColor(colors.window));
+    palette.setColor(QPalette::WindowText, QColor(colors.text));
+    palette.setColor(QPalette::Base, QColor(colors.surface));
+    palette.setColor(QPalette::AlternateBase, QColor(colors.sidebar));
+    palette.setColor(QPalette::Text, QColor(colors.text));
+    palette.setColor(QPalette::Button, QColor(colors.surface));
+    palette.setColor(QPalette::ButtonText, QColor(colors.text));
+    palette.setColor(QPalette::Highlight, QColor(colors.selection));
+    palette.setColor(QPalette::HighlightedText, QColor(colors.text));
+    setPalette(palette);
+    for (int i = 0; i < modelSelector_->count(); ++i)
+        if (!modelSelector_->itemData(i, Qt::UserRole + 1).toBool())
+            modelSelector_->setItemData(i, QColor(colors.muted), Qt::ForegroundRole);
+    if (rerenderTranscript) renderConversation();
+}
+
+void MainWindow::showSettingsDialog()
+{
+    if (busy_) return;
+    QDialog dialog(this);
+    dialog.setObjectName(QStringLiteral("settingsDialog"));
+    dialog.setWindowTitle(QStringLiteral("Impostazioni"));
+    dialog.setMinimumWidth(380);
+    auto *layout = new QVBoxLayout(&dialog);
+    auto *form = new QFormLayout;
+
+    auto *themeChoice = new QComboBox(&dialog);
+    themeChoice->setObjectName(QStringLiteral("themeSelector"));
+    themeChoice->addItem(QStringLiteral("Chiaro"), QStringLiteral("light"));
+    themeChoice->addItem(QStringLiteral("Scuro"), QStringLiteral("dark"));
+    themeChoice->setCurrentIndex(themeChoice->findData(themeName_));
+    form->addRow(QStringLiteral("Aspetto"), themeChoice);
+
+    auto *sizeChoice = new QComboBox(&dialog);
+    sizeChoice->setObjectName(QStringLiteral("textSizeSelector"));
+    sizeChoice->addItem(QStringLiteral("Compatto — 11 pt"), 11);
+    sizeChoice->addItem(QStringLiteral("Confortevole — 12 pt"), 12);
+    sizeChoice->addItem(QStringLiteral("Ampio — 14 pt"), 14);
+    sizeChoice->setCurrentIndex(sizeChoice->findData(textSize_));
+    form->addRow(QStringLiteral("Testo"), sizeChoice);
+    layout->addLayout(form);
+
+    auto *statistics = new QCheckBox(QStringLiteral("Mostra statistiche di generazione"), &dialog);
+    statistics->setObjectName(QStringLiteral("statisticsToggle"));
+    statistics->setChecked(showStatistics_);
+    layout->addWidget(statistics);
+    auto *glass = new QCheckBox(QStringLiteral("Bordi chiari sui pannelli"), &dialog);
+    glass->setObjectName(QStringLiteral("glassToggle"));
+    glass->setChecked(staticGlass_);
+    layout->addWidget(glass);
+    auto *note = new QLabel(QStringLiteral("Le preferenze vengono salvate su questo computer."), &dialog);
+    note->setWordWrap(true);
+    note->setMaximumWidth(440);
+    layout->addWidget(note);
+
+    auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+    buttons->setObjectName(QStringLiteral("settingsButtons"));
+    buttons->button(QDialogButtonBox::Ok)->setText(QStringLiteral("Applica"));
+    buttons->button(QDialogButtonBox::Cancel)->setText(QStringLiteral("Annulla"));
+    connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+    layout->addWidget(buttons);
+
+    if (dialog.exec() != QDialog::Accepted) return;
+    themeName_ = Theme::normalize(themeChoice->currentData().toString());
+    textSize_ = sizeChoice->currentData().toInt();
+    showStatistics_ = statistics->isChecked();
+    staticGlass_ = glass->isChecked();
+    QSettings settings(QStringLiteral("SiliconLLM"), QStringLiteral("LocalChat"));
+    settings.setValue(QStringLiteral("ui/theme"), themeName_);
+    settings.setValue(QStringLiteral("ui/textSize"), textSize_);
+    settings.setValue(QStringLiteral("ui/showStatistics"), showStatistics_);
+    settings.setValue(QStringLiteral("ui/staticGlass"), staticGlass_);
+    settings.sync();
+    applyAppearance(true);
+    emit appearanceChanged();
+}
+
+void MainWindow::showConversationMenu(const QPoint &position)
+{
+    if (busy_) return;
+    auto *item = conversationList_->itemAt(position);
+    if (!item) return;
+    conversationList_->setCurrentItem(item);
+    QMenu menu(this);
+    menu.setObjectName(QStringLiteral("conversationContextMenu"));
+    QAction *rename = menu.addAction(QStringLiteral("Rinomina…"));
+    rename->setObjectName(QStringLiteral("renameConversationAction"));
+    QAction *remove = menu.addAction(QStringLiteral("Elimina"));
+    remove->setObjectName(QStringLiteral("deleteConversationAction"));
+    connect(rename, &QAction::triggered, this, &MainWindow::renameSelectedConversation);
+    connect(remove, &QAction::triggered, this, &MainWindow::deleteSelectedConversation);
+    menu.exec(conversationList_->viewport()->mapToGlobal(position));
+}
+
+void MainWindow::renameSelectedConversation()
+{
+    auto *item = conversationList_->currentItem();
+    if (!item || busy_) return;
+    bool accepted = false;
+    const QString title = QInputDialog::getText(this, QStringLiteral("Rinomina conversazione"),
+        QStringLiteral("Nome della conversazione"), QLineEdit::Normal, item->text(), &accepted).trimmed();
+    if (accepted && !title.isEmpty()) emit renameConversationRequested(item->data(Qt::UserRole).toString(), title);
+}
+
+void MainWindow::deleteSelectedConversation()
+{
+    auto *item = conversationList_->currentItem();
+    if (item && !busy_) emit deleteConversationRequested(item->data(Qt::UserRole).toString());
 }
 
 void MainWindow::updateModelDescription() {
     const QString id = modelSelector_->currentData().toString();
     for (const auto &model : models_) {
         if (model.id != id) continue;
+        if (!model.approved || !model.available) {
+            modelDescription_->clear();
+            modelDescription_->hide();
+            return;
+        }
         QString text;
-        if (!model.approved || !model.available) text = !model.unavailableReason.isEmpty() ? model.unavailableReason : QStringLiteral("Model unavailable");
-        else text = model.streaming ? QStringLiteral("Progressive output") : QStringLiteral("Response appears when generation completes");
+        text = model.streaming ? QStringLiteral("Risposta progressiva") : QStringLiteral("Risposta al termine della generazione");
         modelDescription_->setText(text);
         modelDescription_->setToolTip(model.qualification.value(QStringLiteral("reason")).toString());
+        modelDescription_->show();
         return;
     }
-    modelDescription_->setText(QStringLiteral("No approved model available"));
+    modelDescription_->clear();
+    modelDescription_->hide();
 }
 
 void MainWindow::submitDraft() {
-    if (busy_ || !modelSelector_->currentData().isValid()) return;
+    if (busy_ || !sendButton_->isEnabled()) return;
     const QString text = messageInput_->toPlainText().trimmed();
     if (text.isEmpty()) return;
     messageInput_->clear();

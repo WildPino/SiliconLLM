@@ -1,0 +1,727 @@
+{
+  "schema": "silicon-ui-comparison-v1",
+  "synthetic_ui_only": true,
+  "baseline_executable_sha256": "49c5fa8c615f6f87e888112dca2c796d0b04b5555844ec8709c648449620e9d0",
+  "candidate_executable_sha256": "a6a8cb96f9bcb8534c3259d321ba2d7f94ad75821b836c6a45c88cc8699e1b94",
+  "iterations": 7,
+  "duration_ms": 5000,
+  "viewport_width": 1180,
+  "viewport_height": 780,
+  "note": "UI process resource measurements only. No LLM inference or decode-rate claim.",
+  "samples": [
+    {
+      "configuration": "baseline-light",
+      "iteration": 1,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5022,
+        "native_platform": "windows",
+        "private_bytes": 17309696,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53526528
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 1,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5020,
+        "native_platform": "windows",
+        "private_bytes": 10964992,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37699584
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 1,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5001,
+        "native_platform": "windows",
+        "private_bytes": 11030528,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37625856
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 2,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5000,
+        "native_platform": "windows",
+        "private_bytes": 11038720,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37662720
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 2,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5009,
+        "native_platform": "windows",
+        "private_bytes": 10964992,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37498880
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 2,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5011,
+        "native_platform": "windows",
+        "private_bytes": 17850368,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53477376
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 3,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5007,
+        "native_platform": "windows",
+        "private_bytes": 17391616,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53571584
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 3,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5000,
+        "native_platform": "windows",
+        "private_bytes": 11030528,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37650432
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 3,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5010,
+        "native_platform": "windows",
+        "private_bytes": 10997760,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37683200
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 4,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5014,
+        "native_platform": "windows",
+        "private_bytes": 11083776,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37683200
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 4,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5006,
+        "native_platform": "windows",
+        "private_bytes": 11022336,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37605376
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 4,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5005,
+        "native_platform": "windows",
+        "private_bytes": 17375232,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53551104
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 5,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5006,
+        "native_platform": "windows",
+        "private_bytes": 17899520,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53555200
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 5,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5007,
+        "native_platform": "windows",
+        "private_bytes": 11022336,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37666816
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 5,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5006,
+        "native_platform": "windows",
+        "private_bytes": 10620928,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37564416
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 6,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5009,
+        "native_platform": "windows",
+        "private_bytes": 11100160,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37703680
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 6,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5008,
+        "native_platform": "windows",
+        "private_bytes": 11059200,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37597184
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 6,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5010,
+        "native_platform": "windows",
+        "private_bytes": 17702912,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53510144
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 7,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5010,
+        "native_platform": "windows",
+        "private_bytes": 17244160,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 53534720
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 7,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 4996,
+        "native_platform": "windows",
+        "private_bytes": 11079680,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 37552128
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 7,
+      "measurement": {
+        "cpu_ms": 0,
+        "elapsed_ms": 5001,
+        "native_platform": "windows",
+        "private_bytes": 10616832,
+        "scenario": "idle",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 0,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 37482496
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 1,
+      "measurement": {
+        "cpu_ms": 687.5,
+        "elapsed_ms": 4991,
+        "native_platform": "windows",
+        "private_bytes": 20152320,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55758848
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 1,
+      "measurement": {
+        "cpu_ms": 609.375,
+        "elapsed_ms": 5004,
+        "native_platform": "windows",
+        "private_bytes": 12705792,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 38875136
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 1,
+      "measurement": {
+        "cpu_ms": 656.25,
+        "elapsed_ms": 5014,
+        "native_platform": "windows",
+        "private_bytes": 12144640,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38637568
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 2,
+      "measurement": {
+        "cpu_ms": 562.5,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 12451840,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38588416
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 2,
+      "measurement": {
+        "cpu_ms": 546.875,
+        "elapsed_ms": 5013,
+        "native_platform": "windows",
+        "private_bytes": 12414976,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 38940672
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 2,
+      "measurement": {
+        "cpu_ms": 734.375,
+        "elapsed_ms": 5004,
+        "native_platform": "windows",
+        "private_bytes": 20103168,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55808000
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 3,
+      "measurement": {
+        "cpu_ms": 703.125,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 19644416,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55787520
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 3,
+      "measurement": {
+        "cpu_ms": 609.375,
+        "elapsed_ms": 5004,
+        "native_platform": "windows",
+        "private_bytes": 11890688,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 38735872
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 3,
+      "measurement": {
+        "cpu_ms": 562.5,
+        "elapsed_ms": 4998,
+        "native_platform": "windows",
+        "private_bytes": 12120064,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38719488
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 4,
+      "measurement": {
+        "cpu_ms": 609.375,
+        "elapsed_ms": 5000,
+        "native_platform": "windows",
+        "private_bytes": 12886016,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38797312
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 4,
+      "measurement": {
+        "cpu_ms": 593.75,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 12288000,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 39002112
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 4,
+      "measurement": {
+        "cpu_ms": 703.125,
+        "elapsed_ms": 5014,
+        "native_platform": "windows",
+        "private_bytes": 19537920,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55848960
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 5,
+      "measurement": {
+        "cpu_ms": 703.125,
+        "elapsed_ms": 4994,
+        "native_platform": "windows",
+        "private_bytes": 20029440,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55730176
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 5,
+      "measurement": {
+        "cpu_ms": 640.625,
+        "elapsed_ms": 5014,
+        "native_platform": "windows",
+        "private_bytes": 12398592,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 38801408
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 5,
+      "measurement": {
+        "cpu_ms": 640.625,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 12705792,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38555648
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 6,
+      "measurement": {
+        "cpu_ms": 609.375,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 12558336,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38621184
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 6,
+      "measurement": {
+        "cpu_ms": 656.25,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 12169216,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 38866944
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 6,
+      "measurement": {
+        "cpu_ms": 703.125,
+        "elapsed_ms": 5000,
+        "native_platform": "windows",
+        "private_bytes": 19673088,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55808000
+      }
+    },
+    {
+      "configuration": "baseline-light",
+      "iteration": 7,
+      "measurement": {
+        "cpu_ms": 671.875,
+        "elapsed_ms": 5004,
+        "native_platform": "windows",
+        "private_bytes": 20115456,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 55726080
+      }
+    },
+    {
+      "configuration": "candidate-light",
+      "iteration": 7,
+      "measurement": {
+        "cpu_ms": 656.25,
+        "elapsed_ms": 4999,
+        "native_platform": "windows",
+        "private_bytes": 12619776,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 250,
+        "synthetic_ui_only": true,
+        "theme": "light",
+        "visible_window": true,
+        "working_set_bytes": 38752256
+      }
+    },
+    {
+      "configuration": "candidate-dark",
+      "iteration": 7,
+      "measurement": {
+        "cpu_ms": 562.5,
+        "elapsed_ms": 4993,
+        "native_platform": "windows",
+        "private_bytes": 12816384,
+        "scenario": "stream",
+        "schema": "silicon-ui-cost-v1",
+        "stream_events": 249,
+        "synthetic_ui_only": true,
+        "theme": "dark",
+        "visible_window": true,
+        "working_set_bytes": 38785024
+      }
+    }
+  ]
+}

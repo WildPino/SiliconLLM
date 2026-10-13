@@ -1,6 +1,6 @@
 # Goal della chat locale
 
-Stato: implementazione avviata; il goal resta aperto fino alla verifica sul runtime reale.
+Stato: in pausa in attesa della qualificazione del runtime CPU reale. Il lavoro indipendente sull'aspetto e sul piano di distribuzione può proseguire; il goal resta aperto fino alla verifica del motore.
 Data: 13 ottobre 2026.
 Branch: `feature/local-chat`.
 

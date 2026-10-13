@@ -11,11 +11,16 @@ runtime is currently admitted for this preview, so its initial model list is
 empty and generation remains unavailable until a qualified runtime is installed.
 There is no simulated model or simulated performance display.
 
-Use **Import model catalog** to select the catalog of an admitted runtime.
+Use **Modelli** to select the catalog of an admitted runtime.
 Catalogs bind the executable, weights, tokenizer and runtime settings to a CPU
 qualification receipt. The included `catalog.example.json` is deliberately
 empty. The adapter contract is in
 [RUNTIME_PROTOCOL.md](docs/local-chat/RUNTIME_PROTOCOL.md).
+
+Open **Impostazioni** for light/dark themes, text size, statistics and bright
+panel edges. These preferences are saved locally. Right-click a conversation
+to rename or delete it. Send becomes Stop during generation. Model downloads
+are planned and are not included in this preview.
 
 The application saves conversations in the current user's local application
 data directory. To choose a directory and catalog explicitly, run:

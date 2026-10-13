@@ -1,11 +1,19 @@
 #include "../../apps/local-chat/src/mainwindow.h"
 
 #include <QComboBox>
+#include <QApplication>
+#include <QAction>
+#include <QCheckBox>
+#include <QContextMenuEvent>
+#include <QDialog>
+#include <QDialogButtonBox>
 #include <QFile>
 #include <QFont>
 #include <QLabel>
 #include <QImage>
 #include <QListWidget>
+#include <QMenu>
+#include <QMap>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QTemporaryDir>
@@ -14,6 +22,9 @@
 #include <QTextCursor>
 #include <QTest>
 #include <QSignalSpy>
+#include <QSettings>
+#include <QSet>
+#include <QTimer>
 #include <QUrl>
 
 using namespace silicon;
@@ -40,6 +51,9 @@ private slots:
         QVERIFY(!send->isEnabled());
         QVERIFY(!selector->isEnabled());
         QVERIFY(!selector->model()->index(0, 0).flags().testFlag(Qt::ItemIsEnabled));
+        auto *newChat = window.findChild<QPushButton *>(QStringLiteral("newChatButton"));
+        QVERIFY(newChat);
+        QVERIFY(!newChat->isEnabled());
     }
 
     void busyStateLocksNavigationAndLeavesStopAvailable()
@@ -231,6 +245,41 @@ private slots:
         QCOMPARE(displayed.count(), 1);
     }
 
+    void transcriptUsesReadingWidthAndFitsShortMessages()
+    {
+        MainWindow window;
+        Conversation chat;
+        chat.id = QStringLiteral("layout");
+        Message message;
+        message.role = QStringLiteral("assistant");
+        message.content = QStringLiteral("A short readable reply.");
+        chat.messages.append(message);
+        window.showConversation(chat);
+        window.show();
+        auto *view = window.findChild<QTextBrowser *>(QStringLiteral("messageMarkdown"));
+        QVERIFY(view);
+        QTRY_VERIFY(view->width() > 500);
+        QTRY_VERIFY(view->height() < 140);
+    }
+
+    void sustainedFastStreamDisplaysBeforeCompletion()
+    {
+        MainWindow window;
+        Conversation chat;
+        chat.id = QStringLiteral("continuous-stream");
+        window.showConversation(chat);
+        window.setBusy(true, QStringLiteral("Generating"));
+        window.setDraftResponse(QStringLiteral("first"));
+        auto *view = window.findChild<QTextBrowser *>(QStringLiteral("messageMarkdown"));
+        QVERIFY(view);
+        for (int index = 0; index < 20; ++index) {
+            window.setDraftResponse(QStringLiteral("first %1").arg(index));
+            QTest::qWait(15);
+        }
+        QVERIFY(view->toPlainText() != QStringLiteral("first"));
+        QTRY_COMPARE_WITH_TIMEOUT(view->toPlainText(), QStringLiteral("first 19"), 500);
+    }
+
     void markdownCannotLoadLocalImageResources()
     {
         QTemporaryDir directory;
@@ -262,6 +311,127 @@ private slots:
             const QVariant loaded = view->document()->resource(QTextDocument::ImageResource, resource);
             QVERIFY2(!loaded.isValid() || loaded.isNull(), qPrintable(resource.toString()));
         }
+    }
+
+    void themeAndSettingsPersistAndApply()
+    {
+        QSettings settings(QStringLiteral("SiliconLLM"), QStringLiteral("LocalChat"));
+        const QStringList keys{QStringLiteral("ui/theme"), QStringLiteral("ui/textSize"),
+                               QStringLiteral("ui/showStatistics"), QStringLiteral("ui/staticGlass")};
+        QMap<QString, QVariant> saved;
+        QSet<QString> existing;
+        for (const QString &key : keys) {
+            if (settings.contains(key)) existing.insert(key);
+            saved.insert(key, settings.value(key));
+        }
+        settings.setValue(QStringLiteral("ui/theme"), QStringLiteral("light"));
+        settings.setValue(QStringLiteral("ui/textSize"), 11);
+        settings.setValue(QStringLiteral("ui/showStatistics"), true);
+        settings.setValue(QStringLiteral("ui/staticGlass"), true);
+        settings.sync();
+
+        MainWindow window;
+        Conversation chat;
+        chat.id = QStringLiteral("settings-chat");
+        Message reply;
+        reply.role = QStringLiteral("assistant");
+        reply.content = QStringLiteral("Readable reply");
+        reply.statistics = QJsonObject{{QStringLiteral("generated_tokens"), 4},
+                                       {QStringLiteral("decode_seconds"), 1.0}};
+        chat.messages.append(reply);
+        window.showConversation(chat);
+        QVERIFY(window.findChild<QLabel *>(QStringLiteral("messageStatistics")));
+
+        window.setTheme(QStringLiteral("dark"));
+        QCOMPARE(window.theme(), QStringLiteral("dark"));
+        QVERIFY(window.styleSheet().contains(QStringLiteral("#171918")));
+        QCOMPARE(settings.value(QStringLiteral("ui/theme")).toString(), QStringLiteral("dark"));
+
+        QTimer::singleShot(0, [] {
+            auto *dialog = qobject_cast<QDialog *>(QApplication::activeModalWidget());
+            if (!dialog) return;
+            auto *theme = dialog->findChild<QComboBox *>(QStringLiteral("themeSelector"));
+            auto *size = dialog->findChild<QComboBox *>(QStringLiteral("textSizeSelector"));
+            auto *statistics = dialog->findChild<QCheckBox *>(QStringLiteral("statisticsToggle"));
+            auto *glass = dialog->findChild<QCheckBox *>(QStringLiteral("glassToggle"));
+            auto *buttons = dialog->findChild<QDialogButtonBox *>(QStringLiteral("settingsButtons"));
+            if (!theme || !size || !statistics || !glass || !buttons) return;
+            theme->setCurrentIndex(theme->findData(QStringLiteral("light")));
+            size->setCurrentIndex(size->findData(12));
+            statistics->setChecked(false);
+            glass->setChecked(false);
+            buttons->button(QDialogButtonBox::Ok)->click();
+        });
+        QTimer::singleShot(1000, [] {
+            if (auto *dialog = qobject_cast<QDialog *>(QApplication::activeModalWidget()))
+                dialog->reject();
+        });
+        window.showSettingsDialog();
+
+        QCOMPARE(window.theme(), QStringLiteral("light"));
+        QCOMPARE(settings.value(QStringLiteral("ui/theme")).toString(), QStringLiteral("light"));
+        QCOMPARE(settings.value(QStringLiteral("ui/textSize")).toInt(), 12);
+        QVERIFY(!settings.value(QStringLiteral("ui/showStatistics")).toBool());
+        QVERIFY(!settings.value(QStringLiteral("ui/staticGlass")).toBool());
+        QVERIFY(!window.findChild<QLabel *>(QStringLiteral("messageStatistics")));
+        auto *markdown = window.findChild<QTextBrowser *>(QStringLiteral("messageMarkdown"));
+        QVERIFY(markdown);
+        QCOMPARE(markdown->font().pointSize(), 12);
+
+        for (const QString &key : keys) {
+            if (existing.contains(key)) settings.setValue(key, saved.value(key));
+            else settings.remove(key);
+        }
+        settings.sync();
+    }
+
+    void conversationActionsLiveInContextMenu()
+    {
+        MainWindow window;
+        ModelSpec model;
+        model.id = QStringLiteral("approved");
+        model.approved = true;
+        model.available = true;
+        window.setModels({model});
+        Conversation chat;
+        chat.id = QStringLiteral("chat-1");
+        chat.title = QStringLiteral("Prima chat");
+        chat.modelId = model.id;
+        window.setConversations({chat});
+        auto *list = window.findChild<QListWidget *>(QStringLiteral("conversationList"));
+        QVERIFY(list);
+        for (auto *button : window.findChildren<QPushButton *>()) {
+            QVERIFY(button->text() != QStringLiteral("Rinomina…"));
+            QVERIFY(button->text() != QStringLiteral("Elimina"));
+        }
+
+        QSignalSpy deleted(&window, &MainWindow::deleteConversationRequested);
+        window.resize(1100, 700);
+        window.show();
+        QTest::qWait(20);
+        const QRect itemRect = list->visualItemRect(list->item(0));
+        QVERIFY(itemRect.isValid());
+        bool hasRenameAction = false;
+        bool hasDeleteAction = false;
+        QTimer::singleShot(0, [&] {
+            auto *menu = qobject_cast<QMenu *>(QApplication::activePopupWidget());
+            if (!menu) return;
+            hasRenameAction = menu->findChild<QAction *>(QStringLiteral("renameConversationAction")) != nullptr;
+            auto *remove = menu->findChild<QAction *>(QStringLiteral("deleteConversationAction"));
+            hasDeleteAction = remove != nullptr;
+            if (remove) remove->trigger();
+            menu->close();
+        });
+        QTimer::singleShot(1000, [] {
+            if (auto *popup = QApplication::activePopupWidget()) popup->close();
+        });
+        const QPoint globalPosition = list->viewport()->mapToGlobal(itemRect.center());
+        QContextMenuEvent contextEvent(QContextMenuEvent::Mouse, itemRect.center(), globalPosition, Qt::NoModifier);
+        QApplication::sendEvent(list->viewport(), &contextEvent);
+        QVERIFY(hasRenameAction);
+        QVERIFY(hasDeleteAction);
+        QCOMPARE(deleted.count(), 1);
+        QCOMPARE(deleted.takeFirst().at(0).toString(), chat.id);
     }
 };
 

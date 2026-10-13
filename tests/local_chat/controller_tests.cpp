@@ -258,7 +258,8 @@ private slots:
         QTRY_COMPARE_WITH_TIMEOUT(modelSelector(window)->count(), 1, 5000);
         emit window.newConversationRequested(QStringLiteral("broken-model"));
         emit window.sendRequested(QStringLiteral("domanda senza risposta"));
-        QTRY_VERIFY_WITH_TIMEOUT(statusLabel(window)->text().contains(QStringLiteral("Error:")), 5000);
+        QTRY_VERIFY_WITH_TIMEOUT(statusLabel(window)->property("error").toBool(), 5000);
+        QVERIFY(!statusLabel(window)->text().trimmed().isEmpty());
         const auto chats = loadConversations(dataDirectory);
         QCOMPARE(chats.size(), 1);
         QCOMPARE(chats.first().messages.size(), 1);
