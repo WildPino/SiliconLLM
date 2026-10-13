@@ -1,0 +1,78 @@
+{
+  "schema": "FFN_OPERAND_AUDIT_BINDING_V1",
+  "freeze": "c3dc8b0",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.json",
+    "bytes": 6709346,
+    "sha256": "8d4b6dc8c647243a5a8c981440c04359ea3e4b0d48d2202a741330cc407424ec"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.terminal.json",
+    "bytes": 2738,
+    "sha256": "6df20aa0b9d88cb35aba91e6f9630ac6ba146c5be65c01f20ea8adea828b6ae7"
+  },
+  "worker_terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.worker_terminal.json",
+    "bytes": 1616,
+    "sha256": "56f2c38e6a3216304cbac4e897a713389faa3102967993c62acc99b8ec188e70"
+  },
+  "owned_process": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.owned_process.json",
+    "bytes": 2047,
+    "sha256": "a0fde12e8f6333be0b0a0b856e6cb9653dc3d27ae707a61e93c663f4179c2fc8"
+  },
+  "parent_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_binding_v2_20261013.json",
+    "bytes": 5587940,
+    "sha256": "9903f7f0719909406225f095963753f8edb776247257050a0868eb0e0510b3e4"
+  },
+  "supplemental_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_audit_launch.py",
+      "bytes": 8967,
+      "sha256": "c6ea249cdfb0fee56776564f061dd30c038971a3fb96d64caef03f2f135e8cb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\FFN_OPERAND_AUDIT_LAUNCH_PROTOCOL_20261013.md",
+      "bytes": 1835,
+      "sha256": "844fcf53cdb23c703b5dd2a71b026425a2e8c1d67878e6a4c4ef551231e071d0"
+    }
+  ],
+  "worker": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture_audit.py",
+  "output": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_adjudication_20261013.json",
+  "limits": {
+    "seconds": 7500,
+    "worker_seconds": 7200,
+    "OS_bytes": 8589934592,
+    "log_bytes": 134217728
+  },
+  "producer_closed": {
+    "holder_pid": 31288,
+    "holder_creation": 1791901436.9364777,
+    "worker_pid": 28776,
+    "worker_creation": 1791901469.5726664,
+    "both_exit_code": 0,
+    "matching_processes_absent": true,
+    "all9900_inputs_and8163_outputs_hash_verified": true,
+    "output_files": 8163,
+    "output_bytes": 28079135477,
+    "source_parameter_words": 1554863488,
+    "worker_seconds": 4765.921999999999,
+    "holder_seconds": 4828.343999999997,
+    "OS_peak": 4032020480,
+    "GPU_allocated_peak": 3187002368,
+    "GPU_reserved_peak": 3265265664
+  },
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "preparation_seconds": 62.5,
+  "scope": "Closed qualified-parent-exact FFN operand producer;full CPU audit pending. No expert fit/new model quality/speed/DRAM/useful-n admission."
+}
