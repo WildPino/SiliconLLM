@@ -1,0 +1,229 @@
+{
+  "schema": "TEMPORAL_ERROR_DECOMPOSITION_BINDING_V2",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "versions": {
+    "numpy": "2.4.6",
+    "psutil": "7.2.2"
+  },
+  "freeze": "eaeccfd616d5ced411621ee0ff688b0ccb94b93b",
+  "parent_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_result_20261013.json",
+    "bytes": 402850,
+    "sha256": "4914a093cf5f1dc9a3c905949a970e195ad4dc32842753943202d563a9a6798b"
+  },
+  "parent_adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_adjudication_20261013.json",
+    "bytes": 334318,
+    "sha256": "b6114bcc82407a1651d1fcbc9b4ed3958c7017da3b91f82a3b685d7745fd4772"
+  },
+  "rounding_witness": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_bf16_witness_v2_20261013.json",
+    "bytes": 125452,
+    "sha256": "e64e7af47e88570765edf0cd70fe09ea34ce6e88eacd98d264dfd265ceea6cf5"
+  },
+  "whole_operator_numeric_admission": false,
+  "original_false_numeric_flags_retained": [
+    {
+      "case": "23/broad_fit_smol_rewrite_004",
+      "control": "BF16_smooth_full_source_denominator",
+      "relative": 0.00014098116568485365,
+      "threshold": 0.0001,
+      "passed": false
+    }
+  ],
+  "qualified_state_and_own_controls": 1152,
+  "items": [
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "site": 23,
+      "history": 387,
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "parameters": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\full_channel_native_20261013\\prepare\\site23.parameters.npz",
+        "bytes": 80295962,
+        "sha256": "fc4a4390d417d31241b3c202c752b790964fde2217f0d7e9b760130a91a5245c"
+      },
+      "recovery": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\gate_input_recovery_20261013\\broad_dev_numina_cot_100k_035.site23.npz",
+        "bytes": 13116480,
+        "sha256": "d898e5f6d20e4a77def0e94810f87583ed595d557af9e78f4315ba81c02f986a"
+      },
+      "baseline": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\full_channel_native_20261013\\run\\broad_dev_numina_cot_100k_035.site23.npz",
+        "bytes": 20501516,
+        "sha256": "7d671a9510e2d67672f04547de1d8365d9efc1db944807317b063ec80f2369f4"
+      },
+      "native": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recovered_input_temporal_20261013\\broad_dev_numina_cot_100k_035.site23.npz",
+        "bytes": 20501516,
+        "sha256": "92f501e2bc597aa38f63a30dc7c3d8434f1f4bc18022bf191271c5d214b5add3"
+      },
+      "x": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.x.bf16",
+        "bytes": 2377728,
+        "sha256": "17a6bdc05cf018e1e337238568bb3e4b21a2768a390510f70995569ada4f553a",
+        "shape": [
+          387,
+          3072
+        ],
+        "dtype": "BF16"
+      },
+      "delta": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.delta.bf16",
+        "bytes": 37152,
+        "sha256": "bbbc5c20893a66c90c709e034d04c9fb095f5d5ddaac7e71cb4bf11ad482494b",
+        "shape": [
+          387,
+          48
+        ],
+        "dtype": "BF16"
+      },
+      "original_temporal_flags": {
+        "own_output": true,
+        "final_state": false
+      }
+    }
+  ],
+  "terms": [
+    "decay",
+    "delta",
+    "x",
+    "B"
+  ],
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\temporal_error_decomposition_v2.py",
+      "bytes": 13864,
+      "sha256": "6e7078fbb24f6f6d3e4db0ab0e8baaaad89de98aab7ea20ec11b30c5530ec8fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_auxiliary_s6_transport.py",
+      "bytes": 17798,
+      "sha256": "7e90bef086122e9c4f743cb768e4e9d17fd2c85864bceec408b04603bf3392e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\TEMPORAL_ERROR_DECOMPOSITION_V2_PROTOCOL_20261013.md",
+      "bytes": 1954,
+      "sha256": "748928419303ea430746b9385555e9563e8a41238b2ac5a796847e4f068dab11"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\temporal_error_decomposition_storage_20261013.json",
+      "bytes": 293,
+      "sha256": "a233add5d5cdbdb9dd4c515b5c1911ec598b6b44cab636c2f59c2e9e13dc7b87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_bf16_witness_v2_20261013.json",
+      "bytes": 125452,
+      "sha256": "e64e7af47e88570765edf0cd70fe09ea34ce6e88eacd98d264dfd265ceea6cf5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_result_20261013.json",
+      "bytes": 402850,
+      "sha256": "4914a093cf5f1dc9a3c905949a970e195ad4dc32842753943202d563a9a6798b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_adjudication_20261013.json",
+      "bytes": 334318,
+      "sha256": "b6114bcc82407a1651d1fcbc9b4ed3958c7017da3b91f82a3b685d7745fd4772"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_input_temporal_binding_20261013.json",
+      "bytes": 403099,
+      "sha256": "b8d9c09a40c4f3f0218d4b7f40d3d71de99bfdd4f1e1d1ccb93433453e338125"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_recurrent_adopted_result_20261009.json",
+      "bytes": 8582070,
+      "sha256": "bdec178a948e49bbec1d9eb4c01076bec9c182be8347306eb5dc02e0c873c849"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll",
+      "bytes": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3714560,
+      "sha256": "80e7dc34f51cf6cef24da060e1e8620936b2cf188bae0ea367dc8619b2316204"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp312-win_amd64.pyd",
+      "bytes": 112128,
+      "sha256": "b465dda08f9238ae83b05a0acbfbddec969d0b5fc5de366bbbe312a4600d6e31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "bytes": 20415488,
+      "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "bytes": 575056,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "bytes": 70656,
+      "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78"
+    },
+    {
+      "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\full_channel_native_20261013\\prepare\\site23.parameters.npz",
+      "bytes": 80295962,
+      "sha256": "fc4a4390d417d31241b3c202c752b790964fde2217f0d7e9b760130a91a5245c"
+    },
+    {
+      "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\gate_input_recovery_20261013\\broad_dev_numina_cot_100k_035.site23.npz",
+      "bytes": 13116480,
+      "sha256": "d898e5f6d20e4a77def0e94810f87583ed595d557af9e78f4315ba81c02f986a"
+    },
+    {
+      "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\full_channel_native_20261013\\run\\broad_dev_numina_cot_100k_035.site23.npz",
+      "bytes": 20501516,
+      "sha256": "7d671a9510e2d67672f04547de1d8365d9efc1db944807317b063ec80f2369f4"
+    },
+    {
+      "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recovered_input_temporal_20261013\\broad_dev_numina_cot_100k_035.site23.npz",
+      "bytes": 20501516,
+      "sha256": "92f501e2bc597aa38f63a30dc7c3d8434f1f4bc18022bf191271c5d214b5add3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.x.bf16",
+      "bytes": 2377728,
+      "sha256": "17a6bdc05cf018e1e337238568bb3e4b21a2768a390510f70995569ada4f553a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.delta.bf16",
+      "bytes": 37152,
+      "sha256": "bbbc5c20893a66c90c709e034d04c9fb095f5d5ddaac7e71cb4bf11ad482494b"
+    }
+  ],
+  "output_directory": "E:\\SiliconLLM\\results\\native_expert_scaling\\temporal_error_decomposition_20261013",
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 2147483648,
+    "output_bytes": 134217728
+  },
+  "numeric": {
+    "component_relative": 1e-10,
+    "identity_source_state_relative": 1e-10,
+    "native_source_state_relative": 0.0001,
+    "scalar_relative": 1e-08
+  },
+  "scope": "All failed temporal histories only,diagnostic ordered F64 forcing/decay decomposition,independent final survival-weight sums/native error in original-state units. No model choice/fit/source/GPU/RESERVED/true-input/causal qualification. Contributions depend on declared order;cross energies retained. Whole operator BF16 source-denominator failure remains;state and primary own-output controls qualify diagnosis only."
+}
