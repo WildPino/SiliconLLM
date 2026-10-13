@@ -1,6 +1,13 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+**AUTHORITATIVE 13 October2026: goal PAUSED/INCOMPLETE per human long-run instruction.**
+
+[Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md)
+IMPLEMENTED/BOUND/RUNNING:source19ab57b/binding e3c91ba,48 CPU adapter calls
+across24 actual packets exact. Owned bounded2h RTX3060 job;411 source
+parameters verified,first prefix control exact. These are startup/wiring
+controls;full chat/own-history/known held-out quality and complete stored
+audit pending. No final CPU/semantic useful-n/accepted TPS admission.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
@@ -13,8 +20,8 @@ raw/BF words each exact. These controls are NOT actual later-layer input or
 whole-chatbot quality. Nonfinite input rejects before state changes.
 New orderedE2,131,959,652B/all3 commands terminal0/owned PIDs absent/source
 checkpoint/protected hashes unchanged/no GPU/T4/RESERVED. Generic ABI and
-all24 export prerequisite now ready. NEXT implement/bind/launch actual
-full-width source quality bridge,retain hidden2048/original source operators,
+all24 export prerequisite now ready. Actual full-width quality bridge launched
+above,retaining hidden2048/original source operators,
 own native states/readout;no more operator-only refinements. Full CHATBOT/
 CPU engine/semantic useful-n/same useful50 remain open.
 
