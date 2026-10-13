@@ -1,0 +1,434 @@
+{
+  "schema": "SOURCE_FUNCTION_RANK_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_function_rank_binding_v2_20261013.json",
+    "bytes": 106024,
+    "sha256": "c496a060d1098f1bea0ecf34b86d21e534803f29573a39132138b2c7b4d90115"
+  },
+  "freeze": "9b5b6e1",
+  "records": [
+    {
+      "site": 0,
+      "cases": 24,
+      "positions": 11148,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\source_function_rank_20261013\\site00.npz",
+        "bytes": 234986926,
+        "sha256": "eb3526d033fc67f293c5321d56ae706080c5ba4d5884615bdee603dddd131880"
+      },
+      "input_covariance_metrics": {
+        "asymmetry_relative": 0.0,
+        "eigen_residual_relative": 2.4326146796784085e-15,
+        "orthogonal_max": 4.9960036108132044e-15,
+        "raw_minimum_eigenvalue": 3.1509138920753647e-07,
+        "raw_maximum_eigenvalue": 31.467026429116757,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 119.69704945884283,
+        "nonnegative_spectrum_sum": 119.69704945884278,
+        "root_square_relative": 3.062620114118151e-15
+      },
+      "input_metrics": {
+        "asymmetry_relative": 2.9649308428078205e-16,
+        "eigen_residual_relative": 2.507731391920595e-15,
+        "orthogonal_max": 4.602221381766469e-15,
+        "raw_minimum_eigenvalue": 1.0873298905031853e-09,
+        "raw_maximum_eigenvalue": 1.318504055235767,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 5.0,
+        "nonnegative_spectrum_sum": 4.999999999999998,
+        "balanced_trace_relative_to_five": 0.0
+      },
+      "output_metrics": {
+        "asymmetry_relative": 0.0,
+        "eigen_residual_relative": 2.0327099585190117e-15,
+        "orthogonal_max": 4.785234708482022e-15,
+        "raw_minimum_eigenvalue": 0.0615473027233113,
+        "raw_maximum_eigenvalue": 7126.215928049367,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 65405.44020337887,
+        "nonnegative_spectrum_sum": 65405.44020337887
+      },
+      "numeric_gates": {
+        "covariance": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true,
+          "root_square": true
+        },
+        "input": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true,
+          "balanced_trace": true
+        },
+        "output": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true
+        }
+      },
+      "section_energies": {
+        "gate": 1692.0578876413879,
+        "x": 1327.6681394343218,
+        "B": 226.84894779200522,
+        "C": 232.35938972056567,
+        "delta": 77.79164446185882
+      },
+      "input_tails": {
+        "128": {
+          "discarded_squared_energy": 0.5526251000932948,
+          "relative_squared_energy": 0.11052502001865899,
+          "relative_RMS": 0.33245303430508644
+        },
+        "256": {
+          "discarded_squared_energy": 0.30928515287374087,
+          "relative_squared_energy": 0.061857030574748194,
+          "relative_RMS": 0.248710736750041
+        },
+        "512": {
+          "discarded_squared_energy": 0.12458583574486105,
+          "relative_squared_energy": 0.02491716714897222,
+          "relative_RMS": 0.15785172520112734
+        },
+        "1024": {
+          "discarded_squared_energy": 0.022088272347117365,
+          "relative_squared_energy": 0.004417654469423475,
+          "relative_RMS": 0.06646543815716162
+        },
+        "2048": {
+          "discarded_squared_energy": 0.0,
+          "relative_squared_energy": 0.0,
+          "relative_RMS": 0.0
+        }
+      },
+      "output_tails": {
+        "128": {
+          "discarded_squared_energy": 28873.88363874388,
+          "relative_squared_energy": 0.44145996952180505,
+          "relative_RMS": 0.6644245401261193
+        },
+        "256": {
+          "discarded_squared_energy": 18559.02423959683,
+          "relative_squared_energy": 0.2837535254236858,
+          "relative_RMS": 0.5326852029329197
+        },
+        "512": {
+          "discarded_squared_energy": 8383.459347687794,
+          "relative_squared_energy": 0.1281767896006715,
+          "relative_RMS": 0.358017862125162
+        },
+        "1024": {
+          "discarded_squared_energy": 1696.965387991469,
+          "relative_squared_energy": 0.025945324772904794,
+          "relative_RMS": 0.16107552505860348
+        },
+        "2048": {
+          "discarded_squared_energy": 0.0,
+          "relative_squared_energy": 0.0,
+          "relative_RMS": 0.0
+        }
+      }
+    },
+    {
+      "site": 12,
+      "cases": 24,
+      "positions": 11148,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\source_function_rank_20261013\\site12.npz",
+        "bytes": 234986926,
+        "sha256": "0b6a884d505819b92388ac729fe0407853cf3755529a19a02136b84a5e299ead"
+      },
+      "input_covariance_metrics": {
+        "asymmetry_relative": 0.0,
+        "eigen_residual_relative": 2.0739112414029816e-15,
+        "orthogonal_max": 5.7957111332385125e-15,
+        "raw_minimum_eigenvalue": 0.001756979436042645,
+        "raw_maximum_eigenvalue": 271.29587028574025,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 1765.1636489909906,
+        "nonnegative_spectrum_sum": 1765.1636489909906,
+        "root_square_relative": 2.8871287003228503e-15
+      },
+      "input_metrics": {
+        "asymmetry_relative": 4.0760381495204654e-16,
+        "eigen_residual_relative": 1.9894865995808906e-15,
+        "orthogonal_max": 5.264018387851621e-15,
+        "raw_minimum_eigenvalue": 3.359638606864628e-07,
+        "raw_maximum_eigenvalue": 1.0039152748068159,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 5.000000000000001,
+        "nonnegative_spectrum_sum": 5.0,
+        "balanced_trace_relative_to_five": 1.7763568394002506e-16
+      },
+      "output_metrics": {
+        "asymmetry_relative": 0.0,
+        "eigen_residual_relative": 1.6380849511082495e-15,
+        "orthogonal_max": 5.5658602726715856e-15,
+        "raw_minimum_eigenvalue": 0.0371161752721124,
+        "raw_maximum_eigenvalue": 724.034718064965,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 19708.86969809033,
+        "nonnegative_spectrum_sum": 19708.86969809033
+      },
+      "numeric_gates": {
+        "covariance": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true,
+          "root_square": true
+        },
+        "input": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true,
+          "balanced_trace": true
+        },
+        "output": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true
+        }
+      },
+      "section_energies": {
+        "gate": 21264.755927105365,
+        "x": 13773.550283114415,
+        "B": 1891.0097536755145,
+        "C": 1646.151086848654,
+        "delta": 844.2799594509601
+      },
+      "input_tails": {
+        "128": {
+          "discarded_squared_energy": 0.9121960308006614,
+          "relative_squared_energy": 0.18243920616013226,
+          "relative_RMS": 0.4271290275316491
+        },
+        "256": {
+          "discarded_squared_energy": 0.5656945257714224,
+          "relative_squared_energy": 0.11313890515428449,
+          "relative_RMS": 0.33636127178122704
+        },
+        "512": {
+          "discarded_squared_energy": 0.2817624956104932,
+          "relative_squared_energy": 0.056352499122098644,
+          "relative_RMS": 0.2373868132860346
+        },
+        "1024": {
+          "discarded_squared_energy": 0.08545515127320505,
+          "relative_squared_energy": 0.01709103025464101,
+          "relative_RMS": 0.13073266712892004
+        },
+        "2048": {
+          "discarded_squared_energy": 0.0,
+          "relative_squared_energy": 0.0,
+          "relative_RMS": 0.0
+        }
+      },
+      "output_tails": {
+        "128": {
+          "discarded_squared_energy": 8925.401830085271,
+          "relative_squared_energy": 0.4528621867620389,
+          "relative_RMS": 0.6729503598052674
+        },
+        "256": {
+          "discarded_squared_energy": 5832.326403658818,
+          "relative_squared_energy": 0.29592394150456713,
+          "relative_RMS": 0.5439889167111469
+        },
+        "512": {
+          "discarded_squared_energy": 2847.889690754794,
+          "relative_squared_energy": 0.14449786996312314,
+          "relative_RMS": 0.38012875445449157
+        },
+        "1024": {
+          "discarded_squared_energy": 707.032985336592,
+          "relative_squared_energy": 0.03587384746904584,
+          "relative_RMS": 0.18940392675191778
+        },
+        "2048": {
+          "discarded_squared_energy": 0.0,
+          "relative_squared_energy": 0.0,
+          "relative_RMS": 0.0
+        }
+      }
+    },
+    {
+      "site": 23,
+      "cases": 24,
+      "positions": 11148,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\source_function_rank_20261013\\site23.npz",
+        "bytes": 234986926,
+        "sha256": "aa384040b925741912c6f8fe77c24092fc6fc6a42306ece3ca3c5284060561eb"
+      },
+      "input_covariance_metrics": {
+        "asymmetry_relative": 0.0,
+        "eigen_residual_relative": 2.6192396637161667e-15,
+        "orthogonal_max": 5.040239059450613e-15,
+        "raw_minimum_eigenvalue": 5.7556715037746924e-05,
+        "raw_maximum_eigenvalue": 800.3054918814228,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 3274.802550052027,
+        "nonnegative_spectrum_sum": 3274.802550052028,
+        "root_square_relative": 3.3285579577882787e-15
+      },
+      "input_metrics": {
+        "asymmetry_relative": 2.2248728777460745e-16,
+        "eigen_residual_relative": 1.9304410817237365e-15,
+        "orthogonal_max": 4.048844592929868e-15,
+        "raw_minimum_eigenvalue": 4.465578270619492e-09,
+        "raw_maximum_eigenvalue": 2.310194759660752,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 5.000000000000006,
+        "nonnegative_spectrum_sum": 5.000000000000007,
+        "balanced_trace_relative_to_five": 1.2434497875801752e-15
+      },
+      "output_metrics": {
+        "asymmetry_relative": 0.0,
+        "eigen_residual_relative": 2.377023373840793e-15,
+        "orthogonal_max": 5.216313492262259e-15,
+        "raw_minimum_eigenvalue": 1.2119357569139975,
+        "raw_maximum_eigenvalue": 518311.81149367854,
+        "negative_eigenvalue_relative": 0.0,
+        "negative_modes": 0,
+        "exact_zero_modes": 0,
+        "negative_mass_removed": -0.0,
+        "negative_mass_relative": -0.0,
+        "trace": 1633069.782279492,
+        "nonnegative_spectrum_sum": 1633069.7822794924
+      },
+      "numeric_gates": {
+        "covariance": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true,
+          "root_square": true
+        },
+        "input": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true,
+          "balanced_trace": true
+        },
+        "output": {
+          "symmetry": true,
+          "residual": true,
+          "orthogonality": true,
+          "PSD": true
+        }
+      },
+      "section_energies": {
+        "gate": 61407.27981775309,
+        "x": 42661.12108003338,
+        "B": 2351.055466326636,
+        "C": 3340.2437147115675,
+        "delta": 1436.917622264457
+      },
+      "input_tails": {
+        "128": {
+          "discarded_squared_energy": 0.7783175615623019,
+          "relative_squared_energy": 0.15566351231246017,
+          "relative_RMS": 0.3945421553046774
+        },
+        "256": {
+          "discarded_squared_energy": 0.48455714582071,
+          "relative_squared_energy": 0.09691142916414186,
+          "relative_RMS": 0.31130600566667815
+        },
+        "512": {
+          "discarded_squared_energy": 0.22276957393440272,
+          "relative_squared_energy": 0.04455391478688048,
+          "relative_RMS": 0.2110779827146367
+        },
+        "1024": {
+          "discarded_squared_energy": 0.06254919249362584,
+          "relative_squared_energy": 0.01250983849872515,
+          "relative_RMS": 0.11184738932458438
+        },
+        "2048": {
+          "discarded_squared_energy": 0.0,
+          "relative_squared_energy": 0.0,
+          "relative_RMS": 0.0
+        }
+      },
+      "output_tails": {
+        "128": {
+          "discarded_squared_energy": 293915.79420488566,
+          "relative_squared_energy": 0.17997748620063764,
+          "relative_RMS": 0.4242375351152201
+        },
+        "256": {
+          "discarded_squared_energy": 190422.58227992654,
+          "relative_squared_energy": 0.11660406943182089,
+          "relative_RMS": 0.3414733802682442
+        },
+        "512": {
+          "discarded_squared_energy": 94864.57090217582,
+          "relative_squared_energy": 0.05808972276111848,
+          "relative_RMS": 0.24101809633535504
+        },
+        "1024": {
+          "discarded_squared_energy": 24386.977534131678,
+          "relative_squared_energy": 0.014933212162000534,
+          "relative_RMS": 0.12220152274828876
+        },
+        "2048": {
+          "discarded_squared_energy": 0.0,
+          "relative_squared_energy": 0.0,
+          "relative_RMS": 0.0
+        }
+      }
+    }
+  ],
+  "numeric_all_pass": true,
+  "before_after_hashes_exact": true,
+  "DEV_arrays_read": 0,
+  "source_forwards": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "factor_kernels_built": 0,
+  "decision": "COMPLETE_PENDING_INDEPENDENT_AUDIT",
+  "output_bytes": 704960778,
+  "seconds": 54.5779999999977,
+  "OS_peak": 642674688,
+  "scope": "Uncentered equal-history FIT-only globally-linear generator and output-space response-rank envelopes at fixed ranks. No DEV array reads/basis choice, source/GPU/native rerun, factor kernels, nonlinear field/state/causal/chatbot quality or speed/ternary expert/n admission. Stored F32 outputs define the output proxy; they are not exact real O*Z contractions."
+}
