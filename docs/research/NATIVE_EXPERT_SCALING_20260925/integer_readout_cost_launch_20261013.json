@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/integer_readout_cost.py",
+    "--run",
+    "--freeze",
+    "e4ea3fd",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_cost_binding_20261013.json",
+    "--binding-sha",
+    "91aff63ed2025aa89a473610563a6aba0ab9204868ba13e6f195ef2a3422363d",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/integer_readout_cost_result_20261013.json"
+  ],
+  "schema": "INTEGER_READOUT_COST_LAUNCH_V1",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "binding_sha256": "91aff63ed2025aa89a473610563a6aba0ab9204868ba13e6f195ef2a3422363d",
+  "freeze": "e4ea3fd",
+  "scope": "Exact full-audited DLL;360 paired observations including actual BF16 decode and integer input quantizer;no model-rate admission",
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 900
+  }
+}
