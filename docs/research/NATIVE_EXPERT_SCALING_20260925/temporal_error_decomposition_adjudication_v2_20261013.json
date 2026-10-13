@@ -1,0 +1,151 @@
+{
+  "schema": "TEMPORAL_ERROR_DECOMPOSITION_AUDIT_V2",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\temporal_error_decomposition_binding_v2_20261013.json",
+    "bytes": 10604,
+    "sha256": "cd317a4eea792334d51ca2ca93ae2fb15fbeb4b10240f33077f67f6867eef90a"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\temporal_error_decomposition_result_v2_20261013.json",
+    "bytes": 2657,
+    "sha256": "7239e3cc5f51d82ad56830224cfa0d9bbe0b3bdba1582c599d99b5eef4db8000"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\temporal_error_decomposition_result_v2_20261013.run_terminal.json",
+    "bytes": 1338,
+    "sha256": "1e66b5165b7c499ac458c4e777873b7f34c91f3f0131e0bc936f84a690931115"
+  },
+  "records": [
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "site": 23,
+      "word_count": 2064384,
+      "metrics": {
+        "F64_error_relative": 0.011258000798047226,
+        "native_error_relative": 0.011258001659551944,
+        "term_norms_source_relative": {
+          "decay": 0.003754180397359049,
+          "delta": 0.012156878576621925,
+          "x": 0.0027472323120015982,
+          "B": 0.003846678401022601
+        },
+        "cross_gram": [
+          [
+            1.409387045591495e-05,
+            -3.1208208759499227e-05,
+            1.800920465353722e-07,
+            -3.448961158641351e-08
+          ],
+          [
+            -3.1208208759499227e-05,
+            0.0001477896967267291,
+            -9.141409634320769e-07,
+            3.275424367618282e-06
+          ],
+          [
+            1.800920465353722e-07,
+            -9.141409634320769e-07,
+            7.547285376105647e-06,
+            -4.127973504096932e-08
+          ],
+          [
+            -3.448961158641351e-08,
+            3.275424367618282e-06,
+            -4.127973504096932e-08,
+            1.4796934720893795e-05
+          ]
+        ],
+        "numeric": {
+          "identity_source_state_relative": 9.362989528385008e-16,
+          "original_native_relative": 6.586283070298389e-07,
+          "regenerated_native_relative": 6.736809061478864e-07,
+          "error_native_source_state_relative": 4.892050856296107e-07
+        }
+      }
+    }
+  ],
+  "numeric_flags": [
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "S_original",
+      "relative": 1.009689133718795e-15,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "S_regenerated",
+      "relative": 1.0126675325272695e-15,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "decay",
+      "relative": 2.0337303201779948e-13,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "delta",
+      "relative": 9.907677487370614e-16,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "x",
+      "relative": 4.2517795632712063e-16,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "B",
+      "relative": 1.0643392646411418e-15,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "error",
+      "relative": 1.0898150023642524e-13,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "identity_source_state_relative",
+      "relative": 9.362989528385008e-16,
+      "threshold": 1e-10,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "original_native_relative",
+      "relative": 6.586283070298389e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "regenerated_native_relative",
+      "relative": 6.736809061478864e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "23/broad_dev_numina_cot_100k_035",
+      "control": "error_native_source_state_relative",
+      "relative": 4.892050856296107e-07,
+      "threshold": 0.0001,
+      "passed": true
+    }
+  ],
+  "decision": "INDEPENDENT_STORED_PASS",
+  "before_after_hashes_exact": true,
+  "seconds": 1.2123870000013994,
+  "OS_peak": 225001472,
+  "scope": "All failed temporal histories only,diagnostic ordered F64 forcing/decay decomposition,independent final survival-weight sums/native error in original-state units. No model choice/fit/source/GPU/RESERVED/true-input/causal qualification. Contributions depend on declared order;cross energies retained. Whole operator BF16 source-denominator failure remains;state and primary own-output controls qualify diagnosis only."
+}

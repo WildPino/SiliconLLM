@@ -1,6 +1,34 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; temporal audit LIVE session36813;producer50088 CLOSED0.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Temporal recovered-input result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
+COMPLETE/all144 actual native histories/full independent audit. Current own-output
+1%PASS144/144;final-state1%FAILone site23 DEV Numina1.125798%. Source-relative
+own-norm local budgets allPASS/means.076416/.087351/.025683. Global numericFAIL
+retains DIFFERENT site23 FIT Smol/source-denom BF16 smooth1.4098e-4>1e-4;
+all normalized BF16 values exact/all277,057,536 raw F32 score bits exact.
+All primary own/state controlsPASS. Coordinate-complete witness121 mismatches:
+111 adjacent crossings carry nearly all BF16 error;10 cancellation discrepancies
+negligible. No threshold waiver or full operator numeric admission.
+Independent F64 ordered state-forcing/survival-sum decompositionPASS2,064,384
+words:delta term1.215686%,decay.375417% with negative cross,x.274723%,B.384667%;
+combined real error1.125798% versus actualnative1.125798%,numeric residual~5e-7
+original-state units. Contribution norms not additive/unique causal fractions.
+Counterexample is input forcing,not evidence of a native state-arithmetic fault
+under the1e-4 control. Original inferred H true-input error still unknown.
+[Closure](recovered_input_temporal_session_closure_20261013.json):nine owned
+commands terminal,no owned PID;two guarded/explanation faults retained,full
+native3,546,915,264B+mechanism16,517,166B onE,engine/foreign hashes preserved.
+No source/GPU/T4/RESERVED/optimizer/new answers. Decomposition uses qualified
+state/own controls only;global BF16 numeric failure remains. Canonical F64-norm
+units explicitly reconciled with producer's F32-computed norm,not overwritten.
+Next [true input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md) selected/
+PROPOSED/UNIMPLEMENTED/UNBOUND:all24 H layers in same48 source prefills,full7
+continuity fields0/12/23,localGPU1800s/OS12GiB/GPU10/11GiB/newE6GiB proposed.
+No job started. Cheap function/conditional ternary/OWN causal layer conversion,
+useful n/CPU IDs+masses/realDRAM/multi-family/mastersO(n)/same useful50 remain.
+
+**Historical field-recovery and temporal-live state,retained below.**
 [Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
 COMPLETE/full independent audit PASS. ALL144 case/site pairs and ALL gate/x/B/C/
 delta fields pass frozen whole-history1% consistency;zero720-comparison failures.

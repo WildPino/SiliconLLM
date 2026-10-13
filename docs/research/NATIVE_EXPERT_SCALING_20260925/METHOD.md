@@ -24,16 +24,31 @@ captured x/B/C/delta;all453,465,264 field words/138,528,768 H64+candidate words
 per type/18,874,368 inverse coefficients qualified by rectangular QR and separate
 replay. No actual source input bits or true-input error bound. Worst centered
 site23 B1.381%/x1.070% retained. Approximate inputs may initialize calibration;
-temporal propagation must qualify before they become usable fitting proxies.
-[Next temporal gate](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
-IMPLEMENTED/FROZEN/BOUND/AUDIT LIVE session36813;producer50088 CLOSED0:
-all own-output flagsPASS,one1.125798% final-state discrepancy exceeds1%.
-No numeric/temporal admission yet:
-regenerated operands through SAME fixed native
-full3072/state96;each-case own-output and full-final-state1% gates,original
-source-relative budgets and complete independent audit. No source forward/GPU/
-T4/RESERVED. Compact causal input/output/conditional ternary functions remain
-missing;offline gate inversion is not a runtime encoder.
+temporal propagation must qualify before they become usable fitting proxies;
+the completed temporal counterexample below prevents that admission.
+[Temporal propagated-input gate](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
+now COMPLETE/full independent audit144 histories. Own-output1%PASSall144;
+final-state1%FAILone DEV Numina/site23 at1.125798%. Donor-relative own-norm
+local budgetsPASS/all3,mean.076416/.087351/.025683. Whole-operator numericFAIL
+retains DIFFERENT FIT Smol/source-denom BF16 smooth1.4098e-4>1e-4;all normalized
+BF16 vectors exact/all277,057,536 raw F32 score bits exact. All primary own-output
+and state/projection controlsPASS. Coordinate-complete rounding witness111
+adjacent crossings/10 cancellation discrepancies adjudicates without waiving.
+All144 histories/metrics/flags/hashes/audits completed,not a failed subset.
+Inferred inputs are NOT admitted for temporal calibration. Independent F64
+forcing decomposition/survival-sum audit2,064,384 final state/component words
+PASS:delta forcing largest ordered term,decay partially cancels;native arithmetic
+error~5e-7 original-state units much smaller than1.125798%. Not unique causal
+percentages or proof of unlimited future instability;whole numeric failure remains.
+Next [TRUE generator inputs](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Same48 source prefills capture BF16 H at ALL24
+layers/full7 continuity fields at0/12/23,then actual-source replay qualifies
+before [FIT response-rank compression](SOURCE_FUNCTION_RANK_NEXT_20261013.md).
+Proposed local RTX3060 family1800s/OS12GiB/GPU10GiB allocated11GiB reserved/new
+E6GiB;no source/GPU/T4 allocated now. All-layer input capture avoids future
+source forwards solely for missing input data;it does not prove all-layer
+operator or own-history capacity. Compact causal input/output/conditional
+ternary functions still missing;offline inverse is not runtime encoding.
 Numerical package alias custody gap in prior native input enumeration is explicit
 in its report;new preparations bind resolved ABI/BLAS files directly.
 [Actual C mixed384x96 operator](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) now

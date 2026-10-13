@@ -6,8 +6,11 @@
 prospective portions below. All144 native operators/direct states/scores audited;
 ownnorm local gatesPASS/all3 sites,fixed-source-denominatorFAIL0/12. Full3072x96
 scan~59us/total~1300us versusold384x96~1249us,total difference~4% across separate
-runs. Gate matrices rank2048/conditions27/71/55;no source input recovered.
-[Current next](GATE_INPUT_RECOVERY_NEXT_20261013.md) is PROPOSED/UNIMPLEMENTED/UNBOUND.
+runs. Gate matrices rank2048/conditions27/71/55. [Approximate recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
+passes field consistency but [temporal qualification](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
+retains one state1%failure/one separate BF16 numerical flag. No true input yet.
+[Current next](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md) is PROPOSED/UNIMPLEMENTED/UNBOUND.
+The older pre-observation rationale below is historical.
 [Actual native cost result](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) changes
 the next action:state384x96~10us,normalize/output~1157us,retained input generator
 separately~2535us on one core. No joined-layer rate or whole chatbot admission.

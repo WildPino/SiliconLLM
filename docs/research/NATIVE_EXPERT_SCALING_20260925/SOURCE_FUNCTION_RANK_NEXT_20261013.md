@@ -1,9 +1,11 @@
 # Source-function active cost: FIT response-rank envelope
 
 13 October2026. **CONDITIONAL PROPOSAL / UNIMPLEMENTED / UNBOUND.**
-Execute after full independent temporal-fidelity qualification of the recovered
-inputs. A temporal failure instead requires a documented correction or true-input
-capture proposal. No compressed model or rank has been admitted here.
+The recovered-input temporal gate FAILED one final-state case;full audit and
+mechanism are in [result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md). Execute
+with qualified TRUE inputs after [selected capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
+and actual replay. Keep inferred inputs as explicit diagnostics,not ground truth.
+No compressed model or rank has been admitted here.
 
 ## Uncertainty and connection to the goal
 
@@ -17,7 +19,7 @@ interface,all3072 recurrent channels,fixed state maps and conv/gate/norm semanti
 while studying operator rank. A rank reduction here does not prove a compact
 causal hidden encoder or conserved pretrained conditional capacity.
 
-Reuse the temporal-qualified approximate BF16 H and actual source in_proj,
+Reuse the captured and qualified actual BF16 H and actual source in_proj,
 plus the qualified own-norm BF163072-channel inputs/raw F32 output responses.
 Only24 FIT histories/site determine covariance,normalization and bases.
 Give each history equal weight:sum_i Gram_i/history_i divided by24;do not let
@@ -52,8 +54,8 @@ If retained left singular vectors U_r are numerically qualified,one candidate is
 This minimizes the stated real linear objective on the observed FIT proxy;
 explicit BF16 projection/MuP/conv4/SiLU/delta stages still need full replay.
 Actual source MuP has two BF16 rounding stages;folding a scalar into W is
-not an exact equality of those rounded computations. The covariance is of
-approximate H,not unknown true hidden ground truth.
+not an exact equality of those rounded computations. If an inferred-input control is evaluated,its covariance remains explicitly
+approximate;the primary compression calibration requires actual qualified H.
 
 ## Output geometry
 

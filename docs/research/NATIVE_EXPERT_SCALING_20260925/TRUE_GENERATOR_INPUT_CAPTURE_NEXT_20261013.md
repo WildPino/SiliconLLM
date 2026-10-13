@@ -1,10 +1,12 @@
 # True generator-input calibration after the temporal counterexample
 
-13 October2026. **CONDITIONAL NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
-Choose after the full temporal audit and fixed error-decomposition audit.
-If the state failure is reproduced and explained by regenerated forcing,
-capture true module inputs before function compression. Numerical faults must
-be adjudicated first. Do not relax the fixed1% final-state gate or optimize the
+13 October2026. **SELECTED NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+The full temporal audit retained one BF16 smooth diagnostic failure;the
+coordinate-complete rounding witness adjudicates it without waiving it.
+All state/primary own-output controls qualify the independently verified
+state-error decomposition. The fixed final-state failure persists and changed
+delta forcing is the largest ordered contribution. Capture true module inputs
+before function compression;whole-operator NUMERIC_FAILURE remains. Do not relax the fixed1% final-state gate or optimize the
 inverse on the failed DEV history. The response-rank proposal remains conditional.
 
 ## Question and expected decision
@@ -20,13 +22,17 @@ Use the SAME pinned Falcon-H1-1.5B-Instruct weights/config,actual source
 constructor dtypeBF16/MuP buffer,tiled reference SSM helper and original48
 complete forced histories. No LM-head,new answer/generation,optimizer or
 RESERVED. One full base-model prefill per history,zero source state/use_cacheFalse.
-All24 layers execute;only sites0/12/23 are captured. H is args[0] at in_proj:
+All24 layers execute. Capture true H at ALL24 sites in this same source
+prefill,so later all-layer transfer does not require another donor run solely
+for missing calibration inputs. Full7 recurrent continuity fields are retained
+at sites0/12/23. H is args[0] at in_proj:
 AFTER ssm_in_multiplier .625 and BEFORE projection. Assert actual BF16 dtype,
 shape(1,history,2048),finite values;save original bits,not casted inputs.
 
-Capture true H and all7 existing recurrent fields x/B/C/delta/gate/y/output
-at these sites,using the original observation boundaries. All144 pairs must
-match corpus histories/IDs/positions. Fixed per-case/per-field relative RMS
+Capture true H at all24 sites and all7 existing recurrent fields x/B/C/delta/
+gate/y/output at sites0/12/23,using the original observation boundaries. All1152
+input case/site pairs and144 full-field pairs must match corpus histories/IDs/
+positions. No fitting on these new inputs before the data audit. Fixed per-case/per-field relative RMS
 continuity budget1e-4 against the adopted original capture,with exact bit
 mismatch counts and centered/label/domain/worst retained. This distinguishes
 a true-input observation of the same source computation from a changed
@@ -55,8 +61,9 @@ Do not claim a precise new runtime from either. Reducing captured sites lowers
 data traffic but the whole pretrained base model still executes.
 
 Proposed local RTX3060 job family<=1800s/reserve90s,OS12GiB,GPU allocated10GiB/
-reserved11GiB,new ordered E family<=3GiB. Raw payload is
-22547*3*(29792+4096)=2,292,218,208B,including277,057,536B true H. Charge actual
+reserved11GiB,new ordered E family<=6GiB. Raw payload is
+22547*(24*4096+3*29792)=4,231,620,960B,including2,216,460,288B true H.
+This extra all-layer H scope adds storage/copies,not extra source forwards. Charge actual
 metadata/logs/workspace/launcher,not just tensor payload. No T4 allocation.
 Audit CPU producer900s/audit1200s/OS6GiB proposed for subsequent replay;exact
 implementation/runtime/compiler/data/limits remain UNBOUND.
@@ -72,7 +79,10 @@ launch/PAUSE rule;no hours-long work is launched by this proposal.
 
 ## Route onward
 
-With qualified actual input data,implement [FIT source response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md),
+First qualify sites0/12/23 against the complete retained original fields;true
+H at other sites is actual observed input data,not yet an independently replayed
+generator/recurrence qualification. With qualified actual input data,implement
+[FIT source response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md),
 then cheaper shared input/output plus conditional ternary residual functions.
 Keep trained shared recurrence and explicit causal information boundaries.
 Joint layers,own emitted histories,source categorical/chatbot quality,CPU

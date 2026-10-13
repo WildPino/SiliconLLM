@@ -1,10 +1,11 @@
 # Recovered source-function inputs: temporal propagation before calibration
 
-13 October 2026. **IMPLEMENTED / FROZEN / BOUND / PRODUCER LIVE.**
-Source/protocol freeze fd2f8a0; [binding](recovered_input_temporal_binding_20261013.json)
-SHA b8d9c09a...;[launch](recovered_input_temporal_launch_20261013.json)4442738,
-producer session50088. Original pre-observation rationale below is retained;
-no result or temporal fidelity admitted until the complete independent audit.
+13 October2026. **ORIGINAL PROPOSAL / NOW COMPLETE WITH FAILURES.**
+[Full result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md) supersedes operation:
+all144 own-output flagsPASS,one final-state1%FAIL;one separate source-denom
+BF16 numeric flag retained/full audit complete. State-mechanism auditPASS.
+[True input capture next](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md) selected,
+PROPOSED/UNIMPLEMENTED/UNBOUND. Original pre-observation rationale below retained.
 Execute only after the full [input recovery audit](GATE_INPUT_RECOVERY_RESULT_20261013.md)
 passes its frozen numerical controls. This is the next uncertainty to resolve,
 before treating recovered inputs as a usable calibration proxy for cheaper

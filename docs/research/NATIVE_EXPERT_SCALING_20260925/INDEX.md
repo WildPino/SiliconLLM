@@ -1,17 +1,18 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE; temporal audit LIVE session36813;producer50088 CLOSED0.**
-[Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
-COMPLETE/full independent audit PASS:all144 histories/sites0/12/23,
-453,465,264 regenerated BF16 field words,138,528,768 recovered H64 words,
-138,528,768 candidate words and18,874,368 inverse coefficients verified.
-EVERY case/EVERY gate/x/B/C/delta field passes frozen whole-history1% gate.
-Worst DEV field error.707236%; centered site23 B1.381059%/x1.070170% retained.
-These are approximate offline inputs,not true hidden bits or a causal encoder.
-Next [temporal propagation gate](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
-IMPLEMENTED/FROZEN/BOUND/AUDIT LIVE:regenerated operands through SAME qualified
-full3072/state96 native recurrence before cheaper function calibration. Producer retained one final-state1% failure,all own-output flagsPASS. No numeric
-admission until full independent audit.
+**13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Temporal recovered-input result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
+COMPLETE/full144 audit. Own-output1% gatesPASS144/144;final-state1%FAIL1/144
+(site23 DEV Numina1.125798%). All primary own/state numeric controlsPASS;
+whole operator NUMERIC_FAILURE retains one source-denom BF16 smooth1.4098e-4
+>1e-4 on a DIFFERENT FIT Smol case. All277,057,536 actual F32 score bits exact;
+normalized BF16 differences0. Complete rounding witness121 coordinates retained.
+State-error decomposition independentlyPASS:largest ordered term is changed
+delta forcing,with partial decay cancellation;no native state-arithmetic fault
+found at the1e-4 control. Inferred inputs NOT admitted for temporal calibration.
+Next [TRUE in_proj input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:all24 input layers in same48 source prefills,
+full continuity fields0/12/23. No source/GPU/T4 allocated now.
 
 ## Goal and constraints
 
@@ -40,6 +41,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Temporal paired experiment](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md):all144 actual native histories/full independent audit complete. One final-state failure despite all current own-output flagsPASS. Separate BF16 diagnostic false1e-4 flag retained;111 midpoint crossings dominate its error,10 cancellation discrepancies negligible. Decomposition2,064,384 full F64 final words independently verified by survival sums;changed delta forcing dominates this ordered attribution. [Closure](recovered_input_temporal_session_closure_20261013.json):nine commands/two guarded/explanation faults/owned PID absent,3.547GB native+16.517MB mechanism arrays on E,engine/foreign hashes preserved. True source input now needed before compression.
 - [Input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md):fixed full-rank inverse/BF16 candidate/MuP/conv/activation/delta replay,all144 histories/all five fields PASS. Independent QR/window-conv/activation/all arrays/metrics/hashes PASS;2.443GB E arrays. No true-input error bound,CUDA reduction equivalence or temporal admission. [Closure](gate_input_recovery_session_closure_20261013.json):three terminal0 commands/owned PID absent/engine and foreign hashes preserved.
 - [Wide native trained state](FULL_CHANNEL_NATIVE_RESULT_20261013.md):every CPU timestep/full final states and277,057,536 raw F32 score bits qualified. Ownnorm local DEVmeans.076342/.087177/.024904/all gatesPASS;fixed-source-denomFAIL0/12 retained. Same qualified operators scan~59us,total~1300us;8x state count not8x whole cost here. Source generator/readout and causal hidden still missing.
 - [Source gate matrix](GATE_INPUT_OPERATOR_RESULT_20261013.md):all25,178,112 matrix/spectrum words/blockGram/direct rectangular SVD PASS,rank2048/all3,conditions27/71/55. Earlier alias-based runtime enumeration omission explicitly retained;current recovery directly pins resolved ABI/BLAS.
@@ -50,30 +52,33 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Next and exact resumption
 
-[Temporal propagation](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md) producer CLOSED0
-session50088;full audit LIVE36813,launch4fd621f. Source/auditor/protocol freeze
-fd2f8a0,binding b8d9c09a...,
-launch4442738. Preparation29881 CLOSED0. Poll SAME live handle;timeout is not
-termination,never restart based only on missing observation. All144 producer cases complete;one site23 Numina final-state discrepancy1.125798%
->1%,own-output.785487% PASS. Finish SAME audit handle;then frozen failed-state
-forcing/decay decomposition e594018 before calibration or compression admission.
-Current source and audit freezes f51f63c/7074212,launches2aec0c3/788071c;
-[recovery binding](gate_input_recovery_binding_20261013.json) SHA44f61d40...,
-[result](gate_input_recovery_result_20261013.json),
-[adjudication](gate_input_recovery_adjudication_20261013.json) PASS.
-No rerun of completed recovery or source model. Use regenerated x/B/C/delta/gate,
-fixed Ws/Vs and existing qualified DLL at all48 histories/all3 sites. Primary
-own-norm output AND full final-state discrepancy<=1% EACH case;original donor
-local budgets unchanged. Diagnostic centered/source-denominator/label/domain
-and full independent numerical/hash audit retained even failure. Proposed
-producer900s/audit1200s/OS6GiB/new E family<=6GiB,no GPU/T4/RESERVED/optimizer.
-Do not treat approximate H as true source input or substitute residual/FFN input.
+Implement/freeze/bind [TRUE generator-input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md).
+Actual H BEFORE in_proj/AFTER .625 at all24 layers,same48 histories/zero-state
+base-model prefills/noLMhead/use_cacheFalse;full7 recurrent fields at0/12/23.
+Capture original BF16 bits,not casted input. Independently verify continuum
+against adopted original fields1e-4 and audit all data/parameter/runtime/hash/
+terminal/resource evidence before fitting. Original observed inputs at other
+layers are actual data,not yet generator/recurrence qualification.
 
-Then calibrate cheap input/output and ternary conditional functions around a
-shared core creating its OWN causal history. Actual generator/conv/readout,
-attention/FFN/head and routing/expert DRAM costs must join in one useful model.
-104 new+64 older RESERVED and longalign8186-20874 remain unqueried.
-Lossless-master/moment compilers remain reusable;conversion masters/gradientsO(n)
-and multi-family/scaling proof still unresolved. [Prior evidence](PRIOR_EVIDENCE.md)
-and [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md) preserve historical runs.
-No whole-model quality,n,DRAM,same useful50 or goal completion admission.
+Proposed local RTX3060 family1800s/reserve90s/OS12GiB/GPU10GiB allocated11GiB
+reserved/new E6GiB,payload4,231,620,960B. No job started. Announce purpose/budget/
+stops,check actual GPU/runtime/source availability,pin resolved CUDA/ABI/BLAS/
+HF/source/helper/corpus and exact launch first. User's hours-run PAUSE rule
+remains;do not extrapolate precise runtime from interrupted older source capture.
+No T4/RESERVED/new teacher answers. Preserve foreign Python processes.
+
+Current temporal source/audit freeze fd2f8a0,binding b8d9c09a...,producer50088/
+audit36813 terminal0 but whole numericFAIL. Rounding witnessV2 8bc4b9d fully
+localizes false flag;decompositionV2 eaeccfd/binding cd317a4e.../auditPASS.
+No unchanged native/recovery rerun. True-input replay must qualify field and
+state controls;do not fit inverse on failed DEV or relax original1% state gate.
+[Source response-rank envelope](SOURCE_FUNCTION_RANK_NEXT_20261013.md) remains
+conditional on actual qualified calibration data;then cheap shared input/output
+plus conditional ternary functions and OWN causal layers must join.
+
+104 new+64 older RESERVED/longalign8186-20874 remain unqueried. Useful n,CPU
+IDs AND masses,physical expert DRAM,conversion masters/gradientsO(n),multiple
+source families/scales,donor-relative held-out+own-history quality and same
+useful artifact50 remain open. [Method](METHOD.md)/[prior evidence](PRIOR_EVIDENCE.md)
+/[archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md) preserve prior controls.
+No whole-model quality/DRAM/n/same50 or goal completion admission.

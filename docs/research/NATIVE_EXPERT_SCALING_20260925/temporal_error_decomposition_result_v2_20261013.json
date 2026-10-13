@@ -1,0 +1,67 @@
+{
+  "schema": "TEMPORAL_ERROR_DECOMPOSITION_RESULT_V2",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\temporal_error_decomposition_binding_v2_20261013.json",
+    "bytes": 10604,
+    "sha256": "cd317a4eea792334d51ca2ca93ae2fb15fbeb4b10240f33077f67f6867eef90a"
+  },
+  "records": [
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "site": 23,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\temporal_error_decomposition_20261013\\broad_dev_numina_cot_100k_035.site23.npz",
+        "bytes": 16517166,
+        "sha256": "491b23c909e83059eaf68674ed4f3544bd8f33c82b1e524a89ade11c908916c1"
+      },
+      "metrics": {
+        "F64_error_relative": 0.011258000798047226,
+        "native_error_relative": 0.011258001659551944,
+        "term_norms_source_relative": {
+          "decay": 0.003754180397359049,
+          "delta": 0.012156878576621925,
+          "x": 0.0027472323120015982,
+          "B": 0.003846678401022601
+        },
+        "cross_gram": [
+          [
+            1.409387045591495e-05,
+            -3.1208208759499227e-05,
+            1.800920465353722e-07,
+            -3.448961158641351e-08
+          ],
+          [
+            -3.1208208759499227e-05,
+            0.0001477896967267291,
+            -9.141409634320769e-07,
+            3.275424367618282e-06
+          ],
+          [
+            1.800920465353722e-07,
+            -9.141409634320769e-07,
+            7.547285376105647e-06,
+            -4.127973504096932e-08
+          ],
+          [
+            -3.448961158641351e-08,
+            3.275424367618282e-06,
+            -4.127973504096932e-08,
+            1.4796934720893795e-05
+          ]
+        ],
+        "numeric": {
+          "identity_source_state_relative": 9.362989528385008e-16,
+          "original_native_relative": 6.586283070298389e-07,
+          "regenerated_native_relative": 6.736809061478864e-07,
+          "error_native_source_state_relative": 4.892050856296107e-07
+        }
+      }
+    }
+  ],
+  "decision": "COMPLETE_PENDING_INDEPENDENT_SURVIVAL_AUDIT",
+  "before_after_hashes_exact": true,
+  "output_bytes": 16517166,
+  "seconds": 5.838771799999449,
+  "OS_peak": 225243136,
+  "scope": "All failed temporal histories only,diagnostic ordered F64 forcing/decay decomposition,independent final survival-weight sums/native error in original-state units. No model choice/fit/source/GPU/RESERVED/true-input/causal qualification. Contributions depend on declared order;cross energies retained. Whole operator BF16 source-denominator failure remains;state and primary own-output controls qualify diagnosis only."
+}
