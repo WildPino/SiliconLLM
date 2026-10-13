@@ -1,0 +1,46 @@
+{
+  "schema": "FFN_OPERAND_CAPTURE_LAUNCH_V1",
+  "source_freeze": "6e3f80e",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_binding_v2_20261013.json",
+    "bytes": 5587940,
+    "sha256": "9903f7f0719909406225f095963753f8edb776247257050a0868eb0e0510b3e4"
+  },
+  "preparation_exit": 0,
+  "preparation_seconds": 38.59399999999732,
+  "fields_bytes": 24381063168,
+  "calculated_bound": 28074969504,
+  "input_pins": 9900,
+  "GPU_query": "GPU-1cce7fba-8103-2d4b-ad9b-df8e162f8221, NVIDIA GeForce RTX 3060, 610.47, 12288, 3419, 8692",
+  "limits": {
+    "seconds": 7200,
+    "reserve_seconds": 180,
+    "OS_bytes": 8589934592,
+    "GPU_allocated_bytes": 6442450944,
+    "GPU_reserved_bytes": 10737418240,
+    "output_bytes": 34359738368,
+    "audit_seconds": 7200
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_operand_capture.py",
+    "--launch",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_binding_v2_20261013.json",
+    "--binding-sha",
+    "9903f7f0719909406225f095963753f8edb776247257050a0868eb0e0510b3e4",
+    "--freeze",
+    "6e3f80e",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\ffn_operand_capture_20261013",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_operand_capture_result_20261013.json"
+  ],
+  "pause_policy": "Human explicitly requested pause after launching hours-long run;no delegated monitor.",
+  "scope": "Actual own pre-FFN normalized input/all24 source FFN operands on known48 histories,qualified native states unchanged. Six BF16 nodes with raw/scaled gate separation. No expert fit/model substitution/new generation/RESERVED/T4/TPS admission."
+}
