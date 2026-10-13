@@ -3,14 +3,13 @@
 **13 October2026: goal PAUSED/INCOMPLETE per human hours-long-run instruction.**
 
 [Actual FFN operand capture](FFN_OPERAND_CAPTURE_STATE_20261013.md)
-IMPLEMENTED/BOUND/RUNNING:source37ce5b1/preflight6e3f80e/binding c14c2a8.
-All24 actual pre-FFN inputs/up/raw+scaled gate/features/output on known48
-histories. Native trace/state/cache/label words must match qualified parent.
-Source job7200s/OS8GiB/GPU6GiB allocated/10GiB reserved/E32GiB;bound28.07GB.
-Owned holder31288/worker28776,recorded creation times,source411 parameters
-verified/observers active/first448 native stream steps exact to parent.
-9900 inputs pinned/CPU preparation38.594s exit0;original preflight failure
-preserved,no source allocation in that attempt. Full dataset/CPU audit pending.
+PRODUCER COMPLETE/CPU AUDIT RUNNING:both source commands terminal0/~80min,
+all48/all24/six fields,all parent native/state/cache/label bits exact,411
+coefficients exact before/after. All9900 inputs/8163 outputs28.079GB hashes
+verified in closure preparation62.515s/exit0.6912 BF files/12.191B words.
+Owned CPU audit started18:09:26 Europe/Rome:holder13028/worker24928,recorded
+creation times,worker2h/OS8GiB/no CUDA. Full data/numeric admission pending.
+Original preflight failure retained. Source c3dc8b0/binding freeze479985f.
 Exact resume in linked state;no delegated monitor/T4/RESERVED. Affine bank
 still unimplemented,no capacity/speed admission.
 

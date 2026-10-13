@@ -2,11 +2,12 @@
 
 **AUTHORITATIVE 13 October2026: goal PAUSED/INCOMPLETE per human hours-long-run instruction.**
 
-[Actual FFN operands](FFN_OPERAND_CAPTURE_STATE_20261013.md) collector now
-implemented/bound/running with parent word/state/cache/logit exact controls.
-Six BF16 fields/all24 sites/known48 histories;9900 current input pins,
-28.07GB calculated new payload bound,32GiB cap/local RTX3060/2h watchdog.
-Data/full independent audit pending;no source expert/model/speed admission.
+[Actual FFN operands](FFN_OPERAND_CAPTURE_STATE_20261013.md) producer
+COMPLETE,both source commands terminal0/~80min,parent words/states/cache/
+labels exact. Six BF fields/all24/known48,8163 files28.079GB/all9900 input
+and output hashes verified at closure. Full owned CPU audit live2h/OS8GiB,
+no CUDA initialization. Data/numeric admission still pending;no expert fit/
+new model quality/speed/useful-n claim.
 Original memory preflight failure retained;actual free>=7GiB uses measured
 parent3.19GB allocated peak,own allocated6GiB cap. No delegated monitor/T4.
 

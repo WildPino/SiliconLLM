@@ -1,8 +1,49 @@
 # FFN operand collection: owned run and exact continuation
 
-13 October2026. **COLLECTOR IMPLEMENTED/BOUND/RUNNING;DATA AUDIT PENDING.**
+13 October2026. **PRODUCER COMPLETE;FULL CPU AUDIT RUNNING.**
 Goal PAUSED/INCOMPLETE under the human's explicit hours-long-run instruction.
 No delegated monitor/automation. Full affine expert bank remains UNIMPLEMENTED.
+
+## Current authoritative evidence and next action
+
+Producer worker4765.922s/holder4828.344s,both terminal0/matching process
+instances absent. All48 histories/22547 positions/all24 sites,6912 field files,
+541128 FFN positions/12,190,531,584 BF words. All native source H/preconv/output,
+final states/rings/attention cache/8808 label logit rows EXACT to qualified
+parent as producer controls. All411 canonical coefficients before/after.
+PeakOS4,032,020,480B/GPU allocated3,187,002,368B/reserved3,265,265,664B.
+
+Closure preparation62.515s/exit0 verifies all9900 declared input and8163
+output hashes,current E file set/28,079,135,477B and both parameter witnesses.
+Metadata exceeds the bare field/snapshot/logit calculation by4,165,973B,
+inside the1GiB allowance and32GiB family cap. Earlier failed preflight retained.
+Producer report SHA8d4b6dc8c647243a5a8c981440c04359ea3e4b0d48d2202a741330cc407424ec;
+holder terminal6df20aa0b9d88cb35aba91e6f9630ac6ba146c5be65c01f20ea8adea828b6ae7.
+
+Audit launcher c3dc8b0/binding+producer freeze479985f. Audit binding SHA
+eb202033a6cbaac1101cfeb67796b5facc928528a82f2ae6788eb87af41ce4e2.
+Launched18:09:26 Europe/Rome (16:09:26 UTC),holder13028/create1791907766.77454,
+worker24928/create1791907766.983233. Both observed live at startup. CPU6cores,
+worker7200s/holder7500s including closure margin,combinedOS8GiB,log128MiB,
+CUDA_VISIBLE_DEVICES empty/no CUDA initialization,no source model. Frozen
+37ce5b1 audit algorithm and numeric gates unchanged. No expert/data admission yet.
+
+**Resume now:**read `ffn_operand_adjudication_20261013.worker.log`,
+`ffn_operand_adjudication_20261013.terminal.json` (worker) and
+`ffn_operand_adjudication_20261013.holder_terminal.json`. Match actual
+PID/create time with owned-process/holder-start receipts. If live,do not restart
+or run cell experiments;respect long-run pause. Require both terminal0/matching
+report before admission. Audit all1152 case/site sets/source matrix/scalar/SiLU
+node values plus fresh states/rings/labels and every declared hash. Numeric
+failures accumulate through all cases;mechanical faults preserve partial evidence.
+Then seal resources/file custody/protected inputs and only then fit/analyze FFN
+cell geometry,source smooth proxy/remainder,routing and precision on FIT only.
+
+[Audit launch protocol](FFN_OPERAND_AUDIT_LAUNCH_PROTOCOL_20261013.md),
+[producer closure/audit binding](ffn_operand_audit_binding_20261013.json),
+[producer result](ffn_operand_capture_result_20261013.json).
+All prior quality/ultimate goal limits remain unchanged. Original launch history
+below is preserved and superseded by these actual terminal records.
 
 ## Frozen construction and startup custody
 

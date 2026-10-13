@@ -1,6 +1,6 @@
 # Next capacity hypothesis: full-size affine experts for nonlinear source FFNs
 
-13 October2026. **AFFINE BANK PROPOSED/UNIMPLEMENTED;OPERAND COLLECTOR RUNNING.**
+13 October2026. **AFFINE BANK PROPOSED/UNIMPLEMENTED;OPERAND PRODUCER COMPLETE/AUDIT RUNNING.**
 [Bound collector/state](FFN_OPERAND_CAPTURE_STATE_20261013.md) now observes
 all24 actual pre-FFN input/up/raw+scaled gate/product/output with strict parent
 continuity and full audit pending. Source6e3f80e/binding c14c2a8,32GiB/2h local

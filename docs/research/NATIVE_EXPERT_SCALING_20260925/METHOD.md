@@ -24,9 +24,10 @@ Next inspect actual nonlinear FFN operands,then source-derived full-size affine
 cells with input-dependent Jacobians. Their active coefficient count D^2 versus
 3DI motivates investigation,not a speed/quality claim. Capturing actual pre-FFN
 own inputs and testing cell remainder/routing/whole model/CPU cost are missing.
-Actual pre-FFN operand collector now implemented/bound/running under2h
-watchdog;all24/known48/six BF16 nodes with exact parent continuity controls,
-9900 current input pins,32GiB output cap. Its data/full audit are pending.
+Actual pre-FFN operand producer complete/both commands terminal0/~80min;
+all24/known48/six BF nodes/native traces/state/cache/labels exact to parent,
+411 parameters unchanged,28.079GB/all9900 input/output hashes verified.
+Full CPU audit running under2h watchdog/OS8GiB,no CUDA;data admission pending.
 Affine expert bank/cell/router/precision/model tests remain unimplemented.
 See FFN_OPERAND_CAPTURE_STATE_20261013.md for exact process/audit continuation
 and FULL_RANK_FFN_EXPERT_NEXT_20261013.md for the subsequent hypothesis.
