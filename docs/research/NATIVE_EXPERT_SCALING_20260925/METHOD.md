@@ -15,9 +15,22 @@ conv/readout costs and all-layer/own-history quality remain missing.
 [Gate input-operator geometry](GATE_INPUT_OPERATOR_RESULT_20261013.md) now
 IMPLEMENTED/INDEPENDENTLY VERIFIED:all3 raw3072x2048 gate operators rank2048,
 conditions27/71/55,blockGram/direct rectangular SVD qualification. No input
-recovery/bit-supervision claim. [Next approximate-input consistency gate](GATE_INPUT_RECOVERY_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND,requires MuP/BF16 dtype/rounding and independent
-x/B/C/delta replay. Exact missing input must be captured if uncertainty too large.
+bit-supervision claim from matrix geometry alone.
+[Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md) now
+IMPLEMENTED/INDEPENDENTLY VERIFIED:fixed H64 least-squares/BF16 candidate,actual
+BF16 MuP sections/explicit rounded source projection/conv4/SiLU/delta. All144
+histories/all5 fields pass frozen whole-history1% consistency,including independently
+captured x/B/C/delta;all453,465,264 field words/138,528,768 H64+candidate words
+per type/18,874,368 inverse coefficients qualified by rectangular QR and separate
+replay. No actual source input bits or true-input error bound. Worst centered
+site23 B1.381%/x1.070% retained. Approximate inputs may initialize calibration;
+temporal propagation must qualify before they become usable fitting proxies.
+[Next temporal gate](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:regenerated operands through SAME fixed native
+full3072/state96;each-case own-output and full-final-state1% gates,original
+source-relative budgets and complete independent audit. No source forward/GPU/
+T4/RESERVED. Compact causal input/output/conditional ternary functions remain
+missing;offline gate inversion is not a runtime encoder.
 Numerical package alias custody gap in prior native input enumeration is explicit
 in its report;new preparations bind resolved ABI/BLAS files directly.
 [Actual C mixed384x96 operator](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) now

@@ -1,6 +1,29 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
+COMPLETE/full independent audit PASS. ALL144 case/site pairs and ALL gate/x/B/C/
+delta fields pass frozen whole-history1% consistency;zero720-comparison failures.
+Full18,874,368 inverse coefficients/138,528,768 H64 words/138,528,768 candidate
+BF16 words/453,465,264 predicted field words independently qualified via
+rectangularQR/full block projection/shifted-window conv/SiLU/softplus and all
+metrics/flags/aggregates/hashes. Replay field errors0 under independent formulas;
+inverse7.263e-15/H1.545e-14,scalar0. Actual BF16 MuP sections pinned explicitly;
+resolved NumPy ABI/BLAS/psutil/TorchCPU/C10/HF files bound (prior alias gap not
+repeated). NO true source input bits/error bound/CUDA equivalence/temporal or
+causal chatbot qualification. Worst DEV whole-field.707236%;centered site23
+B1.381059%/x1.070170% retained. NewE147NPZ/2,443,476,576B within3GiB.
+[Closure](gate_input_recovery_session_closure_20261013.json):prep/producer/audit
+terminal0 ~25/177/140s,owned PID/creation pairs absent,engine+foreign hashes
+preserved,no source forward/GPU/T4/RESERVED/native/optimizer. No repeated run
+on resumption. [Temporal propagation next](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:fixed regenerated operands through SAME wide
+native trained recurrence,each-case own-output/final-state1% gates before
+approximate calibration admission. Original local source budgets/full audits
+remain. Useful conditional functions/own histories/multi-family/n/DRAM/same50
+and conversionO(n) masters/gradients remain unresolved.
+
+**Historical pre-recovery state, retained below.**
 [Full3072/state96 native](FULL_CHANNEL_NATIVE_RESULT_20261013.md) COMPLETE/full
 independent audit PASS:all144 histories/sites0/12/23,207,793,152 scan values,
 42,467,328 final states,415,586,304 normalized values and277,057,536 rawscore

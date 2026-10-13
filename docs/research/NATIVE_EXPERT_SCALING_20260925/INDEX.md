@@ -1,16 +1,16 @@
 # Native expert scaling: research control index
 
-**13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
-[Full3072/state96 native](FULL_CHANNEL_NATIVE_RESULT_20261013.md) COMPLETE/full
-independent audit PASS:all144 histories,277,057,536 raw F32 scores bitexact.
-Ownnorm local gatesPASS/all3 sites,DEVmeans.07634/.08718/.02490;
-fixed-source-denominatorFAIL0/12 retained. Same qualified operators scan~59us/
-total~1300us versusold384~1249us across separate runs. Preserve useful trained
-functions where cost permits;source generators/readout/causal hidden still missing.
-[Gate operator information](GATE_INPUT_OPERATOR_RESULT_20261013.md) COMPLETE/
-blockGram+rectangularSVD audit PASS:rank2048,conditions27/71/55 at0/12/23.
-No source hidden vector recovered. Next [offline input-recovery consistency gate](GATE_INPUT_RECOVERY_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND;not a cheap causal encoder or model-quality claim.
+**13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
+COMPLETE/full independent audit PASS:all144 histories/sites0/12/23,
+453,465,264 regenerated BF16 field words,138,528,768 recovered H64 words,
+138,528,768 candidate words and18,874,368 inverse coefficients verified.
+EVERY case/EVERY gate/x/B/C/delta field passes frozen whole-history1% gate.
+Worst DEV field error.707236%; centered site23 B1.381059%/x1.070170% retained.
+These are approximate offline inputs,not true hidden bits or a causal encoder.
+Next [temporal propagation gate](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND:regenerated operands through SAME qualified
+full3072/state96 native recurrence before cheaper function calibration.
 
 ## Goal and constraints
 
@@ -35,68 +35,38 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 | Question | Established | Missing |
 |---|---|---|
 | Useful conditional capacity at low active cost | Original LUT/ternary/SSM/SWA, runtime-n and synthetic structured retrieval, local native primitives | Useful n, CPU IDs+mass, actual DRAM, same useful artifact50 |
-| Transfer pretrained chatbot | Source/runtime/consumer, exact loss/gradient tools, trained local S6 transport, actual native readout export | Compact causal core/conditional functions, preserved conversation, multiple families/scales |
+| Transfer pretrained chatbot | Source/runtime/consumer, exact loss/gradient tools, trained local S6 transport, native readout, approximate source-function calibration inputs | Compact causal core/conditional functions, preserved conversation, multiple families/scales |
 
 ## Latest decisive evidence
 
-- [Wider trained native state](FULL_CHANNEL_NATIVE_RESULT_20261013.md):207,793,152 scan values/every CPU timestep/42,467,328 final states/415,586,304 normalized inputs/all277,057,536 score bits qualified. Ownnorm source outputmean.076342/.087177/.024904 at0/12/23,all local budgetsPASS;source-denominator controlsFAIL0/12. Scan~59us,total~1300us,same qualified artifacts/all288 timing histories. 8x state count does not require8x total cost in this cached-scalar-head implementation;no same complete model/50 admission.
-- [Source gate rank/condition](GATE_INPUT_OPERATOR_RESULT_20261013.md):all25,178,112 Gram/eigenbasis/spectrum values and direct rectangular SVD PASS. Raw gate matrices3072x2048 full column rank,conditions27.28/71.26/54.79. Necessary OFFLINE input-recovery geometry only,not actual BF16 hidden error or causal closure. Alias-based runtime enumeration gap explicitly retained;new preparation pins resolved ABI/BLAS.
-
-- [Native mixed qualification/cost](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md):all48 direct CPU states/final states/export bits/normalized vectors/scores/source gates/hashes qualified. ALL92,352,512 raw F32 score words bitexact scalar reference;local DEVmean.068813/worst.096949. Same-component timing shows normalize+out92.6%,scan~.82%;generator kernel separately~2535us. Full generator/conv/source hidden inputs still retained;no useful model/speed/n admission.
-- [Original native precision failure](COMPOSED_OPERATOR_NATIVE_V1_RESULT_20261013.md):full audit completed,one BF16-normalized-input discrepancy1.264e-4>1e-4 retained. All original F32 scores bitexact. Corrected composition uses F64 decode/gate/RMS at qualified BF16 boundary then original AVX F32 output;no threshold relaxation or subset.
-- [Channel384/state96 composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md):all48 histories/every scan timestep/full outputs independently verified;site23 local PASS. State21.33x smaller than source,not21.33x whole speed. Other channel384 sites still fail;source functions not compressed.
-- [Fixed whitening candidate](WHITENED_CANDIDATE_RESULT_20261012.md):all48 actual scans/full audit PASS,all FIT/DEV ideal cases improve;site12 actual DEVmean.775702,all local gatesFAIL. [Whitening preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md) and [finite gradient](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md) reusable;no indefinite unchanged epochs selected.
-- [Source-state96](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md):dual state maps local DEV errors~.0763/.0872/.0249 at0/12/23 with full3072 channels/source functions retained. Wider shared state actual cost remains unmeasured;counted memory is not a latency result.
-- [Probability-image oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md), [dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md), [source-head moments](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md):full audits reusable;oracle DEVcaseKL.04835/dis2.30%,all qualityFAIL/no relevant lower-bound obstruction proved. Per-label code room does not establish causal encoding/state closure.
-- [Trained24-layer projected shadow](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md):0/16,source-informed trained transport insufficient under fixed hiddenP256. [Causal boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md):shared recurrent state/conv/SWA/routing and future-information closure required,not only emission-code regression.
-
-## Reuse and closed avenues
-
-[Source-state96](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md),
-[copied/refit384](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md),
-[mixed384](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md),
-[weighted-head384](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md) fail fixed
-linear representation budgets. [Paired readout](PAIRED_OUTPUT_CODEC_RESULT_20261010.md)
-and [paired image oracle](PAIRED_HEAD_IMAGE_RESULT_20261010.md) leave encoder room
-for a DIFFERENT head;do not repeat unchanged latent descent to shrink weak bounds.
-[Loss compiler](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md),
-[changed point](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md),
-[lossless master transitions](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md)
-remain reusable;dense converter masters/gradients still O(n). Prior LIVE banners
-are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
-104 new+64 older RESERVED and longalign8186-20874 remain unqueried.
+- [Input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md):fixed full-rank inverse/BF16 candidate/MuP/conv/activation/delta replay,all144 histories/all five fields PASS. Independent QR/window-conv/activation/all arrays/metrics/hashes PASS;2.443GB E arrays. No true-input error bound,CUDA reduction equivalence or temporal admission. [Closure](gate_input_recovery_session_closure_20261013.json):three terminal0 commands/owned PID absent/engine and foreign hashes preserved.
+- [Wide native trained state](FULL_CHANNEL_NATIVE_RESULT_20261013.md):every CPU timestep/full final states and277,057,536 raw F32 score bits qualified. Ownnorm local DEVmeans.076342/.087177/.024904/all gatesPASS;fixed-source-denomFAIL0/12 retained. Same qualified operators scan~59us,total~1300us;8x state count not8x whole cost here. Source generator/readout and causal hidden still missing.
+- [Source gate matrix](GATE_INPUT_OPERATOR_RESULT_20261013.md):all25,178,112 matrix/spectrum words/blockGram/direct rectangular SVD PASS,rank2048/all3,conditions27/71/55. Earlier alias-based runtime enumeration omission explicitly retained;current recovery directly pins resolved ABI/BLAS.
+- [Mixed native384x96](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md):all48 actual histories/local DEVmean.068813,full audit PASS;normalize+out92.6%/scan.82% of~1248us. [V1](COMPOSED_OPERATOR_NATIVE_V1_RESULT_20261013.md) full audit retained1.264e-4 normalized-input failure,unchanged gate. F64 gate/RMS then BF16/AVX output qualifies the correction.
+- [Channel/state composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md), [state96](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md):local trained recurrence evidence,not autonomous source-function transfer. [Fixed whitening](WHITENED_CANDIDATE_RESULT_20261012.md) improves ideal FIT/DEV but actual site12mean.775702/all local gatesFAIL;no indefinite unchanged fit epochs.
+- [Probability-image oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md), [dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md), [source-head moments](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md):reusable exact categorical tools;oracle DEVKL.04835/dis2.30%,qualityFAIL/no relevant capacity lower bound proved.
+- [Trained projected shadow](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md):0/16/fixed hiddenP256 failure. [Causal boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md):future-information closure,conv/SWA/routing/shared state required,not emission-code regression alone.
 
 ## Next and exact resumption
 
-**Freeze and implement uncertainty-qualified OFFLINE source in_proj input
-recovery with independent x/B/C/delta replay**, [selected next](GATE_INPUT_RECOVERY_NEXT_20261013.md),
-PROPOSED/UNIMPLEMENTED/UNBOUND. Reuse qualified full-column-rank source gate
-operators/all48 histories. Actual MuP buffer dtype/rounding,input-after-multiplier
-units,conv orientation/activation/delta semantics and FIT-only recovery policy
-must be fixed before observing estimates. Reconstructing gates alone is circular.
-No actual input vector has been recovered yet. If consistency insufficient,
-retain full failure and capture TRUE source input under a separate donor protocol.
+Implement/freeze/bind [temporal propagation](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md).
+Current source and audit freezes f51f63c/7074212,launches2aec0c3/788071c;
+[recovery binding](gate_input_recovery_binding_20261013.json) SHA44f61d40...,
+[result](gate_input_recovery_result_20261013.json),
+[adjudication](gate_input_recovery_adjudication_20261013.json) PASS.
+No rerun of completed recovery or source model. Use regenerated x/B/C/delta/gate,
+fixed Ws/Vs and existing qualified DLL at all48 histories/all3 sites. Primary
+own-norm output AND full final-state discrepancy<=1% EACH case;original donor
+local budgets unchanged. Diagnostic centered/source-denominator/label/domain
+and full independent numerical/hash audit retained even failure. Proposed
+producer900s/audit1200s/OS6GiB/new E family<=6GiB,no GPU/T4/RESERVED/optimizer.
+Do not treat approximate H as true source input or substitute residual/FFN input.
 
-[Wide native result](FULL_CHANNEL_NATIVE_RESULT_20261013.md) and
-[gate preflight](GATE_INPUT_OPERATOR_RESULT_20261013.md) COMPLETE/full audits PASS.
-[Closure](full_channel_and_gate_operator_session_closure_20261013.json):eight
-completed commands/no owned process,3.788GB wide family+201.428MB gate matrices
-on E;original engine/foreign hashes preserved. One redundant closed-handle poll
-retained,no restart. Gate V1 preparation runtime-filter gap:no numeric run;
-V2 explicitly binds resolved primary numerical files. Prior native runtime
-filter omission is a documented custody limit,with older/current matching byte
-witnesses,not retroactively claimed before-run hashing.
-
-Keep full trained channels/state96 as a candidate shared recurrence where actual
-cost permits;source input/output functions and all-layer/own-history quality
-remain unresolved. Matrix dimension reductions are not preserved capacities.
-Actual generator/readout/conv/attention/FFN/head and routing/expert DRAM must be
-counted on a cheap CAUSAL target. No T4/source execution allocated now.
-[Method](METHOD.md)/[prior evidence](PRIOR_EVIDENCE.md) retain other controls,
-failed384 fits/native precision failures and historical next statuses.
-
-Useful ternary conditional functions/CPU IDs AND masses/actual expert DRAM,
-conversion masters/gradientsO(n),multiple source families/scales and donor-relative
-held-out+own-history quality with>=50 useful batch1 tokens/s on the SAME complete
-artifact remain required. No Luna/delegation;hours-long work follows user's
-announce/bind-launch/PAUSE instruction. No goal completion claim.
+Then calibrate cheap input/output and ternary conditional functions around a
+shared core creating its OWN causal history. Actual generator/conv/readout,
+attention/FFN/head and routing/expert DRAM costs must join in one useful model.
+104 new+64 older RESERVED and longalign8186-20874 remain unqueried.
+Lossless-master/moment compilers remain reusable;conversion masters/gradientsO(n)
+and multi-family/scaling proof still unresolved. [Prior evidence](PRIOR_EVIDENCE.md)
+and [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md) preserve historical runs.
+No whole-model quality,n,DRAM,same useful50 or goal completion admission.

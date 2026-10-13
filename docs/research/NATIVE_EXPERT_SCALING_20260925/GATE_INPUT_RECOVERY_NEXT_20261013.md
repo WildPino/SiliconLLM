@@ -1,6 +1,9 @@
 # OFFLINE approximate input recovery and independent generator replay
 
-13 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October2026. **ORIGINAL PROPOSAL / NOW COMPLETED.**
+Superseded operationally by [full result](GATE_INPUT_RECOVERY_RESULT_20261013.md)
+and [temporal propagation next](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md).
+The original proposal below is retained as the pre-observation rationale.
 Reuse [fully qualified gate geometry](GATE_INPUT_OPERATOR_RESULT_20261013.md),
 all48 existing histories/sites0/12/23 and pinned source weights/config/runtime.
 Native full3072/state96 has useful local quality with small recurrent cost;
