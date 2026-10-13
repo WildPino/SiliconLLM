@@ -1,0 +1,46 @@
+{
+  "schema": "FULL_WIDTH_NATIVE_CHAT_LAUNCH_V1",
+  "source_freeze": "19ab57b",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_binding_20261013.json",
+    "bytes": 1256042,
+    "sha256": "de1b7d9edc63cde14e0cf0a5a4cb1a333826562a360d144413f00f1d0f574119"
+  },
+  "binding_preparation_seconds": 44.79699999999866,
+  "binding_preparation_exit": 0,
+  "adapter_smoke": {
+    "sha256": "43fa021c5af8977dab3c31d2fadc476c30e8a950ee8f6a975896194159c44ad4",
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_adapter_smoke_20261013.json"
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\full_width_native_chat.py",
+    "--launch",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_binding_20261013.json",
+    "--binding-sha",
+    "de1b7d9edc63cde14e0cf0a5a4cb1a333826562a360d144413f00f1d0f574119",
+    "--freeze",
+    "19ab57b",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\full_width_native_chat_20261013",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_width_native_chat_result_20261013.json"
+  ],
+  "limits": {
+    "seconds": 7200,
+    "reserve_seconds": 180,
+    "OS_bytes": 8589934592,
+    "GPU_allocated_bytes": 6442450944,
+    "GPU_reserved_bytes": 10737418240,
+    "output_bytes": 25769803776,
+    "audit_seconds": 7200
+  },
+  "launch_policy": "PowerShell Start-Process -WindowStyle Hidden; holder owns detached worker, guarded PID/create_time/deadline; pause goal after startup under human instruction.",
+  "scope": "Full hidden2048/source FFN/attention/head. Initial source-only F0, later23 contextual source generators,24 persistent native state96/p6 I16 readouts. CUDA quality bridge only;no final CPU/conditional useful-n/accepted TPS claim."
+}

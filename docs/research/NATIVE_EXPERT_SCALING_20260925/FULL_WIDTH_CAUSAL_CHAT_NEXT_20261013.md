@@ -1,9 +1,16 @@
 # Next: full-width source chatbot quality with own native recurrent states
 
-13 October2026. **GENERIC ABI/ALL24 EXPORTS COMPLETE;MODEL BRIDGE UNIMPLEMENTED/UNBOUND.**
+13 October2026. **MODEL BRIDGE IMPLEMENTED/BOUND;QUALITY UNMEASURED.**
+[Frozen whole-model protocol](FULL_WIDTH_NATIVE_CHAT_PROTOCOL_20261013.md),
+source commit19ab57b, CPU binding44.797s/exit0 and all24 consumer adapter
+smoke4.0s/48 calls exact/zero GPU initialization. Source-only packets reused.
+Binding188 full file pins;calculated payload bound19,025,410,976B under24GiB.
+See [launch record](full_width_native_chat_launch_20261013.json) for the owned
+bounded2h RTX3060 job. Full model/generation/held-out observations and complete
+stored independent audit are pending. Final CPU/useful-n/same useful50 open.
 [Qualified row ABI/source packets](ROW_STATE_RESULT_20261013.md) now complete.
 Original proposal below retained;do not repeat the CPU prerequisite. Next
-implement actual source-model quality bridge and full recorded-output audit.
+execute actual source-model quality bridge and full recorded-output audit.
 [Joined native token branch](TOKEN_STATE_RESULT_20261013.md) is complete:
 actual IDs/own conv/state/normalization/integer readout/full audit/local gates,
 same-artifact state-ready~1ms. The next uncertainty is whether these choices
