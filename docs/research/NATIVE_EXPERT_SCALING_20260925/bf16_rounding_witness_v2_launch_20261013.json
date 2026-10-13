@@ -1,0 +1,30 @@
+{
+  "limits": {
+    "output_bytes": 16777216,
+    "seconds": 90,
+    "OS_bytes": 2147483648
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/bf16_rounding_witness_v2.py",
+    "--freeze",
+    "8bc4b9d8c85b52f47a1d33c4d6fc80268ccca067",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_input_temporal_bf16_witness_v2_20261013.json"
+  ],
+  "freeze": "8bc4b9d8c85b52f47a1d33c4d6fc80268ccca067",
+  "adjudication_sha": "b6114bcc82407a1651d1fcbc9b4ed3958c7017da3b91f82a3b685d7745fd4772",
+  "schema": "BF16_ROUNDING_WITNESS_LAUNCH_V2",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "created_at": "2026-10-13T03:01:14.4981976+02:00",
+  "report_sha": "4914a093cf5f1dc9a3c905949a970e195ad4dc32842753943202d563a9a6798b"
+}
