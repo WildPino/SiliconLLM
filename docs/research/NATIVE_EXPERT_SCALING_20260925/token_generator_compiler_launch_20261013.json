@@ -1,0 +1,36 @@
+{
+  "limits": {
+    "family_bytes": 2147483648,
+    "OS_bytes": 6442450944,
+    "seconds": 900
+  },
+  "binding_sha256": "440fce2def09965c2127ce09948460e22c4b16b4fe02d0ac95709654eebe92dc",
+  "scope": "Complete source-only65537 rows before source comparisons,all48 source norm/fields calib;no GPU/native state/RESERVED/model forward,all results retained even if quality fails",
+  "schema": "TOKEN_GENERATOR_COMPILER_LAUNCH_V1",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/token_generator_compiler.py",
+    "--run",
+    "--freeze",
+    "140267f",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_generator_compiler_binding_20261013.json",
+    "--binding-sha",
+    "440fce2def09965c2127ce09948460e22c4b16b4fe02d0ac95709654eebe92dc",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/token_generator_compiler_20261013/run",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/token_generator_compiler_result_20261013.json"
+  ],
+  "freeze": "140267f",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  }
+}
