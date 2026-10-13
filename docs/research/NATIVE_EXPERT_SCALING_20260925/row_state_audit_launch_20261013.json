@@ -1,0 +1,37 @@
+{
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "terminal_sha256": "99330622e884c6290050c17e5103fc496fc93eeed05bf1aa8e7ff00e19506c1a",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/row_state_audit.py",
+    "--freeze",
+    "665c7b6",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/row_state_result_20261013.json",
+    "--report-sha",
+    "09f3130d0751a8b2c4bb379182491d011253bfb0b00a8d66c549884bf584c40a",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/row_state_result_20261013.terminal.json",
+    "--terminal-sha",
+    "99330622e884c6290050c17e5103fc496fc93eeed05bf1aa8e7ff00e19506c1a",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/row_state_adjudication_20261013.json"
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "schema": "ROW_STATE_AUDIT_LAUNCH_V1",
+  "report_sha256": "09f3130d0751a8b2c4bb379182491d011253bfb0b00a8d66c549884bf584c40a",
+  "scope": "Every all24 source/basis/q/core/conv export,all48 new-row archive words,24 arbitrary-row equation controls,full audit no model-quality extrapolation",
+  "freeze": "665c7b6"
+}
