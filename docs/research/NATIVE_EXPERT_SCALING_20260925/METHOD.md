@@ -3,6 +3,20 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Observable-route redundant affine banks](CONDITIONAL_OUTPUT_RESULT_20261013.md)
+now COMPLETE/BOTH full independent auditsPASS/all quality gatesFAIL. All
+FIT trees/leaf means/full spectra/bases/factors/all277M predictions/BF16 bits
+qualified;actual factors agree ideal projections~1e-7. Exhaustive fixed-bank
+target-aware oracle proves finite numerical coverage failure0/24 case1% at
+every site/arm/split,DEV~45--85%;route-only changes insufficient for these
+unchanged affine images. Next preserve full response dimensions via
+[multi-plane ternary readout](TERNARY_FULL_RANK_READOUT_NEXT_20261013.md),
+PROPOSED/UNIMPLEMENTED/UNBOUND;first source numerical precision/packing,
+then actual C primitive/DRAM. Current engine2-trit int8 pshufb/nibble is
+different from proposed5-trit floating tables;no borrowed speed claim.
+SSM state96 qualification remains local/source-informed;full source CHATBOT
+pipeline/OWN histories/useful conditional ternary n/same useful50 still missing.
+
 [FIT source-function response ranks](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
 now IMPLEMENTED/FULL INDEPENDENT AUDITPASS. Equal-case uncentered actual-H
 covariance/section-balanced source generator and native raw-score covariance;

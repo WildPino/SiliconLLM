@@ -1,6 +1,19 @@
 # Native expert scaling: research control index
 
 **13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Input-routed redundant affine output banks and coverage](CONDITIONAL_OUTPUT_RESULT_20261013.md)
+COMPLETE/BOTH full independent auditsPASS/ALL quality gatesFAIL. All277,057,536
+F64 predictions/roundedBF16 words,135,282 actual IDs,240 leaves verified;
+independent BF16 differences0. DEV16/r12848.44--79.85%,64/r3258.40--90.41%.
+Full frozen-bank oracle5,411,280 errors qualified:DEV16/r12844.90--75.87%,
+64/r3251.91--84.83%,0/24 each-case1%passes every site/arm/split. Fixed-bank
+coverage fails even with target-aware ideal selection;no router-only rescue.
+Next [full-rank multi-plane ternary LUT readout](TERNARY_FULL_RANK_READOUT_NEXT_20261013.md)
+SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND;preserve trained output directions,
+qualify precision before real native cost/DRAM. Actual engine has2-trit int8
+pshufb/nibble paths;5-trit float243 LUT would be a new backend. Useful ternary
+n/OWN-history/source CHATBOT pipeline/same useful50 all remain unresolved.
+
 [FIT source-function rank geometry](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
 COMPLETE/full independent auditPASS:all88,118,943 stored array words/
 136,986,624 FIT H+score words/both direct rectangular SVDs/all2048 modes/site.
@@ -8,8 +21,8 @@ Rank256 balanced input RMS24.87/33.64/31.13%,output53.27/54.40/34.15%;
 even rank1024 output16.11/18.94/12.22%. Finite global linear proxies only;
 no compressed kernel/new quality/latency admission. Both mechanical faults
 retained,full V2 audit repeated,704,960,778B new orderedE,all owned jobs closed.
-Next [conditional redundant output functions](CONDITIONAL_OUTPUT_FUNCTION_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND:observable-input binary routing,16/r128 versus
+[Conditional redundant output functions](CONDITIONAL_OUTPUT_RESULT_20261013.md)
+now complete/rejected as above:observable-input binary routing,16/r128 versus
 64/r32,similar total coefficient budget/lower active work;ternary/n unproven.
 
 [Actual-input source functions/native state](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)

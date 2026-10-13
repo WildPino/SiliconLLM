@@ -1,6 +1,14 @@
 # Selected next: redundant conditional output functions with observable routing
 
-13 October 2026. **SELECTED NEXT / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+13 October 2026. **COMPLETED / FULL INDEPENDENT AUDITPASS / QUALITY FAIL.**
+[Executed results and full coverage diagnosis](CONDITIONAL_OUTPUT_RESULT_20261013.md),
+[joint closure](conditional_output_session_closure_20261013.json).
+Both fixed banks and their full exhaustive oracle are qualified;all output
+budgets fail. Oracle DEV45--85%,0/24 case1%passes every site/arm/split;
+router-only changes cannot rescue these unchanged affine response images.
+Original proposal retained below. Next [full-rank ternary readout](TERNARY_FULL_RANK_READOUT_NEXT_20261013.md)
+is SELECTED/PROPOSED/UNIMPLEMENTED/UNBOUND. No chatbot/quality-speed admission.
+
 Preceding source-function rank result has received a successful full V2 audit.
 Do not launch before an implementation protocol fixes every numerical/
 selection/rounding detail and binds source/data/runtime/launch.

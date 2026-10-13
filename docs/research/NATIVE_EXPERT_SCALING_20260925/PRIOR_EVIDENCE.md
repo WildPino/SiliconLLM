@@ -1,6 +1,20 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE;no owned run live.**
+[Conditional output bank/coverage result](CONDITIONAL_OUTPUT_RESULT_20261013.md)
+COMPLETE/BOTH INDEPENDENT_STORED_PASS/all qualityFAIL. Bank277,057,536 F64
+predictions/BF16 outputs,135,282 IDs/67,641 masses,240 leaf SVDs qualified;
+independent BF16 differences0;factor/proxy only~1e-7 versusquality0.30--0.90.
+Exhaustive frozen affine image oracle5,411,280 errors/270,564 IDs qualified,
+max4.41e-15:DEV16/r12844.90/75.87/67.33% bysite23/12/0 respectively;
+64/r3251.91/84.83/74.14%,all case1%0/24 includingFIT. Router-only optimization
+cannot repair these fixed banks. NewE2,751,110,214B+44,614,992B,all6 commands
+terminal0/owned matching processes absent,protected hashes preserved. No
+source/native/GPU/T4/optimizer/RESERVED or chatbot/n/DRAM/speed admission.
+Next full-rank multi-plane ternary readout preserves source response geometry,
+PROPOSED/UNIMPLEMENTED/UNBOUND. Current engine2-trit int8 pshufb;candidate
+5-trit floating LUT must qualify as a new backend,old rates don't transfer.
+
 [Finite FIT input/output rank geometry](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
 COMPLETE/INDEPENDENT_STORED_PASS:all72 FIT histories/equal-case uncentered
 moments/all88,118,943 array words/136,986,624 data words/full direct SVDs.
@@ -11,8 +25,8 @@ Source54.594s/audit149.813s/newE704,960,778B,no source/GPU/T4/native rerun.
 Initial schema and audit JSON bool faults/partial bytes preserved;complete
 V2 audit repeated/all gatesPASS/owned matching processes absent. Protected
 engine/foreign hashes unchanged. Next observable-route redundant output bank
-16/r128 versus64/r32 PROPOSED/UNIMPLEMENTED/UNBOUND;real factors/DEV/DRAM
-and native kernels still required. No useful-n/quality-speed admission.
+16/r128 versus64/r32 now completed/rejected as above;DRAM/native kernels were
+not admitted. No useful-n/quality-speed admission.
 
 [Actual-input generator/temporal qualification](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
 COMPLETE/BOTH independent auditsPASS:all144 source field1%/own-output1%/final-
