@@ -6,8 +6,8 @@ COMPLETE/BOTH INDEPENDENT_STORED_PASS/all qualityFAIL. Bank277,057,536 F64
 predictions/BF16 outputs,135,282 IDs/67,641 masses,240 leaf SVDs qualified;
 independent BF16 differences0;factor/proxy only~1e-7 versusquality0.30--0.90.
 Exhaustive frozen affine image oracle5,411,280 errors/270,564 IDs qualified,
-max4.41e-15:DEV16/r12844.90/75.87/67.33% bysite23/12/0 respectively;
-64/r3251.91/84.83/74.14%,all case1%0/24 includingFIT. Router-only optimization
+max4.41e-15:DEV16/r12867.33/75.87/44.90% atsites0/12/23 respectively;
+64/r3274.14/84.83/51.91%,all case1%0/24 includingFIT. Router-only optimization
 cannot repair these fixed banks. NewE2,751,110,214B+44,614,992B,all6 commands
 terminal0/owned matching processes absent,protected hashes preserved. No
 source/native/GPU/T4/optimizer/RESERVED or chatbot/n/DRAM/speed admission.
