@@ -1,0 +1,93 @@
+{
+  "schema": "TERNARY_READOUT_NATIVE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ternary_readout_native_audit.py",
+    "bytes": 10461,
+    "sha256": "48e196b69f60c808b34755cda9645d89b7278e6d5262f916638ed4039ecc9c53"
+  },
+  "freeze": "bb95ff2",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_native_result_20261013.json",
+    "bytes": 259315,
+    "sha256": "306410f58fa2c5326e81a431f33d42e6522da21601978e9a801fb28c4c208f87"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_native_result_20261013.terminal.json",
+    "bytes": 1196,
+    "sha256": "13488650e7bbffc24946dc879f9a5e92dd85283b1935449bcec9d7e827fcc894"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ternary_readout_native_binding_20261013.json",
+    "bytes": 1218099,
+    "sha256": "69d16f93ffa7122f34f402984ff6a1e1bcd698ac86f71d15a85760fd712b8447"
+  },
+  "counts": {
+    "packed_codes": 22671360,
+    "reconstructed_q": 18874368,
+    "lut_F64_words": 138528768,
+    "original_F32_words": 138528768,
+    "original_F32_mismatches": 0,
+    "lut_BF16_words": 138528768,
+    "independent_BF16_mismatches": 0
+  },
+  "maximum": {
+    "raw_full_LUT_vs_independent_q": 5.696256530165227e-17,
+    "metadata": 6.374778905527399e-21
+  },
+  "verification_gates": {
+    "raw_full_LUT_vs_independent_q": true,
+    "original_F32_exact": true,
+    "metadata": true
+  },
+  "numeric_all_pass": true,
+  "additional_all_pass": true,
+  "donor_gates": {
+    "0": {
+      "FIT": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "DEV": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    },
+    "12": {
+      "FIT": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "DEV": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    },
+    "23": {
+      "FIT": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "DEV": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    }
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 45.10899999999674,
+  "OS_peak": 403910656,
+  "scope": "Every packed coefficient/full LUT F64 output/original F32 score bit/BF16 output and source metric independently qualified;producer scalar/table/mutation receipts checked,not rerun. No timing/DRAM/causal chatbot/model-rate admission."
+}
