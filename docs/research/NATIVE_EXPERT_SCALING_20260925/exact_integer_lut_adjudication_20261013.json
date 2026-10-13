@@ -1,0 +1,88 @@
+{
+  "schema": "EXACT_INTEGER_LUT_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\exact_integer_lut_audit.py",
+    "bytes": 9313,
+    "sha256": "3c7988aa4da74f8b8239e862880d5dfd72c200796109c7ac19f78972bbf43d28"
+  },
+  "freeze": "29e5418",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_result_20261013.json",
+    "bytes": 120974,
+    "sha256": "51c039a9f30e71269c52197376625eebba1d6805648bbd464d381b7043d50d07"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_result_20261013.terminal.json",
+    "bytes": 1167,
+    "sha256": "a6cd6992f3ec3a7a5f92cbd01fa790d6e0e9f8b75668e848e129226bb945a331"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_integer_lut_binding_20261013.json",
+    "bytes": 289617,
+    "sha256": "d165e0c316ed0b5a61eca6ebf23e26aea11568c4b2acb1b75cf9c0ff320b4ed9"
+  },
+  "counts": {
+    "packed_bytes": 28311552,
+    "q_words": 18874368,
+    "input_words": 207793152,
+    "integer_dot_words": 138528768,
+    "integer_mismatches": 0,
+    "raw_words": 138528768,
+    "raw_bit_mismatches": 0,
+    "BF16_words": 138528768,
+    "BF16_mismatches": 0,
+    "control_digit_words": 262144,
+    "control_table_words": 4194304
+  },
+  "numeric_all_pass": true,
+  "inherited_additional_all_pass": true,
+  "inherited_donor_gates": {
+    "0": {
+      "FIT": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "DEV": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    },
+    "12": {
+      "FIT": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "DEV": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    },
+    "23": {
+      "FIT": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "DEV": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    }
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 39.734000000004016,
+  "OS_peak": 370327552,
+  "scope": "Every packed coefficient/digit/exhaustive table/exact I64/scaled raw F64/BF16 word independently checked. Native extrema/mutation/count controls are checked producer receipts. No further quality approximation;full accepted archive identity. No cost/model/DRAM/useful-n admission."
+}
