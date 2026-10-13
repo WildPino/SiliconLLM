@@ -1,8 +1,54 @@
 # Full-width native chatbot: exact continuation point
 
-13 October 2026, launch12:29:50 Europe/Rome (10:29:50 UTC).
+13 October2026. **Producer COMPLETE; independent CPU audit RUNNING.**
 **Goal PAUSED/INCOMPLETE under the human's explicit long-run instruction.**
-Bounded job continues in hidden background. No delegated monitor/automation.
+Bounded CPU audit continues in hidden background. No delegated monitor/automation.
+
+## Current evidence and exact next action
+
+Producer source run launched12:29:50 Europe/Rome,closed normally:worker
+3576.031s/holder3592.765s,both exit0/matching process instances absent.
+Report1ab9c39cf7c48a7bc56cf5a4dc56e564a142250fad92314b12449ff6caada771;
+holder terminal5a1ac1bafc750466510cd2bac90ba67a85b22a7af7ac67d33c0722a01f382978.
+Full48 known histories,16 tasks/own-answer followup,16 prefix controls.
+24,169 consumed tokens/580,056 native site positions. All4805 produced
+files/17,235,894,707B and188 declared input hashes verified again during
+producer custody closure35.297s/exit0. Protected files/source unchanged.
+Producer peakOS4,026,753,024B,GPUallocated3,187,002,368B/reserved3,265,265,664B.
+
+**PROVISIONAL quality:**14/16,all categories meet gate,own-answer followupMilo
+correct,DEV case-mean KL.02155979257/disagreement.04884743007,all12 domain
+gates pass,all16 prefix controls exact. Strict mismatches arithmetic_div
+expected4/actual2 and history_color expectedgreen/actualGreen retained.
+No case-folding/threshold/data change. Full independent audit pending; these
+are producer observations,not final admission or accepted TPS proof.
+
+Audit launcher frozen16ae694;closure/binding/report frozen30d9ed4. Audit
+binding2ddeb0bfa9d8317dcaf0799f02b5f6795117a7cc2bd529840cdb130d0fefea73,
+496 supplemental current file pins. Launched13:38:58 Europe/Rome:
+holder27116/create1791891538.62575;worker16028/create1791891539.148667.
+Worker7200s/holder7500s (300s closure allowance),combinedOS8GiB,no GPU.
+Owned receipt and holder-start file record exact commands. CPU audit programs
+remain the frozen full97 sequences/all24 sites F64/bit/categorical verification.
+
+**Resume:**inspect `full_width_native_chat_adjudication_20261013.worker.log`,
+`full_width_native_chat_adjudication_20261013.terminal.json` (worker),
+`full_width_native_chat_adjudication_20261013.holder_terminal.json` (holder),
+and matching actual PID/create time. Require both terminal0/matching report
+hash before any admission. If still live,do not restart;respect long-run pause.
+After closure,fully verify audit outputs/limits/source/protected inputs and
+all numeric gates,including integer exactness and any failures. Then document
+the full-model decision and select the next capacity/cost transformation.
+
+See [audit launch protocol](FULL_WIDTH_NATIVE_CHAT_AUDIT_LAUNCH_PROTOCOL_20261013.md)
+and [audit binding/producer closure](full_width_native_chat_audit_binding_20261013.json).
+Producer188 selected pins did not cover every transitive helper/tokenizer/Jinja
+runtime body. Supplemental current pins do not retroactively establish
+historical custody;retain this scope limit alongside independent stored replay.
+GPU attention/FFN/head remain source-identity/producer witnesses. Final CPU/
+conditional useful-n/DRAM/other families/same useful50 remain open.
+
+## Original launch history (superseded by terminal evidence above)
 
 ## What is real now
 

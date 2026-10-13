@@ -3,11 +3,14 @@
 **AUTHORITATIVE 13 October2026: goal PAUSED/INCOMPLETE per human long-run instruction.**
 
 [Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md)
-IMPLEMENTED/BOUND/RUNNING:source19ab57b/binding e3c91ba,48 CPU adapter calls
-across24 actual packets exact. Owned bounded2h RTX3060 job;411 source
-parameters verified,first prefix control exact. These are startup/wiring
-controls;full chat/own-history/known held-out quality and complete stored
-audit pending. No final CPU/semantic useful-n/accepted TPS admission.
+PRODUCER COMPLETE/CPU AUDIT RUNNING. Both source commands terminal0/~1h,
+all411 source parameters exact before/after,4805 outputs17.24GB/188 declared
+input hashes verified in custody closure. PROVISIONAL14/16/own-answer
+followup correct/DEV KL.02156/dis4.8847%,all domain/prefix gates pass.
+Independent all97 sequences/24sites F64/bit/categorical audit live with
+2h worker cap,no GPU;goal pauses under human instruction. No admission yet.
+Historical transitive producer import pin limit documented,current extra
+audit pins496. No final CPU/semantic useful-n/accepted TPS admission.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

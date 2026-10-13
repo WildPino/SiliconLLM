@@ -5,13 +5,16 @@ construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
 
 [Full-width native chatbot quality bridge](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md)
-is now implemented/bound/running. Original trained hidden2048/source attention/
+has completed its producer run;independent CPU audit is running. Original trained hidden2048/source attention/
 FFN/head, first compiled F0 and all24 own native state96/p6 readouts. Consumer
-ABI test48 calls exact/no GPU;411 source parameters verified and first prefix
-control exact during actual model startup. Full behavior/categorical quality
-and stored independent audit pending, so no transfer-backbone admission yet.
+ABI test48 calls exact/no GPU;411 source parameters exact before/after.
+Both producer commands terminal0/~1h,17.24GB full traces/hashes verified.
+Provisional14/16/followup correct/DEV KL.02156/dis4.8847%,all16 prefix controls
+exact. Complete97-sequence/24site CPU audit pending,so no backbone admission.
+Historical transitive producer pin limitation remains explicit;current496
+supplemental audit pins strengthen current replay without retroactive custody.
 Scoped CUDA quality diagnostic;final CPU/conditional n/same useful50 remain
-open. The goal pauses while the owned2h run continues under its watchdog.
+open. The goal pauses while the owned2h CPU audit continues under its watchdog.
 
 [Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
 COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,

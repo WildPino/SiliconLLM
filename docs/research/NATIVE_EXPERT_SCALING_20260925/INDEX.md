@@ -3,11 +3,14 @@
 **13 October2026: goal PAUSED/INCOMPLETE per human long-run instruction.**
 
 [Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_STATE_20261013.md) now
-IMPLEMENTED/BOUND/RUNNING. Source19ab57b/binding e3c91ba;24 adapter smoke48
-calls exact/CPU only. Owned2h RTX3060 job started12:29:50 Europe/Rome;
-holder23976/worker13588 with recorded creation times.411 source parameters
-verified;first prefix control exact. Full16 tasks/followup/FIT24+DEV24
-and complete stored audit pending. New E bound19.0GB/cap24GiB. Resume at
+PRODUCER COMPLETE/CPU AUDIT RUNNING. Full16 tasks/followup/FIT24+DEV24,
+both source commands closed0/~1h,411 parameters exact before/after,
+all4805 outputs/17.24GB and188 declared inputs hash verified. Provisional
+14/16,own-answer followup correct,DEV KL.02156/dis4.8847%,all domain/prefix
+gates pass. Not independently admitted. Owned2h CPU audit started13:38:58
+Europe/Rome;holder27116/worker16028 with recorded creation times. Full97
+trajectories/24sites/580056 positions;no GPU. Transitive producer pin scope
+limit documented;496 current audit pins. Resume at
 the linked process/terminal/audit instructions; no new component-only work.
 Final engine/useful-n/same useful50 and other families/scales remain open.
 
