@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE. Stored24 control recovered/qualified; next reduced FIT3.**
+14 October 2026. **Goal INCOMPLETE / pause requested. FIT3 launched, session63952.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -121,7 +121,8 @@ mechanical probe must not be relaunched. See [depth state](FIXED_DEPTH_STATE_202
 Original FIT24 session64905 is terminal1; no GPU duplicate launch.
 CPU recovery session39991 terminal0, explicit recovered control audit/closure
 qualified; do not rerun it. Preserve original failed receipts/cache provenance.
-Launch ONE frozen FIT3 worker, then pause during long wait for user wakeup.
+Frozen FIT3 worker launched, session63952. Pause during long wait for user wakeup;
+observe actual holder/owned receipt/terminal, no duplicate launch.
 Full audit/closure of FIT3 before6/12; never skip audits on qualityFAIL. Bounded
 own-history worker/full auditor and fresh actual GPU/runtime/source binding
 are implemented/frozen. Use qualified activation backend,

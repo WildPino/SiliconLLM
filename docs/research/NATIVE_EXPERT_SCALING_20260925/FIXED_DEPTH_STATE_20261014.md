@@ -1,5 +1,14 @@
 # Source depth intervention: exact point of continuation
 
+Current14 October2026: FIT3 launched with frozen source sites0/12/23, session
+63952. Check live holder/owned receipt/process creation time on user wakeup;
+do not relaunch. Budget45min/GPUallocated6GiB/reserved10GiB/OS8GiB/CPU6,
+family32GiB. Goal pause during the long wait. No reduced quality result yet.
+On terminal0, run original full fixed_depth_quality_audit.py on
+fixed_depth_fit3_result_20261014.json, then per-phase closure; even if quality
+fails. On failure retain the first fault and every artifact. FIT6/12/selection/
+DEV/tasks follow only after complete stored audits, no data-dependent shortcuts.
+
 Latest14 October2026: [stored24 control recovered/full audit qualified](FIXED_DEPTH_CONTROL_RESULT_20261014.md).
 Recovery19664 exit0/1831.828s/OS1152368640; all1344 sequence-sites/291888 steps/
 597786624 outputs and integer words exact, all state/ring and source numeric
