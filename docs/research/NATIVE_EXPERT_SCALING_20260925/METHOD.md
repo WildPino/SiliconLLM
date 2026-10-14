@@ -61,7 +61,9 @@ old/new hashes and all CPU data/numerical pins exact,without claiming current
 GPU continuity. Fresh GPU binding is mandatory for future GPU source runs.
 Next source-sensitive FIT remainder-gradient metric/balanced input factors
 from FFN_SOURCE_ACTIVE_METRIC_NEXT_20261014.md. It is a surrogate objective,
-unimplemented/unproven;same rank/count grid and actual selected functions/
+producer/geometry/full auditor/closure frozenb34cd94,binding58c33ec,CPU
+producer running per FFN_ACTIVE_ROUTER_STATE_20261014.md. Result still
+unproven;same rank/count grid and actual selected functions/
 full outputs. Local FIT selection/DEV same choice/complete audit/physical
 cost,precision,DRAM and own-model quality remain required.
 Physical

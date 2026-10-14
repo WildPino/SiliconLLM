@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October2026. **Goal ACTIVE/INCOMPLETE. All owned numerical commands closed.**
+14 October2026. **Goal ACTIVE/INCOMPLETE. CPU source-sensitive selector producer running.**
 
 ## Goal and architecture
 
@@ -99,13 +99,17 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Implement/freeze [source-sensitive input metric](FFN_SOURCE_ACTIVE_METRIC_NEXT_20261014.md)
-and full producer/auditor/binding. FIT source remainder gradients define PSD
+Producer/geometry/auditor/closure frozenb34cd94,binding58c33ec for
+[source-sensitive input metric](FFN_SOURCE_ACTIVE_METRIC_NEXT_20261014.md).
+FIT source remainder gradients define PSD
 metric;balance with uncentered input moment. Verify exact derivative/directional
 finite differences/metric actions/spectra/dual factors before selection.
 Same64 cells/ranks64..512/counts512,2048,32/full outputs and true selected
 source correction. Metric is a declared surrogate,not optimal ranking.
-No metric fit/observation yet. Select rank on FIT,DEV same choice;no promotion.
+Producer live:[state](FFN_ACTIVE_ROUTER_STATE_20261014.md),6508/tool90931,
+CPU30min/OS8GiB/output4GiB. No metric result qualified yet. Select rank on
+FIT,DEV same choice;no promotion. After terminal0,inspect audit state before
+starting it;never duplicate an already completed worker/result.
 Full current CPU-only bindings must retain explicit historical GPU drift.
 Then actual compiled CPU IDs AND masses/precision/loaded bytes/DRAM/cost
 screen before all24/bank expansion. Middle width2048 limits saving;no TPS claim.
