@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**Execution update14 October2026: own-history depth worker/full auditor available.**
+Frozen1b23ccf with declared independent kept-native F64/integer/quality checks;
+per-phase closerc9bd0b2, current8372-pin runtime/source binding3f46cc5,
+preparation167.437s/OS483393536/exit0. Source checksum unchanged, actual
+NVIDIA610.88/free10628MiB. Control FIT24 worker27444/create1791979602.8705103,
+holder22876,session64905 launched under45min/GPUallocated6GiB/reserved10GiB/
+OS8GiB/family32GiB. All16 prefix controls and first6 FIT histories pass
+original-parent exactness; holder/worker confirmed live around592s;
+full FIT/control audit not yet qualified. No reduced-depth result or selection
+and no final CPU quality/useful50/n/DRAM claim. [Execution](FIXED_DEPTH_EXECUTION_20261014.md),
+[state](FIXED_DEPTH_STATE_20261014.md); completed earlier probes remain closed.
+
 **AUTHORITATIVE14 October2026: actual BF contextual generator cost qualified.**
 [Result](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md) COMPLETE/full numeric
 audit and closure PASS. Source23 BF matrices631570432bytes directly mapped;

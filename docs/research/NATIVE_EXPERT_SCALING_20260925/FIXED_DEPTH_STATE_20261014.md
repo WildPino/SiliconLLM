@@ -1,5 +1,42 @@
 # Source depth intervention: exact point of continuation
 
+Current execution14 October2026: worker/full auditor frozen1b23ccf, per-phase
+closerc9bd0b2, actual current runtime binding3f46cc5. Preparation exit0,
+167.437s/OS483393536,8372 declared pins;NVIDIA610.88/current free10628MiB,
+source checkpoint unchanged. Binding3296903bytes,SHA256
+6572a0bfc04f9a1e97cf78ca5a4089a5025cc2a8e45d27609472c412b5fd71a7.
+Control FIT24 launched, terminal session64905,holder22876,worker27444/create
+1791979602.8705103. All16 prefix controls match both continuation and
+original-parent trace/state/score/cache. First6 FIT histories completed with
+parent-exact scores/native traces/snapshots/cache; latest observation~592s,
+metamathqa_50k_015 position128, holder/worker both confirmed live. These are
+partial observations, not full audit qualification. Check live session/owned receipt;
+no result, quality or audit is claimed until terminal completion. Do not launch
+another worker. GPU budget announced before use,45min/allocated6GiB/reserved
+10GiB/OS8GiB/family32GiB/CPU6. Source FFN/attention/head/generators remain GPU.
+
+Next: inspect fixed_depth_fit24_result_20261014.owned_process.json and worker
+log/session. On producer+holder exit0, run ONE full CPU audit using
+fixed_depth_quality_audit.py; then fixed_depth_quality_close.py. Reduced FIT
+phases3/6/12 require the24 control auditPASS. Selection/evaluation must follow
+the frozen protocol; no DEV or task choice. Resources/worker bounds/receipts
+in [execution protocol](FIXED_DEPTH_EXECUTION_20261014.md). All other completed
+numerical/meta probes remain closed. Goal ACTIVE / INCOMPLETE.
+
+After producer/holder terminal0 and absence of a matching live worker, use
+exclusive-output checks before either command:
+
+```powershell
+& 'C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe' -I -S -B -X utf8 benchmarks/native_expert_scaling/fixed_depth_quality_audit.py --report docs/research/NATIVE_EXPERT_SCALING_20260925/fixed_depth_fit24_result_20261014.json --out docs/research/NATIVE_EXPERT_SCALING_20260925/fixed_depth_fit24_audit_20261014.json
+& 'C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe' -I -S -B -X utf8 benchmarks/native_expert_scaling/fixed_depth_quality_close.py --report docs/research/NATIVE_EXPERT_SCALING_20260925/fixed_depth_fit24_result_20261014.json --audit docs/research/NATIVE_EXPERT_SCALING_20260925/fixed_depth_fit24_audit_20261014.json --out docs/research/NATIVE_EXPERT_SCALING_20260925/fixed_depth_fit24_closure_20261014.json
+```
+
+Commands are separate conditional phases; inspect each exit0/full numerical
+receipt, do not execute an unconditional chain. On a fault preserve artifacts,
+isolate first defect and use new repair outputs before any candidate query.
+
+Historical entry before the new execution follows.
+
 14 October2026. Goal ACTIVE / INCOMPLETE. Code/protocol/mechanical probe
 frozen11bc521. No quality worker or GPU run launched. All current workers
 closed; actual23 generator cost/audit/closure COMPLETE, do not rerun them.

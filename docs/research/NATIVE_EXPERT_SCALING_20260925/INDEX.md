@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. All current numerical workers closed.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. Source depth FIT24 control launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -27,8 +27,10 @@ family closed. No end-to-end or actual DRAM claim. Stop dense minor kernels.
 Next [fixed active-depth intervention](FIXED_DEPTH_PROTOCOL_20261014.md):
 3/6/12 kept source blocks +24 control, whole omitted blocks identity, residual
 2048/source operators preserved. [Prototype](../../../benchmarks/native_expert_scaling/fixed_depth_bridge.py)
-and source-class mechanical probe pass; quality/own-history sparse-KV worker
-and full audit remain unimplemented. Fixed pruning is not useful expert-n.
+and source-class mechanical probe pass. Own-history worker/full auditor now
+frozen1b23ccf and new8372-pin runtime binding3f46cc5/currentNVIDIA610.88 prepared;
+FIT24 control launched, pending terminal/full audit. Fixed pruning is not
+useful expert-n; no reduced quality result yet.
 
 [Exact finite-BF activation compilation](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md)
 COMPLETE/full exhaustive, native trajectory, integer and cost audit/closure PASS.
@@ -105,18 +107,22 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 Check processes/files first; completed generator producer/audit/closure and
 mechanical probe must not be relaunched. See [depth state](FIXED_DEPTH_STATE_20261014.md).
-Implement/freeze bounded own-history depth quality worker/full auditor and a
-fresh actual GPU/runtime/source binding. Use qualified activation backend,
+Observe current FIT24 control session64905/owned receipt, no duplicate launch.
+On terminal0, full CPU audit and phase closure; only then FIT3/6/12. Bounded
+own-history worker/full auditor and fresh actual GPU/runtime/source binding
+are implemented/frozen. Use qualified activation backend,
 source first/last kept, new downstream hidden, original site KV indexes,
 explicit active/omitted ledger and restoration between arms. First verify24
 control and sparse-KV continuation; then frozen3/6/12 FIT selection and DEV/
 tasks of selected arm (or frozen NONSELECTED6 defect arm if all FIT fail).
-Announce GPU budget BEFORE allocation; no GPU has been used this turn.
+GPU budget announced before this control;45min/allocated6GiB/reserved10GiB/
+OS8GiB/family32GiB. No reduced model quality admitted yet.
 Do not polish dense kernel layouts or expand FFN rank/cell grids. Header-only
 remaining coefficient inventories and logical byte ledgers are not DRAM proof.
 Fixed pruning removes active functions; useful capacity/scaling is unresolved.
 
-RESERVED104 new+64 older/longalign remain unopened. No GPU/T4 allocation,
+RESERVED104 new+64 older/longalign remain unopened. Only the announced local
+GPU control is authorized/running; no T4 allocation,
 delegation or recurring monitor. Announce GPU budget before use; hours jobs
 follow the user's bounded-launch/pause instruction. Preserve foreign changes,
 owner Git identity and attribution-free commits. Final CPU quality/useful50,

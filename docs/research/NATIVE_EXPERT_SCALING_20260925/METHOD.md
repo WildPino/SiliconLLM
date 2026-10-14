@@ -1,6 +1,14 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+The [depth execution pipeline](FIXED_DEPTH_EXECUTION_20261014.md) now has
+bounded GPU FIT/evaluation workers, independent full kept-native/quality
+auditor, per-phase closure and FIT-only selector. Code freeze1b23ccf, phase
+closerc9bd0b2, current runtime/source binding3f46cc5/8372 pins/NVIDIA610.88,
+source values unchanged. FIT24 control launched; source-parent equality and
+full numeric audit are prerequisites for reduced3/6/12 phases. No quality
+result yet. This is implementation/provenance progress, not proof of the
+depth hypothesis or final CPU quality/useful50/DRAM/useful-n.
 Actual BF source generator implementation/cost is now
 [qualified](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md): direct BF ranges,
 AVX register decode, orderedF32=>BF GG and actual MuP=>BF, all23 sequential
@@ -17,7 +25,8 @@ and new kept-site hidden. Actual source classes on meta verify omitted identity/
 no submodule calls/cache mutation, native first F0 token vs original state/
 output, and method restoration for all schedules. This is mechanical evidence,
 not source decoder quality or sparse KV continuation. The numerical own-history
-quality worker/full auditor/new GPU binding remain to implement before use.
+ quality worker/full auditor/new GPU binding are now implemented/frozen above;
+ their complete own-history observations/audits remain pending.
 Fixed depth cannot prove useful selective-n or knowledge retained in omitted
 functions. Fit-only selection/whole unchanged gates and no RESERVED use are
 explicit; source GPU FFN/attention/head must still be removed for final CPU.
