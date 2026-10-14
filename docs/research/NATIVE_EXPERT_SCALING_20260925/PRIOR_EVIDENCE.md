@@ -1,5 +1,13 @@
 # Native expert-count scaling: prior evidence
 
+**Recovered wait comparison14 October2026:** [report](ENCODED_ORGANS_WAIT_RESULT_20261014.md)
+full1152-group ledger/parent numeric words/current seal PASS, new recovery
+exit0/51.062s; P1 reused once, only A/P2 executed. Original parentexit1/gap
+1211.725s retained. ACTIVE I4 generator+readout median24.12520/22.44160ms
+exceeds20ms before omitted costs; four/six passive drift checks fail. No stable
+runtime recipe/useful50/whole quality admission. Move to frozen full own-history
+FIT6/12 geometry checks; do not reprice unchanged minor kernels indefinitely.
+
 **Codec closure14 October2026:** [result](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md)
 exit0/201.640s/OS3.349GB, full decoded-weight math and source-only export audit.
 I8/I4 save coefficient storage but passive generator-only medians exceed20ms;

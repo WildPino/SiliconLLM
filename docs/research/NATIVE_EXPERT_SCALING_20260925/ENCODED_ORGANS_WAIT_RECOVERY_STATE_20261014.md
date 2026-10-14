@@ -1,5 +1,11 @@
 # Unit-parser recovery: launch observation
 
+Terminal update: recovery22492/session23997 exit0/51.062s/OS42,532,864B;
+A33932/P24492 both exit0. Complete1152-group ledger and current seal PASS.
+[Final report](ENCODED_ORGANS_WAIT_RESULT_20261014.md) preserves original parent
+exit1/interrupted schedule and budget/drift failures. No worker remains live.
+The launch observation below is historical.
+
 Freeze c59dd7b04006d4e3d72e8952b02ea39def8dab7e. Parent22492/
 create1791997075.6709528, terminal session23997; WMI actual command/process
 confirmed live after launch. Stored P1 ledger passes, no original kernel,

@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. P1 reused; A/P2 recovery launched.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. Recovered P/A/P comparison CLOSED.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,16 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Recovered waiting result](ENCODED_ORGANS_WAIT_RESULT_20261014.md) all1152
+groups/parent-output/ledger/current seal PASS, recovery exit0/51.062s. Original
+parent parser failure/interruption retained; runtime recipe not admitted.
+ACTIVE BF/I8/I4 generator+readout medians33.08590/29.38405/24.12520ms resident,
+30.50780/27.06070/22.44160ms evicted, BEFORE other operators. Four of six
+passive drift checks fail1.10. No more unchanged scheduling/codec grids.
+Next prepare V2 binding and run unexecuted frozen FIT6, full audit even failure,
+before FIT12/selection. Active geometry and composed quality remain unresolved.
+The launch observations below are historical; recovery parent is closed.
 
 Recovery frozen c59dd7b04006d4e3d72e8952b02ea39def8dab7e, parent22492/
 create1791997075.6709528, terminal session23997; exact WMI command/process

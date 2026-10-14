@@ -1,0 +1,732 @@
+{
+  "schema": "ENCODED_ORGANS_WAIT_RECOVERED_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\encoded_organs_wait_recovered_20261014_binding.json",
+    "bytes": 2780,
+    "sha256": "e6c4acaea331349b89937c27c365869e92e2f3dc6dd27369979d86a97f0491cc"
+  },
+  "profiles": [
+    {
+      "profile": "P1",
+      "report": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P1.json",
+        "bytes": 443491,
+        "sha256": "2a51c29b2c3d99047b6c33618587c95f2be7928df84ce1962154abb860cff5e3"
+      },
+      "summary": {
+        "resident": {
+          "16": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 30485300.0,
+              "median": 38151450.0,
+              "p90": 51852590.0,
+              "maximum": 124932200.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 20106000.0,
+              "median": 24308100.0,
+              "p90": 31624180.0,
+              "maximum": 87311300.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 9359600.0,
+              "median": 12564950.0,
+              "p90": 18944000.000000007,
+              "maximum": 36480800.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          },
+          "8": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 28328700.0,
+              "median": 33738400.0,
+              "p90": 44787570.00000001,
+              "maximum": 91049700.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 17729000.0,
+              "median": 20449200.0,
+              "p90": 25589790.000000004,
+              "maximum": 58382900.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 9173800.0,
+              "median": 12270800.0,
+              "p90": 20284060.000000004,
+              "maximum": 33903900.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          },
+          "4": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 23282600.0,
+              "median": 28687100.0,
+              "p90": 37152560.0,
+              "maximum": 76724800.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 13317700.0,
+              "median": 15976950.0,
+              "p90": 21954360.000000007,
+              "maximum": 39863900.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 9059900.0,
+              "median": 11627500.0,
+              "p90": 15340500.000000002,
+              "maximum": 36141300.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          }
+        },
+        "parameter_evicted": {
+          "16": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 29488000.0,
+              "median": 33050950.0,
+              "p90": 47937490.0,
+              "maximum": 121492700.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 19524900.0,
+              "median": 21909050.0,
+              "p90": 32296400.000000004,
+              "maximum": 61527700.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 9241100.0,
+              "median": 10788000.0,
+              "p90": 16233900.0,
+              "maximum": 58829200.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 19637500.0,
+              "median": 21032950.0,
+              "p90": 26097350.0,
+              "maximum": 35552600.0
+            }
+          },
+          "8": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 27139800.0,
+              "median": 30404650.0,
+              "p90": 39522650.0,
+              "maximum": 78025100.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 17751400.0,
+              "median": 19223400.0,
+              "p90": 24925980.000000004,
+              "maximum": 49930800.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8589000.0,
+              "median": 10422800.0,
+              "p90": 13980840.0,
+              "maximum": 27464500.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 13243800.0,
+              "median": 14078300.0,
+              "p90": 16785680.0,
+              "maximum": 22380300.0
+            }
+          },
+          "4": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 22534500.0,
+              "median": 26076700.0,
+              "p90": 32132460.000000004,
+              "maximum": 131883100.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 12983300.0,
+              "median": 14918700.0,
+              "p90": 17690740.0,
+              "maximum": 66931500.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8648000.0,
+              "median": 10589200.0,
+              "p90": 14489960.000000002,
+              "maximum": 64041100.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 9752300.0,
+              "median": 10848350.0,
+              "p90": 12542310.0,
+              "maximum": 17953400.0
+            }
+          }
+        }
+      },
+      "exact_cells": {
+        "generator": 188731008,
+        "readout": 60162048
+      },
+      "stderr": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P1.stderr",
+        "bytes": 2510,
+        "sha256": "fecca7ffe04970103e0702ec4803922ab09c8296b8ee4b55b498972c9f0a5d88"
+      },
+      "stdout": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P1.stdout",
+        "bytes": 830,
+        "sha256": "4dd226b0da2e7dd9824e50442ec8f4d69c600082a2178bcc3ef392409492c0bf"
+      }
+    },
+    {
+      "profile": "A",
+      "report": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\A.json",
+        "bytes": 442265,
+        "sha256": "6c4e3892d81ae29904a8a30558b821c310c25765a2e2e86812501632923dbe16"
+      },
+      "summary": {
+        "resident": {
+          "16": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 28679700.0,
+              "median": 33085900.0,
+              "p90": 39838970.0,
+              "maximum": 80641000.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 19459100.0,
+              "median": 21787650.0,
+              "p90": 26950530.0,
+              "maximum": 44074700.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8617400.0,
+              "median": 10374250.0,
+              "p90": 14572250.000000004,
+              "maximum": 36118900.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          },
+          "8": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 26202600.0,
+              "median": 29384050.0,
+              "p90": 40285960.000000015,
+              "maximum": 207510500.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 17188600.0,
+              "median": 18763300.0,
+              "p90": 20528950.0,
+              "maximum": 105006000.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8160600.0,
+              "median": 9691250.0,
+              "p90": 16726730.000000004,
+              "maximum": 100733700.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          },
+          "4": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 21985900.0,
+              "median": 24125200.0,
+              "p90": 33861730.0,
+              "maximum": 204250500.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 12503300.0,
+              "median": 13939550.0,
+              "p90": 16787890.0,
+              "maximum": 104774800.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8203200.0,
+              "median": 9693150.0,
+              "p90": 13086130.000000002,
+              "maximum": 93816700.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          }
+        },
+        "parameter_evicted": {
+          "16": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 28093800.0,
+              "median": 30507800.0,
+              "p90": 36702570.00000001,
+              "maximum": 54587200.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 18752500.0,
+              "median": 20599400.0,
+              "p90": 24874800.000000007,
+              "maximum": 37175900.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8284900.0,
+              "median": 9515600.0,
+              "p90": 11140860.000000002,
+              "maximum": 18385000.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 19339300.0,
+              "median": 20733050.0,
+              "p90": 22804770.0,
+              "maximum": 26828400.0
+            }
+          },
+          "8": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 25524600.0,
+              "median": 27060700.0,
+              "p90": 30906330.000000004,
+              "maximum": 101439900.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 16782900.0,
+              "median": 17826350.0,
+              "p90": 19933960.0,
+              "maximum": 63073000.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 7995400.0,
+              "median": 9018650.0,
+              "p90": 10429000.0,
+              "maximum": 49818900.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 13033600.0,
+              "median": 14017050.0,
+              "p90": 15600610.0,
+              "maximum": 21264600.0
+            }
+          },
+          "4": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 20832500.0,
+              "median": 22441600.0,
+              "p90": 25240210.0,
+              "maximum": 145219300.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 12279300.0,
+              "median": 13152900.0,
+              "p90": 14679750.0,
+              "maximum": 89337000.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 7886900.0,
+              "median": 8989600.0,
+              "p90": 10109460.0,
+              "maximum": 55137300.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 9999600.0,
+              "median": 10644200.0,
+              "p90": 11824680.0,
+              "maximum": 27989900.0
+            }
+          }
+        }
+      },
+      "exact_cells": {
+        "generator": 188731008,
+        "readout": 60162048
+      },
+      "stderr": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\A.stderr",
+        "bytes": 2512,
+        "sha256": "e9af4a7b0a4ef6a61adb28ae02cedb7d3e48a35a3157b0d2560edfa7bee1e4d2"
+      },
+      "stdout": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\A.stdout",
+        "bytes": 822,
+        "sha256": "98bc31f4998afa04ac1e192ee85b5c1611fd20f5bdf7570e7fc76f2b8777d96c"
+      }
+    },
+    {
+      "profile": "P2",
+      "report": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P2.json",
+        "bytes": 441985,
+        "sha256": "c53ce56840b03d030fad3b59ac122b57c4b6523750c180e5e88a1e66ff40c197"
+      },
+      "summary": {
+        "resident": {
+          "16": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 29193300.0,
+              "median": 31457400.0,
+              "p90": 34745560.0,
+              "maximum": 50017300.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 19117500.0,
+              "median": 20758500.0,
+              "p90": 23146900.0,
+              "maximum": 32522800.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8786800.0,
+              "median": 9885450.0,
+              "p90": 11772050.0,
+              "maximum": 16751300.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          },
+          "8": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 26496000.0,
+              "median": 27922100.0,
+              "p90": 32414110.0,
+              "maximum": 63927300.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 17347000.0,
+              "median": 18372200.0,
+              "p90": 20834410.0,
+              "maximum": 36970700.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8321700.0,
+              "median": 9250200.0,
+              "p90": 10633770.0,
+              "maximum": 36438600.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          },
+          "4": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 21949100.0,
+              "median": 23719650.0,
+              "p90": 25883230.0,
+              "maximum": 28588100.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 12754300.0,
+              "median": 13864550.0,
+              "p90": 15270450.0,
+              "maximum": 17678300.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8331700.0,
+              "median": 9253800.0,
+              "p90": 10392560.0,
+              "maximum": 13815800.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "maximum": 0.0
+            }
+          }
+        },
+        "parameter_evicted": {
+          "16": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 29545000.0,
+              "median": 31067050.0,
+              "p90": 34065490.0,
+              "maximum": 49928200.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 19248500.0,
+              "median": 20826600.0,
+              "p90": 22722610.0,
+              "maximum": 28673500.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 9011100.0,
+              "median": 10051250.0,
+              "p90": 11660390.000000002,
+              "maximum": 21411600.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 19588900.0,
+              "median": 20289400.0,
+              "p90": 21075890.0,
+              "maximum": 31788300.0
+            }
+          },
+          "8": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 26303900.0,
+              "median": 28191750.0,
+              "p90": 31335590.0,
+              "maximum": 67241000.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 17069100.0,
+              "median": 18343800.0,
+              "p90": 19669800.0,
+              "maximum": 40740800.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8630500.0,
+              "median": 9386550.0,
+              "p90": 11115590.000000002,
+              "maximum": 25474400.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 13191400.0,
+              "median": 13643000.0,
+              "p90": 14196820.0,
+              "maximum": 14956100.0
+            }
+          },
+          "4": {
+            "whole_ns": {
+              "count": 64,
+              "minimum": 21524100.0,
+              "median": 23632100.0,
+              "p90": 27542540.000000004,
+              "maximum": 66536300.0
+            },
+            "generator_ns": {
+              "count": 64,
+              "minimum": 12546800.0,
+              "median": 13747350.0,
+              "p90": 15760870.0,
+              "maximum": 23455300.0
+            },
+            "readout_ns": {
+              "count": 64,
+              "minimum": 8464500.0,
+              "median": 9463300.0,
+              "p90": 11034900.0,
+              "maximum": 50843800.0
+            },
+            "flush_ns": {
+              "count": 64,
+              "minimum": 9878400.0,
+              "median": 10435550.0,
+              "p90": 10927190.0,
+              "maximum": 11489100.0
+            }
+          }
+        }
+      },
+      "exact_cells": {
+        "generator": 188731008,
+        "readout": 60162048
+      },
+      "stderr": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P2.stderr",
+        "bytes": 2510,
+        "sha256": "fecca7ffe04970103e0702ec4803922ab09c8296b8ee4b55b498972c9f0a5d88"
+      },
+      "stdout": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P2.stdout",
+        "bytes": 830,
+        "sha256": "d4e8f40282ef8a5642d82f6646a2923100b022d0fca321ff7983029cd3937224"
+      }
+    }
+  ],
+  "children": [
+    {
+      "profile": "P1",
+      "pid": 16264,
+      "creation_time": 1791995851.2906785,
+      "terminal": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P1.terminal.json",
+        "bytes": 924,
+        "sha256": "218db13d11781f8d73e8890a5f24f52c074fc279e707dbc43b25a000edcf3afc"
+      },
+      "executed_in_recovery": false,
+      "original_worker_exit_code": 0
+    },
+    {
+      "profile": "A",
+      "pid": 33932,
+      "creation_time": 1791997083.093706,
+      "terminal": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\A.terminal.json",
+        "bytes": 919,
+        "sha256": "306759524e5869f41c073d62e42162a332fbb7c84badfe7cfc240f054d34063e"
+      },
+      "executed_in_recovery": true,
+      "original_worker_exit_code": 0
+    },
+    {
+      "profile": "P2",
+      "pid": 4492,
+      "creation_time": 1791997102.0844228,
+      "terminal": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\encoded_organs_wait_20261014\\P2.terminal.json",
+        "bytes": 923,
+        "sha256": "2985403f0e188ed118021f85e3c9c7d81a0eff02e51034f85a06def210b8edde"
+      },
+      "executed_in_recovery": true,
+      "original_worker_exit_code": 0
+    }
+  ],
+  "decisions": {
+    "resident": {
+      "16": {
+        "passive_drift": 1.212797306834004,
+        "drift_pass": false,
+        "active_median_ns": 33085900.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9506233761942626
+      },
+      "8": {
+        "passive_drift": 1.208304532968509,
+        "drift_pass": false,
+        "active_median_ns": 29384050.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9530915253687531
+      },
+      "4": {
+        "passive_drift": 1.2094234105477948,
+        "drift_pass": false,
+        "active_median_ns": 24125200.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9206905598992496
+      }
+    },
+    "parameter_evicted": {
+      "16": {
+        "passive_drift": 1.06385865410459,
+        "drift_pass": true,
+        "active_median_ns": 30507800.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9516142112979195
+      },
+      "8": {
+        "passive_drift": 1.0784945950499703,
+        "drift_pass": true,
+        "active_median_ns": 27060700.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9236301206217447
+      },
+      "4": {
+        "passive_drift": 1.1034440443295348,
+        "drift_pass": false,
+        "active_median_ns": 22441600.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9029226213467233
+      }
+    }
+  },
+  "all1152_groups_ledger_audited": true,
+  "all_parent_outputs_exact": true,
+  "original_parent_exit_code": 1,
+  "original_posthash_complete": false,
+  "recovery_current_input_output_seal": true,
+  "interrupted_schedule": true,
+  "P1_to_A_gap_seconds": 1211.7250273227692,
+  "runtime_recipe_admitted": false,
+  "GPU_calls": 0,
+  "RESERVED_queries": 0,
+  "scope": "Same23 encoded/source generators and24 integer readouts on supplied h/r/a. Runtime waiting only; not a joined decoder, new quality, useful50, useful-n or physical DRAM. Original parent metadata failure and schedule interruption retained.",
+  "seconds": 51.03100000000268
+}

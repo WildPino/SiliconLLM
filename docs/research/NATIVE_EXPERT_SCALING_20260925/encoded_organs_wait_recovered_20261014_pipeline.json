@@ -1,0 +1,60 @@
+{
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\encoded_organs_wait_recovered_20261014_result.json",
+    "bytes": 22234,
+    "sha256": "ecc532ee46ed63dbad7d95c9e77306c089fe3841f621ebc9414e9a61e230039c"
+  },
+  "closure": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\encoded_organs_wait_recovered_20261014_closure.json",
+    "bytes": 1029,
+    "sha256": "ed161e326e3499f83c55c79fb79dddd2ee01882961f424d03032976f987e63aa"
+  },
+  "decisions": {
+    "resident": {
+      "16": {
+        "passive_drift": 1.212797306834004,
+        "drift_pass": false,
+        "active_median_ns": 33085900.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9506233761942626
+      },
+      "8": {
+        "passive_drift": 1.208304532968509,
+        "drift_pass": false,
+        "active_median_ns": 29384050.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9530915253687531
+      },
+      "4": {
+        "passive_drift": 1.2094234105477948,
+        "drift_pass": false,
+        "active_median_ns": 24125200.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9206905598992496
+      }
+    },
+    "parameter_evicted": {
+      "16": {
+        "passive_drift": 1.06385865410459,
+        "drift_pass": true,
+        "active_median_ns": 30507800.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9516142112979195
+      },
+      "8": {
+        "passive_drift": 1.0784945950499703,
+        "drift_pass": true,
+        "active_median_ns": 27060700.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9236301206217447
+      },
+      "4": {
+        "passive_drift": 1.1034440443295348,
+        "drift_pass": false,
+        "active_median_ns": 22441600.0,
+        "active_partial_20ms_pass": false,
+        "active_vs_passive_mean": 0.9029226213467233
+      }
+    }
+  }
+}

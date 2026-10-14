@@ -1,6 +1,13 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Waiting comparison](ENCODED_ORGANS_WAIT_RESULT_20261014.md) now recovered/
+closed, all1152 groups and exact-parent outputs/current seal verified. Original
+parser failure and interruption retained. ACTIVE I4+readout24.12520/22.44160ms
+resident/evicted, four/six drift checks fail. Do not extend unchanged dense
+codec/thread/wait grids: test the unexecuted frozen6/12 own-history geometries
+with unchanged gates, then require source-derived adaptation if they fail.
+Fixed omission is not useful conditional capacity; the full goal remains intact.
 [Source-only codec screen](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md) CLOSED,
 full audit PASS; I8/I4 generator medians28.95015/22.80625ms resident and
 30.90460/23.84020ms evicted, before other organs. Source-field worst1.188455%/
