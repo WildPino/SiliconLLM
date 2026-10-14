@@ -1,0 +1,105 @@
+{
+  "schema": "FIXED_DEPTH_QUALITY_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit6_result_20261014.json",
+    "bytes": 1084537,
+    "sha256": "492a06ab34b716005696c1684bc9ced5e65acff3771db9a0d6d20c283b0bd74f"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_io_binding_20261014.json",
+    "bytes": 3298220,
+    "sha256": "e0c3512a339b85c6b48f5289aa913faedfe2c9b6848e0564890d9a7be62b070c"
+  },
+  "depth": 6,
+  "phase": "fit",
+  "native": {
+    "counts": {
+      "sequence_sites": 336,
+      "native_positions": 72972,
+      "output_words": 149446656,
+      "integer_words": 149446656
+    },
+    "maxima": {
+      "fields": 0,
+      "B_projection": 1.343413676407594e-07,
+      "C_projection": 1.4145254422787574e-07,
+      "scan": 6.254838497400437e-07,
+      "state": 1.1670510866967433e-06,
+      "norm": 0,
+      "contextual_generator": 3.8098006742054974e-05
+    },
+    "all_stored_native_words_and_state_exact": true,
+    "independent_F64_and_integer_controls": true
+  },
+  "all_numeric_pass": true,
+  "FIT_quality": {
+    "KL": 14.682199397323998,
+    "disagreement": 0.9894407711216799,
+    "domains": {
+      "apigen-80k": {
+        "KL": 16.324441722776662,
+        "disagreement": 1.0
+      },
+      "everyday-conversations": {
+        "KL": 13.364964721296001,
+        "disagreement": 0.9817528735632184
+      },
+      "explore-instruct-rewriting": {
+        "KL": 14.864844810497939,
+        "disagreement": 0.9722222222222222
+      },
+      "metamathqa-50k": {
+        "KL": 15.719504405763647,
+        "disagreement": 0.9812373991935484
+      },
+      "numina-cot-100k": {
+        "KL": 16.1025058165386,
+        "disagreement": 0.998046875
+      },
+      "openhermes-100k": {
+        "KL": 15.854837392035412,
+        "disagreement": 0.994140625
+      },
+      "self-oss-instruct": {
+        "KL": 14.582936104193617,
+        "disagreement": 0.986328125
+      },
+      "smol-constraints": {
+        "KL": 13.860575483998945,
+        "disagreement": 0.9947089947089947
+      },
+      "smol-magpie-ultra": {
+        "KL": 14.583332108414709,
+        "disagreement": 0.982421875
+      },
+      "smol-rewrite": {
+        "KL": 13.374037510976652,
+        "disagreement": 0.9924913194444445
+      },
+      "smol-summarize": {
+        "KL": 13.705082993471366,
+        "disagreement": 0.9957983193277311
+      },
+      "systemchats-30k": {
+        "KL": 13.849329697924443,
+        "disagreement": 0.994140625
+      }
+    },
+    "gates": {
+      "case_KL": false,
+      "case_disagreement": false,
+      "domain_KL": false,
+      "domain_disagreement": false
+    },
+    "all_pass": false
+  },
+  "quality": null,
+  "selection": null,
+  "decision": "INDEPENDENT_STORED_NUMERIC_PASS",
+  "quality_admissible": false,
+  "before_after_hashes_exact": true,
+  "seconds": 480.375,
+  "OS_peak": 1146118144,
+  "GPU_calls": 0,
+  "scope": "Every kept trajectory/state and independent F64/quantizer/integer/metrics/control/FIT choice checked. Source GPU attention/FFN/head are witnesses, no independent GPU arithmetic or final CPU TPS/DRAM/n admission."
+}

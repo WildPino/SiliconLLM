@@ -1,6 +1,11 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[FIT6 closed](FIXED_DEPTH_FIT6_RESULT_20261014.md): all stored native words,
+state, F64 controls and custody pass; audited KL14.68219940/disagreement
+98.94408% fail all frozen gates. This rejects the unadapted six-site omission,
+not every trained geometry. Complete only unexecuted FIT12 and full audit
+before frozen FIT-only selection. No changes to gates or source precision.
 [Waiting comparison](ENCODED_ORGANS_WAIT_RESULT_20261014.md) now recovered/
 closed, all1152 groups and exact-parent outputs/current seal verified. Original
 parser failure and interruption retained. ACTIVE I4+readout24.12520/22.44160ms

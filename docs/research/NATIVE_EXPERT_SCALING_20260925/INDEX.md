@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. FIT6 producer complete, quality FAIL; full audit pending.**
+14 October 2026. **Goal INCOMPLETE. FIT6 audit and custody closure complete; quality FAIL.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,22 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[FIT6 complete result](FIXED_DEPTH_FIT6_RESULT_20261014.md): worker/holder/
+auditor/closer all exit0. Full56 sequences/72,972 native positions/149,446,656
+BF and integer words exact, independent F64/source411/current seals PASS.
+Audit480.375s/OS1.146GB/no GPU; closure25.063s. Audited KL14.68219940/
+disagreement98.94408% fail all four gates. Original BF generators, no codec
+composition, no whole-quality or rate promotion. Only frozen FIT12 remains
+unexecuted before FIT-only selection. All FIT6 launch/pending statements below
+are historical; neither producer nor auditor needs replay.
+
+Full stored FIT6 audit27444/create1792003761.6817005, terminal session73222.
+Exact live Python argv/process verified via psutil; [owned receipt](fixed_depth_fit6_audit_20261014.owned_process.json).
+Max7200s/8GiB OS/6 CPU threads/no GPU. Audits all56 sequences/72972 kept
+native positions/state/integer/metrics/prefix/source controls even quality FAIL.
+No numerical source/GPU producer replay. Pause on wait, user resumes; inspect
+this exact handle/PID-create and terminal/adjudication before closure/FIT12.
 
 FIT6 worker9672/holder24048 exit0, full posthash/report/actual prefix-cache
 journals retained. Worker4322.468s/OS4034850816/GPUallocated3159225344/

@@ -1,5 +1,12 @@
 # Native expert-count scaling: prior evidence
 
+**FIT6 closure14 October2026:** [result](FIXED_DEPTH_FIT6_RESULT_20261014.md)
+worker/holder/auditor/closer all exit0; all56 sequences/72,972 native positions/
+149,446,656 BF and integer words exact; F64/source411/full seals PASS.
+Audited KL14.68219940/disagreement98.94408% fail every frozen gate. V2 actual
+prefix journals/posthash/GPU release complete. No recovery, codec composition,
+DEV or rate admission. Frozen FIT12 and its full audit remain before selection.
+
 **Recovered wait comparison14 October2026:** [report](ENCODED_ORGANS_WAIT_RESULT_20261014.md)
 full1152-group ledger/parent numeric words/current seal PASS, new recovery
 exit0/51.062s; P1 reused once, only A/P2 executed. Original parentexit1/gap

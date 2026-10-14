@@ -1,5 +1,19 @@
 # Frozen six-block own-history FIT: launch observation
 
+Authoritative closure update: [full result](FIXED_DEPTH_FIT6_RESULT_20261014.md).
+Auditor27444 exited0/480.563s; all72,972 positions and149,446,656 BF/integer
+words exact, independent F64 controls and full seals PASS. Closer31144 exited0/
+25.063s. FIT quality FAIL: KL14.682199397324/disagreement98.944077112168%.
+No FIT6 process remains live. Observations below are historical; no audit or
+producer replay is required. Only FIT12 remains unexecuted before FIT selection.
+
+Audit launch update: full stored CPU audit27444/create1792003761.6817005,
+terminal session73222. Actual live Python process/argv verified via psutil;
+owned receipt stored. Max7200s/8GiB OS/6 CPU threads/no GPU. Full native/state/
+integer/quality/prefix checks, also on producer quality failure. Pause on long
+wait, user wakes manually. Revalidate exact identity/handle; audit result and
+terminal required before numerical closure or unexecuted FIT12.
+
 Producer terminal update: worker9672/holder24048 both exit0, worker4322.468s/
 OS4,034,850,816B/GPUpeak3,159,225,344 allocated/3,225,419,776 reserved. GPU
 phase713.453s, ownership released to32MiB before posthash; V2 source411/current
