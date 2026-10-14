@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. P1 complete; parent settings parser failed.**
+14 October 2026. **Goal INCOMPLETE / pause requested. P1 reused; A/P2 recovery launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Recovery frozen c59dd7b04006d4e3d72e8952b02ea39def8dab7e, parent22492/
+create1791997075.6709528, terminal session23997; exact WMI command/process
+confirmed live. Stored P1 ledger accepted without kernel calls. Only previously
+unexecuted A/P2 launched under unchanged original worker/DLL/inputs. [Owned receipt](encoded_organs_wait_recovered_20261014_pipeline.owned_process.json).
+Max1800s recovery/600s per new worker/4GiB per worker/32MiB original family,
+three physical workers/no GPU. Original parent failure and P/A/P interruption
+remain. Pause on wait, user resumes; inspect exact handle and recovered terminal/
+result/closure. No recovered full comparison or runtime admission at launch.
 
 Parent21820 exit1/29.032s at text regex, not numeric computation: effective
 KMP_BLOCKTIME=0ms versus expected bare0. Actual runtime API returned0. P1
