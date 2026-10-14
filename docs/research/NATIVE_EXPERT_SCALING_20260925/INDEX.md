@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. Recovered P/A/P comparison CLOSED.**
+14 October 2026. **Goal INCOMPLETE / pause requested. Frozen own-history FIT6 launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,18 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+V2 extension preparation exit0/23.875s/OS36.213MB; all original data/numeric/
+gate keys and input prefix exactly preserved. Binding3298220B SHA256
+e0c3512a339b85c6b48f5289aa913faedfe2c9b6848e0564890d9a7be62b070c,
+execution code/protocol e8664044fa71822ce8633ca9343896952ea71d08.
+FIT6 holder24048/create1791998766.5580947, worker9672/create1791998788.0540435,
+terminal session67424. Actual holder WMI command/process confirmed live;
+[owned worker receipt](fixed_depth_fit6_result_20261014.owned_process.json) records spawned child.
+GPU numerical phase<=2700s/allocated6GiB/reserved10GiB, total7200s/OS8GiB/
+family32GiB/CPU6. Source operators/precision/schedules/gates unchanged.
+Pause on wait; user resumes. Next inspect exact holder/worker/handle and full
+report/terminals, then complete stored numerical audit even on quality FAIL.
 
 [Recovered waiting result](ENCODED_ORGANS_WAIT_RESULT_20261014.md) all1152
 groups/parent-output/ledger/current seal PASS, recovery exit0/51.062s. Original
