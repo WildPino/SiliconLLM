@@ -1,6 +1,21 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+The [stored24 control recovery](FIXED_DEPTH_CONTROL_RESULT_20261014.md) has
+complete numerical audit/explicit closure:56 sequences/291888 native positions/
+597786624 BF/readout words/state exact, independent source/math/quality checks
+pass. FITKL.00577542/disagreement2.79708%, all gates. Original posthash/worker
+failure remains1/incomplete, recovered prefix-cache metadata is explicitly
+attested from logged executed parent equality, not fresh KV capture. Current
+late seal cannot recreate original successful receipt/custody. This qualifies
+the stored control for frozen reduced3/6/12 FIT study, not final CPU quality/
+speed/n/general-family claims. CPU recovery1831.828s/OS1.152GB/no GPU.
+Latest FIT24 control has complete numerical histories/prefix data and all411
+source witnesses, but original worker/holder exit1 at AFTER_HASH deadline.
+Do not classify it as full original success. [CPU recovery protocol](FIXED_DEPTH_POSTHASH_RECOVERY_20261014.md)
+separates reconstructed report/current full stored audit from incomplete
+original posthash, retaining failures and prefix-cache attestation limitations.
+No GPU rerun or reduced candidate selection before recovery/full audit qualifies.
 The [depth execution pipeline](FIXED_DEPTH_EXECUTION_20261014.md) now has
 bounded GPU FIT/evaluation workers, independent full kept-native/quality
 auditor, per-phase closure and FIT-only selector. Code freeze1b23ccf, phase

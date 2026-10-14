@@ -1,5 +1,36 @@
 # Source depth intervention: exact point of continuation
 
+Latest14 October2026: [stored24 control recovered/full audit qualified](FIXED_DEPTH_CONTROL_RESULT_20261014.md).
+Recovery19664 exit0/1831.828s/OS1152368640; all1344 sequence-sites/291888 steps/
+597786624 outputs and integer words exact, all state/ring and source numeric
+controls pass. FIT KL.00577542/disagreement2.79708%, all gates pass. Original
+worker/holder stay1/original posthash incomplete, prefix cache attested from
+executed/logged parent checks, not fresh capture. No GPU rerun. Recovery worker
+closed; do not relaunch it. Ready for frozen FIT3, then6/12 and full audits.
+Budget each original GPU worker45min/allocated6GiB/reserved10GiB/OS8GiB;
+whole family32GiB. On next owned long run launch, pause for user wakeup.
+
+Historical original timeout and recovery launch follow.
+
+Latest14 October2026: original FIT24 control stopped, both worker/holder exit1.
+CPU recovery freeze7516952 launched, terminal session39991; owned identity in
+fixed_depth_fit24_recovery_pipeline_20261014.owned_process.json. Pause goal
+while this bounded2h CPU process runs, user wakes it. No further worker or GPU
+launch. On wake verify process/terminal before any conclusion; success requires
+reconstructed report, complete numeric audit, recovery closure AND pipeline
+terminal0. Failed original receipts remain1 even if stored recovery passes.
+All24 FIT histories/16 prefixes completed; all411 before/after parameter
+witnesses identical. Failure is original AFTER_HASH deadline2610.047s,
+not a missing numerical history. Original2755 files/8876432536bytes preserved;
+no original result JSON. Native/source/metric evidence not yet fully qualified.
+[Explicit CPU recovery](FIXED_DEPTH_POSTHASH_RECOVERY_20261014.md) reconstructs
+the missing report and runs the full unchanged numerical audit, preserving
+original exit1/incomplete posthash and attested prefix-cache provenance.
+No GPU rerun, no reduced model or selection yet. New CPU recovery budget2h/
+OS8GiB/CPU6/new metadata16MiB. On launch pause goal for user wakeup.
+
+The previous live observation below is historical, not a process lock.
+
 Current execution14 October2026: worker/full auditor frozen1b23ccf, per-phase
 closerc9bd0b2, actual current runtime binding3f46cc5. Preparation exit0,
 167.437s/OS483393536,8372 declared pins;NVIDIA610.88/current free10628MiB,

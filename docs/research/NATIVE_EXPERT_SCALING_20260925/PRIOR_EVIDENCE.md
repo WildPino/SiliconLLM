@@ -1,5 +1,33 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE14 October2026: stored24 source control recovery QUALIFIED.**
+[Result](FIXED_DEPTH_CONTROL_RESULT_20261014.md) full CPU stored audit/closure
+PASS.56 sequences/1344 sites/291888 positions/597786624 BF and integer words,
+state/ring/seen/last exact. G/MuP8.94934e-5,B/C1.69823e-7/1.83817e-7,
+scan1.32567e-6/state1.90417e-6,fields/norm0. FIT KL.00577542/disagreement
+2.79708%, all gates; full parent24 equality. Original worker/holder1/partial
+posthash retained. Prefix cache values explicitly attested from frozen logged
+parent checks, not fresh KV capture. Current late seal does not recreate
+original exit0/custody. Recovery7516952/PID19664/1831.828s/OS1152368640/exit0;
+inline full auditor1562.328s/no GPU. Original2755 files8876432536bytes preserved.
+Next frozen own-history FIT3/6/12, full audits on failure, then FIT-only choice;
+no reduced/DEV/held-out/CPUuseful50/n/DRAM/general-family admission. Pause goal
+immediately after long-run launch, user wakes it. No delegation/monitor.
+
+**Terminal update14 October2026: FIT24 inference complete, original posthashFAILED.**
+Worker27444/holder22876 exit1,2610.047s/OS4029661184/GPUallocated3187002368/
+reserved3265265664. All24 FIT histories and16 prefix controls complete at
+1679.422s, restored source methods and411 parameter identities/value checks
+before/after passed; parameter_after.json identical to before. Failure in
+final input check deadline, not generation. No original result JSON.2755 E
+files8876432536bytes retained. [Explicit CPU recovery](FIXED_DEPTH_POSTHASH_RECOVERY_20261014.md)
+preserves failed receipts/incomplete original posthash, reconstructs report
+from stored metrics/prefix traces/state/scores, declares prefix cache digests
+attested from logged/frozen parent-equality checks, not fresh capture. Full
+stored numeric audit pending; no original exit0 or repaired terminal-time
+custody claim. No GPU/model/DEV/RESERVED rerun; bounded CPU<=2h/OS8GiB/6threads,
+pause on long wait as user instructed. Reduced arms/quality/full goal still open.
+
 **Execution update14 October2026: own-history depth worker/full auditor available.**
 Frozen1b23ccf with declared independent kept-native F64/integer/quality checks;
 per-phase closerc9bd0b2, current8372-pin runtime/source binding3f46cc5,

@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. Source depth FIT24 control launched.**
+14 October 2026. **Goal INCOMPLETE. Stored24 control recovered/qualified; next reduced FIT3.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -16,6 +16,14 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
+[Source24 depth control](FIXED_DEPTH_CONTROL_RESULT_20261014.md) full stored
+audit/recovery closure PASS:56 sequences/291888 native steps/597786624 BF
+and integer outputs exact, all states/source controls/hash seal pass. Original
+GPU posthash failure remains exit1; prefix-cache attestation limitation explicit.
+CPU recovery1831.828s/OS1.152GB/no GPU. FITKL.00577542/disagreement2.79708%,
+all control gates pass. No reduced model or new held-out/e2e speed admission.
+Next frozen3/6/12 own-history FIT phases and full audits; pause on long waits.
+
 [Actual23 BF contextual generators](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md)
 COMPLETE/full numeric audit and closure PASS. Sequential CPU medians52.1574ms
 resident/50.42935ms all-weights+MuP-evicted exceed3.18275/2.97615ms recurrent
@@ -29,7 +37,10 @@ Next [fixed active-depth intervention](FIXED_DEPTH_PROTOCOL_20261014.md):
 2048/source operators preserved. [Prototype](../../../benchmarks/native_expert_scaling/fixed_depth_bridge.py)
 and source-class mechanical probe pass. Own-history worker/full auditor now
 frozen1b23ccf and new8372-pin runtime binding3f46cc5/currentNVIDIA610.88 prepared;
-FIT24 control launched, pending terminal/full audit. Fixed pruning is not
+FIT24 finished24 histories/16 prefixes but exited1 at final posthash deadline,
+411 before/after source witnesses exact. Complete data retained; [CPU-only
+recovery](FIXED_DEPTH_POSTHASH_RECOVERY_20261014.md) prepared, full numeric audit
+pending. Original receipts/posthash gap never relabeled exit0. Fixed pruning is not
 useful expert-n; no reduced quality result yet.
 
 [Exact finite-BF activation compilation](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md)
@@ -107,22 +118,26 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 Check processes/files first; completed generator producer/audit/closure and
 mechanical probe must not be relaunched. See [depth state](FIXED_DEPTH_STATE_20261014.md).
-Observe current FIT24 control session64905/owned receipt, no duplicate launch.
-On terminal0, full CPU audit and phase closure; only then FIT3/6/12. Bounded
+Original FIT24 session64905 is terminal1; no GPU duplicate launch.
+CPU recovery session39991 terminal0, explicit recovered control audit/closure
+qualified; do not rerun it. Preserve original failed receipts/cache provenance.
+Launch ONE frozen FIT3 worker, then pause during long wait for user wakeup.
+Full audit/closure of FIT3 before6/12; never skip audits on qualityFAIL. Bounded
 own-history worker/full auditor and fresh actual GPU/runtime/source binding
 are implemented/frozen. Use qualified activation backend,
 source first/last kept, new downstream hidden, original site KV indexes,
 explicit active/omitted ledger and restoration between arms. First verify24
 control and sparse-KV continuation; then frozen3/6/12 FIT selection and DEV/
 tasks of selected arm (or frozen NONSELECTED6 defect arm if all FIT fail).
-GPU budget announced before this control;45min/allocated6GiB/reserved10GiB/
-OS8GiB/family32GiB. No reduced model quality admitted yet.
+Completed GPU control consumed2610.047s/allocated3.187GB/reserved3.265GB/
+OS4.030GB, no GPU worker now. CPU recovery<=2h/OS8GiB/threads6, pause goal
+immediately after launch and wait for user wakeup. No reduced quality admitted.
 Do not polish dense kernel layouts or expand FFN rank/cell grids. Header-only
 remaining coefficient inventories and logical byte ledgers are not DRAM proof.
 Fixed pruning removes active functions; useful capacity/scaling is unresolved.
 
-RESERVED104 new+64 older/longalign remain unopened. Only the announced local
-GPU control is authorized/running; no T4 allocation,
+RESERVED104 new+64 older/longalign remain unopened. No GPU worker running;
+no T4 allocation,
 delegation or recurring monitor. Announce GPU budget before use; hours jobs
 follow the user's bounded-launch/pause instruction. Preserve foreign changes,
 owner Git identity and attribution-free commits. Final CPU quality/useful50,
