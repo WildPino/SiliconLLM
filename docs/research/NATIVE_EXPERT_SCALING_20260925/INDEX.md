@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. Codec pipeline CLOSED, passive median budget FAIL.**
+14 October 2026. **Goal INCOMPLETE / pause requested. Same-packet P/A/P cost pipeline launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,16 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Same-packet waiting pipeline frozen5960c9a1078556095c57713eeb5fdd0a84f03b74,
+parent21820/create1791995842.8283825, terminal session4690. Exact WMI command/
+process confirmed live after launch. [Owned receipt](encoded_organs_wait_20261014_pipeline.owned_process.json).
+Max1800s CPU wall/600s per scientific worker/4GiB per worker/32MiB new family,
+three physical workers, no GPU. P/A/P on all BF/I8/I4 generator+readout groups,
+all parent output words verified. No result at launch. Pause on long wait;
+user resumes. Inspect this exact handle and worker receipts before conclusions.
+The609-report catalog is the earlier inventory snapshot; the new codec result
+is linked below and has not been added to that frozen observational inventory.
 
 [Full codec result](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md): worker33444
 exit0/201.640s/OS3.349GB, full631570432-coefficient/F64/native audit and seal
