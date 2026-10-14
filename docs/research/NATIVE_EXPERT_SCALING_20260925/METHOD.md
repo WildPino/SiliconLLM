@@ -1,14 +1,20 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
-Exact wide-lane readout is implemented/frozen at 9d88176; [protocol](NATIVE_WIDE_READOUT_PROTOCOL_20261014.md)
-and [state](NATIVE_WIDE_READOUT_STATE_20261014.md). Only the readout include
-changes in a separate native translation unit. All97 qualified trajectories
-and original/candidate code are bound. Original preparation884.031s prompted
-an explicit pre-observation wall-budget amendment1800=>2700s, scientific gates
-unchanged, original artifacts retained. V2 producer is live; no new numeric
-or speed admission yet. Required paired whole24 cost and complete trace
-compatibility avoid promoting a microkernel-only result.
+Exact wide-lane readout [qualification](NATIVE_WIDE_READOUT_RESULT_20261014.md)
+is COMPLETE/full numeric audit and closure PASS, acceleration REJECTED.
+Original=>wide whole24 medians26.15890=>25.78135ms resident and26.18470=>
+25.69570ms evicted fail the frozen5% gain. Every97 native trajectory/24 sites/
+1.188B BF output word and snapshot remains exact in producer AND auditor;
+192 sealed continuation arrays and independent integer/scales/BF/accounting
+pass. This validates stored native compatibility, not new GPU/held-out quality
+or final CPU model throughput. Original backend retained. The pre-observation
+wall amendment1800=>2700s is preserved; no scientific gate changed.
+Next [finite-BF activation lookup](NATIVE_BF_ACTIVATION_LUT_NEXT_20261014.md)
+must prove the complete finite domain and FP controls, then all trajectories
+and paired physical benefit. It targets a different active operator family,
+not another minor readout layout grid. Final compact conditional geometry
+still requires reducing donor-derived active core/bytes when headroom is absent.
 The [source-active selector](FFN_ACTIVE_ROUTER_RESULT_20261014.md) now has a
 complete numeric audit and closure. The FIT derivative-balanced geometry
 improves the PCA diagnostic but yields no admitted FIT-to-DEV candidate.
@@ -23,9 +29,9 @@ minimum >24 ms, against the 20 ms budget before excluded operators.
 192 site records / 3,072 calls and saved output/state/readout intermediates
 pass full stored audit. Parameter payload 310,855,680 bytes; actual DRAM
 remains unresolved. This exposes a cost gate, not an impossibility bound.
-Next [exact accumulation candidate](NATIVE_READOUT_ACCUMULATION_NEXT_20261014.md)
-must demonstrate exactness and paired whole24 benefit; otherwise reduce active
-donor-derived core/bytes with own-model quality. No further FFN grid.
+The exact accumulation candidate above preserves bits but fails whole24 benefit;
+the next operator variable is finite-BF lookup, then donor-derived active core/
+bytes reduction with own-model quality if needed. No further FFN grid.
 The same-artifact final CPU quality/useful-50/general-family gates remain open.
 The handoff paragraph below is historical.
 

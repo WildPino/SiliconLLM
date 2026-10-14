@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE 14 October 2026: wide integer accumulation qualified/rejected.**
+[Result](NATIVE_WIDE_READOUT_RESULT_20261014.md) COMPLETE/full numeric audit and
+closure PASS. All97 trajectories/24 sites/580056 positions/1.188B BF output
+words and686.6M final state words exact in producer AND auditor;192 sealed
+continuations/6.291M independent integer/scaled/BF words and timing accounting
+PASS. Paired original=>wide26.15890=>25.78135ms resident,26.18470=>25.69570ms
+evicted,1.4433%/1.8675% below frozen5%; all stratum ratios<=1.05. No admission.
+Direct readout medians12.50045=>11.96355ms/12.64025=>12.23750ms are different
+call/cache contexts, not an exact subtractable stage decomposition. Parameter
+payload unchanged310,855,680 bytes; actual DRAM unresolved. Original preparation
+884.031s motivated a pre-observation wall amendment1800=>2700s, not a gate
+change. Producer1014.281s/OS1.249GB; auditor934.015s/OS1.142GB; closure5 files/
+942704bytes/all declared pins and receipts/process identities sealed. No GPU,
+new source/data/RESERVED/optimizer/delegation. Keep original accepted backend;
+stop minor accumulation grids. Next finite-BF activation program lookup with
+exhaustive FP/domain and full trace/cost checks, then active core/bytes/layers
+reduction with own-model quality if necessary. Final goal ACTIVE/INCOMPLETE.
+
 **AUTHORITATIVE 14 October 2026: actual whole24 recurrence cost qualified.**
 [Cost result](NATIVE_24_COST_RESULT_20261014.md): resident median 26.97095 ms,
 parameter-evicted 26.14040 ms, every observed whole24 >=24.4765 ms. Recurrence

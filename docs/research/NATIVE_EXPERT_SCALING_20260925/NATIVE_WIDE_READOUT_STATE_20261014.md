@@ -1,6 +1,24 @@
 # Exact wide-lane readout: execution state
 
-## Current V2 bounded run
+## Completed and closed, 14 October 2026
+
+Goal ACTIVE / INCOMPLETE. **Numeric PASS / acceleration REJECTED.**
+V2 producer23252/create1791968732.6442983 closed0/1014.281s; auditor29360/
+create1791969991.8596592/tool36961 closed0/934.015s; closure19284/create
+1791971333.2079585/tool97165 closed0/17.672s. No matching numerical worker
+at the final process check. Full97/24-site/1.188B BF output/state replay,
+192 continuations/independent integer/scales/BF/accounting/hash checks PASS.
+Resident26.15890=>25.78135ms (1.4433%); evicted26.18470=>25.69570ms (1.8675%).
+Both fail frozen5% benefit; no stratum regresses>5%. No replacement admission.
+All declared pins/receipts/process identities/E5-file942,704-byte family closed.
+[Final report](NATIVE_WIDE_READOUT_RESULT_20261014.md).
+
+Next finite-BF activation LUT proposal, with exhaustive numeric/FP-environment
+and full trace qualification before timing. Do not rerun these existing
+exclusive outputs or start another minor readout layout grid. The launch
+snapshots below are historical; original and V2 binding/receipt remain intact.
+
+## Historical V2 bounded run
 
 Goal ACTIVE / INCOMPLETE. Numerical source/protocol9d88176, resource wrapper
 and amendment7a185d9. Original preparation8452/create1791967567.8373785

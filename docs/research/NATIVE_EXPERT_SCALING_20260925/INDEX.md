@@ -1,7 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. Wide-readout producer running;
-no new numerical result yet.** Source-active and original whole24 workers closed.
+14 October 2026. **Goal ACTIVE / INCOMPLETE. All current numerical workers closed.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -16,6 +15,16 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Exact wide-lane readout](NATIVE_WIDE_READOUT_RESULT_20261014.md) COMPLETE,
+full stored audit/closure PASS, acceleration REJECTED. Original=>wide paired
+medians26.15890=>25.78135ms resident,26.18470=>25.69570ms parameter-evicted:
+1.4433%/1.8675% reductions fail the frozen5% gate. All97 trajectories/24 sites/
+1.188B BF words/state exact in producer AND auditor;192 continuations and
+independent integer/scales/BF/timing/hash checks PASS. No replacement admission.
+5-file E family942,704 bytes closed. Resource cap amended30=>45min BEFORE
+numeric observations after884.031s cold preparation; original artifacts kept.
+This closes the minor accumulation-layout direction, not the final goal.
 
 [Actual 24-layer recurrent cost](NATIVE_24_COST_RESULT_20261014.md) COMPLETE,
 full stored audit/closure PASS. Real own-history prefixes, 24 sequential C
@@ -69,20 +78,16 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 ## Exact next action
 
 Check current processes/files first; do not rerun completed workers.
-The separate [exact readout accumulation candidate](NATIVE_WIDE_READOUT_PROTOCOL_20261014.md)
-is implemented/frozen at 9d88176. Original preparation COMPLETE/884.031s;
-resource wrapper7a185d9 and bindingV2 increase wall limit to45min BEFORE
-numeric observations, preserving full checks and every scientific gate.
-Worker23252/create1791968732.644298/tool45835 is live in initial hashing;
-controls/timing not yet complete.
-[Current execution state](NATIVE_WIDE_READOUT_STATE_20261014.md). Observe this
-worker, then inspect result/receipt before V2 full auditor/closure.
-Adversarial bounds, all24 exact state/output,
-paired costs and all97 bridge trajectories remain mandatory.
-Preserve original source/DLL and scales/BF semantics. Admit acceleration only
-with exactness and physical whole24 benefit; a faster microkernel is insufficient.
-If insufficient headroom, reduce active donor-derived core/bytes with own-model
-quality. No further FFN rank/cell expansion before the backbone budget changes.
+Implement/freeze [finite-BF activation tables](NATIVE_BF_ACTIVATION_LUT_NEXT_20261014.md):
+conv SiLU BF, gate SiLU F64 and post-round delta softplus BF. This targets
+actual transcendental calls after existing BF boundaries, not a further
+readout layout grid. Exhaustively verify all65280 finite input words and
+FP environment controls, then paired whole24 and every97 native trajectory.
+Keep the original accepted readout, qualified source/DLL and all thresholds.
+The wide candidate is retained but rejected; [closed state](NATIVE_WIDE_READOUT_STATE_20261014.md).
+Activation tables are program storage, not transferred knowledge/useful n.
+If insufficient headroom, change active donor-derived core/bytes/layers with
+own-model quality. No further FFN grid before the backbone budget changes.
 
 RESERVED104 new+64 older/longalign remain unopened. No GPU/T4 allocation,
 delegation or recurring monitor. Announce GPU budget before use; hours jobs
