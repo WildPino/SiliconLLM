@@ -1,6 +1,12 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+Exact wide-lane readout is implemented/frozen at 9d88176; [protocol](NATIVE_WIDE_READOUT_PROTOCOL_20261014.md)
+and [state](NATIVE_WIDE_READOUT_STATE_20261014.md). Only the readout include
+changes in a separate native translation unit. Preparation currently binds
+all97 qualified trajectories and original/candidate code; no new numerical
+or speed admission yet. Required paired whole24 cost and complete trace
+compatibility avoid promoting a microkernel-only result.
 The [source-active selector](FFN_ACTIVE_ROUTER_RESULT_20261014.md) now has a
 complete numeric audit and closure. The FIT derivative-balanced geometry
 improves the PCA diagnostic but yields no admitted FIT-to-DEV candidate.
