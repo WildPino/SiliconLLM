@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. FIT3 recovered audit CLOSED, quality FAIL.**
+14 October 2026. **Goal INCOMPLETE / pause requested. Physical-worker CPU screen launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+CPU screen frozen cb374c264a0f1f47da1937ec51f58f9083c98313, worker20304/
+create1791991836.7455795, terminal session93013. Actual WMI command/process
+confirmed live after launch. [Binding](physical_worker_organs_20261014_binding.json)
+200173B/SHA256 b2060f6ec26bb7c144a780c3beb13f9c6922662eb5247f389bf4137ccca8c49a.
+Max3600s/4GiB OS/2GiB output/six physical workers/no GPU. Protocol includes
+full stored audit and final seal. [Owned receipt](physical_worker_organs_20261014_pipeline.owned_process.json).
+Pause on long wait; user resumes. Next revalidate this exact handle/process,
+then inspect pipeline/terminal/closure before interpreting any cost or success.
 
 [FIT3 final result](FIXED_DEPTH_FIT3_RESULT_20261014.md): recovery worker24316
 exit0/680.718s/OS1.147GB/no GPU. Full36,486-position/74,723,328-word numeric
