@@ -1,5 +1,14 @@
 # Frozen six-block own-history FIT: launch observation
 
+Producer terminal update: worker9672/holder24048 both exit0, worker4322.468s/
+OS4,034,850,816B/GPUpeak3,159,225,344 allocated/3,225,419,776 reserved. GPU
+phase713.453s, ownership released to32MiB before posthash; V2 source411/current
+full input seal completed. All24 histories/16 prefix pairs/12162 processed
+tokens/2,936,687,869B outputs. Producer quality FAIL KL14.6821993973 and
+disagreement98.9440771122%. Full stored audit pending; no numerical promotion.
+The launch below is historical, and its GPU-release uncertainty is resolved
+for this executed phase by the explicit release check and terminal evidence.
+
 14 October2026. V2 binding preparation exit0/23.875s/OS36,212,736B; all
 original numerical/data/quality keys and input prefix verified unchanged.
 Binding3298220B SHA256 e0c3512a339b85c6b48f5289aa913faedfe2c9b6848e0564890d9a7be62b070c.

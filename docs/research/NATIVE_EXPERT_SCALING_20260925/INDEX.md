@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. Frozen own-history FIT6 launched.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. FIT6 producer complete, quality FAIL; full audit pending.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+FIT6 worker9672/holder24048 exit0, full posthash/report/actual prefix-cache
+journals retained. Worker4322.468s/OS4034850816/GPUallocated3159225344/
+reserved3225419776; numerical GPU phase713.453s, released32MiB before posthash.
+All24 FIT histories/16 prefix pairs,12162 tokens/72972 native kept steps,
+2936687869B output. Producer KL14.68219940/disagreement98.94408%, all gates
+FAIL. Full stored numerical audit still required; no original replay or
+relaxed criterion. Next launch fixed_depth_quality_audit.py on this report.
+The launch observation below is historical; no FIT6 producer remains live.
 
 V2 extension preparation exit0/23.875s/OS36.213MB; all original data/numeric/
 gate keys and input prefix exactly preserved. Binding3298220B SHA256
