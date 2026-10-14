@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. Same-packet P/A/P cost pipeline launched.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. P1 complete; parent settings parser failed.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Parent21820 exit1/29.032s at text regex, not numeric computation: effective
+KMP_BLOCKTIME=0ms versus expected bare0. Actual runtime API returned0. P1
+worker16264 exit0/20.078s/OS1.599GB, all384 groups/188731008 generator and
+60162048 readout cells checked. A/P2 unexecuted. [Recovery protocol](ENCODED_ORGANS_WAIT_RECOVERY_20261014.md)
+preserves every old file, fixes optional-unit parsing and reuses stored P1;
+only A/P2 will run. Original failure/gap/late-seal limitations remain explicit.
+Stored P1 ledger/unit parser tests PASS with zero kernel calls. No speedup/
+uninterrupted runtime recipe/whole quality admission. The launch below is historical.
 
 Same-packet waiting pipeline frozen5960c9a1078556095c57713eeb5fdd0a84f03b74,
 parent21820/create1791995842.8283825, terminal session4690. Exact WMI command/
