@@ -1,0 +1,2108 @@
+# Native expert-count scaling: prior evidence
+
+**AUTHORITATIVE 14 October2026: goal ACTIVE/INCOMPLETE.**
+
+[Source-linear PCA selector](FFN_SKETCH_ROUTER_RESULT_20261014.md) COMPLETE/
+full576 prediction/ID/moment/eigen/source numeric auditPASS/NO selected candidate.
+At0/12 all<=512 FITfail;512 DEV.169438/.224801 with512/2048 neurons. At23
+FIT selects64 then DEV.110001 fails.10;256/512 not promoted through DEV.
+This rejects this input-energy PCA rule,not all low-dimensional/nonlinear
+selectors. Current8044-pin check differs only at four nonexecuted NVIDIA
+components;explicit closure retains old/new hashes,all CPU numerical/data
+pins exact and579-file family. Successful audit/failed original closure/
+rejected duplicate receipts preserved. No unchanged-current-GPU or model/
+physical/TPS admission. Next FIT source remainder-gradient metric and balanced
+input factors;no result yet. All owned numerical commands closed.
+
+[Per-token importance oracle](FFN_REMAINDER_ORACLE_RESULT_20261013.md)
+COMPLETE/full720-prediction/all literal neuron ID auditPASS. At0/512 DEV
+mean.400908=>.062173,12/2048:.404537=>.048711,23/32:.113219=>.072805.
+Guide counts determined from FIT only. Strong fixed-cell aggregation loss
+for the tested energy rule;not an optimal subset or sparsity lower bound.
+IDs require ALL source projections/nonlinearity,so no cheap candidate/model
+admission. V1 timed out1800.141s (expanded3.014TB working tensor payload);
+complete block V2 passed509.563s/OS1.549GB,same scope/gates. All720 trajectories/
+selected IDs/3.143GB E family/source/protected hashes/receipts sealed;original
+fault retained. Next source-linear input sketch for actual cheap importance
+prediction,full selected correction/output retained. Final useful50/DRAM/n/
+general family transfer still open. All owned commands closed/no GPU/T4.
+
+[FIT-selected exact FFN subsets](FFN_EXACT_SUBSET_RESULT_20261013.md)
+COMPLETE/full720-prediction numeric auditPASS/NO ADMITTED SELECTED CANDIDATE.
+All<=2048 fail FIT at0/12;2048 DEV means.243356/.404537. At23,FIT selects128
+and DEV mean.101091 fails.10;512/2048 local curves pass but are not promoted
+through DEV selection. All4608 exact proxy identity<=6.89e-16. Original rank
+audit fault preserved:producer11 site0 cells have EXACT zero FIT scores and
+correct stable index ranking;independent algebra yields tiny noise. V2
+literal scores/ranks replay exactly AND every independent prediction passes.
+These cells lack learned subset preference,26/11399 DEV tokens;no claim they
+explain all loss. All commands closed,723 files/2.786GB plus7.08MB diagnostic/
+all source and protected hashes sealed. The subsequent per-token importance
+oracle above qualifies aggregation loss,not cheap routing or optimal sparsity.
+
+[Affine FFN failure and exact nonlinear defect](FFN_AFFINE_DEFECT_RESULT_20261013.md)
+COMPLETE/full432-prediction and144-case diagnostic auditsPASS. All1/16/64
+full-output cells FIT-ineligible. At64,DEV mean errors.622/.928/.134 at0/12/23.
+Exact gate/cross remainder identity<=6.82e-16;all per-case metric differences
+<=5.56e-16. Cross interaction is large at0/12;projected terms partially cancel
+at23 and full quadratic correction worsens it. All four producer/auditor
+commands closed0;1.711GB/441-file E family/protected source hashes sealed.
+Exact combined neuron subset coverage is now complete as above;the next
+question is per-token versus fixed-cell selection. No admitted subset candidate,
+physical ternary expert,model substitution/scalable routing/DRAM/useful50 proof.
+Latest statements below that describe the affine pilot as future work are
+historical;the result above supersedes their execution status.
+
+[Actual FFN operands](FFN_OPERAND_RESULT_20261013.md) COMPLETE/full auditPASS,
+all24/known48/six fields/12.191B words. Gate scalar/features/parent labels/
+states/rings exact,up/gate<=4.75e-5/down+scalar<=.004684 within1% gate.
+All6 commands closed0/source/hash custody sealed,28.079GB. Down discrepancy
+mechanism not isolated. Next full-coordinate affine cells use actual own
+pre-FFN inputs;physical bank/model substitution/useful-n/TPS unproven.
+Original memory preflight failure retained;actual free>=7GiB uses measured
+parent3.19GB allocated peak,own allocated6GiB cap. No delegated monitor/T4.
+
+[Full-width native chatbot](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_QUALITY_PASS.14/16/followup correct/DEV
+KL.02156/dis4.8847%,all domain/prefix gates pass. Full97 trajectories/
+24sites F64/bit/categorical audit:1.188B output/integer words,all mismatches0,
+scan/state max1.37e-6/1.91e-6,fields/norm0. All6 commands closed0,source/
+protected hashes preserved. Historical transitive producer pin limitation
+and source GPU attention/FFN/head witness remain explicit. No final CPU/
+semantic useful-n/acceptedTPS or RESERVED/other-family admission.
+[Token-conditioned generator residual](TOKEN_CONTEXT_RANK_RESULT_20261013.md)
+also COMPLETE/NUMERIC PASS/COMPACT REPRESENTATION FAIL. Six FIT variants
+fail<=1024,1440 curves/all identities verified. Necessary shared ranks1408/
+1857/1857 for ANY token-only prototype at1/12/23,with rounding allowances,
+within the specified FIT linear/field family only. All3 commands closed0.
+Next nonlinear FFN/full-size affine expert hypothesis changes operators across
+cells;its capture/procedure/quality/speed remain unimplemented/unproven.
+
+[Contextual-row ABI/all24 source exports](ROW_STATE_RESULT_20261013.md)
+COMPLETE/full independent auditPASS. New explicit BF16 preconv-row/state API,
+source-only24 canonical core/conv/p6 packets,every150,994,944 q and1,686,912
+core/conv coefficients verified;maxW^TV dual residual2.27e-14. All48 actual
+initial-layer histories22547 positions/every array EXACT to admitted token
+branch,516,523,046 archive elements independently checked. All24 parameter
+sets on arbitrary16 FIT rows:field/norm0,scan/state<=1.13e-7,786432 integer/
+raw/BF words each exact. These controls are NOT actual later-layer input or
+whole-chatbot quality. Nonfinite input rejects before state changes.
+New orderedE2,131,959,652B/all3 commands terminal0/owned PIDs absent/source
+checkpoint/protected hashes unchanged/no GPU/T4/RESERVED. Generic ABI and
+all24 export prerequisite now ready. Actual full-width quality bridge launched
+above,retaining hidden2048/original source operators,
+own native states/readout;no more operator-only refinements. Full CHATBOT/
+CPU engine/semantic useful-n/same useful50 remain open.
+
+[Native token-to-own-state branch](TOKEN_STATE_RESULT_20261013.md) COMPLETE/
+full independent auditPASS/all48 numeric/temporal/local donor gatesPASS.
+Actual uint32 IDs/F0 rows,persistent own conv3072x96 trained state,full skip/
+own gate-RMS/new exact C I16 quantizer/accepted readout. Full block versus
+EVERY token continuation and old qualified prefix core BIT-EXACT;all151M
+fields/69M latent steps/46M integer/raw/BF16 outputs checked,integer/BF16
+mismatches0. Extra output worst0.06174%,finalstate0.01502%;DEV source mean
+7.63946%/worst9.34119%. Same audited state-ready single-token cost median
+1.013ms warm/1.044ms source-flushed,all60 output/ledger records matched.
+Source eviction not PMU DRAM/whole-model rate. All5 commands closed0/newE
+1,763,186,800B/protected hashes unchanged/no GPU/T4/RESERVED or owned run.
+Initial SSM branch ONLY;no complete decoder/model/source chatbot yet. Next
+[full-width all-layer quality bridge](FULL_WIDTH_CAUSAL_CHAT_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Existing24 trained basis records algebra-
+audited;verify all24 native identities,retain source hidden2048 and source
+operators,then test full own-history/chat/held-out composition before more
+single-branch tuning. Final CPU/conditional useful-n/same useful50 remain open.
+
+[Complete source-only token generator](TOKEN_GENERATOR_COMPILER_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/all48 source norm/field/incremental gates
+PASS. Canonical embedding/first norm/in_proj/MuP compile ALL65537 vocabulary
+rows BEFORE captured-response comparison. Every134,219,776 H0/439,360,048 F0
+BF16 word and151,155,088 causal field words independently reproduced,bit
+differences0 to DECLARED CPU equation. Original CUDA H0 differences357 words/
+11 cases retained,worst0.0092775% under fixed0.01% norm budget;field worst
+0.0433294% under original1%. Python embedding scalar F32 witness exact on
+33026 bounded BF16 values;premature BF16 scalar rounding changes772 results.
+New orderedE1,449,937,450B/3 commands closed0/no GPU/T4/SSM/RESERVED,full
+canonical source/protected hashes preserved. F0 selected row13,408B,uint32
+IDs. Source-only compiler and initial native composition now qualified above.
+No whole CHATBOT/useful expert-n/DRAM/same useful50 admission.
+
+[Exact engine-style byte LUT](EXACT_INTEGER_LUT_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/NO new precision loss. Original packed
+header and literal byte-accumulator reused,six trit planes/four exact input
+digits. All138,528,768 I64/rawF64/BF16 words BIT-EQUAL accepted integer
+archive;28.3M packed bytes/262,144 digit words/4,194,304 table entries checked.
+Same audited DLL/current integer paired cost6.86--7.73ms versus0.807--0.875ms,
+LUT8.50--9.10x slower at every site/mode. Full360-record ledger/campaign
+closurePASS,all5 commands closed0/newE2,526,781,296B/protected hashes unchanged.
+Physical codes9.45MB but37.75MB logical code-vector operands/input;not PMU
+DRAM proof. CURRENT24-path byte-LUT rejected acceleration;integer shared
+readout retained. Stop readout variants. Next
+[token-only source generator plus causal state](TOKEN_GENERATOR_COMPILER_NEXT_20261013.md)
+Compiler now COMPLETE/qualified as above;native ID/conv/own-state/readout
+composition UNIMPLEMENTED/UNBOUND. Initial-layer scope,
+not all24 layers or semantic expert-n;full CHATBOT/same useful50 still open.
+
+[Same-p6 I16 readout](INTEGER_READOUT_RESULT_20261013.md) COMPLETE/V3 full
+independent auditPASS/all144 fidelity+donor local gatesPASS. Exact reference
+verifies all207,793,152 input integers/67,641 scales/138,528,768 I64 dots/F64
+scores/BF16 words,zero dot/BF16 differences,metadata0. Activation incremental
+raw worst0.02685%;full extra raw0.36744%/BF160.43167%. Same audited binary,
+actual BF16 decode and literal quantizer diagnostic overhead INCLUDED:
+median0.674--0.858ms versus dense1.488--1.617ms,1.85--2.29x advantage under
+fixed18 FIT/360 paired core0 observations. Shared desktop tails retained;
+CLFLUSH source eviction is not PMU DRAM or model-rate evidence. Deployed
+weights12,599,296B incl scales are int16,not ternary lookup execution.
+V1 wrong diagnostic denominator numeric failure/V2 final hash-list shadow
+terminal1 preserved;full V3 rerun passes unchanged gates. Seven commands
+closed/newE2,909,894,600B/protected hashes unchanged/no source/GPU/T4/RESERVED.
+Exact digit-sliced byte LUT now complete/cost-rejected above;next joined
+causal pipeline. No OWN-history chatbot/useful-n/cross-family/same50 admission.
+
+[Native p6 LUT + cost](TERNARY_READOUT_NATIVE_RESULT_20261013.md)
+COMPLETE/full independent auditPASS/all144 numeric/extra1%/local donor gates
+PASS. All138,528,768 LUT F64/original F32/BF16 words verified;original scores
+bit-exact/BF16 differences0,raw error<=5.70e-17. Native source532.094s/
+audit45.125s/newE1,939,648,768B/protected hashes unchanged/3 commands closed0.
+Isolated generated wrapper18 FIT samples/360 timed calls matched archived bits;
+full ledger/source/custody reviewPASS. Warm/cold-source call LUT~5.1--5.3ms
+versus dense~1.16--1.22ms,4.2--4.6x slower despite7.57MB versus25.17MB source.
+Current F64-LUT rejected acceleration,not every LUT. CLFLUSH initial eviction
+not actual PMU DRAM traffic or accepted model-rate/n. Next same-p6 integer
+dot/new int16 activation preflight proposed/unbound;old source geometry and
+global CHATBOT/OWN-history/n/multiple families/scales/same useful50 remain open.
+
+[Full-size source-only ternary readout](TERNARY_READOUT_PRECISION_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_PASS/all144 selected-p6 raw/BF16 extra1% and
+original donor local gatesPASS. FIT selects6 before DEV;DEV rawmeans at0/12/23
+.2896/.3503/.2964%,BF16 .3615/.4153/.3663%,all-case BF16worst.4315%.
+All56.6M integercoefficients/56.7M packed bytes/18k scales/36k spectra and
+415,586,304 BF16 output words qualified,ZERO independent bit differences.
+All9 matrices robust numerical rank2048;no low-rank bottleneck imposed.
+Sourceweight-only/no activation quantization;actual LUT not built/timed.
+Source162.5s/audit116.828s/newE1,001,656,242B/3 scientific commands terminal0,
+protected hashes preserved/no owned run live/no GPU/T4/source/native/RESERVED.
+SAME-artifact C LUT accuracy/cost now completed above;current backend too
+slow. Whole pipeline/useful-n/same useful50 still missing.
+
+[Conditional output bank/coverage result](CONDITIONAL_OUTPUT_RESULT_20261013.md)
+COMPLETE/BOTH INDEPENDENT_STORED_PASS/all qualityFAIL. Bank277,057,536 F64
+predictions/BF16 outputs,135,282 IDs/67,641 masses,240 leaf SVDs qualified;
+independent BF16 differences0;factor/proxy only~1e-7 versusquality0.30--0.90.
+Exhaustive frozen affine image oracle5,411,280 errors/270,564 IDs qualified,
+max4.41e-15:DEV16/r12867.33/75.87/44.90% atsites0/12/23 respectively;
+64/r3274.14/84.83/51.91%,all case1%0/24 includingFIT. Router-only optimization
+cannot repair these fixed banks. NewE2,751,110,214B+44,614,992B,all6 commands
+terminal0/owned matching processes absent,protected hashes preserved. No
+source/native/GPU/T4/optimizer/RESERVED or chatbot/n/DRAM/speed admission.
+Full-rank multi-plane ternary precision now qualified above;actual native
+backend still PROPOSED/UNIMPLEMENTED/UNBOUND. Current engine2-trit int8 pshufb;candidate
+5-trit floating LUT must qualify as a new backend,old rates don't transfer.
+
+[Finite FIT input/output rank geometry](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
+COMPLETE/INDEPENDENT_STORED_PASS:all72 FIT histories/equal-case uncentered
+moments/all88,118,943 array words/136,986,624 data words/full direct SVDs.
+Rank256 input24.87/33.64/31.13%,output53.27/54.40/34.15% RMS;global low-rank
+linear response compression poor already on FIT. Class-specific numerical
+envelopes,not conditional/nonlinear impossibility or whole-model quality.
+Source54.594s/audit149.813s/newE704,960,778B,no source/GPU/T4/native rerun.
+Initial schema and audit JSON bool faults/partial bytes preserved;complete
+V2 audit repeated/all gatesPASS/owned matching processes absent. Protected
+engine/foreign hashes unchanged. Next observable-route redundant output bank
+16/r128 versus64/r32 now completed/rejected as above;DRAM/native kernels were
+not admitted. No useful-n/quality-speed admission.
+
+[Actual-input generator/temporal qualification](TRUE_INPUT_FUNCTION_AND_TEMPORAL_RESULT_20261013.md)
+COMPLETE/BOTH independent auditsPASS:all144 source field1%/own-output1%/final-
+state1% gatesPASS,full453,465,264 generatedBF16 words/all138,528,768 trueH+
+each legacyH type/all metrics/flags/hashes verified. Inverse actualH rounded
+DEVmeans.506/.558/.651%. Native all207,793,152 latent scan values/full42,467,328
+final states/415,586,304 normalizedBF16/277,057,536 rawscore bits qualified;
+ALLrawscorebit exact,normalizeddifference0,bothBF16smooth max~6.29e-5<1e-4.
+Source ownnorm localmeans.076341/.087177/.024905;all localgatesPASS,source-
+denominator donor controlsFAIL0/12 retained. Numina previousstate1.125798%
+->.006441%,sameweights/method/gates with actualH;oldfailures remain immutable.
+[Closure](true_input_function_and_temporal_session_closure_20261013.json):six
+commands terminal0/all PID absent,newE907,118,592B+3,546,915,264B,engine/foreign
+hashes preserved,no source/GPU/T4/RESERVED/fit/teacher answers/timing.
+Additional initial-source word-input witness exact22547 rows/3816 words/18731
+repeats;H0 token-only source graph. Full65537x6704BF16table878,720,096B proposed,
+not built/DRAM/timed/ternary capacity;conv/state and other23 layers still causal.
+[FIT response-rank envelope](SOURCE_FUNCTION_RANK_RESULT_20261013.md)
+now COMPLETE as above. Actual local boundary qualified,not
+cheap function/OWN all-layer chatbot. Useful n/routing/DRAM/mastersO(n)/other
+families/scales/same useful50 remain unresolved. No completion admission.
+
+**Historical actual-input capture/native-live evidence retained below.**
+[Actual all24 source inputs](TRUE_GENERATOR_INPUT_CAPTURE_RESULT_20261013.md)
+COMPLETE/full data and source continuity auditPASS.48 complete source base
+prefills/1152 actualBF16 H arrays afterSSMin.625/beforein_proj,
+1,108,230,144 words checked. Full7 recurrent fields at0/12/23 EXACT agree
+original/all1008 observations/799,787,184 words/zero bit/metric differences.
+All411 runtime source parameters BF16/1,554,863,488 canonical coefficients
+verified before/after against each checkpoint tensor hash;actual method/MuP
+buffers unchanged. Source334.422s/audit80.437s,OS3.725GB/GPUallocated6.013GB/
+reserved9.938GB,new ordered E4,233,125,811B/2211files within6GiB. No LMhead/
+answers/fit/native/T4/RESERVED. [Closure](true_generator_input_capture_session_closure_20261013.json)
+source94907/audit70443 CLOSED0/all PID absent/GPU679MiB desktop baseline,
+engine/foreign hashes preserved. Initial pre-freeze CPU binding inadmissible,
+two zero-data stopped launches retained;V2 fresh conhost,V3 exact original
+detached mode8 completes. CPU-preparation PID/peak receipts unavailable,
+explicit limit;actual source/worker/audit identities/resources recorded.
+True inputs are observed data,not CPU generator/causal/chatbot proof. Earlier
+inverse state1.125798% and separate BF16 smooth1e-4 failures not waived.
+Next [true-input function replay](TRUE_INPUT_FUNCTION_REPLAY_NEXT_20261013.md)
+Generator45667/audit51577 CLOSED0/fullPASS;nativeproducerLIVE34983,all144
+actual-input regenerated operands through SAME trained recurrence. No new
+source/GPU/fit. Field/own-output/final-state gates and full audits
+before cheap input/output/conditional ternary fitting. Other21 layer inputs
+not yet generator/state-replay qualification. Useful n/routing/realDRAM/
+O(n) masters/multi-family/OWN histories/same useful50 remain required.
+
+**Historical temporal result/source-live state retained below.**
+[Temporal recovered-input result](RECOVERED_INPUT_TEMPORAL_RESULT_20261013.md)
+COMPLETE/all144 actual native histories/full independent audit. Current own-output
+1%PASS144/144;final-state1%FAILone site23 DEV Numina1.125798%. Source-relative
+own-norm local budgets allPASS/means.076416/.087351/.025683. Global numericFAIL
+retains DIFFERENT site23 FIT Smol/source-denom BF16 smooth1.4098e-4>1e-4;
+all normalized BF16 values exact/all277,057,536 raw F32 score bits exact.
+All primary own/state controlsPASS. Coordinate-complete witness121 mismatches:
+111 adjacent crossings carry nearly all BF16 error;10 cancellation discrepancies
+negligible. No threshold waiver or full operator numeric admission.
+Independent F64 ordered state-forcing/survival-sum decompositionPASS2,064,384
+words:delta term1.215686%,decay.375417% with negative cross,x.274723%,B.384667%;
+combined real error1.125798% versus actualnative1.125798%,numeric residual~5e-7
+original-state units. Contribution norms not additive/unique causal fractions.
+Counterexample is input forcing,not evidence of a native state-arithmetic fault
+under the1e-4 control. Original inferred H true-input error still unknown.
+[Closure](recovered_input_temporal_session_closure_20261013.json):nine owned
+commands terminal,no owned PID;two guarded/explanation faults retained,full
+native3,546,915,264B+mechanism16,517,166B onE,engine/foreign hashes preserved.
+No source/GPU/T4/RESERVED/optimizer/new answers. Decomposition uses qualified
+state/own controls only;global BF16 numeric failure remains. Canonical F64-norm
+units explicitly reconciled with producer's F32-computed norm,not overwritten.
+Next [true input capture](TRUE_GENERATOR_INPUT_CAPTURE_NEXT_20261013.md) selected/
+IMPLEMENTED/FROZEN/BOUND/LIVE94907:all24 H layers in same48 source prefills,full7
+continuity fields0/12/23,localGPU1800s/OS12GiB/GPU10/11GiB/newE6GiB proposed.
+V3 freeze479e2dc/bindingV4 e106dbb8.../launch393b4be,ownedworker4572.
+Retain pre-freeze CPU metadata fault and two zero-data stopped launches;V2
+recorded conhost,V3 restores original detached mode. No result admission yet.
+Cheap function/conditional ternary/OWN causal layer conversion,
+useful n/CPU IDs+masses/realDRAM/multi-family/mastersO(n)/same useful50 remain.
+
+**Historical field-recovery and temporal-live state,retained below.**
+[Approximate source input recovery](GATE_INPUT_RECOVERY_RESULT_20261013.md)
+COMPLETE/full independent audit PASS. ALL144 case/site pairs and ALL gate/x/B/C/
+delta fields pass frozen whole-history1% consistency;zero720-comparison failures.
+Full18,874,368 inverse coefficients/138,528,768 H64 words/138,528,768 candidate
+BF16 words/453,465,264 predicted field words independently qualified via
+rectangularQR/full block projection/shifted-window conv/SiLU/softplus and all
+metrics/flags/aggregates/hashes. Replay field errors0 under independent formulas;
+inverse7.263e-15/H1.545e-14,scalar0. Actual BF16 MuP sections pinned explicitly;
+resolved NumPy ABI/BLAS/psutil/TorchCPU/C10/HF files bound (prior alias gap not
+repeated). NO true source input bits/error bound/CUDA equivalence/temporal or
+causal chatbot qualification. Worst DEV whole-field.707236%;centered site23
+B1.381059%/x1.070170% retained. NewE147NPZ/2,443,476,576B within3GiB.
+[Closure](gate_input_recovery_session_closure_20261013.json):prep/producer/audit
+terminal0 ~25/177/140s,owned PID/creation pairs absent,engine+foreign hashes
+preserved,no source forward/GPU/T4/RESERVED/native/optimizer. No repeated run
+on resumption. [Temporal propagation next](RECOVERED_INPUT_TEMPORAL_NEXT_20261013.md)
+IMPLEMENTED/FROZEN/BOUND/AUDIT LIVE36813;producer CLOSED0,one final-state1%
+failure/all own-output flagsPASS;no numeric admission yet:fixed regenerated operands through SAME wide
+native trained recurrence,each-case own-output/final-state1% gates before
+approximate calibration admission. Original local source budgets/full audits
+remain. Useful conditional functions/own histories/multi-family/n/DRAM/same50
+and conversionO(n) masters/gradients remain unresolved.
+
+**Historical pre-recovery state, retained below.**
+[Full3072/state96 native](FULL_CHANNEL_NATIVE_RESULT_20261013.md) COMPLETE/full
+independent audit PASS:all144 histories/sites0/12/23,207,793,152 scan values,
+42,467,328 final states,415,586,304 normalized values and277,057,536 rawscore
+bits exactly matched independent scalar FMA. Ownnorm local budgetsPASS/all3,
+DEVmeans.076342/.087177/.024904;fixed-source-denomFAIL0/12 retained.
+Same qualified artifacts/all288 timing histories:full state scan~59us,
+supplied-operand total~1300us versusold384~1249us (different runs/workloads).
+8x state count need not8x whole cost;generator/out functions still dominate.
+[Gate matrix information](GATE_INPUT_OPERATOR_RESULT_20261013.md) COMPLETE/full
+blockGram/directrectangularSVD audit PASS,rank2048/all3,conditions27/71/55,
+25,178,112 matrix/spectrum words qualified. No hidden input recovered.
+Runtime alias filtering gap retained/supplemented by older matching fingerprints;
+new gateV2 explicitly binds resolved ABI/BLAS. [Closure](full_channel_and_gate_operator_session_closure_20261013.json)
+retains eight completed commands/all outputs and one redundant closed-handle
+poll (no restart). [Offline recovery next](GATE_INPUT_RECOVERY_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND;no whole model/n/DRAM/same50 admission.
+[Actual mixed C operator/cost](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md)
+COMPLETE/full independent audit PASS:all48 new native384x96 histories/every
+direct CPU timestep/full final states/export bits/normalized/score/output/source
+metrics and hashes. ALL92,352,512 raw F32 scores bitexact scalar reference,
+normalized inputs difference0. Local DEVmean.068813/worst.096949,all gatesPASS.
+[V1](COMPOSED_OPERATOR_NATIVE_V1_RESULT_20261013.md) complete/full audit retains
+one false1e-4 normalized-input flag;V1 timing never launched. Mixed F64
+decode/gate/RMS->BF16->AVX F32 output passes unchanged controls.
+Same mixed artifact/two all48 timing passes:scan~10us,normalize+out~1157us,
+total supplied-operand~1248us,source input GEMV separately~2535us;
+no joined layer/clean-system/actual DRAM/native chatbot/n/50 admission.
+Native closure retains all seven sessions CLOSED0,V1/mixed immutable E
+families1.837GB/1.006GB. Next [state width and source-function costs](SOURCE_FUNCTION_COST_AND_STATE_WIDTH_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Earlier prospective statuses below are historical;
+the current index and this leading evidence determine resumption.
+[Fixed channel384/state96 composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md)
+COMPLETE/full independent audit PASS/site23 local budgets PASS/both norm modes.
+All48 histories/77,922,432 full CPU scan values/every timestep,
+277,057,536 BF16 output values incl prior baseline (differences0),12,987,072
+B/C/input values/energy interactions/gates/hashes qualified. Joint DEV ownnorm
+mean.068813/worst.096949 versus channel-only.063571/.087007;source denominator
+mean.070423. State21.33x smaller (144KiB versus3MiB),source nonlinear functions
+and20,021,248 dense source in/out coefficients per layer retained. Prepare56515/
+capture52306/audit67194 CLOSED0;733.172MB on E. Next separate native cost pilot,
+PROPOSED/UNIMPLEMENTED/UNBOUND;no whole causal/native chatbot/n/50 admission.
+[Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
+independent audit PASS:all48 cases,92,352,512 ideal+92,352,512 BF16 output words,
+8,658,048 scan values/every384x256 state timestep. BF16 differences0;
+all24 FIT/24 DEV ideal losses improve. FITloss.533005->.520252,
+DEVloss.626393->.604521;actual DEV ownnorm.789261->.775702,
+all local quality gatesFAIL. Fixed FIT alpha.1,no DEV reselection;captures86761/
+audit61517 CLOSED0,992.868MB on E. Next fixed site23 state/channel composition;
+no unchanged further gradient epoch or native/chatbot/n/50 admission.
+[Invariant whitening/matched-output preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all92,352,512 physical/white output words,
+34,246,656 GY/dual autograd24FIT cases,45,662,208 J-direction words/1,572,864
+parameter-replay words/SPD/inverse/projector/chain/full curves. Initial physical
+model identical~1e-14. Referencebest.530466/alpha.03,whitebest.520252/alpha.1 from
+.533005;2.393% versus.476% FIT decrease. Recommendation only,no update/newscan/
+DEV curve selection.90532/70170CLOSED0;1.419GB new arrays on E. Next
+[fixed candidate qualification](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md)
+subsequently COMPLETE above; local qualityFAIL. No model/n/50 admission.
+[Full finite recurrence gradient/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:24 autograd cases/all34,246,656 GY words,
+parameter gradients/Kronecker tangent/all FD/candidates/selection/parameter bits,
+184,705,024 ideal+machine output words/8,658,048 actual sequential scan words.
+One FIT-only alpha.0003,.537006->.533005;DEV ownnorm.792727->.789261,all local
+qualityFAIL. Original transpose/coarse-FD/partial-audit metadata faults retained;
+full failed-prefix qualificationPASS,original coarse flags false. Fine steps
+1e-6/7/8 passsame1e-6 threshold.46933/9123CLOSED0;new1.471GB arrays on E.
+Subsequent whitening/conditioning preflight complete above. Source-injected
+local component,no full model.
+[Coupled finite recurrence sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all144 records/554,115,072 finite/J vector
+words/1,488,102 raw stats/19,480,608 head energies-rho/FIT Grams/proxies/450
+controls,vector5.63e-14/scalar1.33e-14/all hashesPASS. Site12 adaptive tangent
+remainder30%FIT/33%DEV,radial head-energy effect3.13%,paired/trace1.20791;
+FIT-only heuristic selects finite objective. No new fit/scan/source/native call.
+4.611GB immutable arrays on E with tracked extents;5814/77109CLOSED0.
+Subsequent finite gradient/retraction/bounded FIT update complete above.
+No unchanged averaged-GM fit selected.
+[FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all FIT GY_rec,unchanged GM,288 head/layout
+bases,51,948,288 projected input+51,948,288 scan values checked via full CPU
+recurrence,1,108,230,144 output values. Stored outputrelative0,scan2.93e-7,
+kernel8.18e-13,full hashesPASS. Site23 adaptive ownnorm mean.06357/worst.08701,
+all local gates PASS/both norm modes;fixed8.21257. Site0.27308/site12.79273,
+global local gatesFAIL. Capture30075/audit54288CLOSED0. Full source work retained;
+no native/chatbot/n/50 admission. Next
+coupled sensitivity diagnostic subsequently complete above;no unchanged
+averaged fit selected.
+[Recurrent-only384/full source skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all144 records/1,108,230,144 BF16 output
+words/energies/cross terms/aggregates/gates,relative output0,energy4.42e-15.
+DEV ownnorm output mean~.57->.29 at0/~.56->.30 at23/~.84->.80 at12;all local
+budgetsFAIL. All24DEV cases improve per site/layout/mode. Recurrent/skip errors
+cancel at12;old bases fit entirey,notrecurrenceonly. V2first fault CLOSED1;
+V3CLOSED0 retains252/576false precision bridges(.001);audit12382CLOSED0.
+Full source generators/gates/conv buffers retained,no causal/native admission.
+Subsequent FIT GY_rec change/new actual compact scans complete above.
+[Source-head2048 moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all8808 source rows,18,038,784 moments,
+three complete feature/RMS decoder gradient controls;max relative5.43e-12.
+144.31MB moment payload;all outputs1.012GB with full derivative controls.
+Capture32508/audit86463 CLOSED0. Changing source-derived decoder supervision
+available;no optimization/native quantized export/causal quality admission.
+Subsequent recurrent-only/full-skip comparison complete above;full source
+generators/gates remain injected.
+[Entropy-mixture dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:8808 source rows/140928 family-lambda direct
+moment/entropy/support rows. Ten positive lows,worstFIT.001183/DEV.000626,mean
+6.93e-7/1.66e-7;no budget obstruction. Both source/candidate zero words0. Capt26766/
+audit22384 CLOSED0. Source-head moment compiler subsequently complete above.
+No unchanged long primal rerun selected.
+[All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:4 full checkpoints/35232 point rows/all
+577249896 native logits bit exact/source q and quality. Native DEVcaseKL.0483465/
+dis2.3003% versus2.93425/41.09%;all budgetsFAIL/lower0. Budget36 completed/partial37,
+not optimum or causal model. Subsequent entropy-mixture dual family complete
+above. Capt10400/audit13729 CLOSED0.
+[GPUF64 all-label initial loss/gradient/cost](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/full independent CPU probability audit PASS:8808 complete losses/
+257-gradients/IDs,CPU/GPU errors~2.5e-14/zeroID changes. Component nominal pass
+~4.3s versus28.2s CPU;clock15.625ms/desktop sharing,no clean speed admission.
+Next all8808-label bounded probability-image study,selected design UNIMPLEMENTED/
+UNBOUND;no optimizer or new native code. Causal core/quality/n/same50 still open.
+[Actual native affine-ray winner assay](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md)
+COMPLETE/full audit PASS:2361 distinct source winners/all8808 associations,
+2342 target native codes/all153487654 F32 scores bit exact with scalar reference.
+DEV case coverage98.6616%,but available KL contribution9.6007 versus2.93425;
+winner-only codes lose distributions. Eleven zero-margin/eight additional unit-
+margin ray failures do not prove general head infeasibility. Subsequent GPUF64
+cost qualification now COMPLETE as above;probability optimization/causal core open.
+[Current native head moments/cost and guard diagnosis](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all8808 exact source moments/IDs/code/loss/
+gradient/support rows verified. Original run CLOSED1;V2 CLOSED0 retains BOTH
+false1e-5 precision flags. Complete577249896 score comparison bounds KL changes
+by score ranges with no ID changes;no formula/data drift. No positive initial
+floor or optimized probability codes. Subsequent affine-ray winner probe now
+complete as linked above;empty interval only excludes chosen ray. Causal acquisition open.
+[Broad full categorical correction/factor storage/direct source audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
+COMPLETE:all4422 FIT/4386 DEV labels,equal-case weights;all11 full-V points/48570
+rows/4422 full Jacobians audited. V1 deadline failed900s;budget-only V2 closes
+925s/1200s,first fault retained. FIT-selected.0001 improves FIT3.10%,DEV~.97%,
+wrong1756/4386 versus1792;quality allFAIL. Compact source score factors qualified.
+[Exact QR gauge/native scalar-norm export](GAUGED_NATIVE_READOUT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:8808 labels/577249896 F32 logits bit exact
+with separate scalar reference,all source/gauge/coefficient maps verified.
+Scalar epsilon and normalized bias preserve same poor predictor,not information
+improvement;DEV case disagreement41.09%/all qualityFAIL. Original interruption
+retained;replay/audit CLOSED0. Next current-head half-ball feasibility/cost study
+PROPOSED/UNIMPLEMENTED;not unchanged old paired255 oracle experiment.
+[Exact categorical residual gradient/correction/full audits](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
+COMPLETE:explicit72 RMS Jacobians/V/W/mu gradients/full34 points PASS. Original
+coarse joint finite gate false retained;separate2e-7 convergence qualifies same
+FIT-selected alpha.001,unchanged tolerance. FIT1.114->.645;DEV2.728->2.554,
+still26/72 wrong/all quality gates FAIL. Generic W^T V defect.328,not idempotent.
+Broad4422 FIT/4386 DEV labels and direct independent full-V verification are now
+complete as linked above. No long plain-gradient epoch selected.
+[Raw affine charts and exhaustive fixed decoder choice](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
+COMPLETE/full independent audits PASS/proxies FAIL. K4/16 at0/12/24,60 chart
+spectra/288 histories/544 affine offsets/maps;all2880 output candidates audited.
+DEV72 nearest wrong27;no fixed16 candidate preserves25 source decisions,best-KL
+own mean1.7233. Selection alone cannot repair these frozen encoder/decoder
+candidates;not a bound on new codes/directions or conditional256 capacity.
+Next exact categorical factor/center gradient with complete RMS Jacobian,
+bounded FIT correction before long dose. Earlier conditional NEXT is now complete.
+[Function-sensitive coordinates/full audit/exact finite loss](SOURCE_FUNCTION_COORDINATES_RESULT_20261012.md)
+COMPLETE:seven FIT global256 read/write bases,all336 histories/source projections/
+full head audited PASS;all quality proxies FAIL. Actual DEV72 wrong26/KL2.7278
+own norm. FIT97.48% quadratic head energy still fails finite probability loss;
+one actual state source-local Fisher.035 but KL9.462/winner rank2668. Exact
+log-moment/path-curvature algebra documented. Next conditional RAW affine charts
+K4/16 at0/12/24;oracle choice is not cheap causal routing. Previous read/write
+NEXT paragraphs below now historical. No training/native/GPU/T4 job live.
+[Actual residual angular bases/readout probability/full audits](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
+COMPLETE:7 FIT eigensystems/336 cases/6 skip transports numericPASS/proxyFAIL;
+DEV angular37%-61%. Source DEV72 readout:new angular256 changes31 decisions even
+oracle source norm/KL2.7064;reconstructed normKL2.9971. All full-V outputs/coefficient
+maps/probabilities audited. Positive final bias-free normalization scalar cannot
+repair argmax. Selected next:function-sensitive read/write residual encoding;
+conditional charts/wider-active geometry require actual cost/router/quality tests.
+Earlier angular-basis feasibility NEXT paragraphs below are historical. No T4.
+[Full trained24-layer projected shadow/final audit/geometry](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
+now COMPLETE:all411 source maps and local F32 controls PASS;0/16/followup false,
+DEV KL22.6229/dis100%. All17 greedy traces/4386 labels/168 trajectories audited.
+Initial coordinate error.149%,after4~194%/cos.301;fixed P captures~12%-14%
+intermediate source energy, not a task-information fraction or capacity bound.
+Selected next: finite stored FIT-only state-coordinate feasibility with explicit
+radial information/residual transport; new source-function encoding before dose.
+Earlier shadow UNIMPLEMENTED/next entries below are historical. No new T4.
+[Restricted D256 trained operator compiler/export/full field audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
+now COMPLETE/PASS:39 injected positions, exact max1.4094e-15, F32 coefficient
+roundtrip4.5539e-8; three durable core packages/all fields independently checked.
+Projected diagonal gamma loses19%-92% output in the isolated trained-operator
+control; gamma folding fixes that local defect, not proof of composed capacity.
+Source feature/state widths remain costly; F32 arithmetic/native parity untested.
+Next implement/review/bind24-layer pretrained projected shadow behavior, with
+source attention/FFN/depth and each norm boundary preserved and costs declared.
+Earlier restricted-compiler UNIMPLEMENTED/next statements below are historical.
+[Complete recovery/native outcomes and exact operator transport](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
+V4 math worker complete; final holder known-publisher isolation failed and is
+preserved. Native16 tasks+followup fully captured/audited:0/16/false. Stored66,888
+route rows localize3 membership/16 order-only/159 common-ID mass discrepancies;
+short qualified GPU/C-equal histories already fail absolute quality.
+Actual three-site auxiliary S6 generator lift passes39 F64 injected positions,
+max output9.3565e-16, complete stored fsum audit and full before/after hashes.
+It needs608 auxiliary channels and primary-only postgate normalization, remains
+costly D2048/DN3680/N256, and is not a native/useful-chatbot admission.
+[Next](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md): implement/bind compact
+restricted pretrained operators with correct norm folding/metric/epsilon; then
+costed24-layer pretrained projected shadow behavior before more training.
+Older statuses/next steps below are HISTORICAL. No Luna/delegation; hours-long
+runs follow latest human announce/launch/pause instruction. Fail-Fast revoked;
+complete audits and preserved faults remain required. No new T4/RESERVED queries.
+
+
+**AUTHORITATIVE 11 October17:09:** V4 complete recovered audit LIVE session30762,
+holder31240 created2026-10-11T17:08:43.125910+02:00; source36a9d96, exact
+binding/invocation955537d, SHA745f662c7527a2b1bc652660ea6a8e77770dc9471eddc9158a2eef9fdf05c1c5.
+3997 inputs11,388,737,601B/preparation184.015s;21 preflight flags PASS/5.047s.
+[Faults and V4 protocol](RECOVERED_CATEGORICAL_AUDIT_V2_FAULT_AND_V4_PROTOCOL_20261011.md).
+V1/V2 failed numerical audits and V3 preflight cap fault preserved; no partial
+numeric replay substituted. Actual V4 full numerical audit not yet complete.
+Expected8-9h; unchanged hard32400s/24GiB/CPU-only; approximate cutoff
+12 October02:09 Europe/Rome. Initial full input/output before-hash precedes
+worker/live JSON creation. Output base `recovered_categorical_campaign_stored_adjudication_v4_20261011`.
+On next human continuation poll session30762 and exact holder PID/create,
+then finalized terminal/result/fault. Worker result alone is not full closure;
+require holder after-hashes/tree checks and absence. Never restart on timeout.
+No Luna; user-requested goal PAUSE during this run. Original custody false,
+missing chat/followup/useful same-artifact50/useful-n/general conversion remain
+unproved. Older status entries below are historical.
+**AUTHORITATIVE11 October01:28:** v2 recovery seal CLOSED exit0,all5742
+outputs138.619GB/current input-before-after exact; no original successful
+custody. [Actual boundary](CATEGORICAL_RECOVERY_SEAL_V2_RESULT_20261011.md),
+sealSHA2a207ae38ca3820640f9f741648eee4edda684afed26562afd761a2eba0b74eb.
+FULL recovered stored numerical audit now LIVE session26264/holder17412,
+creation01:27:45.02565+02:00; source/protocol30a78a0, exact binding/invocation
+3a59fbe, numericSHA14d20fdf33afaa4bb80ab68c95e8a760565c22da35f856f47abb4cd11ba1a801.
+Initial holder full before-hash occurs BEFORE worker/live JSON creation;
+worker identity appears later in recovered_categorical_campaign_stored_adjudication_20261011.live.json.
+Hard9h/24GiB/CPU-only,all24directions/48proposals/48final forced cases; full
+input/output after-check still required. GPT-6 Luna `/root/recovery_monitor`
+owns read-only monitoring; root stops substantive work until meaningful
+closure/fault/intervention alert. A worker result alone is not holder closure.
+Original capture/faults preserved; lost GPU/custody/transient counters UNKNOWN.
+Missing16 tasks/own-answer followup require a new actual native job and audit;
+no useful-chatbot/same-artifact50/useful-n/general-conversion admission.
+Prior LIVE/status paragraphs below are historical. Full goal ACTIVE/INCOMPLETE.
+
+**AUTHORITATIVE11 October00:37:** First recovery seal CLOSED exit1 at1800s,
+no valid seal; fault retained. [Fault/v2 protocol](CATEGORICAL_RECOVERY_SEAL_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
+Separate v2 source/protocol frozen d89e9d3, exact launch7fc130d, LIVE session17973/
+PID27196 creation00:36:49.017935+02:00, cap3600s/256MiB. GPT-6 Luna
+`/root/recovery_monitor` owns read-only monitoring; root stops substantive work
+pending its closure/fault alert. All hashes/custody checks retained; no original
+restart or failed receipt overwritten. Recovered numerical auditor ready30a78a0/
+8 preflight flags PASS, but exact binding/9h audit NOT launched. On v2 PASS use
+its exact new SHA for `recovered_categorical_campaign_launch.py --prepare`, then
+freeze/launch the CPU holder and hand it to the same Luna monitor. Missing chat
+tasks and original GPU/custody measurements remain unassessed/UNKNOWN. Prior
+LIVE/status paragraphs below are historical. Full goal ACTIVE/INCOMPLETE.
+
+**11 October preparation:** Separately bound recovered auditor IMPLEMENTED,
+source/protocol freeze30a78a0,8 small preflight flags PASS/1.344s.
+[Protocol](RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_PROTOCOL_20261011.md): original
+independent mathematical core unchanged except internal index name, all24
+steps/48 proposals/48 final forced cases, missing original GPU peaks/custody
+UNKNOWN. Actual binding/9h CPU holder NOT launched while recovery seal LIVE.
+[Fixed support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
+PROPOSED/UNIMPLEMENTED, no new backward or numeric job. Latest user authorizes
+ordered/traced E: artifacts and GPT-6 Luna read-only monitor for long runs;
+root stops substantive work until completion/fault/intervention alert.
+
+**Authoritative11 October00:00:** Original24-direction producer CLOSED exit1,
+holder generic AssertionError before result seal.24 steps/48 candidate trials/
+all48 final forced cases retained/5 accepted,138.619GB. Missing task stage and
+original successful custody; exact holder cause/stream startup exposure unknown.
+[Present-boundary recovery](CATEGORICAL_CAMPAIGN_RECOVERY_PROTOCOL_20261011.md)
+new read-only seal source/AST PASS/frozen109da1b, actual LIVE session19032/
+PID29424 creation00:01:38.8803848+02:00, cap30min/256MiB. No training restart
+or old auditor with forged terminal; full numerical/quality audit still required.
+Older LIVE statuses below are historical.
+
+**Current, 10 October21:09:** Frozen24-FIT producer LIVE session22911/holder23256/
+worker2968 creation1791656179.7136545. Eight directions complete/three accepted;
+fifth rejected solely for mass9.059906e-5, sixth all bridge gates PASS and accepts
+alpha.0001 weighted68.5963->62.9875,13/13 wrong. Seventh full209-ID rejected:
+IDs exact/mass2.65837e-5/score.334613/KL.128457/one GPU/C argmax differ. Eighth
+full337-ID rejected: IDs exact/mass.00215182/score2.37439/KL1.28511 discrepant,
+no GPU/C argmax change, feasible C weighted93.9421->86.1634/256of256 wrong.
+Ninth numina015 full318-ID causal history running. Post-audit
+[stored route observer](CATEGORICAL_ROUTE_DIVERGENCE_OBSERVER_20261010.md)
+implemented/6 synthetic format fixture flags PASS, actual UNEXECUTED.
+Final quality and exhaustive independent audit PENDING. Small1.567MB/1.682s
+[router-support metadata observation](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md)
+reports nonzero tiny gradients/full relative movements for all5,529 never-selected
+router rows. Actual gradient/archive coefficients require campaign adjudication;
+algebra identifies a potential cancellation-residual amplification, not causality.
+Separatev2 preserves first PowerShell container fault. No campaign repair,
+gate change, source/DEV/T4 replay or concurrent neural benchmark. Older status
+paragraphs below are historical; INDEX gives exact resumption.
+
+**Current, 10 October20:30:** Full24-FIT original categorical campaign IMPLEMENTED/frozenc9c04df/producer LIVE session22911, holder23256, worker2968 creation1791656179.7136545. First direction accepted: actual C weighted58.8206->38.9700/first44.1511->37.1461,17/18 wrong. Second full479-ID/118-label direction stored, dense/compiled/checkpoint checks report PASS, but GPU/C broader-history bridge FAIL:4 ranked slots/.00084446 mass/.39417 score/.05513 KL discrepancy, no argmax difference. Feasible finite C candidate is rejected by frozen numeric criteria. Third full773-ID history/backward saved and finite proposals running. Full campaign/final quality/exhaustive independent audit PENDING; no source/DEV/T4 yet. [Execution](ORIGINAL_CATEGORICAL_CAMPAIGN_EXECUTION_20261010.md), [new attribution problem/possible remedies](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md). No inference from the first58-ID qualification to arbitrary changed histories; older statuses below historical.
+
+**Current, 10 October:** [lossless real master-transition/full independent audit](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md) COMPLETE/LOSSLESS_MASTER_TRANSITION_QUALIFIED. All92 tensors/721008128 F32 words/54.342M changed words exactly reconstructed by independent Python integer-byte XOR. Raw2.884GB->archive186.158MB (15.4924x), copy35/compressed719/raw0 chunks; raw fallback separately tested/no future ratio guarantee. All offsets/shapes/source-target/chunk/full input-output hashesPASS. Held214.313s/CPU only/CUDA hidden/no numerical proposal/history/backward/native/optimizer/source/DEV/T4 replay. All owned CLOSED. [Next full24-FIT campaign](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md) runner UNIMPLEMENTED; helper ready, full output/free-disk bound still required. Previous qualityFAIL remains18of18 wrong; full goal incomplete. Older statuses historical.
+
+**Current, 10 October:** [changed-point original causal bridge/full stored audit](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md) COMPLETE/CHANGED_CAUSAL_BRIDGE_QUALIFIED. One NEW GPU58-ID history/backward at auditedalpha.001, existing C reused/no C or export replay. All92 exact changed parameters/90 NEW gradients/348 route rows PASS; all2784 ranked IDs exact, mass1.78814e-7/score.000243821/KL.000141289, forward/checkpoint ID+mass bits exact. Independent full metric delta1.72351e-12/allhashes PASS. Absolute quality remains FAIL18of18 wrong. Held250.515s, OS producer10.4922GB/audit6.7384GB/GPU allocated.6014GB. All owned CLOSED; no optimizer/source/DEV/RESERVED/T4. [Next full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED, exact bounded transition custody before launch; use current saved gradient for first direction/no repeated preflight. Full goal incomplete; older statuses below historical.
+
+**Current, 10 October:** [grouped saved-gradient steps/full independent audit](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) COMPLETE/GROUPED_DISCRETE_DESCENT_QUALIFIED. Three changed original C models from one saved gradient; bestalpha.001 weightedKL138.960856->58.820600 (-57.6711%), first129.972493->44.151124; absolute quality FAIL18of18 wrong. All2917 inputs/303 outputs/3x92 masters/100156 groups per candidate/3x110 fields/trits/scales/witnesses/routes PASS, independent fsum max0ULP/group4.3616e-16/KL2.1316e-12. Windows longdouble alias independently resolved before audit, same gates/no replay. Held1663.298s/OS producer12.3405GB/audit11.7668GB/CUDA hidden, all owned CLOSED. Three mathematical displacements/native histories, no neural forward/backward/optimizer API/source/DEV/RESERVED/T4. Next [changed-state GPU/backward+full ID/mass comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED, use selected actual masters and existing C scores/routes. [Scale geometry/n/primary papers](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md) conditional derivation/optional correction UNTESTED. Full goal incomplete; older statuses historical.
+
+
+
+**Current, 10 October:** [original categorical causal bridge/full stored audit](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md) COMPLETE/CAUSAL_BRIDGE_QUALIFIED_PENDING_TRAINING. One new original58-ID forward/backward/C prefix; all92 parameters/90 gradient tensors/108 unchanged packed fields/routes/mass/witnesses and full hashes PASS. Dense/compiled loss2.2737e-13/gradient3.2685e-13; GPU/C scores.000386641/KL.000156436/zero argmax differences; independent delta1.8474e-12. Quality FAIL caseKL146.950513/18of18 wrong. Held280.859s, OS producer11.0124GB/audit6.6702GB/GPU allocated.6014GB; all owned CLOSED. No optimizer/source/DEV/RESERVED/T4. Next [grouped trust-step geometry](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md) algebra/plan only, tool/update UNIMPLEMENTED: saved gradients, scale-aware per-expert/core displacement and actual discrete C descent, no baseline replay. Full goal incomplete; older statuses below historical.
+
+
+
+**Current, 10 October:** [fixed native-head supervision compiler/full audit/FIT handoff](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md) COMPLETE/LOSS_SUPERVISION_QUALIFIED: all8808 moments/entropy/IDs,72 dense/compiled loss-gradient checks, all hashes/scalars PASS. Maxmomentdelta3.6522e-11,loss2.2107e-13,gradient1.4368e-11. Numerical payload18.144MB vs1.1545GB BF16 (63.628x); held239.047s including first JSON fault, handoff1.391s/24FIT4422 labels/DEV excluded. First serialization fault and uploader prelaunch rejection retained; scalar adapter only, same maths/tolerances. All owned CLOSED. Causal adapter IMPLEMENTED/AST PASS/UNEXECUTED; [next one-case original bridge](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) runner/binding UNIMPLEMENTED, shortestFIT rewriting008 history58/labels18, fixed coherent F32 head/norm with training-only F64 readout. No model/source/native/optimizer/SVD/GPU/T4 call yet; full goal incomplete, older statuses historical.
+**Current, 10 October:** [analytic onset head/full shifted audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md) COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742, FITfirst0/24 errors but DEVfirst19/24. One packed head,109 other fields exact; all8808 probabilities/uncertainties/fusion/hashes PASS, maxKLdelta4.0473e-11. First unshifted audit fault retained with unsaved maximum/cause unresolved; same thresholds, new normalizer independently passes. Held265.062s including failed audit, all owned CLOSED. [Next original categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED: fixed native-head moment/entropy compiler, loss/gradient qualification, then NEW coherent core/bank training with explicit onset weight. No optimizer/source/native/GPU/SVD/T4 call in this family; full goal incomplete, older statuses historical.
+
+
+**Current, 10 October:** [new categorical packed native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) COMPLETE/numeric PASS/quality FAIL. Actual FITKL2.92084/DEV6.25897 versus old7.83019/8.76437; tasks0/16 vs donor14/16. All8808 proxy/native bounds/old routes/ternary witnesses/679 greedy IDs PASS; held812.953s. Raw timings foreign-test-contaminated, no useful50 admission. [Stored onset diagnosis](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md): all16 first IDs1563,14/14 donor-correct first replies wrong; FIT first response only1.17535% objective mass. All owned processes CLOSED. Next [24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md) algebra/specification UNIMPLEMENTED/UNEXECUTED, no new optimizer/native/T4. Full goal incomplete; no information ceiling established. Older statuses historical.
+
+
+**Current, 10 October:** [shared categorical head/full audit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md) COMPLETE/quality FAIL: same FIT warmKL5.26002 ->2.92084,case dis56.8142%,2857 wrong/4422; lower0/gap2.92084, no positive-floor claim. All141 inputs/outputs/SVD/teacher/gradients/5 checkpoints/packed byte export/uncertainty PASS. Held455.281s, all owned fit/audit processes CLOSED. Next native assessment implemented/AST PASS/bindingbd71419b, not launched;900s+600s full audit on SAME new artifact. No native/source/T4/goal admission yet. Older statuses historical.
+
+
+**Current preparation, 10 October:** [categorical head protocol](CAUSAL_CATEGORICAL_READOUT_PROTOCOL_20261010.md) implemented/AST PASS/exact binding sealed. One FIT-only shared convex map, max32 accepted updates; unchanged original packed ABI/core, head fused offline. Capture1200s (reserve120), OS4GiB/GPU4-5GiB/output1GiB, complete CPU audit600s. No new fit/native/source/T4 call yet; full goal incomplete. Older statuses historical.
+
+
+**Current, 10 October:** [native causal coordinates/full audits](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md) COMPLETE/QUALIFIED_APPROXIMATE. All8808 FIT/DEV states,rank256/condition22.9684, full-V residual max1.5314e-5. Original absolute-bound FAIL retained; exact39-rounding-path refinement gives max absolute.0374433/relative.0147187%, same thresholds; full heavy audit +Decimal50 all8808 PASS, no inversion replay. All owned processes CLOSED, held109.390s/no source/history/native/GPU/optimizer/T4. Next [shared categorical readout](CAUSAL_CATEGORICAL_READOUT_NEXT_20261010.md): implement/freeze FIT-only whitened convex map, offline fused original C head and actual native evaluation. No new fit/quality admission yet. Older statuses historical.
+
+**Current, 10 October14:31:** [paired-head probe/full audit](PAIRED_HEAD_IMAGE_RESULT_20261010.md) COMPLETE/NONLINEAR_ENCODER_ROOM, all numeric/hash/gradient/native gates PASS. Selected72 meanKL.871596171 -> .006529733 (99.2508% reduction),17 ->0 argmax disagreements real/native; maxKL.230831/sample quality FAIL, lowers0/15 small gaps. Held166.062s+24.343s; sessions70152/68070 and all owned PIDs CLOSED. Next [causal-coordinate qualification](CAUSAL_READOUT_COORDINATE_NEXT_20261010.md) from stored actual27 C logits and a FIT-only offline fused head before a new joint compact-history campaign; [exact algebra](PAIRED_HEAD_IMAGE_ENCODER_ALGEBRA_20261010.md). No whole4422 upper/zero-floor claim, source/DEV/T4 or chatbot admission. Older LIVE/preparation below historical.
+
+**Current, 10 October13:04:** [one paired codec/full audit](PAIRED_OUTPUT_CODEC_RESULT_20261010.md) COMPLETE/PAIRED_CODEC_FIT_QUALITY_FAIL. All numeric gates PASS; FIT24/4422 caseKL.804121205/dis22.1684%,1102 wrong labels, F32/F64 zero argmax differences. Quadratic optimum verified97.95% retained metric energy, not categorical preservation. Held222.297s+140.047s; all owned sessions/PIDs CLOSED. Next [head image versus encoder](PAIRED_CODEC_HEAD_IMAGE_NEXT_20261010.md): new K/gain/stored coordinates, fixed-domain KL certificates; no old head/scale/dose replay, no source/DEV/T4 call yet. Full goal incomplete; older LIVE/preparation below historical.
+
+**Current, 10 October12:37:** [coherent FIT capture/full audit](SOURCE_CACHED_FIT_RESULT_20261010.md) COMPLETE/PASS:24 FIT/4422 exact paired labels,411 parameters/all114 inputs+171 outputs sealed,4422 frames/548 scalar witnesses. Held644.500s+21.281s; sessions90559/6122 CLOSED, launchers20972/13068 and workers22192/26704 gone. No codec fit/T4. Next freeze ONE paired representation using [output-weighted rank algebra](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md) and [original RMS geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md), actual native state/norm/head F32. Older preparation/LIVE below historical; full validation in force, goal incomplete.
+
+**Current result, 10 October:** [paired cached state](SOURCE_CACHED_FINAL_RESULT_20261010.md)
+and full audit COMPLETE/PASS, original53 tokens/logits and own-state norm/head
+EXACT. Cached/prefill h24 RMS1.1708%/postnorm.5550%, first label differs.
+All411 source values checked/90 rounding coordinates verified; not unique cause.
+First startup fault retained, all workers gone, original ALL48 FAIL unchanged.
+Next [coherent FIT features/paired codec](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md),
+[RMS-compatible algebra](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) not yet measured.
+Older LIVE/preparation below historical; no new FIT capture/codec fit launched.
+
+**LIVE, 10 October11:53:** cached-state capture session42559/launcher25876/
+worker28136, freeze129a9a8/bind4914ab1f. Earlier preparation paragraphs historical.
+First overlap rejection retained/process20380 gone naturally/no prior worker.
+Poll same handle, then120s stored audit; no concurrent owned benchmark.
+
+**Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
+implemented/AST PASS/binding4914ab1f, no worker yet. One new source generation
+for actual same-call state/logit custody and observed cache rounding; not a
+whole-cohort/training replay.600s/OS8GiB/GPU10-11GiB/128MiB+120s audit; no fit/T4.
+
+**Current, 10 October:** [source-readout result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
+and full independent audit COMPLETE; alignment FAIL on3/53 in one DEV case.
+MeanKL about.0005/dis<1%; all hashes/576 scalar witnesses PASS. New bounded
+[margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md) finds3 positive-gap
+changes in both readouts, not teacher ties. All workers gone; no codec fit.
+Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md).
+Full validation remains in force; older status below historical, INDEX authoritative.
+
+**Current preparation, 10 October11:12:** source final readout qualification
+implemented/four tools AST PASS, binding in preparation; no head result yet.
+ALL48 h24/8808 cached labels, BF16 norm/head versus F64 head on same normalized
+features, no history forward/fit/update. [Protocol](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md).
+The prior72-label fixed-head oracle has feasible meanKL.6617; do not repeat it
+or infer a D256 ceiling. New prerequisite is final-head alignment between
+captured full-prefill states and cached-generation teacher logits.
+
+**Latest decisive result, 10 October10:54:** ideal h24P/actual51 readout control
+and independent audit COMPLETE: caseKL13.567112/13.567607, dis99.9349%, both worse
+than native6.52/uniform10.574. TARGET_DECODER_COUPLING, independent delta7.841e-12
+PASS;150.531s+52.922s audit, all workers gone. [Result](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md).
+Next [paired output codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md),
+no fit yet. All earlier live descriptions below historical; INDEX authoritative.
+
+**Live control, 10 October10:50:** actual51 audit COMPLETE; two-head stored
+target/readout contraction freeze67d2b03/bind2e95dc67 LIVE session37053,
+launcher20132/worker4068, created10:49:35.886329/10:49:37.753696+02:00.
+Prelaunch overlap rejection preserved; foreign uploader exited naturally.
+Use same handle; stored600s audit after terminal, no inference/optimizer replay.
+
+**Latest override, 10 October10:46:** actual51 family fully adjudicated,
+missing-only audit exit0/2051.016s/all1890 hashes87.519GB PASS/audit22110f81.
+Both tasks0/16 and B preference FAIL confirmed; A3 completed checks adopted/B3
+independently checked. First deadlines retained. Session85445 CLOSED/PIDs gone.
+Next target/readout binding preparation then freeze/900s held contraction,
+candidate unexecuted. Earlier RUNNING text is historical; [INDEX](INDEX.md) current.
+
+**Current override, 10 October10:28:** training/assessments COMPLETE, both final
+tasks0/16 and B preference FAIL. First stored audit deadline FAIL at2401.312s
+after all A checks; new missing-only audit LIVE session85445, launcher12840/
+worker21208, freeze e8b17a5/bind7493e7ac. B33/B39/B51 numerical checks complete;
+1890 final hashes87.519GB pending. No optimizer/inference replay; original
+faults remain. [Current report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md).
+[Target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+and four tools prepared/AST parsed, UNEXECUTED. Bind only after qualified audit;
+F64 output4,599,124,512B priced prospectively. Earlier status paragraphs below
+are historical; [INDEX](INDEX.md) gives the actual handle and next step.
+
+**10 October matched family terminated, assessment incomplete:** both24-update
+forks/durable51/six24DEV native milestones COMPLETE. A KL6.5193073/disagreement
+89.7893%/tasks0/16; B KL6.5161150/disagreement89.6814%. Bfirst auxiliary core
+gradient differences nonzero/distinguishable; not a5% nativeKL preference.
+First reserve/deadline fault at6600.156s during B final auxiliary; launcherexit1/
+6620.437s/1397 files75.134GB.16 Baux cases durable/eight missing/tasks unexecuted.
+Parent code/binding/state/fault retained. Missing-only
+[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) executes
+eight new auxiliary histories and Btasks; zero optimizer/source/DEV replay.
+No parent process live. Older RUNNING text below is historical; INDEX current.
+New completion freeze f309ba52/bind2ff6afc9 COMPLETE exit0/265.656s,
+Btasks0/16/centered-relative0.903887 versus A0.904681/preference FAIL.
+414 consumed inputs/1791 whole inputs sealed; final stored audit RUNNING
+session16603/launcher5596/worker2764. The missing-case description above
+records the parent fault boundary, not current missing work. Current
+[report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) pending; proposed
+[attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md) unexecuted.
+
+**Previous live observation, superseded above:**
+[Matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
+freeze7f3d2eb/bind07c8b4e/386inputs,session81654/worker7132. Two independent
+actual27 real-Adam/RNG forks, same24 FIT onepass, original native endpoint.
+Max48 NEW updates;6/12/24 durability/native DEV,final auxiliary/tasks and
+plateau/preference gates frozen. Runner exists; gradient/quality still unproven.
+Initial27 restore/export/A first full GPU heads/routes exact; initial24DEV
+auxiliary pass done. A33 durable/native24DEV KL7.9659835/disagreement94.2985%:
+relative improvement, absolute quality FAIL. Last observed actual36/durable33;
+B not started, no preference/task result yet. User pauses conversation monitoring;
+autonomous worker continues. New stored-only audit draft unexecuted, review and
+run with held resource receipt after terminal. No other owned benchmark while
+live; no source/RESERVED/T4. INDEX has handle.
+
+**9 October actual27 original native/chat baseline COMPLETE/quality FAIL:**
+[Result](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md),freeze9c40c549/bind9ca774ee/
+raw71663dc9.45 new+3 adopted histories/all22547 positions/8808 full-V labels;
+native DEV caseKL8.76437/disagreement95.854%, all4 absolute/domain gates FAIL.
+Original20 bodies/prefix357/split178+179/reuse heads and ALL routes byte-exact.
+16 canonical tasks0/16 versus source14/16,all4 categories0;one own-answer
+followup wrong,113-ID cache reuse exact.1088 saved full-score argmax IDs exact.
+Raw decode137.19/request95.41/pipe62.73 IDs/s, incorrect content/noaccepted50.
+Held414.093s/471files5335096285B/OSconservative1.054GB caps PASS; linker gap.
+First stored-only unshifted logaddexp reference assertion preserved; completion
+stabilizes reference with row maxima, same1e-10 gate/no model replay.
+Source/optimizer/GPU/RESERVED/T4 zero/all native jobs terminal. Consumer and
+complete before endpoint now real; next finite matched joint history recovery.
+
+**9 October actual teacher boundaries COMPLETE with parent gaps:**
+[Result](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md).48 full histories22547
+positions/h0,h4..h24 raw BF16/fixed P256 F32;288 source streams byte-exact.
+CPU F64 audit all157829 projection rows worst8.077e-7, energy delta0,590 input/
+462 new output hashes. First freezefe60e9f/bind2d565b4e reserved cap FAIL after17
+histories/h4 eighteenth, original final411 aggregate missing. Finish50841c1/
+bindab6bd670/raw e39d3838 adopts old fields, tail layers4..23 from saved h4;
+30 new full calls, completion identity/resources PASS. Combined272.140s/
+724files810654370B. Peak allocated5.983GB same, reserved9.920->6.885GB after
+unused-cache release between cases; parent failure preserved. DEV projected
+energy12..14% intermediate,35.387% final/28.690% centered, not knowledge ratios.
+Prepared auxiliary learner/no optimizer/native/LM head/newanswers/RESERVED/T4;
+all jobs terminal. Next finite matched joint recovery with own-history/native
+DEV/domain gates, now supported by the original persistent consumer/baseline
+above; no useful chatbot/accepted50/n/DRAM admission.
+
+**9 October actual27 delta correction COMPLETE/engineering PASS/numerical FAIL:**
+[Result](ORIGINAL_DELTA_SEED_RESULT_20261009.md), completion freezedbe80da9/
+bindd49fa831/rawb71d31a3. Five FIT rank32 residual seed maps/cross<=7.551e-9;
+3352 initial native complete heads/routes/masses/18432 witnesses byte-identical.
+One full1507 FIT Adam26->27; all163840 new V coefficients active/rank32 perblock,
+full V rank48;92 disk Adam steps27 independently deserialized. Native case
+KL9.059->8.940/6.313->5.921/9.164->9.031; DEV disagreements247/250 of256,
+still poor. Persisted GPU/C head20 rowsFAIL/worst.01794/one greedy mismatch,
+IDs exact/massdelta.001997. First name-check fault preserved; completion adopts
+five saved X; ten total seed solves because first U arrays unsaved; one update.
+Combined482.297s/31files11880105822B/resourcesPASS/all jobs terminal/noT4.
+56inputs/25newoutputs/seed geometry/native metrics/routes/disk rank audited.
+Next actual teacher residual-boundary supervision and bounded joint recovery;
+no width causality, useful chatbot, accepted50, useful n or DRAM admission.
+
+**9 October actual26 first-divergence trace COMPLETE:**
+[Result](ORIGINAL_WIDE_TRACE_RESULT_20261009.md). Both observer head streams
+bit-identical to retained outputs;input AQ first flip82/0/43 crosses a half-bin,
+sixteen decoded ternary-column identities explain first gate/up integer changes.
+Conditional gate/up/down sums exact;three ordered-route permutations/one set
+change. Main family204s/resourcesPASS;native128.64s includes diagnostic IO.
+35input/13output hashes independently rechecked;stored-helper reduction fault
+retained/corrected without model replay. FIT-response seed helper and actual26
+calibration/fork/update27 now qualified above. NoT4.
+
+**9 October actual wider bridge COMPLETE/engineering checks PASS/numerical FAIL:**
+[Result](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md). Exact real master/moment/RNG
+transport,initial native fixture SHA identity,one whole1507 FIT Adam25->26,
+8652209850B durable checkpoint/520029440B changed packed export.655360 new read
+coefficients nonzero;updated18432 integer witnesses exact/all native masses valid.
+Native KL9.158->9.059/6.656->6.313/9.328->9.164;disagreement94..98%,noquality.
+GPU/C26 failed rows/worst.07099/four ID calls/massdelta.001416;raw GPU routes
+not persisted,retained evidence gap. Added32 delta coordinates zero at both
+factors:exact zero-gradient invariant,rank<=16 until explicit initialization.
+Held487.641s/exit0/session25642 CLOSED/resourcesPASS/17files10967978123B.
+All41input/17output hashes/six native metrics/1507row comparisons rechecked.
+Numerical trace and zero-factor correction completed above; next finite joint recovery;noT4.
+
+**9 October original native width envelope COMPLETE/preservation andraw cost PASS:**
+[Result](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md). DN512/DT16 versus1024/48,
+same actual Adam25 ternary bank/fullV65537/n1152/k8/D256/N96/L6/20original bodies.
+3352 full65537 head rows/IDs/masses/18432 integer witnesses perarm byte-identical.
+Raw median case121..142 vs99..132,aggregate136.7705 vs121.3781 IDs/s,slowdown1.1268,
+declaredraw gatesPASS.520,029,440B wider artifact,a06e2619...,45changed/65unchanged
+fields independentlyverified. It adds no knowledge;source quality remainsFAIL.
+No accepted-speed/useful-n/physicalDRAM/GPU/optimizer/source/T4. Firstmetadatafault
+after export/base compile:held42.031s/exit1/session92576 CLOSED. Missing-only
+completion held335.719s/exit0/session7845 CLOSED,OSconservative2,357,403,648B,
+11new+1adopted child/resourcesPASS. Combined377.750s/55files2,281,128,027B.
+Stored46new+9oldhashes/bitidentity/timing mediansdelta0verified. Freeze4e42d47/
+bind93f38c80;completion88850ef/binde7f1c711/raw858552d6. Selected master/moment
+transport andwider whole-update bridge now completed above.
+
+**9 October weighted384 histories COMPLETE/operator PASS/reconstruction FAIL:**
+[Result](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md),freeze8bcd42e/bind325e4cfe/
+raw37ccf69d.144 FIT head fits,288 selected dual-basis audits,source state256;
+fixed8 versus adaptive384 retaining48 timescales. Independent NumPy kernel/tail
+and rank-allocation checksPASS;all144 cases/both scans<=7.251e-7,source baseline0,
+six F64 witnessesPASS. Adaptive source-denominator DEV54.45%/78.68%/53.72%;all
+10%mean/20%worst/10%centered gatesFAIL. Proxy optimum is Cartesian independent-time,
+not same-time/coupled output/chatbot optimum. No global capacity theorem.
+Held94.781s/exit0/session73310 CLOSED,OS1,550,340,096B/GPU1,227,675,136/
+1,447,034,880B/resourcesPASS;438 files248,797,448B,288 actual packed384 latents
+207,793,152B. Stored case/domain aggregate delta2.220447e-16/all438hashes checked.
+Source/optimizer/native/RESERVED/T4 zero. Close fixed linear384/source-gate route;
+next native cost/parity comparison before joint learned-state construction.
+
+**9 October mixed384 history COMPLETE/operator PASS/plain decoder FAIL:**
+[Result](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md),freezeaa0ab15/bindd7c23631/
+rawefd7fb64.144 FIT-only8/head bases,48heads/site0/12/23;actual projected source
+recurrenceall144 full histories/source state256. All source baselineerrors0;
+projected scan<=3.454e-7/recurrent-only<=2.105e-7/three scalarF64 witnessesPASS.
+103,896,576B F32 latents retained for later decoderfit,no source-model/optimizer/
+native/RESERVED/T4. Full-gate/source-denominator DEV outputmeans56.93%/84.61%/
+69.74%,recomputed58.75%/84.82%/67.34%;all10%mean/20%worst/10%centered budget gates
+FAIL. Raw-y PCA improves0/worsens12/23 versus repairedcopied48x8;not global
+capacity ceiling. Heldfamily70.531s/exit0/session36520 CLOSED/resourcesPASS,
+OS1,559,941,120B/GPU1,151,896,576/1,293,942,784B;294 files114,176,791B. Independent
+stored aggregate delta2.220447e-16/294output hashesverified. Original engine/Adam25
+unchanged. The weighted-head follow-up above is now complete; this raw-y result
+is an immutable failed control, not the operational next experiment.
+
+**9 October384-channel transport and closed-form readout repair COMPLETE/FAIL:**
+[Result](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md). FIT-only greedy
+output-aware48heads x8 versus6wholeheads x64;actual state256/gate/source generators
+retained. All144 baselineerrors0;greedy saved steps exact/momentobjectivePASS.
+48x8 DEV mean80.47%/81.74%/53.92% even full-source denominator. Second18 actual
+FIT-only ridge linear decoders,sameIDs/no grid:76.71%/80.27%/47.44%;subset/constant
+norm modes also FAIL10%mean/20%worst/10%centered atall3sites. Actual normal
+equations/F32coefficients/FITquadratic checksPASS. No provisional layout and no
+whole/state96/P256/quality admission. Sourcecall/optimizer/native/RESERVED/T4 zero;
+18 algebraic fits explicitly counted. Families56.750+74.750=131.500s/exit0/resource
+PASS/sessions55850+68105 CLOSED;220,359,483B across300 namespace files. Frozen6f2a843/
+bind635c7379/rawf9365513;refitf219eea/bindaca40ea0/raw10bb2ccd. No original engine/
+Adam25 changes. Reject tested fixed-copy layout;next finite mixed UNGATED head-
+channel projection/conditional decoding investigation uses retained data. Other
+bases/decoder families are open;fixed-linear failure is not a general theorem.
+
+**9 October source recurrence captured; rank96 local transport COMPLETE/valid:**
+[Capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md), all48 canonical
+full histories/all24 sites/seven fields/every position,22,547 IDs/16.121GB logical.
+45 complete originals/one partial preserved; missing3 new source forwards completed;
+63 old partial fields exactly match new prefix. Original source exit/resource/final
+parameter check missing; separate3 family PASS, no retroactive aggregate qualification.
+[Projection](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md): actual24
+FIT-only bases,all144 case-sites0/12/23,baseline errors0/three scalarF64 witnessesPASS.
+DEV mean source-local output errors dual96 7.6349%/8.7184%/2.4918%, orthogonal96
+8.2659%/12.3503%/3.2013%, coordinate96 20.1061%/25.7026%/4.4961%. All3072 x/gate
+channels/48heads/full source norm/generators retained; not DN512/1024/P256/depth
+or chatbot admission. First reservedcap6.732GB fault remains; completed24 bases/
+18 metrics adopted,ONLY126 missing comparisons finished under samecaps viachunk
+storage. Actual held projection families95.689s; completionexit0/session46714 CLOSED,
+GPU1.169/1.642GB/conservative OS1.458GB/rawa00fa532. No optimizer/native/source
+calls for projection. Stored NumPyF64 audit freeze19e1a36/rawae5c8e83/exit0 verifies
+all24 kernel/biorthogonality identities and144 aggregatesdelta0, with domain/case
+tails. Choose dual96 as leading local map, measure channel/gate/full-norm omission
+next on retained data; widthvariants unimplemented/engine unchanged. Adam25/five
+whole quality failures/originalnumericFAIL remain. No T4/RESERVED/new replies.
+
+**9 October original-operator24-FIT recovery/native48 evaluation COMPLETE; quality FAIL:**
+[Result](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md),original freeze7671731/
+bind8d98addd,finish freezed1ea53a/bind2473e481/raw46dd5f66,canonicala4090938.
+Exact actual Adam1 adoption/24 NEW entire-history updates/end25/all92finite;
+FIT11148tokens/4422labels,DEV11399/4386. Native48 before/after/95 NEW held children,
+all final18,432 integer witnesses exact. FIT caseKL12.14269->8.14321,
+DEV12.09313->9.01572/25.4476% recovery;DEV disagreement96.5741%. Relative KL
+PASS/five absolute-domain-relative-disagreement gates FAIL. Final means beat
+matched uniform, partial probability recovery not useful chatbot. Adam13/25,
+packed507,505,920B/98835350 retained. First path fault occurs AFTER all training/
+export/witnesses; original exit1/fault/log/frozenbytes preserved, no replay.
+Missing48 native after completed CPU-only/exit0/session64373 CLOSED.
+Canonical actual families2579.687+418.875=2998.562s; raw2931.281 incorrectly
+uses finishworker351.594, preserved/corrected in adoption.29,188,184,770B stored.
+Original heldworker13,478,191,104B;exact original GPU/launcher peaks missing;
+completion conservative OS1,019,215,872B/GPU0 only completion scope. Stored
+adoption freeze895fde0/exit0/session43008 aggregate error0/zero new predictions/
+updates/GPU. Original numeric FAIL/no source/RESERVED/T4/quality/rate/large-n
+admission. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md): new source recurrent/
+operator/composition information before further dose/geometry; retain actual25.
+
+**9 October current-readout information probe COMPLETE;actual-direction scale hurts:**
+[Result](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md),freeze40a48e7/bind9d59cb86/
+raw26f59095.72 FIT labels/24 cases/12 domains,fullV65537;current fixed RMS/head
+mean optimum bracket[.659862763,.661743824],sqrt8[.042593995,.059468084];not all
+individual gaps<=1e-5. Free features are not a history-dependent model/capacity
+proof. Family196.078s/workerheld1,124,139,008B/GPU550,362,112/654,311,424B/exit0/
+session14841 CLOSED/no new model/source/update/T4. Post-hoc actual256-label control
+419733b/raw2443ff92:uniform9.880909/native10.580769/scaled22.947199. Keep amplitude
+and actual Adam1 for the subsequent conditional/history pass. [Byte inventory](original_falcon_recovery_inventory_20261009.json)
+36595a3/rawb9e7de41:FIT11148history/4422labels,DEV11399/4386;24 NEW steps end25,
+proposed95 new native cases/29.180GB output subtotal, subsequently implemented/
+frozen/executed in the actual whole result above;[current next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+Original native numerical FAIL and all useful-quality/rate/large-n gaps remain.
+
+**9 October source-informed original-shaped whole-history step COMPLETE; numeric FAIL:**
+[Result](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md),freezea99d9cc2/bindingc2281fd9/
+raw5e6f3d3d. D256/L6/n1152/full V65537/717,877,248 masters;all24 source FFNs/all
+rows mapped, fresh original core. Streamed adjoint reference CPU/GPU VJPs<=4.835e-7;
+entire1507 FIT history/256 labels/actual Adam1/RNG. KL11.602069 ->10.580770,dis
+256/256 both;one FIT step is not useful recovery. Actual8,614,643,514B state
+9f956177 retained;packed507,505,920B/no references. Five/1507 output rows and60
+mass calls fail frozen numeric criteria;all72,336 IDs/all1507 greedy outputs agree,
+all18,432 integer witnesses exact. Stored-only audit087e6147 preserves FAIL,
+nativeKL10.58076933452 versus GPU10.58076931210/delta2.242e-8;all numerical
+failures before labels, so they do not explain this observed loss. Family426.937s/
+OS13,559,287,808B/GPU1,689,576,960/2,122,317,824B/exit0/session55538 CLOSED.
+No retries/new source inference/RESERVED/T4/quality/rate/large-n admission.
+[Current next source history transport](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+retains actual source-informed Adam25; readout and native whole recovery successors
+are complete above. Prior initialization-is-missing wording is superseded.
+
+**9 October direct tensor original-operator learner bridge COMPLETE/PASS:**
+[Result](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md),freeze1d7988c6/bindinga0b835d2/
+rawe3732b34. All92 real original master tensors/22,516,672 coefficients adopted
+with key/shape coverage; direct E4BPv001 export24,411,136B bit-identical. AQ63/
+dReLU/flat-routing numerical bank and complete16-ID whole-output gates pass;
+before max relative RMS4.443e-7/after6.272e-7;all actual IDs exact. One NEW CPU
+Adam1 update/all gradients+moments finite, actual270,309,072B state5de1d580 saved;
+changed export26378408/new6,144 integer witnesses exact. Family36.281s/worker
+949,977,088B/conservative worker+child+launcher1,008,037,888B/exit0/session31156
+CLOSED. Source/GPU/T4 zero;no retries. E32/V1024/16-ID scope does not qualify a
+Falcon learner, all-history parity, useful large n or quality/rate. [Next real
+source initialization and union residency](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+supersedes the earlier missing-direct-producer wording; no further E32 dose sweep.
+
+**9 October original-shaped packed runtime-n stage COMPLETE/PASS:**
+[Result](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md),freezea660545b/bindingd91893bf/
+result5d552a3e.20 original body hashes/19 unchanged and one memcpy-only observer;
+D256/L6/original core+dReLU/AQ63, runtime n/V/64-bit fields/no expert reference
+copies. Legacy trainedE32 109,334,336B ->24,411,136B;ALL65,536 logit bits match
+legacy LUT across64 inputs. Structural2304/V65537 fixture868,505,856B handles
+u32 IDs0/65535/65536;24,576 integer coords exact,402 inside-forward site routes/
+max mass defect1.714e-7.72 bank copies/tied vocabulary rows are not useful n or
+real token semantics. Family19.937s/held worker185,065,472B/largest native child
+874,725,376B/exit0/session91076CLOSED. Direct child/worker resource scopePASS;
+nested linker peaks not separately held. No GPU/teacher/update/quality/rate
+admission. Producer is legacyE32-specific; [next source-informed original-shaped
+learning](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) must connect new donor-derived
+functions, state, whole quality, residency and typed export to this real endpoint.
+
+**9 October matched whole-model comparison COMPLETE:**
+[Result](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md),all50 NEW updates/private344/
+B common26;all before48/after48/old32 per arm complete. DEV case KL A7.113888/
+B7.130224,disagreement85.59%/85.32%. B .95*A preferenceFAIL;both absoluteDEV setsFAIL;
+both318-relative retention setsPASS. FIT improves/DEV KL worsens at this dose,
+not a general capacity ceiling. Original1800s reserve fault retained1773.859s;
+evaluation-only completion273.953s/worker exit0 then missing-process-instance
+launcher fault. Historical creation time unavailable. CPU-only adoption57.094s/
+807-inputpre-post checks/aggregate-exposure-gate verification/exit0;no replay.
+Adopted result89e22904/rawsource239cdda7/A26a68763bb/B26 2384fbaf retained.
+Families2104.906s excluding earlier B feasibility219.156s and binding preparation.
+No new source/RESERVED/native/quality admission. Prefer0+8 if reusing current
+representation. [Capacity contract under original-engine reference](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md)
+now supersedes older operational NEXTs. Further dose/readout oracle are deferred.
+
+**9 October fixed active-work conversion and two actual updates COMPLETE/PASS:**
+[Result](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md), repaired freeze1dc25904/
+bindingcc402a03/resulta15e2ee7. Exact parent broad24/Adam318 adoption into2 common+
+6 private; first backward CheckpointError984/983 saved tensors,0 completed Adam
+steps. First family89.422s/exit1 retains exact fault state0/RNG/old moments and
+all initial whole outputs; detailed initial routing exposure lost in RAM is missing.
+Observation hook repair uses no_grad and preserves checkpoint verification.
+Exact fault-state resumption completes two NEW longest FIT updates, private318->320/
+common0->2, all283 gradients/model/moments finite, actual6-ID/mass plus2-common
+exposure checked. Common outputs become nonzero; this is not knowledge quantity.
+Long FIT F64 KL5.68555->3.94876/disagreement232->204 of256;short2.52559->2.58289/
+9->9 of18. Whole model updates prevent attributing gain to common functions;
+no matched0+8, DEV/fresh generation/native/quality admission. Combined cost219.156s
+<=300s;repair129.734s/OS4.963GB/GPU5.069/5.836GB/resourcePASS/exit0/session11388
+closed. Final checkpoint3,116,677,466B/d6bac2d0 retains full model/Adam/config/
+history/RNG; two namespaces6,339,312,659B retained. First [paired comparison](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md)
+is now COMPLETE in the report above. No T4/RESERVED/source calls.
+
+**9 October renewed original-engine direction and static audit COMPLETE:**
+[Reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md),freeze c8d3473/
+result42f1b3af:exact code-shape accounting,all input hashes unchanged,0.016s,
+exit0/no tensor/model/training/native/T4 observation. Current versus original:
+selected products4x/core5.982x/head128.002x/counted matrices8.891x;latency is not
+those ratios. Current stored bank is25% of source FFN coefficient count, not
+knowledge. C fixes E72/512MiB; n288/source-count and larger cannot load. Flat
+router LDn grows; dense F32 params/grads/Adam alone160GB/10B,1.60TB/100B bank.
+Direction correction:local source-FFN absolute gates do not prove a necessary
+condition for joint chatbot adaptation. Preserve their failures/criteria;
+source-width dose is DEFERRED, draft syntax only/no binding/execution. Selected
+[2-common/6-private construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+keeps8 active H128 functions. At this audit's boundary target syntax only was
+verified; actual feasibility is now recorded above. C export remains missing.
+No speed, quality, useful-n, DRAM or scaling admission follows this audit.
+
+**9 October broad internal operands and fixed coverage recovery COMPLETE:**
+[Capture](CHATBOT_SOURCE_FFN_BROAD_CAPTURE_RESULT_20261009.md),4eb02126/f18c52d1:
+44NEW/8266+4reused/542=48/8808, actualsite0/23 x/y144.31MB/new135.43MB;
+all577,249,896 source-logit coordinates match BF16 bits, original411 parameter
+objects/versions unchanged.1246.485s/heldOS3.726GB/GPU5.102/9.181GB/resourcePASS/
+exit0/session62694closed. No source replies/optimizer/native/T4/RESERVED.
+[Broader recovery](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md),8bb6af56/
+b9955431:exact originalStudent AST/STE/loss/optimizer/native rows;fixed256/site,
+512finite updates, nofault.44NEWinitial+4reused/48after eachsite.24FIT/4422
+uniquerows,13965 actualtrainingrow exposures/site,12 domains;not equal rowdose
+to old2prefix256. Site0 FIT .475/DEVwhole .560->.519/centered .558->.521;
+site23 .488->.196/.556->.373. Relativegain onlysite23, allcase retentionPASS,
+absolutewhole .10/cosine .99/NEWcentered .10 gatesFAIL. Changedtrits2.24%/1.62%,
+not capacity/errorbounds.122.625s/OS1.705GB/GPU1.142/1.342GB/204files1.528GB/
+resource-inputPASS/exit0/session24779closed. Actual256 model/moments/RNG/history
+retained for bothsites. [Site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
+would restore SHAa2603025 actual256 and add768 NEW steps to1024 underunchanged
+data/loss/operators. Draft exists/syntax checked,unbound/UNEXECUTED/DEFERRED;
+no completed update/before/source replay. Substantial FIT error prevents treating
+256 as a representation ceiling; whole-target construction now has priority.
+
+**9 October true source local functions, recovery and saved geometry COMPLETE:**
+[Local result](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md):actualsourceFFN x/y
+atsites0/23,fourFIT2/DEV2 cached forcedcases/542 labels/8,880,128BF16 bytes;
+35,521,054 source logit coordinates bit-exact. Trit-only error .517-.562,
+AQ-only .194-.244;localBF16batch difference .0022-.0037 explicitlymeasured.
+Positive diagonal grid34c600a/6581468f fails overall;sourceproposal inputbalance
+direction wasreversed. Corrected998e7eb/1dd6b4cc adds12FITtrials/reuses6 andfails;
+bothretain identityS/site23 hiddenR,DEVratio .764590 onlysite23. Closedfinitegrid,
+not generalternaryconversion. Family100.047/34.375/45.219s;allinput/resourcePASS.
+Fixed localQAT256/site24c8635/eb53c727 completes:DEVerrorssite0 .539/.539,
+site23 .191/.224;ratios .96285/.41972. Relativegain onlysite23,absolute .10/.99
+gatesbothFAIL. Same4608 active rows/AQ63/trits/MUP/SiLU;valid sixgradients/Adam/
+pairroundtrip. Firstloggingfaultafter32 retained;durable2+510 new=512 effective,
+542 actualincluding30discarded/recomputed;combined92.031s/GPU.894GB/OS2.029GB.
+[Saved geometry](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md):
+site0 learnedcorrection DEVcos~.30/scalaroracleerror>.53;amplitudealoneinsufficient.
+UncenteredFIToutput energy99rank203/site0 vs29/site23;not knowledgefractions.
+SeparatelyfrozenFIT-onlyconstantcontrol9fce840/c27e6a31 nearlymatches site23
+learnederror .199/.236 versus .191/.224;91-94% ofactualsquared-errorgain ismean.
+CenteredDEVerrors .467/.492 remain. CPUfamilies22.203/4.985s/noGPU/modelcalls.
+Alljobs terminal/noT4/RESERVED/native admission. Nextbroaderfunctioncoverage,
+separate mean/varying evidence;do notprolongsame-two-prefix fittingbydefault.
+
+**9 October complete source FFN control/positive arithmetic control:**
+[Full trit/AQ package](CHATBOT_SOURCE_FFN_CONTROL_RESULT_20261009.md),d4f7f0f/
+3d86ba62,COMPLETE:all48/8808,reuse2+46 new,16screen+4actualhistory. DEVKL
+2.09967/1884of4386=42.9549% differing IDs,8of12domainKL>2. Exactscreen1/16
+(original14),history0/4;format failures andsubstantive wrong arithmetic/repetition.
+7of10gatesFAIL,resource/inputPASS/family1674.125s/OS3.741GB/GPU4.901/11.159GB,
+136files1.368GB/exit0/session25136closed. No calibration/updates/C/T4/RESERVED.
+[F32 positive control](CHATBOT_SOURCE_FFN_CAST_RESULT_20261009.md),d94f854/
+00251063,COMPLETE/PASS:all411 original coefficient objects retained,noAQ/trits,
+twoFITKL.000162/.000472/5of274different;ALL16 actual source generation sequences
+andtext exactly preserved,14/16. Historical source-case hashes verified saved-only.
+75.829s/OS3.741GB/GPU5.580/6.906GB/exit0/session30528closed. Doesnot certify
+freshbroad or exclude interactions. [Next local FFN recovery](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md)
+prices missing actualx/y andfunction-aware diagonalcalibration before compression.
+
+**9 October source-width ternary FFN stage:**
+[Preflight](CHATBOT_SOURCE_TERNARY_FFN_PREFLIGHT_RESULT_20261009.md) COMPLETE,
+eb60758/1451533d/resource+integer arithmeticPASS,0 source generations/updates/C.
+All679.477M FFN coefficients converted7.390s into340.820MB packed sector9aa6f319;
+six actual F32 integer dots match every CPU F64 output. Original339 other
+parameters retain identity. Two FIT KL1.74557/2.14675,dis5/18 and141/256;
+not quality admission. Family77.781s/heldOS3.724GB/GPU4.902/7.155GB/exit0.
+[Full control protocol](CHATBOT_SOURCE_FFN_CONTROL_PROTOCOL_20261009.md) is
+frozen d4f7f0f/98-input3d86ba62 andCOMPLETE/session25136closed:reuse2+46 new forced
+prefixes and16 screen+4 actual generated-history followups,2100s fixedcap.
+No repeated calibration/source replies or training. Offline original-width
+intermediate,not affordable final source runtime/accepted50/useful-n/DRAM.
+
+**9 October fixed broad24 COMPLETE/quality-retention FAIL:**
+[Result](CHATBOT_BROAD_PILOT_RESULT_20261009.md),77a2606/1fefd3c3,actual24/Adam318;
+2 oldupdates+22 new,ALL48 before reused,all48 after+old32 retention. FITcaseKL
+9.92958->4.47428/newDEV9.82254->6.99079;relativePASS. NewDEVdisagreement
+3955->3837/4386 (90.17->87.48%);oldDEV459->556/1103 (41.61->50.41%) while
+KL3.08098->3.14427.5 of8 gatesFAIL;no capacity/chat admission or ceiling claim.
+All24 finite211 gradients/12positive groups/durable model+Adam fields andstage
+support countsPASS. Originalsupportfilefault retained282.609s/exit1/session95406;
+repair1443.719s/OS4.962GB/GPUallocated4.781GB/reserved5.518GB/exit0/session16778closed.
+209repairfiles5.670GB,candidate3.060GB/SHA16a85448;not full512 eligibility.
+No source/gen/native/T4/RESERVEDcalls. [Next](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
+prices a source-compatible FFN arithmetic stage offline,keeping engine destination.
+
+**9 October target F32 storage qualification COMPLETE/PASS:**
+[Result](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md),ac941b5/63dc3b8f;
+same geometry/precision/full reductions,58/1507 training losses identical,
+groupnorm delta<=9.421e-8,all211 finite gradients/all model+Adam tensors unchanged.
+Four actual long block0 operands/adjoints:CPU original/tiled all forwards exact,
+7/8 inputVJPs exact,interchunk stateVJP RMS1.009e-7;CPU/CUDA tiled output
+RMS<=9.635e-8. Not whole-model gradient-direction/unseen-quality equivalence.
+GPUallocated5.053GB/reserved5.683GB,heldOS17.367GB includes separate32GiB
+CPU dense-reference budget;family114.266s/11files774.6MB/exit0/session70614closed.
+No source/update/native/T4. [Broad24 protocol](CHATBOT_BROAD_PILOT_PROTOCOL_20261009.md)
+then observedall48 before,DEVKL9.82254/90.1733%disagreement;originalsupport
+exclusive-file fault afterdurable2/Adam296 remainsFAILED. Repair1
+77a2606/1fefd3c3 resumed2 withoutreplays;session16778 nowterminal (result above).
+
+**9 October broad source acquisition/adoption and actual long training cost:**
+[Source result](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md):48/8808 full-vocab
+BF16 labels/577,249,896 coordinates transportPASS;24 EOS/24 partial replies,
+24 FIT/24 DEV/12 sources,46 new generations+2 original failed-family packets
+reused. Source freeze85bbc8/binding1cca76da,1091.453s/held OS3.743GB/
+CUDAallocated5.580GB,reserved8.508GB;all new-family gatesPASS. Saved-only adopter
+d026658/93eea578,8.657s/260.3MB/0 sourcecalls/PASS. Source SSD storage schedule
+matches all151 old forced rows bitwise;original GPU/qualification apparatus
+faults remain.104 new/64 old RESERVED and longalign stay unqueried/deferred.
+[Cost](CHATBOT_BROAD_COST_RESULT_20261009.md),3b0317b/d6ceee0f:58/1507-ID
+forward/backward4.140+4.844s/9.281+28.578s,all211 finite gradients/all12 positive
+core-bank-norm groups,0 optimizersteps. Long GPUallocated19.313GB/reserved22.003GB
+FAIL fixed11/12GiB;family69.609s/OS15.544GB/6 files21,308B/exit1/no live jobs.
+These are CUDA allocator counters,not certified physical VRAM. Original
+interchunk array is7,247,757,312B by shape algebra. Stop unchanged long schedule;
+next storage-only F32 forward/backward qualification then controlled data pilot,
+preserving original engine geometry. No full model equality check/native/T4/
+quality/accepted-rate admission. Both costs are reused,not replayed for confirmation.
+
+**9 October broader dialogue inputs COMPLETE/PASS:**
+[Result](CHATBOT_BROAD_DATA_RESULT_20261009.md),freeze457e790/bindingd5dd9b8b:
+624 untruncated canonical prefixes/13 sources,416 FIT/104 DEV/104 RESERVED,
+124 with public assistant history. Repair uses full ordered user-turn identity;
+first-greeting grouping/launcher failures remain retained. One train shard plus
+complete official test,exact group/prefix/old-query exclusions,no semantic
+decontamination claim. New download bytes0/source/model/GPU calls0. Family40s/
+held worker216.9MB/reader230.4MB,both exit0/all gatesPASS.47 inputs>8192,
+longalign8186-20874 deferred separate context stage. Post-adoption48-case
+donor cohort prepared,not captured. [Next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md)
+keeps original-LUT/ternary/SSM geometry as data-coverage control;no T4 allocation.
+
+**9 October original-engine entry and persistent complete decode COMPLETE:**
+[Result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md),freeze54011fc/
+binding29519ab7:actual engine.c compile branch,all11 original kernel body hashes
+unchanged/default E4 body preserved. One C process/five requests/484 advances/
+197 full V65537 heads/192 IDs;split-prefill64 IDs/all65537 final F32 logit bits
+exact,own-history reuses188 IDs,changed history resets. Raw one-core decode
+46.0077/48.8954/46.5267/58.8365 IDs/s,request18.12-40.97 includes prefill.
+Old8-update425.21MB packed model/9.12MB state;replies capped/degenerate/no EOS
+observed. No donor-quality/native-numerical/accepted50/useful-n/DRAM promotion.
+22s family/native439.8MB held peak,all input/cap gatesPASS/exit0/session9664
+closed/no model/source/optimizer/GPU calls. [Roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md):
+broader data/curriculum and controlled transfer before long offline compute.
+Shared/private b936b60 code frozen/UNEXECUTED/deferred;no T4 job.
+
+**9 October complete checkpoint286 evaluation and initial group algebra:**
+[Evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md),freeze6966666/
+binding4ab6f86a:ALL160/5746 NEW rows,FITcaseKL1.5135/DEV3.0810,
+DEV459/1103=41.6138% differing IDs. Relative recovery/supportPASS,4 absolute/
+domainFAIL. No updates/source/C calls;471.969s/OS5.387GB through exit/GPU1.407GB,
+all resource/input gatesPASS,no faults. Original512 run staysincomplete.
+[Group comparison](CHATBOT_HYBRID_GROUP_SUM_RESULT_20261009.md),425d9c5/
+6010c2df:all3132 retained C operands/INITIAL projected F64 groups,not old
+trained-bank replay. All1092 DEV per-operand oracle scalar errors>1%,minimum
+49.795%,site medians88.247–94.276%;blind scalar cannot reconcile that initialized
+selection. Both source halves see sameoperand,not original block composition or
+new286 FFN error.12.391s/OS946MB/GPU428MB,all gatesPASS/no faults.
+Both sessions62892/87486 terminal. [Next](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md):
+separate compact common+conditional private functions,broader data/curriculum,
+one bounded recovery before useful same-artifact C/fresh quality+50/n/DRAM/families.
+
+**9 October engine pipeline priority and actual recovery closure:**
+[Memo](ENGINE_PIPELINE_PRIORITY_20261009.md) reuses prior code/results; no new
+model values. Original701.7/s remains small-cache E32 evidence. Current full
+head33,554,944 products is48.2% of69,632,512. Dense-group sum versus normalized
+top8 mixture, redundancy coverage and accessible-state information loss are
+the next conversion questions, before long offline compute. Original recovery
+closed exit1 after286 updates/deadline reserve3540.563s;retained3.059GB recovery,
+family3588.125s/OS8.335GB through exit. Completed epochs1/2 online
+caseKL6.5398319/2.3660820,training1336.703/1328.663s. No after observations,
+quality admission or historical support;GPU peak unavailable. [Closure](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md).
+Saved CPU audit PASS/exit0,freeze85aaaa8/binding9c97ad57;63.094s/OS6.795GB
+through exit/all resource-input gates PASS. Actual boundary286/Adamstep294,
+211 changed finite tensors/RNG storage,all160 F64 before checks and exact IDs;
+max label delta2.116e-5. No after/quality admission/modelcalls/replay.
+Complete-cohort C/certificate tools prepared in d18049f/b2f09aa/c0a5437 remain
+UNEXECUTED; Python syntax PASS,C uncompiled. Preserve old C failure; original
+launcher byte archive matches originalbinding, current schema extended only afterexit.
+
+**Historical 9 October launch/snapshot30; superseded by terminal closure above:**
+[Protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md),freeze1f2a30a,
+180-input bindinged9299ff; [live instance](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md)
+session76414/launcher20000/worker33244 verified. Actual254,932,736-parameter
+model/2,039,461,888B Adam moments restored atstep8; NEW initial160 COMPLETE,
+FIT/DEV caseKL24.0623/24.7119,99.806%/99.819% differing IDs. At snapshot30
+update records;first AND first-longest183-input backward all12 positive finite
+core/bank/norm groups. First steps10–12s,OS peak snapshot8.331GB,not through exit.
+Fixed512 balanced connected updates,training-only AQ dither.025,
+original inference LUT/ternary/core formulas. Family3600s/16GiB OS/11GiB allocated
+GPU/12GiB output. No final quality/native/rate admission,T4 or source replay.
+Poll samehandle; previous historical completed-job statements below stay scoped.
+
+**9 October actual balanced Falcon original supervision/adoption COMPLETE:**
+[Result](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md):128 FIT/32 DEV,
+eight authored template domains,4643/1103 full-vocabulary labels,
+753,151,204B BF16 packets/376,575,602 coordinates.137 EOS stops/23 length96
+partials retained, no unfavorable-reply filtering;64 RESERVED unqueried.
+Shared-Rust source-JSON tokenization plus independent saved bit/argmax/EOS/
+position/extents/count transport PASS; not independent BPE or answer-truth proof.
+Source861.782s/OS3,742,052,352B through exit/GPU5,714,825,216B allocated;
+adopter8.016s/109,883,392B through exit. Both exit0/all fixed caps PASS/no faults,
+source322 outputs754,963,483B; no source/old-prefix replay, student/native update,
+T4 or remaining job. Current [NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md):
+implement/freeze finite balanced whole recovery/robust-QAT, NEW strict native check
+before long adaptation. Old native19/32FAIL/poor whole donor quality/all full
+goal gates remain. Source partials are supervision, not complete answers.
+
+**9 October actual common-core/norm diagnostic COMPLETE/CLOSE:**
+[Result](CHATBOT_HYBRID_COMMON_CORE_RESULT_20261009.md): ALL72 module/case
+sequences/3132 NEW common C-input core outputs/6264 norm vectors, fixed1e-4,
+zero material rows; core max2.8729021e-6/norm7.8622905e-7. Case-continuous
+SSM/SWA states, exact learned packed F32 controls, no whole/source/bank/fit replay.
+54.735s family/OS1,238,282,240B through exit/GPU157,537,280B allocated,
+289 outputs20,150,505B; all caps PASS/no fault. Does not prove all original whole
+trajectory errors; original native19/32FAIL and poor source quality unchanged.
+Stop this diagnostic. New balanced Falcon source capture now COMPLETE under freeze539c6d9,
+128 FIT/32 DEV/eight authored template domains/96-token cap/512 context;64
+RESERVED unqueried. No student/native/training/T4 call. Saved-only transport
+adoption COMPLETE/PASS; finite balanced robust-QAT
+[NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md) remains UNEXECUTED.
+
+**9 October actual packed compact target/evolving-state original-kernel C:**
+[Result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md):212-field packed file/native
+model heap425,210,736B,84,934,656B ternary codes,0 master/unpacked bank references,
+9,117,696B actual state heap. Original matrix/LUT/AQ63 function bodies unchanged;
+explicit SSM/SWA/SwiGLU/32-bit-ID adaptations. ONE full6-prefix/261-input C run,
+ALL32 full-vocab rows/3132 trace records. Fixed1e-4 logit RMS13/32 PASS,
+19/32 FAIL/max0.783856%; ALL32 learner greedy IDs equal. Packed/original fixtures/
+flat router ID+mass gates PASS, mass max2.5845e-7. Exact saved-only dyadic audit
+certifies the failure and212 field extents/hashes. Export167.157s/OS3.626GB;
+native family16.953s/direct C4.750s/OS439.7MB; audit5.750s/202.6MB through exit.
+Three pre-execution apparatus faults retained, no completed C/source/fit replay.
+No accepted decode-rate/chatbot admission; head only32 times/core261 steps.
+
+NEW common C-input bank diagnostic: ALL3132 operands/actual packed codes;
+ALL router IDs equal,3131 FF outputs<=1e-4 RMS, ONE0.831066% anomaly at layer7/
+fit_code position33. Later original code logits41/42 PASS; this cannot explain
+all19 whole failures. Quantizer boundaries/upstream numerical drift remain
+hypotheses. Probe8.937s/OS1.175GB/GPU110.2MB allocated/140.5MB reserved,
+all successful resource gates PASS and jobs terminal; no T4. Next ONE bounded
+common-core diagnostic then deployable-forward qualification/broad balanced
+adaptation under [current NEXT](CHATBOT_HYBRID_BACKEND_ADAPTATION_NEXT_20261009.md).
+Original nativeFAIL/poor DEV12/12 disagreement/full goal remain unchanged.
+Historical NEXT/LIVE/missing-native statements below are superseded by INDEX.
+
+**8 October actual complete compact recurrent/ternary learner:**
+[Result](CHATBOT_HYBRID_PILOT_RESULT_20261008.md): source-informed D512/L12/
+10SSM48head*16/SWA2/n72/k8/h128, AQ63 ternary SwiGLU, F32 organs/learned scales/
+temporary flat router AVAILABLE. New6 source calibration cases/32 labels ONCE,
+8 full updates/ALL12 finite positive core/bank/norm gradients; ALL211 parameter
+tensors changed,254,932,736 parameters/2,039,461,888 actual Adam moment bytes.
+Independent saved F64/state audit PASS. FIT KL27.80248->5.94091/disagreements
+20->10/20; DEV27.61444->26.51797/12->12/12. Numerical feasibility/recovery PASS,
+NOT broad chatbot/own-history/quality/native/rate. Actual200.125s family/GPU
+4,449,674,752B/OS8,242,982,912B through exit; audit22.609s/3,866,517,504B.
+Initial/final checkpoint+optimizer retained; original read-only config fault
+before target/basis, ALL6 teacher packets reused in repair1,0 new generations.
+Next actual packed-only native C/LUT/evolving-state path before longer balanced
+calibration. Flat router69,632,512 products, packed425,188,352B only counted;
+large-n routing/physical DRAM/useful capacity/fresh quality+50/families remain open.
+All workers terminal, no T4. Source derivation/row counts are not capacity proof.
+
+**8 October actual useful larger hybrid teacher and compact target budget:**
+[Result](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md): pinned Falcon1.5B original
+3.11GB/1.555B coefficients SHA/header complete; unchanged16 teacher screen14/16
+ALL absolute/stop gates PASS. GPU4.45GB/OS3.74GB through exit/26.922s family,
+no training/T4/whole native. New source-compatible D512/L12/SSM768/N256/SWA2/
+n72/k8/48heads*16 proposal69.44M matrix products/424.4MB packed/4.076GB Adam before buffers.
+Head16 keeps all48 source decay-head indices within chosen blocks; naive SSD
+workspace4 times prior12head geometry requires measured pilot/checkpointing.
+Source actual1.420B products; full-source dense Adam24.878GB. Row count retained
+does not prove capacity; per-head exp hoisting algebra only. Next complete
+ternary/SwiGLU/SSM target learner and measured resource/recovery pilot, then
+fresh whole quality+accepted50/useful-n/LUT mass/DRAM/family scales. All jobs closed.
+
+**8 October actual original-engine scan bridge PASS; Tiny teacher FAIL:**
+[Result](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md): pinned182.3MB weights,
+producer SHA verified, original template/IDs/head/multipliers/bothEOS retained.
+Fixed16 teacher screen5/16 FAIL; no whole adaptation investment selected.
+NEW24-ID prefill+3 cached forwards,source layers0/12/23,12 real packets:
+original exact-exp F32 scan state/gated output max RMS.275675%/.406017%,
+ALL24 fixed1% gates PASS. Per-call source-state initialization excludes accumulated
+C drift, full projection/conv/whole chat/rate/ternary/LUT/useful-n claims.
+Screen44.0s family/OS1.501GB/GPU380MB; capture13.860s/OS1.463GB/GPU380MB;
+native compile/comparison4.125s/all exit0, native OS through-exit not measured.
+All four pre-forward wrapper faults preserved. Next useful stronger hybrid donor/
+actual contract+whole budget, then compact target pilot; no T4/jobs active.
+
+**8 October target-aware donor triage actual:**
+[Result](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md): five sources/40 budgets,
+freeze03d65fa,exit0,.047s/25.8MB,seven independent integer terms pass.
+Source/operator metadata only, original Qwen/Giga counts reused,0 weights/model/
+C/rate observations. Granite8.801B active matrix products; native BitNet master
+2.412B; FalconTiny90.997M with both SSM+attention24. Selected real-state bridge
+donor FalconTiny, because source recurrence maps to original scan algebra;
+projection/conv/precision/actual usefulness still unqualified.100B expert storage
+~52GB packed/553GB old copies/1.61TB dense Adam in declared prospective D256 case.
+[Source/scan NEXT](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md) supersedes unexecuted
+triage NEXT; all existing scientific closures/full goal remain.
+
+**8 October latest direction: original engine target.**
+[Engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
+supersedes the proposed order-stability next fit. Latest Qwen all24-attention
+BF16/F32 path is a retained diagnostic, not the selected compact SSM/SWA/ternary
+LUT deployment route. Original router scans E; original MoE loader retains
+F32/int8/code arrays. Target-aware donor/operator/cost triage and one staged
+offline adaptation pilot come next. Public Falcon-H1-Tiny90M pinned config only;
+separate published recurrent/MoE/ternary evidence linked, combined transfer open.
+Long T4 adaptation allowed in principle; actual reason/budget/stops still needed.
+All previous scientific results/closures and full goal remain unchanged.
+
+**8 October actual whole-output fit/FIRST COMPLETE; fixed recipe CLOSED:**
+[result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md):8epochs/1280 updates/1680
+full student forwards,all24 positive FIRST gradient norms. Independently verified
+FIT/DEV KL.431674/.554575 versus initial5.66692/5.57413;ID disagreement
+15.88%/18.43%.2 relative KL gates pass,6 absolute/category gates fail. No fresh
+endpoint/source acquisition/C execution. Actual fit3789.015s/GPU peak3.171GB/
+OS3.035GB through exit,FIRST59.563s/668MB,all original resource gates pass.
+New saved-only diagnosis.532s/32MB:final FIT caseKL.42633 vs online.21277,
+7/8 domain means worsen,last history improves;category/order are confounded.
+Initial384 leaves have FIT/DEV support,final6 have0 occurrences;upper-layer
+aggregate occurrence TV reaches.33. First decision dis19/40 DEV;not own-history
+quality or useful capacity. All6 instances closed/no matched faults;foreign
+SHA intact. [Next single order control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
+PROPOSED;native export/client/reference/C code AVAILABLE,UNEXECUTED. Current
+INDEX supersedes all historical LIVE/missing-forward NEXT statements below.
+
+**8 October complete-output adaptation LIVE, no final quality admission:**
+[protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md), freeze
+`91baa570e88a9b0b4240720a3ea6c1a9a8051959`, actual507-input/72-runtime-root binding
+SHA `e351c828346fb9ab2d473ac777a708f3aed87e4dd02a93a799f1c217b41b6463`.
+Session77989, worker32212/launcher9080; never restart. Initial200 student
+evaluations complete; DEV meanKL5.57413448548, disagreement79.44535%.
+Actual FIRST backward/update/all24 positive gradient norms,4/8 epochs complete,
+720/1280 updates at this record. Training GPU peak3.171GB/reserved3.653GB.
+Final checkpoint/through-exit resources/transfer gates and independent FIRST
+saved-output/gradient/update audit pending. No new source forward or fresh
+endpoint answer. [Prepared native connection](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md)
+is UNEXECUTED; teacher-forced development does not admit own-history/C/50tokens/s.
+Previous "full forward/update missing" statements below retain their historical
+scope; current operational resume is in INDEX.
+
+**8 October actual ALL24 whole installation/allocation/FIRST audit COMPLETE:**
+[result](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md):218BF16 core objects/tied
+head preserved,24 dense MLPs/72parameters collected,no fallback/live teacher.
+1224F32 trainable objects/165150720elements and ALLdense gradients/Adam moments
+allocated,zero bits/nonalias checked. Unique GPU arrays3005758464B,current
+3.041GB/peak3.723GB/reserved4.266GB; actual training activations/backward unknown.
+FIRST218core/ALLGUD/120NEW routing digests match source/qualified files;
+device zeros/pointers/liveness/checkpoint/peaks actual producer observations.
+RoPE derived values not independently recomputed. Main47.360s/OS1.905GB,
+audit9.407s/441MB through exit;4closed/no faults/foreignSHA intact. No full
+source/student forward/backward/update/endpoint. [Current NEXT](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md):
+implement/freeze ONE finite output learner and first actual full objective/
+gradient/update gate, fresh behavioral criteria, then export/C/chat/fresh quality
+AND accepted50 SAME artifact/useful n/LUT mass/DRAM/actual families/scales.
+Former NEXT unexecuted statuses below are historical; all local/inherited-key
+candidate failures remain CLOSED, no old scientific replay.
+
+**8 October ALL24 balanced source initialization/FIRST audit COMPLETE:**
+[result](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md):all384 leaves pass
+actual top4 support,minFIT377/40cases/novelDEV89; same16/4 inference and fixed
+support gates. ALL480 quota construction steps independently F64-bit exact,
+query rounding envelope verified,ALL151388160 NEW source G/U/D promotions exact.
+22 NEW source-selected layers/124549 unique FIT feature operands; warm G/U/D0/12
+referenced with NEW routing-buffer precedence. Covariance/energy/actual routing
+arithmetic not independently rerun; construction labels/copies not whole quality.
+Producer141.078s/1.545GB/GPU487MB,audit104.922s/605MB through exit,683.68MB
+outputs;4 instances closed/no faults/foreignSHA intact. Hydration API AVAILABLE;
+actual whole assembly/resident optimizer peak unexecuted. [Current NEXT](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
+then ONE finite final-output learner/export/C/canonical chat/fresh quality AND
+accepted50 SAME artifact/useful n/LUT mass/DRAM/actual families/scales.
+Both inherited-key support recipes and all local loss failures stay CLOSED;
+no completed original source/geometry/features/response/native/audit replay.
+
+**8 October NEW corpus inherited-key support recipe CLOSED; FIRST verified:**
+[result](CHATBOT_NEW_COHORT_INITIALIZER_RESULT_20261008.md): layer0 minFIT55/
+44cases/novelDEV13 PASS; layer1 parents3/4 zero FIT/DEV selections,6 FIT9/
+5cases/DEV2,7 FIT6/6cases/DEV1. Fixed >=8/>=2/>=4 rejects four parents before
+source features. Exactly0 source-row denominator at3/4; not coefficient-class
+capacity impossibility. Only0 NEW-supported,0/12 priors available,2..23 unentered.
+FIRST scalar NEW offsets/byte dictionaries/maps/saved masses/support/warm buffer
+BYTES/stop PASS. NEW covariance/clusters/source-feature/copy branches unentered,
+total NEW source copies0: conditional raw gates are not full-branch certification.
+Main11.984s/1.019GB/GPU113MB,audit10.016s/474MB through exit,2.15MB prefix files;
+all4 instances closed/no OS faults/foreignSHA intact. [Current NEXT](CHATBOT_BALANCED_KEYS_NEXT_20261008.md):
+FIT-only fixed20 quota-constrained greedy centroids helper implemented UNEXECUTED;
+ALL24 integration/construction FIRST audit next. Same16/selected4 inference
+cost; construction assignments NOT actual support/quality. Keep original and
+NEW warm-key recipes CLOSED; no data/threshold ladder or old scientific replay.
+Whole24 assembly/optimizer/global fit/export/native/fresh quality AND accepted50
+SAME artifact/useful n/families/scales remain missing. Older NEXTs are historical.
+
+**8 October NEW whole chatbot transfer cohort acquired and FIRST adopted:**
+[result](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md):200 new cases160 FIT/40 DEV,
+10263/2570 x rows PER LAYER and2437/613 full151936-vocabulary teacher logits.
+ALL24 operands/ALL3050 argmax winners/ALL200 canonical prompt IDs independently
+byte/grammar/source-JSON BPE qualified.43 EOS/157 length16 stops, limited partly
+templated corpus; not complete answers, leaf support or fresh-quality evidence.
+64 endpoint texts remain unqueried. One original BF16 source pass, no old
+capture/model/field/optimizer replay. Original FIRST audit cursor fault retained
+(exit1/zero case adoptions); repair1 ONLY seeks24B, unchanged data/criteria.
+Source555.781s/1.982GB/GPU1.037GB; successful audit21.484s/113.6MB through exit,
+1.4787GB tensors/1.4814GB total801 files. All6 instances closed/no OS faults/
+foreignSHA intact. [Historical initializer NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
+freezes NEW support/source initialization/FIRST audit using warm0/1/12 routing
+and0/12 source weights BYTE; then actual24 assembly/optimizer peak/global fit.
+Whole compact CHATBOT/export/native/fresh quality AND accepted50 SAME artifact/
+useful n/families/scales remain missing. Older NEXT statuses below are historical.
+
+**8 October actual ALL24 initializer implemented; support prefix independently verified:**
+[result](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md): layer0 source-derived
+shared/private1752-atom union/2560 stored slots,16 distinct leaf hashes,
+ALL6881280 G/U/D promotions independently exact;3082 unique FIT feature calls.
+Layer1/parent3 has32 distinct FIT/9 cases but3 novel DEV versus>=4; fixed
+original48-case complete recipe CLOSED before layer1 source features.
+Only0/12 initialized,1 routing available,21 layers unentered. Not a response
+or capacity impossibility; no original full/source y/old geometry-feature-field/
+optimizer replay. FIRST scalar-offset/byte-dictionary maps/saved support/order/
+source-copy audit PASS. Primary9.547s/1.398GB/GPU313MB,audit7.390s/479MB through
+exit,29.17MB outputs;all4 instances closed/no faults/foreignSHA intact.
+[Historical acquisition NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md) prepared a NEW named
+whole-transfer training/development cohort, supplying coverage AND complete
+final-output teacher distributions; final fresh dialogues/tasks excluded.
+Old0/1/12 geometry and0/12 initial weights are explicit warm inputs, not replay.
+Whole assembly/optimizer/fit/export/C/chat/fresh quality AND accepted50 SAME
+artifact/useful-n/families remain missing. Current INDEX governs resumption.
+
+**8 October whole nonlinear connection prerequisites implemented/qualified:**
+[result](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): actual E16 BF16/F32 adapter,
+ALL24 core-preserving replacement API, masked output KL and resident Adam code
+AVAILABLE. FIRST one-block NEW synthetic BF16/autograd and independent saved-logit
+loss/gradient check PASS (gaps<=6.73e-9); no source forward/optimizer update or
+chatbot-quality claim. ALL24 installation/full optimizer allocation NOT executed.
+New memory ledger reuses immutable census/dimensions: E16 mandatory resident
+3993823744B before activations (peak UNMEASURED); E160 scenario23019642880B
+excludes12GiB resident Adam only, not inference capacity or offloading.
+Proposed F32 router raises logical native bytes495.42/495.55MB; DRAM/rate UNKNOWN.
+Inventory .219s/28.1MB; mechanics5.688s/503.8MB through exit; all4 instances
+closed/no faults/foreignSHA intact. [Current NEXT](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md)
+is actual source-derived ALL24 initialization:23 NEW layers plus BYTE-reused
+original layer12 initialization, FIRST provenance/support audit, then actual
+BF16-core assembly/optimizer peak. Whole fit/export/native canonical chat/fresh
+quality AND accepted50 SAME artifact/useful-n/families remain open.
+Historical NEXT statuses below describe their dates; current INDEX governs.
+
+**8 October complete pipeline reassessed; augmented quadratic recipe CLOSED:**
+[macro view](CHATBOT_PIPELINE_REASSESSMENT_20261008.md),
+[new feature kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md) and
+[response result](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md). ALL256 FIT-only
+columns/augmented covariance/FIRST audit qualified, old linear G reused.
+ONE fixed positive-ridge compiler now implemented/numerically certified;
+primal/dual/fold<=2.04e-14,encoded FIT2.50175%,FIRST64 novel70.68293%,smooth
+70.68354%. BOTH exact prefix/FULL-energy1% necessary failures independently
+verified; THIS recipe CLOSED,remaining1431/ALL24/export/native stopped.
+Prefix64 is consumed arithmetic_2,not FULL novel RMS/fresh chatbot quality.
+No source/core/H/J/old field/optimizer replay. Kernel8.766s/822.7MB,audit6.875s/
+943.3MB;fit15.172s/1.057GB,audit22.360s/.897GB through exit,200.51MB new fit
+outputs. All5 kernel and4 fit instances closed/no faults/foreign SHA intact;
+pre-worker kernel Scopa overlap retained/0 labels. [Current NEXT](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md)
+prioritizes complete joint nonlinear transfer feasibility/resource liveness,
+useful source-derived redundancy/coverage and canonical native chat integration.
+New whole learner/global objective remains proposed; no compact admitted
+CHATBOT. Old1%/3% rejections unchanged; no precision/rank/alpha/epoch ladder.
+All older NEXT/unimplemented statuses below describe their record dates;
+current INDEX/METHOD/new operational NEXT govern resumption.
+
+**8 October FIRST actual source-conditioned quadratic factors qualified:**
+[result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md), eight source/core atoms
+per original FIT parent/two forms per atom, actual R/T BF16 source rows,
+16 distinct bases/72 unique atom IDs across128 selections (123source/5core).
+ALL128 choices/688128 scores/factor bytes/projections independently verified,
+score gap1.034e-15/projection normal1.695e-15. Scalar source-D curvature
+projection residual92.1%..95.5%; no free-C response coefficients or new
+response-class fidelity. No source/core H/J/value/old feature/optimizer replay.
+Primary27.454s/457.5MB,audit5.453s/229.6MB through exit,35.43MB outputs,
+all5 instances closed/no faults/foreignSHA preserved. Pre-worker audit overlap
+retained,0 calculations; repair1 SAME contract after instance ended.
+[New kernel/ONE response fit NEXT](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md):
+FIRST F32 center/scale/FIT-only256 feature RMS scales,old linear Gram reused
+as summand,new positive augmented covariance/factor and FIRST audit; then
+ONE frozen fixed convex response objective. Feature design/kernel/fit NOT
+implemented. Original novel1%/ALL-category3% and full compact CHATBOT/fresh
+own-history/tasks AND accepted50 SAME artifact/useful-n/LUT winner+mass/DRAM/
+actual families-scales remain mandatory. No rank/alpha/codec ladder.
+
+**8 October FIRST source-null curvature supported/independently verified:**
+[result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md),actual BF16 source/core
+slices/original32 anchors/old32 Js,FOUR fixed approximate null directions.
+FIRST128 source+128 core H/512 new perturbed gradients,ALL256 checks PASS;
+independent scalar/formula audit agrees H<=6.5e-16,gradient<=7.4e-16.
+Novel equal-anchor residual/source H RMS96.686%,chi1.13847,16/16 anchors.
+This is a curvature norm/scale diagnostic,not response or lost knowledge%,
+864-null coverage,reachable-state distribution or exact1% impossibility.
+Arbitrary affine n cannot change REAL selector-null curvature at fixedP/shared.
+Collector17.735s/398.6MB,audit11.782s/403.5MB through exit; all5 known instances
+closed/no OSfaults/foreignSHA intact. Original pre-worker overlap retained,
+0 labels; repair1 same contract after foreign build ended. No old source/J/
+forward/feature experiment/optimizer/native replay. [ONE whole-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
+rank16 dense-affine+quadratic private terms priced BEFORE labels: ALL24
+295104512MAC/592186464logicalB/1080411488stored payload necessary3/5 gates
+PASS,not physicalDRAM/rate. Extra private null-curvature output image<=64
+per cell is a limit. [Source-informed factor NEXT](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
+FIT-only extraction/FIRST audit now COMPLETE as above,then changed-feature design/ONE fixed fit;
+new design/kernel/fit NOT implemented. Closed affine/neural/jet objectives
+remain CLOSED. Complete compact CHATBOT/fresh own-history/tasks AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/actual families/scales remain open.
+
+**8 October actual ALL-FIT/source-null-J convex compiler CLOSED:**
+[result](CHATBOT_NULL_PRIOR_RESULT_20261008.md),new actual finite-P projector/
+16-leaf precision/covariance,first independent explicit14864-feature audit
+agrees6.295e-16. ALL3845 original FIT responses plus16 original source/core Js,
+fixed energy-scale lambda93.60981/alpha.8153433,positive quadratic minimum
+numerically certified<=1.59e-13. Encoded FIT15.9122%,FIRST64 novel80.9040%,not
+FULL novel RMS. BOTH exact necessary FULL1% failures independently verified;
+remaining novel/ALL24/export/native STOP. ONE objective CLOSED,not all affine
+priors/global capacity. Kernel6.359s/676MB,fit23.328s/1.963GB; first audits
+9.500s/1.043GB and25.922s/2.118GB through exit,all8 known instances closed/no
+faults/foreign SHA intact. All source/core values/Js reused,0 new original
+model/core/J/optimizer observation. [NEW curvature NEXT](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
+isolates real selector-null curvature invariant independent of affine n,
+FIRST second-order source/core contractions and new±h directional gradients.
+Collector/audit now COMPLETE as recorded above; no exact/global1% impossibility inference or
+lambda/h/precision ladder. Full compact CHATBOT/fresh quality AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale remain open.
+
+**8 October actual ALL-FIT convex converter CLOSED, numerical minimum verified:**
+[result](CHATBOT_KERNEL_RESULT_20261008.md), ALL3845 FIT occurrences/3166 exact x,
+weighted full-input3845-square kernel, one positive alpha fixed from x/mass,
+shared512/BF16+top4/full896 affine bank. Necessary whole290975744MAC/583842816
+logicalB passes dimensions only. Actual kernel and explicit-Phi first audit
+PASS; one saved-factor compiler satisfies dual/folded/primal residuals
+1.27e-14/9.63e-15/1.43e-14. F64/encoded FIT1.5450%/1.5485%; FIRST64 novel
+70.4496%/70.4495%, not FULL novel RMS. Both exact prefix/FULL-source1% failures
+independently verified; remaining novel/ALL24/export/native STOP. THIS fixed
+zero-prior positive-ridge objective CLOSED, not the full affine class or a
+global capacity proof. Kernel7.750s/737MB,fit23.266s/1.043GB through exit;
+independent audits16.954s/1.053GB and22.844s/972MB, all8 instances closed/no
+OS faults/foreign SHA preserved. No source/J/old bank/optimizer replay.
+ALL3845 FIT and64-prefix shared-only F64/batched-F32 values now cached.
+[Source-null-J prior NEXT](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md) combined
+ALL-FIT values with reused source/core null-J priors, exact real projector from
+actual P via small solves; its covariance/compiler and FIRST audits now
+COMPLETE/CLOSED as recorded above. Full compact CHATBOT/fresh quality AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale remain open.
+Older entries' NEXT/status fields describe their original record dates;
+current INDEX/METHOD/new NEXT govern resumption.
+
+**8 October actual joint full-input affine compiler CLOSED, extension failure:**
+[result](CHATBOT_COUPLED_RESULT_20261008.md), original16FIT jets/shared512/top4,
+new W16/K528 design full numerical rank/condition40.37/23608.70, necessary
+whole~59% cost PASS. Actual direct source-derived compiler exists: F64 FIT
+value/J RMS1.69e-14/6.09e-15, encoded FIT2.925%/.870%; FIRST64 novel encoded
+AND new unrounded values~1497% RMS. Both exact prefix/FULL-denominator1%
+failures independently verified, zero FULL source-energy/model/J/control replay.
+Unrounded diagnostic encoded gap.158% of field error norm on that prefix; this
+is not an independently audited norm ratio or general precision statement.
+Finite16-jet construction CLOSED; not all affine classes or a capacity bound.
+Compiler12.625s/1.184GB through exit; independent saved-bank audit6.437s/.872GB;
+new unrounded probe2.515s/.178GB/exact ratio audit1.078s/.031GB. All12 instances
+closed/no OS faults/foreign SHA preserved. [Full-FIT kernel route](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md)
+changed constraints to ALL3845 original FIT responses; its kernel/compiler now
+implemented and independently CLOSED as recorded above. Full compact CHATBOT pipeline/fresh quality AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale gates remain open.
+
+**8 October first actual joint VALUE+FULL-J converter recipe CLOSED:**
+[result](CHATBOT_STRUCTURAL_FIT_RESULT_20261008.md), source531fb90,24 epochs/744
+updates/16 FIT source-J targets, same shared512/leaf128/top4/query32 active cost/
+router; prior final warm start/original row-reference weights. NEW response
+RMS23.6954% FIT/60.1892% novel; NEW J52.9936%/68.7877% versus82.74%. Derivative
+improvements pass10%, but novel response benefit/FIT-regression and fixed1%/3%
+fidelity FAIL. No optimum/class-impossibility claim or lambda/epoch/width retry.
+Source information reused, zero original model/J/feature/geometry/control
+re-acquisition. Fit68.484s/worker94.078s/family118.047s/1.776GB through exit,
+341.4MB outputs. Independent saved scalar/NumPy/storage-byte audit8.438s/533.5MB
+checks all frozen decisions/new derivative probes/744 identities and original
+router buffer equality. New exact prefix error69399609... against reused FULL
+qualified source integer proves strict1%-RMS failure. Four instances closed/no
+OS faults/foreign SHA preserved. [NEW coupled-jet NEXT](CHATBOT_COUPLED_JET_NEXT_20261008.md)
+selects shared nonlinearity+joint full-input affine fields, first whole budget
+and16-mass/528-jet design conditioning. Solver/fields NOT implemented/qualified;
+old227 separate nearest tangents stay closed. Full CHATBOT pipeline goal intact.
+
+**8 October source-directional structure ACQUIRED/INDEPENDENTLY VERIFIED:**
+[result](CHATBOT_DIRECTIONAL_RESULT_20261008.md),32 original exact-distinct anchors
+fixed before derivatives,16 FIT/16 novel dev, full source/student896x896 F64 J
+and ALL320 independent directional pairs. Exact P rank32/null864 via nonzero
+integer-scaled modular minor; QR and NumPy saved-matrix/probe reconstruction
+agree. Novel J RMS82.7371%/null83.2339%, source-null energy94.4356%; FIT82.7387%.
+All four prospective diagnostic predicates PASS, no semantic/rounded-inference/
+whole admission. Full-space energy is not reachable-state prevalence/covariance.
+Sourcec0aba67,worker31.156s/family126.188s/859.7MB through exit; audit1c2fdb3,
+3.219s/507.5MB. Original plan revision-label FIELD invalid, immutable raw retained/
+actualec197f9 committed-byte proof pinned before J; zero anchor replay. All6
+instances closed/no typedUTC OS faults/foreign SHA preserved. New information
+only, no original BF16 forwards/geometry/source-a²/optimizer/old prediction replay.
+[NEW structural-transfer NEXT](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md)
+supersedes the earlier collector proposal: SAME-cost full joint G/U/B value+J
+learner plan, actual learner/fit still missing. Original1%/3% and full CHATBOT
+quality AND accepted50/useful-n/DRAM/scales remain; old231/finite E16/E160 closed.
+
+**7 October first actual joint compact fit CLOSED:**
+[result](CHATBOT_JOINT_BASELINE_RESULT_20261007.md), sourcef719fab, actual exit0,
+24 epochs/744 updates, shared/leaf G/U/B all changed/distinct. E16 FIT21.6779%
+RMS, novel DEVELOPMENT61.3921% (SSE.37689848); rounded61.3923%; ALL16 category
+3% policies fail. Training improves from74.6971%, novel from76.2348%, but the
+finite recipe cannot enter24-layer conversion. Source/output/geometry/control
+reused, no complete original response replay. Baseline75.312s/worker1.722GB
+through exit, family100.610s. UniformE160 original28-leaf exposure failure stays
+closed, no E160 fit. Independent stdlib byte/scalar audit12.984s/461.2MB/family
+14.750s proves all retained exposure/error fields and strict integer1%-RMS
+failure from64 novel rows againstFULL1495 source energy. Six OS instances
+closed/no faults/foreign SHA unchanged. [NEW directional source NEXT](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md)
+supersedes first-fit proposals; implemented collector/objective missing, no
+unchanged fit/width/precision/control replay or whole admission.
+
+**7 October original CHATBOT operands AVAILABLE:**
+[capture result](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)/[final byte adoption](chatbot_source_adoption_final_20261007.json):
+ALL48 case IDs/32 FIT/16 DEVELOPMENT,5709 positions PER LAYER3845/1864, actual
+original BF16 pre-MLP x/complete y.47 completed generations plus one original300s
+timed-out prefix; original ALL48/300s/resource result remains FALSE. Arrow import
+and batch1 list-alias apparatus faults retained; saved responses never replayed.
+Final three unentered batches exit0/through-exit worker OS~1.68GB; all10 new
+instances closed/no matching OS faults. Calibration case coverage complete,
+not final fresh whole quality. Finite joint layer12
+[pilot](CHATBOT_JOINT_PILOT_PROTOCOL_20261007.md) freezes support/initialization/
+joint updates/novel error/encoding/utility/intervention before first values;
+actual exposure closes E16028 unsupported leaves, no initializer/fit/response
+error entered; E16 support PASS. Separate prewritten E16 first-fit baseline
+reuses saved geometry/parent control and unchanged finite optimization contract.
+First E16 fit now completes and fails as documented above. No repaired count
+comparison or whole admission. Compact conversion/native/rate missing.
+
+**7 October finite compact joint geometry:** [budget](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md).
+Frozen1e4b2b5 actual block/spec, shared512/leaf128/top4/query32/E16 versusE160,
+full-input source-initialized joint G/U/B. New dimension arithmetic9948a6 exit0
+passes fixed3/5 complete-matrix/logical-byte necessary gates:246.94/246.97M,
+494.02/494.08MB; stored proposal.692/3.071GB. No values/Torch/model/census replay
+or physical DRAM/rate/distinct trained capacity. Source-capture48 fixed self-
+authored32-fit/16-development conversations now acquired as documented above;
+the separately frozen joint pilot closes E160 on exposure and FIRST E16 fit
+closes its exact finite recipe on response fidelity. Whole goal incomplete.
+
+**7 October canonical Qwen chatbot input stage:** [result](CHATBOT_INTERACTION_RESULT_20261007.md).
+Eight prewritten role/history/continuation/Unicode text goldens and exact IDs
+PASS canonical HF/source Rust JSON/independent Python BPE; both EOS151645/151643,
+no BOS and four generated-only stopping probes PASS. Successful freeze d92f9c1,
+executor018b6c exit0,14.093s,worker OS peak256540672B through actual exit,
+family287444992B within prospective120s/512MiB. Administrative setup58.944s,
+its OS peak UNKNOWN/separate. All symlink/API-container first faults retained;
+failed first fixture repeats disclosed, old apparent ID mismatches INVALID as
+ID-difference evidence. Seven known OS instances closed/UTC Event1000 zero
+faults with positive controls. Reusable adapter/actual prompt IDs AVAILABLE,
+no model/native calls, weights or new quality/rate. Tools/native integration
+and finite compact converter missing. Reuse existing census and fixture results.
+METH125 has256 states/layer on augmented trajectories; METH214 fresh ranking
+and METH231 source-derivative nonlinear fixed recipe remain closed.
+
+**7 October entire chatbot operator census:** [result](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md).
+Actual Qwen/Giga source name/shape/dtype/offset and independent byte/MAC
+conservation; all725 existing Qwen archive fields match frozen C catalog.
+Qwen matrix terms493.96M source ->508.09M current; logical coefficient budget
+988.1->709.5MB, ALL4864 features/full BF16 head still active. Giga main1.628B
+matrix terms,650M attention/779M FFNs; main10.673B named elements/MTP.807B.
+Local MLA backend caches EXPANDED K/V; latent cache is unimplemented here.
+Original source/protocol/binding frozena23514a before new counts; Qwen exit0,
+first Giga cap fault exit1/lost counts+actor, compact repair53ed04b exit0.
+Failed Giga metadata repeated explicitly; completed Qwen/native/model science
+not replayed. Zero tensor values/model/C calls. Final whole-job OS peaks remain
+UNKNOWN, raw pre-serialization snapshots28.6/34.6MB; no resource retro-admission.
+Known two actors closed/typed UTC zero faults; first failed actor UNKNOWN.
+Current next [canonical interaction then finite compact converter](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md)
+supersedes previous census proposal. Joint nonlinear full-input shared+conditional
+SwiGLU family remains UNTRAINED; old310/311/316 fixed spaces/297/528 stay closed.
+No compact whole chat quality+accepted50, larger useful n or physical DRAM proof.
+
+**7 October necessary528 closure:** [result](METH_528_NECESSARY_GATE_RESULT_20261007.md).
+FIRST scalar C1674 prefix responses/I64/A16 BYTE, exact ALL35080 source energies
+and prefix errors independently audited. Lower-bound inquiry inconclusive.
+Complete ORIGINAL rare1..4 consumed domain ALL3 parent15 UID gives physical
+29.222693%/weighted29.067133% RMS against fixed1%; strict guarded integer proof
+independently verified. Single-anchor528 recipe CLOSED, full continuation stops;
+other rare/full values and13 UNKNOWN, original resource FALSE. ALL first compiler/
+resource/layout faults retained. F-contiguous hidden C buffer reinterpreted
+without response/quantizer/control/source replay.22 known owned instances closed.
+This local consumed diagnostic is not chatbot/multiregion impossibility. Next
+[SwiGLU/operator contract](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md): NEW
+whole core/head/router/cache pricing/source->existing Qwen artifact mapping and
+canonical role/history/EOS fixtures before new complete conversion/quality/rate.
+The following dated528 proposals describe earlier states, not current NEXT.
+
+**7 October chatbot reassessment:** human restates final CHATBOT-to-engine
+pipeline. [Macro review](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) distinguishes
+511 Switch infilling warm-quality/50 from actual Qwen Instruct direct artifact/
+native295/296 and297's unchanged semantic FAIL. No admitted compact whole chatbot
+quality+rate. New reusable offline preflight, source/protocol frozenba407d1,
+two completed local source inspections(.500s/34.3MB,1.578s/37.7MB),exit0. No
+tensor values/model/C/numeric replay. Qwen two declared EOS IDs; Giga local HF
+template absent, producer GGUF template present but not rendered/ID-qualified.
+Actual SwiGLU families require a different gated-atom/folding/core-cost contract
+than Switch ReLU; metadata inspection itself reports pipeline NOT QUALIFIED.
+Select [necessary full-domain528 certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md)
+before costly full repair: FIRST audit completed1..12, exact full-reference
+energy versus prefix error LOWER bound; strict inequality proves unchanged
+whole1% criterion failure. Inconclusive cannot promote; full continuation stays
+conditional. No certificate code/protocol/C/energy observations. Then return
+to chatbot family transformation and complete native dialogue/task/cost chain.
+
+**7 October after528 first fault:** [variable source atoms](METH_528_VARIABLE_ATOM_FIRST_FAULT_RESULT_20261007.md)
+code/protocol frozen; ALL127 development candidate/rotation banks built BEFORE
+outputs, widths512..1095,candidate101823884B. Own selected-hidden A16 removes
+dense fold; signed cross can cancel, so quality cannot be inferred from algebra.
+Original main240.343s/158.9MB hard deadline, actual exit1,4/7 prefix gates only;
+ALL288 partials/749.77MB SHA-sealed before numerical repair.1..12 completed by
+code order;13 unresolved without row checkpoint. No full quality/eligibility,
+independent numerical audit or C compile yet. Original resource gate FALSE.
+Metadata seal40.454s/55.0MB; incorrect first Windows main reference retained,
+numbered metadata repair checks actual528, zero relevant events. Select
+[numerical repair1 continuation](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md):
+freeze prefix adoption/independent missing-field qualification, FIRST C audit
+1..13, then checkpoint unfinished14..127 and independently finish original
+ALL656/fixed six criteria. No repair code/protocol/numerics yet. All originals
+immutable; no completed science/source replay, changed threshold or whole promotion.
+
+**7 October after527:** [retained scalar bound refinement](METH_527_RETAINED_BOUND_RESULT_20261007.md)
+main7/independent audit8/admission5 and ALL4 eligibility gates PASS. ALL127
+unchanged nearest orders certified,18 newly resolved;390144 original-G/WI exact
+U128 energies and325120 outward scalar bounds independently verified. Old109
+queries preserved; zero new query/label/old geometry replay. Main10.016s/101.9MB,
+audit105.610s/66.1MB,23.63MB outputs,3 closed/no faults. Target relative distances
+48.1%..51.4% do not establish natural activations or useful functions. Defer18
+physical checks and select [528 variable-width source atoms](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md):
+replace dense positive sign fold with original ReLU rows, allow extra width,
+test retained-source fidelity/cost plus signed residual/cross mechanism and
+matched rotation. No528 implementation/numerics/benefit or whole promotion.
+
+**7 October after526:** [exact represented-projector certificate](METH_526_EXACT_PROJECTOR_RESULT_20261007.md)
+main7/independent audit8/admission5 and all3 eligibility gates PASS. SAME Q/C
+integer identities327680 cells/37748736 product terms per pass, exact square
+sums/roots/Fraction bounds; projector upper5.60e-7->8.87e-10. Gram2.11e-14,
+rowspace residual1.50e-13, source singular lower unchanged. Main5.985s/75.7MB,
+audit8.453s/102.5MB,21.57MB outputs,3 closed/no faults.109 original queries
+SHA-preserved; zero new query/label or rank/SVD/plane/physical replay.525 remains
+CLOSED. Select [527 ORIGINAL distance bound refinement](METH_527_RETAINED_DISTANCE_BOUND_REFINEMENT_NEXT_20261007.md):
+derive scalar error terms/price possibly NEW exact WI row energies before one
+protocol, including old reductions. No527 implementation/observations. One bounded
+refinement then reassess feasible selection if needed; whole useful-n goal open.
+
+**7 October after525:** [router-neutral geometry](METH_525_ROUTER_NEUTRAL_GEOMETRY_RESULT_20261007.md)
+main7/independent audit8/admission5 PASS. Actual rank128/null640, all127x2560
+omitted source planes straddle0 on the same-score metric-norm slice.109 new
+physical reference queries BYTE-qualified,all109 same parent/opposite Q16-WI
+sign; max relative norm2.21e-8/p6.36e-7.18 nearest orders unresolved, fixed ALL127
+criterion FAIL/CLOSED.390144 planes audited,33.094s/242MB main,62.859s/255MB
+audit,26.24MB outputs,3 closed/no faults/labels/function/model/native replay.
+Geometric WI projections are actual charged work; continuous slice is not natural
+decoder reachability or exact F32-normalizer image. Select [526 exact projector
+certificate](METH_526_EXACT_PROJECTOR_CERTIFICATE_NEXT_20261007.md), same stored
+Q/C dyadic integer Gram/residual, before numerical bound refinement. Preserve109
+physical records; no525 replay, new labels, changed criterion or empirical bound
+shrinkage. No526 implementation/protocol/numerics; goal remains open.
+
+**7 October after524:** [source-tree information](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md)
+main6/independent audit7/admission5 PASS,333 panels/1022976 gains,47776 selected
+source integer checks/all17540 routes/p bits verified.117/121 nonfallback roots
+split, all orders resolved; fixed ALL-root criterion FAIL/CLOSED, other5 criteria
+PASS.445 proposed occupied leaves and907.67MB bank are not new useful functions.
+All6 role logical bytes~.42source with6 full-source scarce fallbacks. Main62.907s/
+246MB,audit68.094s/278MB,46.49MB outputs,3 scientific processes closed/no faults
+or function/metric/native/model replay. JSON-only post-hoc diagnosis0.391s/36.8MB:
+37/39/63/73 dev omitted-sign energy is rounding, yet three prior523 consumed
+physical errors are24.07%/11.11%/26.87%. Absent dev residual is not domain coverage.
+Select [525 router-neutral source coverage](METH_525_ROUTER_NEUTRAL_SOURCE_COVERAGE_NEXT_20261007.md):
+recover actual router/norm/codecs, price null-space norm-slice crossing bounds
+before one geometry protocol. No525 code/geometry/queries, no changed524 decision
+or lowered threshold/count tuning. Goal/useful large n/compact whole path open.
+
+**7 October after523:** [source fold/hinges](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md)
+has an independently audited COMPLETE numerical prefix: main7/audit7 controls
+PASS,ALL17540 physical output vectors BYTE equal. Consumed continuous2.682700%,
+physical2.682699%, weighted4.932822%, rare40.85%/31.11%:1% fidelity FAIL. Omitted
+sign residual dominates; codec/physical additions are4.48/2.09ppm. Single-reference
+512/I16 recipe CLOSED. Original main900.015s/742MB exits1 during terminal hashing,
+after full math; metadata sealing4.328s has zero new numerical calls. Original
+resource gate remains FALSE, not an overall successful protocol. Audit87.047s/
+746MB;1.847GB outputs;4 owned instances terminal, no scientific/native replay.
+Select [524 source-hyperplane tree eligibility](METH_524_SOURCE_HYPERPLANE_TREE_NEXT_20261007.md),
+dev-only bounded-depth angular residual information and hard source sign bits,
+with original parent mass conserved by one-hot subdivision. Rare fallback must
+be real, priced and matched in both count arms. No524 code/protocol/numerics.
+
+**7 October after522:** [exact-support redundancy obstruction](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md)
+is admitted: main5/independent Boolean audit6/admission5 PASS, both B512/rho2
+dev eligibility gates FAIL.10/127 parents have supports>512;19 additional
+width-feasible parents have certified incidence copies>6144. Parent113 requires
+>=87 branches/M32159/rho10.468424.98 necessary passes are inconclusive, not covers.
+ALL63262 clique pairs/all17540 support counts/all19962 joins independently
+verified. Main2.015s/161MB,audit2.782s/317MB,1.99MB combined outputs,3 terminal
+instances,no faults or new source/model/fit/C calls. Logical incidence and real
+RAM differ; neither arbitrary redundancy nor other coordinates are refuted.
+Select [523 folded source with private ReLU hinges](METH_523_SOURCE_FOLDING_HINGES_NEXT_20261007.md):
+price exact signs, matrix codec and three error terms before a protocol. No523
+implementation/numerics; whole compact transfer/useful large n/DRAM remain open.
+Older next-step statements below are historical; current INDEX takes precedence.
+
+**7 October after521:** [full source-information result](METH_521_SOURCE_INFORMATION_TRANSFER_RESULT_20261007.md)
+acquires53943 immutable development counterfactual responses once, independently
+reconstructs ALL source bytes once,128 unique full-rank augmented fits and one
+native17540-UID candidate. Main8/metric-repair4/admission5 PASS. Consumed fitted
+unweighted RMS28.6383% vs4996.1354%, weighted40.5641% vs9.7187%; native40.5951%.
+ALL9 outcomes FAIL; THIS fixed full-information interpolant CLOSED. Main80.890s/
+1.568GB combined; original audit57.969s/1.327GB then metric repair36.109s/793.7MB,
+original cancellation and pre-Meter binder import faults retained. No source/
+fit/native replay;10 instrumented instances closed,1.539GB combined outputs.
+Select [522 redundancy support/copy lower bound](METH_522_REDUNDANCY_LOWER_BOUND_NEXT_20261007.md),
+before new narrow masks/functions/routing. No522 implementation/numerics; no
+whole quality/rate, useful large n/DRAM or goal promotion.
+
+**7 October after520:** [source-information eligibility](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md)
+certifies dev pooled real rank513 and ALL128 augmented minors with53943 ordered
+new counterfactual dev pairs. Main5/audit6/admission5 and ALL4 rank/stability
+gates PASS; global condition306.954,worst34140.063,min relative innovation.034157.
+Main187.250s/363.7MB,audit78.157s/473MB,all3 closed,no faults/replays/source-
+response/readout/model/native calls. Plan does not prove function quality.
+Select [521 new source responses and fixed-class test](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md):
+recover/price full original function/fit/I8/native/audit contracts before one
+protocol and first label. No521 implementation/response/fit; goal incomplete.
+
+**7 October after519:** [local matched geometry](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md)
+implements ALL128 dev-only rank32/S256 normalized WI/query dictionaries and
+exact necessary capacity. Main5/audit6/admission5 PASS; natural ideal possible
+8.448216%,but byte floor1.128913/p95 1.213395/ALL64 books FAIL;1/5 economic
+gates PASS. Fixed recipe CLOSED before actual-angle/C/whole work. Index65.54MB,
+main29.359s/301.1MB,audit26.735s/288.3MB,no faults/replays/model/native calls,
+all3 closed. Select [520 source-information eligibility](METH_520_SOURCE_INFORMATION_ELIGIBILITY_NEXT_20261007.md),
+the deferred499 dev-only complement plan; pooled rank/stability must first be
+priced and certified. No520 code/numerics/source responses; goal incomplete.
+
+**7 October after518:** [exact energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md)
+verifies ALL393216 physical Fraction thresholds/17540 independent query-search
+boundaries. Main5/audit5/admission5 PASS. Natural ideal possible ceiling.069002%
+(mean2.119739 rows,max71),byte lower bound1.212702/p95 1.213392/all64 books FAIL.
+1/5 optimistic gates PASS;angle/sign selection alone cannot repair fixed517
+radii/price. Main6.328s/119.3MB,audit7.110s/128.6MB,no faults/projection/model/
+native replay,all3 instances closed. Select [519 matched local WI/query energy
+geometry](METH_519_MATCHED_LOCAL_ENERGY_NEXT_20261007.md),no code/export/
+observations. One fixed32 per-parent basis/two-sided normalized-moment objective
+must first be priced and tested by ideal capacity;goal incomplete.
+
+**7 October after517:** [shared rank32 integer subspace](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md)
+is implemented with exact projected original WI/queries and stored Gram-defect/
+radius certificates. ALL128 physical inverse/53,882,880 independent I64 prefix
+cells/17540 original output bytes pass;main6/audit7/admission5 PASS. Natural
+encoded energy.396563,zero candidates/skips;logical1.213392/full3072 rows/all64
+books FAIL.1/5 economics PASS,THIS fixed recipe CLOSED before C. Main12.313s/
+592.2MB,audit71.266s/660.3MB,all3 terminal,no faults/replays. Select [518 exact
+energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md)
+to separate insufficient norm information from actual angle, using retained
+integer thresholds only. No518 implementation/observations;goal incomplete.
+
+**7 October after516:** [fixed64 current-query filter](METH_516_DIRECTIONAL_WI_RESULT_20261007.md)
+implements physical original bank11 dictionaries and exact U64 certificates;
+ALL17540 hidden/max/scale/A16 bytes preserved. Main5/audit6/admission5 PASS,
+ALL128 physical inverse and53,882,880 independent I64 prefix cells verified.
+Natural logical mean1.047572,p95 1.094199, ALL64 book means>1;1/5 economics
+PASS, THIS fixed64 recipe CLOSED before C. Main5.656s/501.7MB,audit22.500s/
+543.5MB,all3 instances terminal,no faults/replays. Select [517 shared-input
+subspace algebra/price](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md), no
+implementation/observation. Actual stored Gram/arithmetic error and transform
+cost must be resolved before one dev-only rank32 screen. Goal incomplete.
+
+**7 October after515:** [encoder reuse](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md)
+implements literal365 missing batches on374 physical6 workers; ALL18 two-case
+full wires exact363. Independent source/byte/clock and terminal controls PASS.
+Pilot encoder.889871 vs.446216 and repeat max1.543954 fail; fixed sole cost
+promotion CLOSED. Main25.047s/1.390GB, completed audit15.593s/44MB; pre-math
+I/O/receipt faults preserved, no C/main replay. Select [516 current-query64 WI
+certificate](METH_516_DIRECTIONAL_WI_NEXT_20261007.md), original128-bank retained
+inputs/source coefficients; not implemented/observed. Goal incomplete.
+
+**7 October after514:** [actual256 head](METH_514_ACTUAL256_HEAD_RESULT_20261007.md)
+applies fixed8 to ALL1065 native states with exact full-source winner decisions,
+949 donor-state bridges, independent64,705,792 cells/8520 fsum rows.24 aligned
+errors ->20 via6 recoveries/2 introductions. Zero-new-error gate FAIL, no whole
+promotion; larger K cannot repair full-source head errors from upstream drift.
+Main13.641s/337.7MB, audit28.485s/340.1MB, all controls/terminal admission pass.
+No model/C/corpus queries. Select [515 shared-prefill reuse price](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md)
+as a changed active operator; no implementation/observations yet. Goal incomplete.
+
+**7 October after513:** [adaptive index](METH_513_ADAPTIVE_CERTIFICATE_RESULT_20261007.md)
+is exact on17540 original UIDs, all32477 physical checkpoints independent,
+main/audit/admission5/6/5 PASS. Index40.91MB; consumed/natural mean logical bytes
+.977002/.951189 exceed.75 and natural p95>1, so2/5 economics PASS and fixed
+union index CLOSED before C. Source geometry/function preserved, no new capacity
+or latency claim. Select [514 actual256 readout transfer](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md)
+on existing qualified14.664B sources; no acquisition/old numerical replay.
+
+**7 October after511/512:** [511 whole result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md)
+qualifies fresh quality AND SAME-artifact warm accepted prose52.55861/lower95
+50.46847 in bounded infilling. All15 quality and4/5 economics pass; ALL-book
+fails6/24,worst1.258699. First request prose27.13819. Independent4983-state audit,
+actual UTC positive-control/event/closure checks complete; scientific calls once,
+interruptions/import/count/metadata faults explicit. Goal incomplete.
+[512 same-cohort diagnosis](METH_512_RETAINED_DIAGNOSIS_RESULT_20261007.md) recovers11
+exact donor generations/introduces1, matches74->84/96, mean edit.070887->.034367;
+zero new model/C/source calls. Select [513 per-row certificate union](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md)
+for original full-WI cost. Still proposed/unimplemented, no observations; useful
+large n/LUT mass/compact core/DRAM/actual family-scale generality remain open.
+
+**6 October after510:** [native result](METH_510_NATIVE_HEAD_RESULT_20261006.md)
+qualifies full C original/hybrid cells/IDs/tail BYTE atALL996 consumed states,
+same20/3/14. ALL2988 paired costs mean increment0.148116ms/p95 0.619665ms,
+local gates PASS; maximum30.504500ms retained, no whole speed inheritance.
+Independent finite arithmetic/cost and actual closure/typed UTC admission complete.
+Pre-timing isolation fault and no-replay R1 preserve all completed calls.
+Selected [511 new whole](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md), not new
+quality/rate/n/RAM/DRAM/family promotion.
+
+**6 October after508/509:** [508](METH_508_SOURCE_HEAD_RESULT_20261006.md)
+qualifies actual source-head bridge at996 common states;20 original differences
+recovered/3 introduced,31->14. [509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md)
+ONE top8 hybrid exactly matches full source-head winnersALL996, no tail overtakes,
+independently checked rounded cells/ranks/IDs. Original pre-query dependency
+fault and unchanged-science R1 repair retained. Selected510 native parity/cost
+before new whole quality/rate. No useful-n/DRAM/compact-core promotion.
+
+**6 October after507:** [result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md)
+independently closes96 retained cases/996 common-history positions/31 first rank
+flips. State difference begins before the first router; unchanged IDs can coexist
+with changed mass and different token choices. Selected508 isolates source-head
+versus upstream-state effects. No new whole quality/rate/capacity promotion.
+
+**6 October after506:** [complete result](METH_506_WHOLE_RESULT_20261006.md) and [evaluation](EVALUATION_506_20261006.json) supersede old operational resumptions. Whole exact conditional artifact verified;14/15 F32 quality and4/5 observed economics, negative conjunctions; timing isolation/OS events/audit serializer limits explicit. Selected507 diagnoses common-prefix divergence before further exact acceleration or scale expansion.
+
+**6 October update after505:** [505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md)
+qualifies actual original-WI/zero-only column-WO ALL17540 states BYTE and ALL128
+physical bank inverse. Source-sized storage,consumed/natural mean ratios.569324/
+.591496;p95PASS,ALL-book mean gateFAIL12/192. Five/six economicsPASS;local
+cost recipe closed. Original calls ONCE,metadata505-R2 recovery retains faults/
+primal OS-binding exception. [506 whole feasibility](METH_506_WHOLE_CONDITIONAL_ARTIFACT_NEXT_20261006.md)
+is selected/proposed:new all-bank/shared-core/head/evolving-state/3-worker scope,
+not505 promotion. Full WI,normalized routing,DRAM and SAMEartifact quality/rate
+remain required. Current INDEX supersedes historical resumptions below.
+
+**6 October update after504:** [504](METH_504_ANGULAR_REGION_RESULT_20261006.md)
+independently verifies exact original-WI angular region certificates but only
+6.394780% natural coverage; finite isotropic recipe economicallyFAIL/closed.
+[505 exact original WI/sparse WO](METH_505_EXACT_ORIGINAL_WI_SPARSE_WO_NEXT_20261006.md)
+is selected/proposed from455 component evidence: actual zero-only output reads
+AFTER full source WI, without sampled-support prediction. Full WI/source storage
+and parent normalized routing are charged. No505 observations or goal promotion.
+
+**6 October update after503:** [502](METH_502_VARIABLE_COVER_RESULT_20261006.md)
+constructs783 finite development support-cover children at1536 active ceiling,
+2.940994 source-atom copy ratio. [503](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md)
+independently checks ALL127570 new functions: development oracle exact, natural
+oracle p95 39.941205% >5%, so this fixed mask set fails despite extra storage.
+Next [504 source angular regions](METH_504_SOURCE_ANGULAR_REGION_CERTIFICATE_NEXT_20261006.md)
+is PROPOSED. Source-WI region certification and explicit fallback cost are new
+variables; no fresh/native/rate or family promotion. Current INDEX takes
+precedence over historical resumptions below.
+
+**Purpose.** Evidence inventory for a native `benchmarks/phase60/engine.c` expert-count comparison, keeping top-k, model width, core count, and training recipe fixed. Donor-adaptation work is paused context, not evidence for this native question.
+
+**25 September asset update:** the local E32 checkpoint, phase55 ids/tokenizer,
+and E4 export were found and hash-verified; see [NES-00](NES_00_ASSET_AND_DISPATCH_20260925.md).
+The earlier "availability unknown" statements below describe the pre-audit
+inventory, not current workspace state. No trained native E128 checkpoint was
+found in the reviewed native result directories.
+
+**25 September result update:** [NES-01](NES_01_E128_RESULT_20260925.md)
+subsequently trained and measured E128. Its BPB, router-health and small C
+latency gates pass, but its predeclared greedy-generation gate fails. The
+historical statements below remain an inventory of evidence *before* NES-01;
+use the result record for current decisions.
+
+## Readout
+
+Native evidence establishes that a trained E32, top-8 MoE can retain the small-model quality advantage over its matched dense arms and can be executed by the phase60 C engine with parity and measured cost. It does **not** establish what quality, routing, or end-to-end cost does when expert count alone rises beyond E32. E128 and E256 are proposed/costed scale rungs, not completed trained comparisons.
+
+The first candidate missing comparison in the reviewed evidence is a same-recipe native E32 versus E128 trained pair, with top-8, width/hidden expert size, core count, data and training budget held constant and the E128 arm adding experts only. The E32 checkpoint and native runner provide an anchor; an E128 trained checkpoint is not evidenced among the reviewed artifacts. Equal tokens do not equal equal total compute or exposure per expert: report each separately. An equal-compute comparison would be a separately specified experiment, not another reading of an equal-token run. Do not claim capacity-only scaling from duplicated weights.
+
+**Anchor mismatch to resolve before a protocol:** the executed `phase59_moe.py` uses D256/N96/L6 and the historical sandbox data/tokenizer; the Phase-64 code ladder proposes L8 and a different vocabulary/data setup. Reusing that old E32 checkpoint as the direct baseline for a new L8 code E128 model would change more than E. Either retain the historical configuration for both arms or train a matched E32 baseline for the ladder configuration. Do not infer that the historical checkpoint is already the proposed S0 rung.
+
+## Evidence ledger
+
+| Evidence and link | Established at what scale | What it does not establish | Reusable runner/checkpoint if found | No-duplication boundary |
+|---|---|---|---|---|
+| [Scale-up architecture §3.5](../../SCALEUP_ARCHITECTURE.md#35-capacity--sparse-memory--fine-grained-ternary-moe-k1-validated--probe-4-2026-07-02) | Probe-4 trained matched arms for 4k steps at about 22.5M total parameters. E32×h128, top-8, active hidden 1024: BPB 0.8589, versus dense-1024 0.8799 and dense-4096 0.8674; E8×h512 top-2 was 0.8637. Switch-aux router: no dead experts, max/mean ≤1.47. | One seed/short run does not show expert-count scaling. No E128/E256 quality result. The E32 result does not imply larger total capacity itself is useful. | Probe-4 promoted checkpoint `results/phase57/moe_gran.pt` is named in [REPRODUCE.md](../../REPRODUCE.md); file is an off-repo release asset, not confirmed locally. Training runner is [phase59_moe.py](../../../benchmarks/phase57/phase59_moe.py). | E32 quality is an executed trained point; it is not evidence for larger E. Compare trained arms with matched recipe and suitable compute/token controls. |
+| [Canonical evaluation](../../CANONICAL_EVAL.md#canonical-table-2026-07-03) | Canonical fp32 CPU evaluation preserves ordering: E32 MoE 0.8589; dense-large 0.8672 (training harness 0.8674); coarse E8 0.8636 (training 0.8637); base 0.8799. | Canonical re-evaluation is not a new training run, seed, or scale rung. Single-seed probe deltas under ~0.005 BPB are below cross-script reproducibility guidance. | `scripts/canonical_eval.py` and checkpoint manifest/release link in the document. | Keep absolute canonical values distinct from within-run paired deltas and training-harness values. |
+| [Native phase60 E4 plan/results](../../ENGINE_PLAN.md#e4--moe--two-pool-layout-target-model-moe_granpt-probe-4s-promoted-arm-e32h128-top-8--active) | E4 executed the probe-4 E32 checkpoint: fp32 reference BPB 0.858856 (Δ+0.000002), top-1 100%; LUT+skip ΔBPB +0.000028 vs reference, top-1 99.7363%; counted pool 2400 KB/token; E4-full 701.7 tok/s, with the sandbox cache caveat. | E32 inference parity/performance is not an E-count sweep. At ~8.3M sandbox scale the pool fits cache, so streamed timing is priced, not directly measured at scale. | [phase60 engine.c](../../../benchmarks/phase60/engine.c), [e4_export.py](../../../benchmarks/phase60/e4_export.py), [e4_reference.py](../../../benchmarks/phase60/e4_reference.py), and `moe_gran.pt` if obtained from release assets. | Reuse the E4 path as the native E32 baseline; do not present an untrained synthetic E128 pool as a quality or learned-routing comparison. |
+| [Phase64 decisions D1/D2](../../PHASE64_DECISIONS.md#1-d1--recipe-invariance-the-ladder-contract) | Defines invariant recipe and intended capacity dial: S0 E32 → S1 E128 → S2 E256, top-8×h128×L8, with active expert bytes held at 3.1 MB/token. | This is a design decision and property-gate plan, not evidence that E128/E256 were trained or passed gates. | Decision doc specifies BPB versus matched dense, router health, i.i.d.-union, and other rung probes. | Dims E alone may change in the intended ladder, but recipe, data/eval, and paired controls must remain auditable. |
+| [Phase64 budget §3/§5](../../PHASE64_BUDGET.md#3-the-candidate-grid) | E128 (105M) and E256 (206M) are costed at D256/N96/L8/V2048, top-8; model predicts same speed bracket, 739–1309 tok/s. Budget prices training/data and expert-kernel overhead separately. | Modeled tok/s is not measured native E128/E256 performance or trained quality. Expert path is gather/kernel/dispatch-bound (integrated ~4.2 GB/s; pure kernel t6 17.0 GB/s), not a simple DRAM roofline. | [bench_64_1b.sh](../../../benchmarks/phase64/bench_64_1b.sh) is a reusable synthetic microbench for the budget anchors, not a trained-model runner. | Re-measure end-to-end timing at the target E and core count; keep engine overhead visible and use identical decoding/eval protocol. |
+| [Native routing evidence, ENGINE_PLAN](../../ENGINE_PLAN.md#e4--moe--two-pool-layout-target-model-moe_granpt-probe-4s-promoted-arm-e32h128-top-8--active) and [scale architecture §3.5](../../SCALEUP_ARCHITECTURE.md#35-capacity--sparse-memory--fine-grained-ternary-moe-k1-validated--probe-4-2026-07-02) | Probe-4 working set over 8 positions touches 84–89% of E versus ~90% iid; near 100% by 16–32 positions; persistence is base-rate k/E. Native E4 reproduced mean 86.5% at N=8. | No warm expert pool/locality advantage at E32. Does not prove that routing stays iid at E128/E256, across code domains, or after a different training recipe. | E4 working-set/accounting instrumentation is described in ENGINE_PLAN; exact reusable standalone probe file was not identified in the reviewed file list. | Record observed unions against the iid expectation at each E. Treat any locality change as a measured result, not an assumption or failure. |
+| [fp32 organ constraints, phase64 training plan §4](../../PHASE64_TRAINING_PLAN.md#4-the-curriculum-per-rung-dossier-skeleton-af-adapted-order-itself-is-mve-checked) and [ENGINE_PLAN phase61 result](../../ENGINE_PLAN.md#phase-61-closed-architect-2026-07-03-ssm-projection-ternarization-rejected--clean-double-fail-the-fp32-projections-stay) | The scale-up recipe keeps projections, SSM, head, and router fp32; earlier SSM projection ternarization failed its quality gate (0.8940/0.8972 versus ≤0.8899). | Expert weight format/precision does not license changing precision of control organs while scaling E. | Use the fixed precision map in the training recipe and phase60 native format. | A precision change is a separate variable and requires its own paired gate; do not bundle with E-count scaling. |
+| [Phase64 training plan](../../PHASE64_TRAINING_PLAN.md#5-the-ladder-costed-desk-model-brackets-mfu-5-15-assumed-on-2t4-scan-heavy--measured-at-mve) and [budget §5](../../PHASE64_BUDGET.md#5-constraint-inversion--what-binds-now) | Training budget and licensed code-data supply, not inference footprint, bind the planned ladder. Plan requires roughly 6–10B licensed code tokens; measured MVE throughput and later rung costs are needed to reprice. | A rung design/cost sheet is not evidence that it ran. No verified E128/E256 trained checkpoint or native result was found in the reviewed artifacts. | The plan's A→F curriculum is reference only; sparse-slot rewrite is an explicit prerequisite. MVE scripts are apparatus, not an E128 runner/checkpoint. | Attribute quality to trained, data-backed runs. Keep data order, token budget, recipe, seeds and dense control visible in the comparison. |
+
+## Comparisons that must stay separate
+
+- **Native phase60 MoE probe-4:** E32×h128 top-8 trained from scratch in the project’s small native architecture family; C inference engine E4 validated this checkpoint. This is the only reviewed native learned-expert quality point.
+- **Donor-adaptation E36/E63 and related work:** donor-model carve/adaptation experiments use different base models, parameters, routing/selection, objectives and engine paths. They may inform questions to ask, but their outcomes cannot fill the native E128/E256 evidence gap. Donor work remains paused and intact.
+- **Rungs:** E32 is an executed trained result. E128 and E256 are specified/costed S1/S2 design rungs. Their projected capacity and speed are not measured outcomes.
+- **Capacity accounting:** increasing expert count creates stored parameter capacity. Duplicating E32 weights into more slots only increases bytes on disk; it does not establish independent learned capacity, quality gain, useful routing, or efficient inference.
+
+## Evidence interpretation by question
+
+### Quality
+
+- The useful prior is the matched probe-4 comparison, not the absolute BPB in isolation.
+- The native trained E32 arm beat both the dense arm at matched active width and the larger dense upper-bound arm in that short run.
+- E8 coarse experts performed worse than the granular E32 arm in the same probe.
+- This supports retaining E32×h128/top-8 as the tested starting point.
+- It does not show a monotonic quality curve in E.
+- It does not show that E128 or E256 can be populated with diverse useful experts under the same token budget.
+- The canonical re-evaluation checks harness consistency and preserves ordering.
+- It does not add independent training seeds or resolve small-delta uncertainty.
+- Scale-up decisions define BPB against a matched dense control as a per-rung read.
+- That control matters because an E-count change can also change optimizer exposure and total training cost.
+- No reviewed result supplies a native E32/E128 paired quality delta.
+
+### Routing
+
+- Probe-4 rejected the proposed hot-pool assumption at its tested scale.
+- Nearly the whole E32 pool was visited across only eight positions.
+- Persistence was approximately the base rate implied by k/E.
+- The phase60 E4 engine reproduced the small-scale working-set observation.
+- This gives an inference-side transfer check for E32, not for larger E.
+- The phase64 rung plan calls for expert-union comparison with the independent-routing expectation.
+- Larger E can alter both router competition and the number of experts selected across a window.
+- Code-domain structure might differ from homogeneous TinyStories; that possibility is unknown, not a presumed locality benefit.
+- Record dead experts, load skew, per-layer union, persistence, and workload/domain for each trained rung.
+- If routing becomes local, treat it as a finding and remeasure cost; do not silently assume warm-cache savings.
+
+### Inference cost
+
+- Phase60 E4 establishes native dispatch correctness and one E32 end-to-end timing point.
+- It also counts expert bytes touched per token and prices those bytes against a streaming floor.
+- The sandbox pool fits cache, so the E4 time is not a direct large-pool DRAM measurement.
+- Phase64 measured a synthetic expert kernel and decomposed the gap to integrated engine throughput.
+- The integrated path includes selection, dispatch, dequantization, activation sparsity, and expert combination.
+- Therefore expert-count scaling should report component timing as well as total tok/s.
+- Hold core count and compiler/build configuration fixed across compared runs.
+- Use the same token slice, decode settings, warmup, and repetition policy.
+- Report pool size and bytes/token separately from quality and latency.
+- Budget brackets are useful priors, not replacements for an E128/E256 engine measurement.
+
+### Precision and training constraints
+
+- The native recipe keeps the backbone/control organs in fp32 and ternarizes the designated MLP/expert weights.
+- The earlier SSM projection quantization A/B failed the registered quality gate.
+- An expert-count comparison that also changes the precision map would mix two questions.
+- Phase64 training plan calls for dense pretraining/QAT followed by sparse MoE upcycling.
+- Magnitude matching at upcycle is required to preserve transition BPB.
+- The sparse-slot training rewrite is named as a prerequisite for the planned ladder.
+- Its presence in a plan does not establish that it or the full ladder completed.
+- Data provenance, license filtering, deduplication, and pinned validation are part of the evidence chain.
+- Training throughput measured at the MVE is needed to revise the cost envelope.
+- The training and licensed-data budget is a binding limitation before inference capacity is.
+
+## Suggested evidence record for the first pair
+
+This is a checklist for interpreting a future native comparison, not a newly registered threshold.
+
+- Identify the exact E32 and E128 configs, source revision, checkpoint hashes, and exporter format.
+- State the fixed top-k, D, expert hidden size, layer count, core count, and precision map.
+- Record seed count and any seed pairing.
+- Record optimizer, schedule, batch, sequence/context mix, tokens, steps, and total training compute.
+- State whether the comparison equalizes tokens, compute, or both, and explain any remaining difference.
+- Include the matched dense/control arm specified by the chosen comparison design.
+- Report per-domain held-out BPB with the same harness for all arms.
+- Record router dead-expert count, max/mean load, per-layer usage, persistence, and unions over stated window lengths.
+- Compare observed unions to the iid expectation without assuming that either outcome is desirable.
+- Measure native engine parity before interpreting speed or quality deltas.
+- Report end-to-end tok/s, per-component time, pool footprint, bytes/token, and core configuration.
+- Keep all design projections labeled as projections until the corresponding trained and engine runs exist.
+
+## First comparison to resolve
+
+The candidate question is whether a natively trained E128 model improves a predeclared held-out quality measure over E32 at fixed top-8, D256, h128, layer count, core count and training recipe, with the chosen matched controls and router/union telemetry. Use L8/code only with a matched L8/code E32 baseline; otherwise retain the historical configuration. The branch index leaves this choice open until asset binding and cost review. Report training tokens, steps, compute and seeds so extra capacity is not conflated with extra optimization. Measure end-to-end engine cost, pool bytes, dispatch cost and tok/s on the same reference protocol. E256 is a later rung, conditional on the E128 evidence and training/data budget.
+
+Still unknown from prior evidence: availability and identity of the E32 checkpoint in the current workspace; whether a trained native E128/E256 checkpoint exists outside the reviewed paths; seed variance at these rungs; scaling of router health and locality on code data; and whether additional experts improve useful quality enough to offset training cost. No 10B/100B inference or quality claim follows from this inventory.

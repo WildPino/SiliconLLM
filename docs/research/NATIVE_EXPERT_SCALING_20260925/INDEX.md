@@ -1,6 +1,12 @@
 # Native expert scaling: research control index
 
-14 October2026. **Goal ACTIVE/INCOMPLETE. CPU source-sensitive selector producer running.**
+14 October2026, handoff observation. **Goal INCOMPLETE; goal tool PAUSED.**
+Producer source-sensitive selector COMPLETE/terminal0; full numeric audit
+INTERRUPTED/NOT COMPLETED, with no adjudication or worker terminal present
+and no matching PID24844 at the handoff check. No exit code inferred.
+See the detailed [root handoff](../../../HANDOFF.md) and preserved
+[observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
+No new numerical runs were launched for the handoff.
 
 ## Goal and architecture
 
@@ -106,13 +112,20 @@ metric;balance with uncentered input moment. Verify exact derivative/directional
 finite differences/metric actions/spectra/dual factors before selection.
 Same64 cells/ranks64..512/counts512,2048,32/full outputs and true selected
 source correction. Metric is a declared surrogate,not optimal ranking.
-Producer live:[state](FFN_ACTIVE_ROUTER_STATE_20261014.md),6508/tool90931,
-CPU30min/OS8GiB/output4GiB. No metric result qualified yet. Select rank on
-FIT,DEV same choice;no promotion. After terminal0,inspect audit state before
-starting it;never duplicate an already completed worker/result.
+Producer terminal0:[state](FFN_ACTIVE_ROUTER_STATE_20261014.md),6508/tool90931,
+595.687s/OS1,933,545,472B,579 files/3,460,561,182B. Producer observes
+site0 FIT-selected512 then DEV mean.137284 FAIL;site12 no FIT selection;
+site23 FIT-selected64 then DEV mean.105607 FAIL. No metric result qualified
+until the full576-prediction audit and closure complete. Audit24844/tool23212
+last observed384 checks,then absent after interruption with no receipt.
+On research resumption inspect current files/processes first,then run ONE
+complete audit on the existing producer if still absent;no producer rerun.
+Select rank on FIT,DEV same choice;no promotion or rounded threshold waiver.
 Full current CPU-only bindings must retain explicit historical GPU drift.
-Then actual compiled CPU IDs AND masses/precision/loaded bytes/DRAM/cost
-screen before all24/bank expansion. Middle width2048 limits saving;no TPS claim.
+After closure/report freeze the [actual24-layer recurrent cost screen](NATIVE_24_LAYER_COST_SCREEN_NEXT_20261014.md)
+before more rank/grid/bank expansion. It is proposed/unexecuted and excludes
+generators/FFN/attention/head;not whole-model TPS. Actual compiled CPU IDs
+AND masses/precision/loaded bytes/DRAM remain open. Middle width2048 limits saving.
 [Sketch execution history](FFN_SKETCH_ROUTER_STATE_20261013.md) is closed.
 [Oracle execution history](FFN_REMAINDER_ORACLE_STATE_20261013.md) is closed;
 do not rerun it or old failed paths without a new variable.

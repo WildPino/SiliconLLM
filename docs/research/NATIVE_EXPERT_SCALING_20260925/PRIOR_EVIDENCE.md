@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**HANDOFF OBSERVATION14 October2026: scientific goal INCOMPLETE;goal tool PAUSED.**
+Source-active selector producer terminal0;full audit was interrupted after
+last observed384/576 predictions with no adjudication/terminal or matching
+process at handoff. Producer curve is preliminary,not audit-qualified:
+0 selects512 then DEV.137284 FAIL,12 no FIT rank,23 selects64 then DEV.105607 FAIL.
+Resume full audit on existing producer only after current file/process check;
+then closure/report and actual24-layer recurrent cost screen,not another grid.
+[Detailed handoff](../../../HANDOFF.md),[observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
+The ACTIVE/no-result statements below describe their historical moments.
+
 **AUTHORITATIVE 14 October2026: goal ACTIVE/INCOMPLETE.**
 
 [Source-linear PCA selector](FFN_SKETCH_ROUTER_RESULT_20261014.md) COMPLETE/

@@ -1,5 +1,13 @@
 # Pretrained-to-native conditional-capacity method
 
+Handoff observation14 October2026: scientific procedure INCOMPLETE;goal tool
+PAUSED. Latest source-active producer terminal0,full576-prediction audit
+interrupted/not completed and closure pending. No chosen candidate passes
+the preliminary FIT-to-DEV rule at all three sites. See [detailed handoff](../../../HANDOFF.md)
+for exact custody/resumption;then freeze the actual24-layer recurrent cost
+screen before more conditional grids. Older ACTIVE/prospective statements
+below retain their historical scope;they do not attest a current live worker.
+
 14 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It now produces a qualified known-corpus full-width native
 recurrent chatbot quality bridge and conversion components. The final CPU
