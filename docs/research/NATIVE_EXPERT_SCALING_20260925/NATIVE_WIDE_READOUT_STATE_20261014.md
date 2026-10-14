@@ -1,5 +1,39 @@
 # Exact wide-lane readout: execution state
 
+## Current V2 bounded run
+
+Goal ACTIVE / INCOMPLETE. Numerical source/protocol9d88176, resource wrapper
+and amendment7a185d9. Original preparation8452/create1791967567.8373785
+COMPLETE/exit0/884.031s/OS52,748,288 bytes; original binding/receipt preserved.
+Before numerical observations, wall cap increased1800=>2700s solely to
+include actual hashing cost and full paired-prefix/97-trajectory checks.
+[Resource amendment](NATIVE_WIDE_READOUT_RESOURCE_V2_20261014.md), same
+exactness/5% acceleration gates/CPU affinity0/OS2GiB/E32MiB/no GPU.
+V2 preparation24628/create1791968710.3305051 closed0/0.313s, no recompilation.
+
+V2 binding5,160,674 bytes/SHA256
+a1c433f85df05294fdde3577075e3575926e1bc03013916c4fc32cf8f4432d22.
+Owned worker23252/create1791968732.644298 started11:05:32 Europe/Rome,
+tool45835, LIVE at last PID/create/command check. Result/terminal absent;
+run directory not yet present (initial declared-input hashing). No controls,
+timings or candidate trace admission yet. Observe this handle; do not duplicate.
+
+Executed command from repository root:
+
+```powershell
+& 'C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe' -I -S -B -X utf8 benchmarks/native_expert_scaling/native_wide_readout_bounded_v2.py run --binding docs/research/NATIVE_EXPERT_SCALING_20260925/native_wide_readout_binding_v2_20261014.json --binding-sha a1c433f85df05294fdde3577075e3575926e1bc03013916c4fc32cf8f4432d22 --out docs/research/NATIVE_EXPERT_SCALING_20260925/native_wide_readout_result_v2_20261014.json
+```
+
+After terminal0, check existing outputs/processes, then V2 wrapper audit
+--report native_wide_readout_result_v2_20261014.json --out
+native_wide_readout_adjudication_v2_20261014.json under the research docs
+directory. After full audit PASS, V2 wrapper close --report/--audit/--out
+native_wide_readout_session_closure_v2_20261014.json. No fail-fast on speed.
+Preserve faults; exclusive outputs cannot be rerun in place. Report, index,
+method and prior evidence require final qualification before acceleration.
+
+## Historical original preparation launch
+
 14 October 2026. Goal ACTIVE / INCOMPLETE. Source/protocol freeze 9d88176.
 Preparation worker8452/create1791967567.837378, terminal tool88340, started
 10:46:07 Europe/Rome. Binding not yet present at the last observation; no

@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. Wide-readout preparation running;
+14 October 2026. **Goal ACTIVE / INCOMPLETE. Wide-readout producer running;
 no new numerical result yet.** Source-active and original whole24 workers closed.
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
@@ -70,11 +70,14 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 Check current processes/files first; do not rerun completed workers.
 The separate [exact readout accumulation candidate](NATIVE_WIDE_READOUT_PROTOCOL_20261014.md)
-is implemented/frozen at 9d88176. Preparation8452/create1791967567.837378/
-tool88340 verifies all97 trace inputs; binding/controls/timing not yet complete.
+is implemented/frozen at 9d88176. Original preparation COMPLETE/884.031s;
+resource wrapper7a185d9 and bindingV2 increase wall limit to45min BEFORE
+numeric observations, preserving full checks and every scientific gate.
+Worker23252/create1791968732.644298/tool45835 is live in initial hashing;
+controls/timing not yet complete.
 [Current execution state](NATIVE_WIDE_READOUT_STATE_20261014.md). Observe this
-worker, inspect preparation terminal/binding before the single producer,
-then full auditor/closure. Adversarial bounds, all24 exact state/output,
+worker, then inspect result/receipt before V2 full auditor/closure.
+Adversarial bounds, all24 exact state/output,
 paired costs and all97 bridge trajectories remain mandatory.
 Preserve original source/DLL and scales/BF semantics. Admit acceleration only
 with exactness and physical whole24 benefit; a faster microkernel is insufficient.
