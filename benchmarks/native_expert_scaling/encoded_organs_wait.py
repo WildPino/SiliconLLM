@@ -167,7 +167,8 @@ def pipeline(a,proc,start,guard):
         assert re.search(r"\bOMP_WAIT_POLICY\s*=\s*['\"]?"+policy+r"\b",effective)
         assert re.search(r"\bKMP_BLOCKTIME\s*=\s*['\"]?"+block+r"\b",effective)
         results.append(dict(profile=label,report=extent(result),summary=r['summary'],exact_cells=r['exact_cells'],stderr=extent(stderr),stdout=extent(stdout)))
-        print(json.dumps(dict(profile=label,closed=True,summary=r['summary'])),flush=True)
+        print(json.dumps(dict(profile=label,closed=True,whole_median_ms={mode:{fmt:values['whole_ns']['median']/1e6
+            for fmt,values in table.items()} for mode,table in r['summary'].items()})),flush=True)
     decisions={}
     for mode in ('resident','parameter_evicted'):
         decisions[mode]={}
