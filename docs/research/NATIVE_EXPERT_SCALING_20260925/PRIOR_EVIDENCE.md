@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE 14 October 2026: actual whole24 recurrence cost qualified.**
+[Cost result](NATIVE_24_COST_RESULT_20261014.md): resident median 26.97095 ms,
+parameter-evicted 26.14040 ms, every observed whole24 >=24.4765 ms. Recurrence
+alone exceeds the final 20 ms budget before generators/FFN/attention/head.
+No final model rate or measured DRAM claim. All24 distinct parameter payload
+310,855,680 bytes, fresh actual prefixes, sequential batch1 C calls.
+Full stored audit PASS: 192 site records / 3,072 calls / 6,291,456 independent
+integer readout words / 299,827,200 prefix BF words; all snapshots exact.
+Producer 227.344 s / OS 1.083 GB; audit 183.375 s / OS 229.745 MB; closure
+all194-file E family / 463,653,248 bytes / pins and command identities sealed.
+Initial nonexistent root-engine pin fault retained; corrected canonical pin/
+binding V2 before timing. No GPU/RESERVED/delegation. Next exact accumulation
+layout, paired physical benefit and complete bridge trace qualification,
+before active core/bytes reduction if needed. Goal ACTIVE/INCOMPLETE.
+
 **AUTHORITATIVE 14 October 2026, research resumed: goal ACTIVE / INCOMPLETE.**
 [Source-active routing](FFN_ACTIVE_ROUTER_RESULT_20261014.md) COMPLETE,
 full 576 predictions / literal IDs / derivative and balanced-metric witnesses
@@ -10,8 +25,8 @@ site 12 has no eligible rank; site 23 selects 64 then DEV .105607 fails.
 Rank 128/site 23 .100026053 fails .10; larger DEV-passing curves not promoted.
 579-file E family / 3.461 GB and all current declared pins/protected files sealed.
 Geometric improvement over PCA is qualified, physical selector/model/TPS not.
-Next actual 24-layer recurrent cost screen, frozen at 0adac14; preparation
-started, no timing result yet. This entry supersedes historical live statements.
+The subsequent qualified whole24 cost screen is recorded above. This entry
+supersedes earlier historical live statements about the source-active assay.
 
 **HANDOFF OBSERVATION14 October2026: scientific goal INCOMPLETE;goal tool PAUSED.**
 Source-active selector producer terminal0;full audit was interrupted after

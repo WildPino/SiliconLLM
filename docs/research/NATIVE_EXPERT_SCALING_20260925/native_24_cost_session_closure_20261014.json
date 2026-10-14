@@ -1,0 +1,56 @@
+{
+  "schema": "NATIVE_24_COST_CLOSURE_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_result_20261014.json",
+    "bytes": 219925,
+    "sha256": "5f5b97119f8b3152a9e79aab27b8b3a758888bdbca6fa673ab2da48a7ce3cb0d"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_adjudication_20261014.json",
+    "bytes": 1333,
+    "sha256": "46526b8f5634252930a3da9ac36caaf85ee5b6032ca57575549baf8aa132d983"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_binding_v2_20261014.json",
+    "bytes": 420372,
+    "sha256": "f2ac53bb82f1adf760316d7a56b2681c1e3cff4fb5868ddce57efa97a331c73e"
+  },
+  "commands": [
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_binding_v2_20261014.preparation_terminal.json",
+        "bytes": 864,
+        "sha256": "23b9a387d3bc847fb684f8ea5cde3f016b1e7ed4bd4ca1284437eb963b700205"
+      },
+      "pid": 23940,
+      "creation_time": 1791966127.4061067,
+      "matching_process_absent": true
+    },
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_result_20261014.terminal.json",
+        "bytes": 990,
+        "sha256": "01ed24bd1d8fc141988b36b33f554f355515ef2c4767dc724595b21ff18b7c2d"
+      },
+      "pid": 13964,
+      "creation_time": 1791966199.7384613,
+      "matching_process_absent": true
+    },
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_adjudication_20261014.terminal.json",
+        "bytes": 873,
+        "sha256": "ecd179d38d6f4a7084581223d22a729ca4086e086565c09f2c7032864dbf4fce"
+      },
+      "pid": 23840,
+      "creation_time": 1791966451.0765328,
+      "matching_process_absent": true
+    }
+  ],
+  "family_files": 194,
+  "family_bytes": 463653248,
+  "all_inputs_outputs_exact": true,
+  "decision": "RECURRENT_COST_SCREEN_QUALIFIED",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Supplied actual causal preconv rows, 24 sequential own-state native branches. Excludes contextual generators, FFN, attention, head, tokenizer and transport. No final model/TPS/useful-n/DRAM/general-family admission."
+}

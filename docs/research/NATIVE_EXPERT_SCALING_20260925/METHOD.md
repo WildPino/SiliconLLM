@@ -8,10 +8,16 @@ Selected rank 512/site 0 and rank 64/site 23 fail DEV; site 12 fails FIT.
 This is a reproducible local diagnostic, still using the full source affine
 reference after selection; it is not a physical cheap FFN replacement.
 Before extending this family, the [24-layer cost screen](NATIVE_24_COST_PROTOCOL_20261014.md)
-now has frozen implementation and stored auditor. It will measure supplied-row
+is now [complete and qualified](NATIVE_24_COST_RESULT_20261014.md). Supplied-row
 sequential recurrence from self-reconstructed prefixes, all 24 distinct
-parameters, resident/parameter-evicted modes, exact continuation output/state
-and explicit missing DRAM counters. Timing and qualification remain pending.
+parameter sets: resident median 26.97095 ms / parameter-evicted 26.14040 ms,
+minimum >24 ms, against the 20 ms budget before excluded operators.
+192 site records / 3,072 calls and saved output/state/readout intermediates
+pass full stored audit. Parameter payload 310,855,680 bytes; actual DRAM
+remains unresolved. This exposes a cost gate, not an impossibility bound.
+Next [exact accumulation candidate](NATIVE_READOUT_ACCUMULATION_NEXT_20261014.md)
+must demonstrate exactness and paired whole24 benefit; otherwise reduce active
+donor-derived core/bytes with own-model quality. No further FFN grid.
 The same-artifact final CPU quality/useful-50/general-family gates remain open.
 The handoff paragraph below is historical.
 

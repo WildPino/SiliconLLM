@@ -1,0 +1,24 @@
+{
+  "schema": "NATIVE_24_COST_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_result_20261014.json",
+    "bytes": 219925,
+    "sha256": "5f5b97119f8b3152a9e79aab27b8b3a758888bdbca6fa673ab2da48a7ce3cb0d"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_24_cost_binding_v2_20261014.json",
+    "bytes": 420372,
+    "sha256": "f2ac53bb82f1adf760316d7a56b2681c1e3cff4fb5868ddce57efa97a331c73e"
+  },
+  "checked_site_records": 192,
+  "checked_timed_calls": 3072,
+  "checked_integer_words": 6291456,
+  "checked_prefix_BF_words": 299827200,
+  "all_stored_arrays_exact": true,
+  "independent_integer_quantization_scaling_BF_exact": true,
+  "timing_accounting_exact": true,
+  "decision": "STORED_CONTINUATIONS_AND_ACCOUNTING_PASS",
+  "seconds": 183.14100000000326,
+  "OS_peak": 229744640,
+  "scope": "Qualified recurrence DLL shared; independent exact readout arithmetic and stored timing accounting. No independent wall-clock authentication or DRAM measurement. Supplied actual causal preconv rows, 24 sequential own-state native branches. Excludes contextual generators, FFN, attention, head, tokenizer and transport. No final model/TPS/useful-n/DRAM/general-family admission."
+}
