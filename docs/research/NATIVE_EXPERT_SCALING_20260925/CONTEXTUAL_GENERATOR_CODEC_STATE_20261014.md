@@ -1,5 +1,10 @@
 # Source-generator codec pipeline: launch observation
 
+Terminal update: worker33444/session31208 exit0,201.640s/OS3,349,409,792B.
+Full code/coefficient/F64/native audit and closure PASS. [Result](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md)
+records source approximation and passive cost failures; no live worker remains.
+The following launch observation is historical.
+
 14 October2026. Code/protocol freeze3d242f6e5a1c73be22a2ae26ea1ddef1b5b0f851.
 Worker33444/create1791994160.7663407, terminal session31208, Python312
 -I -S -B -X utf8 contextual_generator_codec.py --freeze above. Exact WMI

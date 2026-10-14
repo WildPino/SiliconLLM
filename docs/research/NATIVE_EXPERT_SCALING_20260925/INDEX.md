@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. Source-generator codec CPU pipeline launched.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. Codec pipeline CLOSED, passive median budget FAIL.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,16 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Full codec result](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md): worker33444
+exit0/201.640s/OS3.349GB, full631570432-coefficient/F64/native audit and seal
+PASS. I8/I4 physical packets316401984/167760896B; generator medians28.95015/
+22.80625ms resident,30.90460/23.84020ms evicted. I8/I4 source-field worst
+1.188455%/15.283569%, both historical1% screens fail; no whole-quality verdict.
+Next [same-packet runtime waiting intervention](ENCODED_ORGANS_WAIT_PROTOCOL_20261014.md)
+prices actual generator+readout groups before own-history GPU work. Same math,
+three physical workers, fresh P/A/P processes, exact parent output checks.
+The launch observation below is historical; worker33444 is closed.
 
 Codec pipeline launched with frozen3d242f6e5a1c73be22a2ae26ea1ddef1b5b0f851,
 worker33444/create1791994160.7663407, terminal session31208. WMI verified the

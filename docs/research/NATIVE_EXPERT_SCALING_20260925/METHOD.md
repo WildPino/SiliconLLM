@@ -1,6 +1,12 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Source-only codec screen](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md) CLOSED,
+full audit PASS; I8/I4 generator medians28.95015/22.80625ms resident and
+30.90460/23.84020ms evicted, before other organs. Source-field worst1.188455%/
+15.283569% misses historical1%; this is not whole-model quality. Next price
+one runtime-wait intervention on identical encoded generator+readout operands,
+P/A/P controls and actual three-worker initialization. No precision/gate change.
 Latest [physical-worker screen](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md)
 closed exit0/full exact parity and accounting/384 measured groups. Interleaved
 23 BF generators+24 I16 readouts on supplied own-history h/r/a: median3workers

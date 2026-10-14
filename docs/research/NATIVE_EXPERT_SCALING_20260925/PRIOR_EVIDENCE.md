@@ -1,5 +1,12 @@
 # Native expert-count scaling: prior evidence
 
+**Codec closure14 October2026:** [result](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md)
+exit0/201.640s/OS3.349GB, full decoded-weight math and source-only export audit.
+I8/I4 save coefficient storage but passive generator-only medians exceed20ms;
+worst local original-source fields1.188455%/15.283569% exceed historical1%.
+No original-source or own-model whole-quality promotion. Source codec outputs
+are immutable references for a new explicitly bounded P/A/P runtime comparison.
+
 **Historical inventory14 October2026:** [catalog](EXPERIMENT_CATALOG_20261014.md)
 links all609 current result-report files:468 METH files/464 distinct leading
 filename IDs (combined-range reports are not individual run counts),141 other
