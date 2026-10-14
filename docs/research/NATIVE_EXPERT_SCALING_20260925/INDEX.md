@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. FIT3 launched, session63952.**
+14 October 2026. **Goal INCOMPLETE / pause requested. FIT3 CPU audit launched, session80623.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,14 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+FIT3 numerical histories complete, original worker/holder1 AFTER_HASH deadline.
+Preliminary FITKL15.61599/disagreement99.86659% FAIL; full stored audit still
+required.403 files1.945GB/411 before-after witnesses retained. [Explicit CPU
+recovery](FIXED_DEPTH_FIT3_POSTHASH_RECOVERY_20261014.md) preserves missing prefix
+cache hash values as null/attested equality, not invented digests. No GPU rerun.
+[Future V2](FIXED_DEPTH_IO_PHASES_V2_20261014.md) separates IO/GPU budgets,
+releases GPU before posthash, journals actual prefix metadata; no math/gate change.
 
 [Source24 depth control](FIXED_DEPTH_CONTROL_RESULT_20261014.md) full stored
 audit/recovery closure PASS:56 sequences/291888 native steps/597786624 BF
@@ -121,9 +129,11 @@ mechanical probe must not be relaunched. See [depth state](FIXED_DEPTH_STATE_202
 Original FIT24 session64905 is terminal1; no GPU duplicate launch.
 CPU recovery session39991 terminal0, explicit recovered control audit/closure
 qualified; do not rerun it. Preserve original failed receipts/cache provenance.
-Frozen FIT3 worker launched, session63952. Pause during long wait for user wakeup;
-observe actual holder/owned receipt/terminal, no duplicate launch.
-Full audit/closure of FIT3 before6/12; never skip audits on qualityFAIL. Bounded
+FIT3 session63952 terminal1 after complete data; no duplicate GPU launch.
+Observe FIT3 CPU recovery/full audit/closure session80623/owned receipt on
+user wakeup; pause during bounded2h wait. Never skip audits on qualityFAIL.
+Before6/12 bind frozen V2
+worker so cold IO is budgeted separately from GPU occupation. Bounded
 own-history worker/full auditor and fresh actual GPU/runtime/source binding
 are implemented/frozen. Use qualified activation backend,
 source first/last kept, new downstream hidden, original site KV indexes,

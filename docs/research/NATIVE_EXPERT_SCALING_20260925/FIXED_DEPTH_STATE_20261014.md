@@ -1,5 +1,27 @@
 # Source depth intervention: exact point of continuation
 
+FIT3 CPU recovery launched with freezee866404, actual session80623. Owned
+process identity in
+fixed_depth_fit3_recovery_pipeline_20261014.owned_process.json. Goal pause
+while bounded2h CPU/8GiB/6thread process runs, user wakes it. No further
+worker or GPU launch. On wake verify terminal0, full stored audit and explicit
+recovery closure before classifying the preliminary FIT3 failure. Future V2
+worker is code-frozen but its extension binding/first run are still pending.
+Latest14 October2026: FIT3 inference completed24 histories/16 prefixes, but
+original worker3604/holder exit1 at AFTER_HASH2610.063s, not a missing history.
+First prefix1515.266s/last history1808.110s: cold hash cost dominated.403 files/
+1945370171bytes and identical411 before/after source witnesses retained.
+Preliminary FITKL15.61598524/disagreement99.86659% fails unchanged gates.
+Full [CPU recovered audit](FIXED_DEPTH_FIT3_POSTHASH_RECOVERY_20261014.md) prepared,
+not yet qualified. Missing reduced prefix KV hash values remain explicitly null;
+equality/length/cardinality attested from executed/logged checks, no invented
+hashes. No GPU rerun or DEPTH selection from this failure. V2 future worker
+separates CPU total2h/GPU45min, releases GPU before posthash and journals actual
+prefix metadata; model/math/gates unchanged. [V2](FIXED_DEPTH_IO_PHASES_V2_20261014.md)
+is prepared, not yet bound/run. On CPU audit launch pause for user wakeup.
+
+Historical FIT3 launch follows.
+
 Current14 October2026: FIT3 launched with frozen source sites0/12/23, session
 63952. Check live holder/owned receipt/process creation time on user wakeup;
 do not relaunch. Budget45min/GPUallocated6GiB/reserved10GiB/OS8GiB/CPU6,

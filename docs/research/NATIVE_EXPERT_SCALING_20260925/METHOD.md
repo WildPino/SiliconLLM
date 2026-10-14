@@ -1,6 +1,15 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+FIT3 complete data preliminarily fail KL/disagreement, but original AFTER_HASH
+timeout requires explicit full stored recovery before qualification. Missing
+reduced prefix KV digests remain null/attested equality, not parent values.
+[CPU protocol](FIXED_DEPTH_FIT3_POSTHASH_RECOVERY_20261014.md). The repeated
+posthash failure is an IO accounting defect: almost25min before first prefix,
+~5min numerical work. [V2](FIXED_DEPTH_IO_PHASES_V2_20261014.md) preserves all
+source/depth/precision/quality criteria while separating CPU/GPU wall caps,
+releasing model GPU ownership before hash checks and immediately saving
+actual prefix-cache metadata. V2 implementation prepared, not yet validated/run.
 The [stored24 control recovery](FIXED_DEPTH_CONTROL_RESULT_20261014.md) has
 complete numerical audit/explicit closure:56 sequences/291888 native positions/
 597786624 BF/readout words/state exact, independent source/math/quality checks

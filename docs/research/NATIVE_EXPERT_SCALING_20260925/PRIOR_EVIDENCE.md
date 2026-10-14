@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**Observed14 October2026: FIT3 data complete, original AFTER_HASH failure.**
+Worker3604/create1791985583.7748358/holder1,2610.063s/OS4034891776/GPUallocated
+3154595840/reserved3217031168. All24 histories/16 prefixes completed;
+first prefix1515.266s/last history1808.110s, ~293s numerical interval, cold IO
+dominates total.403 files1945370171bytes,411 before/after source witnesses exact.
+Preliminary KL15.61598524/disagreement99.86659% qualityFAIL, full stored audit
+pending. Recovery explicitly leaves lost prefix-cache digest values null,
+retains logged source equality/length/cardinality checks and complete raw
+native/state/score validation. [Protocol](FIXED_DEPTH_FIT3_POSTHASH_RECOVERY_20261014.md).
+No GPU rerun/gate change/DEV/RESERVED. Future V2 separates CPU2h/GPU45min,
+releases GPU before posthash and journals actual control metadata; no neural
+change, not yet bound/run. On long-run launch pause, user wakes it.
+
 **AUTHORITATIVE14 October2026: stored24 source control recovery QUALIFIED.**
 [Result](FIXED_DEPTH_CONTROL_RESULT_20261014.md) full CPU stored audit/closure
 PASS.56 sequences/1344 sites/291888 positions/597786624 BF and integer words,

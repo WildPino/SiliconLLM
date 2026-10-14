@@ -1,0 +1,153 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights:  21%|██        | 85/411 [00:00<00:00, 842.98it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 2432.85it/s]
+{"stage": "prefix_controls", "depth": 3, "seconds": 1515.265999999996, "operation": "prefix", "id": "arithmetic_add", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1517.0469999999987, "operation": "prefix", "id": "arithmetic_sub", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1518.890999999996, "operation": "prefix", "id": "arithmetic_mul", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1521.015999999996, "operation": "prefix", "id": "arithmetic_div", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1523.1719999999987, "operation": "prefix", "id": "extract_color", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1525.453999999998, "operation": "prefix", "id": "extract_city", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1527.7189999999973, "operation": "prefix", "id": "extract_name", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1530.0, "operation": "prefix", "id": "extract_animal", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1531.4069999999992, "operation": "prefix", "id": "follow_literal", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1533.2969999999987, "operation": "prefix", "id": "follow_upper", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1535.125, "operation": "prefix", "id": "follow_lower", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1537.0629999999946, "operation": "prefix", "id": "follow_reverse", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1539.5, "operation": "prefix", "id": "history_pet", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1542.25, "operation": "prefix", "id": "history_color", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1544.5, "operation": "prefix", "id": "history_city", "exact": true}
+{"stage": "prefix_controls", "depth": 3, "seconds": 1547.203999999998, "operation": "prefix", "id": "history_inventory", "exact": true}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1547.390999999996, "operation": "history_progress", "id": "broad_fit_apigen_80k_023", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1549.625, "operation": "history_progress", "id": "broad_fit_apigen_80k_023", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1551.8439999999973, "operation": "history_progress", "id": "broad_fit_apigen_80k_023", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1553.875, "operation": "history_progress", "id": "broad_fit_apigen_80k_023", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1557.1719999999987, "operation": "history_complete", "id": "broad_fit_apigen_80k_023", "KL": 18.085348373603093, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1557.4219999999987, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1559.5939999999973, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1561.6879999999946, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1563.9689999999973, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1566.0, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 512}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1568.2819999999992, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 640}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1570.7819999999992, "operation": "history_progress", "id": "broad_fit_apigen_80k_002", "position": 768}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1571.828999999998, "operation": "history_complete", "id": "broad_fit_apigen_80k_002", "KL": 17.971296908270155, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1572.015999999996, "operation": "history_progress", "id": "broad_fit_everyday_conversations_002", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1574.4689999999973, "operation": "history_progress", "id": "broad_fit_everyday_conversations_002", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1576.9850000000006, "operation": "history_progress", "id": "broad_fit_everyday_conversations_002", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1581.078999999998, "operation": "history_complete", "id": "broad_fit_everyday_conversations_002", "KL": 15.607647744382207, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1581.2969999999987, "operation": "history_progress", "id": "broad_fit_everyday_conversations_010", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1583.515999999996, "operation": "history_progress", "id": "broad_fit_everyday_conversations_010", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1585.890999999996, "operation": "history_progress", "id": "broad_fit_everyday_conversations_010", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1589.9069999999992, "operation": "history_complete", "id": "broad_fit_everyday_conversations_010", "KL": 15.247074316254436, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1590.0939999999973, "operation": "history_progress", "id": "broad_fit_explore_instruct_rewriting_008", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1592.1879999999946, "operation": "history_complete", "id": "broad_fit_explore_instruct_rewriting_008", "KL": 14.538295191254605, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1592.375, "operation": "history_progress", "id": "broad_fit_explore_instruct_rewriting_009", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1594.3129999999946, "operation": "history_complete", "id": "broad_fit_explore_instruct_rewriting_009", "KL": 14.885417532087882, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1594.5, "operation": "history_progress", "id": "broad_fit_metamathqa_50k_015", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1596.953999999998, "operation": "history_progress", "id": "broad_fit_metamathqa_50k_015", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1600.3129999999946, "operation": "history_complete", "id": "broad_fit_metamathqa_50k_015", "KL": 15.35709829874174, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1600.5, "operation": "history_progress", "id": "broad_fit_metamathqa_50k_023", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1603.0939999999973, "operation": "history_progress", "id": "broad_fit_metamathqa_50k_023", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1605.4689999999973, "operation": "history_progress", "id": "broad_fit_metamathqa_50k_023", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1609.5939999999973, "operation": "history_complete", "id": "broad_fit_metamathqa_50k_023", "KL": 16.937962962668472, "disagreement": 0.99609375}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1609.7969999999987, "operation": "history_progress", "id": "broad_fit_numina_cot_100k_015", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1612.2819999999992, "operation": "history_progress", "id": "broad_fit_numina_cot_100k_015", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1614.7819999999992, "operation": "history_progress", "id": "broad_fit_numina_cot_100k_015", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1618.5319999999992, "operation": "history_complete", "id": "broad_fit_numina_cot_100k_015", "KL": 16.85510739639703, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1618.7350000000006, "operation": "history_progress", "id": "broad_fit_numina_cot_100k_016", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1621.4219999999987, "operation": "history_progress", "id": "broad_fit_numina_cot_100k_016", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1623.7189999999973, "operation": "history_progress", "id": "broad_fit_numina_cot_100k_016", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1628.8439999999973, "operation": "history_complete", "id": "broad_fit_numina_cot_100k_016", "KL": 16.038538996945707, "disagreement": 0.99609375}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1629.078999999998, "operation": "history_progress", "id": "broad_fit_openhermes_100k_004", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1631.7819999999992, "operation": "history_progress", "id": "broad_fit_openhermes_100k_004", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1634.1100000000006, "operation": "history_progress", "id": "broad_fit_openhermes_100k_004", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1637.9219999999987, "operation": "history_complete", "id": "broad_fit_openhermes_100k_004", "KL": 15.417058315459272, "disagreement": 0.99609375}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1638.125, "operation": "history_progress", "id": "broad_fit_openhermes_100k_028", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1640.7189999999973, "operation": "history_progress", "id": "broad_fit_openhermes_100k_028", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1643.4069999999992, "operation": "history_progress", "id": "broad_fit_openhermes_100k_028", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1645.9689999999973, "operation": "history_progress", "id": "broad_fit_openhermes_100k_028", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1649.6719999999987, "operation": "history_complete", "id": "broad_fit_openhermes_100k_028", "KL": 16.84908919511453, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1649.875, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_012", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1652.328999999998, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_012", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1655.015999999996, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_012", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1660.4379999999946, "operation": "history_complete", "id": "broad_fit_self_oss_instruct_012", "KL": 15.883110498498114, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1660.625, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_006", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1662.7189999999973, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_006", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1665.25, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_006", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1667.828999999998, "operation": "history_progress", "id": "broad_fit_self_oss_instruct_006", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1671.515999999996, "operation": "history_complete", "id": "broad_fit_self_oss_instruct_006", "KL": 15.517018506879548, "disagreement": 0.99609375}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1671.7189999999973, "operation": "history_progress", "id": "broad_fit_smol_constraints_005", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1674.1719999999987, "operation": "history_progress", "id": "broad_fit_smol_constraints_005", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1678.2189999999973, "operation": "history_complete", "id": "broad_fit_smol_constraints_005", "KL": 15.645274265695743, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1678.4069999999992, "operation": "history_progress", "id": "broad_fit_smol_constraints_021", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1680.9069999999992, "operation": "history_progress", "id": "broad_fit_smol_constraints_021", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1683.4069999999992, "operation": "history_progress", "id": "broad_fit_smol_constraints_021", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1686.25, "operation": "history_complete", "id": "broad_fit_smol_constraints_021", "KL": 15.245042139839127, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1686.4379999999946, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1688.875, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1690.9379999999946, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1693.140999999996, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1695.375, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 512}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1697.5939999999973, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 640}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1699.9069999999992, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 768}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1702.25, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 896}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1704.6569999999992, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_000", "position": 1024}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1707.5939999999973, "operation": "history_complete", "id": "broad_fit_smol_magpie_ultra_000", "KL": 15.702093523373321, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1707.7819999999992, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1710.1879999999946, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1712.4850000000006, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1714.578999999998, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1716.890999999996, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 512}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1719.0469999999987, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 640}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1721.3129999999946, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 768}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1723.5319999999992, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 896}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1725.625, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 1024}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1728.0629999999946, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 1152}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1730.2969999999987, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 1280}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1732.6879999999946, "operation": "history_progress", "id": "broad_fit_smol_magpie_ultra_022", "position": 1408}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1737.4379999999946, "operation": "history_complete", "id": "broad_fit_smol_magpie_ultra_022", "KL": 14.352089548947776, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1737.640999999996, "operation": "history_progress", "id": "broad_fit_smol_rewrite_004", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1740.0629999999946, "operation": "history_progress", "id": "broad_fit_smol_rewrite_004", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1743.5629999999946, "operation": "history_complete", "id": "broad_fit_smol_rewrite_004", "KL": 13.718367148292193, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1743.765999999996, "operation": "history_progress", "id": "broad_fit_smol_rewrite_015", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1746.0629999999946, "operation": "history_progress", "id": "broad_fit_smol_rewrite_015", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1748.015999999996, "operation": "history_progress", "id": "broad_fit_smol_rewrite_015", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1750.578999999998, "operation": "history_progress", "id": "broad_fit_smol_rewrite_015", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1752.9379999999946, "operation": "history_progress", "id": "broad_fit_smol_rewrite_015", "position": 512}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1756.4689999999973, "operation": "history_complete", "id": "broad_fit_smol_rewrite_015", "KL": 14.4790419782906, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1756.6719999999987, "operation": "history_progress", "id": "broad_fit_smol_summarize_024", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1759.015999999996, "operation": "history_progress", "id": "broad_fit_smol_summarize_024", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1761.390999999996, "operation": "history_progress", "id": "broad_fit_smol_summarize_024", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1762.7189999999973, "operation": "history_complete", "id": "broad_fit_smol_summarize_024", "KL": 13.167601371426894, "disagreement": 0.9836065573770492}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1762.9379999999946, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1765.0319999999992, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1767.4219999999987, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1769.5319999999992, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1771.578999999998, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 512}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1773.6879999999946, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 640}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1775.9850000000006, "operation": "history_progress", "id": "broad_fit_smol_summarize_003", "position": 768}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1777.953999999998, "operation": "history_complete", "id": "broad_fit_smol_summarize_003", "KL": 16.420029067165903, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1778.1879999999946, "operation": "history_progress", "id": "broad_fit_systemchats_30k_024", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1780.765999999996, "operation": "history_progress", "id": "broad_fit_systemchats_30k_024", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1783.1569999999992, "operation": "history_progress", "id": "broad_fit_systemchats_30k_024", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1787.125, "operation": "history_complete", "id": "broad_fit_systemchats_30k_024", "KL": 15.513317386393997, "disagreement": 1.0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1787.3600000000006, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 0}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1789.8129999999946, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 128}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1791.9689999999973, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 256}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1794.328999999998, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 384}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1796.4379999999946, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 512}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1798.5629999999946, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 640}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1800.8600000000006, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 768}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1803.2819999999992, "operation": "history_progress", "id": "broad_fit_systemchats_30k_010", "position": 896}
+{"stage": "FIT_histories", "depth": 3, "seconds": 1808.1100000000006, "operation": "history_complete", "id": "broad_fit_systemchats_30k_010", "KL": 15.35072509725224, "disagreement": 1.0}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\fixed_depth_quality.py", line 366, in <module>
+    if a.mode in ('worker','launch'):{'worker':worker,'launch':launch}[a.mode](a)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\fixed_depth_quality.py", line 285, in worker
+    write(a.directory/'parameter_after.json',after);check_inputs(b,guard)
+                                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\full_width_native_chat.py", line 37, in check_inputs
+    guard()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\fixed_depth_quality.py", line 178, in guard
+    assert time.monotonic()-start<=LIMITS['seconds']-LIMITS['reserve_seconds'],'worker deadline'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: worker deadline
