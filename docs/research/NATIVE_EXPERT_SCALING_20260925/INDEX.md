@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE. FIT6 audit and custody closure complete; quality FAIL.**
+14 October 2026. **Goal INCOMPLETE / pause requested. FIT6 closed; frozen FIT12 launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,14 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[FIT12 launch](FIXED_DEPTH_FIT12_STATE_20261014.md): holder34112/session11327,
+exact PID/create/argv in [receipt](fixed_depth_fit12_launch_20261014.json).
+Unexecuted frozen twelve-site arm under unchanged V2 binding, original BF
+operators and gates. Total7200s/GPU2700s/OS8GiB/allocated6GiB/reserved10GiB/
+family32GiB/CPU6. Pause on long wait, user resumes; inspect exact handle and
+receipts, then complete full stored audit even if quality fails. No launch
+outcome, FIT selection or evaluation is claimed.
 
 [FIT6 complete result](FIXED_DEPTH_FIT6_RESULT_20261014.md): worker/holder/
 auditor/closer all exit0. Full56 sequences/72,972 native positions/149,446,656
