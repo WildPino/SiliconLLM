@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
+14 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It now produces a qualified known-corpus full-width native
 recurrent chatbot quality bridge and conversion components. The final CPU
 engine,conditional capacity and general converter remain research.
@@ -49,14 +49,21 @@ evaluates ALL source functions first;it is not a cheap router,optimal subset
 or deployable candidate. V1 timed out1800.141s;full block V2 passed509.563s/
 OS1.549GB,all cases retained. Source/hash/720-file family/receipts sealed,
 as recorded in FFN_REMAINDER_ORACLE_STATE_20261013.md.
-Next FIT-only uncentered input-delta second moment and projected source U/G
-importance router from FFN_SOURCE_SKETCH_ROUTER_NEXT_20261013.md;true selected
-functions/full outputs retained. Producer/auditor/closure now frozen5be0cda/
-binding592a77d,CPU producer live as recorded in FFN_SKETCH_ROUTER_STATE_20261013.md.
-Projected-only ID function is separated from AFTER-ID full source reference;
-no physical speed claim. First preparation revision typo corrected before
-any numerical fit,original preserved. Routing result still unqualified;local
-rank selection,actual CPU cost/DRAM/precision and own-model quality required.
+FIT-only uncentered moment/source-linear PCA [router](FFN_SKETCH_ROUTER_RESULT_20261014.md)
+now COMPLETE/full576-prediction numeric auditPASS/no admitted selected choice.
+At0/12 all tested<=512 fail FIT;at23 FIT selects64 and DEV mean.110001 fails.
+Larger ranks at23 not promoted through DEV. Source projection/moment/eigen/
+literal IDs/case and domain metrics all verified. Original revision typo and
+accidental rejected duplicate preserved;successful audit receipt unchanged.
+Current full inventory identifies four NVIDIA component changes ONLY;CPU
+modules execute no GPU framework/tool. Explicit environment closure retains
+old/new hashes and all CPU data/numerical pins exact,without claiming current
+GPU continuity. Fresh GPU binding is mandatory for future GPU source runs.
+Next source-sensitive FIT remainder-gradient metric/balanced input factors
+from FFN_SOURCE_ACTIVE_METRIC_NEXT_20261014.md. It is a surrogate objective,
+unimplemented/unproven;same rank/count grid and actual selected functions/
+full outputs. Local FIT selection/DEV same choice/complete audit/physical
+cost,precision,DRAM and own-model quality remain required.
 Physical
 ternary banks/structured routing/DRAM/whole-model composition remain open.
 

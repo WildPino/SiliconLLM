@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-13 October2026. **Goal ACTIVE/INCOMPLETE. CPU sketch selector producer running.**
+14 October2026. **Goal ACTIVE/INCOMPLETE. All owned numerical commands closed.**
 
 ## Goal and architecture
 
@@ -12,6 +12,19 @@ families/scales and conversion master/gradient costs remain required.
 [Method](METHOD.md),[prior evidence](PRIOR_EVIDENCE.md),[older index snapshot](INDEX_THROUGH_FFN_AFFINE_PILOT_20261013.md).
 
 ## Latest decisive evidence
+
+[Source-linear PCA selector](FFN_SKETCH_ROUTER_RESULT_20261014.md)
+COMPLETE/full576-prediction numeric auditPASS/NO ADMITTED selected candidate.
+Ranks64..512 fail FIT at0/12;512 DEV means.169438/.224801 with counts512/2048.
+At23,FIT selects64 then DEV mean.110001 fails;256/512 not promoted using DEV.
+All literal IDs/source/moment/eigen/metrics checked;max prediction2.655e-8.
+Original successful audit found already complete;accidental duplicate rejected
+before calculations and preserved. Current8044-pin inventory differs ONLY
+at four NVIDIA components not used by these CPU algorithms. [Explicit closure](ffn_sketch_router_session_closure_environment_20261014.json)
+retains failed original closure/old+new GPU hashes,all CPU numerical/artifact
+pins exact/579 E files/protected hashes. No unchanged-current-GPU claim.
+Next change input feature objective to source remainder derivatives,not rank
+promotion or general compression impossibility. No physical/model/TPS proof.
 
 [Per-token remainder oracle](FFN_REMAINDER_ORACLE_RESULT_20261013.md)
 COMPLETE/full720-prediction auditPASS/all literal IDs exact. Conditional
@@ -86,19 +99,17 @@ Flat64-cell routing is not structured/scalable routing or useful-n evidence.
 
 ## Exact next action
 
-Producer/auditor/closure frozen5be0cda/binding592a77d for
-[source-linear sketch router](FFN_SOURCE_SKETCH_ROUTER_NEXT_20261013.md).
-Same64 FIT cells/full2048 outputs;active neuron counts512/2048/32 determined
-ONLY from qualified FIT oracle curves. FIT input delta uncentered second
-moment bases64/128/256/512;mean/covariance/eigen identities saved/audited.
-Projected original U/G estimate importance to select IDs;true selected rows
-compute exact remainder. No full original U/G pass in the proposed ID path.
-Select sketch rank on FIT,then check same choice on DEV. Producer live:
-[state](FFN_SKETCH_ROUTER_STATE_20261013.md),35620/tool64726,CPU30min/OS8GiB/
-3GiB. Incorrect preliminary revision metadata preserved/corrected before
-any fit. No router result qualified or compiled candidate exists yet. Full audits/hash custody,then physical
-CPU IDs AND masses/precision/loaded bytes/DRAM/cost screen before all24/bank
-expansion. Middle width2048 offers modest coefficient saving;do not infer TPS.
+Implement/freeze [source-sensitive input metric](FFN_SOURCE_ACTIVE_METRIC_NEXT_20261014.md)
+and full producer/auditor/binding. FIT source remainder gradients define PSD
+metric;balance with uncentered input moment. Verify exact derivative/directional
+finite differences/metric actions/spectra/dual factors before selection.
+Same64 cells/ranks64..512/counts512,2048,32/full outputs and true selected
+source correction. Metric is a declared surrogate,not optimal ranking.
+No metric fit/observation yet. Select rank on FIT,DEV same choice;no promotion.
+Full current CPU-only bindings must retain explicit historical GPU drift.
+Then actual compiled CPU IDs AND masses/precision/loaded bytes/DRAM/cost
+screen before all24/bank expansion. Middle width2048 limits saving;no TPS claim.
+[Sketch execution history](FFN_SKETCH_ROUTER_STATE_20261013.md) is closed.
 [Oracle execution history](FFN_REMAINDER_ORACLE_STATE_20261013.md) is closed;
 do not rerun it or old failed paths without a new variable.
 [Subset execution history](FFN_EXACT_SUBSET_STATE_20261013.md) is closed;

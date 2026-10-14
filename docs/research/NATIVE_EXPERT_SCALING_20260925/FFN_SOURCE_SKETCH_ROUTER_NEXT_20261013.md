@@ -1,7 +1,8 @@
 # Next conditional transfer test: source-linear sketch of neuron importance
 
-13 October2026. PROPOSED/NOT EXECUTED. Implement only after the complete
-per-token oracle audit and custody closure. No cheap routing evidence yet.
+14 October2026. HISTORICAL PROPOSAL,NOW EXECUTED/fully audited.
+[Qualified result/current next action](FFN_SKETCH_ROUTER_RESULT_20261014.md)
+supersedes proposed statuses below. No selected candidate admitted.
 
 The provisional oracle curves motivate a precise question:can a small source
 input sketch predict useful selected neurons without first evaluating all

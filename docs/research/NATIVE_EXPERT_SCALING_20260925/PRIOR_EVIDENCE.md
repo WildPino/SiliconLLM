@@ -1,6 +1,18 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE.**
+**AUTHORITATIVE 14 October2026: goal ACTIVE/INCOMPLETE.**
+
+[Source-linear PCA selector](FFN_SKETCH_ROUTER_RESULT_20261014.md) COMPLETE/
+full576 prediction/ID/moment/eigen/source numeric auditPASS/NO selected candidate.
+At0/12 all<=512 FITfail;512 DEV.169438/.224801 with512/2048 neurons. At23
+FIT selects64 then DEV.110001 fails.10;256/512 not promoted through DEV.
+This rejects this input-energy PCA rule,not all low-dimensional/nonlinear
+selectors. Current8044-pin check differs only at four nonexecuted NVIDIA
+components;explicit closure retains old/new hashes,all CPU numerical/data
+pins exact and579-file family. Successful audit/failed original closure/
+rejected duplicate receipts preserved. No unchanged-current-GPU or model/
+physical/TPS admission. Next FIT source remainder-gradient metric and balanced
+input factors;no result yet. All owned numerical commands closed.
 
 [Per-token importance oracle](FFN_REMAINDER_ORACLE_RESULT_20261013.md)
 COMPLETE/full720-prediction/all literal neuron ID auditPASS. At0/512 DEV
