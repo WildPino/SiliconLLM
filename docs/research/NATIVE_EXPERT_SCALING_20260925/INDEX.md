@@ -16,6 +16,18 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
+[Exact finite-BF activation compilation](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md)
+COMPLETE/full exhaustive, native trajectory, integer and cost audit/closure PASS.
+Paired whole24 original=>lookup25.96025=>16.81725ms resident and26.23275=>
+17.02385ms parameter+table-evicted,35.2192%/35.1046% gains; all strata pass.
+All65280 finite values/256 fallback codes/FP guards and both97-trajectory/
+1.188B output-word/state replays exact. Original I16 readout preserved.
+3 shared tables786432bytes, verified128 table flush groups. V2 E15 files/
+1,960,331 bytes and declared pins/receipts closed; initial invalid-ABI guard
+test fault retained. [Qualified loader](../../../benchmarks/native_expert_scaling/bf_activation_backend.py).
+ONLY~3ms median budget remains BEFORE all contextual generators/FFN/attention/
+head/transport; this is not useful model50TPS or semantic expert-n proof.
+
 [Exact wide-lane readout](NATIVE_WIDE_READOUT_RESULT_20261014.md) COMPLETE,
 full stored audit/closure PASS, acceleration REJECTED. Original=>wide paired
 medians26.15890=>25.78135ms resident,26.18470=>25.69570ms parameter-evicted:
@@ -78,16 +90,16 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 ## Exact next action
 
 Check current processes/files first; do not rerun completed workers.
-Implement/freeze [finite-BF activation tables](NATIVE_BF_ACTIVATION_LUT_NEXT_20261014.md):
-conv SiLU BF, gate SiLU F64 and post-round delta softplus BF. This targets
-actual transcendental calls after existing BF boundaries, not a further
-readout layout grid. Exhaustively verify all65280 finite input words and
-FP environment controls, then paired whole24 and every97 native trajectory.
-Keep the original accepted readout, qualified source/DLL and all thresholds.
-The wide candidate is retained but rejected; [closed state](NATIVE_WIDE_READOUT_STATE_20261014.md).
-Activation tables are program storage, not transferred knowledge/useful n.
-If insufficient headroom, change active donor-derived core/bytes/layers with
-own-model quality. No further FFN grid before the backbone budget changes.
+Use the qualified activation backend for the next artifact; retain original
+control. Freeze/implement [all23 contextual generator cost screen](CONTEXTUAL_GENERATOR_COST_NEXT_20261014.md)
+from actual BF source weights/own-history h and real6704-entry MuP vector,
+sequential calls/source controls/full precision and resource accounting.
+Header-only omitted coefficient inventory is explicit, not speed/DRAM proof.
+Then choose ONE source-dependent structural/conditional active-core/bytes/
+width/depth variable with own-model quality. No more minor scalar/readout grid
+or FFN bank expansion before the whole budget decision. The activation tables
+are program storage, not transferred knowledge/useful n. Current code/states
+and every exclusive experiment output are closed; do not relaunch them.
 
 RESERVED104 new+64 older/longalign remain unopened. No GPU/T4 allocation,
 delegation or recurring monitor. Announce GPU budget before use; hours jobs

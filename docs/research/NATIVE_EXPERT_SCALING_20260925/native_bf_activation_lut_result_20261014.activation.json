@@ -1,0 +1,25 @@
+{
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_execution_binding_20261014.json",
+    "bytes": 5182232,
+    "sha256": "d18240942552afe97351477e3f47d830b1712db37733c9bdd4f7b557bff85c47"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_result_20261014.json",
+    "bytes": 399404,
+    "sha256": "128b6b1f3caf1e4a84b17c928b067b5d7dd6738838fe0511fa309de0697a8ca2"
+  },
+  "exhaustive": {
+    "finite_codes": 65280,
+    "nonfinite_fallback_codes": 256,
+    "table_words": 195840,
+    "all_numeric_bits_exact": true,
+    "FP_control": 8064,
+    "wrong_bind_rejected": true,
+    "changed_FP_probe_and_row_rejected_without_state_mutation": true,
+    "numeric_contract": "Output/state bits only; libm errno/sticky exceptions excluded. Scalar reference/manual RNE separate, libm/compiler shared."
+  },
+  "activation_table_payload_bytes": 786432,
+  "table_flush_groups": 128,
+  "scope": "Exact finite-BF conv/gate/delta lookup; original accepted I16 readout. Legacy arm key wide denotes activation candidate. Stored native compatibility/supplied-row cost, not final CPU model quality/useful50/DRAM/useful-n/family transfer."
+}

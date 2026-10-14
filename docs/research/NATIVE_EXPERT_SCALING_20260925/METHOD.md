@@ -1,6 +1,20 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+The [finite-BF activation compiler](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md)
+is now reproducible and qualified: exact convBF/gateF64/deltaBF tables,
+all65280 finite codes/256 fallback cases/FP environment guards, every97 native
+trajectory/24 sites/1.188B BF output/state replay in producer AND auditor,
+paired whole24 cost16.81725/17.02385ms,~35% gain. Original I16 readout retained;
+table payload786432bytes shared, all hashes/receipts/15-file family closed.
+Use bf_activation_backend.load_qualified_backend(closure_path) to load and
+bind with lifetime-safe table owners, without teacher-trace inference input.
+Parameters remain caller-owned. This is an exact activation-program conversion
+step, not a final CPU model/useful-n/general-family admission. ONLY~3ms room
+remains for excluded generators/FFN/attention/head/transport. Next physical
+all23 source generator cost screen and a substantive active-cost representation
+decision with own-model quality, not indefinite generic-donor kernel polishing.
+Original guard-test ABI fault and separate V2 repair/execution wrapper preserved.
 Exact wide-lane readout [qualification](NATIVE_WIDE_READOUT_RESULT_20261014.md)
 is COMPLETE/full numeric audit and closure PASS, acceleration REJECTED.
 Original=>wide whole24 medians26.15890=>25.78135ms resident and26.18470=>
@@ -10,10 +24,9 @@ Original=>wide whole24 medians26.15890=>25.78135ms resident and26.18470=>
 pass. This validates stored native compatibility, not new GPU/held-out quality
 or final CPU model throughput. Original backend retained. The pre-observation
 wall amendment1800=>2700s is preserved; no scientific gate changed.
-Next [finite-BF activation lookup](NATIVE_BF_ACTIVATION_LUT_NEXT_20261014.md)
-must prove the complete finite domain and FP controls, then all trajectories
-and paired physical benefit. It targets a different active operator family,
-not another minor readout layout grid. Final compact conditional geometry
+Subsequent finite-BF lookup above proves its complete domain/FP controls/native
+compatibility and paired physical benefit. It targets a different active operator
+family, not another minor readout layout grid. Final compact conditional geometry
 still requires reducing donor-derived active core/bytes when headroom is absent.
 The [source-active selector](FFN_ACTIVE_ROUTER_RESULT_20261014.md) now has a
 complete numeric audit and closure. The FIT derivative-balanced geometry
@@ -30,8 +43,9 @@ minimum >24 ms, against the 20 ms budget before excluded operators.
 pass full stored audit. Parameter payload 310,855,680 bytes; actual DRAM
 remains unresolved. This exposes a cost gate, not an impossibility bound.
 The exact accumulation candidate above preserves bits but fails whole24 benefit;
-the next operator variable is finite-BF lookup, then donor-derived active core/
-bytes reduction with own-model quality if needed. No further FFN grid.
+finite-BF lookup now has material benefit, leaving~3ms before excluded operators.
+Next price actual contextual generators, then donor-derived active core/bytes
+reduction with own-model quality. No further FFN grid.
 The same-artifact final CPU quality/useful-50/general-family gates remain open.
 The handoff paragraph below is historical.
 

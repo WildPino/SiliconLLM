@@ -1,0 +1,41 @@
+{
+  "schema": "EXCLUDED_SOURCE_COEFFICIENT_HEADER_INVENTORY_V1",
+  "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+  "source_header_bytes": 46048,
+  "source_header_sha256": "7d8718bb67a332d78cffeacecfbb7a76c0d695035c824b526e79120c25973d76",
+  "groups": {
+    "contextual_generators_1_to_23": {
+      "tensors": 23,
+      "parameters": 315785216,
+      "stored_payload_bytes": 631570432,
+      "dtypes": [
+        "BF16"
+      ]
+    },
+    "FFN_all24": {
+      "tensors": 72,
+      "parameters": 679477248,
+      "stored_payload_bytes": 1358954496,
+      "dtypes": [
+        "BF16"
+      ]
+    },
+    "LM_head": {
+      "tensors": 1,
+      "parameters": 134219776,
+      "stored_payload_bytes": 268439552,
+      "dtypes": [
+        "BF16"
+      ]
+    },
+    "attention_all24": {
+      "tensors": 96,
+      "parameters": 125829120,
+      "stored_payload_bytes": 251658240,
+      "dtypes": [
+        "BF16"
+      ]
+    }
+  },
+  "scope": "Actual header/payload inventory only, no new source-value audit/physical-traffic/speed/impossibility claim."
+}

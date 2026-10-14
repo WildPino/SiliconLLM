@@ -1,5 +1,27 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE 14 October 2026: exact finite-BF activation acceleration qualified.**
+[Result](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md) COMPLETE/full audit and
+closure PASS/EXACT_STORED_ACCELERATION_ELIGIBLE. All65280 finite inputs/
+195840 table words/256 fallback cases/FE/MXCSR guards exact; all97 trajectories/
+24sites/1.188B output words/state and192 continuations exact in both workers.
+Independent integer/scales/BF/cost arithmetic pass. Paired original=>lookup
+25.96025=>16.81725ms resident,26.23275=>17.02385ms parameter+table-evicted,
+35.2192%/35.1046% gains pass frozen5% and all strata. Tables786432bytes,128
+flush groups verified; original readout unchanged; actual DRAM unresolved.
+Initial negative ABI test access violation retained, separate V2 valid-buffer
+repair before timing. Numerical319f5de/repair0487cbd/execution7675959;
+producer934.735s/OS1.270GB,auditor778.5s/OS1.164GB,closure144.125s/E15 files/
+1,960,331 bytes/all declared pins and command identities sealed. No GPU/
+model/optimizer/RESERVED/delegation. Qualified loader owns shared tables;
+source model inputs still require a new explicit model binding.
+Only3.18275/2.97615ms room before generators/FFN/attention/head/transport,
+no model/useful50/n proof. Next actual23 BF source generator cost and then
+source-dependent structural/conditional active-cost change with own-model
+quality. Header-only inventory of omitted coefficients is not DRAM/speed
+evidence. Final compact conditional CPU quality/useful50/general converter
+and conversion cost goal remains ACTIVE/INCOMPLETE.
+
 **AUTHORITATIVE 14 October 2026: wide integer accumulation qualified/rejected.**
 [Result](NATIVE_WIDE_READOUT_RESULT_20261014.md) COMPLETE/full numeric audit and
 closure PASS. All97 trajectories/24 sites/580056 positions/1.188B BF output

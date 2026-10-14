@@ -1,0 +1,67 @@
+{
+  "schema": "NATIVE_BF_ACTIVATION_LUT_CLOSURE_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_result_20261014.json",
+    "bytes": 399404,
+    "sha256": "128b6b1f3caf1e4a84b17c928b067b5d7dd6738838fe0511fa309de0697a8ca2"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_adjudication_20261014.json",
+    "bytes": 1399,
+    "sha256": "2e004513b5dd802a5d6427cae2d3667b61391b4d503edcda7760c24ec1427d71"
+  },
+  "producer_activation": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_result_20261014.activation.json",
+    "bytes": 1295,
+    "sha256": "b25d6a30b669e731eca30097e6b525e27bf86f3381269a7ae935994ec8516d04"
+  },
+  "audit_activation": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_adjudication_20261014.activation.json",
+    "bytes": 1295,
+    "sha256": "d7f6d0219cc8903b92d7f054684281dcb1a5152a16a1c93cad5471cca0271d05"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_execution_binding_20261014.json",
+    "bytes": 5182232,
+    "sha256": "d18240942552afe97351477e3f47d830b1712db37733c9bdd4f7b557bff85c47"
+  },
+  "commands": [
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_execution_binding_20261014.preparation_terminal.json",
+        "bytes": 939,
+        "sha256": "6ef980b198302e8abeb310529206f37bc5f395ad92bd60be17bd6c2f01eac9cd"
+      },
+      "pid": 904,
+      "creation_time": 1791973687.5641296,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_result_20261014.terminal.json",
+        "bytes": 1066,
+        "sha256": "95e3c59e767d4051646389c7024242b92a1eb48f4455d43cd0d0c7cf7b8d1f82"
+      },
+      "pid": 29608,
+      "creation_time": 1791973701.2330232,
+      "matching_process_absent": true
+    },
+    {
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_bf_activation_lut_adjudication_20261014.terminal.json",
+        "bytes": 963,
+        "sha256": "5165edbce77bb7fafa730503454413ad3c2f947bd282f844508392db866f0a0a"
+      },
+      "pid": 23788,
+      "creation_time": 1791974653.0257645,
+      "matching_process_absent": true
+    }
+  ],
+  "family_files": 15,
+  "family_bytes": 1960331,
+  "all_declared_hashes_and_numeric_qualification_pass": true,
+  "decision": "EXACT_STORED_ACCELERATION_ELIGIBLE",
+  "activation_tables_payload_bytes": 786432,
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Exact finite-BF conv/gate/delta lookup; original accepted I16 readout. Legacy arm key wide denotes activation candidate. Stored native compatibility/supplied-row cost, not final CPU model quality/useful50/DRAM/useful-n/family transfer."
+}
