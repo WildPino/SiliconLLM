@@ -1,5 +1,19 @@
 # Frozen twelve-block own-history FIT: launch observation
 
+Producer completion update: worker31960 and holder34112 both exit0; original
+before/after seal and source411 parameter checks pass. Worker6157.594s/
+OS4,034,166,784B, GPU peak3,168,484,352B allocated/3,238,002,688B reserved.
+GPU phase1178.687s, released32MiB before posthash. All24 FIT histories and16
+actual prefix-cache journals,12,162 processed tokens/4,917,709,527B outputs.
+Producer KL5.447008011117/disagreement81.870351528321% fail all four frozen
+pooled/domain gates. Full stored CPU audit still required; no numerical closure
+or FIT-family selection yet. Neither producer nor holder remains live.
+The launch observations below are historical.
+
+Report1,746,489B SHA256
+9150465dd171738f23cb7a89c8d13f611948ac5ea503e2d8633173b637e398f9.
+No I8/I4 generator composition, DEV, RESERVED, optimizer or useful-rate claim.
+
 14 October 2026. Goal INCOMPLETE. FIT6 producer/audit/custody closure all
 exit0; six-block quality fails every original gate. Only the unexecuted FIT12
 arm is launched; no successful producer or audit is repeated.

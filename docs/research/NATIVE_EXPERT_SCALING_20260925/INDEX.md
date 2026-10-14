@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. FIT6 closed; frozen FIT12 launched.**
+14 October 2026. **Goal INCOMPLETE. FIT12 producer complete; full audit pending.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[FIT12 producer completion](FIXED_DEPTH_FIT12_STATE_20261014.md): worker31960/
+holder34112 both exit0, original full posthash/source411 checks and actual KV
+journals retained. Producer KL5.44700801/disagreement81.87035% fail all four
+frozen gates. Worker6157.594s/OS4.034GB/GPUallocated3.168GB/reserved3.238GB;
+GPU phase1178.687s, released32MiB before posthash. All24 histories/16 prefix
+pairs/12,162 tokens/4,917,709,527B output. Complete stored CPU audit even on
+quality failure before closure and frozen FIT-only selection. Launch/live
+statements below are historical; no producer replay is required.
 
 [FIT12 launch](FIXED_DEPTH_FIT12_STATE_20261014.md): holder34112/session11327,
 exact PID/create/argv in [receipt](fixed_depth_fit12_launch_20261014.json).
