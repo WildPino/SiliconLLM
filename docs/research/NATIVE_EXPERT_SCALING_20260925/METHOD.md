@@ -1,6 +1,13 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+Authoritative update: [FIT3 recovery](FIXED_DEPTH_FIT3_RESULT_20261014.md) is
+closed, exit0. All36,486 native positions/74,723,328 output and integer words
+audited; FITKL15.61598524/disagreement99.86659% reject identity-drop3. Original
+posthash failure and null reduced-prefix KV digests remain explicit. The next
+prospective variable is physical-worker execution cost before unexecuted6/12
+GPU arms; full quality gates and incomplete-grid selection remain unchanged.
+The following paragraphs preserve earlier observations, not a live-process claim.
 FIT3 complete data preliminarily fail KL/disagreement, but original AFTER_HASH
 timeout requires explicit full stored recovery before qualification. Missing
 reduced prefix KV digests remain null/attested equality, not parent values.

@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE14 October2026: FIT3 recovered full audit CLOSED, quality FAIL.**
+[Report](FIXED_DEPTH_FIT3_RESULT_20261014.md): worker24316 exit0/680.718s,
+OS1,147,330,560B/no GPU; full36,486-position/74,723,328-word audit PASS.
+Audited FITKL15.61598524/disagreement99.86659%, all quality gates FAIL.
+Original exit1/posthash gap/null reduced-prefix cache digests remain explicit;
+current403-file seal exact. No DEV/RESERVED or amended gate. Before unexecuted
+6/12 GPU arms, resolve actual multicore cost rather than extrapolate a single
+thread as a hardware ceiling. This does not select an arm from an incomplete grid.
+
 **Observed14 October2026: FIT3 data complete, original AFTER_HASH failure.**
 Worker3604/create1791985583.7748358/holder1,2610.063s/OS4034891776/GPUallocated
 3154595840/reserved3217031168. All24 histories/16 prefixes completed;

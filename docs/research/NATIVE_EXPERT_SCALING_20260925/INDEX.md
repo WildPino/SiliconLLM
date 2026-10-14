@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. FIT3 CPU audit launched, session80623.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. FIT3 recovered audit CLOSED, quality FAIL.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,18 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[FIT3 final result](FIXED_DEPTH_FIT3_RESULT_20261014.md): recovery worker24316
+exit0/680.718s/OS1.147GB/no GPU. Full36,486-position/74,723,328-word numeric
+audit PASS; FITKL15.61598524/disagreement99.86659%, all quality gates FAIL.
+Original GPU worker/holder1 and missing prefix-cache digest values remain
+explicit. Current403-file seal exact. No live recovery worker remains.
+Before unexecuted6/12 GPU arms, price actual physical-worker parallelism of
+dominant preserved operators. No frozen depth threshold or arm selection changed.
+[Prospective CPU screen](PHYSICAL_WORKER_ORGANS_PROTOCOL_20261014.md): identical
+23 BF generators/24 integer readouts,1/3/6 physical workers, all outputs audited.
+Supplied hidden/readout operands, not a joined decoder or final useful50 admission.
+The entries below preserve preceding observations in chronological context.
 
 FIT3 numerical histories complete, original worker/holder1 AFTER_HASH deadline.
 Preliminary FITKL15.61599/disagreement99.86659% FAIL; full stored audit still

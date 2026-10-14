@@ -1,0 +1,113 @@
+{
+  "schema": "FIXED_DEPTH_QUALITY_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit3_result_20261014.json",
+    "bytes": 762134,
+    "sha256": "4d396535f73b2f5b0ed1da71c64640d437b9f7108978b6c321feb6b1a34a6bd9"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_binding_20261014.json",
+    "bytes": 3296903,
+    "sha256": "6572a0bfc04f9a1e97cf78ca5a4089a5025cc2a8e45d27609472c412b5fd71a7"
+  },
+  "depth": 3,
+  "phase": "fit",
+  "native": {
+    "counts": {
+      "sequence_sites": 168,
+      "native_positions": 36486,
+      "output_words": 74723328,
+      "integer_words": 74723328
+    },
+    "maxima": {
+      "fields": 0,
+      "B_projection": 1.621977790283815e-07,
+      "C_projection": 1.34928295968392e-07,
+      "scan": 4.6003849544202804e-07,
+      "state": 9.696034998232105e-07,
+      "norm": 0,
+      "contextual_generator": 6.29136090712471e-05
+    },
+    "all_stored_native_words_and_state_exact": true,
+    "independent_F64_and_integer_controls": true
+  },
+  "all_numeric_pass": true,
+  "FIT_quality": {
+    "KL": 15.615985240139729,
+    "disagreement": 0.9986658982240436,
+    "domains": {
+      "apigen-80k": {
+        "KL": 18.02832264093869,
+        "disagreement": 1.0
+      },
+      "everyday-conversations": {
+        "KL": 15.427361030322345,
+        "disagreement": 1.0
+      },
+      "explore-instruct-rewriting": {
+        "KL": 14.711856361682226,
+        "disagreement": 1.0
+      },
+      "metamathqa-50k": {
+        "KL": 16.147530630708467,
+        "disagreement": 0.998046875
+      },
+      "numina-cot-100k": {
+        "KL": 16.446823196674508,
+        "disagreement": 0.998046875
+      },
+      "openhermes-100k": {
+        "KL": 16.13307375529086,
+        "disagreement": 0.998046875
+      },
+      "self-oss-instruct": {
+        "KL": 15.700064502695588,
+        "disagreement": 0.998046875
+      },
+      "smol-constraints": {
+        "KL": 15.445158202774227,
+        "disagreement": 1.0
+      },
+      "smol-magpie-ultra": {
+        "KL": 15.027091536165823,
+        "disagreement": 1.0
+      },
+      "smol-rewrite": {
+        "KL": 14.098704563294472,
+        "disagreement": 1.0
+      },
+      "smol-summarize": {
+        "KL": 14.793815219300017,
+        "disagreement": 0.9918032786885246
+      },
+      "systemchats-30k": {
+        "KL": 15.432021241829533,
+        "disagreement": 1.0
+      }
+    },
+    "gates": {
+      "case_KL": false,
+      "case_disagreement": false,
+      "domain_KL": false,
+      "domain_disagreement": false
+    },
+    "all_pass": false
+  },
+  "quality": null,
+  "selection": null,
+  "decision": "INDEPENDENT_STORED_NUMERIC_PASS",
+  "quality_admissible": false,
+  "before_after_hashes_exact": false,
+  "recovery_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit3_recovery_binding_20261014.json",
+    "bytes": 3627,
+    "sha256": "594f2a40494e1e98ffd7174beeea875bbdcf5150a09f1901584d99da03efaed4"
+  },
+  "original_posthash_complete": false,
+  "reconciliation_current_inputs_outputs_exact": true,
+  "prefix_attention_provenance": "DIGEST VALUES LOST: original prefix equality/cardinality/length attested by executed source/log checks; shapes/dtype from unchanged source config. No invented hash values.",
+  "seconds": 467.20300000000134,
+  "OS_peak": 1147330560,
+  "GPU_calls": 0,
+  "scope": "Every kept trajectory/state and independent F64/quantizer/integer/metrics/control/FIT choice checked. Source GPU attention/FFN/head are witnesses, no independent GPU arithmetic or final CPU TPS/DRAM/n admission."
+}
