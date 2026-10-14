@@ -1,5 +1,17 @@
 # Source-sensitive balanced selector: execution state
 
+## Completed after research resumption, 14 October 2026
+
+Goal ACTIVE / INCOMPLETE. Existing producer and binding hashes were exact;
+no adjudication/receipt/matching audit worker existed before the resumed launch.
+One full audit, worker 21332 / creation 1791965189.9385552 / tool 76726, finished
+exit 0 in 645.781 s / OS peak 2,309,419,008 bytes. All 576 predictions and
+literal IDs/witnesses/metadata/hash checks PASS. Closure exit 0 / all 579 E
+files and protected hashes qualified. [Final report](FFN_ACTIVE_ROUTER_RESULT_20261014.md).
+No admitted FIT-selected candidate; no new producer or altered thresholds.
+The original audit interruption below remains an observation, not a failure
+receipt. Next the frozen 24-layer recurrent cost screen, before new grids.
+
 ## Handoff update,14 October2026
 
 Goal scientific INCOMPLETE;goal tool PAUSED. Producer6508/create1791960298.124822

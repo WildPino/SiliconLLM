@@ -1,5 +1,20 @@
 # Pretrained-to-native conditional-capacity method
 
+14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+The [source-active selector](FFN_ACTIVE_ROUTER_RESULT_20261014.md) now has a
+complete numeric audit and closure. The FIT derivative-balanced geometry
+improves the PCA diagnostic but yields no admitted FIT-to-DEV candidate.
+Selected rank 512/site 0 and rank 64/site 23 fail DEV; site 12 fails FIT.
+This is a reproducible local diagnostic, still using the full source affine
+reference after selection; it is not a physical cheap FFN replacement.
+Before extending this family, the [24-layer cost screen](NATIVE_24_COST_PROTOCOL_20261014.md)
+now has frozen implementation and stored auditor. It will measure supplied-row
+sequential recurrence from self-reconstructed prefixes, all 24 distinct
+parameters, resident/parameter-evicted modes, exact continuation output/state
+and explicit missing DRAM counters. Timing and qualification remain pending.
+The same-artifact final CPU quality/useful-50/general-family gates remain open.
+The handoff paragraph below is historical.
+
 Handoff observation14 October2026: scientific procedure INCOMPLETE;goal tool
 PAUSED. Latest source-active producer terminal0,full576-prediction audit
 interrupted/not completed and closure pending. No chosen candidate passes

@@ -1,5 +1,18 @@
 # Native expert scaling: research control index
 
+14 October 2026, research resumed. **Goal ACTIVE / INCOMPLETE.**
+[Source-active routing](FFN_ACTIVE_ROUTER_RESULT_20261014.md) is now COMPLETE:
+full 576-prediction numeric audit PASS, closure qualified, no admitted candidate.
+FIT selects rank 512 at site 0 and 64 at site 23; DEV means .137284/.105607
+fail .10. Site 12 has no FIT-eligible tested rank. Existing producer reused;
+prior interrupted worker observation retained without an inferred exit code.
+Next: actual 24-layer cost screen. Code/auditor/protocol frozen at 0adac14;
+[protocol](NATIVE_24_COST_PROTOCOL_20261014.md). Binding preparation started;
+no recurrent timing result yet. Check preparation receipt before launching.
+This entry supersedes the historical handoff status below.
+
+### Historical handoff observation
+
 14 October2026, handoff observation. **Goal INCOMPLETE; goal tool PAUSED.**
 Producer source-sensitive selector COMPLETE/terminal0; full numeric audit
 INTERRUPTED/NOT COMPLETED, with no adjudication or worker terminal present

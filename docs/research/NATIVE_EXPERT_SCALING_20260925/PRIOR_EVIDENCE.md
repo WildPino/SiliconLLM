@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE 14 October 2026, research resumed: goal ACTIVE / INCOMPLETE.**
+[Source-active routing](FFN_ACTIVE_ROUTER_RESULT_20261014.md) COMPLETE,
+full 576 predictions / literal IDs / derivative and balanced-metric witnesses
+numeric PASS, closure qualified. Existing producer reused; prior interrupted
+audit observation retained. New complete audit 645.781 s / OS 2.309 GB.
+No admitted FIT-selected candidate: site 0 selects 512 then DEV .137284 fails;
+site 12 has no eligible rank; site 23 selects 64 then DEV .105607 fails.
+Rank 128/site 23 .100026053 fails .10; larger DEV-passing curves not promoted.
+579-file E family / 3.461 GB and all current declared pins/protected files sealed.
+Geometric improvement over PCA is qualified, physical selector/model/TPS not.
+Next actual 24-layer recurrent cost screen, frozen at 0adac14; preparation
+started, no timing result yet. This entry supersedes historical live statements.
+
 **HANDOFF OBSERVATION14 October2026: scientific goal INCOMPLETE;goal tool PAUSED.**
 Source-active selector producer terminal0;full audit was interrupted after
 last observed384/576 predictions with no adjudication/terminal or matching
