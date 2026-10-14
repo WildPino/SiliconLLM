@@ -112,7 +112,7 @@ def prepare(a):
     paths.extend(compiler.parent.glob('*lld*.exe'))
     paths.extend(Path(module.__file__) for module in tuple(sys.modules.values())
                  if getattr(module, '__file__', None) and Path(module.__file__).is_file())
-    paths.extend(ROOT/p for p in ('engine.c','benchmarks/phase60/engine.c',
+    paths.extend(ROOT/p for p in ('benchmarks/phase60/engine.c',
         'benchmarks/donor_adaptation/configs/_manifest.json',
         'benchmarks/donor_adaptation/density/build_document_holdout.py','docs/research/RESEARCH_INDEX.md'))
     frozen = [B/'native_24_cost.py', B/'native_24_cost_audit.py', B/'native_24_cost_support.c',
@@ -120,6 +120,10 @@ def prepare(a):
     for p in frozen:
         blob = subprocess.check_output(['git','show', a.freeze+':'+p.relative_to(ROOT).as_posix()], cwd=ROOT)
         assert blob.replace(b'\r\n',b'\n') == p.read_bytes().replace(b'\r\n',b'\n'), str(p)
+    failure = DOC/'native_24_cost_binding_20261014.preparation_terminal.json'
+    assert load(failure)['exit_code'] == 1 and not FAMILY.exists()
+    paths.append(failure)
+    for p in paths: assert p.is_file(), str(p)
     inputs = [extent(p) for p in dict.fromkeys(paths)]
     for e in [old['table'], old['compile']['dll']]+[x['file'] for x in old['exports']]:
         assert extent(e['path']) == e
@@ -135,7 +139,10 @@ def prepare(a):
     co = subprocess.run(command,capture_output=True,timeout=45,creationflags=0x08000000)
     log.write_bytes(co.stdout+co.stderr); assert co.returncode == 0
     inputs.extend([extent(support),extent(log)])
-    binding = dict(schema='NATIVE_24_COST_BINDING_V1', freeze=a.freeze, python=str(Path(sys.executable).resolve()),
+    binding = dict(schema='NATIVE_24_COST_BINDING_V2', freeze=a.freeze, python=str(Path(sys.executable).resolve()),
+        preparation_repair=dict(original_receipt=extent(failure),
+            reason='Removed nonexistent root engine.c pin; canonical engine is benchmarks/phase60/engine.c. '
+                   'Preflight all paths before hashing. No compilation, family creation or timings in failed preparation.'),
         versions=dict(numpy=np.__version__,psutil=psutil.__version__), compile=old['compile'],
         support=extent(support), support_compile=dict(command=command,log=extent(log)),
         table=old['table'], exports=old['exports'], records=selected, inputs=inputs,

@@ -1,0 +1,25 @@
+{
+  "schema": "NATIVE_24_COST_TERMINAL_V1",
+  "phase": "prepare",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_24_cost.py",
+    "prepare",
+    "--freeze",
+    "0adac14b1c3f7614ad005db657ac89d3c941204f",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_24_cost_binding_20261014.json"
+  ],
+  "pid": 9576,
+  "creation_time": 1791965883.8138323,
+  "exit_code": 1,
+  "error": "FileNotFoundError(2, 'No such file or directory')",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_24_cost.py\", line 328, in <module>\n    {'prepare':prepare,'run':run,'close':close}[a.phase](a)\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_24_cost.py\", line 123, in prepare\n    inputs = [extent(p) for p in dict.fromkeys(paths)]\n              ^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_auxiliary_s6_transport.py\", line 26, in extent\n    with path.open('rb') as f:\n         ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\engine.c'\n",
+  "seconds": 150.7029999999977,
+  "OS_peak": 51703808
+}
