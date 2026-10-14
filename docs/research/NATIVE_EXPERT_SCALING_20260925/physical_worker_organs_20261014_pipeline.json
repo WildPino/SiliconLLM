@@ -1,0 +1,214 @@
+{
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\physical_worker_organs_20261014_binding.json",
+    "bytes": 200173,
+    "sha256": "b2060f6ec26bb7c144a780c3beb13f9c6922662eb5247f389bf4137ccca8c49a"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\physical_worker_organs_20261014_result.json",
+    "bytes": 455925,
+    "sha256": "f7b86657841ee0550677c0cb8540a5da04ec5192e97b93413d1da6efd4be50f6"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\physical_worker_organs_20261014_audit.json",
+    "bytes": 1206,
+    "sha256": "66d8369cd289adec9765170f1bd5bd4e3801c6dc7e65040f1198ebcfe37457f0"
+  },
+  "closure": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\physical_worker_organs_20261014_closure.json",
+    "bytes": 1349,
+    "sha256": "3b1c33587c9397821dd59657493eb927feae761ebbcb12bef042001dcf66eb16"
+  },
+  "summary": {
+    "resident": {
+      "1": {
+        "whole_ns": {
+          "count": 64,
+          "minimum": 68651600.0,
+          "median": 78907900.0,
+          "p90": 103044480.00000001,
+          "maximum": 216139300.0
+        },
+        "generator_ns": {
+          "count": 64,
+          "minimum": 54485400.0,
+          "median": 61201400.0,
+          "p90": 81910800.00000001,
+          "maximum": 162782700.0
+        },
+        "readout_ns": {
+          "count": 64,
+          "minimum": 14060200.0,
+          "median": 17796550.0,
+          "p90": 29385660.0,
+          "maximum": 53176800.0
+        },
+        "flush_ns": {
+          "count": 64,
+          "minimum": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "maximum": 0.0
+        },
+        "organ_only_remaining_20ms_ns": -58907900.0
+      },
+      "3": {
+        "whole_ns": {
+          "count": 64,
+          "minimum": 34890900.0,
+          "median": 45028600.0,
+          "p90": 61021050.00000001,
+          "maximum": 175129300.0
+        },
+        "generator_ns": {
+          "count": 64,
+          "minimum": 22124300.0,
+          "median": 28946050.0,
+          "p90": 43010530.00000001,
+          "maximum": 105375200.0
+        },
+        "readout_ns": {
+          "count": 64,
+          "minimum": 10332500.0,
+          "median": 14749600.0,
+          "p90": 26786030.00000001,
+          "maximum": 69550900.0
+        },
+        "flush_ns": {
+          "count": 64,
+          "minimum": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "maximum": 0.0
+        },
+        "organ_only_remaining_20ms_ns": -25028600.0
+      },
+      "6": {
+        "whole_ns": {
+          "count": 64,
+          "minimum": 35028300.0,
+          "median": 48783800.0,
+          "p90": 112660260.0,
+          "maximum": 189405600.0
+        },
+        "generator_ns": {
+          "count": 64,
+          "minimum": 21256300.0,
+          "median": 28868200.0,
+          "p90": 65424900.00000001,
+          "maximum": 121152400.0
+        },
+        "readout_ns": {
+          "count": 64,
+          "minimum": 10446800.0,
+          "median": 17700600.0,
+          "p90": 48851760.00000001,
+          "maximum": 96322200.0
+        },
+        "flush_ns": {
+          "count": 64,
+          "minimum": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "maximum": 0.0
+        },
+        "organ_only_remaining_20ms_ns": -28783800.0
+      }
+    },
+    "parameter_evicted": {
+      "1": {
+        "whole_ns": {
+          "count": 64,
+          "minimum": 70409600.0,
+          "median": 75199050.0,
+          "p90": 83288430.0,
+          "maximum": 97096300.0
+        },
+        "generator_ns": {
+          "count": 64,
+          "minimum": 54507100.0,
+          "median": 58581100.0,
+          "p90": 63488340.0,
+          "maximum": 79470600.0
+        },
+        "readout_ns": {
+          "count": 64,
+          "minimum": 14248800.0,
+          "median": 16186950.0,
+          "p90": 18127680.0,
+          "maximum": 30027100.0
+        },
+        "flush_ns": {
+          "count": 64,
+          "minimum": 21341100.0,
+          "median": 22991950.0,
+          "p90": 24836560.0,
+          "maximum": 33522600.0
+        },
+        "organ_only_remaining_20ms_ns": -55199050.0
+      },
+      "3": {
+        "whole_ns": {
+          "count": 64,
+          "minimum": 33935700.0,
+          "median": 45470350.0,
+          "p90": 66073660.0,
+          "maximum": 199094600.0
+        },
+        "generator_ns": {
+          "count": 64,
+          "minimum": 22450300.0,
+          "median": 29214450.0,
+          "p90": 42006580.000000015,
+          "maximum": 161493500.0
+        },
+        "readout_ns": {
+          "count": 64,
+          "minimum": 10646100.0,
+          "median": 16440200.0,
+          "p90": 27213540.0,
+          "maximum": 37470700.0
+        },
+        "flush_ns": {
+          "count": 64,
+          "minimum": 21331400.0,
+          "median": 22857100.0,
+          "p90": 25280500.0,
+          "maximum": 45887200.0
+        },
+        "organ_only_remaining_20ms_ns": -25470350.0
+      },
+      "6": {
+        "whole_ns": {
+          "count": 64,
+          "minimum": 34926600.0,
+          "median": 50796750.0,
+          "p90": 81226010.0,
+          "maximum": 235363000.0
+        },
+        "generator_ns": {
+          "count": 64,
+          "minimum": 22339600.0,
+          "median": 29812950.0,
+          "p90": 44334860.0,
+          "maximum": 133158400.0
+        },
+        "readout_ns": {
+          "count": 64,
+          "minimum": 11077600.0,
+          "median": 19184100.0,
+          "p90": 34374870.00000001,
+          "maximum": 120179700.0
+        },
+        "flush_ns": {
+          "count": 64,
+          "minimum": 21018800.0,
+          "median": 22717800.0,
+          "p90": 25053200.0,
+          "maximum": 40990500.0
+        },
+        "organ_only_remaining_20ms_ns": -30796750.0
+      }
+    }
+  }
+}

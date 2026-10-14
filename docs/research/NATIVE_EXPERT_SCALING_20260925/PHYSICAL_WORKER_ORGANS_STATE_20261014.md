@@ -1,5 +1,9 @@
 # Physical-worker organ screen: launch observation
 
+Terminal update: worker20304/session93013 exit0,97.078s/OS2,252,173,312B.
+Full stored audit and closure PASS; numerical worker absent. [Final result](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md)
+records the20ms organ-budget failure. The launch information below is historical.
+
 Code/protocol freeze cb374c264a0f1f47da1937ec51f58f9083c98313.
 Pipeline launched with Python312 -I -S -B -X utf8 and --freeze above.
 Worker20304, create1791991836.7455795, terminal session93013. WMI confirmed

@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. Physical-worker CPU screen launched.**
+14 October 2026. **Goal ACTIVE / INCOMPLETE. Physical-worker screen CLOSED, organ budget FAIL.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,24 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Physical-worker final result](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md): worker
+20304 exit0/97.078s/OS2.252GB, full stored parity PASS, all384 measured groups
+and current input/output seal/10-file813.638MB family closed. No worker live.
+Resident group medians1/3/6workers78.90790/45.02860/48.78380ms; evicted
+75.19905/45.47035/50.79675ms. Every group>33ms BEFORE remaining operators.
+Parallel scheduling alone fails20ms; no whole decoder/useful50/DRAM admission.
+Next: catalog historical experiments and read primary reports on coefficient
+compression/conditional representation before choosing a new costed variable.
+[Catalog](EXPERIMENT_CATALOG_20261014.md) now covers609 result reports;
+[primary readback](DECISIONS_FROM_CATALOG_20261014.md) records source checks,
+corrected M364/M506 interpretations and next-variable requirements. File
+inventory is exhaustive for the stated pattern; deep review is explicitly scoped.
+[Machine inventory](experiment_catalog_inventory_20261014.json) and
+[link verification](experiment_catalog_link_audit_20261014.json): all609 reports
+linked,727 local links valid, no missing/broken targets. These are file checks,
+not independent numerical/quality adjudication of every experiment.
+The launch observation below is historical, not a live-process claim.
 
 CPU screen frozen cb374c264a0f1f47da1937ec51f58f9083c98313, worker20304/
 create1791991836.7455795, terminal session93013. Actual WMI command/process

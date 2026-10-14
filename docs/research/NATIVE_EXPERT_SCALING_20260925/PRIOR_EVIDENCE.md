@@ -1,5 +1,25 @@
 # Native expert-count scaling: prior evidence
 
+**Historical inventory14 October2026:** [catalog](EXPERIMENT_CATALOG_20261014.md)
+links all609 current result-report files:468 METH files/464 distinct leading
+filename IDs (combined-range reports are not individual run counts),141 other
+named reports. All727 local links exist. Inventory-only entries are not newly
+adjudicated. [Primary readback](DECISIONS_FROM_CATALOG_20261014.md) preserves
+the M364 rate failure, separate M376/M391 warm scoped successes, M506 admission
+limits, ID-versus-mass/state divergence and failed functional large-n controls.
+Compressed code bytes alone do not establish a fast or useful conditional core.
+
+**AUTHORITATIVE14 October2026: physical-worker organ screen CLOSED.**
+[Result](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md) exit0/97.078s/OS2.252GB,
+full audit compares177,629,184 generator and56,623,104 readout cells exactly,
+all384 measured groups/accounting/topology/seal pass. Resident group medians
+workers1/3/6=78.90790/45.02860/48.78380ms; evicted75.19905/45.47035/50.79675ms.
+All measured partial groups>33ms; six workers do not improve these medians.
+Actual supplied internal operands, unchanged arithmetic, no remaining model
+organs/whole quality/useful50/DRAM/capacity/scaling admission. Keep physical
+scheduling kernel as reusable apparatus; next variable needs coefficient or
+active-work reduction and historical review, not a larger worker-count grid.
+
 **AUTHORITATIVE14 October2026: FIT3 recovered full audit CLOSED, quality FAIL.**
 [Report](FIXED_DEPTH_FIT3_RESULT_20261014.md): worker24316 exit0/680.718s,
 OS1,147,330,560B/no GPU; full36,486-position/74,723,328-word audit PASS.

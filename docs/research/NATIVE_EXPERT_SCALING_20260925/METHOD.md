@@ -1,6 +1,21 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+Latest [physical-worker screen](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md)
+closed exit0/full exact parity and accounting/384 measured groups. Interleaved
+23 BF generators+24 I16 readouts on supplied own-history h/r/a: median3workers
+45.02860/45.47035ms resident/evicted,6workers48.78380/50.79675ms. All sampled
+partial groups>33ms, before state/norm/FFN/attention/head. This rejects the
+scheduling-only20ms hypothesis for this implementation, not all quantized or
+conditional representations. No DRAM/useful50/joined decoder claim. Historical
+catalog and primary coefficient-compression/capacity evidence precede next choice.
+[Catalog](EXPERIMENT_CATALOG_20261014.md) now inventories609 result reports,
+with exhaustive file coverage and explicitly limited deep review.
+[Primary readback](DECISIONS_FROM_CATALOG_20261014.md) checks large-pool
+functional usefulness, direct FFN omission, source-derived conditional fits,
+Switch same-artifact rates, upstream-state/ID/mass divergence and actual LUT
+decode costs. Keep independent quality/cost/utility obligations and do not
+repeat failed unchanged routing/affine geometry merely by enlarging the bank.
 Authoritative update: [FIT3 recovery](FIXED_DEPTH_FIT3_RESULT_20261014.md) is
 closed, exit0. All36,486 native positions/74,723,328 output and integer words
 audited; FITKL15.61598524/disagreement99.86659% reject identity-drop3. Original
