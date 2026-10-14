@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE. FIT12 producer complete; full audit pending.**
+14 October 2026. **Goal INCOMPLETE / pause requested. Full FIT12 CPU audit launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,13 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Full stored FIT12 CPU audit6728/session58942: exact PID/create/argv verified;
+[owned receipt](fixed_depth_fit12_audit_20261014.owned_process.json).
+Max7200s/OS8GiB/CPU6/no GPU; all56 sequences/145,944 native positions/state/
+integer/F64/metrics/prefix/source checks even on quality failure. No numerical
+producer replay. Pause on long wait, user resumes. Full audit and terminal
+required before phase closure and frozen FIT-only selection.
 
 [FIT12 producer completion](FIXED_DEPTH_FIT12_STATE_20261014.md): worker31960/
 holder34112 both exit0, original full posthash/source411 checks and actual KV

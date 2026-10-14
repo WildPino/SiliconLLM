@@ -1,5 +1,13 @@
 # Frozen twelve-block own-history FIT: launch observation
 
+Full stored audit launch: CPU auditor6728, terminal session58942; exact
+PID/create/argv verified with psutil and recorded in
+[owned receipt](fixed_depth_fit12_audit_20261014.owned_process.json).
+Max7200s/OS8GiB/CPU6/no GPU. Audit all56 sequences/145,944 kept native
+positions, state/integer/F64/metrics/prefix/source custody despite quality
+failure. No producer replay. Pause on long wait; user resumes manually.
+Inspect exact handle and completed audit/terminal before closure/selection.
+
 Producer completion update: worker31960 and holder34112 both exit0; original
 before/after seal and source411 parameter checks pass. Worker6157.594s/
 OS4,034,166,784B, GPU peak3,168,484,352B allocated/3,238,002,688B reserved.
