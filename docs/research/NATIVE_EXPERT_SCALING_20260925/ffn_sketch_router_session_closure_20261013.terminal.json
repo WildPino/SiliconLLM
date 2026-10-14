@@ -1,0 +1,19 @@
+{
+  "schema": "FFN_SKETCH_ROUTER_CLOSURE_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/ffn_sketch_router_close.py"
+  ],
+  "pid": 6380,
+  "creation_time": 1791934243.9392083,
+  "exit_code": 1,
+  "error": "AssertionError('C:\\\\Windows\\\\System32\\\\nvidia-smi.exe')",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_sketch_router_close.py\", line 47, in <module>\n    try: main(); receipt.update(exit_code=0,error=None,result=extent(out))\n         ^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_sketch_router_close.py\", line 28, in main\n    for e in b['inputs']+[r['binding']]+[x['file'] for x in r['models']+r['records']]: assert extent(e['path']) == e,e['path']\n                                                                                              ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: C:\\Windows\\System32\\nvidia-smi.exe\n",
+  "seconds": 1.8279999999999745,
+  "OS_peak": 30011392
+}

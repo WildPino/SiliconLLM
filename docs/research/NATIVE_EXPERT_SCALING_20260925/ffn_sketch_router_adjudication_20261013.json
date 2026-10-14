@@ -1,0 +1,117 @@
+{
+  "schema": "FFN_SKETCH_ROUTER_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\ffn_sketch_router_audit.py",
+    "bytes": 12048,
+    "sha256": "30d139c309b481c70e1978850e5af5865cd77a9a46e75559c43f966ac4fe6b2f"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_sketch_router_result_20261013.json",
+    "bytes": 412017,
+    "sha256": "cb9fdda4e777220d087273332e90b7d38e07fb2ede6db31413f17f5a237e9299"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_sketch_router_result_20261013.terminal.json",
+    "bytes": 1229,
+    "sha256": "57a5893c2470e8a3cdeab7423208f38f5585dfe9eb0b85b802edfbfbb70b9e78"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ffn_sketch_router_binding_v2_20261013.json",
+    "bytes": 2322842,
+    "sha256": "6f616c231e12faa1fd7d210f31a2daea3e56c9fd757526ba382237b813810154"
+  },
+  "checked_predictions": 576,
+  "maximum": {
+    "FIT_moment": 3.7485748499857127e-16,
+    "FIT_mean": 3.943649624206587e-12,
+    "FIT_covariance": 3.4138490808089226e-16,
+    "moment_covariance_mean_identity": 1.9815173693745097e-19,
+    "orthogonality": 3.5294528831415227e-15,
+    "eigen_residual": 1.988044204085846e-15,
+    "reconstruction": 2.7103797344399144e-15,
+    "U_projected": 0,
+    "G_projected": 0,
+    "column_energy": 0,
+    "prediction_F32": 2.654644012476003e-08
+  },
+  "literal_selected_IDs_exact": true,
+  "all_numeric_pass": true,
+  "eligibility": [
+    {
+      "site": 0,
+      "rank": 64,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 0,
+      "rank": 128,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 0,
+      "rank": 256,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 0,
+      "rank": 512,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "rank": 64,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "rank": 128,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "rank": 256,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 12,
+      "rank": 512,
+      "FIT_eligible": false,
+      "DEV_eligible": false
+    },
+    {
+      "site": 23,
+      "rank": 64,
+      "FIT_eligible": true,
+      "DEV_eligible": false
+    },
+    {
+      "site": 23,
+      "rank": 128,
+      "FIT_eligible": true,
+      "DEV_eligible": false
+    },
+    {
+      "site": 23,
+      "rank": 256,
+      "FIT_eligible": true,
+      "DEV_eligible": true
+    },
+    {
+      "site": 23,
+      "rank": 512,
+      "FIT_eligible": true,
+      "DEV_eligible": true
+    }
+  ],
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 611.4060000000027,
+  "OS_peak": 1755299840,
+  "scope": "FIT-only uncentered delta moment/PCA/source-linear sketch ID path. Full output2048 and exact selected remainder. Reference evaluator still uses implicit full affine/source operators AFTER ID selection,not a physical reduced-cost kernel. No ternary precision, actual DRAM,useful large n,own-model quality,CPU TPS or general-family admission. Separate concatenated FIT moments/centered covariance,eigen/source witnesses, direct distances,chain-rule reference and256-column output projection. Literal projected ID rule shares arithmetic;NumPy BLAS/source reader/BF decoder shared. No physical/model admission."
+}
