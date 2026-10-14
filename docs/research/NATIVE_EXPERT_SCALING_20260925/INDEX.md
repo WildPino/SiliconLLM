@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal ACTIVE / INCOMPLETE. Physical-worker screen CLOSED, organ budget FAIL.**
+14 October 2026. **Goal INCOMPLETE / pause requested. Source-generator codec CPU pipeline launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Codec pipeline launched with frozen3d242f6e5a1c73be22a2ae26ea1ddef1b5b0f851,
+worker33444/create1791994160.7663407, terminal session31208. WMI verified the
+exact live command/process after launch. [Owned receipt](contextual_generator_codec_20261014_pipeline.owned_process.json).
+CPU<=3600s/4GiB OS/1GiB family;3 physical workers in measurements,6 during
+initialization, no GPU. Complete source-only export/coefficient/F64/native audit
+and cost/closure are part of the pipeline. No result/quality admission at launch.
+Pause immediately on wait; user resumes. Next inspect exact handle and terminal/
+pipeline/binding/audit/closure before accepting any precision or cost claim.
 
 Next prospective [source-only generator codecs](CONTEXTUAL_GENERATOR_CODEC_PROTOCOL_20261014.md):
 preserve all23 matrices/all24 blocks; I8-row and packed I4-g128 actual weights,
