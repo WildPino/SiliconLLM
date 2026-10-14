@@ -1,0 +1,57 @@
+{
+  "schema": "CONTEXTUAL_GENERATOR_COST_CLOSURE_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\contextual_generator_cost_binding_20261014.json",
+    "bytes": 281715,
+    "sha256": "468a7321a2bba619fda55cb78aecb9ed769987ee6d3fb0906831ee297a53efcf"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\contextual_generator_cost_result_20261014.json",
+    "bytes": 150179,
+    "sha256": "55eac059d75ca1c3d3080f8caac5259af031c59bff53bf612de63b173b0e0dfa"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\contextual_generator_cost_adjudication_20261014.json",
+    "bytes": 108869,
+    "sha256": "82de1ccda7750817f6cf3d0e3999c2725e925833152e7634c8d53d66e00e74e4"
+  },
+  "commands": [
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\contextual_generator_cost_binding_20261014.preparation_terminal.json",
+        "bytes": 904,
+        "sha256": "58f434897c7c785ea6b6587c898b703e03dc1a3ec064b96932647db25e9c956e"
+      },
+      "pid": 10584,
+      "creation_time": 1791977578.9309833,
+      "matching_process_absent": true
+    },
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\contextual_generator_cost_result_20261014.terminal.json",
+        "bytes": 1039,
+        "sha256": "f0cafa19029b1461f8367aba9e14c4d91dca43be762072b04742c8ec6f1f6f21"
+      },
+      "pid": 28596,
+      "creation_time": 1791977662.517592,
+      "matching_process_absent": true
+    },
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\contextual_generator_cost_adjudication_20261014.terminal.json",
+        "bytes": 939,
+        "sha256": "c44c0d3daa8daa8eba9f2c6e5f0e1cc5a45c983a88013229ba3728db337a2666"
+      },
+      "pid": 25044,
+      "creation_time": 1791977731.0279136,
+      "matching_process_absent": true
+    }
+  ],
+  "family_files": 10,
+  "family_bytes": 157972256,
+  "all_inputs_outputs_exact": true,
+  "decision": "ACTUAL_BF_CONTEXTUAL_GENERATOR_COST_QUALIFIED",
+  "budget_decision": "DENSE_CONTEXTUAL_GENERATORS_EXCEED_REMAINING_BUDGET",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "23 sequential actual BF source contextual generators on supplied true own-history h. No preceding decoder, recurrence, FFN, attention, head or transport. Cache intervention is not measured DRAM; no end-to-end/useful50/n/general-family admission."
+}

@@ -1,6 +1,16 @@
 # Actual BF contextual generator screen: execution state
 
-14 October 2026. Goal ACTIVE / INCOMPLETE. Numerical code and full auditor
+14 October 2026. **COMPLETE / full producer, audit and closure exit0.**
+[Final result](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md):52.1574/50.42935ms
+whole23 medians exceed3.18275/2.97615ms recurrent room. All2944 stored calls,
+independent F64/BF/MuP/control/timing checks pass;10 E files/157972256bytes
+closed. No matching numerical workers remain. Do not relaunch completed phases.
+Next [source depth intervention](FIXED_DEPTH_PROTOCOL_20261014.md); prototype
+mechanical probe and own-history quality status must be checked separately.
+
+Historical prelaunch state and reproduction commands follow.
+
+Goal ACTIVE / INCOMPLETE. Numerical code and full auditor
 frozen at8ce16b9; preparation completed, no timing observations in preparation.
 Binding SHA256468a7321a2bba619fda55cb78aecb9ed769987ee6d3fb0906831ee297a53efcf,
 281715bytes. Original source BF ranges23*6704*2048*2=631570432bytes.

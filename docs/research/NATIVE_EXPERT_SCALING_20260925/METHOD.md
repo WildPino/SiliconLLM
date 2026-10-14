@@ -1,6 +1,27 @@
 # Pretrained-to-native conditional-capacity method
 
 14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+Actual BF source generator implementation/cost is now
+[qualified](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md): direct BF ranges,
+AVX register decode, orderedF32=>BF GG and actual MuP=>BF, all23 sequential
+CPU generators median52.1574/50.42935ms on fixed supplied own-history h.
+All2944 stored calls replay exactly; independent F64/RNE/field-slice controls
+and timing accounting pass, declared pins/receipts/10-file family closed.
+This dense baseline alone exceeds remaining~3ms. Source coefficient storage
+631570432bytes is not a DRAM counter; no end-to-end inference admission.
+New structural variable: [executed source block depth](FIXED_DEPTH_PROTOCOL_20261014.md),
+frozen3/6/12 and24 control. Residual2048/kept source operators unchanged,
+omitted whole blocks identity, no dormant-state reactivation. Prototype uses
+qualified activation C with retained parameter owners, source site KV indexes
+and new kept-site hidden. Actual source classes on meta verify omitted identity/
+no submodule calls/cache mutation, native first F0 token vs original state/
+output, and method restoration for all schedules. This is mechanical evidence,
+not source decoder quality or sparse KV continuation. The numerical own-history
+quality worker/full auditor/new GPU binding remain to implement before use.
+Fixed depth cannot prove useful selective-n or knowledge retained in omitted
+functions. Fit-only selection/whole unchanged gates and no RESERVED use are
+explicit; source GPU FFN/attention/head must still be removed for final CPU.
+
 The [finite-BF activation compiler](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md)
 is now reproducible and qualified: exact convBF/gateF64/deltaBF tables,
 all65280 finite codes/256 fallback cases/FP environment guards, every97 native
@@ -11,9 +32,9 @@ Use bf_activation_backend.load_qualified_backend(closure_path) to load and
 bind with lifetime-safe table owners, without teacher-trace inference input.
 Parameters remain caller-owned. This is an exact activation-program conversion
 step, not a final CPU model/useful-n/general-family admission. ONLY~3ms room
-remains for excluded generators/FFN/attention/head/transport. Next physical
-all23 source generator cost screen and a substantive active-cost representation
-decision with own-model quality, not indefinite generic-donor kernel polishing.
+remains for excluded generators/FFN/attention/head/transport. The generator
+screen above proves that the current dense baseline does not fit that room;
+next own-model quality of the source depth intervention, not generic polishing.
 Original guard-test ABI fault and separate V2 repair/execution wrapper preserved.
 Exact wide-lane readout [qualification](NATIVE_WIDE_READOUT_RESULT_20261014.md)
 is COMPLETE/full numeric audit and closure PASS, acceleration REJECTED.
@@ -44,8 +65,8 @@ pass full stored audit. Parameter payload 310,855,680 bytes; actual DRAM
 remains unresolved. This exposes a cost gate, not an impossibility bound.
 The exact accumulation candidate above preserves bits but fails whole24 benefit;
 finite-BF lookup now has material benefit, leaving~3ms before excluded operators.
-Next price actual contextual generators, then donor-derived active core/bytes
-reduction with own-model quality. No further FFN grid.
+Actual contextual generators are now priced above. Next donor-derived active
+depth reduction with own-model quality. No further FFN grid.
 The same-artifact final CPU quality/useful-50/general-family gates remain open.
 The handoff paragraph below is historical.
 

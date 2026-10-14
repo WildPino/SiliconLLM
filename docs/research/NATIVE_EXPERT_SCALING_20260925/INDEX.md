@@ -16,6 +16,20 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
+[Actual23 BF contextual generators](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md)
+COMPLETE/full numeric audit and closure PASS. Sequential CPU medians52.1574ms
+resident/50.42935ms all-weights+MuP-evicted exceed3.18275/2.97615ms recurrent
+room; ALL observed groups>49ms.631570432 actual BF coefficient bytes directly
+mapped from source, register decode, no inflated F32/F64 storage in timing.
+All2944 calls/raw/GG/fields replay exact, independent F64 maxrelative1.106e-7,
+source/smooth slice controls<.022%, timing/hash/receipt/10-file157972256-byte
+family closed. No end-to-end or actual DRAM claim. Stop dense minor kernels.
+Next [fixed active-depth intervention](FIXED_DEPTH_PROTOCOL_20261014.md):
+3/6/12 kept source blocks +24 control, whole omitted blocks identity, residual
+2048/source operators preserved. [Prototype](../../../benchmarks/native_expert_scaling/fixed_depth_bridge.py)
+and source-class mechanical probe pass; quality/own-history sparse-KV worker
+and full audit remain unimplemented. Fixed pruning is not useful expert-n.
+
 [Exact finite-BF activation compilation](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md)
 COMPLETE/full exhaustive, native trajectory, integer and cost audit/closure PASS.
 Paired whole24 original=>lookup25.96025=>16.81725ms resident and26.23275=>
@@ -89,17 +103,18 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 ## Exact next action
 
-Check current processes/files first; do not rerun completed workers.
-Use the qualified activation backend for the next artifact; retain original
-control. Freeze/implement [all23 contextual generator cost screen](CONTEXTUAL_GENERATOR_COST_NEXT_20261014.md)
-from actual BF source weights/own-history h and real6704-entry MuP vector,
-sequential calls/source controls/full precision and resource accounting.
-Header-only omitted coefficient inventory is explicit, not speed/DRAM proof.
-Then choose ONE source-dependent structural/conditional active-core/bytes/
-width/depth variable with own-model quality. No more minor scalar/readout grid
-or FFN bank expansion before the whole budget decision. The activation tables
-are program storage, not transferred knowledge/useful n. Current code/states
-and every exclusive experiment output are closed; do not relaunch them.
+Check processes/files first; completed generator producer/audit/closure and
+mechanical probe must not be relaunched. See [depth state](FIXED_DEPTH_STATE_20261014.md).
+Implement/freeze bounded own-history depth quality worker/full auditor and a
+fresh actual GPU/runtime/source binding. Use qualified activation backend,
+source first/last kept, new downstream hidden, original site KV indexes,
+explicit active/omitted ledger and restoration between arms. First verify24
+control and sparse-KV continuation; then frozen3/6/12 FIT selection and DEV/
+tasks of selected arm (or frozen NONSELECTED6 defect arm if all FIT fail).
+Announce GPU budget BEFORE allocation; no GPU has been used this turn.
+Do not polish dense kernel layouts or expand FFN rank/cell grids. Header-only
+remaining coefficient inventories and logical byte ledgers are not DRAM proof.
+Fixed pruning removes active functions; useful capacity/scaling is unresolved.
 
 RESERVED104 new+64 older/longalign remain unopened. No GPU/T4 allocation,
 delegation or recurring monitor. Announce GPU budget before use; hours jobs

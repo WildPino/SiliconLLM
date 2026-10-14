@@ -1,5 +1,26 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE14 October2026: actual BF contextual generator cost qualified.**
+[Result](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md) COMPLETE/full numeric
+audit and closure PASS. Source23 BF matrices631570432bytes directly mapped;
+AVX register decode/F32 eight-lane FMA, GG BF before actual BF MuP/F32/BF.
+Whole23 sequential CPU medians52.1574/50.42935ms resident/weight+MuP-evicted,
+every sample>49ms; frozen remaining3.18275/2.97615ms gateFAIL both modes.
+2944 calls/19.737M raw/GG/field words per family replay exactly; independent
+F64 maxrelative1.106e-7, source/smooth slice max.0180691%/.0211552%<1%,
+all timing/coverage/summary/byte/hash receipts pass. Freeze8ce16b9/binda473270;
+producer34.937s/OS778592256,auditor40.594s/OS904724480,closure5.109s,
+10 E files157972256bytes closed. No GPU/model/optimizer/RESERVED. Not DRAM
+or full-model TPS; no inflated F32/F64 weight storage in timing. Dense baseline
+cost is not universal lower bound. Next fixed source block depth3/6/12 +24
+control, full residual2048 and kept functions preserved; omitted blocks identity.
+Prototype11bc521 and actual source-class/meta/native-F0 mechanical probe pass
+omission/no submodule/cache mutation/own native state/restoration. This is not
+quality; own-history sparse KV/quality worker/full audit/new GPU binding still
+missing. [Frozen quality protocol](FIXED_DEPTH_PROTOCOL_20261014.md),
+[exact next state](FIXED_DEPTH_STATE_20261014.md). Fixed pruning is not useful
+expert-n evidence. Full original goal remains ACTIVE/INCOMPLETE.
+
 **AUTHORITATIVE 14 October 2026: exact finite-BF activation acceleration qualified.**
 [Result](NATIVE_BF_ACTIVATION_LUT_RESULT_20261014.md) COMPLETE/full audit and
 closure PASS/EXACT_STORED_ACCELERATION_ELIGIBLE. All65280 finite inputs/

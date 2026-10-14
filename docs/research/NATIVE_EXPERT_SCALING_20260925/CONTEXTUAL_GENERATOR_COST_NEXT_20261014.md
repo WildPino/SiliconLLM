@@ -1,6 +1,12 @@
 # Next budget question: all23 actual contextual generators
 
-14 October 2026. PROPOSED / NOT IMPLEMENTED / NOT MEASURED. Qualified activation
+14 October 2026. SUPERSEDED: [actual BF generator screen](CONTEXTUAL_GENERATOR_COST_RESULT_20261014.md)
+COMPLETE/full audit and closure PASS.52.1574/50.42935ms generator-only medians
+exceed remaining3.18275/2.97615ms. Source/precision controls pass; no DRAM or
+end-to-end proof. Next [source depth intervention](FIXED_DEPTH_PROTOCOL_20261014.md).
+The original pre-observation proposal follows for traceability.
+
+PROPOSED / NOT IMPLEMENTED / NOT MEASURED at proposal time. Qualified activation
 tables reduce whole24 recurrence median to16.81725ms resident /17.02385ms
 parameter-evicted. Remaining20ms median room3.18275/2.97615ms excludes EVERY
 contextual generator, FFN, attention, head and transport. Do not claim useful50
