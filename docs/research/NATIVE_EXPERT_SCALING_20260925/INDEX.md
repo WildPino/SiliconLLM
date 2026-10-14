@@ -16,6 +16,13 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
+Next prospective [source-only generator codecs](CONTEXTUAL_GENERATOR_CODEC_PROTOCOL_20261014.md):
+preserve all23 matrices/all24 blocks; I8-row and packed I4-g128 actual weights,
+3 physical workers, charged decode/scale/dispatch, full coefficient/F64/native
+audit and stored source-field errors. No source/GPU/RESERVED/fitting, no whole
+model promotion. CPU pipeline<=3600s/4GiB OS/1GiB family. Own-history quality
+of any approximate codec must be qualified separately on the same encoded pack.
+
 [Physical-worker final result](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md): worker
 20304 exit0/97.078s/OS2.252GB, full stored parity PASS, all384 measured groups
 and current input/output seal/10-file813.638MB family closed. No worker live.
