@@ -1,0 +1,25 @@
+{
+  "schema": "NATIVE_BF_ACTIVATION_LUT_TERMINAL_V1",
+  "phase": "prepare",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_bf_activation_lut.py",
+    "prepare",
+    "--freeze",
+    "319f5de6ab3a1ebff7175300379ac27d1a34a5b4",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_bf_activation_lut_binding_20261014.json"
+  ],
+  "pid": 29496,
+  "creation_time": 1791972961.48448,
+  "exit_code": 1,
+  "error": "OSError('exception: access violation reading 0x0000000000000000')",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_bf_activation_lut.py\", line 242, in <module>\n    assert not a.out.exists();{'prepare':prepare,'run':run,'audit':audit,'close':close}[a.phase](a)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_bf_activation_lut.py\", line 177, in prepare\n    validation=exhaustive(b,np);vp=FAMILY/'table_validation.json';write(vp,validation)\n               ^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_bf_activation_lut.py\", line 63, in exhaustive\n    assert api[4](unbound,1,tag.ctypes.data,row.ctypes.data,*([0]*10))==5\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: exception: access violation reading 0x0000000000000000\n",
+  "seconds": 20.26600000000326,
+  "OS_peak": 50249728
+}
