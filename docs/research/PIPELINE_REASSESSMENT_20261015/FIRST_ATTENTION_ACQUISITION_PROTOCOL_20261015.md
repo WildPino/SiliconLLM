@@ -21,3 +21,14 @@ For each fetched shard, the client retrieves its complete safetensors header (wi
 Caps are 16 MiB shard metadata, 64 MiB tokenizer files, 256 MiB weight-range response bodies, 384 MiB total network bodies, 512 MiB local output, 2 GiB controller OS peak, six logical CPUs, and 900 seconds. Exclusive output names prevent accidental overwrite. `owned_process.json` identifies the writer; a terminal receipt records success or failure. All input pins, including tokenizer bytes and pinned runtime modules, are sealed before and after acquisition. This stage has no source-value quality or accepted-token-rate claim.
 
 Launch only after reviewing and committing this script and protocol, passing their exact Git revision to `--freeze`. The script checks normalized Git blobs before selection/acquisition. Execution follows the existing research authorization after source review and freeze.
+
+## Runtime-alias preflight correction
+
+The first launch at85b8980 stopped before any HTTP request or weight acquisition:
+individual runtime package directories are junctions into the repository venv,
+so requiring resolved files to remain under the alias root rejected the expected
+installation. The corrected check compares each module with its exact expected
+package entry point after resolving aliases; hashes still seal the actual files.
+The original exclusive directory and terminal fault remain intact. The corrected
+launch uses `--output results/native_expert_scaling/first_attention_source_repair1_20261015`;
+this changes neither the data rule nor model revision, tensors or numerical gates.

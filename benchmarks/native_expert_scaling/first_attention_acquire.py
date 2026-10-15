@@ -280,7 +280,11 @@ def main(args, process, began):
     runtime_files=[Path(transformers.__file__),Path(tokenizers.__file__),Path(jinja2.__file__),
                    Path(psutil.__file__)]
     runtime_files += list((SITE/'tokenizers').glob('*.pyd'))+list((SITE/'psutil').glob('*.pyd'))
-    assert runtime_files and all(p.resolve().is_relative_to(SITE.resolve()) for p in runtime_files)
+    # Individual runtime packages are junctions to the existing repository venv.
+    # Compare exact expected package entry points after resolving those aliases.
+    for module in (transformers, tokenizers, jinja2, psutil):
+        assert Path(module.__file__).resolve() == (SITE/module.__name__/'__init__.py').resolve()
+    assert runtime_files and all(p.is_file() for p in runtime_files)
     initial = [desc(p) for p in (Path(__file__),PROTOCOL,CONFIG,INDEX,REFERENCE,CORPUS,SOURCE_PLAN,*runtime_files)]
     assert desc(CORPUS)['sha256'] == CORPUS_SHA and desc(CONFIG)['sha256'] == CONFIG_SHA
     assert desc(REFERENCE)['sha256'] == REFERENCE_SHA
@@ -454,7 +458,9 @@ def main(args, process, began):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--freeze',required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--freeze',required=True)
+    parser.add_argument('--output',type=Path,default=OUT);args=parser.parse_args()
+    OUT=args.output.resolve()
     import psutil
     proc=psutil.Process();began=time.monotonic()
     try:
