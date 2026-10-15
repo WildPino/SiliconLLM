@@ -1,5 +1,11 @@
 # Frozen twelve-block own-history FIT: launch observation
 
+Final15 October update: closer18424 exit0/112s, full hash closure complete.
+[Family result and formal selection](FIXED_DEPTH_FIT_RESULT_20261015.md):
+no reduced candidate admitted; frozen nonselected6 diagnostic is next.
+All pending/live observations below are historical; no FIT12 process remains.
+Owner now requests pause only for expected runs of at least one hour.
+
 15 October2026 update: CPU auditor6728 exited0/732.532s/OS1,147,056,128B.
 All56 sequences/672 kept-site sequences/145,944 native positions and
 298,893,312 BF output words plus298,893,312 integer words replay exactly.

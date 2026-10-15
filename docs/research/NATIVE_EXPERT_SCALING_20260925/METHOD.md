@@ -1,6 +1,13 @@
 # Pretrained-to-native conditional-capacity method
 
-14 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+15 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Frozen FIT family closed](FIXED_DEPTH_FIT_RESULT_20261015.md): all numerical
+audits/closures complete, selector admits no reduced candidate. FIT12
+KL5.44700801/disagreement81.87035% still fails every gate. Execute only the
+already prescribed nonselected6 defect evaluation before a different,
+source-function-adapted geometry. This fallback cannot be promoted from DEV.
+Historical next-FIT statements below are superseded. Pause only if expected
+run duration>=1h, per updated owner instruction.
 [FIT6 closed](FIXED_DEPTH_FIT6_RESULT_20261014.md): all stored native words,
 state, F64 controls and custody pass; audited KL14.68219940/disagreement
 98.94408% fail all frozen gates. This rejects the unadapted six-site omission,

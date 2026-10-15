@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / pause requested. FIT12 audit PASS; final hash closure active.**
+15 October 2026. **Goal INCOMPLETE. FIT family closed; no reduced candidate admitted.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,16 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Final FIT family](FIXED_DEPTH_FIT_RESULT_20261015.md): all stored audits
+complete; FIT12 closer exit0/112s/all1428 files sealed. Unchanged selector
+exit0/0.562s, selected_depth=null, evaluation_depth=6, nonselected diagnostic.
+FIT3/6/12 KL15.616/14.682/5.447 and disagreement99.867/98.944/81.870% all
+fail original pooled/domain gates. Control24 passes. No DEV-based selection,
+precision/gate changes or numerical replay. Next prescribed nonselected6
+DEV/tasks/followup/prefix diagnostic and full stored audit; no promotion even
+on DEV success. Previous pending/live closure statements below are historical.
+Owner wait preference: pause only for expected runs>=1h, continue shorter jobs.
 
 FIT12 CPU audit6728 exit0/732.532s/OS1.147GB/no GPU: all145,944 positions,
 298,893,312 BF words and same integer count/state/F64/source seals PASS.

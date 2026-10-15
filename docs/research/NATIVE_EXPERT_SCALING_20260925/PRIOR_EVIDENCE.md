@@ -1,5 +1,12 @@
 # Native expert-count scaling: prior evidence
 
+**FIT family closure15 October2026:** [result](FIXED_DEPTH_FIT_RESULT_20261015.md)
+all full stored audits and per-phase closures complete. Formal unchanged
+selector admits none of3/6/12; control24 passes. FIT12 KL5.44700801/
+disagreement81.87035% fail all gates despite exact native/state/F64 controls.
+Only the frozen nonselected6 defect evaluation follows; DEV cannot promote it.
+This rejects these unadapted identity schedules, not every learned geometry.
+
 **FIT6 closure14 October2026:** [result](FIXED_DEPTH_FIT6_RESULT_20261014.md)
 worker/holder/auditor/closer all exit0; all56 sequences/72,972 native positions/
 149,446,656 BF and integer words exact; F64/source411/full seals PASS.
