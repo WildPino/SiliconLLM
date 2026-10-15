@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**Complete recipient screen15 October2026:**
+[original Qwen Instruct all-I8](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
+has32/32 decoded C/Torch top1 parity and5.833e-6 worst relative logit error,
+with all169 source code/scale matrices verified. Its15 actual own-history
+cost processes fail18ms and1.10 stability; no useful50 or source-chat quality
+admission. This is a complete current artifact, unlike the historical base-model
+68.52/s or an unexecuted compact export. Both repaired preflight/reference
+faults remain explicit. Do not substitute a fast small recipient for measured
+very-large-donor capacity transfer.
+
 **Resource interpretation15 October2026:** the owner accepts
 [months of T4 training](../PIPELINE_REASSESSMENT_20261015/TRAINING_RESOURCE_CLARIFICATION_20261015.md).
 Substantial adaptation duration alone does not rule out a mechanism. Published

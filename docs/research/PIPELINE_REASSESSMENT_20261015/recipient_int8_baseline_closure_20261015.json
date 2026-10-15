@@ -1,0 +1,225 @@
+{
+  "schema": "RECIPIENT_INT8_BASELINE_CLOSURE_V1",
+  "status": "CLOSED_NUMERIC_PASS_COST_FAIL",
+  "receipts": {
+    "binding": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\recipient_int8_baseline_binding_20261015.json",
+      "sha256": "a8c770a83800c67fd1634e96f8bfc7c9e2f1aa3584c7883f8807f5e4ac088f44",
+      "bytes": 1451842
+    },
+    "result": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\recipient_int8_baseline_result_20261015.json",
+      "sha256": "17a68ab2e3c6475e49a73da05be1f7d9e2e55c135baf13f3b79655fe3874d6fe",
+      "bytes": 232056
+    },
+    "audit": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\recipient_int8_baseline_audit_20261015.json",
+      "sha256": "b203f1a31d711a2cffc6ff131dcda0eccfc9295a2387aa9fd0a5d71e0a59269a",
+      "bytes": 7901
+    },
+    "readback": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\recipient_int8_baseline_readback_20261015.json",
+      "sha256": "0a38bdb136d1f3657886172f0f59dd889d8ce034f7ed530d757ecdf129fed3f4",
+      "bytes": 7252
+    }
+  },
+  "historical_faults_retained": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_20261015\\failure.json",
+      "sha256": "6bd3b9cb4c5eab9e9c2e8ef205fb7b3fafa303c0bddf83c29f9eef4f59e9032f",
+      "error": "AssertionError('export:exit1')"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair1_20261015\\failure.json",
+      "sha256": "6a5cc5ecc21e691a8b08bf7e0faffafa616c49be294d822977065c5dac6670df",
+      "error": "AssertionError('audit:exit1')"
+    }
+  ],
+  "owned_process_checks": [
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_20261015\\export.owned.json",
+      "sha256": "96e611555e9045c768cd5d67dc4b687579ecb8226504845fa8f739245c5f43e9",
+      "pid": 30844,
+      "create_time": 1792083431.7903552,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair1_20261015\\audit.owned.json",
+      "sha256": "6a535e958bd874d1dd2601a6f9d548552c8b597451052e0ad8d0c545cd7046ae",
+      "pid": 22048,
+      "create_time": 1792083582.9829452,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair1_20261015\\compile.owned.json",
+      "sha256": "3f772ac028077aea6238b752ebd904ba0f900c2322023d0b32d8ec115e8ab7d5",
+      "pid": 26248,
+      "create_time": 1792083578.1655676,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair1_20261015\\export.owned.json",
+      "sha256": "ccd40b5c2665c6ce162b3d8df1a930da18b3b08c46327339f1b8928935fd3759",
+      "pid": 31316,
+      "create_time": 1792083535.174261,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair1_20261015\\probe.owned.json",
+      "sha256": "eca02440d111986b7ee10631ad4243babe55392caa8a4ba7bc7a6823eff80c5a",
+      "pid": 30552,
+      "create_time": 1792083580.4202673,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\audit.owned.json",
+      "sha256": "1edf175b26b5513a88965f953385183049c0a89b0fc7fbb431775f005d6cdfea",
+      "pid": 13888,
+      "create_time": 1792083890.3877656,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\compile.owned.json",
+      "sha256": "3f772ac028077aea6238b752ebd904ba0f900c2322023d0b32d8ec115e8ab7d5",
+      "pid": 26248,
+      "create_time": 1792083578.1655676,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\export.owned.json",
+      "sha256": "ccd40b5c2665c6ce162b3d8df1a930da18b3b08c46327339f1b8928935fd3759",
+      "pid": 31316,
+      "create_time": 1792083535.174261,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r0_context_2048.owned.json",
+      "sha256": "04c68fb77a00b3328520d5f341d8ccdfbb1377ea7a3ead1f8c32df8210d69991",
+      "pid": 19832,
+      "create_time": 1792083933.9480073,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r0_context_512.owned.json",
+      "sha256": "c2b6aa4d9f99556475f3471b92a7e700f9b5b519cd2da07957fe69a23eb4c03f",
+      "pid": 33560,
+      "create_time": 1792083919.4600987,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r0_prompt_0.owned.json",
+      "sha256": "4f228d841e499dea200ca91ae810868ab8161bb1a7cddcf98725c07b71eddfbd",
+      "pid": 31700,
+      "create_time": 1792083910.1991072,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r0_prompt_1.owned.json",
+      "sha256": "2431a7f62b8465d6781e0198c00a935205e4d04bf0b99ab93c73da3a73584420",
+      "pid": 508,
+      "create_time": 1792083913.0345724,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r0_prompt_2.owned.json",
+      "sha256": "e2d39f72e6e1238142b099dffe0c176ec707cd79ff4a50d0caef30249d558f68",
+      "pid": 13852,
+      "create_time": 1792083916.37333,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r1_context_2048.owned.json",
+      "sha256": "9c01b74bea125739c9cff0177afa470bd8fecc9568c1aaca16109c064b915ae3",
+      "pid": 28524,
+      "create_time": 1792084000.2129092,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r1_context_512.owned.json",
+      "sha256": "79334a4cd57889b889034b744eb8a098030870f05715c35236aac0549542b95c",
+      "pid": 26608,
+      "create_time": 1792083988.9914021,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r1_prompt_0.owned.json",
+      "sha256": "d7e34e0a172c40cce70c9b30f987cf18d2dea9d8933158337791d6fb8bb896bd",
+      "pid": 20096,
+      "create_time": 1792083980.7926435,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r1_prompt_1.owned.json",
+      "sha256": "27dbf2527113eea5f7eb367393dd5a2a69641df094a930bf788ba308aa727bdf",
+      "pid": 32000,
+      "create_time": 1792083983.191686,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r1_prompt_2.owned.json",
+      "sha256": "e9f25dc68e4b968bb0754618478bfb0efff91d453e012a5a3c5c9b3355400532",
+      "pid": 7180,
+      "create_time": 1792083986.125552,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r2_context_2048.owned.json",
+      "sha256": "34fd90770a3cf8bb9ce4be5175e5479a184a57210e9cdd90c8ed9e257be1e9aa",
+      "pid": 7944,
+      "create_time": 1792084062.6475053,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r2_context_512.owned.json",
+      "sha256": "cc2b0078081091bfa69c4c2dae611ec2b1f3c5070b5acaa03e55ce00deb9430b",
+      "pid": 9648,
+      "create_time": 1792084050.923745,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r2_prompt_0.owned.json",
+      "sha256": "7b516a75cf0778b9dd578cc49214622d08b807809a63906bcbfd23ea094b1f90",
+      "pid": 20840,
+      "create_time": 1792084041.7990236,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r2_prompt_1.owned.json",
+      "sha256": "1d7e50e301c20e673b5bc1a6d928d40af36851089d165aaff2148e0558cbdc89",
+      "pid": 19968,
+      "create_time": 1792084044.3168015,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\generate_r2_prompt_2.owned.json",
+      "sha256": "5d4455aad5c46f3b4276818f881e478e82c599709601f67103dfb7a6e14f741d",
+      "pid": 6244,
+      "create_time": 1792084048.0009985,
+      "owned_identity_absent": true
+    },
+    {
+      "receipt": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\probe.owned.json",
+      "sha256": "df5689a54ff337c82364f23623aafa0b9c52a28d75aee0953252316e21839d3a",
+      "pid": 5360,
+      "create_time": 1792083887.929285,
+      "owned_identity_absent": true
+    }
+  ],
+  "controller_terminal_evidence": {
+    "session_id": 73103,
+    "exit_code": 0,
+    "scope": "Observed execution tool terminal"
+  },
+  "readback_terminal_evidence": {
+    "session_id": 13895,
+    "exit_code": 0,
+    "scope": "Observed execution tool terminal"
+  },
+  "unexecuted_alternative": "recipient_qwen_entry.c W4 packet profile; no catalog or numerical admission",
+  "raw_artifact_directory": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015",
+  "goal_status": "active/incomplete",
+  "T4_job_launched": false,
+  "chat_quality_admitted": false,
+  "large_donor_transfer_admitted": false,
+  "physical_DRAM_measured": false
+}

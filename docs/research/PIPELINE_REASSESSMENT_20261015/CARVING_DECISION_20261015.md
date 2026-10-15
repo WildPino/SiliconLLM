@@ -3,6 +3,14 @@
 15 October 2026. Architectural review complete; no new numerical run or
 checkpoint acquisition. The overall pipeline goal remains active/incomplete.
 
+**Subsequent execution update:** the
+[complete original-recipient int8 baseline](RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
+has now run and closed with decoded-wire numerical PASS / cost-envelope FAIL.
+This supersedes the prepared-only state below for that prerequisite. It does
+not reject donor-memory transfer or license long recovery on the unchanged
+recipient. See [core triage](RECIPIENT_CORE_TRIAGE_20261015.md) for the next
+complete-encoding comparison. No T4 training is running.
+
 ## Selected research direction
 
 Prioritize a **pretrained compact recipient, a frozen conditional memory

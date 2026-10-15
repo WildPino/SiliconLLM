@@ -1,5 +1,14 @@
 # Pretrained-to-native conditional-capacity method
 
+**Recipient envelope closure15 October2026:** the
+[original Instruct all-I8 CPU profile](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
+passes source derivation/32-position decoded-wire parity but fails its fixed
+complete18ms/stability screen on every case. No memory or learned student is
+present. This rejects that recipient execution envelope, not the frozen-bank
+transfer hypothesis. A changed encoding or compact core needs its own complete
+physical evidence before long recovery; source-relative useful capacity remains
+the final objective, not small-model speed alone.
+
 **Training budget clarification15 October2026:** the owner accepts
 [months of T4 usage](../PIPELINE_REASSESSMENT_20261015/TRAINING_RESOURCE_CLARIFICATION_20261015.md).
 Do not restrict future mechanisms to cheap post-training or short RTX3060 fits.

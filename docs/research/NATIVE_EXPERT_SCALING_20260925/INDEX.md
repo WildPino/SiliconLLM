@@ -20,6 +20,17 @@ pilot alone does not demonstrate the large-model pipeline. See scope clarificati
 
 ## Latest decisive evidence
 
+[Complete original-recipient CPU baseline](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
+is CLOSED: source Instruct all-I8 full24-layer attention/KV/FFN/head engine
+profile, not the failed compact checkpoint. Independent derivation checks
+all290 source tensors/169 matrices;32/32 decoded-reference top1 matches,
+worst logit relative L2=5.833e-6. All five case groups fail the18ms/stability
+envelope across15 complete own-history cost processes; case medians44.53--53.04/s include context
+fixtures, with lower individual observations. All930 native forwards and
+repeat IDs/readback pass; original import/meta-buffer faults remain recorded.
+No fresh chat/useful50 or large-memory admission. Require a changed complete
+recipient encoding/cost before long T4 recovery, not another runtime grid.
+
 [Training resource clarification](../PIPELINE_REASSESSMENT_20261015/TRAINING_RESOURCE_CLARIFICATION_20261015.md):
 the owner accepts months of T4 usage. Long adaptation must not be excluded
 solely by duration; memory, donor/data generation, measured throughput and
