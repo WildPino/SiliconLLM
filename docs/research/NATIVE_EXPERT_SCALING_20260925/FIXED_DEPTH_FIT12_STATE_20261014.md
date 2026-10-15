@@ -1,5 +1,24 @@
 # Frozen twelve-block own-history FIT: launch observation
 
+15 October2026 update: CPU auditor6728 exited0/732.532s/OS1,147,056,128B.
+All56 sequences/672 kept-site sequences/145,944 native positions and
+298,893,312 BF output words plus298,893,312 integer words replay exactly.
+F64 controls PASS: maximum contextual generator8.374853e-5, B/C1.459882e-7/
+1.663063e-7, scan9.018208e-7/state1.850093e-6; fields/norm exact.
+Before/after hashes exact. Audited KL5.447008011118625/disagreement
+81.87035152832111% fail every frozen FIT gate; quality_admissible=false.
+[Audit](fixed_depth_fit12_audit_20261014.json)3238B SHA256
+00b9821e258fa2bf04660340013477509eec83fb42cfa933177ced4a48732f6b.
+
+Final hash closer18424/create1792043395.9157724/session99571 is confirmed
+live via actual psutil identity/argv; [owned receipt](fixed_depth_fit12_session_closure_20261015.owned_process.json).
+No numerical producer replay or GPU call. Closure and its terminal remain
+pending; do not infer completion from the successful audit. Pause on this
+long hash wait, user resumes. Next inspect this exact process/handle, complete
+closure, then unchanged V2 FIT-only selector. No candidate passes3/6/12 FIT;
+frozen fallback6 evaluation remains explicitly nonselected and unexecuted.
+All audit-launch/pending statements below are historical.
+
 Full stored audit launch: CPU auditor6728, terminal session58942; exact
 PID/create/argv verified with psutil and recorded in
 [owned receipt](fixed_depth_fit12_audit_20261014.owned_process.json).

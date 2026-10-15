@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-14 October 2026. **Goal INCOMPLETE / pause requested. Full FIT12 CPU audit launched.**
+15 October 2026. **Goal INCOMPLETE / pause requested. FIT12 audit PASS; final hash closure active.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,17 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+FIT12 CPU audit6728 exit0/732.532s/OS1.147GB/no GPU: all145,944 positions,
+298,893,312 BF words and same integer count/state/F64/source seals PASS.
+Audited KL5.447008011119/disagreement81.87035% fail all four frozen gates.
+[State](FIXED_DEPTH_FIT12_STATE_20261014.md) records actual audit and receipts.
+Final hash closer18424/create1792043395.9157724/session99571 confirmed live;
+[owned receipt](fixed_depth_fit12_session_closure_20261015.owned_process.json).
+Pause during long closure wait; user resumes. No closure/selection or fallback
+evaluation outcome yet. Inspect same handle and terminal before unchanged
+FIT-only selection and prescribed nonselected6 diagnostic. Prior launch and
+pending-audit observations below are historical.
 
 Full stored FIT12 CPU audit6728/session58942: exact PID/create/argv verified;
 [owned receipt](fixed_depth_fit12_audit_20261014.owned_process.json).
