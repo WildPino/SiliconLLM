@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE. FIT family closed; no reduced candidate admitted.**
+15 October 2026. **Goal INCOMPLETE / long-run pause requested. Nonselected6 diagnostic launched.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Nonselected6 evaluation launch](FIXED_DEPTH_EVALUATION6_STATE_20261015.md):
+holder33668/create1792044644.117517/session76639, actual identity/argv live
+verified. Same frozen binding/selection; all24 DEV/16 tasks/followup/16 prefix
+pairs. Cannot promote from DEV. Total7200s/GPU2700s/OS8GiB/allocated6GiB/
+reserved10GiB/family32GiB/CPU6. Expected>=1h based on72--103min prior V2
+producers, including I/O. Pause under updated owner preference; resume exact
+handle/receipts, then full stored audit/closure even on quality failure.
+No numerical or quality outcome is claimed from launch.
 
 [Final FIT family](FIXED_DEPTH_FIT_RESULT_20261015.md): all stored audits
 complete; FIT12 closer exit0/112s/all1428 files sealed. Unchanged selector
