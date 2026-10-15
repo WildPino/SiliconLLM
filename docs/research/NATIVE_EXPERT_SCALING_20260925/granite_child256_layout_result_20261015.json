@@ -1,0 +1,53 @@
+{
+  "binding_sha256": "307a4963c833e53dd6e49c4c83e384dad513ea34b38f510065d07aabd65407c2",
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O2",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\granite_child256_layout.c",
+      "-lm",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_layout_20261015\\run01\\granite_child256_layout.exe"
+    ],
+    "elapsed_s": 2.937999999994645,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "cost_or_rate_admission": false,
+  "decision": "layout_pass_only",
+  "fixture": {
+    "elapsed_s": 0.10899999999674037,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\"status\":\"layout_pass\",\"synthetic_only\":true,\"q4_block_bytes\":144,\"q8_block_bytes\":292,\"copied_blocks\":6144,\"gate_up_parent_bytes\":589824,\"down_parent_bytes\":294912,\"gate_up_child_bytes\":589824,\"down_child_bytes\":294912,\"gate_up_parent_fnv64\":\"0e098784605ef271\",\"down_parent_fnv64\":\"6f4aec0763420d75\",\"gate_up_relative_l2\":6.36827163272e-08,\"down_relative_l2\":7.25133374717e-08,\"down_child_reconstruction_relative_l2\":6.89469968815e-08,\"gate_up_max_abs\":1.22090123114e-05,\"down_max_abs\":9.86403756542e-06,\"child_max_abs\":6.7984656198e-06,\"swiglu_parent_mass\":0.375,\"swiglu_relative_l2\":5.57872704312e-08,\"swiglu_max_abs\":0.0139935873449}\n"
+  },
+  "parsed": {
+    "child_max_abs": 6.7984656198e-06,
+    "copied_blocks": 6144,
+    "down_child_bytes": 294912,
+    "down_child_reconstruction_relative_l2": 6.89469968815e-08,
+    "down_max_abs": 9.86403756542e-06,
+    "down_parent_bytes": 294912,
+    "down_parent_fnv64": "6f4aec0763420d75",
+    "down_relative_l2": 7.25133374717e-08,
+    "gate_up_child_bytes": 589824,
+    "gate_up_max_abs": 1.22090123114e-05,
+    "gate_up_parent_bytes": 589824,
+    "gate_up_parent_fnv64": "0e098784605ef271",
+    "gate_up_relative_l2": 6.36827163272e-08,
+    "q4_block_bytes": 144,
+    "q8_block_bytes": 292,
+    "status": "layout_pass",
+    "swiglu_max_abs": 0.0139935873449,
+    "swiglu_parent_mass": 0.375,
+    "swiglu_relative_l2": 5.57872704312e-08,
+    "synthetic_only": true
+  },
+  "schema": "granite_child256_layout_result_v1",
+  "synthetic_only": true
+}

@@ -65,6 +65,12 @@ PASS,original posthash fault retained. No unchanged omission/runtime grids.
 [I4 generator+readout](ENCODED_ORGANS_WAIT_RESULT_20261014.md) still exceeds
 20ms before other organs;finite cost evidence,not a universal lower bound.
 
+[Exact packed child layout](GRANITE_CHILD256_LAYOUT_RESULT_20261015.md) PASS:
+all6144 Q4_K blocks copied exactly, Q8 segments exact, full synthetic SwiGLU
+relative L2=5.58e-8 with parent mass inherited by both children. Two256-wide
+children fit existing kernels; one addresses442,368 of884,736 expert bytes.
+No source-weight quality, selector, bundle cost, DRAM or rate admission.
+
 ## State of the two research questions
 
 **Transfer:** [full-width native quality bridge](FULL_WIDTH_NATIVE_CHAT_RESULT_20261013.md)
