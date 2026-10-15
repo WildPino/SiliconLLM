@@ -1,0 +1,69 @@
+{
+  "schema": "SOURCE_COVERAGE_SESSION_CLOSURE_V1",
+  "capture_freeze": "7d7633a0087480d85a5a02bfbf330cb59f91e978",
+  "audit_freeze": "225a5c6",
+  "worker_exit": 0,
+  "holder_exit": 0,
+  "audit_exit": 0,
+  "cases": 432,
+  "FIT": 360,
+  "DEV": 72,
+  "new_labels": 76512,
+  "control_labels": 274,
+  "BF16_words": 5032324082,
+  "source_tensors": 411,
+  "outputs": 873,
+  "output_bytes": 10086953614,
+  "capture_holder_seconds": 7620.141000000003,
+  "audit_seconds": 485.0469999999914,
+  "audit_OS_peak": 245190656,
+  "audit_GPU_calls": 0,
+  "receipts": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.json",
+      "bytes": 284046,
+      "sha256": "368b2c1d1f70248dfb66cc02e4b2fabbc022597b903599e902cae992c40766d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.terminal.json",
+      "bytes": 1498,
+      "sha256": "b8e9481295631cf79d22d017294c65885f8d95ff298122e87414b571a6dad88f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.worker_terminal.json",
+      "bytes": 777,
+      "sha256": "7e5d1e9af94aaf1e7c017a8f5b0a145d6f02d8c5d9dd4a52217bab60b687b9c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.worker.log",
+      "bytes": 78872,
+      "sha256": "32a3f9a82318b8f00e4fccd2eba3fbc329b6a32b4d08af1b5b71df076289eeee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_audit_20261015.json",
+      "bytes": 3570,
+      "sha256": "09b9149bee948e03e07c27266f54a23c6110c8ddeb89dda95a5725511a100fe0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_audit_20261015.terminal.json",
+      "bytes": 779,
+      "sha256": "ce5f78455ad9cb662237774e9b987d9417ae8ea5866c256f22caa559275fe40b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_audit_20261015.owned_process.json",
+      "bytes": 426,
+      "sha256": "d058dbd3c887a15b4c014bb99052a26af1fe248b4de72c3e9c1d160b00a73c00"
+    }
+  ],
+  "decision": "SOURCE_SUPERVISION_ADOPTED",
+  "quality_admissible": false,
+  "goal_complete": false,
+  "producer_witnesses": [
+    "GPU model identity/version",
+    "MuP",
+    "raw F32 logits before BF16",
+    "GPU source execution",
+    "GPU release before posthash"
+  ],
+  "limits": "No learner transfer, semantic-quality, CPU rate, DRAM or useful-capacity admission. Falcon scores are not Granite labels. RESERVED and deferred LongAlign remain untouched. No numerical replay in closure."
+}

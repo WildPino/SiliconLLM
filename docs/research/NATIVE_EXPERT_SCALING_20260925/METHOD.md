@@ -1,5 +1,13 @@
 # Pretrained-to-native conditional-capacity method
 
+**Source coverage closure15 October2026:** [final result](CHATBOT_SOURCE_COVERAGE_RESULT_20261015.md).
+All432 source cases/76,512 labels adopted after complete CPU audit,5.032B BF16
+words,411 current source tensors and full input/output seals PASS. No learner
+continuation or quality/rate/capacity admission. Current INDEX supersedes old
+launch/next observations below. [Independent review](../PIPELINE_REASSESSMENT_20261015/INDEPENDENT_REVIEW.md)
+requires256-aligned exact child packing and a large-family protected-core gate;
+small native MoE engineering alone does not complete the pipeline.
+
 **Latest owner scope clarification15 October2026:** [accepted scope](SCOPE_CLARIFICATION_20261015.md).
 Native MoE is a fully valid primary donor, including further expert partitioning.
 One family spanning very large models is sufficient; dense70B conversion and

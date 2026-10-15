@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / long-run pause requested. Source capture active; pipeline reassessed.**
+15 October 2026. **Goal INCOMPLETE / active. Source capture and adoption CLOSED; pipeline reassessed.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [original goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md),
@@ -33,12 +33,15 @@ needs a major representation change; no unchanged Granite port or source
 download is selected. Historical head/readout and13.8ms claims are separated
 in the linked source audit. Existing source capture remains reusable data.
 
-[Source capture live](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md):both known
-FIT donor controls exact(all IDs/BF words);source411 pre-check/MuP and first
-longest1769-ID prompt passed,143 new labels. Session77789,actual owned holder/
-worker/create/affinity/running identities in [launch record](chatbot_source_coverage_launch_20261015.json).
-Expected3--4h;pause under>=1h rule,user resumes. No corpus completion or
-transfer claim;require432 packets/final source checks/posthash/CPU adoption.
+[Source capture/adoption closed](CHATBOT_SOURCE_COVERAGE_RESULT_20261015.md):
+432/432 cases,360 FIT/72 DEV,76,512 new labels; both cached controls exact.
+Worker/holder/CPU auditor exit0; all5.032B score words,411 raw source tensors,
+873 output files and8390 input pins verified. CPU audit485.047s/234MiB/no GPU.
+Adopted Falcon supervision only; no learner, quality, rate or capacity admission.
+[Independent review](../PIPELINE_REASSESSMENT_20261015/INDEPENDENT_REVIEW.md)
+proposes source-preserving native MoE partitioning. Existing Q4_K blocks require
+512->2x256;128-wide children need another format or padding. Large-family core
+cost remains an explicit gate; a small donor is an enabling pilot only.
 
 [Balanced replay final result](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md) is
 CLOSED:512 updates/Adam830;worker/holder/auditor exit0. All80 cases/9,911 labels/
@@ -94,30 +97,22 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 ## Exact next action
 
 The next substantive experiment must resolve complete active cost AND transfer,
-not repeat D512 replay merely because new labels arrive. First finish current
-source collection/adoption. Then freeze a physical packed-format cost gate and
+not repeat D512 replay merely because new labels arrive. Source collection/adoption is complete. Freeze a physical packed-format cost gate and
 a source-function-preserving calibration/conditional-transfer pilot, using the
 reassessment and its [actual operand map](../PIPELINE_REASSESSMENT_20261015/CALIBRATION_FEASIBILITY.md).
 No learner, model-value acquisition or rate run qualifies for launch from a
 passing metadata row alone; freeze formats, donor-relative gates, resources and
 stop first. Preserve the existing full-width quality control.
 
-On resume inspect session77789/exact owned holder/worker creation times and
-receipts. Both known FIT controls and first longest packet passed. Preserve
-first faults and exclusive packets;never restart live or successful generation.
-Expected3--4h,total6h/GPU5h/OS16GiB/allocated8GiB/reserved10GiB/output32GiB/
-CPU6. ActualfreeGPU>=9216MiB before allocation. No T4 or overlapping learner.
-Pause only for expected>=1h jobs;continue shorter audits/closures here.
-
-On resume inspect exact owned PID/create/handle and receipts;never restart a
-live or successful generation. Require all432 source packets and complete CPU
-adoption before freezing any new learner trial. Fresh DEV stays out of updates
-and checkpoint choice;teacher-only capture is not learner evaluation.
+No owned capture/audit run remains live. Do not restart successful generation.
+The complete source coverage is adopted; no automatic D512 fit follows. Qualify
+packed layout/arithmetic, then complete cost and separately frozen transfer.
+Pause only for expected>=1h numerical jobs; continue shorter checks here.
 
 RESERVED104 new+64 older and LongAlign remain unqueried. Preserve foreign
 changes,owner Git identity and attribution-free commits. Final same-artifact
 CPU chatbot quality/useful50,charged IDs AND masses,physical DRAM,useful n,
-multiple families/scales and sustainable conversion costs remain required.
+one family spanning very large models and sustainable conversion costs remain required.
 
 ## History and primary evidence
 

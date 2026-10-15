@@ -1,0 +1,81 @@
+{
+  "schema": "SOURCE_COVERAGE_STORED_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.json",
+    "bytes": 284046,
+    "sha256": "368b2c1d1f70248dfb66cc02e4b2fabbc022597b903599e902cae992c40766d1"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_binding_20261015.json",
+    "bytes": 2159541,
+    "sha256": "23c93928549d2d16c12aa901b9f1f873daa3b0ff404fa777e7df2f0e58d6a64a"
+  },
+  "corpus": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_coverage_20261015\\corpus.json",
+    "bytes": 7994412,
+    "sha256": "1c42eb789f52258d7796bcaeb8b52387c648ffe803f8955ecea5c2f3bdbd9ad6"
+  },
+  "cases": 432,
+  "FIT": 360,
+  "DEV": 72,
+  "labels": 76512,
+  "controls": 2,
+  "outputs": 873,
+  "input_pins": 8390,
+  "source_BF16_tensors": 411,
+  "freeze": "225a5c6",
+  "fixed_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_source_coverage_audit.py",
+      "bytes": 18422,
+      "sha256": "b927899d955885cf949f473be94b603247c06cd747084bb54f6cc5f3cfdb5733"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_SOURCE_COVERAGE_AUDIT_20261015.md",
+      "bytes": 5313,
+      "sha256": "21d46a4dd632055f29b216d3c17175d5b9bbac63ea71b86d5aae9a4d093c8b70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.json",
+      "bytes": 284046,
+      "sha256": "368b2c1d1f70248dfb66cc02e4b2fabbc022597b903599e902cae992c40766d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_binding_20261015.json",
+      "bytes": 2159541,
+      "sha256": "23c93928549d2d16c12aa901b9f1f873daa3b0ff404fa777e7df2f0e58d6a64a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.terminal.json",
+      "bytes": 1498,
+      "sha256": "b8e9481295631cf79d22d017294c65885f8d95ff298122e87414b571a6dad88f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.worker_terminal.json",
+      "bytes": 777,
+      "sha256": "7e5d1e9af94aaf1e7c017a8f5b0a145d6f02d8c5d9dd4a52217bab60b687b9c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_coverage_result_20261015.owned_process.json",
+      "bytes": 1087,
+      "sha256": "c9438c0205397f3eef9fd8c3b02be42a4a49a8781c8b4160207a96c60bfcbc0c"
+    }
+  ],
+  "BF16_words": 5032324082,
+  "new_label_positions": 76512,
+  "control_label_positions": 274,
+  "stored_checks_pass": true,
+  "decision": "INDEPENDENT_STORED_NUMERIC_PASS",
+  "quality_admissible": false,
+  "producer_witnesses": [
+    "GPU model identity/version",
+    "MuP",
+    "raw F32 logits before BF16",
+    "GPU source execution",
+    "GPU release before posthash"
+  ],
+  "scope": "Complete stored custody, source BF16 tensor ranges, canonical chat tokens, every finite BF16 score row and first-index argmax, and byte-exact cached controls. No learner transfer, semantic quality, native rate, DRAM, or useful-capacity admission.",
+  "seconds": 485.0469999999914,
+  "OS_peak": 245190656,
+  "GPU_calls": 0
+}

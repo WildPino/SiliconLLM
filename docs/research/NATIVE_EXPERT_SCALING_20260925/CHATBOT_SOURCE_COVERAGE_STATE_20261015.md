@@ -1,4 +1,12 @@
-# Remaining source coverage: prepared binding
+# Remaining source coverage: CLOSED
+
+15 October 2026. Capture and separate CPU adoption both passed.
+[Final result](CHATBOT_SOURCE_COVERAGE_RESULT_20261015.md) supersedes all launch
+and prepared-only observations preserved below. No owned capture/audit process
+remains live; no learner continuation is launched. Goal incomplete.
+
+## Historical launch and preparation
+
 
 Launch update: both old donor FIT controls match every generated ID and BF16
 word exactly(18/256 labels);source411 pre-check/MuP passed. Longest new prefix
