@@ -1,0 +1,111 @@
+{
+  "error": "AssertionError('audit:exit1')",
+  "commands": [
+    {
+      "name": "export",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recipient_mixed_export.py",
+        "--source",
+        "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\model.safetensors",
+        "--out",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+        "--catalog",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient_catalog.h",
+        "--manifest",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\manifest.json",
+        "--threads",
+        "6"
+      ],
+      "exit_code": 0,
+      "seconds": 20.937000000005355,
+      "peak_rss_observed": 1412272128,
+      "stdout_sha256": "b324ae3a226b279e6965443ba303650abece1ccd9631206a841032f6dde1fcad",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "request_sha256": null
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "-Wl,--no-insert-timestamp",
+        "-DSILICON_QWEN_RECIPIENT_ENTRY",
+        "-DRECIPIENT_CATALOG=\"D:/_THINGS/Progetti/SiliconLLM/results/native_expert_scaling/recipient_mixed_baseline_20261015/recipient_catalog.h\"",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.exe",
+        "-lbcrypt",
+        "-lm"
+      ],
+      "exit_code": 0,
+      "seconds": 1.625,
+      "peak_rss_observed": 4640768,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "request_sha256": null
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+        "probe",
+        "2176",
+        "6"
+      ],
+      "exit_code": 0,
+      "seconds": 1.3589999999967404,
+      "peak_rss_observed": 690593792,
+      "stdout_sha256": "9dfdc44494987db9116608d70261af9e6790f8b5856a0214260077dbf8090d12",
+      "stderr_sha256": "172f7194709c79d4cd1a2d1cf4e3e590c38510c72a36a46cff01a7cd8f23ad9e",
+      "request_sha256": "efca3c32a985bb5ac9c418491b0635911c3b44dc525f5f842d91286b5691a9c9"
+    },
+    {
+      "name": "audit",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recipient_mixed_audit.py",
+        "--source",
+        "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\model.safetensors",
+        "--archive",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+        "--archive-sha",
+        "8bb77b499d76031a128cf8044889a7a772953e96dbe4c65b670e518ae95d00cb",
+        "--catalog",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient_catalog.h",
+        "--manifest",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\manifest.json",
+        "--ids",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\parity.ids",
+        "--request",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\probe.request",
+        "--probe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\probe.stdout",
+        "--out",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\audit.json"
+      ],
+      "exit_code": 1,
+      "seconds": 29.375,
+      "peak_rss_observed": 4132483072,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3dba057867994b99129ab747c68600afb7132d3acae5d98ff18d82e21f380398",
+      "request_sha256": null
+    }
+  ],
+  "seconds": 53.85899999999674
+}

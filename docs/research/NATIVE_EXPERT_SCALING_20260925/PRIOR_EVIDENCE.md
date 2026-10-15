@@ -1,10 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**Mixed recipient numerical rejection 15 October 2026:**
+[W4 FFN / W8 attention and head](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_BASELINE_RESULT_20261015.md)
+passes all 291 output-role byte derivations but fails decoded parity after
+position 0. Cost was not run. Preserve the failure and numerical threshold;
+source-byte equivalence alone does not qualify dynamic activation quantization.
+
 **Complete recipient screen15 October2026:**
 [original Qwen Instruct all-I8](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
 has32/32 decoded C/Torch top1 parity and5.833e-6 worst relative logit error,
-with all169 source code/scale matrices verified. Its15 actual own-history
-cost processes fail18ms and1.10 stability; no useful50 or source-chat quality
+with all169 source code/scale matrices verified. Across15 own-history cost
+processes, all five case groups fail the18ms/1.10 envelope; no useful50 or source-chat quality
 admission. This is a complete current artifact, unlike the historical base-model
 68.52/s or an unexecuted compact export. Both repaired preflight/reference
 faults remain explicit. Do not substitute a fast small recipient for measured

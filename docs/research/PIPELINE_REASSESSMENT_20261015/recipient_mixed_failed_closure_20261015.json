@@ -1,0 +1,319 @@
+{
+  "schema": "RECIPIENT_MIXED_FAILED_CLOSURE_V1",
+  "status": "SOURCE_BYTES_PASS_NUMERIC_FAIL_COST_NOT_RUN",
+  "frozen_commit": "4b78ac7",
+  "root_controller_tool_session": 24657,
+  "root_controller_tool_exit": 1,
+  "retained_directory": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015",
+  "files": {
+    "binding.json": {
+      "sha256": "1c555b313197b7bd06c1876c06c5df776a444327da5041b5430f62e7ede420b6",
+      "bytes": 1447382
+    },
+    "manifest.json": {
+      "sha256": "c398c0b11d44373c6544c7b0f46866f6b2ee6b1869287acba1d4c7630529d267",
+      "bytes": 84743
+    },
+    "recipient_catalog.h": {
+      "sha256": "f3c1e6ca8a1abc23ce96b4ed5b978b85e0fe8245445c02eb39909774fa3987e9",
+      "bytes": 34815
+    },
+    "recipient.mixed.bin": {
+      "sha256": "8bb77b499d76031a128cf8044889a7a772953e96dbe4c65b670e518ae95d00cb",
+      "bytes": 630039552
+    },
+    "recipient.mixed.exe": {
+      "sha256": "df497c03349f752c582e95b0f4d61590c65e26625db276d9d6094c86b1614d42",
+      "bytes": 322048
+    },
+    "probe.stdout": {
+      "sha256": "9dfdc44494987db9116608d70261af9e6790f8b5856a0214260077dbf8090d12",
+      "bytes": 2445352
+    },
+    "audit.json.failure.json": {
+      "sha256": "4a3d76eab4baa0b0b09834e6a9151523fe9df13e7e8675c43640dd59b83b260e",
+      "bytes": 4642
+    },
+    "failure.json": {
+      "sha256": "9b28307c45dad2fdca30fcd2d0a81258cbf27b1e7f06b11235de16215f50b7dd",
+      "bytes": 5237
+    }
+  },
+  "commands": [
+    {
+      "command": {
+        "name": "export",
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recipient_mixed_export.py",
+          "--source",
+          "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\model.safetensors",
+          "--out",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+          "--catalog",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient_catalog.h",
+          "--manifest",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\manifest.json",
+          "--threads",
+          "6"
+        ],
+        "exit_code": 0,
+        "seconds": 20.937000000005355,
+        "peak_rss_observed": 1412272128,
+        "stdout_sha256": "b324ae3a226b279e6965443ba303650abece1ccd9631206a841032f6dde1fcad",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "request_sha256": null
+      },
+      "owned_sha256": "ec3c8a5fdd7f7c43c18ebb89794f782cd8a8dc7506abb9523813773e2b60ce1d",
+      "owned_identity_absent": true
+    },
+    {
+      "command": {
+        "name": "compile",
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+          "-O3",
+          "-std=c11",
+          "-march=x86-64-v3",
+          "-ffp-contract=off",
+          "-fopenmp",
+          "-Wl,--no-insert-timestamp",
+          "-DSILICON_QWEN_RECIPIENT_ENTRY",
+          "-DRECIPIENT_CATALOG=\"D:/_THINGS/Progetti/SiliconLLM/results/native_expert_scaling/recipient_mixed_baseline_20261015/recipient_catalog.h\"",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.exe",
+          "-lbcrypt",
+          "-lm"
+        ],
+        "exit_code": 0,
+        "seconds": 1.625,
+        "peak_rss_observed": 4640768,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "request_sha256": null
+      },
+      "owned_sha256": "58d9ae802d48af55819b47311d4186b6c500c01326cbc7b3805e2dfd845222a0",
+      "owned_identity_absent": true
+    },
+    {
+      "command": {
+        "name": "probe",
+        "argv": [
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.exe",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+          "probe",
+          "2176",
+          "6"
+        ],
+        "exit_code": 0,
+        "seconds": 1.3589999999967404,
+        "peak_rss_observed": 690593792,
+        "stdout_sha256": "9dfdc44494987db9116608d70261af9e6790f8b5856a0214260077dbf8090d12",
+        "stderr_sha256": "172f7194709c79d4cd1a2d1cf4e3e590c38510c72a36a46cff01a7cd8f23ad9e",
+        "request_sha256": "efca3c32a985bb5ac9c418491b0635911c3b44dc525f5f842d91286b5691a9c9"
+      },
+      "owned_sha256": "5c22a7d40bab11ab6b343745de35058a5f0c8150f76a3fc9942102f316749f25",
+      "owned_identity_absent": true
+    },
+    {
+      "command": {
+        "name": "audit",
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recipient_mixed_audit.py",
+          "--source",
+          "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\model.safetensors",
+          "--archive",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+          "--archive-sha",
+          "8bb77b499d76031a128cf8044889a7a772953e96dbe4c65b670e518ae95d00cb",
+          "--catalog",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient_catalog.h",
+          "--manifest",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\manifest.json",
+          "--ids",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_int8_baseline_repair2_20261015\\parity.ids",
+          "--request",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\probe.request",
+          "--probe",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\probe.stdout",
+          "--out",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\audit.json"
+        ],
+        "exit_code": 1,
+        "seconds": 29.375,
+        "peak_rss_observed": 4132483072,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "3dba057867994b99129ab747c68600afb7132d3acae5d98ff18d82e21f380398",
+        "request_sha256": null
+      },
+      "owned_sha256": "37a5d5ca94f08b7bf95c9d3cb63adf3a2138194f775e0950ed37ef364d157e23",
+      "owned_identity_absent": true
+    }
+  ],
+  "numerical_diagnostics": {
+    "schema": "QWEN_RECIPIENT_MIXED_AUDIT_V1",
+    "status": "FAIL",
+    "scope": "Exact source-derived 291-role mixed wire plus saved QWCT decoded numerical parity; no quality/rate claim",
+    "source_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "input_sha256_before_after": {
+      "source": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+      "archive": "8bb77b499d76031a128cf8044889a7a772953e96dbe4c65b670e518ae95d00cb",
+      "catalog": "f3c1e6ca8a1abc23ce96b4ed5b978b85e0fe8245445c02eb39909774fa3987e9",
+      "manifest": "c398c0b11d44373c6544c7b0f46866f6b2ee6b1869287acba1d4c7630529d267",
+      "ids": "6dddea8b7f508779a2c7d6590f4706a15c7147d2f7ce042cc01c91713815370f",
+      "request": "efca3c32a985bb5ac9c418491b0635911c3b44dc525f5f842d91286b5691a9c9",
+      "probe": "9dfdc44494987db9116608d70261af9e6790f8b5856a0214260077dbf8090d12",
+      "config": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45"
+    },
+    "auditor_sha256": "2fd205f3ad23df64683adc1b9a86df189d84ec456d97ebc497c81d97224fdbb2",
+    "field_counts_by_dtype": {
+      "1": 121,
+      "2": 1,
+      "3": 97,
+      "4": 72
+    },
+    "field_count": 291,
+    "source_tensor_count": 290,
+    "archive_bytes": 630039552,
+    "ids_count": 32,
+    "selected_positions": [
+      0,
+      7,
+      15,
+      31
+    ],
+    "reference_top8_before_refinement": {
+      "0": [
+        3065,
+        16964,
+        77419,
+        105871,
+        80823,
+        75418,
+        277,
+        796
+      ],
+      "7": [
+        271,
+        11,
+        13,
+        2878,
+        3351,
+        448,
+        382,
+        429
+      ],
+      "15": [
+        279,
+        1246,
+        3170,
+        1128,
+        304,
+        323,
+        3019,
+        11
+      ],
+      "31": [
+        16148,
+        29716,
+        3110,
+        4226,
+        5693,
+        32711,
+        6358,
+        9342
+      ]
+    },
+    "reference_logits_sha256": {
+      "0": "4f3a20190ab3a76cc4075d48f6c84ad8c23ae390e0121295789cd45f36f46dc5",
+      "7": "889229d51aef797b666031d38e02fe04d45d92c422b76828ad078b8f1f532bac",
+      "15": "19ddf7d77f21f8394188ead0693613a34934e1a786b37a9ea924dba0a27b93b5",
+      "31": "f84e6af2b0c26d1961f65455ecbbaed7de3b180f8061a1740ec688ffebb621d8"
+    },
+    "final_norm_rows": [
+      {
+        "position": 0,
+        "native_argmax": 662,
+        "reference_argmax": 662,
+        "relative_l2": 3.792932119399516e-08,
+        "maximum_absolute_difference": 1.9073486328125e-06
+      },
+      {
+        "position": 7,
+        "native_argmax": 674,
+        "reference_argmax": 674,
+        "relative_l2": 0.08259844081535318,
+        "maximum_absolute_difference": 6.538881301879883
+      },
+      {
+        "position": 15,
+        "native_argmax": 674,
+        "reference_argmax": 674,
+        "relative_l2": 0.02410604248534417,
+        "maximum_absolute_difference": 1.4862079620361328
+      },
+      {
+        "position": 31,
+        "native_argmax": 674,
+        "reference_argmax": 674,
+        "relative_l2": 0.028940823530451396,
+        "maximum_absolute_difference": 1.2847328186035156
+      }
+    ],
+    "full_logits_rows": [
+      {
+        "position": 0,
+        "native_argmax": 16964,
+        "reference_argmax": 16964,
+        "relative_l2": 1.1356989270245187e-09,
+        "maximum_absolute_difference": 9.5367431640625e-07
+      },
+      {
+        "position": 7,
+        "native_argmax": 11,
+        "reference_argmax": 271,
+        "relative_l2": 0.09218211463750121,
+        "maximum_absolute_difference": 1.6680989265441895
+      },
+      {
+        "position": 15,
+        "native_argmax": 279,
+        "reference_argmax": 279,
+        "relative_l2": 0.06651099402746179,
+        "maximum_absolute_difference": 0.9348840713500977
+      },
+      {
+        "position": 31,
+        "native_argmax": 16148,
+        "reference_argmax": 16148,
+        "relative_l2": 0.07618250860728029,
+        "maximum_absolute_difference": 1.0583949089050293
+      }
+    ],
+    "seconds": 25.125,
+    "peak_sampled_rss_bytes": 4052836352,
+    "torch_version": "2.6.0+cu124",
+    "numpy_version": "2.4.6",
+    "gates": {
+      "all_selected_argmax_equal": false,
+      "all_selected_full_logits_relative_l2_le_1e-3": false,
+      "all_selected_final_norm_relative_l2_le_1e-3": false
+    }
+  },
+  "cost_jobs_started": 0,
+  "quality_admitted": false,
+  "donor_transfer_admitted": false,
+  "goal_complete": false
+}

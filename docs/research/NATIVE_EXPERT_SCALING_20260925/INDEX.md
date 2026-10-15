@@ -20,6 +20,11 @@ pilot alone does not demonstrate the large-model pipeline. See scope clarificati
 
 ## Latest decisive evidence
 
+[Complete mixed W4/W8 recipient](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_BASELINE_RESULT_20261015.md)
+passes all 291 source-derived packet roles but fails multi-token decoded
+numerical parity. No cost process ran. Its first-divergence diagnostic preserves
+the original failure and the frozen 1e-3 gate; no rate or quality is admitted.
+
 [Complete original-recipient CPU baseline](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
 is CLOSED: source Instruct all-I8 full24-layer attention/KV/FFN/head engine
 profile, not the failed compact checkpoint. Independent derivation checks
