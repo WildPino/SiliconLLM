@@ -1,6 +1,12 @@
 # Pretrained-to-native conditional-capacity method
 
 15 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Distinct donor capture launched](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md):
+two old FIT controls bit-exact(all IDs/BF words),source411 pre-check/MuP and
+first1769-ID new prompt completed143 labels. Session77789,432 planned source
+packets,zero learner calls. Long-run pause requested;all final checks/adoption
+and future separately frozen training still required. Earlier prepared-only
+descriptions below are historical;no completed corpus/transfer admission.
 [Balanced replay closed](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md):512
 updates/Adam830,all80 saved score cases/state/ledger/custody audited;new FIT
 passes but old/new DEV fail(KL2.56407/7.11348). No more unchanged152-case fit.

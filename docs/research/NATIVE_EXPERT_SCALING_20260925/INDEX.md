@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / ACTIVE. Replay audited and rejected; distinct source coverage prepared.**
+15 October 2026. **Goal INCOMPLETE / long-run pause requested. Distinct source capture active.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -16,6 +16,13 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
+[Source capture live](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md):both known
+FIT donor controls exact(all IDs/BF words);source411 pre-check/MuP and first
+longest1769-ID prompt passed,143 new labels. Session77789,actual owned holder/
+worker/create/affinity/running identities in [launch record](chatbot_source_coverage_launch_20261015.json).
+Expected3--4h;pause under>=1h rule,user resumes. No corpus completion or
+transfer claim;require432 packets/final source checks/posthash/CPU adoption.
+
 [Balanced replay final result](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md) is
 CLOSED:512 updates/Adam830;worker/holder/auditor exit0. All80 cases/9,911 labels/
 649,537,207 saved score words,211 model/422 moment tensors,exposure/routes/
@@ -24,8 +31,8 @@ old DEV2.56407/35.993% and new DEV7.11348/81.487% fail. No unchanged152-case
 fit or promotion. GPU training/final forwards remain producer witnesses.
 
 [Source coverage protocol](CHATBOT_SOURCE_COVERAGE_PROTOCOL_20261015.md) and
-[prepared binding](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md) are ready,not
-executed. All remaining360 FIT/72 DEV from the adopted public
+[binding](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md) now execute the remaining
+360 FIT/72 DEV from the adopted public
 corpus,30/6 per12 sources;40 LongAlign cases deferred,RESERVED untouched.
 Longest prefix1769 first as resource probe,then all remaining fixed IDs;two
 known donor controls before new packets. No learner call or new training recipe
@@ -69,10 +76,9 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 ## Exact next action
 
-Freeze/check the source-coverage code/protocol and prepare its binding against
-completed replay audit. Announce then launch one owned donor capture only;
-both known FIT controls require identical generated IDs and every BF logit word
-before any new-cohort query. Preserve first faults and exclusive packets.
+On resume inspect session77789/exact owned holder/worker creation times and
+receipts. Both known FIT controls and first longest packet passed. Preserve
+first faults and exclusive packets;never restart live or successful generation.
 Expected3--4h,total6h/GPU5h/OS16GiB/allocated8GiB/reserved10GiB/output32GiB/
 CPU6. ActualfreeGPU>=9216MiB before allocation. No T4 or overlapping learner.
 Pause only for expected>=1h jobs;continue shorter audits/closures here.

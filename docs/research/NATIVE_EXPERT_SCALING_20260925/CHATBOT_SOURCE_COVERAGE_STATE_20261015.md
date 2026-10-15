@@ -1,5 +1,20 @@
 # Remaining source coverage: prepared binding
 
+Launch update: both old donor FIT controls match every generated ID and BF16
+word exactly(18/256 labels);source411 pre-check/MuP passed. Longest new prefix
+broad_fit_smol_summarize_021/1769 IDs completed143 labels at77.453s. This is
+one actual resource probe,not a completion or all-case memory guarantee.
+
+Holder/worker/create/actual running identities/affinity and OS observation in
+[launch record](chatbot_source_coverage_launch_20261015.json) and
+[owned receipt](chatbot_source_coverage_result_20261015.owned_process.json).
+Terminal session77789. Long source-only capture is confirmed active;pause
+under>=1h rule,user resumes. Inspect same handle/identities/receipts/completed
+exclusive packets;never restart a live/successful generation. Require all432,
+final source411/identity/MuP/posthash,then separate full CPU packet adoption.
+No learner forward,training,RESERVED or transfer admission. Prepared-only
+statements below are historical.
+
 15 October2026. Goal INCOMPLETE. Replay stored audit8872 exited0;the candidate
 fails both DEV cohorts. Source-only coverage code/protocol frozen
 7d7633a0087480d85a5a02bfbf330cb59f91e978. No further learner fit is launched.
