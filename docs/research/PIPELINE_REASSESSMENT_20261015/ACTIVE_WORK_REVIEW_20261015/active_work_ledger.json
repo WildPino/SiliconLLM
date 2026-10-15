@@ -1,0 +1,2600 @@
+{
+  "schema": "FAVORABLE_SOURCE_ACTIVE_WORK_V1",
+  "status": "UNCHANGED_PORT_DEPRIORITIZED",
+  "model_revision": "b62b68827ead0b7fef3ba98b57f18484acaaec06",
+  "reference_revision": "753d61104116eefc8ffc977327b441ee0c8d599f",
+  "totals": {
+    "attention": {
+      "matrix_names_checked": 140,
+      "coefficients": 915668992,
+      "ideal_payload_bytes": 457834496
+    },
+    "dense_ffn": {
+      "matrix_names_checked": 84,
+      "coefficients": 1585446912,
+      "ideal_payload_bytes": 792723456
+    },
+    "router": {
+      "matrix_names_checked": 14,
+      "coefficients": 16515072,
+      "ideal_payload_bytes": 66060288
+    },
+    "head": {
+      "matrix_names_checked": 1,
+      "coefficients": 402653184,
+      "ideal_payload_bytes": 201326592
+    },
+    "memory_projection": {
+      "matrix_names_checked": 12,
+      "coefficients": 9437184,
+      "ideal_payload_bytes": 4718592
+    }
+  },
+  "matrices": {
+    "model.layers.0.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.0.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.0.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.0.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.0.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.0.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.0.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.0.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.0.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.0.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.0.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.0.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.0.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.0.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.0.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.0.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.0.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.1.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.1.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.1.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.1.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.1.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.1.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.1.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.1.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.1.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.1.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.1.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.1.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.1.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.1.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.1.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.1.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.1.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.2.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.2.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.2.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.2.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.2.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.2.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.2.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.2.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.2.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.2.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.2.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.2.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.2.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.2.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.2.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.2.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.2.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.3.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.3.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.3.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.3.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.3.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.3.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.3.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.3.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.3.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.3.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.3.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.3.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.3.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.3.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.3.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.3.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.3.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.4.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.4.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.4.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.4.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.4.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.4.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.4.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.4.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.4.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.4.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.4.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.4.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.4.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.4.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.4.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.4.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.4.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.5.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.5.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.5.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.5.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.5.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.5.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.5.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.5.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.5.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.5.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.5.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.5.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.5.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.5.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.5.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.5.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.5.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.6.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.6.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.6.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.6.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.6.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.6.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.6.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.6.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.6.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.6.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.6.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.6.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.6.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.6.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.6.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.6.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.6.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.7.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.7.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.7.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.7.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.7.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.7.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.7.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.7.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.7.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.7.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.7.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.7.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.7.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.7.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.7.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.7.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.7.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.8.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.8.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.8.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.8.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.8.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.8.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.8.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.8.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.8.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.8.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.8.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.8.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.8.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.8.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.8.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.8.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.8.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.9.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.9.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.9.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.9.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.9.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.9.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.9.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.9.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.9.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.9.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.9.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.9.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.9.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.9.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.9.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.9.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.9.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.10.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.10.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.10.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.10.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.10.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.10.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.10.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.10.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.10.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.10.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.10.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.10.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.10.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.10.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.10.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.10.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.10.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.11.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.11.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.11.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.11.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.11.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.11.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.11.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.11.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.11.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.11.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.11.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.11.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.11.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.11.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.11.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.11.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.11.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.12.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.12.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.12.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.12.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.12.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.12.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.12.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.12.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.12.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.12.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.12.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.12.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.12.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.12.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.12.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.12.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.12.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.13.self_attn.0.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.13.self_attn.0.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.13.self_attn.0.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.13.self_attn.0.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.13.self_attn.0.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.13.mlps.0.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.13.mlps.0.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.13.mlps.0.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.13.self_attn.1.q_a_proj.weight": {
+      "shape_inferred": [
+        1536,
+        3072
+      ],
+      "coefficients": 4718592,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2359296
+    },
+    "model.layers.13.self_attn.1.q_b_proj.weight": {
+      "shape_inferred": [
+        6144,
+        1536
+      ],
+      "coefficients": 9437184,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 4718592
+    },
+    "model.layers.13.self_attn.1.kv_a_proj_with_mqa.weight": {
+      "shape_inferred": [
+        576,
+        3072
+      ],
+      "coefficients": 1769472,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 884736
+    },
+    "model.layers.13.self_attn.1.kv_b_proj.weight": {
+      "shape_inferred": [
+        8192,
+        512
+      ],
+      "coefficients": 4194304,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 2097152
+    },
+    "model.layers.13.self_attn.1.o_proj.weight": {
+      "shape_inferred": [
+        3072,
+        4096
+      ],
+      "coefficients": 12582912,
+      "role": "attention",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 6291456
+    },
+    "model.layers.13.mlps.1.gate_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.13.mlps.1.up_proj.weight": {
+      "shape_inferred": [
+        6144,
+        3072
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.13.mlps.1.down_proj.weight": {
+      "shape_inferred": [
+        3072,
+        6144
+      ],
+      "coefficients": 18874368,
+      "role": "dense_ffn",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 9437184
+    },
+    "model.layers.13.mlp.router.classifier.weight": {
+      "shape_inferred": [
+        384,
+        3072
+      ],
+      "coefficients": 1179648,
+      "role": "router",
+      "hypothetical_bits": 32,
+      "ideal_payload_bytes": 4718592
+    },
+    "lm_head.weight": {
+      "shape_inferred": [
+        131072,
+        3072
+      ],
+      "coefficients": 402653184,
+      "role": "head",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 201326592
+    },
+    "model.ngram_embeddings.post_projs.0.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.1.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.2.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.3.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.4.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.5.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.6.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.7.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.8.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.9.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.10.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    },
+    "model.ngram_embeddings.post_projs.11.weight": {
+      "shape_inferred": [
+        3072,
+        256
+      ],
+      "coefficients": 786432,
+      "role": "memory_projection",
+      "hypothetical_bits": 4,
+      "ideal_payload_bytes": 393216
+    }
+  },
+  "accounted_ideal_bytes": 1522663424,
+  "required_GBps_at_50": 76.1331712,
+  "memory": {
+    "branches": 12,
+    "row_width": 256,
+    "table_rows": [
+      10223617,
+      10223619,
+      10223621,
+      10223623,
+      10223625,
+      10223627,
+      10223629,
+      10223631,
+      10223633,
+      10223635,
+      10223637,
+      10223639
+    ],
+    "inferred_table_coefficients": 31406985216,
+    "BF16_rows_bytes_per_token": 6144
+  },
+  "index_names": 11160,
+  "index_declared_bytes": 138179712000,
+  "not_acquired": [
+    "tensor headers",
+    "tensor values",
+    "full checkpoint"
+  ],
+  "excluded_costs": [
+    "experts",
+    "KV/cache/attention arithmetic",
+    "norms and biases",
+    "memory base row",
+    "scales and format padding",
+    "sampling/frontend"
+  ],
+  "limits": "Ideal payloads and source-derived shapes; no physical format, quality, DRAM or latency measured. A transformed or amortized implementation needs a separate ledger.",
+  "inputs_sha256": {
+    "longcat_lite_api.json": "6c2207bda4fa7e64035d66818cc2820cb8ca79c7d4d03563cfd1c898ca3bbac8",
+    "longcat_lite_config.json": "c5719c2df9c931b11b0336a0fa8bfdceae617c5303d1bad7197436a7daea33a0",
+    "longcat_lite_modeling_longcat_ngram.py": "d75c6bfc20a1c8045b3958eb2e2167d3e80bb110e8475d64390abe8eb160968f",
+    "longcat_lite_model.safetensors.index.json": "5dfb90170455b0489b89d56d3e53ea87d5aeedbd1c79c6d841ec7fc3c9ac8bcd",
+    "longcat_lite_README.md": "8800dbbf2d97cadbad0be9720b97ae5e78e8111096e22648ab716d62115ac75d",
+    "longcat_sparse_api.json": "954321482391a7035f70e13c438cd6c246d54d53b95ee597d5744de03b3c09e2",
+    "longcat_sparse_config.json": "0111b52ed0dba62f804367cad68f2fd7afaaf4d50ee883cc4183d3aad682e79e",
+    "switch_c_api.json": "9b5a5239bec2bea4b45f1af2b0483c282aeba9c3507e67f0344583bee4d9e0b3",
+    "switch_c_config.json": "50a952c8ffd5598c6fb3c26edf21140106aa58222291f6a930422a494295657b",
+    "switch_base256_api.json": "c85f631e2cc3a72d078cb35d5039afdfe6708e17ff4ff9eae1fb5e52b7267824",
+    "switch_base256_config.json": "7e9e2a8bb723b5755e8ab94dfa6178b62907a2345d93a2f080f9238e6fde2778",
+    "transformers_tag.json": "9fe124322c9afd28d343901bf20686569775b30f13e938b6c86b63044aef5cc9",
+    "transformers_tag_object.json": "29b30e2ca69e47d8e0066017437ee5fcb71ea81a62de7840340e57a36af85c9d",
+    "modeling_longcat_flash.py": "344be9c15e2b9ad806e913da75275ff11eca9765edf1a40a1918e0267c000346"
+  },
+  "code_sha256": "9624d9c4b7609de4ab8d8b5e9ca2d006791bf8bcb873dbc930f41c143e2be125"
+}
