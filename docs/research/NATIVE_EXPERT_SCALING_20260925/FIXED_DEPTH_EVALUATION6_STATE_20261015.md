@@ -1,5 +1,17 @@
 # Nonselected six-block defect evaluation: launch observation
 
+Terminal update15 October: original worker11212/create1792044666.2317238 and
+holder33668 exit1, worker deadline7110.047s at AFTER_HASH. All24 DEV/16 tasks/
+followup/16 prefix pairs and source411 checks completed; GPU released32MiB
+at4021.593s, numerical GPU phase1176.125s. Numerical completion journal and
+all994 files/3,346,887,358B retained. Original posthash incomplete; no producer
+report exists. Raw task correctness0/16 is preliminary, full audit required.
+[CPU recovery protocol](FIXED_DEPTH_EVALUATION_RECOVERY_20261015.md) preserves
+original faults and uses actual journals, no GPU replay or inferred KV values.
+Adapter compilation and unchanged mathematical block SHA256 check PASS.
+Expected15--25min/CPU6/OS8GiB/no GPU/hard3600s, so continue without pause
+under updated owner preference. All live/launch statements below are historical.
+
 15 October2026. Goal INCOMPLETE. The frozen FIT-only selector admitted no
 3/6/12 candidate. This is the prescribed NONSELECTED6 defect diagnostic,
 not a replacement candidate; a DEV pass cannot promote it.

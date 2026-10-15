@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / long-run pause requested. Nonselected6 diagnostic launched.**
+15 October 2026. **Goal INCOMPLETE / ACTIVE. Diagnostic posthash deadline; CPU recovery prepared.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Original nonselected6 evaluation worker/holder exit1 at AFTER_HASH deadline
+7110.047s after complete24 DEV/16 tasks/followup/16 prefix pairs/source411
+checks and GPU release. Journal/all994 files retained; preliminary tasks0/16.
+[Recovery protocol](FIXED_DEPTH_EVALUATION_RECOVERY_20261015.md) freezes a
+CPU-only full stored audit with original failed receipts unchanged, actual
+KV journals and explicit late seals. No inference replay. Mathematical audit
+block identical; adapter compiles. Expected15--25min, no goal pause; hard3600s/
+OS8GiB/CPU6/no GPU. No numerical closure or recovered quality claim yet.
 
 [Nonselected6 evaluation launch](FIXED_DEPTH_EVALUATION6_STATE_20261015.md):
 holder33668/create1792044644.117517/session76639, actual identity/argv live

@@ -1,0 +1,169 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights:   9%|▊         | 35/411 [00:00<00:01, 347.66it/s]Loading weights:  19%|█▉        | 78/411 [00:00<00:00, 394.07it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 1463.54it/s]
+{"stage": "prefix_controls", "depth": 6, "seconds": 3004.797000000006, "operation": "prefix", "id": "arithmetic_add", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3008.5620000000054, "operation": "prefix", "id": "arithmetic_sub", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3011.8280000000086, "operation": "prefix", "id": "arithmetic_mul", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3015.7340000000113, "operation": "prefix", "id": "arithmetic_div", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3019.8120000000054, "operation": "prefix", "id": "extract_color", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3023.9530000000086, "operation": "prefix", "id": "extract_city", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3027.9530000000086, "operation": "prefix", "id": "extract_name", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3032.1090000000113, "operation": "prefix", "id": "extract_animal", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3035.5620000000054, "operation": "prefix", "id": "follow_literal", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3039.047000000006, "operation": "prefix", "id": "follow_upper", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3042.5780000000086, "operation": "prefix", "id": "follow_lower", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3046.25, "operation": "prefix", "id": "follow_reverse", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3051.5780000000086, "operation": "prefix", "id": "history_pet", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3056.343000000008, "operation": "prefix", "id": "history_color", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3061.7030000000086, "operation": "prefix", "id": "history_city", "exact": true}
+{"stage": "prefix_controls", "depth": 6, "seconds": 3066.2810000000027, "operation": "prefix", "id": "history_inventory", "exact": true}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3066.7030000000086, "operation": "history_progress", "id": "broad_dev_apigen_80k_034", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3071.2810000000027, "operation": "history_progress", "id": "broad_dev_apigen_80k_034", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3075.875, "operation": "history_progress", "id": "broad_dev_apigen_80k_034", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3080.3280000000086, "operation": "history_progress", "id": "broad_dev_apigen_80k_034", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3085.25, "operation": "history_complete", "id": "broad_dev_apigen_80k_034", "KL": 15.368373316336365, "disagreement": 0.97}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3085.718000000008, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3090.0310000000027, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3094.2810000000027, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3098.7030000000086, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3103.5, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 512}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3108.0149999999994, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 640}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3112.593000000008, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 768}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3117.3120000000054, "operation": "history_progress", "id": "broad_dev_apigen_80k_033", "position": 896}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3120.3120000000054, "operation": "history_complete", "id": "broad_dev_apigen_80k_033", "KL": 16.21275560311171, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3120.718000000008, "operation": "history_progress", "id": "broad_dev_everyday_conversations_036", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3125.25, "operation": "history_progress", "id": "broad_dev_everyday_conversations_036", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3129.2649999999994, "operation": "history_complete", "id": "broad_dev_everyday_conversations_036", "KL": 15.268681615376524, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3129.593000000008, "operation": "history_progress", "id": "broad_dev_everyday_conversations_033", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3134.4530000000086, "operation": "history_progress", "id": "broad_dev_everyday_conversations_033", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3139.125, "operation": "history_progress", "id": "broad_dev_everyday_conversations_033", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3145.843000000008, "operation": "history_complete", "id": "broad_dev_everyday_conversations_033", "KL": 14.92959772025978, "disagreement": 0.9883720930232558}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3146.25, "operation": "history_progress", "id": "broad_dev_explore_instruct_rewriting_035", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3149.9060000000027, "operation": "history_complete", "id": "broad_dev_explore_instruct_rewriting_035", "KL": 16.61946927110238, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3150.2340000000113, "operation": "history_progress", "id": "broad_dev_explore_instruct_rewriting_038", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3154.2030000000086, "operation": "history_progress", "id": "broad_dev_explore_instruct_rewriting_038", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3158.8899999999994, "operation": "history_progress", "id": "broad_dev_explore_instruct_rewriting_038", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3164.843000000008, "operation": "history_complete", "id": "broad_dev_explore_instruct_rewriting_038", "KL": 13.466663800904673, "disagreement": 0.9921875}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3165.297000000006, "operation": "history_progress", "id": "broad_dev_metamathqa_50k_035", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3170.2810000000027, "operation": "history_progress", "id": "broad_dev_metamathqa_50k_035", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3177.0, "operation": "history_complete", "id": "broad_dev_metamathqa_50k_035", "KL": 14.481786692492845, "disagreement": 0.9842931937172775}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3177.468000000008, "operation": "history_progress", "id": "broad_dev_metamathqa_50k_037", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3182.1399999999994, "operation": "history_progress", "id": "broad_dev_metamathqa_50k_037", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3187.0149999999994, "operation": "history_progress", "id": "broad_dev_metamathqa_50k_037", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3193.672000000006, "operation": "history_complete", "id": "broad_dev_metamathqa_50k_037", "KL": 14.496776287334939, "disagreement": 0.98046875}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3194.047000000006, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_038", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3198.9530000000086, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_038", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3203.5620000000054, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_038", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3209.0310000000027, "operation": "history_complete", "id": "broad_dev_numina_cot_100k_038", "KL": 13.79386772414679, "disagreement": 0.9765625}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3209.4530000000086, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_035", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3213.2810000000027, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_035", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3218.1399999999994, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_035", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3223.0149999999994, "operation": "history_progress", "id": "broad_dev_numina_cot_100k_035", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3226.4840000000113, "operation": "history_complete", "id": "broad_dev_numina_cot_100k_035", "KL": 14.97223166293565, "disagreement": 0.99609375}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3226.8280000000086, "operation": "history_progress", "id": "broad_dev_openhermes_100k_034", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3231.2340000000113, "operation": "history_progress", "id": "broad_dev_openhermes_100k_034", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3236.1090000000113, "operation": "history_progress", "id": "broad_dev_openhermes_100k_034", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3241.218000000008, "operation": "history_complete", "id": "broad_dev_openhermes_100k_034", "KL": 14.920401441502175, "disagreement": 0.98828125}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3241.6560000000027, "operation": "history_progress", "id": "broad_dev_openhermes_100k_037", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3246.0780000000086, "operation": "history_progress", "id": "broad_dev_openhermes_100k_037", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3250.968000000008, "operation": "history_progress", "id": "broad_dev_openhermes_100k_037", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3257.9530000000086, "operation": "history_complete", "id": "broad_dev_openhermes_100k_037", "KL": 17.38842341610966, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3258.3590000000113, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_036", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3263.2340000000113, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_036", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3268.0, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_036", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3274.547000000006, "operation": "history_complete", "id": "broad_dev_self_oss_instruct_036", "KL": 15.401876231293013, "disagreement": 0.9921875}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3274.9370000000054, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_033", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3278.7340000000113, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_033", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3282.875, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_033", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3287.422000000006, "operation": "history_progress", "id": "broad_dev_self_oss_instruct_033", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3291.6870000000054, "operation": "history_complete", "id": "broad_dev_self_oss_instruct_033", "KL": 14.956403031719983, "disagreement": 0.9921875}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3292.125, "operation": "history_progress", "id": "broad_dev_smol_constraints_035", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3297.4840000000113, "operation": "history_complete", "id": "broad_dev_smol_constraints_035", "KL": 12.866291186225025, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3297.8590000000113, "operation": "history_progress", "id": "broad_dev_smol_constraints_034", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3302.093000000008, "operation": "history_progress", "id": "broad_dev_smol_constraints_034", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3305.8590000000113, "operation": "history_complete", "id": "broad_dev_smol_constraints_034", "KL": 12.435685432201216, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3306.25, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3310.1560000000027, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3313.968000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3318.2030000000086, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3322.1090000000113, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 512}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3326.047000000006, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 640}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3330.218000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 768}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3334.343000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 896}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3338.3899999999994, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 1024}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3342.8120000000054, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_034", "position": 1152}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3350.2649999999994, "operation": "history_complete", "id": "broad_dev_smol_magpie_ultra_034", "KL": 14.858193252753079, "disagreement": 0.98828125}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3350.6870000000054, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3354.9060000000027, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3359.3899999999994, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3363.468000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3367.3590000000113, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 512}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3371.422000000006, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 640}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3375.625, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 768}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3379.5149999999994, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 896}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3383.343000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 1024}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3387.593000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 1152}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3391.6870000000054, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 1280}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3395.968000000008, "operation": "history_progress", "id": "broad_dev_smol_magpie_ultra_036", "position": 1408}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3402.6560000000027, "operation": "history_complete", "id": "broad_dev_smol_magpie_ultra_036", "KL": 15.617449724361515, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3403.125, "operation": "history_progress", "id": "broad_dev_smol_rewrite_036", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3407.6090000000113, "operation": "history_progress", "id": "broad_dev_smol_rewrite_036", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3412.172000000006, "operation": "history_progress", "id": "broad_dev_smol_rewrite_036", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3419.0620000000054, "operation": "history_complete", "id": "broad_dev_smol_rewrite_036", "KL": 13.921487324454326, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3419.422000000006, "operation": "history_progress", "id": "broad_dev_smol_rewrite_032", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3424.875, "operation": "history_progress", "id": "broad_dev_smol_rewrite_032", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3429.0149999999994, "operation": "history_progress", "id": "broad_dev_smol_rewrite_032", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3433.3590000000113, "operation": "history_progress", "id": "broad_dev_smol_rewrite_032", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3439.7649999999994, "operation": "history_complete", "id": "broad_dev_smol_rewrite_032", "KL": 15.232150496577582, "disagreement": 0.9828571428571429}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3440.1090000000113, "operation": "history_progress", "id": "broad_dev_smol_summarize_034", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3444.4060000000027, "operation": "history_progress", "id": "broad_dev_smol_summarize_034", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3449.343000000008, "operation": "history_complete", "id": "broad_dev_smol_summarize_034", "KL": 13.351537920651316, "disagreement": 0.9705882352941176}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3449.6870000000054, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3454.047000000006, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3458.422000000006, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3462.6090000000113, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3466.797000000006, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 512}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3471.125, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 640}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3475.7340000000113, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 768}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3480.093000000008, "operation": "history_progress", "id": "broad_dev_smol_summarize_039", "position": 896}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3484.8899999999994, "operation": "history_complete", "id": "broad_dev_smol_summarize_039", "KL": 15.112813479134449, "disagreement": 1.0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3485.2340000000113, "operation": "history_progress", "id": "broad_dev_systemchats_30k_039", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3489.9060000000027, "operation": "history_progress", "id": "broad_dev_systemchats_30k_039", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3494.422000000006, "operation": "history_progress", "id": "broad_dev_systemchats_30k_039", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3498.968000000008, "operation": "history_complete", "id": "broad_dev_systemchats_30k_039", "KL": 15.302354433672091, "disagreement": 0.984375}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3499.3899999999994, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 0}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3503.5, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 128}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3507.593000000008, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 256}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3512.0310000000027, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 384}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3516.2810000000027, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 512}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3520.6399999999994, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 640}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3525.218000000008, "operation": "history_progress", "id": "broad_dev_systemchats_30k_034", "position": 768}
+{"stage": "DEV_histories", "depth": 6, "seconds": 3532.5620000000054, "operation": "history_complete", "id": "broad_dev_systemchats_30k_034", "KL": 14.805738117562253, "disagreement": 1.0}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3542.2649999999994, "operation": "task", "id": "arithmetic_add", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3562.672000000006, "operation": "task", "id": "arithmetic_sub", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3574.7649999999994, "operation": "task", "id": "arithmetic_mul", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3598.9840000000113, "operation": "task", "id": "arithmetic_div", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3635.8590000000113, "operation": "task", "id": "extract_color", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3650.0310000000027, "operation": "task", "id": "extract_city", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3684.8899999999994, "operation": "task", "id": "extract_name", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3705.4060000000027, "operation": "task", "id": "extract_animal", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3725.7810000000027, "operation": "task", "id": "follow_literal", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3742.343000000008, "operation": "task", "id": "follow_upper", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3751.718000000008, "operation": "task", "id": "follow_lower", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3772.968000000008, "operation": "task", "id": "follow_reverse", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3792.2810000000027, "operation": "task", "id": "history_pet", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3830.9530000000086, "operation": "task", "id": "history_color", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3844.4530000000086, "operation": "task", "id": "history_city", "correct": false}
+{"stage": "canonical_generation", "depth": 6, "seconds": 3858.843000000008, "operation": "task", "id": "history_inventory", "correct": false}
+{"stage": "after_hash", "depth": 6, "seconds": 4021.593000000008, "operation": "GPU_released_before_posthash", "GPU_phase_seconds": 1176.125, "allocated_now": 33554432}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\fixed_depth_quality_io_v2.py", line 405, in <module>
+    if a.mode in ('worker','launch'):{'worker':worker,'launch':launch}[a.mode](a)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\fixed_depth_quality_io_v2.py", line 308, in worker
+    check_inputs(b,guard)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\full_width_native_chat.py", line 37, in check_inputs
+    guard()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\fixed_depth_quality_io_v2.py", line 183, in guard
+    assert time.monotonic()-start<=LIMITS['seconds']-LIMITS['reserve_seconds'],'worker total deadline'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: worker total deadline
