@@ -1,4 +1,8 @@
-#ifdef SILICON_FALCON_TERNARY_CHAT
+#ifdef SILICON_QWEN_RECIPIENT_I8
+#include "../native_expert_scaling/recipient_int8_entry.c"
+#elif defined(SILICON_QWEN_RECIPIENT_ENTRY)
+#include "../native_expert_scaling/recipient_qwen_entry.c"
+#elif defined(SILICON_FALCON_TERNARY_CHAT)
 #include "../native_expert_scaling/chatbot_hybrid_engine_entry.c"
 #elif defined(SILICON_QWEN_COMPACT)
 #include "../native_expert_scaling/chatbot_compact_entry.c"
