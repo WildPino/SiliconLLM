@@ -1,0 +1,605 @@
+{
+  "binary_sha256": "f56ac8bbc83f9a7c34e45ab7631e22eefa7ec92e6a15f4db078d7913707c9654",
+  "binding_sha256": "2617c43c58c4397a2455307b3cfd5c5151cda38bc3c785b9e0e8f77ea6d03827",
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-Wl,--no-insert-timestamp",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\granite_child256_cost_cpu.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+      "-lm",
+      "-lpsapi",
+      "-lbcrypt"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "decision": "bundle_cost_fail",
+  "elapsed_s": 31.23399999999674,
+  "gates": {
+    "all_14ms": false,
+    "all_stable": false,
+    "hashes_stable": true,
+    "per_mode_profile_fixture": {
+      "(0, 0, 0)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 6.762533229902842,
+        "process_medians_ms": [
+          31.087499985,
+          21.650200011,
+          18.085999996
+        ]
+      },
+      "(0, 0, 1)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.337201701606648,
+        "process_medians_ms": [
+          33.90770001,
+          27.4814,
+          21.269699995
+        ]
+      },
+      "(0, 0, 2)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.8720517629078484,
+        "process_medians_ms": [
+          33.152800024,
+          23.47819999,
+          21.280599991
+        ]
+      },
+      "(0, 0, 3)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 3.141339242311808,
+        "process_medians_ms": [
+          35.258100019,
+          31.086100003,
+          19.110699999
+        ]
+      },
+      "(0, 0, 4)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 3.4083741410493595,
+        "process_medians_ms": [
+          32.177299989,
+          20.498400001,
+          19.442699995
+        ]
+      },
+      "(0, 0, 5)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 3.835703901707976,
+        "process_medians_ms": [
+          33.347399993,
+          20.31219998,
+          19.253400009
+        ]
+      },
+      "(0, 0, 6)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.9641675281254987,
+        "process_medians_ms": [
+          32.793099992,
+          21.892699995,
+          19.492199994
+        ]
+      },
+      "(0, 0, 7)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 6.415740089371167,
+        "process_medians_ms": [
+          85.20490001,
+          19.014499994,
+          21.298999985
+        ]
+      },
+      "(0, 1, 0)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 4.2010677700268975,
+        "process_medians_ms": [
+          22.695900028,
+          19.400799996,
+          18.244499981
+        ]
+      },
+      "(0, 1, 1)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.4657626204266179,
+        "process_medians_ms": [
+          19.771799998,
+          23.274499981,
+          18.140200002
+        ]
+      },
+      "(0, 1, 2)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.5348158987230898,
+        "process_medians_ms": [
+          19.695299998,
+          19.608299976,
+          19.750899985
+        ]
+      },
+      "(0, 1, 3)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 6.864462529885172,
+        "process_medians_ms": [
+          21.185799997,
+          23.698000005,
+          18.163500004
+        ]
+      },
+      "(0, 1, 4)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.3490579211587854,
+        "process_medians_ms": [
+          21.904199995,
+          29.580400005,
+          18.20749999
+        ]
+      },
+      "(0, 1, 5)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.201564772481349,
+        "process_medians_ms": [
+          37.547800021,
+          21.669499984,
+          18.383899995
+        ]
+      },
+      "(0, 1, 6)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 3.3986209810258328,
+        "process_medians_ms": [
+          25.589900004,
+          21.877199993,
+          18.100999994
+        ]
+      },
+      "(0, 1, 7)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.8991644453604648,
+        "process_medians_ms": [
+          22.823000007,
+          20.08409999,
+          18.238899997
+        ]
+      },
+      "(1, 0, 0)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.5312330530205287,
+        "process_medians_ms": [
+          14.855899994,
+          12.576799985,
+          11.846299982
+        ]
+      },
+      "(1, 0, 1)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.8241780518834725,
+        "process_medians_ms": [
+          14.347299992,
+          12.572800013,
+          11.774999992
+        ]
+      },
+      "(1, 0, 2)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.6849621801807841,
+        "process_medians_ms": [
+          14.369100012,
+          13.319499994,
+          11.738100002
+        ]
+      },
+      "(1, 0, 3)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.214256403373106,
+        "process_medians_ms": [
+          13.685099984,
+          18.773700023,
+          11.713500018
+        ]
+      },
+      "(1, 0, 4)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.0678451739526733,
+        "process_medians_ms": [
+          13.308199996,
+          18.600700016,
+          11.752899998
+        ]
+      },
+      "(1, 0, 5)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 1.5100039719483478,
+        "process_medians_ms": [
+          14.305199991,
+          13.666199986,
+          14.913299994
+        ]
+      },
+      "(1, 0, 6)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.54658469135874,
+        "process_medians_ms": [
+          14.402300003,
+          18.122900015,
+          14.978699997
+        ]
+      },
+      "(1, 0, 7)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 4.152311284553072,
+        "process_medians_ms": [
+          14.506200008,
+          17.423599988,
+          14.52929998
+        ]
+      },
+      "(1, 1, 0)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 4.542698206793883,
+        "process_medians_ms": [
+          24.046099978,
+          18.63169999,
+          19.2752
+        ]
+      },
+      "(1, 1, 1)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.670433071424514,
+        "process_medians_ms": [
+          13.679700001,
+          19.211200008,
+          24.381800002
+        ]
+      },
+      "(1, 1, 2)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 10.643371968963109,
+        "process_medians_ms": [
+          14.765699976,
+          38.211100007,
+          37.591
+        ]
+      },
+      "(1, 1, 3)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 3.592703690786222,
+        "process_medians_ms": [
+          15.379299992,
+          54.796400014,
+          16.665200004
+        ]
+      },
+      "(1, 1, 4)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 7.760252136489174,
+        "process_medians_ms": [
+          18.459500017,
+          25.596400024,
+          26.816800004
+        ]
+      },
+      "(1, 1, 5)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 4.421651977800442,
+        "process_medians_ms": [
+          12.678500003,
+          18.473799981,
+          17.137700022
+        ]
+      },
+      "(1, 1, 6)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 4.119783865702935,
+        "process_medians_ms": [
+          14.569599996,
+          18.444699992,
+          20.65749999
+        ]
+      },
+      "(1, 1, 7)": {
+        "all_9_max_min_le_1_10": false,
+        "all_process_medians_le_14ms": false,
+        "max_min_ratio_all_9": 2.306773778394158,
+        "process_medians_ms": [
+          15.488100005,
+          18.357099994,
+          19.016700011
+        ]
+      }
+    }
+  },
+  "mode": "timing",
+  "not_model_inference": true,
+  "output_bytes": 1680614,
+  "retained_process_receipts": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r0_m0.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r0_m1.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r1_m0.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r1_m1.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r2_m0.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r2_m1.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r0_m0.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r0_m1.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r1_m0.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r1_m1.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r2_m0.receipt.json",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r2_m1.receipt.json"
+  ],
+  "runs": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "0",
+        "0"
+      ],
+      "elapsed_s": 2.7810000000172295,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1634344960,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r0_m0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r0_m0.stdout.jsonl",
+      "stdout_sha256": "4d6602d2f65f69cdcb0573670b51d9dae5daf39e9727810da24ad677dc13eb04"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "1",
+        "0"
+      ],
+      "elapsed_s": 1.7339999999967404,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1633849344,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r0_m1.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r0_m1.stdout.jsonl",
+      "stdout_sha256": "fea6aa60237cbb1f82eea52f6f398ace5dce90c51a7d1c75dd68aa888ba8a2f1"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "1",
+        "0"
+      ],
+      "elapsed_s": 1.577999999979511,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1633902592,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r1_m1.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r1_m1.stdout.jsonl",
+      "stdout_sha256": "db48792ecc6861974efc36064d86cf7b048f004ecdbea38e43e46e1a1f770ecf"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "0",
+        "0"
+      ],
+      "elapsed_s": 1.937999999994645,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1633951744,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r1_m0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r1_m0.stdout.jsonl",
+      "stdout_sha256": "6e24a2965025a5843cadd578a7a89c0d4f7d28d6a4710ccbabcb71dfc0558f6b"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "0",
+        "0"
+      ],
+      "elapsed_s": 1.6400000000139698,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1633996800,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r2_m0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r2_m0.stdout.jsonl",
+      "stdout_sha256": "3d320a85c7677cb7dfcb2a60f16b1ffca6e6e2fabccd1f02544ed01e7eaa6339"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "1",
+        "0"
+      ],
+      "elapsed_s": 1.4530000000086147,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1634172928,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r2_m1.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p0_r2_m1.stdout.jsonl",
+      "stdout_sha256": "b2b9cfc941122f2093e2804714cd594f8d5d1cf2e4de7d388f8576fbf2471611"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "0",
+        "1"
+      ],
+      "elapsed_s": 2.85999999998603,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 2171084800,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r0_m0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r0_m0.stdout.jsonl",
+      "stdout_sha256": "e1bce157635520465e2335c1c2e7132a7feb4fbd5a993101094c8360e896c271"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "1",
+        "1"
+      ],
+      "elapsed_s": 2.8910000000032596,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 2171162624,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r0_m1.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r0_m1.stdout.jsonl",
+      "stdout_sha256": "17853900c382212f088bef07bdee07037d5b916ce30106650e3fcf24e31d26ad"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "1",
+        "1"
+      ],
+      "elapsed_s": 3.812000000005355,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 2169139200,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r1_m1.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r1_m1.stdout.jsonl",
+      "stdout_sha256": "ae453cbfbc45405fd7b3331b62b9eec278a82e5ad2819e76a2c7ecc002a183aa"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "0",
+        "1"
+      ],
+      "elapsed_s": 3.0,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 2171191296,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r1_m0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r1_m0.stdout.jsonl",
+      "stdout_sha256": "9e251bcc1ed020102d53121fb47a9efff202d65a84e5e2fe7a0df3a356efd601"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "0",
+        "1"
+      ],
+      "elapsed_s": 2.4839999999967404,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 2170257408,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r2_m0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r2_m0.stdout.jsonl",
+      "stdout_sha256": "323bdc8fdb23dd28eb495e3024c0a2591826e517aecafded4b994de6a20d04c0"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\granite_child256_cost_cpu.exe",
+        "1",
+        "1"
+      ],
+      "elapsed_s": 3.3429999999934807,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 2170343424,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r2_m1.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\timing_v2\\p1_r2_m1.stdout.jsonl",
+      "stdout_sha256": "f74a5b14157697c97ef46b7786451505ffbe55c2e3f557d5357fdcbe885320c9"
+    }
+  ],
+  "schedule": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ]
+  ],
+  "schema": "granite_child256_cost_result_v1",
+  "synthetic_only": true
+}

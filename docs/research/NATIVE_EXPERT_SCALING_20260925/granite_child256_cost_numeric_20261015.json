@@ -1,0 +1,81 @@
+{
+  "binary_sha256": "f56ac8bbc83f9a7c34e45ab7631e22eefa7ec92e6a15f4db078d7913707c9654",
+  "binding_sha256": "2617c43c58c4397a2455307b3cfd5c5151cda38bc3c785b9e0e8f77ea6d03827",
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-Wl,--no-insert-timestamp",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\granite_child256_cost_cpu.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\check_v2\\granite_child256_cost_cpu.exe",
+      "-lm",
+      "-lpsapi",
+      "-lbcrypt"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "controls": [
+    {
+      "event": "control",
+      "i8_sampled_rows": 832,
+      "mode": 0,
+      "q4_full_rows": 589824,
+      "q4_relative_l2": 5.47876855456e-08,
+      "router_layers": 24,
+      "selector_layers": 24
+    },
+    {
+      "event": "check_output",
+      "mode": 0,
+      "sha256": "90968f45488a0ac37402f3c6c85e9e91453e20af708109391273f50a703108d9"
+    },
+    {
+      "event": "control",
+      "i8_sampled_rows": 832,
+      "mode": 1,
+      "q4_full_rows": 294912,
+      "q4_relative_l2": 5.47988880418e-08,
+      "router_layers": 24,
+      "selector_layers": 24
+    },
+    {
+      "event": "check_output",
+      "mode": 1,
+      "sha256": "8a4e0bdb4809da8045e16fa023fdf70537858d3acadffe014c8cde273b5d9e9c"
+    }
+  ],
+  "decision": "numeric_pass",
+  "elapsed_s": 10.796999999991385,
+  "mode": "check_only",
+  "not_model_inference": true,
+  "output_bytes": 1555501,
+  "retained_process_receipts": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\check_v2\\numeric_control.receipt.json"
+  ],
+  "runs": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\check_v2\\granite_child256_cost_cpu.exe",
+        "2",
+        "0"
+      ],
+      "elapsed_s": 9.296999999991385,
+      "exit_code": 0,
+      "peak_parent_child_rss_bytes": 1634111488,
+      "stderr": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\check_v2\\numeric_control.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_child256_cost_20261015\\check_v2\\numeric_control.stdout.jsonl",
+      "stdout_sha256": "7a9b148b10b7219fbcb2a874261ef527edbf3d9feabf5696add23a470ee71613"
+    }
+  ],
+  "schema": "granite_child256_cost_result_v1",
+  "synthetic_only": true
+}

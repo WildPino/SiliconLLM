@@ -102,26 +102,28 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 ## Exact next action
 
-[Large-family selection screen](../PIPELINE_REASSESSMENT_20261015/LARGE_FAMILY_SELECTION.md)
-identifies20B->120B as a better capacity/cost family test than a small donor
-alone. Official metadata and reference semantics are pinned, no values acquired.
-Head-free/expert-free ideal core+KV still15.28ms at assumed40GB/s; physicalQ4_K
-padding raises the byte-only forecast to17.27ms. Measure the favorable protected
-projection/router path before substantial conversion. Omitted attention/KV
-prevents a fast partial screen from promoting the family. A slow screen rejects
-that representation and requires an explicit core transformation.
+[Q4 expert bundle](GRANITE_CHILD256_COST_RESULT_20261015.md): full numeric
+control PASS,12workers/288samples stableoutputhashes, cost/stability FAIL.
+[Large-family protected path](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md):
+all controls/placement/seals PASS; three process medians34.39/50.95/53.88ms
+without head, experts, RoPE or KV attention. Reject this Q4_K variant. No
+unchanged runtime grids, full120B acquisition or selector fit follows.
 
-The256-aligned expert layout is qualified synthetically; its small-donor bundle
-cost preparation is an enabling kernel comparison only. It does not replace the
-large-family gate. [Retrieved head and block verification](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_INTERVENTIONS.md)
-are separated: sublinear head retrieval is a new variable, whereas old block
-verification has negative cost/union evidence. No unchanged D512 replay follows.
-Freeze each actual numerical implementation, gates and resources before launch;
-no learner or model acquisition is admitted by analytical bytes alone.
+Next substantive variable: actual-weight activation-aware Q/O rank256 on the
+FIRST source attention block, with K/V/norm/bias/sink/RoPE/window preserved.
+Layer0 permits authentic embedding-derived states without the whole donor;
+Falcon states/logits are invalid calibration substitutes. Acquire only pinned
+Q/K/V/O, auxiliary tensors and used embedding rows by exact HTTP ranges.
+Freeze case IDs/splits/token cap, arithmetic/control and local pre-residual
+attention-error/distribution gates BEFORE fit. Rank512 is diagnostic only;
+no DEV rank selection. Quantized factors must use an actual export format.
+A local failure stops the uniform cheap recipe; a local pass cannot establish
+whole-model quality or transfer to internal layers. Only then consider the
+same-family20B full-model pilot. No run is launched from this planning note.
 
 No owned capture/audit run remains live. Do not restart successful generation.
 The complete source coverage is adopted; no automatic D512 fit follows. Qualify
-packed layout/arithmetic, then complete cost and separately frozen transfer.
+the actual-weight core intervention; packed layout and bounded cost screens are closed.
 Pause only for expected>=1h numerical jobs; continue shorter checks here.
 
 RESERVED104 new+64 older and LongAlign remain unqueried. Preserve foreign

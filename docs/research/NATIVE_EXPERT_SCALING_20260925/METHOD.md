@@ -1,5 +1,15 @@
 # Pretrained-to-native conditional-capacity method
 
+**Protected-core decision15 October2026:** [actual bounded screen](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md)
+rejects the tested120B Q4_K protected projections:34.39/50.95/53.88ms without
+head/experts/KV attention, with numeric/placement/custody PASS. The
+[small Q4 expert bundle](GRANITE_CHILD256_COST_RESULT_20261015.md) also fails
+its prospective cost/stability gates despite full numeric PASS. These are
+synthetic physical variants, not universal impossibility results. Next is an
+actual-weight/source-input core intervention, not a full donor port or kernel
+grid: rank256 Q/O on source layer0, all other attention organs preserved, with
+fixed FIT/DEV and local composition gates. No fit/acquisition launched yet.
+
 **Source coverage closure15 October2026:** [final result](CHATBOT_SOURCE_COVERAGE_RESULT_20261015.md).
 All432 source cases/76,512 labels adopted after complete CPU audit,5.032B BF16
 words,411 current source tensors and full input/output seals PASS. No learner

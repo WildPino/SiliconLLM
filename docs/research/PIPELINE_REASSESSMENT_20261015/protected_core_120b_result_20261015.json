@@ -1,0 +1,1258 @@
+{
+  "schema": "PROTECTED_CORE_120B_PROJECTION_SCREEN_V1",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\protected_core_120b_cpu.py",
+      "bytes": 13020,
+      "sha256": "ff19728b478714c0003658cc08138b59eef3058788bbe6e7646c442df30d478f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\protected_core_120b_cpu.c",
+      "bytes": 10568,
+      "sha256": "c579763d7b384b98e4a57d7bd64ab953cac9c67f8ef2b01d3cdb3e829eb929a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\PROTECTED_CORE_120B_CPU_PROTOCOL_20261015.md",
+      "bytes": 6271,
+      "sha256": "a699fa802f47d88f70db53d14e1086bc13595df6633fb2f970d96f37257a6ee4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_q4k_q8k.h",
+      "bytes": 17255,
+      "sha256": "49b5f39fd1a1313e15038208420cf7484765b01bc3f83952382577c6be68bc5f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_thread_binding.h",
+      "bytes": 5001,
+      "sha256": "bd4a8cbf88f1f7f8f279bc8eae7dbc3968433232d6f73a5f4c1df9c4ce4fabe9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth374_switch_physical_workers_contract_result.json",
+      "bytes": 2551447,
+      "sha256": "4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\large_family_metadata\\config120.json",
+      "bytes": 2089,
+      "sha256": "933aeb666a3fd851133ddd7686414f369bc564c4185fb5704416550879f10566"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\large_family_metadata\\reference_model.py",
+      "bytes": 16251,
+      "sha256": "319ba3c6e4d827eb3115fe4838942af448376b513c02cea4b6b471bf6c21a346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\PIPELINE_REASSESSMENT_20261015\\large_family_metadata\\index120.json",
+      "bytes": 54511,
+      "sha256": "ede2655fdc05008561983b6e0829c600727c28d591e071077377059f03a6c00e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "bytes": 16384,
+      "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libomp.dll",
+      "bytes": 1262080,
+      "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "bytes": 70656,
+      "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78"
+    }
+  ],
+  "compiler_version": "clang version 21.1.8 (https://github.com/llvm/llvm-project.git 2078da43e25a4623cab2d0d60decddf709aaea28)\nTarget: x86_64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin\nConfiguration file: C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg\n",
+  "build": [
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+    "-O3",
+    "-std=c11",
+    "-mavx2",
+    "-mfma",
+    "-fopenmp",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\protected_core_120b_cpu.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\protected_core_120b_cpu.exe",
+    "-lm"
+  ],
+  "binary": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\protected_core_120b_cpu.exe",
+    "bytes": 245248,
+    "sha256": "a1660884cd88a016edce981fbd3396f627fc179b2451ca80bd6221cdada97e69"
+  },
+  "psutil_version": "7.2.2",
+  "copied_libomp": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\libomp.dll",
+    "bytes": 1262080,
+    "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+  },
+  "runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1"
+  },
+  "runs": [
+    {
+      "run": 0,
+      "threads": 3,
+      "affinity": [
+        0,
+        2,
+        4
+      ],
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\protected_core_120b_cpu.exe",
+        "3",
+        "0"
+      ],
+      "pid": 28192,
+      "creation_time": 1792075818.1506376,
+      "exit_code": 0,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\physical_024_run_0.jsonl",
+        "bytes": 4451,
+        "sha256": "0031c9992780e8402d3040e57b42d6617db7d1d48f5b04db143c82540cb04824"
+      },
+      "combined_OS_peak": 649322496,
+      "control": {
+        "kind": "control",
+        "run": 0,
+        "threads": 3,
+        "hash": "9ced87061ede938a",
+        "q4_bytes": 557383680,
+        "router_f32_bytes": 53084160,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23136,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21476,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 31656,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23136,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 31656,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21476,
+            "group": 0,
+            "actual_mask": 4
+          }
+        ]
+      },
+      "end": {
+        "kind": "end",
+        "run": 0,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23136,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21476,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 31656,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23136,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 31656,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21476,
+            "group": 0,
+            "actual_mask": 4
+          }
+        ]
+      },
+      "timed": [
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 0,
+          "operator_seconds": 0.035074,
+          "wall_seconds": 0.0363406,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 1,
+          "operator_seconds": 0.0340672,
+          "wall_seconds": 0.0353289,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 2,
+          "operator_seconds": 0.0399759,
+          "wall_seconds": 0.0414278,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 3,
+          "operator_seconds": 0.0423027,
+          "wall_seconds": 0.0437507,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 4,
+          "operator_seconds": 0.0340641,
+          "wall_seconds": 0.0353172,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 5,
+          "operator_seconds": 0.0325264,
+          "wall_seconds": 0.0337787,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 6,
+          "operator_seconds": 0.0323675,
+          "wall_seconds": 0.033863,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 7,
+          "operator_seconds": 0.0324945,
+          "wall_seconds": 0.0337619,
+          "hash": "97601f0cf13fd592"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 0,
+          "operator_seconds": 0.0398935,
+          "wall_seconds": 0.0411609,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 1,
+          "operator_seconds": 0.0379503,
+          "wall_seconds": 0.039225,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 2,
+          "operator_seconds": 0.0387435,
+          "wall_seconds": 0.0400085,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 3,
+          "operator_seconds": 0.0337107,
+          "wall_seconds": 0.0350301,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 4,
+          "operator_seconds": 0.0340921,
+          "wall_seconds": 0.0353727,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 5,
+          "operator_seconds": 0.034689,
+          "wall_seconds": 0.0359739,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 6,
+          "operator_seconds": 0.0328119,
+          "wall_seconds": 0.0340652,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 7,
+          "operator_seconds": 0.0368906,
+          "wall_seconds": 0.0381927,
+          "hash": "97601f0cf13fd592"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 0,
+          "operator_seconds": 0.0314209,
+          "wall_seconds": 0.0326653,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 1,
+          "operator_seconds": 0.0323456,
+          "wall_seconds": 0.0336004,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 2,
+          "operator_seconds": 0.0376378,
+          "wall_seconds": 0.0391107,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 3,
+          "operator_seconds": 0.0373255,
+          "wall_seconds": 0.0385881,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 4,
+          "operator_seconds": 0.0389855,
+          "wall_seconds": 0.0402597,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 5,
+          "operator_seconds": 0.0396778,
+          "wall_seconds": 0.040947,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 6,
+          "operator_seconds": 0.0331453,
+          "wall_seconds": 0.0344064,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 0,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 7,
+          "operator_seconds": 0.0337273,
+          "wall_seconds": 0.0349951,
+          "hash": "97601f0cf13fd592"
+        }
+      ],
+      "fixture_median_operator_ms": {
+        "0": 35.074,
+        "1": 34.0672,
+        "2": 38.7435,
+        "3": 37.3255,
+        "4": 34.0921,
+        "5": 34.689,
+        "6": 32.8119,
+        "7": 33.7273
+      },
+      "repetition_median_operator_ms": {
+        "0": 34.065650000000005,
+        "1": 35.7898,
+        "2": 35.5264
+      },
+      "median_operator_ms": 34.39055,
+      "median_wall_ms": 35.673300000000005,
+      "p95_operator_ms": 39.9759
+    },
+    {
+      "run": 1,
+      "threads": 3,
+      "affinity": [
+        0,
+        2,
+        4
+      ],
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\protected_core_120b_cpu.exe",
+        "3",
+        "1"
+      ],
+      "pid": 33800,
+      "creation_time": 1792075821.6388996,
+      "exit_code": 0,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\physical_024_run_1.jsonl",
+        "bytes": 4451,
+        "sha256": "4dd0c2890ae1087cdeeefef22e4e04a1948d0530ccb9bfe13f61fb7185ee4e1f"
+      },
+      "combined_OS_peak": 648695808,
+      "control": {
+        "kind": "control",
+        "run": 1,
+        "threads": 3,
+        "hash": "9ced87061ede938a",
+        "q4_bytes": 557383680,
+        "router_f32_bytes": 53084160,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 13852,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 31528,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26800,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 31528,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26800,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 13852,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "end": {
+        "kind": "end",
+        "run": 1,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 13852,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 31528,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26800,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 31528,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26800,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 13852,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "timed": [
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 0,
+          "operator_seconds": 0.0516925,
+          "wall_seconds": 0.0531823,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 1,
+          "operator_seconds": 0.0416351,
+          "wall_seconds": 0.042972,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 2,
+          "operator_seconds": 0.0510366,
+          "wall_seconds": 0.05276,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 3,
+          "operator_seconds": 0.0514934,
+          "wall_seconds": 0.0529651,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 4,
+          "operator_seconds": 0.0525782,
+          "wall_seconds": 0.0543052,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 5,
+          "operator_seconds": 0.2040705,
+          "wall_seconds": 0.2055799,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 6,
+          "operator_seconds": 0.0667472,
+          "wall_seconds": 0.0681835,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 7,
+          "operator_seconds": 0.0611316,
+          "wall_seconds": 0.0626803,
+          "hash": "97601f0cf13fd592"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 0,
+          "operator_seconds": 0.0497835,
+          "wall_seconds": 0.0510907,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 1,
+          "operator_seconds": 0.0528953,
+          "wall_seconds": 0.0542129,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 2,
+          "operator_seconds": 0.0617692,
+          "wall_seconds": 0.0634823,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 3,
+          "operator_seconds": 0.0635625,
+          "wall_seconds": 0.0650892,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 4,
+          "operator_seconds": 0.0414569,
+          "wall_seconds": 0.0427439,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 5,
+          "operator_seconds": 0.0529598,
+          "wall_seconds": 0.0543322,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 6,
+          "operator_seconds": 0.0408673,
+          "wall_seconds": 0.0423895,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 7,
+          "operator_seconds": 0.0459691,
+          "wall_seconds": 0.0472585,
+          "hash": "97601f0cf13fd592"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 0,
+          "operator_seconds": 0.0327343,
+          "wall_seconds": 0.0340062,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 1,
+          "operator_seconds": 0.0358151,
+          "wall_seconds": 0.0372783,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 2,
+          "operator_seconds": 0.0368518,
+          "wall_seconds": 0.0381147,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 3,
+          "operator_seconds": 0.0343227,
+          "wall_seconds": 0.0357965,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 4,
+          "operator_seconds": 0.0352363,
+          "wall_seconds": 0.0367009,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 5,
+          "operator_seconds": 0.050861,
+          "wall_seconds": 0.0522058,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 6,
+          "operator_seconds": 0.0517663,
+          "wall_seconds": 0.0530827,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 1,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 7,
+          "operator_seconds": 0.0466486,
+          "wall_seconds": 0.0481113,
+          "hash": "97601f0cf13fd592"
+        }
+      ],
+      "fixture_median_operator_ms": {
+        "0": 49.783500000000004,
+        "1": 41.6351,
+        "2": 51.0366,
+        "3": 51.4934,
+        "4": 41.4569,
+        "5": 52.9598,
+        "6": 51.7663,
+        "7": 46.6486
+      },
+      "repetition_median_operator_ms": {
+        "0": 52.135349999999995,
+        "1": 51.3394,
+        "2": 36.333450000000006
+      },
+      "median_operator_ms": 50.948800000000006,
+      "median_wall_ms": 52.4829,
+      "p95_operator_ms": 66.7472
+    },
+    {
+      "run": 2,
+      "threads": 3,
+      "affinity": [
+        0,
+        2,
+        4
+      ],
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\protected_core_120b_cpu.exe",
+        "3",
+        "2"
+      ],
+      "pid": 32864,
+      "creation_time": 1792075824.815719,
+      "exit_code": 0,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\protected_core_120b_cpu_20261015\\physical_024_run_2.jsonl",
+        "bytes": 4451,
+        "sha256": "18e9858a9e810e070a810ff3331ce13c4a911ff15e03fd29c599873ebe19e404"
+      },
+      "combined_OS_peak": 648712192,
+      "control": {
+        "kind": "control",
+        "run": 2,
+        "threads": 3,
+        "hash": "9ced87061ede938a",
+        "q4_bytes": 557383680,
+        "router_f32_bytes": 53084160,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 26988,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 10408,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 33272,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 10408,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 33272,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 26988,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "end": {
+        "kind": "end",
+        "run": 2,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 26988,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 10408,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 33272,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 10408,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 33272,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 26988,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "timed": [
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 0,
+          "operator_seconds": 0.0591948,
+          "wall_seconds": 0.0606486,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 1,
+          "operator_seconds": 0.0575193,
+          "wall_seconds": 0.0591016,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 2,
+          "operator_seconds": 0.0616958,
+          "wall_seconds": 0.063244,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 3,
+          "operator_seconds": 0.0490013,
+          "wall_seconds": 0.0502875,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 4,
+          "operator_seconds": 0.0460383,
+          "wall_seconds": 0.0473701,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 5,
+          "operator_seconds": 0.0440005,
+          "wall_seconds": 0.0453442,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 6,
+          "operator_seconds": 0.0476837,
+          "wall_seconds": 0.0489953,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 0,
+          "fixture": 7,
+          "operator_seconds": 0.0706973,
+          "wall_seconds": 0.0722552,
+          "hash": "97601f0cf13fd592"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 0,
+          "operator_seconds": 0.0480703,
+          "wall_seconds": 0.0493853,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 1,
+          "operator_seconds": 0.0571679,
+          "wall_seconds": 0.0585237,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 2,
+          "operator_seconds": 0.0622498,
+          "wall_seconds": 0.0635548,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 3,
+          "operator_seconds": 0.0582538,
+          "wall_seconds": 0.0595839,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 4,
+          "operator_seconds": 0.0461968,
+          "wall_seconds": 0.0475185,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 5,
+          "operator_seconds": 0.0478868,
+          "wall_seconds": 0.0494279,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 6,
+          "operator_seconds": 0.0491229,
+          "wall_seconds": 0.0507497,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 1,
+          "fixture": 7,
+          "operator_seconds": 0.0546537,
+          "wall_seconds": 0.0559786,
+          "hash": "97601f0cf13fd592"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 0,
+          "operator_seconds": 0.1596523,
+          "wall_seconds": 0.1624209,
+          "hash": "9ced87061ede938a"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 1,
+          "operator_seconds": 0.053104,
+          "wall_seconds": 0.0544303,
+          "hash": "d0613a5ad4839421"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 2,
+          "operator_seconds": 0.0645229,
+          "wall_seconds": 0.0661406,
+          "hash": "87aa111477673afd"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 3,
+          "operator_seconds": 0.0439844,
+          "wall_seconds": 0.0452722,
+          "hash": "b0b59facf8eea9cb"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 4,
+          "operator_seconds": 0.0460565,
+          "wall_seconds": 0.0473502,
+          "hash": "76c2875c741da73b"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 5,
+          "operator_seconds": 0.0492151,
+          "wall_seconds": 0.0507464,
+          "hash": "608652b55243fee7"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 6,
+          "operator_seconds": 0.1143878,
+          "wall_seconds": 0.1157518,
+          "hash": "f9cb9cf3b36ae2d2"
+        },
+        {
+          "kind": "timed",
+          "run": 2,
+          "threads": 3,
+          "rep": 2,
+          "fixture": 7,
+          "operator_seconds": 0.0881135,
+          "wall_seconds": 0.0901497,
+          "hash": "97601f0cf13fd592"
+        }
+      ],
+      "fixture_median_operator_ms": {
+        "0": 59.1948,
+        "1": 57.1679,
+        "2": 62.2498,
+        "3": 49.0013,
+        "4": 46.0565,
+        "5": 47.8868,
+        "6": 49.122899999999994,
+        "7": 70.6973
+      },
+      "repetition_median_operator_ms": {
+        "0": 53.260299999999994,
+        "1": 51.8883,
+        "2": 58.813449999999996
+      },
+      "median_operator_ms": 53.87885,
+      "median_wall_ms": 55.20445,
+      "p95_operator_ms": 114.3878
+    }
+  ],
+  "across_run_median_operator_ms": 50.948800000000006,
+  "geometry": {
+    "layers": 36,
+    "width": 2880,
+    "Q": 4096,
+    "K": 512,
+    "V": 512,
+    "O_input": 4096,
+    "q4_block": 256,
+    "q4_row_input_padded": 3072,
+    "q4_bytes": 557383680,
+    "router_F32_bytes": 53084160,
+    "expert_topk": 4,
+    "experts": 128
+  },
+  "measured": "Q/K/V/O projections and F32 biases in physical Q4_K blocks; Q8_K activations; F32 router+top4 softmax; RMS norms; synthetic seeded values. Operator timer excludes finite checks/output hashes; separate wall timer includes them.",
+  "omitted": "RoPE, F16 KV cache and attention scores/softmax/value sum, sink logits, expert functions, LM head, source weights, quality and full model execution",
+  "zero_head_and_expert_cost": true,
+  "incomplete_favorable_lower_screen": true,
+  "decision": "REJECT_PROTECTED_CORE_LOWER_SCREEN",
+  "admitted_full_rate": false,
+  "admitted_quality": false,
+  "seconds": 13.952999999979511,
+  "OS_peak": 30572544
+}
