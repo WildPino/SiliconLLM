@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / long-run pause requested. Distinct source capture active.**
+15 October 2026. **Goal INCOMPLETE / long-run pause requested. Source capture active; pipeline reassessed.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,19 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Pipeline reassessment](../PIPELINE_REASSESSMENT_20261015/DECISION_REPORT.md):
+stop unchanged compact replay and minor codec/thread grids. Preserve pretrained
+functions before reducing active work; compare native learned MoE transfer with
+exact dense FFN partitioning plus trained IDs/masses. Neither is admitted.
+[Implemented instruct preflight](../PIPELINE_REASSESSMENT_20261015/NATIVE_DONOR_PREFLIGHT.md)
+checks586 tensors at pinned revision with no weight values: all-I4 addresses
+779.764MB/token; explicit source-router/top6-preserving mixed2/3/4 policies
+554.586/559.563MB, plus state/KV and unpriced execution. These are analytical
+unimplemented formats, not DRAM/rate/quality. Even the native-MoE alternative
+needs a major representation change; no unchanged Granite port or source
+download is selected. Historical head/readout and13.8ms claims are separated
+in the linked source audit. Existing source capture remains reusable data.
 
 [Source capture live](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md):both known
 FIT donor controls exact(all IDs/BF words);source411 pre-check/MuP and first
@@ -75,6 +88,15 @@ before choosing; it is not a cheap router or optimal sparsity bound.
   grid, D256 failed shadow or fixed output-bank oracle failure unchanged.
 
 ## Exact next action
+
+The next substantive experiment must resolve complete active cost AND transfer,
+not repeat D512 replay merely because new labels arrive. First finish current
+source collection/adoption. Then freeze a physical packed-format cost gate and
+a source-function-preserving calibration/conditional-transfer pilot, using the
+reassessment and its [actual operand map](../PIPELINE_REASSESSMENT_20261015/CALIBRATION_FEASIBILITY.md).
+No learner, model-value acquisition or rate run qualifies for launch from a
+passing metadata row alone; freeze formats, donor-relative gates, resources and
+stop first. Preserve the existing full-width quality control.
 
 On resume inspect session77789/exact owned holder/worker creation times and
 receipts. Both known FIT controls and first longest packet passed. Preserve

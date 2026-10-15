@@ -1,0 +1,291 @@
+{
+  "active_coefficients_per_token": 1465470528,
+  "by_role_coefficients": {
+    "attention": {
+      "active_coefficients": 25165824,
+      "original_active_bytes": 50331648,
+      "stored_coefficients": 25165824
+    },
+    "head_embedding": {
+      "active_coefficients": 154140672,
+      "original_active_bytes": 308281344,
+      "stored_coefficients": 154140672
+    },
+    "protected_norm_state": {
+      "active_coefficients": 839232,
+      "original_active_bytes": 1678464,
+      "stored_coefficients": 839232
+    },
+    "routed": {
+      "active_coefficients": 566231040,
+      "original_active_bytes": 1132462080,
+      "stored_coefficients": 6039797760
+    },
+    "router": {
+      "active_coefficients": 3932160,
+      "original_active_bytes": 7864320,
+      "stored_coefficients": 3932160
+    },
+    "shared": {
+      "active_coefficients": 188743680,
+      "original_active_bytes": 377487360,
+      "stored_coefficients": 188743680
+    },
+    "ssm_projection": {
+      "active_coefficients": 526417920,
+      "original_active_bytes": 1052835840,
+      "stored_coefficients": 526417920
+    }
+  },
+  "distinct_expert_parameters_including_shared": 6228541440,
+  "mixed_scenarios": {
+    "experts2_core3_head4_source_router": {
+      "active_bytes": 554586240,
+      "below_560MB_14ms_subbudget": true,
+      "by_role_bytes": {
+        "attention": 13369344,
+        "head_embedding": 81887232,
+        "protected_norm_state": 1678464,
+        "routed": 159252480,
+        "router": 7864320,
+        "shared": 76677120,
+        "ssm_projection": 213857280
+      },
+      "decision": "BYTE_SCREEN_ONLY_REQUIRES_VALUE_CALIBRATION_AND_KERNEL",
+      "formats_by_role": {
+        "attention": "I4",
+        "head_embedding": "I4",
+        "protected_norm_state": "BF16",
+        "routed": "I2",
+        "router": "BF16",
+        "shared": "I3",
+        "ssm_projection": "I3"
+      },
+      "ideal_read_ms_at_40GB_per_s": 13.864656,
+      "ideal_stream_GB_per_s_for_14ms": 39.613302857142855,
+      "implemented_format": false,
+      "quality_known": false,
+      "source_top_k_unchanged": true
+    },
+    "experts3_core2_head4_source_router": {
+      "active_bytes": 559562880,
+      "below_560MB_14ms_subbudget": true,
+      "by_role_bytes": {
+        "attention": 13369344,
+        "head_embedding": 81887232,
+        "protected_norm_state": 1678464,
+        "routed": 230031360,
+        "router": 7864320,
+        "shared": 76677120,
+        "ssm_projection": 148055040
+      },
+      "decision": "BYTE_SCREEN_ONLY_REQUIRES_VALUE_CALIBRATION_AND_KERNEL",
+      "formats_by_role": {
+        "attention": "I4",
+        "head_embedding": "I4",
+        "protected_norm_state": "BF16",
+        "routed": "I3",
+        "router": "BF16",
+        "shared": "I3",
+        "ssm_projection": "I2"
+      },
+      "ideal_read_ms_at_40GB_per_s": 13.989072,
+      "ideal_stream_GB_per_s_for_14ms": 39.96877714285714,
+      "implemented_format": false,
+      "quality_known": false,
+      "source_top_k_unchanged": true
+    }
+  },
+  "parent_sha256": "97113bcb81e4bb3fa9745f38d943d49a574fbf85bba5da96527c31fd71d17114",
+  "runtime_state_scenarios": {
+    "assumptions": "F32 SSM state and full conv ring read/write once; F16 full-attention KV. Logical accounting, not source execution or physical DRAM measurement.",
+    "attention_KV_bytes_per_cached_position": 8192,
+    "contexts": {
+      "128": {
+        "KV_append_bytes_per_token": 8192,
+        "KV_logical_read_bytes_per_token": 1048576,
+        "extra_logical_bytes_per_token": 118136832
+      },
+      "2048": {
+        "KV_append_bytes_per_token": 8192,
+        "KV_logical_read_bytes_per_token": 16777216,
+        "extra_logical_bytes_per_token": 133865472
+      },
+      "512": {
+        "KV_append_bytes_per_token": 8192,
+        "KV_logical_read_bytes_per_token": 4194304,
+        "extra_logical_bytes_per_token": 121282560
+      },
+      "8192": {
+        "KV_append_bytes_per_token": 8192,
+        "KV_logical_read_bytes_per_token": 67108864,
+        "extra_logical_bytes_per_token": 184197120
+      }
+    },
+    "conv_ring_full_logical_read_write_bytes_per_token": 3833856,
+    "persistent_conv_ring_bytes": 1916928,
+    "persistent_ssm_state_bytes": 56623104,
+    "ssm_state_logical_read_write_bytes_per_token": 113246208,
+    "unpriced": [
+      "activation scratch",
+      "quantizer or LUT construction",
+      "dispatch and sampling",
+      "intermediate cache traffic",
+      "actual memory-controller traffic"
+    ]
+  },
+  "scenarios": {
+    "BF16": {
+      "active_bytes": 2930941056,
+      "below_560MB_14ms_subbudget": false,
+      "below_800MB_20ms_total_ideal": false,
+      "by_role_bytes": {
+        "attention": 50331648,
+        "head_embedding": 308281344,
+        "protected_norm_state": 1678464,
+        "routed": 1132462080,
+        "router": 7864320,
+        "shared": 377487360,
+        "ssm_projection": 1052835840
+      },
+      "ideal_read_ms_at_40GB_per_s": 73.2735264,
+      "ideal_stream_GB_per_s_for_14ms": 209.35293257142857,
+      "ideal_stream_GB_per_s_for_20ms": 146.5470528
+    },
+    "I2": {
+      "active_bytes": 413606016,
+      "below_560MB_14ms_subbudget": true,
+      "below_800MB_20ms_total_ideal": true,
+      "by_role_bytes": {
+        "attention": 7077888,
+        "head_embedding": 43352064,
+        "protected_norm_state": 1678464,
+        "routed": 159252480,
+        "router": 1105920,
+        "shared": 53084160,
+        "ssm_projection": 148055040
+      },
+      "ideal_read_ms_at_40GB_per_s": 10.340150399999999,
+      "ideal_stream_GB_per_s_for_14ms": 29.543286857142856,
+      "ideal_stream_GB_per_s_for_20ms": 20.6803008
+    },
+    "I3": {
+      "active_bytes": 596684928,
+      "below_560MB_14ms_subbudget": false,
+      "below_800MB_20ms_total_ideal": true,
+      "by_role_bytes": {
+        "attention": 10223616,
+        "head_embedding": 62619648,
+        "protected_norm_state": 1678464,
+        "routed": 230031360,
+        "router": 1597440,
+        "shared": 76677120,
+        "ssm_projection": 213857280
+      },
+      "ideal_read_ms_at_40GB_per_s": 14.9171232,
+      "ideal_stream_GB_per_s_for_14ms": 42.620352,
+      "ideal_stream_GB_per_s_for_20ms": 29.8342464
+    },
+    "I4": {
+      "active_bytes": 779763840,
+      "below_560MB_14ms_subbudget": false,
+      "below_800MB_20ms_total_ideal": true,
+      "by_role_bytes": {
+        "attention": 13369344,
+        "head_embedding": 81887232,
+        "protected_norm_state": 1678464,
+        "routed": 300810240,
+        "router": 2088960,
+        "shared": 100270080,
+        "ssm_projection": 279659520
+      },
+      "ideal_read_ms_at_40GB_per_s": 19.494096,
+      "ideal_stream_GB_per_s_for_14ms": 55.69741714285714,
+      "ideal_stream_GB_per_s_for_20ms": 38.988192
+    },
+    "I8": {
+      "active_bytes": 1512079488,
+      "below_560MB_14ms_subbudget": false,
+      "below_800MB_20ms_total_ideal": false,
+      "by_role_bytes": {
+        "attention": 25952256,
+        "head_embedding": 158957568,
+        "protected_norm_state": 1678464,
+        "routed": 583925760,
+        "router": 4055040,
+        "shared": 194641920,
+        "ssm_projection": 542868480
+      },
+      "ideal_read_ms_at_40GB_per_s": 37.8019872,
+      "ideal_stream_GB_per_s_for_14ms": 108.00567771428571,
+      "ideal_stream_GB_per_s_for_20ms": 75.6039744
+    }
+  },
+  "schema": "OFFLINE_CONDITIONAL_DONOR_FRONTIER_V1",
+  "semantics": {
+    "attention_multiplier": 0.0078125,
+    "embedding_multiplier": 12,
+    "hidden_size": 1536,
+    "intermediate_size": 512,
+    "layer_types": [
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "attention",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "attention",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "attention",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba",
+      "attention",
+      "mamba",
+      "mamba",
+      "mamba",
+      "mamba"
+    ],
+    "logits_scaling": 6,
+    "mamba_d_conv": 4,
+    "mamba_d_state": 128,
+    "mamba_expand": 2,
+    "mamba_n_groups": 1,
+    "mamba_n_heads": 48,
+    "num_experts_per_tok": 6,
+    "num_local_experts": 64,
+    "position_embedding_type": "nope",
+    "residual_multiplier": 0.22,
+    "shared_intermediate_size": 1024,
+    "tie_word_embeddings": true,
+    "vocab_size": 100352
+  },
+  "source_repo": "ibm-granite/granite-4.0-h-tiny",
+  "source_revision": "791e0d3d28c86e106c9b6e0b4cecdee0375b6124",
+  "tensor_count": 586,
+  "tool_sha256": "af0db9bd233043436d3acc026e71ebc63e4a01f0947095a4552bd1f4295ed284",
+  "total_distinct_parameters": 6939037248
+}

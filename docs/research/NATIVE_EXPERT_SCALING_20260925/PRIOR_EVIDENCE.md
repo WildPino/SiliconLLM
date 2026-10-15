@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**Strategic reassessment15 October2026:** [report](../PIPELINE_REASSESSMENT_20261015/DECISION_REPORT.md)
+reviews repository claims and primary literature. The approximately12ms internal
+SSM readout is not the final vocabulary head; METH510's Switch measurement is
+not a Falcon timing. No retained23-generator I4 median13.8ms was found in the
+audited reports. The current compact replay fails newDEV; do not repeat unchanged.
+[Pinned instruct header preflight](../PIPELINE_REASSESSMENT_20261015/NATIVE_DONOR_PREFLIGHT.md)
+validates586 tensors without values:1.465470528B active coefficients,all-I4
+779.763840MB/token; source-router/top6-preserving mixed2/3/4 hypotheses about
+555MB plus state/KV/compute. These are accounting scenarios,not source quality,
+actual DRAM or CPU50. Preserve-source initialization plus active-work reduction
+is a proposed transfer method; native learned MoE and dense exact FFN partition
+are family variants still requiring quality, kernel, useful capacity and rate.
+
 **Balanced replay closure15 October2026:** [result](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md)
 worker/holder/auditor exit0,512 updates/Adam830,all80 cases/9,911 labels and
 saved211 model/422 moment tensors/ledger/current custody PASS. New FIT KL.70077/

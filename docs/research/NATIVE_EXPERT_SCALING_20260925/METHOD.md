@@ -1,5 +1,24 @@
 # Pretrained-to-native conditional-capacity method
 
+**Pipeline reassessment15 October2026:** [decision and primary sources](../PIPELINE_REASSESSMENT_20261015/DECISION_REPORT.md).
+The current D512 replay does not generalize sufficiently; unchanged full-width
+Falcon organ execution also fails the complete latency allowance. Stop unchanged
+fits and minor runtime grids. Proposed common procedure: preserve the pretrained
+function first, reduce active bytes under a complete model budget, then qualify
+own-history quality and SAME-artifact C rate. Native-MoE entry preserves learned
+experts/router/scales; dense entry starts with exact SwiGLU intermediate sharding
+and all-on contribution masses, then learns sparse selection. These are distinct
+transfer variants, not validated end-to-end steps. Recurrent-sensitive calibrated
+operators and actual packed kernels are required in either variant.
+[New header-only preflight](../PIPELINE_REASSESSMENT_20261015/NATIVE_DONOR_PREFLIGHT.md)
+implements the first native instruct admission screen: complete586 tensors,
+source revision pinned, uniform and mixed-role byte hypotheses, protected state
+and explicit logical cache costs. No source tensor values or new GPU job.
+All-I4 fails the credible budget; mixed2/3/4 byte-only rows have no quality/kernel
+admission. Existing source collection continues as reusable supervision, with
+no automatic learner continuation. The following launch/next observations are
+historical and do not override this decision or the short current INDEX.
+
 15 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
 [Distinct donor capture launched](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md):
 two old FIT controls bit-exact(all IDs/BF words),source411 pre-check/MuP and
