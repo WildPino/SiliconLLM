@@ -13,6 +13,7 @@ from ctypes import wintypes
 import hashlib
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -37,6 +38,9 @@ MIXED_INPUT = ROOT / "results/native_expert_scaling/recipient_mixed_scalar_20261
 MIXED_READBACK_SCRIPT = ROOT / "benchmarks/native_expert_scaling/recipient_mixed_scalar_readback.py"
 LAUNCH_IMPLEMENTATION = CONTROL / "migration_implementation_at_launch.py"
 IMPLEMENTATION_CUSTODY = CONTROL / "implementation_custody.json"
+INVENTORY = CONTROL / "inventory.json"
+RESUME_QUALIFICATION = CONTROL / "resume_qualification.json"
+RESUME_PROCESS_IDENTITY = CONTROL / "resume_process_identity.json"
 LAUNCH_IMPLEMENTATION_SHA256 = "acabcfad7fa34dc0823bb9433a27b4ec6d665dbe239653c0da4893520460dc81"
 MAX_WAIT_SECONDS = 72 * 3600
 WAIT_SLICE_MS = 30_000
@@ -63,6 +67,34 @@ def sha(path: Path) -> str:
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def validate_resume_receipt(path: Path, pid: int, started: dict,
+                            plan_sha: str) -> dict:
+    """Bind an explicitly launched replacement to the preserved original custody."""
+    receipt = load(path)
+    require(receipt.get("schema") == "STORAGE_RESUME_LAUNCH_V1",
+            "unrecognized storage resume launch receipt")
+    require(type(receipt.get("pid")) is int and receipt["pid"] == pid and pid > 0,
+            "resume PID differs from launch receipt")
+    wall_time = receipt.get("wall_time")
+    require(type(wall_time) in (int, float) and math.isfinite(wall_time) and
+            wall_time > 0, "invalid resume launch wall time")
+    expected = {"plan_sha256": plan_sha,
+                "original_started_sha256": sha(CONTROL / "started.json"),
+                "inventory_sha256": sha(INVENTORY),
+                "migration_script_sha256": sha(ROOT / "scripts/migrate_artifacts.py"),
+                "qualification_sha256": sha(RESUME_QUALIFICATION)}
+    require(all(receipt.get(key) == value for key, value in expected.items()),
+            "resume launch plan/inventory/implementation/original custody mismatch")
+    qualification = load(RESUME_QUALIFICATION)
+    require(qualification.get("schema") == "STORAGE_DIRECTORY_SIZE_RESUME_V1" and
+            qualification.get("failure_sha256") == sha(CONTROL / "failure.json"),
+            "directory-size resume qualification or original failure custody mismatch")
+    if "inventory_sha256" in qualification:
+        require(qualification["inventory_sha256"] == expected["inventory_sha256"],
+                "qualified inventory changed")
+    return receipt
 
 
 def utc_now() -> str:
@@ -106,12 +138,17 @@ if os.name == "nt":
     kernel.GetExitCodeProcess.restype = wintypes.BOOL
 
 
+def filetime_ticks(value: FILETIME) -> int:
+    return (int(value.high) << 32) | int(value.low)
+
+
 def filetime_seconds(value: FILETIME) -> float:
-    ticks = (int(value.high) << 32) | int(value.low)
-    return (ticks - FILETIME_UNIX_EPOCH) / 10_000_000
+    return (filetime_ticks(value) - FILETIME_UNIX_EPOCH) / 10_000_000
 
 
-def adopt_and_wait(pid: int, started_wall_time: float) -> dict:
+def adopt_and_wait(pid: int, started_wall_time: float,
+                   creation_filetime: int | None = None,
+                   identity_receipt: dict | None = None) -> dict:
     require(os.name == "nt", "Windows process adoption required")
     handle = kernel.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | SYNCHRONIZE,
                                 False, pid)
@@ -124,14 +161,25 @@ def adopt_and_wait(pid: int, started_wall_time: float) -> dict:
                                        ctypes.byref(user_time)),
                 f"GetProcessTimes failed for PID {pid}: {ctypes.get_last_error()}")
         created_wall_time = filetime_seconds(created)
-        require(0 <= started_wall_time - created_wall_time <= 60,
-                f"PID creation time does not match retained started receipt: {pid}")
-        write_exclusive(OWNERSHIP, {"controller_pid": os.getpid(),
+        created_ticks = filetime_ticks(created)
+        if creation_filetime is not None:
+            require(created_ticks == creation_filetime,
+                    f"PID creation FILETIME differs from exact process identity receipt: {pid}")
+            require(abs(started_wall_time - created_wall_time) <= 60,
+                    f"PID creation time is outside the retained launch window: {pid}")
+        else:
+            require(0 <= started_wall_time - created_wall_time <= 60,
+                    f"PID creation time does not match retained started receipt: {pid}")
+        ownership = {"controller_pid": os.getpid(),
                                    "observed_utc": utc_now(),
                                    "migration_pid": pid,
+                                   "migration_creation_filetime": created_ticks,
                                    "migration_creation_wall_time": created_wall_time,
                                    "migration_started_wall_time": started_wall_time,
-                                   "controller_sha256": sha(Path(__file__))})
+                                   "controller_sha256": sha(Path(__file__))}
+        if identity_receipt is not None:
+            ownership.update(identity_receipt)
+        write_exclusive(OWNERSHIP, ownership)
         waited = 0.0
         while True:
             remaining = MAX_WAIT_SECONDS - waited
@@ -150,6 +198,7 @@ def adopt_and_wait(pid: int, started_wall_time: float) -> dict:
                                        ctypes.byref(exited), ctypes.byref(kernel_time),
                                        ctypes.byref(user_time)), "final GetProcessTimes failed")
         return {"pid": pid, "creation_wall_time": created_wall_time,
+                "creation_filetime": created_ticks,
                 "started_wall_time": started_wall_time,
                 "exit_wall_time": filetime_seconds(exited),
                 "exit_code": int(exit_code.value), "waited_seconds": waited}
@@ -241,11 +290,21 @@ def check_git_deletions(status: dict, plan: dict) -> int:
 def report_markdown(report: dict) -> str:
     base, final = report["baseline_free_bytes"], report["final_free_bytes"]
     control_uri = "E:/SiliconLLM_Artifacts/migrations/20261015/"
+    resume = (f"The explicitly launched verified continuation is bound by resume receipt "
+              f"`{report['resume_receipt_path']}`, SHA256 `{report['resume_receipt_sha256']}`. "
+              f"Its original started receipt remains preserved for PID "
+              f"{report['original_migration_pid']}.\n\n"
+              if report.get("resume_receipt_path") else "")
+    identity = (f"Process identity is bound by receipt `{report['process_identity_receipt_path']}`, "
+                f"SHA256 `{report['process_identity_receipt_sha256']}`, and the exact Windows "
+                f"creation FILETIME `{report['migration_process']['creation_filetime']}`.\n\n"
+                if report.get("process_identity_receipt_path") else "")
     return ("# Storage migration result (2026-10-15)\n\n"
             f"The {report['units']} planned directory packages completed their verified "
             "D-to-E relocation. Their original D paths now resolve through junctions. "
             "The independent relocation audit and both retained recipient readbacks passed.\n\n"
             "Git reported no deleted tracked paths inside the migrated units.\n\n"
+            + resume + identity +
             f"The migration manifest is SHA256 `{report['manifest_sha256']}`. "
             f"It records {report['files']:,} file receipts and "
             f"{report['logical_file_bytes']:,} logical bytes; hardlinks can make the "
@@ -284,6 +343,10 @@ def internal_mixed_readback() -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pid", type=int, required=True)
+    parser.add_argument("--resume-receipt", type=Path,
+                        help="Explicit replacement launch receipt; original started.json remains unchanged")
+    parser.add_argument("--process-identity-receipt", type=Path,
+                        help="Exact Windows creation FILETIME receipt bound to the resume launch")
     args = parser.parse_args()
     require(args.pid > 0, "positive owned PID required")
     require(ROOT.is_dir() and CONTROL.is_dir(), "fixed roots missing")
@@ -302,7 +365,6 @@ def main() -> None:
               "steps": []}
     try:
         started = load(CONTROL / "started.json")
-        require(started["pid"] == args.pid, "requested PID differs from retained migration PID")
         plan_sha = sha(PLAN)
         require(started["plan_sha256"] == plan_sha and
                 load(CONTROL / "frozen_plan.json")["raw_sha256"] == plan_sha,
@@ -315,13 +377,48 @@ def main() -> None:
         require(sha(LAUNCH_IMPLEMENTATION) == LAUNCH_IMPLEMENTATION_SHA256 and
                 custody["sha256"] == LAUNCH_IMPLEMENTATION_SHA256 and
                 custody["bytes"] == LAUNCH_IMPLEMENTATION.stat().st_size and
-                custody["initial_process_pid"] == args.pid,
+                custody["initial_process_pid"] == started["pid"],
                 "original migration implementation custody")
+        status["original_migration_pid"] = started["pid"]
+        process_started_wall_time = started["wall_time"]
+        creation_filetime = None
+        identity_binding = None
+        if args.resume_receipt is not None:
+            resume_path = args.resume_receipt.absolute()
+            status["resume_receipt_path"] = str(resume_path)
+            status["resume_receipt_sha256"] = sha(resume_path)
+            resume = validate_resume_receipt(resume_path, args.pid, started, plan_sha)
+            process_started_wall_time = resume["wall_time"]
+            status["resume_launch"] = resume
+            status["resume_qualification_path"] = str(RESUME_QUALIFICATION)
+            status["resume_qualification_sha256"] = sha(RESUME_QUALIFICATION)
+        else:
+            require(started["pid"] == args.pid,
+                    "requested PID differs from retained migration PID")
+        if args.process_identity_receipt is not None:
+            require(args.resume_receipt is not None,
+                    "exact process identity receipt requires a qualified resume launch")
+            identity_path = args.process_identity_receipt.absolute()
+            require(identity_path == RESUME_PROCESS_IDENTITY.absolute(),
+                    "process identity receipt differs from the fixed control path")
+            status["process_identity_receipt_path"] = str(identity_path)
+            status["process_identity_receipt_sha256"] = sha(identity_path)
+            identity = load(identity_path)
+            require(identity.get("schema") == "STORAGE_RESUME_PROCESS_IDENTITY_V1" and
+                    type(identity.get("pid")) is int and identity["pid"] == args.pid and
+                    identity.get("resume_launch_sha256") == status["resume_receipt_sha256"],
+                    "exact process identity is not bound to this resume PID and launch")
+            creation_filetime = identity.get("creation_filetime")
+            require(type(creation_filetime) is int and creation_filetime > 0,
+                    "positive integer Windows creation FILETIME required")
+            identity_binding = {key: status[key] for key in
+                                ("process_identity_receipt_path", "process_identity_receipt_sha256")}
         status["plan_sha256"] = plan_sha
         status["baseline_sha256"] = baseline_sha
         status["launch_implementation_sha256"] = LAUNCH_IMPLEMENTATION_SHA256
         status["implementation_custody_sha256"] = sha(IMPLEMENTATION_CUSTODY)
-        status["migration_process"] = adopt_and_wait(args.pid, started["wall_time"])
+        status["migration_process"] = adopt_and_wait(args.pid, process_started_wall_time,
+                                                      creation_filetime, identity_binding)
         if status["migration_process"]["exit_code"] != 0:
             status["qualified_resume"] = qualified_time_cap_failure()
             remaining = MAX_WAIT_SECONDS - status["migration_process"]["waited_seconds"]
@@ -380,6 +477,14 @@ def main() -> None:
                                "mixed_readback": {"path": str(MIXED_READBACK),
                                                   "sha256": sha(MIXED_READBACK)}},
                   "scope": "Storage custody and retained readback only; no model execution or new rate claim."}
+        report["original_migration_pid"] = started["pid"]
+        if args.resume_receipt is not None:
+            for key in ("resume_receipt_path", "resume_receipt_sha256",
+                        "resume_qualification_path", "resume_qualification_sha256"):
+                report[key] = status[key]
+        if args.process_identity_receipt is not None:
+            for key in ("process_identity_receipt_path", "process_identity_receipt_sha256"):
+                report[key] = status[key]
         write_exclusive(VERIFICATION, report)
         write_text_exclusive(RESULT_DOC, report_markdown(report))
         checked_step(status, "catalog_build",

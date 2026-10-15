@@ -1,9 +1,10 @@
 # Start here
 
 The scientific goal is **incomplete**. Current authorized numerical work is the
-three-job [predictive geometry campaign](docs/research/PREDICTIVE_GEOMETRY_20261015/PROTOCOL.md);
-see its [dated launch record](docs/research/PREDICTIVE_GEOMETRY_20261015/LAUNCH.md)
-and live Kaggle status before taking action. The preceding
+three-job [predictive geometry campaign](docs/research/PREDICTIVE_GEOMETRY_20261015/PROTOCOL.md).
+All three intended studies have completed Kaggle jobs, including the separate
+geometry QR replacement; use the [brief continuation instructions](docs/research/PREDICTIVE_GEOMETRY_20261015/NEXT_READER.md)
+and live status before taking action. The preceding
 [context-program result](docs/research/CONTEXT_PROGRAM_PILOT_20261015/RESULT.md)
 is **complete, exploratory negative**; its conditional follow-ups did not run.
 [HANDOFF.md](HANDOFF.md) preserves the previous

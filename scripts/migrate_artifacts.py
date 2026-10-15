@@ -536,12 +536,20 @@ def copy_file_native(source, target):
         winerror(f"CopyFileW failed: {source} -> {target}")
 
 
-def verify_metadata_unchanged(source, expected):
-    now = metadata(source)
+def unchanged_metadata_keys(expected):
     # Hardlink counts can fall after an earlier unit's verified D: backup is
     # removed. A rename may also change creation/change timestamps.
+    # NTFS directory st_size is filesystem bookkeeping, not payload length.
+    # Child membership is checked against the full frozen inventory separately;
+    # ordinary directories retain all identity/mtime/attribute checks.
     keys = ("kind", "size", "mtime_ns", "attributes", "volume", "file_index",
             "alternate_streams", "reparse_tag", "reparse_sha256", "raw_target")
+    return tuple(key for key in keys if key != "size" or expected["kind"] != "directory")
+
+
+def verify_metadata_unchanged(source, expected):
+    now = metadata(source)
+    keys = unchanged_metadata_keys(expected)
     require(all(now.get(key) == expected.get(key) for key in keys),
             f"source metadata changed: {source}")
 
@@ -669,8 +677,7 @@ def guarded_delete_backup(backup, entries, receipts_map, unit):
     by_rel = {x["relative_path"]: x["metadata"] for x in actual}
     for entry in entries:
         rel, expected = entry["relative_path"], entry["metadata"]
-        keys = ("kind", "size", "mtime_ns", "attributes", "volume", "file_index",
-                "alternate_streams", "reparse_tag", "reparse_sha256", "raw_target")
+        keys = unchanged_metadata_keys(expected)
         require(all(by_rel[rel].get(k) == expected.get(k) for k in keys),
                 f"backup entry changed: {backup}/{rel}")
     # No recursive filesystem API is used: every unlink comes from the frozen inventory.
@@ -776,6 +783,7 @@ def run(plan_path, resume_verified=False):
             files = [e for e in entries if e["metadata"]["kind"] == "file"]
             files.sort(key=lambda e: e["relative_path"])
             if state["units"][unit] == "BACKUP_REMOVED":
+                heartbeat.update(phase="REVALIDATING_COMPLETED", current_file=unit)
                 require(os.path.isjunction(source) and
                         normalized_junction_target(source) == lexical(target),
                         f"completed logical junction changed: {source}")
@@ -918,6 +926,7 @@ def run(plan_path, resume_verified=False):
                     "inventory_sha256": sha_file(CONTROL / "inventory.json")[0],
                     "source_resolve_changes": True,
                     "scope": "Verified copied payloads, preserved hardlinks and junction path access; Path.resolve may change across cutover."}
+        manifest["directory_size_policy"] = "Ordinary directory st_size is not payload; frozen child membership, identity, mtime and attributes remain checked. File sizes and hashes remain exact."
         write_exclusive(CONTROL / "manifest.json", manifest)
         print(json.dumps({"status": "COMPLETE", "units": len(units),
                           "files": verified_files, "bytes": verified_bytes}), flush=True)

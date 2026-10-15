@@ -48,6 +48,13 @@ arbitrary reparse points are not traversed.
 
 ## Migration and provenance
 
+**Continuation update, 15 October:** the initial run stopped on ordinary NTFS
+directory-length bookkeeping. After complete current-package qualification, it
+was restarted with explicit receipt revalidation. Read the
+[continuation record](STORAGE_RESUME_20261015.md) for current process ownership,
+Windows task independence, preserved faults and canonical finalization status.
+Do not manually delete originals or repeat the restart helper.
+
 The prospective [plan](storage_migration_plan_20261015.json) lists exact
 directory packages. The migration implementation is
 [migrate_artifacts.py](../../scripts/migrate_artifacts.py). Its control area is
