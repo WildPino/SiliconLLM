@@ -1,0 +1,106 @@
+{
+  "schema": "STORAGE_MIGRATION_PLAN_V1",
+  "purpose": "Move verified artifact packages to E while preserving their original D paths through directory junctions. Historical scientific records remain byte-identical.",
+  "source_root": "D:/_THINGS/Progetti/SiliconLLM",
+  "destination_root": "E:/SiliconLLM_Artifacts/workspace",
+  "control_root": "E:/SiliconLLM_Artifacts/migrations/20261015",
+  "policy": {
+    "preserve_original_paths": true,
+    "preserve_source_hardlink_groups": true,
+    "verify_sha256_before_source_release": true,
+    "edit_historical_receipts": false,
+    "move_git_database": false,
+    "rewrite_git_history": false,
+    "run_model_experiments": false
+  },
+  "units": [
+    {
+      "name": "density-corpus",
+      "relative_path": "benchmarks/donor_adaptation/density/corpus"
+    },
+    {
+      "name": "weights",
+      "relative_path": "weights"
+    },
+    {
+      "name": "native-research-evidence",
+      "relative_path": "docs/research/NATIVE_EXPERT_SCALING_20260925"
+    },
+    {
+      "name": "data-corpora",
+      "relative_path": "data/corpora"
+    },
+    {
+      "name": "data-phase64",
+      "relative_path": "data/phase64"
+    },
+    {
+      "name": "data-phase-data",
+      "relative_path": "data/phase_data"
+    },
+    {
+      "name": "kaggle-mve-staging",
+      "relative_path": "kaggle_mve"
+    },
+    {
+      "name": "kaggle-rung1-staging",
+      "relative_path": "kaggle_rung1"
+    },
+    {
+      "name": "donor-engine-results",
+      "relative_path": "benchmarks/donor_adaptation/engine/results"
+    },
+    {
+      "name": "h0-bundle",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h0_bundle"
+    },
+    {
+      "name": "h0-bundle2",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h0_bundle2"
+    },
+    {
+      "name": "h1-bundle",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h1_bundle"
+    },
+    {
+      "name": "h2i-bundle",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h2i_bundle"
+    },
+    {
+      "name": "h2i-bundle-v4",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h2i_bundle_v4"
+    },
+    {
+      "name": "h4-bundle",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h4_bundle"
+    },
+    {
+      "name": "h4-bundle-v2",
+      "relative_path": "benchmarks/donor_adaptation/s1/_h4_bundle_v2"
+    },
+    {
+      "name": "p1-results",
+      "relative_path": "benchmarks/donor_adaptation/p1/results"
+    },
+    {
+      "name": "f1-results",
+      "relative_path": "benchmarks/donor_adaptation/f1/results"
+    },
+    {
+      "name": "r2-results",
+      "relative_path": "benchmarks/donor_adaptation/r2/results"
+    },
+    {
+      "name": "donor-s1-results",
+      "relative_path": "benchmarks/donor_adaptation/s1/results"
+    },
+    {
+      "name": "donor-density-results",
+      "relative_path": "benchmarks/donor_adaptation/density/results"
+    },
+    {
+      "name": "research-results",
+      "relative_path": "results"
+    }
+  ]
+}

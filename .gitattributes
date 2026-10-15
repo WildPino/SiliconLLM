@@ -1163,3 +1163,14 @@ benchmarks/native_expert_scaling/recipient_qwen_entry.c text eol=lf
 docs/research/PIPELINE_REASSESSMENT_20261015/recipient_int8_*.json -text whitespace=cr-at-eol
 docs/research/PIPELINE_REASSESSMENT_20261015/recipient_mixed_*.json -text whitespace=cr-at-eol
 docs/research/PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_SOURCE_GROUP_ORACLE_PROTOCOL_20261015.md text eol=lf
+# Preserve relocation plan bytes: the external migration manifest pins its SHA256.
+docs/maintenance/*.json -text whitespace=cr-at-eol
+docs/maintenance/*.md text eol=lf
+# These maintenance implementations are bound by external execution receipts.
+scripts/migrate_artifacts.py -text whitespace=cr-at-eol
+scripts/finalize_storage_maintenance.py -text
+scripts/verify_storage_migration.py -text
+# Navigation is generated deterministically as UTF-8/LF.
+START_HERE.md text eol=lf
+docs/navigation/catalog.json text eol=lf
+docs/navigation/index.html text eol=lf
