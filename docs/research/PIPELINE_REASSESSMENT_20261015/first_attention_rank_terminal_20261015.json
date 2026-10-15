@@ -1,0 +1,23 @@
+{
+  "schema": "FIRST_ATTENTION_RANK_TERMINAL_OBSERVATION_V1",
+  "observed_utc": "2026-10-15T15:39:48.134604+00:00",
+  "session": 90860,
+  "exit_code": 1,
+  "worker_pid": 28528,
+  "worker_creation_time": 1792078546.7038288,
+  "producer_status": "FAILED_GPU_RELEASE",
+  "producer_result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_rank_20261015\\result.json",
+    "bytes": 53125,
+    "sha256": "71267ab350dded1e6942912d38cfd746aaf55352ce263282f29055a7b3300b6a"
+  },
+  "source_binding_match": true,
+  "gpu_released_before_posthash": false,
+  "gpu_allocated_after_gc_empty_cache": 67108864,
+  "gpu_reserved_after_gc_empty_cache": 67108864,
+  "completed_updates": 512,
+  "numerical_audit_pending": true,
+  "terminal_exception": "RuntimeError: experiment_failed",
+  "cleanup_cause": "Undetermined; an allocator workspace is a hypothesis, not established evidence.",
+  "no_numerical_rerun": true
+}

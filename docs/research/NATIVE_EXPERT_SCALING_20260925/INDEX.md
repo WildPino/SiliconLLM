@@ -115,15 +115,16 @@ all retained seals/selection/range accounts PASS. Earlier preparation faults
 and unavailable raw-header/gap-byte evidence remain explicit. No full120B
 checkpoint or experts were acquired; no source quality or rate follows.
 
-The actual-weight Q/O rank256 falsifier is RUNNING under the
-[frozen protocol](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_RANK_PROTOCOL_20261015.md)
-and [binding](../PIPELINE_REASSESSMENT_20261015/first_attention_rank_binding_20261015.json).
-Owned worker28528/create1792078546.7038288 and watchdog27688 are recorded in
-`results/native_expert_scaling/first_attention_rank_20261015`.
-K/V/norm/bias/sink/RoPE/window are fixed; the same-gate full-F32 source control
-must pass before512 fixed updates. Gates exclude the shared62-token prefix.
-No DEV selection or rank512 execution. Independent CPU trace audit follows
-terminal completion; keep same-artifact whole-model/cost requirements separate.
+[Actual Q/O rank256 recipe REJECTED](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_RANK_RESULT_20261015.md):
+full-F32 precision control passes; all four candidate gates fail on FIT and DEV.
+Branch L2 is0.211763/0.292680, mean sink-inclusive TV0.081168/0.122956.
+All512 updates and108 traces were completed. The producer exited1 with
+FAILED_GPU_RELEASE (64MiB still allocated after cleanup); retain this fault.
+Independent CPU audit exited0, recomputed all metrics and replayed source plus
+candidate on all36 cases in17.875s; numerical rejection confirmed, no admission.
+No numerical rerun, rank512, extra steps or full checkpoint acquisition follows.
+No owned source, GPU or CPU audit worker remains live. The next decision needs
+a structurally different intervention with a credible complete cost budget.
 
 The complete Falcon source coverage is adopted; do not restart it or fit D512
 automatically. Packed-layout and bounded-cost screens are closed. The current

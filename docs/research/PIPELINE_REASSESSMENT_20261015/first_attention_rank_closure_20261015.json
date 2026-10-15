@@ -1,0 +1,101 @@
+{
+  "schema": "FIRST_ATTENTION_RANK_CLOSURE_V1",
+  "status": "RECIPE_REJECTED_PRODUCER_CLEANUP_FAILURE_RETAINED",
+  "producer_status": "FAILED_GPU_RELEASE",
+  "numerical_audit_status": "PASS",
+  "independent_numerical_status": "RANK256_F32_REJECT",
+  "admitted": false,
+  "producer": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_rank_20261015\\result.json",
+    "bytes": 53125,
+    "sha256": "71267ab350dded1e6942912d38cfd746aaf55352ce263282f29055a7b3300b6a"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_cpu_audit_20261015.json",
+    "bytes": 18805,
+    "sha256": "89ee657d3ce4fcae7409c712adf820d670fffa2a1e70e87c60f84557216faf6d"
+  },
+  "rank_freeze": "34b97d5",
+  "audit_freeze": "dcc52b1",
+  "producer_session": 90860,
+  "producer_exit_code": 1,
+  "audit_session": 1231,
+  "audit_exit_code": 0,
+  "updates": 512,
+  "trace_triplets": 36,
+  "precision": {
+    "DEV": {
+      "all_token_pooled_branch_l2_diagnostic": 0.00701823734322291,
+      "all_token_tv_mean_diagnostic": 0.004755701412624997,
+      "all_token_tv_p95_diagnostic": 0.014954968344276868,
+      "bias_removed_pooled_branch_l2_diagnostic": 0.006694161305886171,
+      "pooled_branch_l2": 0.006588906775304847,
+      "sequence_l2_p95": 0.007460099612418969,
+      "tv_mean_including_sink": 0.005102168335426097,
+      "tv_p95_including_sink": 0.015665350966506505,
+      "worst_sequence_l2": 0.007460099612418969,
+      "worst_tv_row": 0.10411950227578376
+    },
+    "FIT": {
+      "all_token_pooled_branch_l2_diagnostic": 0.007006688044635573,
+      "all_token_tv_mean_diagnostic": 0.004807176195553633,
+      "all_token_tv_p95_diagnostic": 0.014846368738121484,
+      "bias_removed_pooled_branch_l2_diagnostic": 0.006742987336817847,
+      "pooled_branch_l2": 0.006635343872144462,
+      "sequence_l2_p95": 0.007126289334805425,
+      "tv_mean_including_sink": 0.005120674737328222,
+      "tv_p95_including_sink": 0.015264072770154994,
+      "worst_sequence_l2": 0.007227441331250319,
+      "worst_tv_row": 0.10520693788371221
+    }
+  },
+  "rank256": {
+    "DEV": {
+      "all_token_pooled_branch_l2_diagnostic": 0.3473005880849041,
+      "all_token_tv_mean_diagnostic": 0.12331281093412261,
+      "all_token_tv_p95_diagnostic": 0.41406304055600596,
+      "bias_removed_pooled_branch_l2_diagnostic": 0.29735574821099814,
+      "pooled_branch_l2": 0.2926803246196833,
+      "sequence_l2_p95": 0.35600532675674745,
+      "tv_mean_including_sink": 0.12295626085808718,
+      "tv_p95_including_sink": 0.40846640917816723,
+      "worst_sequence_l2": 0.35600532675674745,
+      "worst_tv_row": 0.9998294541492679
+    },
+    "FIT": {
+      "all_token_pooled_branch_l2_diagnostic": 0.29063578022992964,
+      "all_token_tv_mean_diagnostic": 0.0948253921529719,
+      "all_token_tv_p95_diagnostic": 0.30616359947074234,
+      "bias_removed_pooled_branch_l2_diagnostic": 0.21519888356136876,
+      "pooled_branch_l2": 0.21176349917410967,
+      "sequence_l2_p95": 0.3026604051996357,
+      "tv_mean_including_sink": 0.08116824278743513,
+      "tv_p95_including_sink": 0.24574164974633322,
+      "worst_sequence_l2": 0.30739643789835325,
+      "worst_tv_row": 0.9999310863579431
+    }
+  },
+  "replay_comparisons": 72,
+  "max_replay_branch_relative_l2": 7.744045547042333e-07,
+  "max_replay_probability_abs": 5.5730342864990234e-06,
+  "audit_seconds": 17.875,
+  "audit_peak_wset": 931737600,
+  "producer_pre_posthash_wall_seconds": 78.125,
+  "producer_stage_seconds": {
+    "export_and_final_evaluation": 5.921999999991385,
+    "fit_initialization": 5.2189999999827705,
+    "optimization_512_updates": 52.078000000008615,
+    "source_weight_import": 0.28099999998812564,
+    "teacher_and_precision_control": 11.422000000020489
+  },
+  "producer_gpu_peak_allocated": 1710806528,
+  "producer_gpu_peak_reserved": 1927282688,
+  "gpu_release_fault_bytes": 67108864,
+  "post_binding_match": true,
+  "remaining_witnesses": [
+    "GPU training execution and intermediate optimizer state",
+    "source probability capture is manual graph checked by official context",
+    "whole-model behavior and physical Q4 remain untested"
+  ],
+  "decision": "Stop this uniform rank256 initialization/training recipe; no automatic rank grid, extra steps, full checkpoint acquisition or architecture promotion. This does not rule out all low-rank or conditional attention representations."
+}
