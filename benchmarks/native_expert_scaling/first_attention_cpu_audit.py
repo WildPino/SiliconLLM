@@ -288,7 +288,9 @@ def close_metrics(actual, recorded, label):
 def check_outputs(output, result):
     need(result["schema"] == "FIRST_ATTENTION_RANK_RESULT_V1" and
          result["status"] in ("INCONCLUSIVE_PRECISION_FLOOR", "RANK256_F32_REJECT",
-                              "RANK256_F32_GATE_PASS_PHYSICAL_Q4_PENDING"), "result_status")
+                              "RANK256_F32_GATE_PASS_PHYSICAL_Q4_PENDING",
+                              "FAILED_GPU_RELEASE"), "result_status")
+    failed_release = result["status"] == "FAILED_GPU_RELEASE"
     listed = {Path(d["path"]).resolve(): d for d in result["owned_outputs"]}
     need(len(listed) == len(result["owned_outputs"]), "owned_output_unique")
     for path, d in listed.items():
@@ -300,12 +302,25 @@ def check_outputs(output, result):
     need(owned["pid"] == result["pid"] and
          owned["pid_create_time"] == result["pid_create_time"] and
          owned["binding_sha256"] == result["binding_sha256"], "owned_process_custody")
+    try:
+        former = psutil.Process(result["pid"])
+        same_worker_live = (abs(former.create_time() - result["pid_create_time"]) < .01 and
+                            former.is_running() and former.status() != psutil.STATUS_ZOMBIE)
+    except psutil.NoSuchProcess:
+        same_worker_live = False
+    need(not same_worker_live, "owned_worker_still_live")
     need((output / "watchdog_done").read_text().strip() == "complete" and
          not (output / "watchdog_failure.json").exists(), "watchdog_completion")
     need(result["source_parameter_sha256_before"] ==
          result["source_parameter_sha256_after"], "source_before_after")
-    need(result["gpu_released_before_posthash"] is True and
-         result["cpu_rss_bytes"] < 8 << 30 and
+    need(result["gpu_released_before_posthash"] is (not failed_release),
+         "producer_gpu_release_receipt")
+    if failed_release:
+        need(result["post_binding_match"] is True and
+             result["gpu_allocated_bytes"] > 0 and
+             result["gpu_reserved_bytes"] >= result["gpu_allocated_bytes"] and
+             result["source_trace_count"] == 36, "failed_release_complete_run_receipt")
+    need(result["cpu_rss_bytes"] < 8 << 30 and
          result["gpu_peak_allocated_bytes"] < 8 << 30 and
          result["gpu_peak_reserved_bytes"] < 9 << 30 and
          result["wall_seconds"] < 9000, "producer_resource_receipt")
@@ -363,6 +378,7 @@ def audit(manifest_path, binding_path, output, report_path, replay):
                     "binding": file_sha(binding_path),
                     "producer_result": file_sha(output / "result.json")}
     result = json.loads((output / "result.json").read_text())
+    failed_release = result["status"] == "FAILED_GPU_RELEASE"
     m, _ = check_inputs(manifest_path, binding_path, result)
     check_outputs(output, result)
     source_digest, source_values = source_hash(m)
@@ -407,6 +423,10 @@ def audit(manifest_path, binding_path, output, report_path, replay):
     need(precision_pass == (result["status"] != "INCONCLUSIVE_PRECISION_FLOOR"),
          "precision_floor_status")
     if candidate["FIT"]:
+        need(sum(1 for _ in output.glob("source_*.pt")) == 36 and
+             sum(1 for _ in output.glob("f32_source_*.pt")) == 36 and
+             sum(1 for _ in output.glob("candidate_*.pt")) == 36,
+             "complete_108_trace_triplets")
         final = check_factors(output, result, m)
         rank_pass = all(all(recomputed["rank256"][s][key] <= limit
                             for key, limit in zip(GATES, LIMITS)) for s in ("FIT", "DEV"))
@@ -414,16 +434,21 @@ def audit(manifest_path, binding_path, output, report_path, replay):
                                      for key, limit in zip(GATES, LIMITS))
                                  for s in ("FIT", "DEV"))
         need(rank_pass == recorded_rank_pass, "rank_gate_boundary_disagreement")
-        need(rank_pass == (result["status"] == "RANK256_F32_GATE_PASS_PHYSICAL_Q4_PENDING"),
-             "rank_status")
+        if failed_release:
+            need(precision_pass and not rank_pass, "failed_release_numerical_rejection_only")
+        else:
+            need(rank_pass == (result["status"] == "RANK256_F32_GATE_PASS_PHYSICAL_Q4_PENDING"),
+                 "rank_status")
     else:
         final = None
+        need(not failed_release, "failed_release_missing_candidate")
         need(not any(output.glob("candidate_*.pt")), "candidate_after_precision_floor")
+    replay_checks = []
     if replay:
         need(final is not None, "replay_requires_candidate")
         # Full graph replay is a separate optional stage and deliberately not
         # required for the first precision-floor audit.
-        replay_all(m, source_values, final, output, started)
+        replay_checks = replay_all(m, source_values, final, output, started)
     check_inputs(manifest_path, binding_path, result)
     check_outputs(output, result)
     final_pins = {"audit_code": file_sha(audit_code),
@@ -433,17 +458,29 @@ def audit(manifest_path, binding_path, output, report_path, replay):
                   "producer_result": file_sha(output / "result.json")}
     need(final_pins == initial_pins, "audit_pin_changed_during_run")
     memory = psutil.Process().memory_info()
-    audit_result = {"schema": "FIRST_ATTENTION_CPU_AUDIT_V1", "status": "PASS",
+    audit_result = {"schema": "FIRST_ATTENTION_CPU_AUDIT_V1",
+                    "status": "PASS_NUMERICAL_REJECTION_PRODUCER_FAILED" if failed_release else "PASS",
+                    "numerical_audit_status": "PASS",
+                    "producer_run_pass": not failed_release,
                     "producer_status": result["status"], "source_parameter_sha256": source_digest,
                     "pins_sha256": final_pins, "recomputed_metrics": recomputed,
                     "decisions": {"precision_pass": precision_pass,
-                                  "rank256_pass": rank_pass if final is not None else None},
+                                  "rank256_pass": rank_pass if final is not None else None,
+                                  "independent_numerical_status":
+                                  "RANK256_F32_REJECT" if failed_release else result["status"],
+                                  "producer_cleanup_fault_retained": failed_release,
+                                  "admitted": False},
+                    "producer_gpu_release": {"released_before_posthash":
+                                             result["gpu_released_before_posthash"],
+                                             "allocated_bytes": result["gpu_allocated_bytes"],
+                                             "reserved_bytes": result["gpu_reserved_bytes"]},
                     "settings": {"cpu_threads": torch.get_num_threads(),
                                  "interop_threads": torch.get_num_interop_threads(),
                                  "cuda_visible_devices": os.environ["CUDA_VISIBLE_DEVICES"]},
                     "peak_wset_bytes": getattr(memory, "peak_wset", None),
                     "rss_bytes_at_report": memory.rss,
-                    "replay": replay, "seconds": time.monotonic() - started,
+                    "replay": replay, "replay_checks": replay_checks,
+                    "seconds": time.monotonic() - started,
                     "remaining_witnesses": ["GPU training execution and intermediate optimizer state",
                                            "source probability capture is manual graph checked by official context",
                                            "whole-model behavior and physical Q4 remain untested"]}
@@ -518,6 +555,7 @@ def cpu_attention(x, weights, factors):
 
 
 def replay_all(m, source_values, factors, output, started):
+    checks = []
     weights = {k: v.float() for k, v in source_values.items()}
     embedding = raw_bf16(m["embedding_rows"],
                          (len(m["embedding_rows"]["token_ids"]), 2880)).float()
@@ -541,7 +579,11 @@ def replay_all(m, source_values, factors, output, started):
                                         dim=-1).reshape(64, -1)
                     max_abs = max(max_abs, float((rebuilt - saved).abs().max()))
                 need(max_abs <= 5e-4, "cpu_replay_probability:" + prefix + case["id"])
+                checks.append({"id": case["id"], "trace_prefix": prefix,
+                               "branch_relative_l2": relative,
+                               "probability_max_abs": max_abs})
             bounded(started)
+    return checks
 
 
 if __name__ == "__main__":
