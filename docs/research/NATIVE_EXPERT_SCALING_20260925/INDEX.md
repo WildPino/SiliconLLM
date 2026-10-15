@@ -123,8 +123,17 @@ FAILED_GPU_RELEASE (64MiB still allocated after cleanup); retain this fault.
 Independent CPU audit exited0, recomputed all metrics and replayed source plus
 candidate on all36 cases in17.875s; numerical rejection confirmed, no admission.
 No numerical rerun, rank512, extra steps or full checkpoint acquisition follows.
-No owned source, GPU or CPU audit worker remains live. The next decision needs
-a structurally different intervention with a credible complete cost budget.
+The distinct [one-group source-head oracle](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_SOURCE_GROUP_RESULT_20261015.md)
+also FAILS: best of16 contiguous four-head groups with teacher-chosen ANY REAL
+mass gives pooled L2=0.518095FIT/0.499741DEV; all-group control passes.
+No training, GPU or download;17.687s/1.087GiB. Independent saved-metric readback
+and all declared seals PASS; complete group-construction execution remains a
+producer witness. Do not train this selector or expand the group budget on DEV.
+Park the two tested cheap GPT-OSS core transformations; do not generalize to
+all possible transformations, families or hardware. No owned worker remains
+live. Next substantive work must identify a distinct mechanism or pretrained
+small-core/finer-conditional family with a credible COMPLETE cost/conversion
+budget before acquiring large weights. The full chatbot/useful50 goal is active.
 
 The complete Falcon source coverage is adopted; do not restart it or fit D512
 automatically. Packed-layout and bounded-cost screens are closed. The current

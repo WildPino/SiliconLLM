@@ -1,0 +1,79 @@
+{
+  "schema": "FIRST_ATTENTION_SOURCE_GROUP_CLOSURE_V1",
+  "status": "ONE_GROUP_SOURCE_CONTRIBUTION_REJECTED",
+  "oracle_freeze": "f9f5637",
+  "readback_freeze": "5ab9f13",
+  "oracle_session": 56851,
+  "oracle_exit_code": 0,
+  "readback_exit_code": 0,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_group_oracle_20261015\\result.json",
+    "bytes": 75910,
+    "sha256": "e399b636b43fb8e0349b3d5e27f9512bdcdfa0e997982b34eb5cef101681a4be"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_group_oracle_binding_20261015.json",
+    "bytes": 28864,
+    "sha256": "d36a048462dfab650e96df518997a3c5f0761b2048b3a637cd32f8e23be30361"
+  },
+  "readback": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_group_readback_20261015.json",
+    "bytes": 1278,
+    "sha256": "bd6f72caeef3a00438f6517c415dcb7deb739fa067f75ee8117a80111217caa1"
+  },
+  "metrics": {
+    "DEV": {
+      "all_group": {
+        "all_token_pooled_l2_diagnostic": 0.007018238049879117,
+        "pooled_branch_l2": 0.006588904357462631,
+        "sequence_l2_p95": 0.007460110721787891,
+        "worst_sequence_l2": 0.007460110721787891
+      },
+      "clipped_diagnostic": {
+        "all_token_pooled_l2_diagnostic": 0.5427832891971245,
+        "pooled_branch_l2": 0.5002759730888262,
+        "sequence_l2_p95": 0.5375204352587437,
+        "worst_sequence_l2": 0.5375204352587437
+      },
+      "oracle": {
+        "all_token_pooled_l2_diagnostic": 0.541847026835579,
+        "pooled_branch_l2": 0.499740867184636,
+        "sequence_l2_p95": 0.5371954443565992,
+        "worst_sequence_l2": 0.5371954443565992
+      }
+    },
+    "FIT": {
+      "all_group": {
+        "all_token_pooled_l2_diagnostic": 0.007006684291943158,
+        "pooled_branch_l2": 0.006635337888169859,
+        "sequence_l2_p95": 0.007126298866934102,
+        "worst_sequence_l2": 0.007227457725245954
+      },
+      "clipped_diagnostic": {
+        "all_token_pooled_l2_diagnostic": 0.5516850834454182,
+        "pooled_branch_l2": 0.5184724538697472,
+        "sequence_l2_p95": 0.551014674706004,
+        "worst_sequence_l2": 0.5539202704925682
+      },
+      "oracle": {
+        "all_token_pooled_l2_diagnostic": 0.5509157032786607,
+        "pooled_branch_l2": 0.5180952266298257,
+        "sequence_l2_p95": 0.551014674706004,
+        "worst_sequence_l2": 0.5529954806687108
+      }
+    }
+  },
+  "seconds": 17.687000000005355,
+  "peak_wset_bytes": 1166295040,
+  "output_bytes": 312118883,
+  "cases": 36,
+  "variable_tokens": 4498,
+  "negative_mass_count": 0,
+  "abs_mass_gt_2_count": 120,
+  "max_abs_mass": 3.705630122247176,
+  "max_all_group_vs_saved_f32_l2": 5.983308333549879e-07,
+  "producer_cleanup_failure_retained": "FAILED_GPU_RELEASE",
+  "admitted": false,
+  "decision": "Close this one-of-16 contiguous source-head-group representation, even with per-token teacher-chosen unbounded signed real mass. Do not train its ID/mass predictor or broaden the group budget after DEV. Park the two tested cheap core transformations; any next family/representation requires a distinct complete-cost hypothesis.",
+  "readback_limits": "Checks saved branches, residuals, IDs and seals; does not replay source-group construction or optimal masses from weights."
+}

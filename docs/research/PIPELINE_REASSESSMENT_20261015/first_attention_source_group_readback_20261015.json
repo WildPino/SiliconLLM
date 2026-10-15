@@ -1,0 +1,38 @@
+{
+  "schema": "SOURCE_GROUP_METRIC_READBACK_V1",
+  "status": "PASS",
+  "source_status": "ONE_GROUP_ORACLE_LOWER_BOUND_FAIL",
+  "pins_sha256": {
+    "code": "76e489cbbb173ec85c348e8209a31286a8d3fb77ebba9e24c5a85d5a96491d90",
+    "result": "e399b636b43fb8e0349b3d5e27f9512bdcdfa0e997982b34eb5cef101681a4be",
+    "binding": "d36a048462dfab650e96df518997a3c5f0761b2048b3a637cd32f8e23be30361",
+    "terminal": "4a52867242e769bc5d7ef9c9b1557e3f97491102574f5653e4929d47982f16ec"
+  },
+  "metrics": {
+    "FIT": {
+      "oracle": {
+        "pooled_branch_l2": 0.5180952266298257,
+        "sequence_l2_p95": 0.551014674706004
+      },
+      "all_group": {
+        "pooled_branch_l2": 0.006635337888169859,
+        "sequence_l2_p95": 0.007126298866934102
+      }
+    },
+    "DEV": {
+      "oracle": {
+        "pooled_branch_l2": 0.499740867184636,
+        "sequence_l2_p95": 0.5371954443565992
+      },
+      "all_group": {
+        "pooled_branch_l2": 0.006588904357462631,
+        "sequence_l2_p95": 0.007460110721787891
+      }
+    }
+  },
+  "cases": 36,
+  "seconds": 2.687999999994645,
+  "peak_wset_bytes": 481984512,
+  "cuda_visible_devices": "",
+  "limits": "Checks saved branches, residuals, IDs and seals; does not replay source-group construction or optimal masses from weights."
+}
