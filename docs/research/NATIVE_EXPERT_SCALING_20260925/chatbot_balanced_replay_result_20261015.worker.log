@@ -1,0 +1,595 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+{"stage": "current_runtime_control", "seconds": 35.15600000000268, "operation": "control", "id": "broad_fit_explore_instruct_rewriting_008", "relative": 0.0}
+{"stage": "current_runtime_control", "seconds": 39.812000000005355, "operation": "control", "id": "broad_fit_smol_magpie_ultra_022", "relative": 0.0}
+{"stage": "training", "seconds": 47.82799999999406, "operation": "update", "step": 1, "id": "fit_arithmetic_00", "durable": 0, "compute_seconds": 8.0, "KL": 2.108576536178589}
+{"stage": "training", "seconds": 59.51499999999942, "operation": "update", "step": 2, "id": "broad_fit_apigen_80k_002", "durable": 0, "compute_seconds": 11.65700000000652, "KL": 3.567553997039795}
+{"stage": "training", "seconds": 67.625, "operation": "update", "step": 3, "id": "fit_arithmetic_01", "durable": 0, "compute_seconds": 8.062999999994645, "KL": 1.822302222251892}
+{"stage": "training", "seconds": 77.63999999999942, "operation": "update", "step": 4, "id": "broad_fit_everyday_conversations_002", "durable": 0, "compute_seconds": 9.985000000000582, "KL": 4.867135047912598}
+{"stage": "training", "seconds": 85.93700000000536, "operation": "update", "step": 5, "id": "fit_arithmetic_02", "durable": 0, "compute_seconds": 8.25, "KL": 1.7244724035263062}
+{"stage": "training", "seconds": 93.375, "operation": "update", "step": 6, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 0, "compute_seconds": 7.4060000000026776, "KL": 2.5370733737945557}
+{"stage": "training", "seconds": 102.21799999999348, "operation": "update", "step": 7, "id": "fit_arithmetic_03", "durable": 0, "compute_seconds": 8.796999999991385, "KL": 1.7534263134002686}
+{"stage": "training", "seconds": 111.68700000000536, "operation": "update", "step": 8, "id": "broad_fit_metamathqa_50k_015", "durable": 0, "compute_seconds": 9.437000000005355, "KL": 3.6439263820648193}
+{"stage": "training", "seconds": 120.75, "operation": "update", "step": 9, "id": "fit_arithmetic_04", "durable": 0, "compute_seconds": 9.01600000000326, "KL": 1.6604092121124268}
+{"stage": "training", "seconds": 130.45299999999406, "operation": "update", "step": 10, "id": "broad_fit_numina_cot_100k_015", "durable": 0, "compute_seconds": 9.687999999994645, "KL": 3.3421335220336914}
+{"stage": "training", "seconds": 139.5460000000021, "operation": "update", "step": 11, "id": "fit_arithmetic_05", "durable": 0, "compute_seconds": 9.047000000005937, "KL": 0.8145126104354858}
+{"stage": "training", "seconds": 150.2960000000021, "operation": "update", "step": 12, "id": "broad_fit_openhermes_100k_004", "durable": 0, "compute_seconds": 10.718999999997322, "KL": 3.4259133338928223}
+{"stage": "training", "seconds": 159.31200000000536, "operation": "update", "step": 13, "id": "fit_arithmetic_06", "durable": 0, "compute_seconds": 8.968000000008033, "KL": 0.6966089010238647}
+{"stage": "training", "seconds": 169.13999999999942, "operation": "update", "step": 14, "id": "broad_fit_self_oss_instruct_006", "durable": 0, "compute_seconds": 9.797000000005937, "KL": 5.167587757110596}
+{"stage": "training", "seconds": 177.32799999999406, "operation": "update", "step": 15, "id": "fit_arithmetic_07", "durable": 0, "compute_seconds": 8.156000000002678, "KL": 1.181895136833191}
+{"stage": "training", "seconds": 265.48399999999674, "operation": "update", "step": 16, "id": "broad_fit_smol_constraints_005", "durable": 16, "compute_seconds": 9.01600000000326, "KL": 4.983906269073486}
+{"stage": "training", "seconds": 273.7960000000021, "operation": "update", "step": 17, "id": "fit_arithmetic_08", "durable": 16, "compute_seconds": 8.281000000002678, "KL": 1.8745131492614746}
+{"stage": "training", "seconds": 288.82799999999406, "operation": "update", "step": 18, "id": "broad_fit_smol_magpie_ultra_000", "durable": 16, "compute_seconds": 15.0, "KL": 5.810364246368408}
+{"stage": "training", "seconds": 296.68700000000536, "operation": "update", "step": 19, "id": "fit_arithmetic_09", "durable": 16, "compute_seconds": 7.812000000005355, "KL": 0.7723093628883362}
+{"stage": "training", "seconds": 305.35899999999674, "operation": "update", "step": 20, "id": "broad_fit_smol_rewrite_004", "durable": 16, "compute_seconds": 8.639999999999418, "KL": 4.05183219909668}
+{"stage": "training", "seconds": 313.5929999999935, "operation": "update", "step": 21, "id": "fit_arithmetic_10", "durable": 16, "compute_seconds": 8.202999999994063, "KL": 0.8540331721305847}
+{"stage": "training", "seconds": 325.625, "operation": "update", "step": 22, "id": "broad_fit_smol_summarize_003", "durable": 16, "compute_seconds": 12.01600000000326, "KL": 4.824516296386719}
+{"stage": "training", "seconds": 333.1399999999994, "operation": "update", "step": 23, "id": "fit_arithmetic_11", "durable": 16, "compute_seconds": 7.48399999999674, "KL": 1.0171785354614258}
+{"stage": "training", "seconds": 347.625, "operation": "update", "step": 24, "id": "broad_fit_systemchats_30k_010", "durable": 16, "compute_seconds": 14.437999999994645, "KL": 4.91780948638916}
+{"stage": "training", "seconds": 354.5929999999935, "operation": "update", "step": 25, "id": "fit_arithmetic_12", "durable": 16, "compute_seconds": 6.952999999994063, "KL": 1.284393548965454}
+{"stage": "training", "seconds": 363.875, "operation": "update", "step": 26, "id": "broad_fit_apigen_80k_023", "durable": 16, "compute_seconds": 9.25, "KL": 3.5037424564361572}
+{"stage": "training", "seconds": 371.73399999999674, "operation": "update", "step": 27, "id": "fit_arithmetic_13", "durable": 16, "compute_seconds": 7.8439999999973224, "KL": 0.6816917657852173}
+{"stage": "training", "seconds": 380.7649999999994, "operation": "update", "step": 28, "id": "broad_fit_everyday_conversations_010", "durable": 16, "compute_seconds": 9.0, "KL": 4.155052661895752}
+{"stage": "training", "seconds": 391.125, "operation": "update", "step": 29, "id": "fit_arithmetic_14", "durable": 16, "compute_seconds": 10.327999999994063, "KL": 0.657221794128418}
+{"stage": "training", "seconds": 399.85899999999674, "operation": "update", "step": 30, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 16, "compute_seconds": 8.702999999994063, "KL": 0.8946620225906372}
+{"stage": "training", "seconds": 407.43700000000536, "operation": "update", "step": 31, "id": "fit_arithmetic_15", "durable": 16, "compute_seconds": 7.5460000000020955, "KL": 0.6588606834411621}
+{"stage": "training", "seconds": 495.6710000000021, "operation": "update", "step": 32, "id": "broad_fit_metamathqa_50k_023", "durable": 32, "compute_seconds": 9.031000000002678, "KL": 3.9954400062561035}
+{"stage": "training", "seconds": 502.9210000000021, "operation": "update", "step": 33, "id": "fit_code_00", "durable": 32, "compute_seconds": 7.203000000008615, "KL": 1.0977238416671753}
+{"stage": "training", "seconds": 511.32799999999406, "operation": "update", "step": 34, "id": "broad_fit_numina_cot_100k_016", "durable": 32, "compute_seconds": 8.39100000000326, "KL": 3.832493305206299}
+{"stage": "training", "seconds": 518.3279999999941, "operation": "update", "step": 35, "id": "fit_code_01", "durable": 32, "compute_seconds": 6.953000000008615, "KL": 1.1264127492904663}
+{"stage": "training", "seconds": 527.5310000000027, "operation": "update", "step": 36, "id": "broad_fit_openhermes_100k_028", "durable": 32, "compute_seconds": 9.172000000005937, "KL": 4.804969787597656}
+{"stage": "training", "seconds": 534.2649999999994, "operation": "update", "step": 37, "id": "fit_code_02", "durable": 32, "compute_seconds": 6.687999999994645, "KL": 0.6408407688140869}
+{"stage": "training", "seconds": 542.6399999999994, "operation": "update", "step": 38, "id": "broad_fit_self_oss_instruct_012", "durable": 32, "compute_seconds": 8.343999999997322, "KL": 5.500260353088379}
+{"stage": "training", "seconds": 549.9060000000027, "operation": "update", "step": 39, "id": "fit_code_03", "durable": 32, "compute_seconds": 7.25, "KL": 2.008991241455078}
+{"stage": "training", "seconds": 558.9679999999935, "operation": "update", "step": 40, "id": "broad_fit_smol_constraints_021", "durable": 32, "compute_seconds": 9.015999999988708, "KL": 5.206690788269043}
+{"stage": "training", "seconds": 566.2960000000021, "operation": "update", "step": 41, "id": "fit_code_04", "durable": 32, "compute_seconds": 7.297000000005937, "KL": 2.270536422729492}
+{"stage": "training", "seconds": 588.9210000000021, "operation": "update", "step": 42, "id": "broad_fit_smol_magpie_ultra_022", "durable": 32, "compute_seconds": 22.593999999997322, "KL": 4.851691246032715}
+{"stage": "training", "seconds": 596.3120000000054, "operation": "update", "step": 43, "id": "fit_code_05", "durable": 32, "compute_seconds": 7.343000000008033, "KL": 1.1598871946334839}
+{"stage": "training", "seconds": 606.125, "operation": "update", "step": 44, "id": "broad_fit_smol_rewrite_015", "durable": 32, "compute_seconds": 9.764999999999418, "KL": 5.177786827087402}
+{"stage": "training", "seconds": 612.8899999999994, "operation": "update", "step": 45, "id": "fit_code_06", "durable": 32, "compute_seconds": 6.735000000000582, "KL": 1.3523619174957275}
+{"stage": "training", "seconds": 621.9370000000054, "operation": "update", "step": 46, "id": "broad_fit_smol_summarize_024", "durable": 32, "compute_seconds": 9.014999999999418, "KL": 3.318971872329712}
+{"stage": "training", "seconds": 629.2649999999994, "operation": "update", "step": 47, "id": "fit_code_07", "durable": 32, "compute_seconds": 7.282000000006519, "KL": 1.1285324096679688}
+{"stage": "training", "seconds": 716.5779999999941, "operation": "update", "step": 48, "id": "broad_fit_systemchats_30k_024", "durable": 48, "compute_seconds": 8.389999999999418, "KL": 4.080807685852051}
+{"stage": "training", "seconds": 724.5, "operation": "update", "step": 49, "id": "fit_code_08", "durable": 48, "compute_seconds": 7.89100000000326, "KL": 1.047658920288086}
+{"stage": "training", "seconds": 736.5, "operation": "update", "step": 50, "id": "broad_fit_apigen_80k_002", "durable": 48, "compute_seconds": 11.968999999997322, "KL": 3.1588122844696045}
+{"stage": "training", "seconds": 745.3429999999935, "operation": "update", "step": 51, "id": "fit_code_09", "durable": 48, "compute_seconds": 8.812999999994645, "KL": 1.011452078819275}
+{"stage": "training", "seconds": 754.5620000000054, "operation": "update", "step": 52, "id": "broad_fit_everyday_conversations_002", "durable": 48, "compute_seconds": 9.187000000005355, "KL": 3.49480938911438}
+{"stage": "training", "seconds": 761.7339999999967, "operation": "update", "step": 53, "id": "fit_code_10", "durable": 48, "compute_seconds": 7.139999999999418, "KL": 1.524036169052124}
+{"stage": "training", "seconds": 770.1089999999967, "operation": "update", "step": 54, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 48, "compute_seconds": 8.34299999999348, "KL": 0.27158457040786743}
+{"stage": "training", "seconds": 778.9679999999935, "operation": "update", "step": 55, "id": "fit_code_11", "durable": 48, "compute_seconds": 8.812000000005355, "KL": 1.4879482984542847}
+{"stage": "training", "seconds": 788.7649999999994, "operation": "update", "step": 56, "id": "broad_fit_metamathqa_50k_015", "durable": 48, "compute_seconds": 9.76600000000326, "KL": 2.514561653137207}
+{"stage": "training", "seconds": 797.6089999999967, "operation": "update", "step": 57, "id": "fit_code_12", "durable": 48, "compute_seconds": 8.796999999991385, "KL": 1.1607494354248047}
+{"stage": "training", "seconds": 808.0779999999941, "operation": "update", "step": 58, "id": "broad_fit_numina_cot_100k_015", "durable": 48, "compute_seconds": 10.421000000002095, "KL": 2.7763307094573975}
+{"stage": "training", "seconds": 817.0149999999994, "operation": "update", "step": 59, "id": "fit_code_13", "durable": 48, "compute_seconds": 8.89100000000326, "KL": 1.0137395858764648}
+{"stage": "training", "seconds": 826.8589999999967, "operation": "update", "step": 60, "id": "broad_fit_openhermes_100k_004", "durable": 48, "compute_seconds": 9.796999999991385, "KL": 2.759620189666748}
+{"stage": "training", "seconds": 835.7960000000021, "operation": "update", "step": 61, "id": "fit_code_14", "durable": 48, "compute_seconds": 8.906000000002678, "KL": 3.2052178382873535}
+{"stage": "training", "seconds": 846.5779999999941, "operation": "update", "step": 62, "id": "broad_fit_self_oss_instruct_006", "durable": 48, "compute_seconds": 10.75, "KL": 3.9005064964294434}
+{"stage": "training", "seconds": 854.4679999999935, "operation": "update", "step": 63, "id": "fit_code_15", "durable": 48, "compute_seconds": 7.844000000011874, "KL": 0.7477189302444458}
+{"stage": "training", "seconds": 943.0149999999994, "operation": "update", "step": 64, "id": "broad_fit_smol_constraints_005", "durable": 64, "compute_seconds": 9.062000000005355, "KL": 2.9609017372131348}
+{"stage": "training", "seconds": 951.5460000000021, "operation": "update", "step": 65, "id": "fit_explanation_00", "durable": 64, "compute_seconds": 8.514999999999418, "KL": 0.7314590811729431}
+{"stage": "training", "seconds": 967.375, "operation": "update", "step": 66, "id": "broad_fit_smol_magpie_ultra_000", "durable": 64, "compute_seconds": 15.796999999991385, "KL": 3.319467544555664}
+{"stage": "training", "seconds": 975.9839999999967, "operation": "update", "step": 67, "id": "fit_explanation_01", "durable": 64, "compute_seconds": 8.561999999990803, "KL": 2.306373357772827}
+{"stage": "training", "seconds": 986.1089999999967, "operation": "update", "step": 68, "id": "broad_fit_smol_rewrite_004", "durable": 64, "compute_seconds": 10.09299999999348, "KL": 1.7265739440917969}
+{"stage": "training", "seconds": 994.4529999999941, "operation": "update", "step": 69, "id": "fit_explanation_02", "durable": 64, "compute_seconds": 8.312000000005355, "KL": 0.6993369460105896}
+{"stage": "training", "seconds": 1006.9529999999941, "operation": "update", "step": 70, "id": "broad_fit_smol_summarize_003", "durable": 64, "compute_seconds": 12.469000000011874, "KL": 2.1135213375091553}
+{"stage": "training", "seconds": 1014.7649999999994, "operation": "update", "step": 71, "id": "fit_explanation_03", "durable": 64, "compute_seconds": 7.76600000000326, "KL": 1.5073864459991455}
+{"stage": "training", "seconds": 1029.7179999999935, "operation": "update", "step": 72, "id": "broad_fit_systemchats_30k_010", "durable": 64, "compute_seconds": 14.921999999991385, "KL": 2.7337913513183594}
+{"stage": "training", "seconds": 1037.1089999999967, "operation": "update", "step": 73, "id": "fit_explanation_04", "durable": 64, "compute_seconds": 7.35899999999674, "KL": 0.8320375084877014}
+{"stage": "training", "seconds": 1046.3120000000054, "operation": "update", "step": 74, "id": "broad_fit_apigen_80k_023", "durable": 64, "compute_seconds": 9.171000000002095, "KL": 2.2394096851348877}
+{"stage": "training", "seconds": 1054.3589999999967, "operation": "update", "step": 75, "id": "fit_explanation_05", "durable": 64, "compute_seconds": 8.0, "KL": 2.5159823894500732}
+{"stage": "training", "seconds": 1063.171000000002, "operation": "update", "step": 76, "id": "broad_fit_everyday_conversations_010", "durable": 64, "compute_seconds": 8.76600000000326, "KL": 2.489745616912842}
+{"stage": "training", "seconds": 1070.7810000000027, "operation": "update", "step": 77, "id": "fit_explanation_06", "durable": 64, "compute_seconds": 7.577999999994063, "KL": 0.8244492411613464}
+{"stage": "training", "seconds": 1077.796000000002, "operation": "update", "step": 78, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 64, "compute_seconds": 6.9689999999973224, "KL": 1.1700042486190796}
+{"stage": "training", "seconds": 1085.5929999999935, "operation": "update", "step": 79, "id": "fit_explanation_07", "durable": 64, "compute_seconds": 7.765999999988708, "KL": 1.2942030429840088}
+{"stage": "training", "seconds": 1173.0929999999935, "operation": "update", "step": 80, "id": "broad_fit_metamathqa_50k_023", "durable": 80, "compute_seconds": 8.562000000005355, "KL": 2.719970226287842}
+{"stage": "training", "seconds": 1181.2810000000027, "operation": "update", "step": 81, "id": "fit_explanation_08", "durable": 80, "compute_seconds": 8.156000000002678, "KL": 1.1660197973251343}
+{"stage": "training", "seconds": 1190.2649999999994, "operation": "update", "step": 82, "id": "broad_fit_numina_cot_100k_016", "durable": 80, "compute_seconds": 8.953999999997905, "KL": 2.715789318084717}
+{"stage": "training", "seconds": 1198.0, "operation": "update", "step": 83, "id": "fit_explanation_09", "durable": 80, "compute_seconds": 7.702999999994063, "KL": 2.2846062183380127}
+{"stage": "training", "seconds": 1208.421000000002, "operation": "update", "step": 84, "id": "broad_fit_openhermes_100k_028", "durable": 80, "compute_seconds": 10.39100000000326, "KL": 2.9319419860839844}
+{"stage": "training", "seconds": 1217.1870000000054, "operation": "update", "step": 85, "id": "fit_explanation_10", "durable": 80, "compute_seconds": 8.703000000008615, "KL": 0.7868592739105225}
+{"stage": "training", "seconds": 1227.952999999994, "operation": "update", "step": 86, "id": "broad_fit_self_oss_instruct_012", "durable": 80, "compute_seconds": 10.734000000011292, "KL": 3.8267884254455566}
+{"stage": "training", "seconds": 1236.25, "operation": "update", "step": 87, "id": "fit_explanation_11", "durable": 80, "compute_seconds": 8.26600000000326, "KL": 1.0690593719482422}
+{"stage": "training", "seconds": 1244.875, "operation": "update", "step": 88, "id": "broad_fit_smol_constraints_021", "durable": 80, "compute_seconds": 8.593999999997322, "KL": 3.533524990081787}
+{"stage": "training", "seconds": 1252.5310000000027, "operation": "update", "step": 89, "id": "fit_explanation_12", "durable": 80, "compute_seconds": 7.60899999999674, "KL": 0.5129168629646301}
+{"stage": "training", "seconds": 1276.1399999999994, "operation": "update", "step": 90, "id": "broad_fit_smol_magpie_ultra_022", "durable": 80, "compute_seconds": 23.530999999988126, "KL": 3.892439365386963}
+{"stage": "training", "seconds": 1285.2339999999967, "operation": "update", "step": 91, "id": "fit_explanation_13", "durable": 80, "compute_seconds": 9.015999999988708, "KL": 1.264594316482544}
+{"stage": "training", "seconds": 1295.796000000002, "operation": "update", "step": 92, "id": "broad_fit_smol_rewrite_015", "durable": 80, "compute_seconds": 10.514999999999418, "KL": 3.407076835632324}
+{"stage": "training", "seconds": 1303.7810000000027, "operation": "update", "step": 93, "id": "fit_explanation_14", "durable": 80, "compute_seconds": 7.952999999994063, "KL": 0.4278736412525177}
+{"stage": "training", "seconds": 1312.1399999999994, "operation": "update", "step": 94, "id": "broad_fit_smol_summarize_024", "durable": 80, "compute_seconds": 8.312999999994645, "KL": 1.624483346939087}
+{"stage": "training", "seconds": 1319.8120000000054, "operation": "update", "step": 95, "id": "fit_explanation_15", "durable": 80, "compute_seconds": 7.639999999999418, "KL": 1.2964149713516235}
+{"stage": "training", "seconds": 1408.077999999994, "operation": "update", "step": 96, "id": "broad_fit_systemchats_30k_024", "durable": 96, "compute_seconds": 9.328000000008615, "KL": 2.4170737266540527}
+{"stage": "training", "seconds": 1415.921000000002, "operation": "update", "step": 97, "id": "fit_history_00", "durable": 96, "compute_seconds": 7.813000000009197, "KL": 0.9496959447860718}
+{"stage": "training", "seconds": 1427.9679999999935, "operation": "update", "step": 98, "id": "broad_fit_apigen_80k_002", "durable": 96, "compute_seconds": 12.0, "KL": 1.6685179471969604}
+{"stage": "training", "seconds": 1435.1089999999967, "operation": "update", "step": 99, "id": "fit_history_01", "durable": 96, "compute_seconds": 7.10899999999674, "KL": 2.530083417892456}
+{"stage": "training", "seconds": 1443.8429999999935, "operation": "update", "step": 100, "id": "broad_fit_everyday_conversations_002", "durable": 96, "compute_seconds": 8.687000000005355, "KL": 2.284827709197998}
+{"stage": "training", "seconds": 1451.921000000002, "operation": "update", "step": 101, "id": "fit_history_02", "durable": 96, "compute_seconds": 8.047000000005937, "KL": 1.7712202072143555}
+{"stage": "training", "seconds": 1460.671000000002, "operation": "update", "step": 102, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 96, "compute_seconds": 8.687000000005355, "KL": 0.30659353733062744}
+{"stage": "training", "seconds": 1468.546000000002, "operation": "update", "step": 103, "id": "fit_history_03", "durable": 96, "compute_seconds": 7.8439999999973224, "KL": 1.3266760110855103}
+{"stage": "training", "seconds": 1477.296000000002, "operation": "update", "step": 104, "id": "broad_fit_metamathqa_50k_015", "durable": 96, "compute_seconds": 8.718999999997322, "KL": 1.9115413427352905}
+{"stage": "training", "seconds": 1485.1089999999967, "operation": "update", "step": 105, "id": "fit_history_04", "durable": 96, "compute_seconds": 7.780999999988126, "KL": 2.3786091804504395}
+{"stage": "training", "seconds": 1494.077999999994, "operation": "update", "step": 106, "id": "broad_fit_numina_cot_100k_015", "durable": 96, "compute_seconds": 8.921000000002095, "KL": 2.0678582191467285}
+{"stage": "training", "seconds": 1503.046000000002, "operation": "update", "step": 107, "id": "fit_history_05", "durable": 96, "compute_seconds": 8.922000000005937, "KL": 2.231609344482422}
+{"stage": "training", "seconds": 1512.9370000000054, "operation": "update", "step": 108, "id": "broad_fit_openhermes_100k_004", "durable": 96, "compute_seconds": 9.85899999999674, "KL": 1.9035613536834717}
+{"stage": "training", "seconds": 1522.421000000002, "operation": "update", "step": 109, "id": "fit_history_06", "durable": 96, "compute_seconds": 9.438000000009197, "KL": 6.116935729980469}
+{"stage": "training", "seconds": 1534.6399999999994, "operation": "update", "step": 110, "id": "broad_fit_self_oss_instruct_006", "durable": 96, "compute_seconds": 12.15700000000652, "KL": 2.704676628112793}
+{"stage": "training", "seconds": 1543.6399999999994, "operation": "update", "step": 111, "id": "fit_history_07", "durable": 96, "compute_seconds": 8.953999999997905, "KL": 0.7563372254371643}
+{"stage": "training", "seconds": 1632.4679999999935, "operation": "update", "step": 112, "id": "broad_fit_smol_constraints_005", "durable": 112, "compute_seconds": 10.10899999999674, "KL": 1.9744573831558228}
+{"stage": "training", "seconds": 1640.5, "operation": "update", "step": 113, "id": "fit_history_08", "durable": 112, "compute_seconds": 8.0, "KL": 0.9481929540634155}
+{"stage": "training", "seconds": 1654.9679999999935, "operation": "update", "step": 114, "id": "broad_fit_smol_magpie_ultra_000", "durable": 112, "compute_seconds": 14.437999999994645, "KL": 2.4161734580993652}
+{"stage": "training", "seconds": 1662.8429999999935, "operation": "update", "step": 115, "id": "fit_history_09", "durable": 112, "compute_seconds": 7.827999999994063, "KL": 1.4569947719573975}
+{"stage": "training", "seconds": 1670.9370000000054, "operation": "update", "step": 116, "id": "broad_fit_smol_rewrite_004", "durable": 112, "compute_seconds": 8.047000000005937, "KL": 1.2029846906661987}
+{"stage": "training", "seconds": 1678.2649999999994, "operation": "update", "step": 117, "id": "fit_history_10", "durable": 112, "compute_seconds": 7.297000000005937, "KL": 0.6146585941314697}
+{"stage": "training", "seconds": 1689.921000000002, "operation": "update", "step": 118, "id": "broad_fit_smol_summarize_003", "durable": 112, "compute_seconds": 11.60899999999674, "KL": 1.4483697414398193}
+{"stage": "training", "seconds": 1696.7810000000027, "operation": "update", "step": 119, "id": "fit_history_11", "durable": 112, "compute_seconds": 6.827999999994063, "KL": 1.6869584321975708}
+{"stage": "training", "seconds": 1711.6089999999967, "operation": "update", "step": 120, "id": "broad_fit_systemchats_30k_010", "durable": 112, "compute_seconds": 14.781999999991967, "KL": 2.443236827850342}
+{"stage": "training", "seconds": 1718.8899999999994, "operation": "update", "step": 121, "id": "fit_history_12", "durable": 112, "compute_seconds": 7.25, "KL": 1.1392825841903687}
+{"stage": "training", "seconds": 1728.0149999999994, "operation": "update", "step": 122, "id": "broad_fit_apigen_80k_023", "durable": 112, "compute_seconds": 9.077999999994063, "KL": 1.5939843654632568}
+{"stage": "training", "seconds": 1734.796000000002, "operation": "update", "step": 123, "id": "fit_history_13", "durable": 112, "compute_seconds": 6.75, "KL": 2.3654847145080566}
+{"stage": "training", "seconds": 1743.3899999999994, "operation": "update", "step": 124, "id": "broad_fit_everyday_conversations_010", "durable": 112, "compute_seconds": 8.562999999994645, "KL": 2.051926851272583}
+{"stage": "training", "seconds": 1750.2179999999935, "operation": "update", "step": 125, "id": "fit_history_14", "durable": 112, "compute_seconds": 6.7810000000026776, "KL": 5.911599159240723}
+{"stage": "training", "seconds": 1757.6870000000054, "operation": "update", "step": 126, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 112, "compute_seconds": 7.437000000005355, "KL": 2.119039535522461}
+{"stage": "training", "seconds": 1765.296000000002, "operation": "update", "step": 127, "id": "fit_history_15", "durable": 112, "compute_seconds": 7.578000000008615, "KL": 0.47223642468452454}
+{"stage": "training", "seconds": 1852.2179999999935, "operation": "update", "step": 128, "id": "broad_fit_metamathqa_50k_023", "durable": 128, "compute_seconds": 8.296999999991385, "KL": 2.435410499572754}
+{"stage": "training", "seconds": 1859.0929999999935, "operation": "update", "step": 129, "id": "fit_instruction_00", "durable": 128, "compute_seconds": 6.8439999999973224, "KL": 2.655444860458374}
+{"stage": "training", "seconds": 1867.5620000000054, "operation": "update", "step": 130, "id": "broad_fit_numina_cot_100k_016", "durable": 128, "compute_seconds": 8.437000000005355, "KL": 2.2604734897613525}
+{"stage": "training", "seconds": 1874.4060000000027, "operation": "update", "step": 131, "id": "fit_instruction_01", "durable": 128, "compute_seconds": 6.812000000005355, "KL": 1.1898221969604492}
+{"stage": "training", "seconds": 1884.2649999999994, "operation": "update", "step": 132, "id": "broad_fit_openhermes_100k_028", "durable": 128, "compute_seconds": 9.796999999991385, "KL": 1.9197908639907837}
+{"stage": "training", "seconds": 1892.1089999999967, "operation": "update", "step": 133, "id": "fit_instruction_02", "durable": 128, "compute_seconds": 7.765999999988708, "KL": 3.7603883743286133}
+{"stage": "training", "seconds": 1901.5, "operation": "update", "step": 134, "id": "broad_fit_self_oss_instruct_012", "durable": 128, "compute_seconds": 9.35899999999674, "KL": 2.5662031173706055}
+{"stage": "training", "seconds": 1909.3120000000054, "operation": "update", "step": 135, "id": "fit_instruction_03", "durable": 128, "compute_seconds": 7.764999999999418, "KL": 1.6319023370742798}
+{"stage": "training", "seconds": 1918.1870000000054, "operation": "update", "step": 136, "id": "broad_fit_smol_constraints_021", "durable": 128, "compute_seconds": 8.843000000008033, "KL": 2.128359079360962}
+{"stage": "training", "seconds": 1924.625, "operation": "update", "step": 137, "id": "fit_instruction_04", "durable": 128, "compute_seconds": 6.39100000000326, "KL": 2.4943528175354004}
+{"stage": "training", "seconds": 1946.921000000002, "operation": "update", "step": 138, "id": "broad_fit_smol_magpie_ultra_022", "durable": 128, "compute_seconds": 22.25, "KL": 2.8134937286376953}
+{"stage": "training", "seconds": 1955.046000000002, "operation": "update", "step": 139, "id": "fit_instruction_05", "durable": 128, "compute_seconds": 8.063000000009197, "KL": 0.6998748183250427}
+{"stage": "training", "seconds": 1966.546000000002, "operation": "update", "step": 140, "id": "broad_fit_smol_rewrite_015", "durable": 128, "compute_seconds": 11.452999999994063, "KL": 2.0144896507263184}
+{"stage": "training", "seconds": 1973.952999999994, "operation": "update", "step": 141, "id": "fit_instruction_06", "durable": 128, "compute_seconds": 7.375, "KL": 1.4103420972824097}
+{"stage": "training", "seconds": 1983.1870000000054, "operation": "update", "step": 142, "id": "broad_fit_smol_summarize_024", "durable": 128, "compute_seconds": 9.203000000008615, "KL": 2.444096088409424}
+{"stage": "training", "seconds": 1991.577999999994, "operation": "update", "step": 143, "id": "fit_instruction_07", "durable": 128, "compute_seconds": 8.343000000008033, "KL": 1.5368247032165527}
+{"stage": "training", "seconds": 2081.1089999999967, "operation": "update", "step": 144, "id": "broad_fit_systemchats_30k_024", "durable": 144, "compute_seconds": 10.438000000009197, "KL": 1.4840331077575684}
+{"stage": "training", "seconds": 2087.4839999999967, "operation": "update", "step": 145, "id": "fit_instruction_08", "durable": 144, "compute_seconds": 6.327999999994063, "KL": 5.640130043029785}
+{"stage": "training", "seconds": 2100.5929999999935, "operation": "update", "step": 146, "id": "broad_fit_apigen_80k_002", "durable": 144, "compute_seconds": 13.077999999994063, "KL": 1.2301630973815918}
+{"stage": "training", "seconds": 2108.4060000000027, "operation": "update", "step": 147, "id": "fit_instruction_09", "durable": 144, "compute_seconds": 7.75, "KL": 0.39260250329971313}
+{"stage": "training", "seconds": 2118.0929999999935, "operation": "update", "step": 148, "id": "broad_fit_everyday_conversations_002", "durable": 144, "compute_seconds": 9.64100000000326, "KL": 1.8316234350204468}
+{"stage": "training", "seconds": 2125.7649999999994, "operation": "update", "step": 149, "id": "fit_instruction_10", "durable": 144, "compute_seconds": 7.64100000000326, "KL": 1.5191692113876343}
+{"stage": "training", "seconds": 2134.3899999999994, "operation": "update", "step": 150, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 144, "compute_seconds": 8.577999999994063, "KL": 1.2047656774520874}
+{"stage": "training", "seconds": 2142.7810000000027, "operation": "update", "step": 151, "id": "fit_instruction_11", "durable": 144, "compute_seconds": 8.28200000000652, "KL": 2.284946918487549}
+{"stage": "training", "seconds": 2152.0310000000027, "operation": "update", "step": 152, "id": "broad_fit_metamathqa_50k_015", "durable": 144, "compute_seconds": 9.203999999997905, "KL": 1.902728796005249}
+{"stage": "training", "seconds": 2159.0310000000027, "operation": "update", "step": 153, "id": "fit_instruction_12", "durable": 144, "compute_seconds": 6.9539999999979045, "KL": 5.264942169189453}
+{"stage": "training", "seconds": 2167.0310000000027, "operation": "update", "step": 154, "id": "broad_fit_numina_cot_100k_015", "durable": 144, "compute_seconds": 7.9689999999973224, "KL": 1.9203732013702393}
+{"stage": "training", "seconds": 2173.5620000000054, "operation": "update", "step": 155, "id": "fit_instruction_13", "durable": 144, "compute_seconds": 6.5, "KL": 0.7186804413795471}
+{"stage": "training", "seconds": 2182.2810000000027, "operation": "update", "step": 156, "id": "broad_fit_openhermes_100k_004", "durable": 144, "compute_seconds": 8.687000000005355, "KL": 1.2737756967544556}
+{"stage": "training", "seconds": 2188.5, "operation": "update", "step": 157, "id": "fit_instruction_14", "durable": 144, "compute_seconds": 6.171999999991385, "KL": 1.4480109214782715}
+{"stage": "training", "seconds": 2197.0929999999935, "operation": "update", "step": 158, "id": "broad_fit_self_oss_instruct_006", "durable": 144, "compute_seconds": 8.562999999994645, "KL": 1.9939818382263184}
+{"stage": "training", "seconds": 2204.2179999999935, "operation": "update", "step": 159, "id": "fit_instruction_15", "durable": 144, "compute_seconds": 7.062000000005355, "KL": 1.624422311782837}
+{"stage": "training", "seconds": 2291.0149999999994, "operation": "update", "step": 160, "id": "broad_fit_smol_constraints_005", "durable": 160, "compute_seconds": 7.89100000000326, "KL": 1.4720803499221802}
+{"stage": "training", "seconds": 2298.7339999999967, "operation": "update", "step": 161, "id": "fit_planning_00", "durable": 160, "compute_seconds": 7.671999999991385, "KL": 1.433054804801941}
+{"stage": "training", "seconds": 2314.0310000000027, "operation": "update", "step": 162, "id": "broad_fit_smol_magpie_ultra_000", "durable": 160, "compute_seconds": 15.23399999999674, "KL": 1.854483723640442}
+{"stage": "training", "seconds": 2321.3120000000054, "operation": "update", "step": 163, "id": "fit_planning_01", "durable": 160, "compute_seconds": 7.23399999999674, "KL": 2.4982545375823975}
+{"stage": "training", "seconds": 2329.3899999999994, "operation": "update", "step": 164, "id": "broad_fit_smol_rewrite_004", "durable": 160, "compute_seconds": 8.03200000000652, "KL": 1.4616072177886963}
+{"stage": "training", "seconds": 2336.4370000000054, "operation": "update", "step": 165, "id": "fit_planning_02", "durable": 160, "compute_seconds": 7.0, "KL": 1.7072309255599976}
+{"stage": "training", "seconds": 2347.8899999999994, "operation": "update", "step": 166, "id": "broad_fit_smol_summarize_003", "durable": 160, "compute_seconds": 11.422000000005937, "KL": 1.3612971305847168}
+{"stage": "training", "seconds": 2355.171000000002, "operation": "update", "step": 167, "id": "fit_planning_03", "durable": 160, "compute_seconds": 7.235000000000582, "KL": 1.7054386138916016}
+{"stage": "training", "seconds": 2369.702999999994, "operation": "update", "step": 168, "id": "broad_fit_systemchats_30k_010", "durable": 160, "compute_seconds": 14.5, "KL": 2.6044182777404785}
+{"stage": "training", "seconds": 2376.5929999999935, "operation": "update", "step": 169, "id": "fit_planning_04", "durable": 160, "compute_seconds": 6.828000000008615, "KL": 2.131364583969116}
+{"stage": "training", "seconds": 2385.671000000002, "operation": "update", "step": 170, "id": "broad_fit_apigen_80k_023", "durable": 160, "compute_seconds": 9.031000000002678, "KL": 1.3683104515075684}
+{"stage": "training", "seconds": 2392.952999999994, "operation": "update", "step": 171, "id": "fit_planning_05", "durable": 160, "compute_seconds": 7.25, "KL": 2.218653678894043}
+{"stage": "training", "seconds": 2401.546000000002, "operation": "update", "step": 172, "id": "broad_fit_everyday_conversations_010", "durable": 160, "compute_seconds": 8.563000000009197, "KL": 1.4412223100662231}
+{"stage": "training", "seconds": 2408.625, "operation": "update", "step": 173, "id": "fit_planning_06", "durable": 160, "compute_seconds": 7.046999999991385, "KL": 1.3648617267608643}
+{"stage": "training", "seconds": 2415.375, "operation": "update", "step": 174, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 160, "compute_seconds": 6.702999999994063, "KL": 0.5938275456428528}
+{"stage": "training", "seconds": 2422.7649999999994, "operation": "update", "step": 175, "id": "fit_planning_07", "durable": 160, "compute_seconds": 7.3439999999973224, "KL": 1.1365152597427368}
+{"stage": "training", "seconds": 2510.2179999999935, "operation": "update", "step": 176, "id": "broad_fit_metamathqa_50k_023", "durable": 176, "compute_seconds": 8.328999999997905, "KL": 1.6405410766601562}
+{"stage": "training", "seconds": 2518.0, "operation": "update", "step": 177, "id": "fit_planning_08", "durable": 176, "compute_seconds": 7.73399999999674, "KL": 1.550067663192749}
+{"stage": "training", "seconds": 2528.0310000000027, "operation": "update", "step": 178, "id": "broad_fit_numina_cot_100k_016", "durable": 176, "compute_seconds": 9.985000000000582, "KL": 1.4414432048797607}
+{"stage": "training", "seconds": 2537.25, "operation": "update", "step": 179, "id": "fit_planning_09", "durable": 176, "compute_seconds": 9.171999999991385, "KL": 1.623519778251648}
+{"stage": "training", "seconds": 2548.1870000000054, "operation": "update", "step": 180, "id": "broad_fit_openhermes_100k_028", "durable": 176, "compute_seconds": 10.906000000002678, "KL": 1.346960425376892}
+{"stage": "training", "seconds": 2557.125, "operation": "update", "step": 181, "id": "fit_planning_10", "durable": 176, "compute_seconds": 8.875, "KL": 1.1413193941116333}
+{"stage": "training", "seconds": 2567.5310000000027, "operation": "update", "step": 182, "id": "broad_fit_self_oss_instruct_012", "durable": 176, "compute_seconds": 10.375, "KL": 1.9850600957870483}
+{"stage": "training", "seconds": 2576.7179999999935, "operation": "update", "step": 183, "id": "fit_planning_11", "durable": 176, "compute_seconds": 9.140999999988708, "KL": 1.6391868591308594}
+{"stage": "training", "seconds": 2585.7810000000027, "operation": "update", "step": 184, "id": "broad_fit_smol_constraints_021", "durable": 176, "compute_seconds": 9.01600000000326, "KL": 1.6322135925292969}
+{"stage": "training", "seconds": 2593.375, "operation": "update", "step": 185, "id": "fit_planning_12", "durable": 176, "compute_seconds": 7.546999999991385, "KL": 3.947028398513794}
+{"stage": "training", "seconds": 2617.1089999999967, "operation": "update", "step": 186, "id": "broad_fit_smol_magpie_ultra_022", "durable": 176, "compute_seconds": 23.687999999994645, "KL": 2.294435977935791}
+{"stage": "training", "seconds": 2624.875, "operation": "update", "step": 187, "id": "fit_planning_13", "durable": 176, "compute_seconds": 7.686999999990803, "KL": 1.8940060138702393}
+{"stage": "training", "seconds": 2635.2339999999967, "operation": "update", "step": 188, "id": "broad_fit_smol_rewrite_015", "durable": 176, "compute_seconds": 10.327999999994063, "KL": 1.8576514720916748}
+{"stage": "training", "seconds": 2643.2649999999994, "operation": "update", "step": 189, "id": "fit_planning_14", "durable": 176, "compute_seconds": 7.98399999999674, "KL": 1.0885865688323975}
+{"stage": "training", "seconds": 2651.4839999999967, "operation": "update", "step": 190, "id": "broad_fit_smol_summarize_024", "durable": 176, "compute_seconds": 8.171999999991385, "KL": 2.331517457962036}
+{"stage": "training", "seconds": 2660.3120000000054, "operation": "update", "step": 191, "id": "fit_planning_15", "durable": 176, "compute_seconds": 8.781000000002678, "KL": 1.3969318866729736}
+{"stage": "training", "seconds": 2749.2339999999967, "operation": "update", "step": 192, "id": "broad_fit_systemchats_30k_024", "durable": 192, "compute_seconds": 9.781000000002678, "KL": 1.5360133647918701}
+{"stage": "training", "seconds": 2756.1399999999994, "operation": "update", "step": 193, "id": "fit_reading_00", "durable": 192, "compute_seconds": 6.875, "KL": 1.0173652172088623}
+{"stage": "training", "seconds": 2768.577999999994, "operation": "update", "step": 194, "id": "broad_fit_apigen_80k_002", "durable": 192, "compute_seconds": 12.406000000002678, "KL": 2.6946990489959717}
+{"stage": "training", "seconds": 2776.3899999999994, "operation": "update", "step": 195, "id": "fit_reading_01", "durable": 192, "compute_seconds": 7.75, "KL": 0.32856303453445435}
+{"stage": "training", "seconds": 2786.327999999994, "operation": "update", "step": 196, "id": "broad_fit_everyday_conversations_002", "durable": 192, "compute_seconds": 9.906000000002678, "KL": 1.6402897834777832}
+{"stage": "training", "seconds": 2795.952999999994, "operation": "update", "step": 197, "id": "fit_reading_02", "durable": 192, "compute_seconds": 9.578000000008615, "KL": 2.0564756393432617}
+{"stage": "training", "seconds": 2803.8429999999935, "operation": "update", "step": 198, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 192, "compute_seconds": 7.860000000000582, "KL": 0.2336316704750061}
+{"stage": "training", "seconds": 2811.5310000000027, "operation": "update", "step": 199, "id": "fit_reading_03", "durable": 192, "compute_seconds": 7.6560000000026776, "KL": 1.2645502090454102}
+{"stage": "training", "seconds": 2820.1870000000054, "operation": "update", "step": 200, "id": "broad_fit_metamathqa_50k_015", "durable": 192, "compute_seconds": 8.610000000000582, "KL": 1.407777190208435}
+{"stage": "training", "seconds": 2828.3120000000054, "operation": "update", "step": 201, "id": "fit_reading_04", "durable": 192, "compute_seconds": 8.078000000008615, "KL": 1.3169457912445068}
+{"stage": "training", "seconds": 2838.0, "operation": "update", "step": 202, "id": "broad_fit_numina_cot_100k_015", "durable": 192, "compute_seconds": 9.625, "KL": 1.926802158355713}
+{"stage": "training", "seconds": 2846.327999999994, "operation": "update", "step": 203, "id": "fit_reading_05", "durable": 192, "compute_seconds": 8.281000000002678, "KL": 0.8268894553184509}
+{"stage": "training", "seconds": 2855.6399999999994, "operation": "update", "step": 204, "id": "broad_fit_openhermes_100k_004", "durable": 192, "compute_seconds": 9.28200000000652, "KL": 1.0611624717712402}
+{"stage": "training", "seconds": 2863.827999999994, "operation": "update", "step": 205, "id": "fit_reading_06", "durable": 192, "compute_seconds": 8.125, "KL": 2.5063161849975586}
+{"stage": "training", "seconds": 2873.9370000000054, "operation": "update", "step": 206, "id": "broad_fit_self_oss_instruct_006", "durable": 192, "compute_seconds": 10.063000000009197, "KL": 1.5101478099822998}
+{"stage": "training", "seconds": 2882.077999999994, "operation": "update", "step": 207, "id": "fit_reading_07", "durable": 192, "compute_seconds": 8.093000000008033, "KL": 0.9721510410308838}
+{"stage": "training", "seconds": 2970.3120000000054, "operation": "update", "step": 208, "id": "broad_fit_smol_constraints_005", "durable": 208, "compute_seconds": 8.703000000008615, "KL": 1.079709768295288}
+{"stage": "training", "seconds": 2981.8589999999967, "operation": "update", "step": 209, "id": "fit_reading_08", "durable": 208, "compute_seconds": 11.485000000000582, "KL": 2.509840488433838}
+{"stage": "training", "seconds": 2998.8589999999967, "operation": "update", "step": 210, "id": "broad_fit_smol_magpie_ultra_000", "durable": 208, "compute_seconds": 16.952999999994063, "KL": 1.7212011814117432}
+{"stage": "training", "seconds": 3007.375, "operation": "update", "step": 211, "id": "fit_reading_09", "durable": 208, "compute_seconds": 8.468999999997322, "KL": 0.9049327373504639}
+{"stage": "training", "seconds": 3017.0929999999935, "operation": "update", "step": 212, "id": "broad_fit_smol_rewrite_004", "durable": 208, "compute_seconds": 9.656000000002678, "KL": 1.3173696994781494}
+{"stage": "training", "seconds": 3025.3899999999994, "operation": "update", "step": 213, "id": "fit_reading_10", "durable": 208, "compute_seconds": 8.25, "KL": 2.4491028785705566}
+{"stage": "training", "seconds": 3039.671000000002, "operation": "update", "step": 214, "id": "broad_fit_smol_summarize_003", "durable": 208, "compute_seconds": 14.125, "KL": 1.1475871801376343}
+{"stage": "training", "seconds": 3052.046000000002, "operation": "update", "step": 215, "id": "fit_reading_11", "durable": 208, "compute_seconds": 12.297000000005937, "KL": 1.0454412698745728}
+{"stage": "training", "seconds": 3072.577999999994, "operation": "update", "step": 216, "id": "broad_fit_systemchats_30k_010", "durable": 208, "compute_seconds": 20.453000000008615, "KL": 1.5173999071121216}
+{"stage": "training", "seconds": 3080.0149999999994, "operation": "update", "step": 217, "id": "fit_reading_12", "durable": 208, "compute_seconds": 7.375, "KL": 0.8120109438896179}
+{"stage": "training", "seconds": 3089.8589999999967, "operation": "update", "step": 218, "id": "broad_fit_apigen_80k_023", "durable": 208, "compute_seconds": 9.811999999990803, "KL": 0.9975329041481018}
+{"stage": "training", "seconds": 3097.4370000000054, "operation": "update", "step": 219, "id": "fit_reading_13", "durable": 208, "compute_seconds": 7.51600000000326, "KL": 2.226051092147827}
+{"stage": "training", "seconds": 3106.296000000002, "operation": "update", "step": 220, "id": "broad_fit_everyday_conversations_010", "durable": 208, "compute_seconds": 8.797000000005937, "KL": 1.4096988439559937}
+{"stage": "training", "seconds": 3113.8120000000054, "operation": "update", "step": 221, "id": "fit_reading_14", "durable": 208, "compute_seconds": 7.48399999999674, "KL": 1.6234581470489502}
+{"stage": "training", "seconds": 3121.3589999999967, "operation": "update", "step": 222, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 208, "compute_seconds": 7.5, "KL": 0.7888251543045044}
+{"stage": "training", "seconds": 3128.8899999999994, "operation": "update", "step": 223, "id": "fit_reading_15", "durable": 208, "compute_seconds": 7.48399999999674, "KL": 1.749886393547058}
+{"stage": "training", "seconds": 3216.875, "operation": "update", "step": 224, "id": "broad_fit_metamathqa_50k_023", "durable": 224, "compute_seconds": 8.85899999999674, "KL": 1.549560546875}
+{"stage": "training", "seconds": 3223.5620000000054, "operation": "update", "step": 225, "id": "fit_rewrite_00", "durable": 224, "compute_seconds": 6.6560000000026776, "KL": 2.833922863006592}
+{"stage": "training", "seconds": 3232.7179999999935, "operation": "update", "step": 226, "id": "broad_fit_numina_cot_100k_016", "durable": 224, "compute_seconds": 9.109000000011292, "KL": 1.2451884746551514}
+{"stage": "training", "seconds": 3240.1870000000054, "operation": "update", "step": 227, "id": "fit_rewrite_01", "durable": 224, "compute_seconds": 7.422000000005937, "KL": 1.4151105880737305}
+{"stage": "training", "seconds": 3249.2179999999935, "operation": "update", "step": 228, "id": "broad_fit_openhermes_100k_028", "durable": 224, "compute_seconds": 8.984000000011292, "KL": 1.3777475357055664}
+{"stage": "training", "seconds": 3256.077999999994, "operation": "update", "step": 229, "id": "fit_rewrite_02", "durable": 224, "compute_seconds": 6.812000000005355, "KL": 1.8014787435531616}
+{"stage": "training", "seconds": 3265.2810000000027, "operation": "update", "step": 230, "id": "broad_fit_self_oss_instruct_012", "durable": 224, "compute_seconds": 9.172000000005937, "KL": 1.430692434310913}
+{"stage": "training", "seconds": 3272.1399999999994, "operation": "update", "step": 231, "id": "fit_rewrite_03", "durable": 224, "compute_seconds": 6.827999999994063, "KL": 1.7430311441421509}
+{"stage": "training", "seconds": 3280.6560000000027, "operation": "update", "step": 232, "id": "broad_fit_smol_constraints_021", "durable": 224, "compute_seconds": 8.468999999997322, "KL": 1.2458794116973877}
+{"stage": "training", "seconds": 3287.5929999999935, "operation": "update", "step": 233, "id": "fit_rewrite_04", "durable": 224, "compute_seconds": 6.875, "KL": 0.9338690042495728}
+{"stage": "training", "seconds": 3309.171000000002, "operation": "update", "step": 234, "id": "broad_fit_smol_magpie_ultra_022", "durable": 224, "compute_seconds": 21.51600000000326, "KL": 2.0419921875}
+{"stage": "training", "seconds": 3315.5, "operation": "update", "step": 235, "id": "fit_rewrite_05", "durable": 224, "compute_seconds": 6.280999999988126, "KL": 1.3651565313339233}
+{"stage": "training", "seconds": 3325.4679999999935, "operation": "update", "step": 236, "id": "broad_fit_smol_rewrite_015", "durable": 224, "compute_seconds": 9.922000000005937, "KL": 1.242840051651001}
+{"stage": "training", "seconds": 3332.3429999999935, "operation": "update", "step": 237, "id": "fit_rewrite_06", "durable": 224, "compute_seconds": 6.828000000008615, "KL": 1.5098035335540771}
+{"stage": "training", "seconds": 3340.2649999999994, "operation": "update", "step": 238, "id": "broad_fit_smol_summarize_024", "durable": 224, "compute_seconds": 7.875, "KL": 1.505289077758789}
+{"stage": "training", "seconds": 3347.2339999999967, "operation": "update", "step": 239, "id": "fit_rewrite_07", "durable": 224, "compute_seconds": 6.921999999991385, "KL": 1.4030518531799316}
+{"stage": "training", "seconds": 3435.2810000000027, "operation": "update", "step": 240, "id": "broad_fit_systemchats_30k_024", "durable": 240, "compute_seconds": 8.687000000005355, "KL": 0.9385035037994385}
+{"stage": "training", "seconds": 3443.0, "operation": "update", "step": 241, "id": "fit_rewrite_08", "durable": 240, "compute_seconds": 7.687999999994645, "KL": 1.2146040201187134}
+{"stage": "training", "seconds": 3455.202999999994, "operation": "update", "step": 242, "id": "broad_fit_apigen_80k_002", "durable": 240, "compute_seconds": 12.156000000002678, "KL": 1.5261560678482056}
+{"stage": "training", "seconds": 3462.546000000002, "operation": "update", "step": 243, "id": "fit_rewrite_09", "durable": 240, "compute_seconds": 7.297000000005937, "KL": 1.671420693397522}
+{"stage": "training", "seconds": 3471.5929999999935, "operation": "update", "step": 244, "id": "broad_fit_everyday_conversations_002", "durable": 240, "compute_seconds": 9.0, "KL": 1.0605814456939697}
+{"stage": "training", "seconds": 3478.827999999994, "operation": "update", "step": 245, "id": "fit_rewrite_10", "durable": 240, "compute_seconds": 7.187000000005355, "KL": 0.7588493227958679}
+{"stage": "training", "seconds": 3486.4370000000054, "operation": "update", "step": 246, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 240, "compute_seconds": 7.563000000009197, "KL": 0.7342035174369812}
+{"stage": "training", "seconds": 3493.452999999994, "operation": "update", "step": 247, "id": "fit_rewrite_11", "durable": 240, "compute_seconds": 6.968000000008033, "KL": 1.5031960010528564}
+{"stage": "training", "seconds": 3501.421000000002, "operation": "update", "step": 248, "id": "broad_fit_metamathqa_50k_015", "durable": 240, "compute_seconds": 7.938000000009197, "KL": 0.82847660779953}
+{"stage": "training", "seconds": 3508.125, "operation": "update", "step": 249, "id": "fit_rewrite_12", "durable": 240, "compute_seconds": 6.625, "KL": 1.750076174736023}
+{"stage": "training", "seconds": 3516.577999999994, "operation": "update", "step": 250, "id": "broad_fit_numina_cot_100k_015", "durable": 240, "compute_seconds": 8.421000000002095, "KL": 1.0437763929367065}
+{"stage": "training", "seconds": 3523.421000000002, "operation": "update", "step": 251, "id": "fit_rewrite_13", "durable": 240, "compute_seconds": 6.797000000005937, "KL": 1.2518070936203003}
+{"stage": "training", "seconds": 3531.7810000000027, "operation": "update", "step": 252, "id": "broad_fit_openhermes_100k_004", "durable": 240, "compute_seconds": 8.296999999991385, "KL": 0.5946908593177795}
+{"stage": "training", "seconds": 3539.0620000000054, "operation": "update", "step": 253, "id": "fit_rewrite_14", "durable": 240, "compute_seconds": 7.25, "KL": 1.316271424293518}
+{"stage": "training", "seconds": 3547.7339999999967, "operation": "update", "step": 254, "id": "broad_fit_self_oss_instruct_006", "durable": 240, "compute_seconds": 8.609000000011292, "KL": 1.202343225479126}
+{"stage": "training", "seconds": 3554.0, "operation": "update", "step": 255, "id": "fit_rewrite_15", "durable": 240, "compute_seconds": 6.23399999999674, "KL": 1.0168479681015015}
+{"stage": "training", "seconds": 3640.702999999994, "operation": "update", "step": 256, "id": "broad_fit_smol_constraints_005", "durable": 256, "compute_seconds": 8.21799999999348, "KL": 1.0272183418273926}
+{"stage": "training", "seconds": 3648.796000000002, "operation": "update", "step": 257, "id": "fit_arithmetic_00", "durable": 256, "compute_seconds": 8.031000000002678, "KL": 1.5586624145507812}
+{"stage": "training", "seconds": 3664.546000000002, "operation": "update", "step": 258, "id": "broad_fit_smol_magpie_ultra_000", "durable": 256, "compute_seconds": 15.702999999994063, "KL": 1.1688231229782104}
+{"stage": "training", "seconds": 3673.4839999999967, "operation": "update", "step": 259, "id": "fit_arithmetic_01", "durable": 256, "compute_seconds": 8.859000000011292, "KL": 0.9353492259979248}
+{"stage": "training", "seconds": 3683.077999999994, "operation": "update", "step": 260, "id": "broad_fit_smol_rewrite_004", "durable": 256, "compute_seconds": 9.546000000002095, "KL": 1.3652267456054688}
+{"stage": "training", "seconds": 3691.8589999999967, "operation": "update", "step": 261, "id": "fit_arithmetic_02", "durable": 256, "compute_seconds": 8.735000000000582, "KL": 1.073662519454956}
+{"stage": "training", "seconds": 3704.952999999994, "operation": "update", "step": 262, "id": "broad_fit_smol_summarize_003", "durable": 256, "compute_seconds": 13.031000000002678, "KL": 0.7816241383552551}
+{"stage": "training", "seconds": 3713.796000000002, "operation": "update", "step": 263, "id": "fit_arithmetic_03", "durable": 256, "compute_seconds": 8.781000000002678, "KL": 1.4917672872543335}
+{"stage": "training", "seconds": 3729.0620000000054, "operation": "update", "step": 264, "id": "broad_fit_systemchats_30k_010", "durable": 256, "compute_seconds": 15.218000000008033, "KL": 1.0196479558944702}
+{"stage": "training", "seconds": 3736.1560000000027, "operation": "update", "step": 265, "id": "fit_arithmetic_04", "durable": 256, "compute_seconds": 7.032000000006519, "KL": 1.3243099451065063}
+{"stage": "training", "seconds": 3745.625, "operation": "update", "step": 266, "id": "broad_fit_apigen_80k_023", "durable": 256, "compute_seconds": 9.421999999991385, "KL": 0.2974216341972351}
+{"stage": "training", "seconds": 3753.1870000000054, "operation": "update", "step": 267, "id": "fit_arithmetic_05", "durable": 256, "compute_seconds": 7.51600000000326, "KL": 0.5511595010757446}
+{"stage": "training", "seconds": 3762.2179999999935, "operation": "update", "step": 268, "id": "broad_fit_everyday_conversations_010", "durable": 256, "compute_seconds": 8.968000000008033, "KL": 1.06390380859375}
+{"stage": "training", "seconds": 3769.5149999999994, "operation": "update", "step": 269, "id": "fit_arithmetic_06", "durable": 256, "compute_seconds": 7.25, "KL": 0.5349756479263306}
+{"stage": "training", "seconds": 3777.171000000002, "operation": "update", "step": 270, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 256, "compute_seconds": 7.5939999999973224, "KL": 0.40217629075050354}
+{"stage": "training", "seconds": 3785.5149999999994, "operation": "update", "step": 271, "id": "fit_arithmetic_07", "durable": 256, "compute_seconds": 8.296999999991385, "KL": 0.609063982963562}
+{"stage": "training", "seconds": 3871.9679999999935, "operation": "update", "step": 272, "id": "broad_fit_metamathqa_50k_023", "durable": 272, "compute_seconds": 8.10899999999674, "KL": 1.488919973373413}
+{"stage": "training", "seconds": 3879.6399999999994, "operation": "update", "step": 273, "id": "fit_arithmetic_08", "durable": 272, "compute_seconds": 7.625, "KL": 1.2985212802886963}
+{"stage": "training", "seconds": 3887.921000000002, "operation": "update", "step": 274, "id": "broad_fit_numina_cot_100k_016", "durable": 272, "compute_seconds": 8.23399999999674, "KL": 0.9440271258354187}
+{"stage": "training", "seconds": 3894.702999999994, "operation": "update", "step": 275, "id": "fit_arithmetic_09", "durable": 272, "compute_seconds": 6.73399999999674, "KL": 0.5575665235519409}
+{"stage": "training", "seconds": 3903.375, "operation": "update", "step": 276, "id": "broad_fit_openhermes_100k_028", "durable": 272, "compute_seconds": 8.610000000000582, "KL": 0.8361904621124268}
+{"stage": "training", "seconds": 3910.8589999999967, "operation": "update", "step": 277, "id": "fit_arithmetic_10", "durable": 272, "compute_seconds": 7.437999999994645, "KL": 0.6353698968887329}
+{"stage": "training", "seconds": 3919.4370000000054, "operation": "update", "step": 278, "id": "broad_fit_self_oss_instruct_012", "durable": 272, "compute_seconds": 8.531000000002678, "KL": 1.3489222526550293}
+{"stage": "training", "seconds": 3926.671000000002, "operation": "update", "step": 279, "id": "fit_arithmetic_11", "durable": 272, "compute_seconds": 7.172000000005937, "KL": 0.7915768623352051}
+{"stage": "training", "seconds": 3934.577999999994, "operation": "update", "step": 280, "id": "broad_fit_smol_constraints_021", "durable": 272, "compute_seconds": 7.85899999999674, "KL": 1.2515127658843994}
+{"stage": "training", "seconds": 3941.5310000000027, "operation": "update", "step": 281, "id": "fit_arithmetic_12", "durable": 272, "compute_seconds": 6.907000000006519, "KL": 1.0902637243270874}
+{"stage": "training", "seconds": 3962.6870000000054, "operation": "update", "step": 282, "id": "broad_fit_smol_magpie_ultra_022", "durable": 272, "compute_seconds": 21.093999999997322, "KL": 1.707768440246582}
+{"stage": "training", "seconds": 3969.9679999999935, "operation": "update", "step": 283, "id": "fit_arithmetic_13", "durable": 272, "compute_seconds": 7.219000000011874, "KL": 0.3995952606201172}
+{"stage": "training", "seconds": 3979.2339999999967, "operation": "update", "step": 284, "id": "broad_fit_smol_rewrite_015", "durable": 272, "compute_seconds": 9.25, "KL": 1.1937768459320068}
+{"stage": "training", "seconds": 3986.875, "operation": "update", "step": 285, "id": "fit_arithmetic_14", "durable": 272, "compute_seconds": 7.577999999994063, "KL": 0.43244224786758423}
+{"stage": "training", "seconds": 3994.796000000002, "operation": "update", "step": 286, "id": "broad_fit_smol_summarize_024", "durable": 272, "compute_seconds": 7.875, "KL": 1.8516069650650024}
+{"stage": "training", "seconds": 4002.327999999994, "operation": "update", "step": 287, "id": "fit_arithmetic_15", "durable": 272, "compute_seconds": 7.51600000000326, "KL": 0.5041426420211792}
+{"stage": "training", "seconds": 4088.7339999999967, "operation": "update", "step": 288, "id": "broad_fit_systemchats_30k_024", "durable": 288, "compute_seconds": 8.172000000005937, "KL": 1.2329738140106201}
+{"stage": "training", "seconds": 4094.9679999999935, "operation": "update", "step": 289, "id": "fit_code_00", "durable": 288, "compute_seconds": 6.187000000005355, "KL": 0.5622391104698181}
+{"stage": "training", "seconds": 4106.171000000002, "operation": "update", "step": 290, "id": "broad_fit_apigen_80k_002", "durable": 288, "compute_seconds": 11.172000000005937, "KL": 0.22442509233951569}
+{"stage": "training", "seconds": 4113.0, "operation": "update", "step": 291, "id": "fit_code_01", "durable": 288, "compute_seconds": 6.764999999999418, "KL": 0.9393479824066162}
+{"stage": "training", "seconds": 4121.327999999994, "operation": "update", "step": 292, "id": "broad_fit_everyday_conversations_002", "durable": 288, "compute_seconds": 8.264999999999418, "KL": 1.492568016052246}
+{"stage": "training", "seconds": 4128.625, "operation": "update", "step": 293, "id": "fit_code_02", "durable": 288, "compute_seconds": 7.23399999999674, "KL": 0.7242134809494019}
+{"stage": "training", "seconds": 4135.233999999997, "operation": "update", "step": 294, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 288, "compute_seconds": 6.562999999994645, "KL": 0.14816226065158844}
+{"stage": "training", "seconds": 4142.358999999997, "operation": "update", "step": 295, "id": "fit_code_03", "durable": 288, "compute_seconds": 7.077999999994063, "KL": 1.595503807067871}
+{"stage": "training", "seconds": 4151.281000000003, "operation": "update", "step": 296, "id": "broad_fit_metamathqa_50k_015", "durable": 288, "compute_seconds": 8.85899999999674, "KL": 0.7962790727615356}
+{"stage": "training", "seconds": 4157.75, "operation": "update", "step": 297, "id": "fit_code_04", "durable": 288, "compute_seconds": 6.421999999991385, "KL": 1.454005241394043}
+{"stage": "training", "seconds": 4166.187000000005, "operation": "update", "step": 298, "id": "broad_fit_numina_cot_100k_015", "durable": 288, "compute_seconds": 8.406000000002678, "KL": 1.0488481521606445}
+{"stage": "training", "seconds": 4172.983999999997, "operation": "update", "step": 299, "id": "fit_code_05", "durable": 288, "compute_seconds": 6.735000000000582, "KL": 0.7336006760597229}
+{"stage": "training", "seconds": 4180.796000000002, "operation": "update", "step": 300, "id": "broad_fit_openhermes_100k_004", "durable": 288, "compute_seconds": 7.764999999999418, "KL": 0.7561009526252747}
+{"stage": "training", "seconds": 4186.75, "operation": "update", "step": 301, "id": "fit_code_06", "durable": 288, "compute_seconds": 5.890999999988708, "KL": 1.1212003231048584}
+{"stage": "training", "seconds": 4195.421000000002, "operation": "update", "step": 302, "id": "broad_fit_self_oss_instruct_006", "durable": 288, "compute_seconds": 8.610000000000582, "KL": 0.9882175922393799}
+{"stage": "training", "seconds": 4202.233999999997, "operation": "update", "step": 303, "id": "fit_code_07", "durable": 288, "compute_seconds": 6.75, "KL": 0.6967093348503113}
+{"stage": "training", "seconds": 4288.187000000005, "operation": "update", "step": 304, "id": "broad_fit_smol_constraints_005", "durable": 304, "compute_seconds": 7.639999999999418, "KL": 0.9911318421363831}
+{"stage": "training", "seconds": 4295.125, "operation": "update", "step": 305, "id": "fit_code_08", "durable": 304, "compute_seconds": 6.875, "KL": 0.8800869584083557}
+{"stage": "training", "seconds": 4309.187000000005, "operation": "update", "step": 306, "id": "broad_fit_smol_magpie_ultra_000", "durable": 304, "compute_seconds": 14.01600000000326, "KL": 1.4859540462493896}
+{"stage": "training", "seconds": 4316.062000000005, "operation": "update", "step": 307, "id": "fit_code_09", "durable": 304, "compute_seconds": 6.797000000005937, "KL": 0.8104187250137329}
+{"stage": "training", "seconds": 4323.983999999997, "operation": "update", "step": 308, "id": "broad_fit_smol_rewrite_004", "durable": 304, "compute_seconds": 7.875, "KL": 1.0404120683670044}
+{"stage": "training", "seconds": 4330.358999999997, "operation": "update", "step": 309, "id": "fit_code_10", "durable": 304, "compute_seconds": 6.312999999994645, "KL": 1.137641191482544}
+{"stage": "training", "seconds": 4341.5, "operation": "update", "step": 310, "id": "broad_fit_smol_summarize_003", "durable": 304, "compute_seconds": 11.10899999999674, "KL": 0.9926307201385498}
+{"stage": "training", "seconds": 4348.656000000003, "operation": "update", "step": 311, "id": "fit_code_11", "durable": 304, "compute_seconds": 7.0939999999973224, "KL": 0.8625717163085938}
+{"stage": "training", "seconds": 4362.5, "operation": "update", "step": 312, "id": "broad_fit_systemchats_30k_010", "durable": 304, "compute_seconds": 13.796999999991385, "KL": 1.2523558139801025}
+{"stage": "training", "seconds": 4368.514999999999, "operation": "update", "step": 313, "id": "fit_code_12", "durable": 304, "compute_seconds": 5.9689999999973224, "KL": 2.6840617656707764}
+{"stage": "training", "seconds": 4377.483999999997, "operation": "update", "step": 314, "id": "broad_fit_apigen_80k_023", "durable": 304, "compute_seconds": 8.922000000005937, "KL": 0.8791762590408325}
+{"stage": "training", "seconds": 4385.8429999999935, "operation": "update", "step": 315, "id": "fit_code_13", "durable": 304, "compute_seconds": 8.327999999994063, "KL": 0.8048257827758789}
+{"stage": "training", "seconds": 4394.483999999997, "operation": "update", "step": 316, "id": "broad_fit_everyday_conversations_010", "durable": 304, "compute_seconds": 8.59299999999348, "KL": 1.2902382612228394}
+{"stage": "training", "seconds": 4400.937000000005, "operation": "update", "step": 317, "id": "fit_code_14", "durable": 304, "compute_seconds": 6.39100000000326, "KL": 2.0608179569244385}
+{"stage": "training", "seconds": 4407.483999999997, "operation": "update", "step": 318, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 304, "compute_seconds": 6.5, "KL": 1.5536750555038452}
+{"stage": "training", "seconds": 4414.327999999994, "operation": "update", "step": 319, "id": "fit_code_15", "durable": 304, "compute_seconds": 6.812000000005355, "KL": 0.7780019044876099}
+{"stage": "training", "seconds": 4500.75, "operation": "update", "step": 320, "id": "broad_fit_metamathqa_50k_023", "durable": 320, "compute_seconds": 7.6560000000026776, "KL": 1.2041592597961426}
+{"stage": "training", "seconds": 4510.358999999997, "operation": "update", "step": 321, "id": "fit_explanation_00", "durable": 320, "compute_seconds": 9.531000000002678, "KL": 0.48709675669670105}
+{"stage": "training", "seconds": 4520.264999999999, "operation": "update", "step": 322, "id": "broad_fit_numina_cot_100k_016", "durable": 320, "compute_seconds": 9.85899999999674, "KL": 1.0738615989685059}
+{"stage": "training", "seconds": 4529.139999999999, "operation": "update", "step": 323, "id": "fit_explanation_01", "durable": 320, "compute_seconds": 8.812999999994645, "KL": 1.7000294923782349}
+{"stage": "training", "seconds": 4539.858999999997, "operation": "update", "step": 324, "id": "broad_fit_openhermes_100k_028", "durable": 320, "compute_seconds": 10.671999999991385, "KL": 0.7827614545822144}
+{"stage": "training", "seconds": 4548.531000000003, "operation": "update", "step": 325, "id": "fit_explanation_02", "durable": 320, "compute_seconds": 8.593999999997322, "KL": 0.5569092035293579}
+{"stage": "training", "seconds": 4558.531000000003, "operation": "update", "step": 326, "id": "broad_fit_self_oss_instruct_012", "durable": 320, "compute_seconds": 9.937999999994645, "KL": 1.0941028594970703}
+{"stage": "training", "seconds": 4567.25, "operation": "update", "step": 327, "id": "fit_explanation_03", "durable": 320, "compute_seconds": 8.671999999991385, "KL": 0.9332720041275024}
+{"stage": "training", "seconds": 4577.014999999999, "operation": "update", "step": 328, "id": "broad_fit_smol_constraints_021", "durable": 320, "compute_seconds": 9.718999999997322, "KL": 1.0884671211242676}
+{"stage": "training", "seconds": 4585.733999999997, "operation": "update", "step": 329, "id": "fit_explanation_04", "durable": 320, "compute_seconds": 8.656999999991967, "KL": 0.5431451797485352}
+{"stage": "training", "seconds": 4607.889999999999, "operation": "update", "step": 330, "id": "broad_fit_smol_magpie_ultra_022", "durable": 320, "compute_seconds": 22.10899999999674, "KL": 1.3479259014129639}
+{"stage": "training", "seconds": 4614.812000000005, "operation": "update", "step": 331, "id": "fit_explanation_05", "durable": 320, "compute_seconds": 6.875, "KL": 1.3729714155197144}
+{"stage": "training", "seconds": 4624.8429999999935, "operation": "update", "step": 332, "id": "broad_fit_smol_rewrite_015", "durable": 320, "compute_seconds": 9.984000000011292, "KL": 0.9379507303237915}
+{"stage": "training", "seconds": 4632.7179999999935, "operation": "update", "step": 333, "id": "fit_explanation_06", "durable": 320, "compute_seconds": 7.812000000005355, "KL": 0.3020080327987671}
+{"stage": "training", "seconds": 4640.531000000003, "operation": "update", "step": 334, "id": "broad_fit_smol_summarize_024", "durable": 320, "compute_seconds": 7.76600000000326, "KL": 1.313153624534607}
+{"stage": "training", "seconds": 4647.983999999997, "operation": "update", "step": 335, "id": "fit_explanation_07", "durable": 320, "compute_seconds": 7.406999999991967, "KL": 0.9074516296386719}
+{"stage": "training", "seconds": 4735.514999999999, "operation": "update", "step": 336, "id": "broad_fit_systemchats_30k_024", "durable": 336, "compute_seconds": 8.98399999999674, "KL": 0.9553308486938477}
+{"stage": "training", "seconds": 4742.7179999999935, "operation": "update", "step": 337, "id": "fit_explanation_08", "durable": 336, "compute_seconds": 7.1560000000026776, "KL": 0.3900849521160126}
+{"stage": "training", "seconds": 4753.687000000005, "operation": "update", "step": 338, "id": "broad_fit_apigen_80k_002", "durable": 336, "compute_seconds": 10.906000000002678, "KL": 0.6953504681587219}
+{"stage": "training", "seconds": 4760.952999999994, "operation": "update", "step": 339, "id": "fit_explanation_09", "durable": 336, "compute_seconds": 7.219000000011874, "KL": 1.2573907375335693}
+{"stage": "training", "seconds": 4769.031000000003, "operation": "update", "step": 340, "id": "broad_fit_everyday_conversations_002", "durable": 336, "compute_seconds": 8.03200000000652, "KL": 1.0166255235671997}
+{"stage": "training", "seconds": 4776.0, "operation": "update", "step": 341, "id": "fit_explanation_10", "durable": 336, "compute_seconds": 6.890999999988708, "KL": 0.645362377166748}
+{"stage": "training", "seconds": 4782.546000000002, "operation": "update", "step": 342, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 336, "compute_seconds": 6.5, "KL": 0.5732202529907227}
+{"stage": "training", "seconds": 4789.375, "operation": "update", "step": 343, "id": "fit_explanation_11", "durable": 336, "compute_seconds": 6.76600000000326, "KL": 0.7571048736572266}
+{"stage": "training", "seconds": 4796.531000000003, "operation": "update", "step": 344, "id": "broad_fit_metamathqa_50k_015", "durable": 336, "compute_seconds": 7.110000000000582, "KL": 0.6173563003540039}
+{"stage": "training", "seconds": 4803.312000000005, "operation": "update", "step": 345, "id": "fit_explanation_12", "durable": 336, "compute_seconds": 6.73399999999674, "KL": 0.5061294436454773}
+{"stage": "training", "seconds": 4811.014999999999, "operation": "update", "step": 346, "id": "broad_fit_numina_cot_100k_015", "durable": 336, "compute_seconds": 7.64100000000326, "KL": 1.1964704990386963}
+{"stage": "training", "seconds": 4817.7179999999935, "operation": "update", "step": 347, "id": "fit_explanation_13", "durable": 336, "compute_seconds": 6.639999999999418, "KL": 0.818338930606842}
+{"stage": "training", "seconds": 4825.546000000002, "operation": "update", "step": 348, "id": "broad_fit_openhermes_100k_004", "durable": 336, "compute_seconds": 7.7810000000026776, "KL": 0.5932697057723999}
+{"stage": "training", "seconds": 4832.25, "operation": "update", "step": 349, "id": "fit_explanation_14", "durable": 336, "compute_seconds": 6.655999999988126, "KL": 0.3276033103466034}
+{"stage": "training", "seconds": 4840.8429999999935, "operation": "update", "step": 350, "id": "broad_fit_self_oss_instruct_006", "durable": 336, "compute_seconds": 8.51600000000326, "KL": 1.138815999031067}
+{"stage": "training", "seconds": 4847.812000000005, "operation": "update", "step": 351, "id": "fit_explanation_15", "durable": 336, "compute_seconds": 6.922000000005937, "KL": 0.9464712738990784}
+{"stage": "training", "seconds": 4933.983999999997, "operation": "update", "step": 352, "id": "broad_fit_smol_constraints_005", "durable": 352, "compute_seconds": 7.578000000008615, "KL": 0.7494121193885803}
+{"stage": "training", "seconds": 4940.483999999997, "operation": "update", "step": 353, "id": "fit_history_00", "durable": 352, "compute_seconds": 6.467999999993481, "KL": 0.8554777503013611}
+{"stage": "training", "seconds": 4954.7179999999935, "operation": "update", "step": 354, "id": "broad_fit_smol_magpie_ultra_000", "durable": 352, "compute_seconds": 14.187000000005355, "KL": 0.9559600949287415}
+{"stage": "training", "seconds": 4961.296000000002, "operation": "update", "step": 355, "id": "fit_history_01", "durable": 352, "compute_seconds": 6.51600000000326, "KL": 1.0895143747329712}
+{"stage": "training", "seconds": 4968.562000000005, "operation": "update", "step": 356, "id": "broad_fit_smol_rewrite_004", "durable": 352, "compute_seconds": 7.202999999994063, "KL": 0.9126374125480652}
+{"stage": "training", "seconds": 4975.312000000005, "operation": "update", "step": 357, "id": "fit_history_02", "durable": 352, "compute_seconds": 6.672000000005937, "KL": 1.0279594659805298}
+{"stage": "training", "seconds": 4987.031000000003, "operation": "update", "step": 358, "id": "broad_fit_smol_summarize_003", "durable": 352, "compute_seconds": 11.672000000005937, "KL": 0.736767590045929}
+{"stage": "training", "seconds": 4994.906000000003, "operation": "update", "step": 359, "id": "fit_history_03", "durable": 352, "compute_seconds": 7.812999999994645, "KL": 0.7751212120056152}
+{"stage": "training", "seconds": 5009.046000000002, "operation": "update", "step": 360, "id": "broad_fit_systemchats_30k_010", "durable": 352, "compute_seconds": 14.093999999997322, "KL": 0.941864013671875}
+{"stage": "training", "seconds": 5015.577999999994, "operation": "update", "step": 361, "id": "fit_history_04", "durable": 352, "compute_seconds": 6.48399999999674, "KL": 1.8798596858978271}
+{"stage": "training", "seconds": 5024.406000000003, "operation": "update", "step": 362, "id": "broad_fit_apigen_80k_023", "durable": 352, "compute_seconds": 8.76600000000326, "KL": 0.30765485763549805}
+{"stage": "training", "seconds": 5031.327999999994, "operation": "update", "step": 363, "id": "fit_history_05", "durable": 352, "compute_seconds": 6.860000000000582, "KL": 2.0378122329711914}
+{"stage": "training", "seconds": 5039.625, "operation": "update", "step": 364, "id": "broad_fit_everyday_conversations_010", "durable": 352, "compute_seconds": 8.264999999999418, "KL": 1.0731375217437744}
+{"stage": "training", "seconds": 5046.858999999997, "operation": "update", "step": 365, "id": "fit_history_06", "durable": 352, "compute_seconds": 7.171999999991385, "KL": 2.9094486236572266}
+{"stage": "training", "seconds": 5054.062000000005, "operation": "update", "step": 366, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 352, "compute_seconds": 7.139999999999418, "KL": 0.3074057102203369}
+{"stage": "training", "seconds": 5060.9679999999935, "operation": "update", "step": 367, "id": "fit_history_07", "durable": 352, "compute_seconds": 6.844000000011874, "KL": 0.5057671070098877}
+{"stage": "training", "seconds": 5148.577999999994, "operation": "update", "step": 368, "id": "broad_fit_metamathqa_50k_023", "durable": 368, "compute_seconds": 9.047000000005937, "KL": 1.1915957927703857}
+{"stage": "training", "seconds": 5155.921000000002, "operation": "update", "step": 369, "id": "fit_history_08", "durable": 368, "compute_seconds": 7.282000000006519, "KL": 0.9200488328933716}
+{"stage": "training", "seconds": 5164.264999999999, "operation": "update", "step": 370, "id": "broad_fit_numina_cot_100k_016", "durable": 368, "compute_seconds": 8.296999999991385, "KL": 0.8818955421447754}
+{"stage": "training", "seconds": 5171.389999999999, "operation": "update", "step": 371, "id": "fit_history_09", "durable": 368, "compute_seconds": 7.061999999990803, "KL": 1.1633963584899902}
+{"stage": "training", "seconds": 5180.952999999994, "operation": "update", "step": 372, "id": "broad_fit_openhermes_100k_028", "durable": 368, "compute_seconds": 9.514999999999418, "KL": 0.8196079730987549}
+{"stage": "training", "seconds": 5188.264999999999, "operation": "update", "step": 373, "id": "fit_history_10", "durable": 368, "compute_seconds": 7.26600000000326, "KL": 0.4325403869152069}
+{"stage": "training", "seconds": 5198.156000000003, "operation": "update", "step": 374, "id": "broad_fit_self_oss_instruct_012", "durable": 368, "compute_seconds": 9.843999999997322, "KL": 0.8698350787162781}
+{"stage": "training", "seconds": 5205.171000000002, "operation": "update", "step": 375, "id": "fit_history_11", "durable": 368, "compute_seconds": 6.9689999999973224, "KL": 0.5504624247550964}
+{"stage": "training", "seconds": 5213.281000000003, "operation": "update", "step": 376, "id": "broad_fit_smol_constraints_021", "durable": 368, "compute_seconds": 8.062999999994645, "KL": 1.031028389930725}
+{"stage": "training", "seconds": 5220.2179999999935, "operation": "update", "step": 377, "id": "fit_history_12", "durable": 368, "compute_seconds": 6.906999999991967, "KL": 0.40823501348495483}
+{"stage": "training", "seconds": 5241.639999999999, "operation": "update", "step": 378, "id": "broad_fit_smol_magpie_ultra_022", "durable": 368, "compute_seconds": 21.35899999999674, "KL": 1.635423183441162}
+{"stage": "training", "seconds": 5248.733999999997, "operation": "update", "step": 379, "id": "fit_history_13", "durable": 368, "compute_seconds": 7.015999999988708, "KL": 1.1862224340438843}
+{"stage": "training", "seconds": 5258.296000000002, "operation": "update", "step": 380, "id": "broad_fit_smol_rewrite_015", "durable": 368, "compute_seconds": 9.485000000000582, "KL": 1.1274327039718628}
+{"stage": "training", "seconds": 5265.827999999994, "operation": "update", "step": 381, "id": "fit_history_14", "durable": 368, "compute_seconds": 7.468000000008033, "KL": 3.345853805541992}
+{"stage": "training", "seconds": 5273.671000000002, "operation": "update", "step": 382, "id": "broad_fit_smol_summarize_024", "durable": 368, "compute_seconds": 7.7810000000026776, "KL": 1.3903558254241943}
+{"stage": "training", "seconds": 5281.4679999999935, "operation": "update", "step": 383, "id": "fit_history_15", "durable": 368, "compute_seconds": 7.75, "KL": 0.5734584331512451}
+{"stage": "training", "seconds": 5368.187000000005, "operation": "update", "step": 384, "id": "broad_fit_systemchats_30k_024", "durable": 384, "compute_seconds": 8.218999999997322, "KL": 0.8317220211029053}
+{"stage": "training", "seconds": 5376.202999999994, "operation": "update", "step": 385, "id": "fit_instruction_00", "durable": 384, "compute_seconds": 7.953000000008615, "KL": 2.970461130142212}
+{"stage": "training", "seconds": 5389.202999999994, "operation": "update", "step": 386, "id": "broad_fit_apigen_80k_002", "durable": 384, "compute_seconds": 12.953000000008615, "KL": 0.4093920588493347}
+{"stage": "training", "seconds": 5398.046000000002, "operation": "update", "step": 387, "id": "fit_instruction_01", "durable": 384, "compute_seconds": 8.76600000000326, "KL": 0.5239545106887817}
+{"stage": "training", "seconds": 5408.375, "operation": "update", "step": 388, "id": "broad_fit_everyday_conversations_002", "durable": 384, "compute_seconds": 10.265999999988708, "KL": 0.7807295322418213}
+{"stage": "training", "seconds": 5416.7179999999935, "operation": "update", "step": 389, "id": "fit_instruction_02", "durable": 384, "compute_seconds": 8.297000000005937, "KL": 2.255998134613037}
+{"stage": "training", "seconds": 5425.156000000003, "operation": "update", "step": 390, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 384, "compute_seconds": 8.35899999999674, "KL": 0.29790523648262024}
+{"stage": "training", "seconds": 5433.25, "operation": "update", "step": 391, "id": "fit_instruction_03", "durable": 384, "compute_seconds": 8.046999999991385, "KL": 1.3092827796936035}
+{"stage": "training", "seconds": 5442.452999999994, "operation": "update", "step": 392, "id": "broad_fit_metamathqa_50k_015", "durable": 384, "compute_seconds": 9.171000000002095, "KL": 0.6511204242706299}
+{"stage": "training", "seconds": 5449.75, "operation": "update", "step": 393, "id": "fit_instruction_04", "durable": 384, "compute_seconds": 7.235000000000582, "KL": 0.2538779079914093}
+{"stage": "training", "seconds": 5458.812000000005, "operation": "update", "step": 394, "id": "broad_fit_numina_cot_100k_015", "durable": 384, "compute_seconds": 9.01600000000326, "KL": 0.8376473188400269}
+{"stage": "training", "seconds": 5465.639999999999, "operation": "update", "step": 395, "id": "fit_instruction_05", "durable": 384, "compute_seconds": 6.764999999999418, "KL": 0.6673276424407959}
+{"stage": "training", "seconds": 5474.5, "operation": "update", "step": 396, "id": "broad_fit_openhermes_100k_004", "durable": 384, "compute_seconds": 8.796999999991385, "KL": 0.8269265294075012}
+{"stage": "training", "seconds": 5481.671000000002, "operation": "update", "step": 397, "id": "fit_instruction_06", "durable": 384, "compute_seconds": 7.077999999994063, "KL": 1.1340781450271606}
+{"stage": "training", "seconds": 5491.062000000005, "operation": "update", "step": 398, "id": "broad_fit_self_oss_instruct_006", "durable": 384, "compute_seconds": 9.327999999994063, "KL": 0.8018938302993774}
+{"stage": "training", "seconds": 5498.452999999994, "operation": "update", "step": 399, "id": "fit_instruction_07", "durable": 384, "compute_seconds": 7.328000000008615, "KL": 1.258172869682312}
+{"stage": "training", "seconds": 5586.187000000005, "operation": "update", "step": 400, "id": "broad_fit_smol_constraints_005", "durable": 400, "compute_seconds": 8.406000000002678, "KL": 1.0064435005187988}
+{"stage": "training", "seconds": 5592.75, "operation": "update", "step": 401, "id": "fit_instruction_08", "durable": 400, "compute_seconds": 6.5, "KL": 2.113506317138672}
+{"stage": "training", "seconds": 5607.639999999999, "operation": "update", "step": 402, "id": "broad_fit_smol_magpie_ultra_000", "durable": 400, "compute_seconds": 14.843999999997322, "KL": 0.8206814527511597}
+{"stage": "training", "seconds": 5614.546000000002, "operation": "update", "step": 403, "id": "fit_instruction_09", "durable": 400, "compute_seconds": 6.8289999999979045, "KL": 0.09152070432901382}
+{"stage": "training", "seconds": 5622.077999999994, "operation": "update", "step": 404, "id": "broad_fit_smol_rewrite_004", "durable": 400, "compute_seconds": 7.48399999999674, "KL": 0.6813480257987976}
+{"stage": "training", "seconds": 5628.312000000005, "operation": "update", "step": 405, "id": "fit_instruction_10", "durable": 400, "compute_seconds": 6.188000000009197, "KL": 1.2223566770553589}
+{"stage": "training", "seconds": 5639.514999999999, "operation": "update", "step": 406, "id": "broad_fit_smol_summarize_003", "durable": 400, "compute_seconds": 11.156000000002678, "KL": 0.6000925302505493}
+{"stage": "training", "seconds": 5645.937000000005, "operation": "update", "step": 407, "id": "fit_instruction_11", "durable": 400, "compute_seconds": 6.375, "KL": 0.9785934090614319}
+{"stage": "training", "seconds": 5660.108999999997, "operation": "update", "step": 408, "id": "broad_fit_systemchats_30k_010", "durable": 400, "compute_seconds": 14.109000000011292, "KL": 0.6398909091949463}
+{"stage": "training", "seconds": 5665.812000000005, "operation": "update", "step": 409, "id": "fit_instruction_12", "durable": 400, "compute_seconds": 5.6710000000020955, "KL": 4.608423709869385}
+{"stage": "training", "seconds": 5674.764999999999, "operation": "update", "step": 410, "id": "broad_fit_apigen_80k_023", "durable": 400, "compute_seconds": 8.906000000002678, "KL": 0.6677336096763611}
+{"stage": "training", "seconds": 5681.625, "operation": "update", "step": 411, "id": "fit_instruction_13", "durable": 400, "compute_seconds": 6.796999999991385, "KL": 0.5411191582679749}
+{"stage": "training", "seconds": 5690.358999999997, "operation": "update", "step": 412, "id": "broad_fit_everyday_conversations_010", "durable": 400, "compute_seconds": 8.687999999994645, "KL": 1.1555861234664917}
+{"stage": "training", "seconds": 5696.983999999997, "operation": "update", "step": 413, "id": "fit_instruction_14", "durable": 400, "compute_seconds": 6.577999999994063, "KL": 1.1989835500717163}
+{"stage": "training", "seconds": 5703.608999999997, "operation": "update", "step": 414, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 400, "compute_seconds": 6.577999999994063, "KL": 1.111218810081482}
+{"stage": "training", "seconds": 5709.875, "operation": "update", "step": 415, "id": "fit_instruction_15", "durable": 400, "compute_seconds": 6.202999999994063, "KL": 1.8874871730804443}
+{"stage": "training", "seconds": 5796.733999999997, "operation": "update", "step": 416, "id": "broad_fit_metamathqa_50k_023", "durable": 416, "compute_seconds": 8.125, "KL": 0.7836740016937256}
+{"stage": "training", "seconds": 5804.0929999999935, "operation": "update", "step": 417, "id": "fit_planning_00", "durable": 416, "compute_seconds": 7.312000000005355, "KL": 1.4266541004180908}
+{"stage": "training", "seconds": 5812.5929999999935, "operation": "update", "step": 418, "id": "broad_fit_numina_cot_100k_016", "durable": 416, "compute_seconds": 8.453000000008615, "KL": 0.554964542388916}
+{"stage": "training", "seconds": 5819.358999999997, "operation": "update", "step": 419, "id": "fit_planning_01", "durable": 416, "compute_seconds": 6.7189999999973224, "KL": 1.3240998983383179}
+{"stage": "training", "seconds": 5827.889999999999, "operation": "update", "step": 420, "id": "broad_fit_openhermes_100k_028", "durable": 416, "compute_seconds": 8.452999999994063, "KL": 0.6720662117004395}
+{"stage": "training", "seconds": 5834.983999999997, "operation": "update", "step": 421, "id": "fit_planning_02", "durable": 416, "compute_seconds": 7.046999999991385, "KL": 1.3513526916503906}
+{"stage": "training", "seconds": 5843.0929999999935, "operation": "update", "step": 422, "id": "broad_fit_self_oss_instruct_012", "durable": 416, "compute_seconds": 8.078000000008615, "KL": 0.9889404773712158}
+{"stage": "training", "seconds": 5850.406000000003, "operation": "update", "step": 423, "id": "fit_planning_03", "durable": 416, "compute_seconds": 7.26600000000326, "KL": 0.9362973570823669}
+{"stage": "training", "seconds": 5858.608999999997, "operation": "update", "step": 424, "id": "broad_fit_smol_constraints_021", "durable": 416, "compute_seconds": 8.156999999991967, "KL": 1.202466368675232}
+{"stage": "training", "seconds": 5865.156000000003, "operation": "update", "step": 425, "id": "fit_planning_04", "durable": 416, "compute_seconds": 6.514999999999418, "KL": 0.9217603802680969}
+{"stage": "training", "seconds": 5886.062000000005, "operation": "update", "step": 426, "id": "broad_fit_smol_magpie_ultra_022", "durable": 416, "compute_seconds": 20.860000000000582, "KL": 1.4448256492614746}
+{"stage": "training", "seconds": 5892.937000000005, "operation": "update", "step": 427, "id": "fit_planning_05", "durable": 416, "compute_seconds": 6.813000000009197, "KL": 1.3719327449798584}
+{"stage": "training", "seconds": 5902.389999999999, "operation": "update", "step": 428, "id": "broad_fit_smol_rewrite_015", "durable": 416, "compute_seconds": 9.375, "KL": 1.095052719116211}
+{"stage": "training", "seconds": 5909.264999999999, "operation": "update", "step": 429, "id": "fit_planning_06", "durable": 416, "compute_seconds": 6.8439999999973224, "KL": 0.7709433436393738}
+{"stage": "training", "seconds": 5917.156000000003, "operation": "update", "step": 430, "id": "broad_fit_smol_summarize_024", "durable": 416, "compute_seconds": 7.8439999999973224, "KL": 1.3620446920394897}
+{"stage": "training", "seconds": 5924.281000000003, "operation": "update", "step": 431, "id": "fit_planning_07", "durable": 416, "compute_seconds": 7.062999999994645, "KL": 0.731490969657898}
+{"stage": "training", "seconds": 6012.031000000003, "operation": "update", "step": 432, "id": "broad_fit_systemchats_30k_024", "durable": 432, "compute_seconds": 7.952999999994063, "KL": 1.004516839981079}
+{"stage": "training", "seconds": 6019.171000000002, "operation": "update", "step": 433, "id": "fit_planning_08", "durable": 432, "compute_seconds": 7.0939999999973224, "KL": 1.6939629316329956}
+{"stage": "training", "seconds": 6030.0929999999935, "operation": "update", "step": 434, "id": "broad_fit_apigen_80k_002", "durable": 432, "compute_seconds": 10.875, "KL": 0.3097155690193176}
+{"stage": "training", "seconds": 6037.031000000003, "operation": "update", "step": 435, "id": "fit_planning_09", "durable": 432, "compute_seconds": 6.875, "KL": 1.0972074270248413}
+{"stage": "training", "seconds": 6045.0, "operation": "update", "step": 436, "id": "broad_fit_everyday_conversations_002", "durable": 432, "compute_seconds": 7.921999999991385, "KL": 1.0578768253326416}
+{"stage": "training", "seconds": 6051.7179999999935, "operation": "update", "step": 437, "id": "fit_planning_10", "durable": 432, "compute_seconds": 6.672000000005937, "KL": 1.3199352025985718}
+{"stage": "training", "seconds": 6057.937000000005, "operation": "update", "step": 438, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 432, "compute_seconds": 6.172000000005937, "KL": 0.11094074696302414}
+{"stage": "training", "seconds": 6064.858999999997, "operation": "update", "step": 439, "id": "fit_planning_11", "durable": 432, "compute_seconds": 6.859000000011292, "KL": 1.0157159566879272}
+{"stage": "training", "seconds": 6072.171000000002, "operation": "update", "step": 440, "id": "broad_fit_metamathqa_50k_015", "durable": 432, "compute_seconds": 7.26600000000326, "KL": 0.40811625123023987}
+{"stage": "training", "seconds": 6078.656000000003, "operation": "update", "step": 441, "id": "fit_planning_12", "durable": 432, "compute_seconds": 6.422000000005937, "KL": 1.3673608303070068}
+{"stage": "training", "seconds": 6086.562000000005, "operation": "update", "step": 442, "id": "broad_fit_numina_cot_100k_015", "durable": 432, "compute_seconds": 7.8439999999973224, "KL": 0.6185969114303589}
+{"stage": "training", "seconds": 6093.452999999994, "operation": "update", "step": 443, "id": "fit_planning_13", "durable": 432, "compute_seconds": 6.843000000008033, "KL": 1.1900832653045654}
+{"stage": "training", "seconds": 6101.327999999994, "operation": "update", "step": 444, "id": "broad_fit_openhermes_100k_004", "durable": 432, "compute_seconds": 7.828000000008615, "KL": 0.5365806818008423}
+{"stage": "training", "seconds": 6108.281000000003, "operation": "update", "step": 445, "id": "fit_planning_14", "durable": 432, "compute_seconds": 6.907000000006519, "KL": 0.7466212511062622}
+{"stage": "training", "seconds": 6116.702999999994, "operation": "update", "step": 446, "id": "broad_fit_self_oss_instruct_006", "durable": 432, "compute_seconds": 8.360000000000582, "KL": 0.6267937421798706}
+{"stage": "training", "seconds": 6124.046000000002, "operation": "update", "step": 447, "id": "fit_planning_15", "durable": 432, "compute_seconds": 7.2810000000026776, "KL": 0.8621723055839539}
+{"stage": "training", "seconds": 6211.531000000003, "operation": "update", "step": 448, "id": "broad_fit_smol_constraints_005", "durable": 448, "compute_seconds": 7.9689999999973224, "KL": 0.7282485365867615}
+{"stage": "training", "seconds": 6218.014999999999, "operation": "update", "step": 449, "id": "fit_reading_00", "durable": 448, "compute_seconds": 6.405999999988126, "KL": 0.6452629566192627}
+{"stage": "training", "seconds": 6232.483999999997, "operation": "update", "step": 450, "id": "broad_fit_smol_magpie_ultra_000", "durable": 448, "compute_seconds": 14.421999999991385, "KL": 0.9538984894752502}
+{"stage": "training", "seconds": 6239.531000000003, "operation": "update", "step": 451, "id": "fit_reading_01", "durable": 448, "compute_seconds": 6.952999999994063, "KL": 1.3515533208847046}
+{"stage": "training", "seconds": 6247.139999999999, "operation": "update", "step": 452, "id": "broad_fit_smol_rewrite_004", "durable": 448, "compute_seconds": 7.546999999991385, "KL": 1.0622369050979614}
+{"stage": "training", "seconds": 6254.75, "operation": "update", "step": 453, "id": "fit_reading_02", "durable": 448, "compute_seconds": 7.546999999991385, "KL": 0.7950547933578491}
+{"stage": "training", "seconds": 6266.5, "operation": "update", "step": 454, "id": "broad_fit_smol_summarize_003", "durable": 448, "compute_seconds": 11.687999999994645, "KL": 0.881743848323822}
+{"stage": "training", "seconds": 6273.437000000005, "operation": "update", "step": 455, "id": "fit_reading_03", "durable": 448, "compute_seconds": 6.89100000000326, "KL": 0.708168625831604}
+{"stage": "training", "seconds": 6287.687000000005, "operation": "update", "step": 456, "id": "broad_fit_systemchats_30k_010", "durable": 448, "compute_seconds": 14.187000000005355, "KL": 0.9363934993743896}
+{"stage": "training", "seconds": 6296.108999999997, "operation": "update", "step": 457, "id": "fit_reading_04", "durable": 448, "compute_seconds": 8.328000000008615, "KL": 2.0746865272521973}
+{"stage": "training", "seconds": 6306.327999999994, "operation": "update", "step": 458, "id": "broad_fit_apigen_80k_023", "durable": 448, "compute_seconds": 10.156000000002678, "KL": 0.5717036724090576}
+{"stage": "training", "seconds": 6316.031000000003, "operation": "update", "step": 459, "id": "fit_reading_05", "durable": 448, "compute_seconds": 9.64100000000326, "KL": 0.6348951458930969}
+{"stage": "training", "seconds": 6326.375, "operation": "update", "step": 460, "id": "broad_fit_everyday_conversations_010", "durable": 448, "compute_seconds": 10.281999999991967, "KL": 0.9014135003089905}
+{"stage": "training", "seconds": 6334.062000000005, "operation": "update", "step": 461, "id": "fit_reading_06", "durable": 448, "compute_seconds": 7.625, "KL": 1.5314109325408936}
+{"stage": "training", "seconds": 6342.077999999994, "operation": "update", "step": 462, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 448, "compute_seconds": 7.937000000005355, "KL": 0.36890432238578796}
+{"stage": "training", "seconds": 6350.546000000002, "operation": "update", "step": 463, "id": "fit_reading_07", "durable": 448, "compute_seconds": 8.40700000000652, "KL": 0.7990165948867798}
+{"stage": "training", "seconds": 6439.858999999997, "operation": "update", "step": 464, "id": "broad_fit_metamathqa_50k_023", "durable": 464, "compute_seconds": 9.60899999999674, "KL": 0.6263389587402344}
+{"stage": "training", "seconds": 6448.406000000003, "operation": "update", "step": 465, "id": "fit_reading_08", "durable": 464, "compute_seconds": 8.5, "KL": 0.7353305816650391}
+{"stage": "training", "seconds": 6457.952999999994, "operation": "update", "step": 466, "id": "broad_fit_numina_cot_100k_016", "durable": 464, "compute_seconds": 9.468999999997322, "KL": 0.5384979248046875}
+{"stage": "training", "seconds": 6465.5, "operation": "update", "step": 467, "id": "fit_reading_09", "durable": 464, "compute_seconds": 7.453000000008615, "KL": 1.0439887046813965}
+{"stage": "training", "seconds": 6474.827999999994, "operation": "update", "step": 468, "id": "broad_fit_openhermes_100k_028", "durable": 464, "compute_seconds": 9.296000000002095, "KL": 0.549697756767273}
+{"stage": "training", "seconds": 6482.0929999999935, "operation": "update", "step": 469, "id": "fit_reading_10", "durable": 464, "compute_seconds": 7.219000000011874, "KL": 0.3920077979564667}
+{"stage": "training", "seconds": 6491.108999999997, "operation": "update", "step": 470, "id": "broad_fit_self_oss_instruct_012", "durable": 464, "compute_seconds": 8.953000000008615, "KL": 0.4669448733329773}
+{"stage": "training", "seconds": 6499.5, "operation": "update", "step": 471, "id": "fit_reading_11", "durable": 464, "compute_seconds": 8.327999999994063, "KL": 1.20787513256073}
+{"stage": "training", "seconds": 6507.812000000005, "operation": "update", "step": 472, "id": "broad_fit_smol_constraints_021", "durable": 464, "compute_seconds": 8.26600000000326, "KL": 0.9586523771286011}
+{"stage": "training", "seconds": 6514.125, "operation": "update", "step": 473, "id": "fit_reading_12", "durable": 464, "compute_seconds": 6.25, "KL": 1.5124205350875854}
+{"stage": "training", "seconds": 6535.0, "operation": "update", "step": 474, "id": "broad_fit_smol_magpie_ultra_022", "durable": 464, "compute_seconds": 20.84299999999348, "KL": 1.1989213228225708}
+{"stage": "training", "seconds": 6541.3429999999935, "operation": "update", "step": 475, "id": "fit_reading_13", "durable": 464, "compute_seconds": 6.25, "KL": 0.5767763257026672}
+{"stage": "training", "seconds": 6550.781000000003, "operation": "update", "step": 476, "id": "broad_fit_smol_rewrite_015", "durable": 464, "compute_seconds": 9.39100000000326, "KL": 0.9435142278671265}
+{"stage": "training", "seconds": 6557.389999999999, "operation": "update", "step": 477, "id": "fit_reading_14", "durable": 464, "compute_seconds": 6.546999999991385, "KL": 2.412325382232666}
+{"stage": "training", "seconds": 6565.281000000003, "operation": "update", "step": 478, "id": "broad_fit_smol_summarize_024", "durable": 464, "compute_seconds": 7.827999999994063, "KL": 1.1020797491073608}
+{"stage": "training", "seconds": 6571.764999999999, "operation": "update", "step": 479, "id": "fit_reading_15", "durable": 464, "compute_seconds": 6.437999999994645, "KL": 1.1513948440551758}
+{"stage": "training", "seconds": 6659.4679999999935, "operation": "update", "step": 480, "id": "broad_fit_systemchats_30k_024", "durable": 480, "compute_seconds": 7.952999999994063, "KL": 0.9277633428573608}
+{"stage": "training", "seconds": 6665.546000000002, "operation": "update", "step": 481, "id": "fit_rewrite_00", "durable": 480, "compute_seconds": 6.032000000006519, "KL": 1.8001453876495361}
+{"stage": "training", "seconds": 6677.014999999999, "operation": "update", "step": 482, "id": "broad_fit_apigen_80k_002", "durable": 480, "compute_seconds": 11.421999999991385, "KL": 0.07464339584112167}
+{"stage": "training", "seconds": 6683.671000000002, "operation": "update", "step": 483, "id": "fit_rewrite_01", "durable": 480, "compute_seconds": 6.5789999999979045, "KL": 1.2354178428649902}
+{"stage": "training", "seconds": 6691.889999999999, "operation": "update", "step": 484, "id": "broad_fit_everyday_conversations_002", "durable": 480, "compute_seconds": 8.140999999988708, "KL": 0.8790057301521301}
+{"stage": "training", "seconds": 6698.546000000002, "operation": "update", "step": 485, "id": "fit_rewrite_02", "durable": 480, "compute_seconds": 6.5789999999979045, "KL": 0.8686562776565552}
+{"stage": "training", "seconds": 6705.4679999999935, "operation": "update", "step": 486, "id": "broad_fit_explore_instruct_rewriting_008", "durable": 480, "compute_seconds": 6.85899999999674, "KL": 0.26126807928085327}
+{"stage": "training", "seconds": 6711.8429999999935, "operation": "update", "step": 487, "id": "fit_rewrite_03", "durable": 480, "compute_seconds": 6.312000000005355, "KL": 0.9242297410964966}
+{"stage": "training", "seconds": 6719.25, "operation": "update", "step": 488, "id": "broad_fit_metamathqa_50k_015", "durable": 480, "compute_seconds": 7.328000000008615, "KL": 0.557344377040863}
+{"stage": "training", "seconds": 6725.139999999999, "operation": "update", "step": 489, "id": "fit_rewrite_04", "durable": 480, "compute_seconds": 5.8439999999973224, "KL": 0.8867320418357849}
+{"stage": "training", "seconds": 6733.233999999997, "operation": "update", "step": 490, "id": "broad_fit_numina_cot_100k_015", "durable": 480, "compute_seconds": 8.01600000000326, "KL": 0.6723020076751709}
+{"stage": "training", "seconds": 6739.202999999994, "operation": "update", "step": 491, "id": "fit_rewrite_05", "durable": 480, "compute_seconds": 5.9210000000020955, "KL": 1.5406739711761475}
+{"stage": "training", "seconds": 6747.031000000003, "operation": "update", "step": 492, "id": "broad_fit_openhermes_100k_004", "durable": 480, "compute_seconds": 7.76600000000326, "KL": 0.5930928587913513}
+{"stage": "training", "seconds": 6753.389999999999, "operation": "update", "step": 493, "id": "fit_rewrite_06", "durable": 480, "compute_seconds": 6.280999999988126, "KL": 0.7719954252243042}
+{"stage": "training", "seconds": 6762.75, "operation": "update", "step": 494, "id": "broad_fit_self_oss_instruct_006", "durable": 480, "compute_seconds": 9.311999999990803, "KL": 0.6332811117172241}
+{"stage": "training", "seconds": 6769.546000000002, "operation": "update", "step": 495, "id": "fit_rewrite_07", "durable": 480, "compute_seconds": 6.735000000000582, "KL": 0.7339864373207092}
+{"stage": "training", "seconds": 6858.264999999999, "operation": "update", "step": 496, "id": "broad_fit_smol_constraints_005", "durable": 496, "compute_seconds": 8.093999999997322, "KL": 0.7527700066566467}
+{"stage": "training", "seconds": 6865.233999999997, "operation": "update", "step": 497, "id": "fit_rewrite_08", "durable": 496, "compute_seconds": 6.889999999999418, "KL": 0.9156249761581421}
+{"stage": "training", "seconds": 6879.514999999999, "operation": "update", "step": 498, "id": "broad_fit_smol_magpie_ultra_000", "durable": 496, "compute_seconds": 14.25, "KL": 0.704380452632904}
+{"stage": "training", "seconds": 6886.031000000003, "operation": "update", "step": 499, "id": "fit_rewrite_09", "durable": 496, "compute_seconds": 6.452999999994063, "KL": 1.4106417894363403}
+{"stage": "training", "seconds": 6894.421000000002, "operation": "update", "step": 500, "id": "broad_fit_smol_rewrite_004", "durable": 496, "compute_seconds": 8.343999999997322, "KL": 0.7454347610473633}
+{"stage": "training", "seconds": 6900.608999999997, "operation": "update", "step": 501, "id": "fit_rewrite_10", "durable": 496, "compute_seconds": 6.125, "KL": 0.6151255369186401}
+{"stage": "training", "seconds": 6911.4679999999935, "operation": "update", "step": 502, "id": "broad_fit_smol_summarize_003", "durable": 496, "compute_seconds": 10.796000000002095, "KL": 0.6519346237182617}
+{"stage": "training", "seconds": 6917.389999999999, "operation": "update", "step": 503, "id": "fit_rewrite_11", "durable": 496, "compute_seconds": 5.875, "KL": 0.7256323099136353}
+{"stage": "training", "seconds": 6931.625, "operation": "update", "step": 504, "id": "broad_fit_systemchats_30k_010", "durable": 496, "compute_seconds": 14.171999999991385, "KL": 1.1445238590240479}
+{"stage": "training", "seconds": 6937.702999999994, "operation": "update", "step": 505, "id": "fit_rewrite_12", "durable": 496, "compute_seconds": 6.0, "KL": 2.4825170040130615}
+{"stage": "training", "seconds": 6947.062000000005, "operation": "update", "step": 506, "id": "broad_fit_apigen_80k_023", "durable": 496, "compute_seconds": 9.297000000005937, "KL": 0.12761034071445465}
+{"stage": "training", "seconds": 6953.046000000002, "operation": "update", "step": 507, "id": "fit_rewrite_13", "durable": 496, "compute_seconds": 5.907000000006519, "KL": 1.0094698667526245}
+{"stage": "training", "seconds": 6961.421000000002, "operation": "update", "step": 508, "id": "broad_fit_everyday_conversations_010", "durable": 496, "compute_seconds": 8.327999999994063, "KL": 0.6105628609657288}
+{"stage": "training", "seconds": 6967.5, "operation": "update", "step": 509, "id": "fit_rewrite_14", "durable": 496, "compute_seconds": 6.0, "KL": 0.8074220418930054}
+{"stage": "training", "seconds": 6974.031000000003, "operation": "update", "step": 510, "id": "broad_fit_explore_instruct_rewriting_009", "durable": 496, "compute_seconds": 6.4689999999973224, "KL": 0.35342469811439514}
+{"stage": "training", "seconds": 6980.577999999994, "operation": "update", "step": 511, "id": "fit_rewrite_15", "durable": 496, "compute_seconds": 6.485000000000582, "KL": 0.6370312571525574}
+{"stage": "training", "seconds": 7071.233999999997, "operation": "update", "step": 512, "id": "broad_fit_metamathqa_50k_023", "durable": 512, "compute_seconds": 8.40700000000652, "KL": 0.8845634460449219}
+{"stage": "fixed_final_evaluation", "seconds": 7073.421000000002, "operation": "evaluated", "id": "dev_reading_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7075.389999999999, "operation": "evaluated", "id": "dev_history_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7077.781000000003, "operation": "evaluated", "id": "dev_arithmetic_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7079.5929999999935, "operation": "evaluated", "id": "dev_planning_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7081.046000000002, "operation": "evaluated", "id": "dev_instruction_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7082.796000000002, "operation": "evaluated", "id": "dev_code_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7084.452999999994, "operation": "evaluated", "id": "dev_rewrite_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7086.702999999994, "operation": "evaluated", "id": "dev_explanation_16"}
+{"stage": "fixed_final_evaluation", "seconds": 7088.312000000005, "operation": "evaluated", "id": "dev_reading_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7090.452999999994, "operation": "evaluated", "id": "dev_arithmetic_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7092.312000000005, "operation": "evaluated", "id": "dev_history_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7093.952999999994, "operation": "evaluated", "id": "dev_rewrite_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7095.639999999999, "operation": "evaluated", "id": "dev_instruction_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7098.031000000003, "operation": "evaluated", "id": "dev_planning_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7100.046000000002, "operation": "evaluated", "id": "dev_explanation_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7101.889999999999, "operation": "evaluated", "id": "dev_code_17"}
+{"stage": "fixed_final_evaluation", "seconds": 7104.046000000002, "operation": "evaluated", "id": "dev_planning_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7105.937000000005, "operation": "evaluated", "id": "dev_explanation_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7107.25, "operation": "evaluated", "id": "dev_rewrite_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7109.0929999999935, "operation": "evaluated", "id": "dev_history_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7110.437000000005, "operation": "evaluated", "id": "dev_instruction_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7112.312000000005, "operation": "evaluated", "id": "dev_code_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7114.4679999999935, "operation": "evaluated", "id": "dev_arithmetic_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7115.937000000005, "operation": "evaluated", "id": "dev_reading_18"}
+{"stage": "fixed_final_evaluation", "seconds": 7117.7179999999935, "operation": "evaluated", "id": "dev_reading_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7119.156000000003, "operation": "evaluated", "id": "dev_rewrite_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7121.406000000003, "operation": "evaluated", "id": "dev_explanation_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7123.2179999999935, "operation": "evaluated", "id": "dev_planning_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7125.4679999999935, "operation": "evaluated", "id": "dev_code_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7127.139999999999, "operation": "evaluated", "id": "dev_instruction_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7128.733999999997, "operation": "evaluated", "id": "dev_history_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7131.046000000002, "operation": "evaluated", "id": "dev_arithmetic_19"}
+{"stage": "fixed_final_evaluation", "seconds": 7133.702999999994, "operation": "evaluated", "id": "broad_fit_apigen_80k_023"}
+{"stage": "fixed_final_evaluation", "seconds": 7135.875, "operation": "evaluated", "id": "broad_fit_apigen_80k_002"}
+{"stage": "fixed_final_evaluation", "seconds": 7138.281000000003, "operation": "evaluated", "id": "broad_dev_apigen_80k_034"}
+{"stage": "fixed_final_evaluation", "seconds": 7141.125, "operation": "evaluated", "id": "broad_dev_apigen_80k_033"}
+{"stage": "fixed_final_evaluation", "seconds": 7144.375, "operation": "evaluated", "id": "broad_fit_everyday_conversations_002"}
+{"stage": "fixed_final_evaluation", "seconds": 7147.296000000002, "operation": "evaluated", "id": "broad_fit_everyday_conversations_010"}
+{"stage": "fixed_final_evaluation", "seconds": 7149.0929999999935, "operation": "evaluated", "id": "broad_dev_everyday_conversations_036"}
+{"stage": "fixed_final_evaluation", "seconds": 7151.9679999999935, "operation": "evaluated", "id": "broad_dev_everyday_conversations_033"}
+{"stage": "fixed_final_evaluation", "seconds": 7153.375, "operation": "evaluated", "id": "broad_fit_explore_instruct_rewriting_008"}
+{"stage": "fixed_final_evaluation", "seconds": 7154.9679999999935, "operation": "evaluated", "id": "broad_fit_explore_instruct_rewriting_009"}
+{"stage": "fixed_final_evaluation", "seconds": 7156.546000000002, "operation": "evaluated", "id": "broad_dev_explore_instruct_rewriting_035"}
+{"stage": "fixed_final_evaluation", "seconds": 7160.108999999997, "operation": "evaluated", "id": "broad_dev_explore_instruct_rewriting_038"}
+{"stage": "fixed_final_evaluation", "seconds": 7162.764999999999, "operation": "evaluated", "id": "broad_fit_metamathqa_50k_015"}
+{"stage": "fixed_final_evaluation", "seconds": 7166.421000000002, "operation": "evaluated", "id": "broad_fit_metamathqa_50k_023"}
+{"stage": "fixed_final_evaluation", "seconds": 7169.577999999994, "operation": "evaluated", "id": "broad_dev_metamathqa_50k_035"}
+{"stage": "fixed_final_evaluation", "seconds": 7173.281000000003, "operation": "evaluated", "id": "broad_dev_metamathqa_50k_037"}
+{"stage": "fixed_final_evaluation", "seconds": 7176.764999999999, "operation": "evaluated", "id": "broad_fit_numina_cot_100k_015"}
+{"stage": "fixed_final_evaluation", "seconds": 7180.452999999994, "operation": "evaluated", "id": "broad_fit_numina_cot_100k_016"}
+{"stage": "fixed_final_evaluation", "seconds": 7184.358999999997, "operation": "evaluated", "id": "broad_dev_numina_cot_100k_038"}
+{"stage": "fixed_final_evaluation", "seconds": 7187.983999999997, "operation": "evaluated", "id": "broad_dev_numina_cot_100k_035"}
+{"stage": "fixed_final_evaluation", "seconds": 7191.812000000005, "operation": "evaluated", "id": "broad_fit_openhermes_100k_004"}
+{"stage": "fixed_final_evaluation", "seconds": 7195.687000000005, "operation": "evaluated", "id": "broad_fit_openhermes_100k_028"}
+{"stage": "fixed_final_evaluation", "seconds": 7199.5, "operation": "evaluated", "id": "broad_dev_openhermes_100k_034"}
+{"stage": "fixed_final_evaluation", "seconds": 7203.125, "operation": "evaluated", "id": "broad_dev_openhermes_100k_037"}
+{"stage": "fixed_final_evaluation", "seconds": 7206.764999999999, "operation": "evaluated", "id": "broad_fit_self_oss_instruct_012"}
+{"stage": "fixed_final_evaluation", "seconds": 7210.452999999994, "operation": "evaluated", "id": "broad_fit_self_oss_instruct_006"}
+{"stage": "fixed_final_evaluation", "seconds": 7213.796000000002, "operation": "evaluated", "id": "broad_dev_self_oss_instruct_036"}
+{"stage": "fixed_final_evaluation", "seconds": 7217.921000000002, "operation": "evaluated", "id": "broad_dev_self_oss_instruct_033"}
+{"stage": "fixed_final_evaluation", "seconds": 7220.921000000002, "operation": "evaluated", "id": "broad_fit_smol_constraints_005"}
+{"stage": "fixed_final_evaluation", "seconds": 7224.296000000002, "operation": "evaluated", "id": "broad_fit_smol_constraints_021"}
+{"stage": "fixed_final_evaluation", "seconds": 7226.671000000002, "operation": "evaluated", "id": "broad_dev_smol_constraints_035"}
+{"stage": "fixed_final_evaluation", "seconds": 7228.687000000005, "operation": "evaluated", "id": "broad_dev_smol_constraints_034"}
+{"stage": "fixed_final_evaluation", "seconds": 7232.781000000003, "operation": "evaluated", "id": "broad_fit_smol_magpie_ultra_000"}
+{"stage": "fixed_final_evaluation", "seconds": 7237.264999999999, "operation": "evaluated", "id": "broad_fit_smol_magpie_ultra_022"}
+{"stage": "fixed_final_evaluation", "seconds": 7241.437000000005, "operation": "evaluated", "id": "broad_dev_smol_magpie_ultra_034"}
+{"stage": "fixed_final_evaluation", "seconds": 7245.858999999997, "operation": "evaluated", "id": "broad_dev_smol_magpie_ultra_036"}
+{"stage": "fixed_final_evaluation", "seconds": 7248.077999999994, "operation": "evaluated", "id": "broad_fit_smol_rewrite_004"}
+{"stage": "fixed_final_evaluation", "seconds": 7251.812000000005, "operation": "evaluated", "id": "broad_fit_smol_rewrite_015"}
+{"stage": "fixed_final_evaluation", "seconds": 7254.9679999999935, "operation": "evaluated", "id": "broad_dev_smol_rewrite_036"}
+{"stage": "fixed_final_evaluation", "seconds": 7257.9679999999935, "operation": "evaluated", "id": "broad_dev_smol_rewrite_032"}
+{"stage": "fixed_final_evaluation", "seconds": 7259.921000000002, "operation": "evaluated", "id": "broad_fit_smol_summarize_024"}
+{"stage": "fixed_final_evaluation", "seconds": 7262.639999999999, "operation": "evaluated", "id": "broad_fit_smol_summarize_003"}
+{"stage": "fixed_final_evaluation", "seconds": 7264.3429999999935, "operation": "evaluated", "id": "broad_dev_smol_summarize_034"}
+{"stage": "fixed_final_evaluation", "seconds": 7267.062000000005, "operation": "evaluated", "id": "broad_dev_smol_summarize_039"}
+{"stage": "fixed_final_evaluation", "seconds": 7270.25, "operation": "evaluated", "id": "broad_fit_systemchats_30k_024"}
+{"stage": "fixed_final_evaluation", "seconds": 7274.25, "operation": "evaluated", "id": "broad_fit_systemchats_30k_010"}
+{"stage": "fixed_final_evaluation", "seconds": 7277.577999999994, "operation": "evaluated", "id": "broad_dev_systemchats_30k_039"}
+{"stage": "fixed_final_evaluation", "seconds": 7281.546000000002, "operation": "evaluated", "id": "broad_dev_systemchats_30k_034"}

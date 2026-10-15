@@ -1,5 +1,21 @@
 # Balanced joint replay: prepared binding
 
+Producer completion: holder24160/worker26392 both exit0. All512 updates,
+Adam830,actual final checkpoint3,059,861,270B SHA256
+3dc2880deac5fed70dc2b2a5d3c7feea4fe6e9ad52a656449309d4e9785eb826.
+Saved model/Adam/RNG roundtrip and input before/after seals pass; GPU ownership
+released before posthash. Worker7328.828s/GPU phase7257.610s,OS5,221,330,944B,
+GPUallocated4,730,072,064B/reserved5,291,114,496B; within original limits.
+
+Preliminary known-prefix decision FAIL. New FIT KL.70077109/disagreement
+16.41791% passes;new DEV KL7.11347743/disagreement81.48655% fails;old DEV
+KL2.56407253/disagreement35.99275% fails. Old retention improves,while new
+FIT/DEV diverge strongly. No more unchanged replay on152 records or promotion.
+[Stored CPU audit protocol](CHATBOT_BALANCED_REPLAY_AUDIT_20261015.md) requires
+all80 cases/9,911 labels,actual final checkpoint/211 moments/order/route ledger/
+resource and custody checks. Expected5--10min,no pause,no GPU/retraining.
+All live/initial launch observations below are historical; producer is closed.
+
 Launch update: current-runtime shortest/longest FIT controls both relative0
 and all argmax IDs exact against the old actual checkpoint outputs. Training
 updates1--3 observed completed with finite full gradients/positive group norms/

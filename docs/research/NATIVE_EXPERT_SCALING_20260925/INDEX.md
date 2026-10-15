@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / long-run pause requested. Joint replay training active.**
+15 October 2026. **Goal INCOMPLETE / ACTIVE. Joint replay finished; stored CPU audit prepared.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,15 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+[Balanced replay completion](CHATBOT_BALANCED_REPLAY_STATE_20261015.md):
+worker/holder exit0,512 updates/Adam830,full final serialized state roundtrip
+and current input seals. Worker7328.828s/GPU7257.610s/OS5.221GB/GPUpeak4.730GB.
+Preliminary new FIT KL.70077/disagreement16.418% passes,but new DEV KL7.11348/
+81.487% and old DEV KL2.56407/35.993% fail. No final artifact promotion.
+Complete [CPU saved-evidence audit](CHATBOT_BALANCED_REPLAY_AUDIT_20261015.md)
+before closing this recipe. No further unchanged fit on the same152 examples.
+Earlier live/launch statements in linked state documents are historical.
 
 [Balanced replay state](CHATBOT_BALANCED_REPLAY_STATE_20261015.md): both
 current-runtime FIT controls EXACT(error0/all argmax); first3 training updates
