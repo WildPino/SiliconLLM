@@ -1,5 +1,10 @@
 # Pretrained-to-native conditional-capacity method
 
+**Session closure, 15 October 2026:** the owner stopped this session. Goal
+paused/incomplete; no numerical job is waiting. Use the current
+[handoff](../../../HANDOFF.md) before following any historical next/live
+statement below. No research resumes solely from reading this method.
+
 **Mixed recipient closure 15 October 2026:** the
 [full W4/W8 continuation](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_SCALAR_RESULT_20261015.md)
 passes exact decoded native/reference parity after a documented scalar-exp

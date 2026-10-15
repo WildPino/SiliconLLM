@@ -1,8 +1,11 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / active. Source capture and adoption CLOSED; pipeline reassessed.**
-Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
-[preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
+15 October 2026. **Session CLOSED by owner; goal PAUSED / INCOMPLETE. No numerical job is waiting.**
+The current [handoff](../../../HANDOFF.md) is the resumption authority; older
+active/live/next statements below retain their historical experimental scope.
+The [previous handoff](HANDOFF_SNAPSHOT_20261015/HANDOFF_PREVIOUS_20261014.md)
+and its [interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json)
+are preserved. That interrupted audit was subsequently completed and closed.
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [original goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md),
 [latest owner scope clarification](SCOPE_CLARIFICATION_20261015.md).
 

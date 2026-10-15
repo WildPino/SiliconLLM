@@ -1,5 +1,10 @@
 # Native expert-count scaling: prior evidence
 
+**Session closure, 15 October 2026:** goal paused/incomplete at the owner's
+request; no numerical job is waiting. The current [handoff](../../../HANDOFF.md)
+supersedes historical active/live/next instructions. Experimental results and
+their original thresholds remain unchanged.
+
 **Mixed recipient cost rejection 15 October 2026:**
 [W4 FFN / W8 attention and head](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_SCALAR_RESULT_20261015.md)
 has exact four-position decoded parity after repairing the reference exp
