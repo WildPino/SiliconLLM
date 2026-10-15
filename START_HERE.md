@@ -1,6 +1,12 @@
 # Start here
 
-The research session is **paused** and the scientific goal is **incomplete**. No numerical job is waiting. [HANDOFF.md](HANDOFF.md) is the authority for resuming work; older “next step” text records its own date and scope.
+The scientific goal is **incomplete**. After the archived research handoff, the
+owner authorized a bounded **context-program Kaggle pilot**. Read its
+[protocol](docs/research/CONTEXT_PROGRAM_PILOT_20261015/PROTOCOL.md) and
+[dated launch record](docs/research/CONTEXT_PROGRAM_PILOT_20261015/LAUNCH.md)
+for the current numerical job. [HANDOFF.md](HANDOFF.md) preserves the previous
+stopping point and storage custody; its “no numerical job” statement predates
+this launch. Older “next step” text records its own date and scope.
 
 The goal is a reproducible transformation from a pretrained chatbot to a C-engine artifact with a compact online core and useful, selectively consulted large capacity. The **same artifact** must preserve measured donor-relative usefulness and deliver at least 50 accepted batch-one CPU tokens/s. [Scope clarification](docs/research/NATIVE_EXPERT_SCALING_20260925/SCOPE_CLARIFICATION_20261015.md) and the evolving [method](docs/research/NATIVE_EXPERT_SCALING_20260925/METHOD.md) define the current requirements and what remains unproved.
 
