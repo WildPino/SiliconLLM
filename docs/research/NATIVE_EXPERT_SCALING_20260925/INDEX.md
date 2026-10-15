@@ -20,6 +20,35 @@ pilot alone does not demonstrate the large-model pipeline. See scope clarificati
 
 ## Latest decisive evidence
 
+[Training resource clarification](../PIPELINE_REASSESSMENT_20261015/TRAINING_RESOURCE_CLARIFICATION_20261015.md):
+the owner accepts months of T4 usage. Long adaptation must not be excluded
+solely by duration; memory, donor/data generation, measured throughput and
+resumable execution still need a concrete plan. Final useful CPU inference
+requirements and historical experimental outcomes are unchanged.
+
+[Carving research brief](../PIPELINE_REASSESSMENT_20261015/CARVING_RESEARCH_BRIEF_20261015.md)
+collects exact child packing, source-neuron remainder coverage, failed cheap
+selectors, conditional/shared-function banks, actual120B core falsifiers and
+historical whole-artifact successes for a new architectural consultation.
+The question is how to change the representation and reduce weights touched,
+including the always-on path and routing masses. Historical internal-operator
+gates remain unchanged but are not universal necessary conditions for useful
+quality in every new architecture. The [completed review and research decision](../PIPELINE_REASSESSMENT_20261015/CARVING_DECISION_20261015.md)
+prioritize a pretrained compact recipient plus large frozen donor memory with
+prolonged joint recovery; trained native-MoE carving is second and activation
+codebooks optional third. No new fit, model acquisition or numerical trial has
+run. The next prerequisite is complete recipient CPU cost and a bounded
+donor-memory transfer protocol with causal useful-capacity controls.
+
+[Pinned conditional-memory metadata screen](../PIPELINE_REASSESSMENT_20261015/ACTIVE_WORK_REVIEW_20261015/METADATA_SCREEN_RESULT_20261015.md)
+downloads only1.109MB. LongCat's31.407B n-gram table coefficients use6KiB of
+BF16 selected rows/token, but its unchanged shared decoder remains large:
+the reproducible favorable source ledger counts1.523GB ideal payload/token
+before experts/cache/format overhead. Source-code-derived shapes and indexed
+names are not acquired tensor headers, measured DRAM, CPU timing or quality.
+Deprioritize an unchanged port; conditional-memory transfer is still a research
+question with learning and conversion costs, not an admitted replacement.
+
 [Pipeline reassessment](../PIPELINE_REASSESSMENT_20261015/DECISION_REPORT.md):
 stop unchanged compact replay and minor codec/thread grids. Preserve pretrained
 functions before reducing active work; compare native learned MoE transfer with

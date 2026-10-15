@@ -1,5 +1,11 @@
 # Native expert-count scaling: prior evidence
 
+**Resource interpretation15 October2026:** the owner accepts
+[months of T4 training](../PIPELINE_REASSESSMENT_20261015/TRAINING_RESOURCE_CLARIFICATION_20261015.md).
+Substantial adaptation duration alone does not rule out a mechanism. Published
+training scale still needs actual memory/throughput and source-data accounting;
+neither longer training nor a metadata count proves useful large capacity.
+
 **Core transformation closure15 October2026:** the
 [actual Q/O rank256 recipe](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_RANK_RESULT_20261015.md)
 fails FIT/DEV branch L2=0.211763/0.292680 despite passing full-F32 precision

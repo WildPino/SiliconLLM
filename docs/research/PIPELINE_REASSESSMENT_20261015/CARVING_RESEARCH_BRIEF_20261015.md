@@ -29,6 +29,13 @@ bounded conversion/learning, not final inference. Several existing cost screens
 use only three physical cores. Their failures are not universal six-core bounds.
 Conversion resources and the cost of obtaining labels matter.
 
+**Owner update after this brief was delivered:** months of T4 usage are
+acceptable. See the [training resource clarification](TRAINING_RESOURCE_CLARIFICATION_20261015.md).
+Long adaptation is allowed; short local experiments are diagnostic steps, not
+the full training budget. Reassess learned carving, routing and memory transfer
+under that budget, while checking16GiB memory, donor/data access and actual
+throughput rather than equating GPU-months to an unspecified cluster.
+
 Historical component gates are evidence about their prescribed recipes, not
 universal necessary conditions for useful chatbot quality. A new representation
 may trade local approximation errors differently. If a proposed route cannot

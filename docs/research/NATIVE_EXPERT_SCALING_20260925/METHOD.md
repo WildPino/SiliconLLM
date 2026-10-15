@@ -1,5 +1,21 @@
 # Pretrained-to-native conditional-capacity method
 
+**Training budget clarification15 October2026:** the owner accepts
+[months of T4 usage](../PIPELINE_REASSESSMENT_20261015/TRAINING_RESOURCE_CLARIFICATION_20261015.md).
+Do not restrict future mechanisms to cheap post-training or short RTX3060 fits.
+Long recovery/upcycling is admissible when its memory, source/data acquisition,
+measured throughput and final CPU active-work budget are credible. Historical
+short-run failures remain recipe-specific; no existing gate or receipt changes.
+
+**Revised research priority15 October2026:** the
+[carving decision](../PIPELINE_REASSESSMENT_20261015/CARVING_DECISION_20261015.md)
+selects pretrained compact-recipient recovery around a frozen donor-derived
+conditional memory as the first hypothesis under that horizon. Donor execution
+moves offline; useful donor-relative transfer, complete recipient CPU cost and
+large-family evidence are unresolved. This is not a promoted artifact or an
+assumption that n-gram memory retains donor reasoning. Learned native-MoE
+carving remains second; extreme additive activation coding is optional third.
+
 **Current applicability decision15 October2026:** no complete transfer/rate
 path is admitted. The [120B protected Q4_K screen](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md)
 exceeds20ms before experts/head/KV; the
