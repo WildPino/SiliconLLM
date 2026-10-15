@@ -1,5 +1,14 @@
 # Nonselected six-block defect evaluation: launch observation
 
+CPU recovery launched under freeze797b9791a45b4a95ee92e8f4b0b8f4de7e7e76a3,
+PID32108/create1792052062.3094175/session35763. Actual WMI/psutil live identity
+verified; [owned receipt](fixed_depth_evaluation6_recovery_pipeline_20261015.owned_process.json).
+All original inputs/family/journals reconciled; separately named recovered
+report written. Preliminary DEV KL14.82420871593/disagreement99.11139860372%,
+tasks0/16/all four categories0/4/followup false; complete mathematical audit
+now running. No recovered numerical PASS or closure yet. Original worker and
+holder remain exit1. No GPU replay; keep goal active for this shorter CPU run.
+
 Terminal update15 October: original worker11212/create1792044666.2317238 and
 holder33668 exit1, worker deadline7110.047s at AFTER_HASH. All24 DEV/16 tasks/
 followup/16 prefix pairs and source411 checks completed; GPU released32MiB

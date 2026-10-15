@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / ACTIVE. Diagnostic posthash deadline; CPU recovery prepared.**
+15 October 2026. **Goal INCOMPLETE / ACTIVE. Diagnostic CPU recovery/full audit running.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -15,6 +15,13 @@ an improvement target. Useful RAM-driven n, multiple families/scales and
 conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
+
+Recovery32108/create1792052062.3094175/session35763 confirmed live under
+freeze797b979; all original pins/994 family files and actual journals sealed.
+Recovered report written separately; preliminary DEV KL14.82421/disagreement
+99.11140%, tasks0/16/followup false. Complete stored mathematical audit is
+running; no numerical PASS/closure yet. Original worker/holder exit1 retained.
+No GPU replay. Continue without goal pause for expected15--25min CPU run.
 
 Original nonselected6 evaluation worker/holder exit1 at AFTER_HASH deadline
 7110.047s after complete24 DEV/16 tasks/followup/16 prefix pairs/source411
