@@ -4,7 +4,9 @@ The scientific goal is **incomplete**. After the archived research handoff, the
 owner authorized a bounded **context-program Kaggle pilot**. Read its
 [protocol](docs/research/CONTEXT_PROGRAM_PILOT_20261015/PROTOCOL.md) and
 [dated launch record](docs/research/CONTEXT_PROGRAM_PILOT_20261015/LAUNCH.md)
-for the current numerical job. [HANDOFF.md](HANDOFF.md) preserves the previous
+for the launch. The [first result](docs/research/CONTEXT_PROGRAM_PILOT_20261015/RESULT.md)
+is **complete, exploratory negative**; the conditional follow-ups did not run.
+[HANDOFF.md](HANDOFF.md) preserves the previous
 stopping point and storage custody; its “no numerical job” statement predates
 this launch. Older “next step” text records its own date and scope.
 

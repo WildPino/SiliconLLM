@@ -13,6 +13,7 @@ import csv
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -222,6 +223,9 @@ finally:
 
 
 def main() -> None:
+    # The child CLI prints Unicode progress/log text on Windows. Its locale
+    # encoding otherwise fails after downloads have already succeeded.
+    os.environ["PYTHONUTF8"] = "1"
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("build", "launch", "status", "output"):
