@@ -125,6 +125,8 @@ No owned capture/audit run remains live. Do not restart successful generation.
 The complete source coverage is adopted; no automatic D512 fit follows. Qualify
 the actual-weight core intervention; packed layout and bounded cost screens are closed.
 Pause only for expected>=1h numerical jobs; continue shorter checks here.
+Reserve independent strategic review for difficult conceptual questions; do
+routine implementation and code checks within the standard working roles.
 
 RESERVED104 new+64 older and LongAlign remain unqueried. Preserve foreign
 changes,owner Git identity and attribution-free commits. Final same-artifact
