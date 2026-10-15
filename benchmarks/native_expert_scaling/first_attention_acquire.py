@@ -16,6 +16,7 @@ import time
 import traceback
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 
 os.environ['CUDA_VISIBLE_DEVICES'] = ''
 os.environ['HF_HUB_OFFLINE'] = '1'
@@ -184,7 +185,16 @@ class Budget:
             self.calls += 1
             candidate = url if retry == 0 else url + f'?range_start={first}&range_end={last}&range_retry=1'
             req = Request(candidate, headers={'Range': f'bytes={first}-{last}', 'Accept-Encoding':'identity'})
-            with urlopen(req, timeout=30) as response:
+            try:
+                opened=urlopen(req, timeout=30)
+            except HTTPError as error:
+                self.record(dict(name=name,first=first,last=last,retry=retry,
+                    status=error.code,body_read=False,fault='HTTP refusal'))
+                error.close()
+                if retry==0 and error.code in (403,416):
+                    continue
+                raise
+            with opened as response:
                 value = response.headers.get('Content-Range', '')
                 match = RANGE.fullmatch(value)
                 header = dict(status=response.status, content_range=value,
@@ -384,7 +394,8 @@ def main(args, process, began):
     for row in chosen:
         guard()
         canonical=tokenizer.apply_chat_template(row['messages'],tokenize=True,
-            add_generation_prompt=True,reasoning_effort='medium',strftime_now=fixed_clock)
+            add_generation_prompt=True,reasoning_effort='medium',strftime_now=fixed_clock,
+            return_dict=False)
         assert isinstance(canonical,list) and canonical and all(type(v) is int and 0<=v<config['vocab_size'] for v in canonical)
         first=canonical[:256];used.update(first)
         cases.append(dict(id=row['id'],split=row['split'],domain=row['domain'],group_key=row['group_key'],

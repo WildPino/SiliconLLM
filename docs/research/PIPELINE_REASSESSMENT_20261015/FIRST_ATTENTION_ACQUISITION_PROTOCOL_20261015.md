@@ -48,3 +48,13 @@ each hit records its input descriptor and zero new network-body bytes. No
 cache file is trusted by path alone. This avoids a repeated28MB metadata fetch.
 The next exclusive output is`first_attention_source_repair2_20261015`; all
 earlier ownership/terminal receipts remain unchanged.
+
+## Explicit tokenizer result contract
+
+The next preparation stopped before weight requests because installed
+Transformers5.13.1 defaults `apply_chat_template` to a dictionary result.
+The corrected call explicitly uses `return_dict=False`; rendered text, token
+IDs, clock and data rules are unchanged. A bounded pre-body HTTP403/416 refusal
+may also receive the same single interval-specific cache-busting retry; the
+refusal is retained, and no error body is read. The next exclusive directory
+is`first_attention_source_repair3_20261015`; earlier faults stay intact.
