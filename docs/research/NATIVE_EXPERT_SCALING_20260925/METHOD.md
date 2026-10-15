@@ -1,14 +1,24 @@
 # Pretrained-to-native conditional-capacity method
 
-**Protected-core decision15 October2026:** [actual bounded screen](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md)
-rejects the tested120B Q4_K protected projections:34.39/50.95/53.88ms without
-head/experts/KV attention, with numeric/placement/custody PASS. The
-[small Q4 expert bundle](GRANITE_CHILD256_COST_RESULT_20261015.md) also fails
-its prospective cost/stability gates despite full numeric PASS. These are
-synthetic physical variants, not universal impossibility results. Next is an
-actual-weight/source-input core intervention, not a full donor port or kernel
-grid: rank256 Q/O on source layer0, all other attention organs preserved, with
-fixed FIT/DEV and local composition gates. No fit/acquisition launched yet.
+**Current applicability decision15 October2026:** no complete transfer/rate
+path is admitted. The [120B protected Q4_K screen](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md)
+exceeds20ms before experts/head/KV; the
+[actual Q/O rank256 recipe](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_RANK_RESULT_20261015.md)
+and [one-group source-contribution oracle](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_SOURCE_GROUP_RESULT_20261015.md)
+both fail their fixed branch-function gates. Source acquisition, numerical
+precision controls, separate CPU rank replay and saved-metric readback are
+closed. The rank producer's cleanup failure remains explicit. These reject
+the tested finite recipes, not all representations or native MoE families.
+
+Available procedure: pin full source metadata and account for protected plus
+conditional active work; price a favorable incomplete physical core; then use
+authentic source weights/inputs to falsify a proposed transformation before a
+full donor acquisition. A quality failure stops that recipe, and a local PASS
+would still require complete own-history quality and SAME-artifact C timing.
+The [small Q4 expert bundle](GRANITE_CHILD256_COST_RESULT_20261015.md) is also a
+numeric PASS/cost FAIL. No unchanged rank/head-group/codec grid or full120B
+acquisition follows. Current research seeks a distinct complete-cost mechanism
+or a public pretrained small-core/finer-conditional family; none is yet admitted.
 
 **Source coverage closure15 October2026:** [final result](CHATBOT_SOURCE_COVERAGE_RESULT_20261015.md).
 All432 source cases/76,512 labels adopted after complete CPU audit,5.032B BF16

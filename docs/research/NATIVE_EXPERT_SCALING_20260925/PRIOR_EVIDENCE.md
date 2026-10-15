@@ -1,14 +1,23 @@
 # Native expert-count scaling: prior evidence
 
-**Protected-core decision15 October2026:** [actual bounded screen](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md)
-rejects the tested120B Q4_K protected projections:34.39/50.95/53.88ms without
-head/experts/KV attention, with numeric/placement/custody PASS. The
-[small Q4 expert bundle](GRANITE_CHILD256_COST_RESULT_20261015.md) also fails
-its prospective cost/stability gates despite full numeric PASS. These are
-synthetic physical variants, not universal impossibility results. Next is an
-actual-weight/source-input core intervention, not a full donor port or kernel
-grid: rank256 Q/O on source layer0, all other attention organs preserved, with
-fixed FIT/DEV and local composition gates. No fit/acquisition launched yet.
+**Core transformation closure15 October2026:** the
+[actual Q/O rank256 recipe](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_RANK_RESULT_20261015.md)
+fails FIT/DEV branch L2=0.211763/0.292680 despite passing full-F32 precision
+controls; all36 source/candidate cases independently replayed on CPU. Producer
+cleanup FAILED_GPU_RELEASE remains explicit, numerical rejection is independently
+verified. The distinct [one-group source oracle](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_SOURCE_GROUP_RESULT_20261015.md)
+also fails L2=0.518095/0.499741 with teacher-chosen IDs and ANY REAL mass;
+all-group control passes. No router can repair that fixed class's minimum error.
+No full-model quality, physical factor format or useful50 follows. Do not repeat
+these finite recipes unchanged or infer every attention transformation impossible.
+
+The [120B protected Q4_K physical screen](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_120B_CPU_RESULT_20261015.md)
+still rejects its measured34.39/50.95/53.88ms before head/experts/KV. The
+[small Q4 expert bundle](GRANITE_CHILD256_COST_RESULT_20261015.md) is numeric
+PASS/cost FAIL. Source acquisition and both actual-weight local tests are now
+closed; earlier prepared-only/next-run observations are historical. Next work
+must identify a distinct mechanism or already-pretrained family whose complete
+active work and conversion economics plausibly fit, before another large port.
 
 **Source coverage closure15 October2026:** [final result](CHATBOT_SOURCE_COVERAGE_RESULT_20261015.md).
 All432 source cases/76,512 labels adopted after complete CPU audit,5.032B BF16
