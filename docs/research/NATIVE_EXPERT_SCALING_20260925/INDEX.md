@@ -102,13 +102,22 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 ## Exact next action
 
-The next substantive experiment must resolve complete active cost AND transfer,
-not repeat D512 replay merely because new labels arrive. Source collection/adoption is complete. Freeze a physical packed-format cost gate and
-a source-function-preserving calibration/conditional-transfer pilot, using the
-reassessment and its [actual operand map](../PIPELINE_REASSESSMENT_20261015/CALIBRATION_FEASIBILITY.md).
-No learner, model-value acquisition or rate run qualifies for launch from a
-passing metadata row alone; freeze formats, donor-relative gates, resources and
-stop first. Preserve the existing full-width quality control.
+[Large-family selection screen](../PIPELINE_REASSESSMENT_20261015/LARGE_FAMILY_SELECTION.md)
+identifies20B->120B as a better capacity/cost family test than a small donor
+alone. Official metadata and reference semantics are pinned, no values acquired.
+Head-free/expert-free ideal core+KV still15.28ms at assumed40GB/s; physicalQ4_K
+padding raises the byte-only forecast to17.27ms. Measure the favorable protected
+projection/router path before substantial conversion. Omitted attention/KV
+prevents a fast partial screen from promoting the family. A slow screen rejects
+that representation and requires an explicit core transformation.
+
+The256-aligned expert layout is qualified synthetically; its small-donor bundle
+cost preparation is an enabling kernel comparison only. It does not replace the
+large-family gate. [Retrieved head and block verification](../PIPELINE_REASSESSMENT_20261015/PROTECTED_CORE_INTERVENTIONS.md)
+are separated: sublinear head retrieval is a new variable, whereas old block
+verification has negative cost/union evidence. No unchanged D512 replay follows.
+Freeze each actual numerical implementation, gates and resources before launch;
+no learner or model acquisition is admitted by analytical bytes alone.
 
 No owned capture/audit run remains live. Do not restart successful generation.
 The complete source coverage is adopted; no automatic D512 fit follows. Qualify
