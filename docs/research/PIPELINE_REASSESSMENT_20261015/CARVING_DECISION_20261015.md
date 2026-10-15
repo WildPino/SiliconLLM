@@ -4,12 +4,17 @@
 checkpoint acquisition. The overall pipeline goal remains active/incomplete.
 
 **Subsequent execution update:** the
+[complete mixed W4/W8 recipient](RECIPIENT_MIXED_SCALAR_RESULT_20261015.md)
+now has exact decoded C/reference parity but fails all five cost groups
+(15 processes, worst43.53ms at context2048). Its original reference fault,
+first-divergence trace and scalar-math repair are all retained. The
 [complete original-recipient int8 baseline](RECIPIENT_INT8_BASELINE_RESULT_20261015.md)
 has now run and closed with decoded-wire numerical PASS / cost-envelope FAIL.
-This supersedes the prepared-only state below for that prerequisite. It does
+These supersede the prepared-only state below for those prerequisites. They do
 not reject donor-memory transfer or license long recovery on the unchanged
 recipient. See [core triage](RECIPIENT_CORE_TRIAGE_20261015.md) for the next
-complete-encoding comparison. No T4 training is running.
+smaller-online-core qualification, still within the very-large-donor transfer
+program. No T4 training is running.
 
 ## Selected research direction
 

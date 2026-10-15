@@ -1,0 +1,74 @@
+{
+  "schema": "RECIPIENT_MIXED_SCALAR_READBACK_V1",
+  "status": "READBACK_PASS",
+  "cost_status": "MIXED_COST_ENVELOPE_FAIL",
+  "input_sha256_before_after": {
+    "binding": "979f62a1aa4f9b91fa521433e0974bbd3d9c07fe7b87bbc87a9b59b6905c7671",
+    "result": "1cabb4d329af9a62f4b48e2734f1cfbdfcc868b7760e47a39a96a891655ea42c",
+    "readback": "8425ff1ce817811c204fc1138ffb51b46c8db9e90353c59b8d7353967d4e466e"
+  },
+  "commands": 17,
+  "cases": 15,
+  "audit_gates": {
+    "all_selected_argmax_equal": true,
+    "all_selected_full_logits_relative_l2_le_1e-3": true,
+    "all_selected_final_norm_relative_l2_le_1e-3": true
+  },
+  "cost_summary": {
+    "prompt_0": {
+      "rates": [
+        40.895744606074935,
+        45.60743076168472,
+        33.37951528354125
+      ],
+      "median": 40.895744606074935,
+      "worst": 33.37951528354125,
+      "worst_ms": 29.95849375,
+      "spread": 1.3663299294274893
+    },
+    "prompt_1": {
+      "rates": [
+        50.17468630629325,
+        58.507369140269866,
+        38.11208681361695
+      ],
+      "median": 50.17468630629325,
+      "worst": 38.11208681361695,
+      "worst_ms": 26.2383953125,
+      "spread": 1.535139480196764
+    },
+    "prompt_2": {
+      "rates": [
+        35.18508592170494,
+        47.627162663876504,
+        42.00774439022674
+      ],
+      "median": 42.00774439022674,
+      "worst": 35.18508592170494,
+      "worst_ms": 28.421132812499998,
+      "spread": 1.3536179155525754
+    },
+    "context_512": {
+      "rates": [
+        41.040128717233706,
+        36.957678549619004,
+        48.534876176155514
+      ],
+      "median": 41.040128717233706,
+      "worst": 36.957678549619004,
+      "worst_ms": 27.0579765625,
+      "spread": 1.3132555420382555
+    },
+    "context_2048": {
+      "rates": [
+        37.55218433428485,
+        22.97038274220788,
+        35.72924135264432
+      ],
+      "median": 35.72924135264432,
+      "worst": 22.97038274220788,
+      "worst_ms": 43.5343203125,
+      "spread": 1.6348088212428014
+    }
+  }
+}

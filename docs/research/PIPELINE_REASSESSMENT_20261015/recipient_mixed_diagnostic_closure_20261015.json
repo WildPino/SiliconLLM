@@ -1,0 +1,187 @@
+{
+  "schema": "RECIPIENT_MIXED_DIAGNOSTIC_CLOSURE_V1",
+  "status": "TRACE_COMPARISON_COMPLETE",
+  "controller_tool_session": 71636,
+  "controller_tool_exit": 0,
+  "retained_directory": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_diagnostic_20261015",
+  "result_sha256": "8f54ad823aa3b8ffe8e606923a24d97395642cc8dec5ef3f116e25c154fd5bef",
+  "binding_sha256": "80f82d61b85fca2260c07754d655899cf8681f6a7c9dcf5c9cc17199b43e60b7",
+  "seconds": 43.26600000000326,
+  "commands": [
+    {
+      "name": "compile",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "-Wl,--no-insert-timestamp",
+        "-DSILICON_QWEN_RECIPIENT_ENTRY",
+        "-DRC_DIAGNOSTIC",
+        "-DRECIPIENT_CATALOG=\"D:/_THINGS/Progetti/SiliconLLM/results/native_expert_scaling/recipient_mixed_baseline_20261015/recipient_catalog.h\"",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_diagnostic_20261015\\recipient.diagnostic.exe",
+        "-lbcrypt",
+        "-lm"
+      ],
+      "exit_code": 0,
+      "seconds": 1.9059999999881256,
+      "peak_rss_observed": 4640768,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "request_sha256": null,
+      "trace_sha256": null
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_diagnostic_20261015\\recipient.diagnostic.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_baseline_20261015\\recipient.mixed.bin",
+        "probe",
+        "2176",
+        "6"
+      ],
+      "exit_code": 0,
+      "seconds": 4.452999999979511,
+      "peak_rss_observed": 690540544,
+      "stdout_sha256": "9dfdc44494987db9116608d70261af9e6790f8b5856a0214260077dbf8090d12",
+      "stderr_sha256": "56c9fe2e1ad9ba5965563f025cbe102c09c571131d1db281c49c8f5e4025d069",
+      "request_sha256": "efca3c32a985bb5ac9c418491b0635911c3b44dc525f5f842d91286b5691a9c9",
+      "trace_sha256": "bb965c40a21648b677f6b10f5ee780d15c07cc03a5ea47df4f759baa732c5db8"
+    },
+    {
+      "name": "reference",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recipient_mixed_diagnose.py",
+        "reference",
+        "--directory",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recipient_mixed_diagnostic_20261015"
+      ],
+      "exit_code": 0,
+      "seconds": 19.28100000001723,
+      "peak_rss_observed": 3066306560,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "request_sha256": null,
+      "trace_sha256": null
+    }
+  ],
+  "owned": [
+    {
+      "name": "compile",
+      "owned_identity_absent": true,
+      "terminal_sha256": "02f145dd7387037c6b8cbad765bef0c997b3704c61805f0642dcac90750dcc7b"
+    },
+    {
+      "name": "probe",
+      "owned_identity_absent": true,
+      "terminal_sha256": "b6c2f15bd3ff6096051d5ff077065f9b6f934b947606f1ad6a94dc77dbbf66f5"
+    },
+    {
+      "name": "reference",
+      "owned_identity_absent": true,
+      "terminal_sha256": "79187faac75860b676d33c202a4633066af46a3a3421590b4f865b016477b86a"
+    }
+  ],
+  "native_trace_sha256": "bb965c40a21648b677f6b10f5ee780d15c07cc03a5ea47df4f759baa732c5db8",
+  "reference_trace_sha256": "870dd12dd34f1c48c7e40f7036a62089fc65273c0584d4395796c617a2d2c296",
+  "probe_replay_identical": true,
+  "reference_replay_identical": true,
+  "first_f32_difference": "position=0,layer=0,tag=92,active",
+  "first_code_difference": {
+    "position": 1,
+    "layer": 21,
+    "tag": 70,
+    "stage": "position=1,layer=21,tag=70,down.activation_codes",
+    "count": 4864,
+    "unequal_f32": 1,
+    "first_unequal_index": 2805,
+    "code_mismatches": 1,
+    "native_code": -15.0,
+    "reference_code": -14.0,
+    "prequant": {
+      "native_input": -0.09306909143924713,
+      "reference_input": -0.09306883066892624,
+      "native_scale": 0.006418542470782995,
+      "reference_scale": 0.006418542470782995,
+      "native_half_step_margin": 3.5150175406784e-05,
+      "reference_half_step_margin": 5.477478314475093e-06
+    }
+  },
+  "first_numeric_difference": {
+    "position": 1,
+    "layer": 22,
+    "tag": 12,
+    "stage": "position=1,layer=22,tag=12,q.projection_output",
+    "count": 896,
+    "unequal_f32": 896,
+    "first_unequal_index": 0,
+    "relative_l2": 0.0029451327633301517,
+    "maximum_absolute_difference": 0.017002448439598083
+  },
+  "by_position": {
+    "0": {
+      "records": 604,
+      "activation_code_mismatches": 0,
+      "worst_relative_l2": 9.318061374659873e-08,
+      "first_code_stage": null
+    },
+    "1": {
+      "records": 600,
+      "activation_code_mismatches": 4560,
+      "worst_relative_l2": 0.023650597483363296,
+      "first_code_stage": "position=1,layer=21,tag=70,down.activation_codes"
+    },
+    "2": {
+      "records": 600,
+      "activation_code_mismatches": 2079,
+      "worst_relative_l2": 0.015922237703862526,
+      "first_code_stage": "position=2,layer=22,tag=40,o.activation_codes"
+    },
+    "3": {
+      "records": 600,
+      "activation_code_mismatches": 2550,
+      "worst_relative_l2": 0.014645342033123655,
+      "first_code_stage": "position=3,layer=22,tag=40,o.activation_codes"
+    },
+    "4": {
+      "records": 600,
+      "activation_code_mismatches": 9689,
+      "worst_relative_l2": 0.04682927669559058,
+      "first_code_stage": "position=4,layer=19,tag=70,down.activation_codes"
+    },
+    "5": {
+      "records": 600,
+      "activation_code_mismatches": 23034,
+      "worst_relative_l2": 0.047897059157154656,
+      "first_code_stage": "position=5,layer=16,tag=70,down.activation_codes"
+    },
+    "6": {
+      "records": 600,
+      "activation_code_mismatches": 98752,
+      "worst_relative_l2": 0.08646345599903826,
+      "first_code_stage": "position=6,layer=4,tag=50,gate.activation_codes"
+    },
+    "7": {
+      "records": 604,
+      "activation_code_mismatches": 106543,
+      "worst_relative_l2": 0.16032910410950654,
+      "first_code_stage": "position=7,layer=5,tag=40,o.activation_codes"
+    }
+  },
+  "stored_silu_all_sites_sha256": "66886179dc3e04db3040fda5a46130e5efbfc6c6fa16906ec6161cf1a4b8bbbc",
+  "stored_silu_sites": 192,
+  "stored_silu_elements": 933888,
+  "stored_silu_bitwise_mismatches": 0,
+  "stored_silu_reducer_tool_exit": 0,
+  "cost_or_quality_admitted": false
+}

@@ -1,10 +1,12 @@
 # Native expert-count scaling: prior evidence
 
-**Mixed recipient numerical rejection 15 October 2026:**
-[W4 FFN / W8 attention and head](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_BASELINE_RESULT_20261015.md)
-passes all 291 output-role byte derivations but fails decoded parity after
-position 0. Cost was not run. Preserve the failure and numerical threshold;
-source-byte equivalence alone does not qualify dynamic activation quantization.
+**Mixed recipient cost rejection 15 October 2026:**
+[W4 FFN / W8 attention and head](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_SCALAR_RESULT_20261015.md)
+has exact four-position decoded parity after repairing the reference exp
+primitive, with every source-derived role checked. The first numerical failure
+and instrumented diagnosis remain explicit. All15 cost jobs exit0 but all
+five groups fail18ms/stability; worst43.53ms at context2048. Logical matrix
+payload357.484MB does not imply adequate execution speed or physical DRAM.
 
 **Complete recipient screen15 October2026:**
 [original Qwen Instruct all-I8](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)

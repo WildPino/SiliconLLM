@@ -1,10 +1,12 @@
 # Pretrained-to-native conditional-capacity method
 
-**Mixed recipient qualification 15 October 2026:** the
-[full W4/W8 profile](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_BASELINE_RESULT_20261015.md)
-passes all source-to-packet derivations but fails multi-token native/reference
-parity before cost. The first-divergence diagnostic is implementation research,
-not a speed admission or a rejection of long-trained conditional transfer.
+**Mixed recipient closure 15 October 2026:** the
+[full W4/W8 continuation](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_MIXED_SCALAR_RESULT_20261015.md)
+passes exact decoded native/reference parity after a documented scalar-exp
+reference repair. All five cost groups fail, worst43.53ms, despite lower
+357.484MB matrix payload. Independent readback passes. Preserve the first
+fault and diagnostic; neither a format byte reduction nor long training
+substitutes for a viable complete online core. No unchanged thread grid.
 
 **Recipient envelope closure15 October2026:** the
 [original Instruct all-I8 CPU profile](../PIPELINE_REASSESSMENT_20261015/RECIPIENT_INT8_BASELINE_RESULT_20261015.md)

@@ -57,13 +57,21 @@ Do not select a weak small endpoint simply because its arithmetic fits. The
 goal remains useful capacity transferred from a very-large donor into an
 efficient conditional artifact. The recipient is only its online core.
 
-The unchanged Qwen all-W8 profile is closed. Its worst measured28.02ms would
-need more than1.55x improvement to meet the18ms working allowance. The prepared
-mixed W4/integer profile reduces matrix payload only1.387x, so any adequate
-improvement must also come from actual kernel/compute changes, not a byte-ratio
-promise. It is the next bounded physical comparison using already retained
-source weights, before acquiring a different recipient. If it fails the full
-envelope,135M is a cost-motivated alternative for a donor-memory **transfer
-falsifier**, with explicit absolute-usefulness and donor-gap gates; it is not
-an admitted final solution. No new thread grid or long recovery follows from
-these metadata alone.
+Both unchanged Qwen profiles are now closed. The all-W8 profile's worst
+process mean is28.02ms. The
+[actual mixed W4/integer continuation](RECIPIENT_MIXED_SCALAR_RESULT_20261015.md)
+qualifies decoded-wire execution exactly after a documented reference-exp
+repair, then fails every complete cost group: worst43.53ms at context2048,
+median native rates35.73–50.17/s, spreads1.31–1.63. Its lower357.484MB payload
+does not buy adequate actual speed with this fixed kernel. This is not a
+universal encoding lower bound. No unchanged thread grid or long recovery.
+
+The next bounded source acquisition and complete-C qualification should use
+the135M pretrained core as a cost-motivated component for a donor-memory
+**transfer falsifier**, with explicit absolute-usefulness and donor-gap gates.
+Pin its revision/tokenizer/license/config before downloading its weights.
+Its approximate100–135MB matrix envelope must be measured, including its
+actual attention, KV and head; there is no cost admission from these counts.
+The smaller endpoint is not the final solution. A qualified online core must
+be jointly recovered around useful very-large-donor conditional memory,
+with a compute-matched no-memory training control and bank-use/capacity controls.

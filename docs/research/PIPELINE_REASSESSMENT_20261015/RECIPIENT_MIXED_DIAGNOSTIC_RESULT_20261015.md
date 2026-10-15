@@ -44,9 +44,14 @@ binary64 `math.exp`, rounded to F32 at every prescribed F32 operation,
 matches all 4864 native activations exactly. The original NumPy F32-exp path
 differs at 814 elements. This check consumes stored gate/up vectors only.
 
+The [all-site stored reduction](recipient_mixed_silu_all_sites_20261015.json)
+has now reproduced all 933888 native activations at all 192 recorded SiLU
+sites with zero bitwise mismatches. It took 2.133 s and performed no decoder
+forward. The [diagnostic closure](recipient_mixed_diagnostic_closure_20261015.json)
+retains the comparison and owned-process checks.
+
 The next [prospective scalar-reference repair](RECIPIENT_MIXED_SCALAR_REPAIR_PROTOCOL_20261015.md)
-first extends that primitive check to all 192 recorded native SiLU sites.
-Only if those native outputs are reproduced may a wrapper replace the
+may therefore use a wrapper replacing the
 reference exponential primitive, keeping the original graph, executable,
 packet and 1e-3/top1 gates. This is one documented repair, not an automatic
 retry or permission to relax the threshold. Numerical qualification and the
