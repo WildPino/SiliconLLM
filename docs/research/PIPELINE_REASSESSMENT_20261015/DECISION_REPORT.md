@@ -2,6 +2,12 @@
 
 15 October 2026. Research decision; no new model is admitted. The original goal remains incomplete.
 
+**Later owner scope clarification:** [native MoE family scaling is sufficient](../NATIVE_EXPERT_SCALING_20260925/SCOPE_CLARIFICATION_20261015.md).
+Dense70B conversion is not mandatory; one family including very large models
+is sufficient. References below to obligatory unrelated-family tests or a
+required dense-transfer alternative describe the earlier interpretation.
+Quality, useful retained capacity and same-artifact CPU rate remain mandatory.
+
 ## Executive Summary
 
 The current sequence needs a strategic change. The compact target learns repeated FIT examples but still fails unseen DEV, while the unchanged full-width path exceeds the latency budget before several model organs are counted. Continuing the same fit or refining a small exact kernel does not address both failures. This conclusion follows from the closed local experiments, rather than from an assumption that either compact students or sparse models are impossible. [1]

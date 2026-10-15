@@ -1,5 +1,13 @@
 # Pretrained-to-native conditional-capacity method
 
+**Latest owner scope clarification15 October2026:** [accepted scope](SCOPE_CLARIFICATION_20261015.md).
+Native MoE is a fully valid primary donor, including further expert partitioning.
+One family spanning very large models is sufficient; dense70B conversion and
+unrelated-family support are not mandatory. A small pilot must still lead to
+demonstrated useful large-model capacity at the same-artifact CPU rate, with
+router/memory/conversion costs charged. Earlier stronger interpretations below
+are historical, not extra completion requirements.
+
 **Pipeline reassessment15 October2026:** [decision and primary sources](../PIPELINE_REASSESSMENT_20261015/DECISION_REPORT.md).
 The current D512 replay does not generalize sufficiently; unchanged full-width
 Falcon organ execution also fails the complete latency allowance. Stop unchanged

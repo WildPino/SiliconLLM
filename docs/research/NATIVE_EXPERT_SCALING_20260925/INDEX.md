@@ -3,7 +3,8 @@
 15 October 2026. **Goal INCOMPLETE / long-run pause requested. Source capture active; pipeline reassessed.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
-[Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
+[Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [original goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md),
+[latest owner scope clarification](SCOPE_CLARIFICATION_20261015.md).
 
 ## Goal and constraints
 
@@ -11,8 +12,11 @@ Reproducible pretrained CHATBOT-to-engine.c conversion: compact reusable
 SSM/SWA plus useful selectively consulted capacity, CPU IDs AND masses,
 precision suited to actual kernels, measured DRAM and donor-relative quality.
 The SAME artifact must deliver >=50 useful accepted batch1 tokens/s; 100 is
-an improvement target. Useful RAM-driven n, multiple families/scales and
-conversion master/gradient/optimizer costs remain required.
+an improvement target. Useful RAM-driven n, very-large-model scaling within
+ONE family and conversion master/gradient/optimizer costs remain required.
+Native MoE is a valid primary path, including finer expert partitioning;
+dense70B conversion and unrelated-family support are not mandatory. A small
+pilot alone does not demonstrate the large-model pipeline. See scope clarification.
 
 ## Latest decisive evidence
 
