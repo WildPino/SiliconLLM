@@ -109,21 +109,25 @@ all controls/placement/seals PASS; three process medians34.39/50.95/53.88ms
 without head, experts, RoPE or KV attention. Reject this Q4_K variant. No
 unchanged runtime grids, full120B acquisition or selector fit follows.
 
-Next substantive variable: actual-weight activation-aware Q/O rank256 on the
-FIRST source attention block, with K/V/norm/bias/sink/RoPE/window preserved.
-Layer0 permits authentic embedding-derived states without the whole donor;
-Falcon states/logits are invalid calibration substitutes. Acquire only pinned
-Q/K/V/O, auxiliary tensors and used embedding rows by exact HTTP ranges.
-Freeze case IDs/splits/token cap, arithmetic/control and local pre-residual
-attention-error/distribution gates BEFORE fit. Rank512 is diagnostic only;
-no DEV rank selection. Quantized factors must use an actual export format.
-A local failure stops the uniform cheap recipe; a local pass cannot establish
-whole-model quality or transfer to internal layers. Only then consider the
-same-family20B full-model pilot. No run is launched from this planning note.
+[Actual first-attention source slice acquired and audited](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_SOURCE_RESULT_20261015.md):
+ten BF16 tensors and1,501 embedding rows,24FIT/12DEV from disjoint sources,
+all retained seals/selection/range accounts PASS. Earlier preparation faults
+and unavailable raw-header/gap-byte evidence remain explicit. No full120B
+checkpoint or experts were acquired; no source quality or rate follows.
 
-No owned capture/audit run remains live. Do not restart successful generation.
-The complete source coverage is adopted; no automatic D512 fit follows. Qualify
-the actual-weight core intervention; packed layout and bounded cost screens are closed.
+The actual-weight Q/O rank256 falsifier is RUNNING under the
+[frozen protocol](../PIPELINE_REASSESSMENT_20261015/FIRST_ATTENTION_RANK_PROTOCOL_20261015.md)
+and [binding](../PIPELINE_REASSESSMENT_20261015/first_attention_rank_binding_20261015.json).
+Owned worker28528/create1792078546.7038288 and watchdog27688 are recorded in
+`results/native_expert_scaling/first_attention_rank_20261015`.
+K/V/norm/bias/sink/RoPE/window are fixed; the same-gate full-F32 source control
+must pass before512 fixed updates. Gates exclude the shared62-token prefix.
+No DEV selection or rank512 execution. Independent CPU trace audit follows
+terminal completion; keep same-artifact whole-model/cost requirements separate.
+
+The complete Falcon source coverage is adopted; do not restart it or fit D512
+automatically. Packed-layout and bounded-cost screens are closed. The current
+local experiment cannot establish internal-layer transfer or final chat quality.
 Pause only for expected>=1h numerical jobs; continue shorter checks here.
 Reserve independent strategic review for difficult conceptual questions; do
 routine implementation and code checks within the standard working roles.

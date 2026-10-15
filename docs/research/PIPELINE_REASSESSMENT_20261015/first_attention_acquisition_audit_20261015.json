@@ -1,0 +1,100 @@
+{
+  "schema": "FIRST_ATTENTION_ACQUISITION_AUDIT_V1",
+  "status": "PASS",
+  "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair3_20261015",
+  "freeze": "d638fab",
+  "source_manifest": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair3_20261015\\manifest.json",
+    "bytes": 2079414,
+    "sha256": "e456a2dae1bdaef253f7722f1258affcc5636a9c2eccd5bfe5732a3326b37382"
+  },
+  "selection_plan": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair3_20261015\\selection_plan.json",
+    "bytes": 392914,
+    "sha256": "545cb8b9e6b0c0d9441be8122bc15dd9da9b9b72eb192731a1b5681348ae0030"
+  },
+  "eligibility_plan": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair3_20261015\\eligibility_plan.json",
+    "bytes": 17778,
+    "sha256": "73c3ee05a881acd20c3fb140270b7cc2fd0096f5a62cd7b1e644e3748e66adbb"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair3_20261015\\terminal.json",
+    "bytes": 405,
+    "sha256": "8898a523ae346acf28f68c259ddbb5ee86858fee2535b00d6427d2e65d897e1b"
+  },
+  "prior_attempts": [
+    {
+      "name": "first_attention_source_20261015",
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_20261015\\terminal.json",
+        "bytes": 699,
+        "sha256": "e39cba016722605d2581240ed20a963834eaa0de1439ca164faced8b3456bdbf"
+      },
+      "exit_code": 1,
+      "error": "AssertionError()",
+      "trace_tail": [
+        "  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\first_attention_acquire.py\", line 283, in main",
+        "    assert runtime_files and all(p.resolve().is_relative_to(SITE.resolve()) for p in runtime_files)",
+        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "AssertionError"
+      ]
+    },
+    {
+      "name": "first_attention_source_repair1_20261015",
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair1_20261015\\terminal.json",
+        "bytes": 595,
+        "sha256": "2c877c59c438bddf52b4894387e30f12356ae886d6d232f1a6d807dbd96860b9"
+      },
+      "exit_code": 1,
+      "error": "AssertionError()",
+      "trace_tail": [
+        "  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\first_attention_acquire.py\", line 361, in main",
+        "    assert len(tokenizer)==config['vocab_size']",
+        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "AssertionError"
+      ]
+    },
+    {
+      "name": "first_attention_source_repair2_20261015",
+      "terminal": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\first_attention_source_repair2_20261015\\terminal.json",
+        "bytes": 749,
+        "sha256": "f57230f8ab5897a5d1f14085948eb6c2aacaa8a1ca064ad8e455888407c611ec"
+      },
+      "exit_code": 1,
+      "error": "AssertionError()",
+      "trace_tail": [
+        "  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\first_attention_acquire.py\", line 388, in main",
+        "    assert isinstance(canonical,list) and canonical and all(type(v) is int and 0<=v<config['vocab_size'] for v in canonical)",
+        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "AssertionError"
+      ]
+    }
+  ],
+  "cases": 36,
+  "FIT": 24,
+  "DEV": 12,
+  "used_embedding_rows": 1501,
+  "common_prefix_length": 62,
+  "tensors": 10,
+  "network": {
+    "calls": 1023,
+    "range_successes": 1023,
+    "metadata_bytes": 9992,
+    "tokenizer_bytes": 0,
+    "weight_bytes": 70662528,
+    "embedding_gap_bytes": 8910720,
+    "embedding_spans_replayed": 780,
+    "embedding_response_bytes_replayed": 4636800,
+    "embedding_spans_with_unretained_gaps": 205,
+    "embedding_response_bytes_with_unretained_gaps": 12919680,
+    "raw_shard_header_replayable": false
+  },
+  "limits_of_offline_replay": [
+    "Raw safetensors header bytes are not retained; its digest and keyset check are producer witnesses.",
+    "Embedding responses without unused rows are independently hashed against exported rows; spans with unused gap bytes cannot be fully replayed.",
+    "The audit verifies saved bytes and receipts, not remote authenticity or inference quality."
+  ]
+}
