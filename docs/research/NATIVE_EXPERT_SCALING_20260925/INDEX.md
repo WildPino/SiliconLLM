@@ -23,8 +23,9 @@ resource/current full seals PASS. New FIT KL.70077/disagreement16.418% passes;
 old DEV2.56407/35.993% and new DEV7.11348/81.487% fail. No unchanged152-case
 fit or promotion. GPU training/final forwards remain producer witnesses.
 
-[Source coverage protocol](CHATBOT_SOURCE_COVERAGE_PROTOCOL_20261015.md) is
-PREPARED,not executed. All remaining360 FIT/72 DEV from the adopted public
+[Source coverage protocol](CHATBOT_SOURCE_COVERAGE_PROTOCOL_20261015.md) and
+[prepared binding](CHATBOT_SOURCE_COVERAGE_STATE_20261015.md) are ready,not
+executed. All remaining360 FIT/72 DEV from the adopted public
 corpus,30/6 per12 sources;40 LongAlign cases deferred,RESERVED untouched.
 Longest prefix1769 first as resource probe,then all remaining fixed IDs;two
 known donor controls before new packets. No learner call or new training recipe
