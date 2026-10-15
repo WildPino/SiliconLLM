@@ -2,6 +2,52 @@
 
 **Updated: 15 October 2026, Europe/Rome. Workspace: `D:/_THINGS/Progetti/SiliconLLM`. Branch: `research/native-expert-scaling`. Research HEAD before this documentation handoff: `7b93d10`.**
 
+## Storage maintenance addendum (15 October 2026)
+
+The research state below is unchanged: **paused and incomplete**. A separate,
+owner-authorized artifact relocation started after the research handoff.
+Storage workers may still be running; the statement that no numerical job is
+waiting does not mean that storage I/O is idle. Check storage state before
+starting performance measurements or another large transfer.
+
+- **Logical workspace:** `D:/_THINGS/Progetti/SiliconLLM` remains the source checkout.
+- **Physical artifact mirror:** `E:/SiliconLLM_Artifacts/workspace`. Original D
+  artifact paths are retained as directory junctions after each verified cutover.
+- **Scope:** 22 packages, 126,731 files, 1,051,187,441,697 logical bytes. The plan
+  includes results, weights, large datasets, donor result/bundle packages and
+  the native research campaign with its large checkpoints. Main Git, source,
+  development environments and external corpus source clones remain on D.
+- **Authority for current progress:**
+  `E:/SiliconLLM_Artifacts/migrations/20261015/state.json` and `status.json`.
+  At this addendum's preparation, only `density-corpus` and `weights` had
+  completed cutover (8,625,394,376 logical bytes). This is a dated observation,
+  not a current completion claim.
+- **Owned launch identities:** migration PID 26108 and finalizer PID 32024;
+  use the creation times in the [launch receipt](docs/maintenance/storage_launch_20261015.json),
+  not PID alone. Do not start a duplicate transfer. The finalizer waits for
+  completion, checks stored scientific receipts and rebuilds navigation.
+- **Terminal outcome:** consult
+  `E:/SiliconLLM_Artifacts/migrations/20261015/finalization_status.json`.
+  A successful finish also creates `docs/maintenance/STORAGE_RESULT_20261015.md`
+  and `docs/maintenance/storage_verification_20261015.json`. Their absence
+  means finalization has not yet been admitted; inspect the live state.
+
+Start with [START_HERE.md](START_HERE.md), the searchable
+[document catalog](docs/navigation/index.html), and the
+[storage guide](docs/maintenance/STORAGE.md). Historical scientific records
+are retained byte-for-byte. Volume/file identities and `Path.resolve()` can
+change after relocation; the migration records document that change. The mixed
+recipient readback uses an adapter preserving its original logical D argument;
+its frozen source and historical command receipts are not rewritten.
+
+The exact pre-maintenance handoff is preserved in
+[the storage snapshot](docs/maintenance/snapshots/HANDOFF_PRE_STORAGE_20261015.md)
+(SHA256 `e6d92537862e30d27493e5ca0a2068734a70a6e034f357cc7cdfeedd97708e14`).
+Its relative links retain the original repository-root interpretation. The
+[handoff update receipt](docs/maintenance/handoff_storage_update_20261015.json)
+binds both versions. Earlier receipts pinning root `HANDOFF.md` refer to that
+preserved historical version; they are not edited to claim the new bytes.
+
 ## 1. Exact stopping point
 
 The owner has closed this session and requested documentation only. **The scientific objective is INCOMPLETE. The goal tool reports `paused`. Do not resume research, launch experiments or allocate compute merely because this file is opened.** Resume substantive work when the next user authorizes it. Older reports saying `active`, `running`, `next` or `prepared` are dated observations, not current process instructions.

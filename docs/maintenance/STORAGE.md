@@ -76,6 +76,14 @@ that binds physical identity or canonical strings must interpret this recorded
 relocation; it must not silently replace historical evidence. Recorded old
 performance measurements retain their original storage environment.
 
+The root handoff now contains a dated storage addendum pointing to live state
+and eventual completion reports. Its exact pre-maintenance bytes are retained
+in [a snapshot](snapshots/HANDOFF_PRE_STORAGE_20261015.md), with
+[an update receipt](handoff_storage_update_20261015.json) binding both versions.
+The relocation auditor checks earlier handoff pins against that exact snapshot
+and separately checks the updated root handoff. Original scientific receipts
+retain their original hashes and path meaning at the time of issuance.
+
 Inspect progress without launching a model or starting another transfer:
 
 ```powershell

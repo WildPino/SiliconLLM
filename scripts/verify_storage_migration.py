@@ -32,6 +32,25 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def historical_document(record):
+    """Resolve old handoff pins to its explicitly receipted exact snapshot."""
+    receipt_path = ROOT / 'docs/maintenance/handoff_storage_update_20261015.json'
+    if record['path'] != 'HANDOFF.md' or not receipt_path.exists():
+        return ROOT / record['path']
+    update = load(receipt_path)
+    require(update['schema'] == 'HANDOFF_STORAGE_UPDATE_V1' and
+            update['current_path'] == update['previous_original_path'] == 'HANDOFF.md' and
+            update['previous_path'] == 'docs/maintenance/snapshots/HANDOFF_PRE_STORAGE_20261015.md' and
+            update['previous_bytes'] == record['bytes'] and
+            update['previous_sha256'] == record['sha256'] and
+            update['plan_sha256'] == sha(ROOT / 'docs/maintenance/storage_migration_plan_20261015.json'),
+            'handoff update custody')
+    current = ROOT / update['current_path']
+    require(current.stat().st_size == update['current_bytes'] and
+            sha(current) == update['current_sha256'], 'updated handoff hash')
+    return ROOT / update['previous_path']
+
+
 def main(output):
     require(not output.exists(), f'output already exists: {output}')
     manifest = load(CONTROL / 'manifest.json')
@@ -103,7 +122,7 @@ def main(output):
     historical = load(ROOT / 'docs/research/NATIVE_EXPERT_SCALING_20260925/'
                       'HANDOFF_SNAPSHOT_20261015/handoff_verification.json')
     for record in baseline['preserved_files'] + historical['documents']:
-        path = ROOT / record['path']
+        path = historical_document(record)
         require(path.stat().st_size == record['bytes'] and sha(path) == record['sha256'],
                 f'preserved document changed: {path}')
         pins.append(record['path'])
@@ -122,6 +141,10 @@ def main(output):
                        'hardlink equivalence, historical document pins. Payload SHA pairs '
                        'are in the migration receipts; this audit does not rehash all tensors. '
                        'No model execution.'}
+    handoff_update = ROOT / 'docs/maintenance/handoff_storage_update_20261015.json'
+    if handoff_update.exists():
+        result['handoff_update_receipt_sha256'] = sha(handoff_update)
+        result['handoff_historical_pin_location'] = load(handoff_update)['previous_path']
     with output.open('x', encoding='utf-8', newline='\n') as f:
         json.dump(result, f, indent=2)
         f.write('\n')
