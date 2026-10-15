@@ -174,16 +174,26 @@ static void rc_w8(const uint8_t *w,const int8_t *x,float as,float *out,int rows,
     }
 }
 static int32_t rc_w4dot(const uint8_t *p,const int8_t *x){
-    const uint8_t *c=p+2;int32_t sum=0,sumx=0;
-    for(int j=0;j<16;j++){int a=x[j],b=x[j+16];sum+=(int)(c[j]&15u)*a+(int)(c[j]>>4)*b;sumx+=a+b;}
-    return sum-8*sumx;
+    __m128i packed=_mm_loadu_si128((const __m128i*)(p+2));
+    __m128i low=_mm_and_si128(packed,_mm_set1_epi8(15));
+    __m128i high=_mm_and_si128(_mm_srli_epi16(packed,4),_mm_set1_epi8(15));
+    __m256i weights=_mm256_inserti128_si256(_mm256_castsi128_si256(low),high,1);
+    __m256i values=_mm256_loadu_si256((const __m256i*)x);
+    /* Unsigned weights <=15: pair sums <=3810, so maddubs cannot saturate.
+       Subtracting eight times the signed activation sum recovers q in [-8,7]. */
+    __m256i ones16=_mm256_set1_epi16(1);
+    __m256i products=_mm256_madd_epi16(_mm256_maddubs_epi16(weights,values),ones16);
+    __m256i sums=_mm256_madd_epi16(_mm256_maddubs_epi16(_mm256_set1_epi8(1),values),ones16);
+    __m256i adjusted=_mm256_sub_epi32(products,_mm256_slli_epi32(sums,3));
+    int32_t lanes[8];_mm256_storeu_si256((__m256i*)lanes,adjusted);int32_t sum=0;
+    for(int j=0;j<8;j++)sum+=lanes[j];return sum;
 }
 static void rc_w4(const uint8_t *w,const int8_t *x,const float *as,float *out,int rows,int cols){
     int groups=cols/32;size_t pitch=(size_t)groups*18;
     #pragma omp parallel for schedule(static) if(rc_threads>1)
     for(int row=0;row<rows;row++){worker_bind();const uint8_t *p=w+(size_t)row*pitch;double y=0;
         for(int g=0;g<groups;g++){const uint8_t *block=p+(size_t)g*18;
-            y+=(double)rc_w4dot(block,x+32*g)*(double)rc_fp16(rc_u16(block))*(double)as[g];}
+            y+=(double)rc_w4dot(block,x+32*g)*(double)_cvtsh_ss(rc_u16(block))*(double)as[g];}
         require(isfinite(y),"nonfinite W4 output");out[row]=(float)y;
     }
 }
@@ -225,19 +235,30 @@ static void rc_forward(RcState *s,int token,int pos,int head){
         rc_rope(s->q,RC_NH,co,si);rc_rope(s->k,RC_NKV,co,si);
         memcpy(s->kc+((size_t)li*s->capacity+pos)*RC_KD,s->k,sizeof s->k);
         memcpy(s->vc+((size_t)li*s->capacity+pos)*RC_KD,s->v,sizeof s->v);
+        #pragma omp parallel for schedule(static) if(rc_threads>1)
         for(int h=0;h<RC_NH;h++){
+            worker_bind();
             float *scores=s->scores+(size_t)h*s->capacity;float maximum=-INFINITY;
             for(int t=0;t<=pos;t++){
                 const float *k=s->kc+((size_t)li*s->capacity+t)*RC_KD+(h/7)*64;
-                double dot=0;for(int j=0;j<64;j++)dot+=(double)s->q[h*64+j]*k[j];
+                __m256d dot4=_mm256_setzero_pd();for(int j=0;j<64;j+=4){
+                    __m256d qv=_mm256_cvtps_pd(_mm_loadu_ps(s->q+h*64+j));
+                    __m256d kv=_mm256_cvtps_pd(_mm_loadu_ps(k+j));
+                    dot4=_mm256_add_pd(dot4,_mm256_mul_pd(qv,kv));}
+                double lanes[4];_mm256_storeu_pd(lanes,dot4);double dot=lanes[0]+lanes[1]+lanes[2]+lanes[3];
                 float z=(float)(dot*0.125);require(isfinite(z),"nonfinite attention score");scores[t]=z;if(z>maximum)maximum=z;
             }
             double total=0;for(int t=0;t<=pos;t++){scores[t]=expf(scores[t]-maximum);total+=scores[t];}
             require(isfinite(total)&&total>0,"attention denominator");
             for(int t=0;t<=pos;t++)scores[t]=(float)((double)scores[t]/total);
-            for(int j=0;j<64;j++){double value=0;for(int t=0;t<=pos;t++)
-                value+=(double)scores[t]*s->vc[((size_t)li*s->capacity+t)*RC_KD+(h/7)*64+j];
-                s->attn[h*64+j]=(float)value;require(isfinite(s->attn[h*64+j]),"attention output");}
+            __m256d values[16];for(int j=0;j<16;j++)values[j]=_mm256_setzero_pd();
+            for(int t=0;t<=pos;t++){
+                const float *v=s->vc+((size_t)li*s->capacity+t)*RC_KD+(h/7)*64;
+                __m256d score=_mm256_set1_pd((double)scores[t]);
+                for(int j=0;j<16;j++)values[j]=_mm256_add_pd(values[j],_mm256_mul_pd(score,_mm256_cvtps_pd(_mm_loadu_ps(v+4*j))));
+            }
+            for(int j=0;j<16;j++)_mm_storeu_ps(s->attn+h*64+4*j,_mm256_cvtpd_ps(values[j]));
+            for(int j=0;j<64;j++)require(isfinite(s->attn[h*64+j]),"attention output");
         }
         rc_quant(s->attn,RC_D,s->qa,s->qscale,0);
         rc_w8(l->o,s->qa,s->qscale[0],s->tmp,RC_D,RC_D);
@@ -270,6 +291,17 @@ static void rc_forward(RcState *s,int token,int pos,int head){
 static int rc_argmax(const float *x){int id=0;for(int i=1;i<RC_V;i++)if(x[i]>x[id])id=i;return id;}
 static void rc_write(const void *p,size_t n){require(fwrite(p,1,n,stdout)==n,"output write");}
 static void rc_read(void *p,size_t n){require(fread(p,1,n,stdin)==n,"input read");}
+static void rc_binding(const char *phase){
+    fprintf(stderr,"{\"phase\":\"%s\",\"pid\":%lu,\"worker_masks\":[",phase,(unsigned long)GetCurrentProcessId());
+    for(int i=0;i<rc_threads;i++){
+        WorkerBinding b=worker_latest[i];require(b.tid&&b.slot==i&&b.group==0&&b.mask==worker_masks[i],"worker identity");
+        HANDLE thread=OpenThread(THREAD_QUERY_LIMITED_INFORMATION,FALSE,b.tid);require(thread!=NULL,"worker liveness");
+        GROUP_AFFINITY actual;memset(&actual,0,sizeof actual);int ok=GetThreadGroupAffinity(thread,&actual);CloseHandle(thread);
+        require(ok&&actual.Group==0&&actual.Mask==b.mask,"worker drift");
+        fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)actual.Mask);
+    }
+    fprintf(stderr,"]}\n");
+}
 static void rc_probe(RcState *s){
     for(;;){char magic[8];size_t got=fread(magic,1,8,stdin);if(!got&&feof(stdin))break;
         require(got==8&&!memcmp(magic,"QWCP0001",8),"probe magic");uint32_t h[2];rc_read(h,8);
@@ -298,9 +330,9 @@ static void rc_stream(RcState *s){
         for(uint32_t i=0;i<maxnew;i++){
             double step=rc_clock();int id=rc_argmax(s->logits);generated[count++]=id;
             if(id==151645||id==151643){stop=1;}
-            else if(i+1<maxnew)rc_forward(s,id,(int)(n+i),1);
+            else rc_forward(s,id,(int)(n+i),1);
             double seconds=rc_clock()-step;
-            fprintf(stderr,"{\"phase\":\"decode\",\"index\":%u,\"generated_id\":%d,\"context\":%u,\"seconds\":%.9f,\"threads\":%d}\n",i,id,n+i,seconds,rc_threads);
+            fprintf(stderr,"{\"phase\":\"decode\",\"index\":%u,\"generated_id\":%d,\"context\":%u,\"native_forward\":%s,\"seconds\":%.9f,\"threads\":%d}\n",i,id,n+i,stop?"false":"true",seconds,rc_threads);
             if(stop)break;
         }
         double elapsed=rc_clock()-start;uint32_t response[2]={count,stop};
@@ -316,7 +348,8 @@ int main(int argc,char **argv){
     require(fesetround(FE_TONEAREST)==0&&fegetround()==FE_TONEAREST,"rounding");
     require(__builtin_cpu_supports("avx2"),"AVX2 required");
     worker_setup(rc_threads);for(int i=0;i<rc_threads;i++)require(worker_masks[i]==((DWORD_PTR)1<<(2*i)),"physical worker indices 0,2,4,6,8,10");
-    rc_load(argv[1]);RcState *s=rc_state((int)cap);
+    rc_load(argv[1]);RcState *s=rc_state((int)cap);rc_binding("binding_start");
     if(!strcmp(argv[2],"probe"))rc_probe(s);else rc_stream(s);
+    rc_binding("binding_end");
     free(s->kc);free(s->vc);free(s->scores);free(s);free(rc_blob);return 0;
 }
