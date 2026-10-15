@@ -1,5 +1,12 @@
 # Native expert-count scaling: prior evidence
 
+**Balanced replay closure15 October2026:** [result](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md)
+worker/holder/auditor exit0,512 updates/Adam830,all80 cases/9,911 labels and
+saved211 model/422 moment tensors/ledger/current custody PASS. New FIT KL.70077/
+16.418% passes;new DEV7.11348/81.487% and old DEV2.56407/35.993% fail. Strong
+finite coverage/generalization gap,no universal ceiling proof. No unchanged
+replay;acquire distinct adopted source coverage before another learner recipe.
+
 **Depth campaign closure15 October2026:** [result](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md)
 all FIT arms and nonselected6 diagnostic fully audited. All81,270 native
 positions/166,440,960 BF and integer words exact; current seals PASS. Quality

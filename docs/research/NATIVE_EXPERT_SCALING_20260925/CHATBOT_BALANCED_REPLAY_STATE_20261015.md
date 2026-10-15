@@ -1,5 +1,12 @@
 # Balanced joint replay: prepared binding
 
+Authoritative closure: [final result](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md).
+CPU audit8872 exit0/207.546s,all80 cases/9,911 labels/649,537,207 score words,
+checkpoint/Adam/RNG/order/routes/resource/current custody PASS. Both DEV
+cohorts fail frozen quality gates;new FIT passes. No replay/native/admission.
+All launch/audit-pending statements below are historical;no replay process live.
+Next source-only distinct-coverage acquisition is a new separately bound phase.
+
 Producer completion: holder24160/worker26392 both exit0. All512 updates,
 Adam830,actual final checkpoint3,059,861,270B SHA256
 3dc2880deac5fed70dc2b2a5d3c7feea4fe6e9ad52a656449309d4e9785eb826.

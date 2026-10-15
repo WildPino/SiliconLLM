@@ -1,0 +1,59 @@
+{
+  "schema": "BALANCED_REPLAY_STORED_CLOSURE_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.json",
+    "bytes": 1766164,
+    "sha256": "bc67bd00da6b78f2ea7a48f99c8d13872d2fc73c6d7fa9266db6b934e67d8016"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_audit_20261015.json",
+    "bytes": 7657,
+    "sha256": "7ed8ffa983ad95866f18f4fdc1f3e034e7a40c58ca6148099e6d61af792e7771"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_binding_20261015.json",
+    "bytes": 2167321,
+    "sha256": "0d90dac8c211cfe03f441e0179afac308049c7839ab04a8c0824a27dcb77a232"
+  },
+  "checkpoint": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\chatbot_balanced_replay_20261015\\candidate.pt",
+    "bytes": 3059861270,
+    "sha256": "3dc2880deac5fed70dc2b2a5d3c7feea4fe6e9ad52a656449309d4e9785eb826"
+  },
+  "commands": [
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.worker_terminal.json",
+        "bytes": 778,
+        "sha256": "bc5ba131bdc55d3a03114703565976c90beacd2833a089755938c7698947b630"
+      },
+      "pid": 26392,
+      "creation_time": 1792053808.0107627,
+      "matching_process_absent": true
+    },
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.terminal.json",
+        "bytes": 1496,
+        "sha256": "0c50680899a380e9e181a68b06c551de3b1d9a2955a46c534155a084a593dcf2"
+      },
+      "pid": 24160,
+      "creation_time": 1792053780.9727,
+      "matching_process_absent": true
+    },
+    {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_audit_20261015.terminal.json",
+        "bytes": 771,
+        "sha256": "14a5f486ff107a95eb8757b628d023a27fea8e7e524bb15bfdb9a42466e42ffb"
+      },
+      "pid": 8872,
+      "creation_time": 1792063777.1784108,
+      "matching_process_absent": true
+    }
+  ],
+  "quality_admissible": false,
+  "decision": "STORED_REPLAY_QUALIFIED_QUALITY_REJECTED",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "scope": "Completed full stored audit referenced; metadata/candidate receipts verified. No independent GPU training/final-model-forward or native/heldout/rate/DRAM/n admission."
+}

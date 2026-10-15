@@ -1,6 +1,14 @@
 # Pretrained-to-native conditional-capacity method
 
 15 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Balanced replay closed](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md):512
+updates/Adam830,all80 saved score cases/state/ledger/custody audited;new FIT
+passes but old/new DEV fail(KL2.56407/7.11348). No more unchanged152-case fit.
+[Distinct source coverage prepared](CHATBOT_SOURCE_COVERAGE_PROTOCOL_20261015.md):
+all remaining360 FIT/72 DEV short-stage adopted inputs,no score-based selection,
+new learner forward or RESERVED/LongAlign query. Source capture/adoption must
+finish before another separately frozen training recipe. Earlier live/next-fit
+instructions below are historical;no current transfer or rate admission.
 [Balanced replay launched](CHATBOT_BALANCED_REPLAY_STATE_20261015.md):
 current-runtime shortest/longest FIT controls EXACT(error0/all IDs); initial
 joint updates execute. Fixed512 updates/Adam830,original compact conditional

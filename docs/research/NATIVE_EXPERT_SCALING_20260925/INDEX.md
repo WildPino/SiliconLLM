@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / ACTIVE. Joint replay finished; stored CPU audit prepared.**
+15 October 2026. **Goal INCOMPLETE / ACTIVE. Replay audited and rejected; distinct source coverage prepared.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -16,48 +16,26 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
-[Balanced replay completion](CHATBOT_BALANCED_REPLAY_STATE_20261015.md):
-worker/holder exit0,512 updates/Adam830,full final serialized state roundtrip
-and current input seals. Worker7328.828s/GPU7257.610s/OS5.221GB/GPUpeak4.730GB.
-Preliminary new FIT KL.70077/disagreement16.418% passes,but new DEV KL7.11348/
-81.487% and old DEV KL2.56407/35.993% fail. No final artifact promotion.
-Complete [CPU saved-evidence audit](CHATBOT_BALANCED_REPLAY_AUDIT_20261015.md)
-before closing this recipe. No further unchanged fit on the same152 examples.
-Earlier live/launch statements in linked state documents are historical.
+[Balanced replay final result](CHATBOT_BALANCED_REPLAY_RESULT_20261015.md) is
+CLOSED:512 updates/Adam830;worker/holder/auditor exit0. All80 cases/9,911 labels/
+649,537,207 saved score words,211 model/422 moment tensors,exposure/routes/
+resource/current full seals PASS. New FIT KL.70077/disagreement16.418% passes;
+old DEV2.56407/35.993% and new DEV7.11348/81.487% fail. No unchanged152-case
+fit or promotion. GPU training/final forwards remain producer witnesses.
 
-[Balanced replay state](CHATBOT_BALANCED_REPLAY_STATE_20261015.md): both
-current-runtime FIT controls EXACT(error0/all argmax); first3 training updates
-completed with finite gradients,positive groups,route counts/mass checks.
-No final quality outcome. Session31222; exact holder/worker/create/affinity
-and confirmed running status in [launch observation](chatbot_balanced_replay_launch_20261015.json).
-Expected1.5--3h,total4h/GPU3h/OS16GiB/allocated6GiB/reserved10GiB/CPU6.
-Pause under>=1h rule,user resumes. Inspect same handle/identities and actual
-durable16-step checkpoint,then receipts/final result. Do not replay a live fit.
+[Source coverage protocol](CHATBOT_SOURCE_COVERAGE_PROTOCOL_20261015.md) is
+PREPARED,not executed. All remaining360 FIT/72 DEV from the adopted public
+corpus,30/6 per12 sources;40 LongAlign cases deferred,RESERVED untouched.
+Longest prefix1769 first as resource probe,then all remaining fixed IDs;two
+known donor controls before new packets. No learner call or new training recipe
+in this phase. Current runtime/source411/scalars and exact BF packet controls
+must pass;source packets require a separate complete CPU adoption audit.
 
-[Depth diagnostic](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md) is CLOSED.
-FIT3/6/12 all fail; unchanged selector admits none. Nonselected6 evaluation
-has0/16 tasks,own-followup false,DEV KL14.82421/disagreement99.11140%.
-All73 sequences/81,270 native positions/166,440,960 BF and integer words
-replay exactly; F64 and current complete input/output seals PASS. Original
-worker/holder exit1/posthash deadline remains explicit. CPU recovery1152.563s/
-OS1.159GB/no GPU/no numerical replay. No candidate or useful-rate promotion.
-
-[Balanced replay](CHATBOT_BALANCED_REPLAY_PROTOCOL_20261015.md) now executes
-source-informed D512/L12/SSM+SWA/E72/k8 ternary/AQ63 target,
-512 fixed old/new FIT updates from actual Adam318 to830,final-only80-case
-prefix evaluation. This changes adaptation schedule,not active geometry.
-Current-runtime controls before training; no DEV update/selection or RESERVED.
-Full native/own-generation/fresh heldout/capacity/DRAM/rate remain separate.
-[Prepared binding and cost census](CHATBOT_BALANCED_REPLAY_STATE_20261015.md)
-records all current pins,512-update order,actual candidate lineage and charged
-master/gradient/Adam/checkpoint costs. No final training/quality outcome yet.
-
-[Generator codec](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md),
-[physical workers](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md) and
-[wait comparison](ENCODED_ORGANS_WAIT_RESULT_20261014.md) reject their tested
-20ms partial-organ budgets. I4 generator+readout still22.44--24.13ms before
-other operators; four/six passive drift checks fail. These are finite results,
-not a universal impossibility bound. Stop unchanged minor kernel grids.
+[Depth diagnostic](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md) is CLOSED:
+all3/6/12 FIT fail;nonselected6 has0/16 tasks/DEV14.82421/99.1114%. Numerical
+PASS,original posthash fault retained. No unchanged omission/runtime grids.
+[I4 generator+readout](ENCODED_ORGANS_WAIT_RESULT_20261014.md) still exceeds
+20ms before other organs;finite cost evidence,not a universal lower bound.
 
 ## State of the two research questions
 
@@ -90,30 +68,29 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 ## Exact next action
 
-On resume inspect session31222 and exact holder24160/create1792053780.9727,
-worker26392/create1792053808.0107627. Both runtime controls passed; fit is live
-at last observation. Check durable16-step boundary/receipts before any further
-action. If terminal,inspect actual final candidate/Adam830 or first fault and
-all saved prefix scores. Independently audit final serialized state and every
-metric before advancing. No automatic replay or promotion from prefix results.
+Freeze/check the source-coverage code/protocol and prepare its binding against
+completed replay audit. Announce then launch one owned donor capture only;
+both known FIT controls require identical generated IDs and every BF logit word
+before any new-cohort query. Preserve first faults and exclusive packets.
+Expected3--4h,total6h/GPU5h/OS16GiB/allocated8GiB/reserved10GiB/output32GiB/
+CPU6. ActualfreeGPU>=9216MiB before allocation. No T4 or overlapping learner.
+Pause only for expected>=1h jobs;continue shorter audits/closures here.
 
-Owner wait rule: pause only for expected runs>=1h. Continue shorter audits and
-closures here with progress updates. New training estimate1.5--3h; total4h/
-GPU3h/OS16GiB/allocated6GiB/reserved10GiB/output12GiB/CPU6. No T4,unrelated
-process control,extra delegation or recurring monitor. Inspect exact owned
-PID/create/handle and receipts on every resume; never restart a live process.
+On resume inspect exact owned PID/create/handle and receipts;never restart a
+live or successful generation. Require all432 source packets and complete CPU
+adoption before freezing any new learner trial. Fresh DEV stays out of updates
+and checkpoint choice;teacher-only capture is not learner evaluation.
 
-RESERVED104 new+64 older and longalign remain unopened. Preserve foreign
+RESERVED104 new+64 older and LongAlign remain unqueried. Preserve foreign
 changes,owner Git identity and attribution-free commits. Final same-artifact
 CPU chatbot quality/useful50,charged IDs AND masses,physical DRAM,useful n,
 multiple families/scales and sustainable conversion costs remain required.
 
 ## History and primary evidence
 
-[Previous control-index snapshot](INDEX_THROUGH_DEPTH_DIAGNOSTIC_20261015.md)
-preserves every launch/recovery observation; historical next/live statements
-are superseded. [609-report inventory](EXPERIMENT_CATALOG_20261014.md) is a
-fixed snapshot,not an experiment count. [Primary readback](DECISIONS_FROM_CATALOG_20261014.md)
-distinguishes Switch warm infilling rates,Qwen/Falcon quality and synthetic
-capacity controls. Full-depth native quality and fast unrelated kernels are
-not a single admitted artifact. [Frozen FIT family](FIXED_DEPTH_FIT_RESULT_20261015.md).
+[Previous index snapshot](INDEX_THROUGH_DEPTH_DIAGNOSTIC_20261015.md) preserves
+old launch/recovery observations. [609-report inventory](EXPERIMENT_CATALOG_20261014.md)
+is a fixed report-file snapshot,not a count of individual experiments.
+[Primary readback](DECISIONS_FROM_CATALOG_20261014.md) separates Switch warm
+infilling rates,Qwen/Falcon quality and synthetic capacity controls. Unrelated
+quality and speed evidence do not establish a single admitted artifact.

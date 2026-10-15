@@ -1,0 +1,240 @@
+{
+  "schema": "BALANCED_REPLAY_STORED_AUDIT_V1",
+  "freeze": "d3d0e365b23d1e012fbb47f5e33c0cd2d45563c4",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.json",
+    "bytes": 1766164,
+    "sha256": "bc67bd00da6b78f2ea7a48f99c8d13872d2fc73c6d7fa9266db6b934e67d8016"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_binding_20261015.json",
+    "bytes": 2167321,
+    "sha256": "0d90dac8c211cfe03f441e0179afac308049c7839ab04a8c0824a27dcb77a232"
+  },
+  "checkpoint": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\chatbot_balanced_replay_20261015\\candidate.pt",
+    "bytes": 3059861270,
+    "sha256": "3dc2880deac5fed70dc2b2a5d3c7feea4fe6e9ad52a656449309d4e9785eb826"
+  },
+  "fixed_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_balanced_replay_audit.py",
+      "bytes": 13828,
+      "sha256": "2798dbc910e611800a5d85805902312928065406ed9b51addbb41b6e2844e68b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_BALANCED_REPLAY_AUDIT_20261015.md",
+      "bytes": 2428,
+      "sha256": "362ec57da217a9ffdc50782608a69b393a446ed32e7943d80fdd49345cf94073"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.json",
+      "bytes": 1766164,
+      "sha256": "bc67bd00da6b78f2ea7a48f99c8d13872d2fc73c6d7fa9266db6b934e67d8016"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.terminal.json",
+      "bytes": 1496,
+      "sha256": "0c50680899a380e9e181a68b06c551de3b1d9a2955a46c534155a084a593dcf2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_balanced_replay_result_20261015.worker_terminal.json",
+      "bytes": 778,
+      "sha256": "bc5ba131bdc55d3a03114703565976c90beacd2833a089755938c7698947b630"
+    }
+  ],
+  "all_stored_checks_pass": true,
+  "quality_decision": "KNOWN_PREFIX_GATES_FAIL",
+  "quality_admissible": false,
+  "summaries": [
+    {
+      "cohort": "old_DEV",
+      "KL": 2.5640723433296393,
+      "disagreement": 0.3599274705349048,
+      "domains": {
+        "arithmetic": {
+          "KL": 1.442917845116318,
+          "disagreement": 0.3512658227848101
+        },
+        "code": {
+          "KL": 1.4104535045764304,
+          "disagreement": 0.3347457627118644
+        },
+        "explanation": {
+          "KL": 1.9877161348818562,
+          "disagreement": 0.3435897435897436
+        },
+        "history": {
+          "KL": 3.466476535169674,
+          "disagreement": 0.5
+        },
+        "instruction": {
+          "KL": 4.0120926800216425,
+          "disagreement": 0.3050847457627119
+        },
+        "planning": {
+          "KL": 2.351409508317063,
+          "disagreement": 0.3869346733668342
+        },
+        "reading": {
+          "KL": 3.212055622464076,
+          "disagreement": 0.5384615384615384
+        },
+        "rewrite": {
+          "KL": 2.6294569160900525,
+          "disagreement": 0.43661971830985913
+        }
+      },
+      "absolute_pass": false
+    },
+    {
+      "cohort": "new_DEV",
+      "KL": 7.1134769853401,
+      "disagreement": 0.8148654810761514,
+      "domains": {
+        "apigen-80k": {
+          "KL": 5.074065756025099,
+          "disagreement": 0.45023696682464454
+        },
+        "everyday-conversations": {
+          "KL": 7.050221717705666,
+          "disagreement": 0.8311111111111111
+        },
+        "explore-instruct-rewriting": {
+          "KL": 7.18251792749556,
+          "disagreement": 0.8768656716417911
+        },
+        "metamathqa-50k": {
+          "KL": 5.415737562974223,
+          "disagreement": 0.7158836689038032
+        },
+        "numina-cot-100k": {
+          "KL": 5.991001683501642,
+          "disagreement": 0.783203125
+        },
+        "openhermes-100k": {
+          "KL": 7.809920723760632,
+          "disagreement": 0.873046875
+        },
+        "self-oss-instruct": {
+          "KL": 6.987133495922208,
+          "disagreement": 0.78515625
+        },
+        "smol-constraints": {
+          "KL": 8.283646198052862,
+          "disagreement": 0.9300699300699301
+        },
+        "smol-magpie-ultra": {
+          "KL": 7.554185667880129,
+          "disagreement": 0.880859375
+        },
+        "smol-rewrite": {
+          "KL": 7.280343594530027,
+          "disagreement": 0.87
+        },
+        "smol-summarize": {
+          "KL": 9.511023046855074,
+          "disagreement": 0.9621212121212122
+        },
+        "systemchats-30k": {
+          "KL": 7.221926449378069,
+          "disagreement": 0.8359375
+        }
+      },
+      "absolute_pass": false
+    },
+    {
+      "cohort": "new_FIT",
+      "KL": 0.7007710755808679,
+      "disagreement": 0.16417910447761194,
+      "domains": {
+        "apigen-80k": {
+          "KL": 0.6777427134788381,
+          "disagreement": 0.033112582781456956
+        },
+        "everyday-conversations": {
+          "KL": 0.6839823165926313,
+          "disagreement": 0.19786096256684493
+        },
+        "explore-instruct-rewriting": {
+          "KL": 0.1341108331233736,
+          "disagreement": 0.0
+        },
+        "metamathqa-50k": {
+          "KL": 0.5926799722384295,
+          "disagreement": 0.15085158150851583
+        },
+        "numina-cot-100k": {
+          "KL": 0.7153004428044789,
+          "disagreement": 0.16796875
+        },
+        "openhermes-100k": {
+          "KL": 0.6740677616381083,
+          "disagreement": 0.1640625
+        },
+        "self-oss-instruct": {
+          "KL": 0.7892766134658427,
+          "disagreement": 0.1640625
+        },
+        "smol-constraints": {
+          "KL": 0.7482890823989757,
+          "disagreement": 0.16260162601626016
+        },
+        "smol-magpie-ultra": {
+          "KL": 1.0679531382090848,
+          "disagreement": 0.21875
+        },
+        "smol-rewrite": {
+          "KL": 0.8530546024784194,
+          "disagreement": 0.18497109826589594
+        },
+        "smol-summarize": {
+          "KL": 0.8373105376378395,
+          "disagreement": 0.12222222222222222
+        },
+        "systemchats-30k": {
+          "KL": 0.6354848929043933,
+          "disagreement": 0.142578125
+        }
+      },
+      "absolute_pass": true
+    }
+  ],
+  "evaluation_cases": 80,
+  "label_positions": 9911,
+  "logit_words": 649537207,
+  "F64_label_KL_max_difference": 1.101035709538678e-05,
+  "model_fields": 211,
+  "master_words": 254932736,
+  "moment_words": 509865472,
+  "optimizer_step": 830,
+  "training_updates": 512,
+  "unique_FIT_ids": 152,
+  "trained_prefix_tokens": 144189,
+  "per_site_expert_coverage": [
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    65
+  ],
+  "route_counts_exact": true,
+  "mass_max": 2.384185791015625e-07,
+  "current_runtime_controls_bit_exact": true,
+  "inputs_outputs_before_after_exact": true,
+  "recorded_compute_seconds": 4475.61500000002,
+  "producer_in_memory_roundtrip_witness": true,
+  "independent_past_in_memory_or_gradient_replay": false,
+  "independent_final_model_forward": false,
+  "GPU_calls": 0,
+  "seconds": 207.5,
+  "OS_peak": 3668103168,
+  "scope": "Full stored score/state/optimizer/RNG/exposure/resource/current-custody audit. GPU training and final forwards are producer witnesses; no native/generation/fresh-heldout/rate/DRAM/useful-n admission."
+}
