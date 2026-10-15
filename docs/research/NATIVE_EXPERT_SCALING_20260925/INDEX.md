@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / ACTIVE. Depth campaign closed; joint adaptation prepared.**
+15 October 2026. **Goal INCOMPLETE / ACTIVE. Depth closed; joint replay binding prepared.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -30,6 +30,9 @@ not executed: source-informed D512/L12/SSM+SWA/E72/k8 ternary/AQ63 target,
 prefix evaluation. This changes adaptation schedule,not active geometry.
 Current-runtime controls before training; no DEV update/selection or RESERVED.
 Full native/own-generation/fresh heldout/capacity/DRAM/rate remain separate.
+[Prepared binding and cost census](CHATBOT_BALANCED_REPLAY_STATE_20261015.md)
+records all current pins,512-update order,actual candidate lineage and charged
+master/gradient/Adam/checkpoint costs. No training/control outcome yet.
 
 [Generator codec](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md),
 [physical workers](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md) and
