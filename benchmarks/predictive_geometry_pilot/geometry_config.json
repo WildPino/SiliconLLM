@@ -1,0 +1,25 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "dataset_id": "Salesforce/wikitext",
+  "dataset_name": "wikitext-2-raw-v1",
+  "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+  "seed": 2441,
+  "context": 192,
+  "prefix": 32,
+  "anchor": 63,
+  "layer_start": 8,
+  "layer_end": 12,
+  "train_docs": 64,
+  "dev_docs": 12,
+  "test_docs": 12,
+  "wall_seconds": 6000,
+  "ranks": [
+    8,
+    32,
+    128
+  ],
+  "geometry_fit_per_query": 2,
+  "geometry_eval_per_query": 4,
+  "mode": "geometry"
+}

@@ -1,0 +1,319 @@
+{
+  "arms": {
+    "geometry": {
+      "bundle_receipt.json": {
+        "account": "acct1",
+        "conservative_t4_hours_cap": 4,
+        "created_wall_time": 1792094268.394756,
+        "entry_sha256": "8dc111b295fb7f1892e234120e0a294fbde80365e2d0cab946ea31e4855b6046",
+        "kernel": "wildpino/predictive-geometry-20261015",
+        "max_seconds": 7200,
+        "metadata_sha256": "1f0140c1d27ca26c8152654738d9a4da7a88b92d521bff49732b97cc502521ff",
+        "mode": "geometry",
+        "owner": "wildpino",
+        "payload_sha256": "f3c5e68f24a696d3552c897365cbb23a197c3a5e7543f16536436fe9862a0a30",
+        "schema": "PREDICTIVE_GEOMETRY_BUNDLE_V1",
+        "source_files": {
+          "PROTOCOL.md": "59dc94f4a1c15da153cfe4ffcaa2b48b301b96d55c48795ef68556d5720e8038",
+          "common.py": "1e159899df55b27fb8246f9970ce4b84bf313d0f49878d4085b3edeec5506347",
+          "config.json": "5ff345bd7df390962ad0006fc37716f5ebfbdb6256111d1b7685b0942c42b7d2",
+          "exclusions.json": "7a576f07c5b14689b22ae74554f23acf20157d99a085b5b94ab527931844adf3",
+          "geometry.py": "378ef4cb7b6c0fd5a27cde3e0df7fe47238803dd395e1d3a12080d395caa4d30",
+          "reuse.py": "beeed97e8782bdffb159a22b42bddade07954a0965c590d6586cf7e58495ccf0",
+          "support.py": "951cf51a1ca18e60af7f9303dc50240b02baa87d105861746017ad9ca7ff6021",
+          "temporal.py": "ae92e308e6b2683f3324bcb2e8bc23c17906ab8352811c1e8529ee524fae1bee"
+        }
+      },
+      "launch_attempt.json": {
+        "account": "acct1",
+        "bundle_receipt_sha256": "253ae60e540e520b272f6b609684417e03d8ec8a48c4749ae123c7b28cef8627",
+        "conservative_t4_hours_cap": 4,
+        "kernel": "wildpino/predictive-geometry-20261015",
+        "max_seconds": 7200,
+        "mode": "geometry",
+        "wall_time": 1792094287.0655396
+      },
+      "preflight.json": {
+        "inventory_refs": [
+          "wildpino/pqt-env-repair-20261005-003",
+          "wildpino/pqt-gpu-admission-20261005-002",
+          "wildpino/pqt-runtime-admission-20261005-001",
+          "wildpino/pqt-004-calibration-coverage-20261005-001",
+          "wildpino/pqt-003-head-fidelity-20261005-001",
+          "wildpino/pqt-002-scale-bias-20261005-001",
+          "wildpino/pqt-001-r1-projection-20261005-002",
+          "wildpino/context-program-pilot-a-20261015",
+          "wildpino/pqt-001-projection-20261005-001",
+          "wildpino/h1-qat-run-session-3",
+          "wildpino/h1-qat-run-session-2",
+          "wildpino/h1-qat-run-session-1",
+          "wildpino/h0-qat-run",
+          "wildpino/s1-fp16-gpu-nan-hunt",
+          "wildpino/s1-sparsity-bpb-scale-arm",
+          "wildpino/phase64-mainrun",
+          "wildpino/phase64-relaytest",
+          "wildpino/phase64-arm7",
+          "wildpino/phase64-arm4",
+          "wildpino/seearm1-v2048",
+          "wildpino/wilddataset-1",
+          "wildpino/siliconllm3"
+        ],
+        "kernel": "wildpino/predictive-geometry-20261015",
+        "quota_csv": "resource,used,remaining,total,refreshAt\n\nGPU,0.05h,29.95h,30.00h,2026-10-17T00:00:00\n\nTPU,0.00h,20.00h,20.00h,2026-10-17T00:00:00\n\n",
+        "wall_time": 1792094287.0655396
+      },
+      "push_result.json": {
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/wildpino/predictive-geometry-20261015\n",
+        "wall_time": 1792094290.3703797
+      },
+      "remote_readback": {
+        "downloaded_entry_sha256": "424e0d8871ca57ba9a71c13b2475762fcfd127c2612ddc1946dc35eba9b1aa75",
+        "frozen_entry_sha256": "8dc111b295fb7f1892e234120e0a294fbde80365e2d0cab946ea31e4855b6046",
+        "kernel": "wildpino/predictive-geometry-20261015",
+        "kernel_id": 138912065,
+        "line_ending_note": "Windows CLI writes CRLF on download; both raw hashes retained.",
+        "machine_shape": "NvidiaTeslaT4",
+        "private": true,
+        "remote_metadata": {
+          "code_file": "predictive-geometry-20261015.py",
+          "competition_sources": [],
+          "dataset_sources": [],
+          "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+          "enable_gpu": true,
+          "enable_internet": true,
+          "enable_tpu": false,
+          "id": "wildpino/predictive-geometry-20261015",
+          "id_no": 138912065,
+          "is_private": true,
+          "kernel_sources": [],
+          "kernel_type": "script",
+          "keywords": [],
+          "language": "python",
+          "machine_shape": "NvidiaTeslaT4",
+          "model_sources": [],
+          "title": "predictive-geometry-20261015"
+        },
+        "same_ast": true,
+        "same_normalized_source": true
+      },
+      "status_observations": [
+        {
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "wildpino/predictive-geometry-20261015 has status \"KernelWorkerStatus.RUNNING\"\n",
+          "wall_time": 1792094328.4332633
+        }
+      ]
+    },
+    "reuse": {
+      "bundle_receipt.json": {
+        "account": "acct3",
+        "conservative_t4_hours_cap": 4,
+        "created_wall_time": 1792094273.2503338,
+        "entry_sha256": "28512f0de9c1878baa09716d220582ffbfa3b1027f3cd560d504aafabe5d93ac",
+        "kernel": "sirwildpino/predictive-reuse-20261015",
+        "max_seconds": 7200,
+        "metadata_sha256": "e93209a22950a5aa41ad1bfc23120f1ea9da48e84782631c26212292be322abf",
+        "mode": "reuse",
+        "owner": "sirwildpino",
+        "payload_sha256": "fb282dcc7cd7a5e620076d09457f6e950dd45fbbb0de151bd5c0fd07c19657b6",
+        "schema": "PREDICTIVE_GEOMETRY_BUNDLE_V1",
+        "source_files": {
+          "PROTOCOL.md": "59dc94f4a1c15da153cfe4ffcaa2b48b301b96d55c48795ef68556d5720e8038",
+          "common.py": "1e159899df55b27fb8246f9970ce4b84bf313d0f49878d4085b3edeec5506347",
+          "config.json": "d3575020c4f48ca5d4d25b2435e1169a1b61cb4506db24d8b951d4b8ccb2e67b",
+          "exclusions.json": "7a576f07c5b14689b22ae74554f23acf20157d99a085b5b94ab527931844adf3",
+          "geometry.py": "378ef4cb7b6c0fd5a27cde3e0df7fe47238803dd395e1d3a12080d395caa4d30",
+          "reuse.py": "beeed97e8782bdffb159a22b42bddade07954a0965c590d6586cf7e58495ccf0",
+          "support.py": "951cf51a1ca18e60af7f9303dc50240b02baa87d105861746017ad9ca7ff6021",
+          "temporal.py": "ae92e308e6b2683f3324bcb2e8bc23c17906ab8352811c1e8529ee524fae1bee"
+        }
+      },
+      "launch_attempt.json": {
+        "account": "acct3",
+        "bundle_receipt_sha256": "691b323ed9eda6ac44e1a3716e37363e01ec8885442b088788535f3a51664b9d",
+        "conservative_t4_hours_cap": 4,
+        "kernel": "sirwildpino/predictive-reuse-20261015",
+        "max_seconds": 7200,
+        "mode": "reuse",
+        "wall_time": 1792094304.2488408
+      },
+      "preflight.json": {
+        "inventory_refs": [
+          "sirwildpino/pqt-008-global-staged-20261006-001",
+          "sirwildpino/pqt-007-full-model-20261006-001",
+          "sirwildpino/pqt-src-007-switch-float-20261006-003",
+          "sirwildpino/pqt-src-007-switch-float-20261006-002",
+          "sirwildpino/pqt-src-007-switch-float-20261006-001",
+          "sirwildpino/pqt-src-005-switch-t4-20261006-001",
+          "sirwildpino/pqt-011-matched-scales-20261006-001",
+          "sirwildpino/pqt-010-r2-frozen-audit-20261006-001",
+          "sirwildpino/pqt-010-r1-frozen-audit-20261006-001",
+          "sirwildpino/pqt-010-shared-parameter-ablation-20261006-002",
+          "",
+          "sirwildpino/pqt-009-r1-frozen-evaluation-20261006-002",
+          "sirwildpino/pqt-009-calibration-breadth-20261006-001",
+          "sirwildpino/h4-rank48-stagea-v2",
+          "sirwildpino/s1-sparsity-bpb-scale-arm",
+          "sirwildpino/phase64-mainrun",
+          "sirwildpino/phase64-relaytest",
+          "sirwildpino/phase64-arm6",
+          "sirwildpino/notebook3f8b10f091",
+          "sirwildpino/wilddataset-3",
+          "sirwildpino/siliconllm"
+        ],
+        "kernel": "sirwildpino/predictive-reuse-20261015",
+        "quota_csv": "resource,used,remaining,total,refreshAt\n\nGPU,0.00h,30.00h,30.00h,2026-10-17T00:00:00\n\nTPU,0.00h,20.00h,20.00h,2026-10-17T00:00:00\n\n",
+        "wall_time": 1792094304.2468357
+      },
+      "push_result.json": {
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/sirwildpino/predictive-reuse-20261015\n",
+        "wall_time": 1792094307.1185513
+      },
+      "remote_readback": {
+        "downloaded_entry_sha256": "9ecb9c40e35bbca574559c646fd73dab0d6144d06fbc324aece5f9f1435955f0",
+        "frozen_entry_sha256": "28512f0de9c1878baa09716d220582ffbfa3b1027f3cd560d504aafabe5d93ac",
+        "kernel": "sirwildpino/predictive-reuse-20261015",
+        "kernel_id": 138912117,
+        "line_ending_note": "Windows CLI writes CRLF on download; both raw hashes retained.",
+        "machine_shape": "NvidiaTeslaT4",
+        "private": true,
+        "remote_metadata": {
+          "code_file": "predictive-reuse-20261015.py",
+          "competition_sources": [],
+          "dataset_sources": [],
+          "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+          "enable_gpu": true,
+          "enable_internet": true,
+          "enable_tpu": false,
+          "id": "sirwildpino/predictive-reuse-20261015",
+          "id_no": 138912117,
+          "is_private": true,
+          "kernel_sources": [],
+          "kernel_type": "script",
+          "keywords": [],
+          "language": "python",
+          "machine_shape": "NvidiaTeslaT4",
+          "model_sources": [],
+          "title": "predictive-reuse-20261015"
+        },
+        "same_ast": true,
+        "same_normalized_source": true
+      },
+      "status_observations": [
+        {
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "sirwildpino/predictive-reuse-20261015 has status \"KernelWorkerStatus.RUNNING\"\n",
+          "wall_time": 1792094332.0875213
+        }
+      ]
+    },
+    "temporal": {
+      "bundle_receipt.json": {
+        "account": "acct2",
+        "conservative_t4_hours_cap": 4,
+        "created_wall_time": 1792094270.7277818,
+        "entry_sha256": "d7d9511c211b4b29af81f7ad80515fa39287427f5dfc264e0d7834041f7d5101",
+        "kernel": "giggio253/predictive-temporal-20261015",
+        "max_seconds": 7200,
+        "metadata_sha256": "350588d936f2d8939b9d33524a09e9729be7aa0ddd6a9be3abbaec00f32d6d2e",
+        "mode": "temporal",
+        "owner": "giggio253",
+        "payload_sha256": "34c5dbbb5917d986b220f4963b30aeaabf3b524305ede3735913af95d350b7ff",
+        "schema": "PREDICTIVE_GEOMETRY_BUNDLE_V1",
+        "source_files": {
+          "PROTOCOL.md": "59dc94f4a1c15da153cfe4ffcaa2b48b301b96d55c48795ef68556d5720e8038",
+          "common.py": "1e159899df55b27fb8246f9970ce4b84bf313d0f49878d4085b3edeec5506347",
+          "config.json": "5fcb022687495a5c4c42a0c8e71f6f587c7ae4756816fd1344722c2435064315",
+          "exclusions.json": "7a576f07c5b14689b22ae74554f23acf20157d99a085b5b94ab527931844adf3",
+          "geometry.py": "378ef4cb7b6c0fd5a27cde3e0df7fe47238803dd395e1d3a12080d395caa4d30",
+          "reuse.py": "beeed97e8782bdffb159a22b42bddade07954a0965c590d6586cf7e58495ccf0",
+          "support.py": "951cf51a1ca18e60af7f9303dc50240b02baa87d105861746017ad9ca7ff6021",
+          "temporal.py": "ae92e308e6b2683f3324bcb2e8bc23c17906ab8352811c1e8529ee524fae1bee"
+        }
+      },
+      "launch_attempt.json": {
+        "account": "acct2",
+        "bundle_receipt_sha256": "0afbe57d81b14a622d0c98eeb7987de6b0f735407a4df90641faf90ad1105fb2",
+        "conservative_t4_hours_cap": 4,
+        "kernel": "giggio253/predictive-temporal-20261015",
+        "max_seconds": 7200,
+        "mode": "temporal",
+        "wall_time": 1792094296.1517897
+      },
+      "preflight.json": {
+        "inventory_refs": [
+          "giggio253/pqt-013-primitive-controls-20261006-002",
+          "",
+          "giggio253/pqt-013-row-alphabet-20261006-001",
+          "giggio253/pqt-013-primitive-controls-20261006-001",
+          "giggio253/pqt-012-natural-encoder-20261006-001",
+          "giggio253/pqt-005-r1-original-experts-20261005-002",
+          "giggio253/pqt-005-original-experts-20261005-001",
+          "giggio253/h2i-one-byte-phase-b",
+          "giggio253/phase64-mainrun",
+          "giggio253/phase64-arm5",
+          "giggio253/seearm2-v4096",
+          "giggio253/wilddataset-2",
+          "giggio253/siliconllm2"
+        ],
+        "kernel": "giggio253/predictive-temporal-20261015",
+        "quota_csv": "resource,used,remaining,total,refreshAt\n\nGPU,0.00h,30.00h,30.00h,2026-10-17T00:00:00\n\nTPU,0.00h,20.00h,20.00h,2026-10-17T00:00:00\n\n",
+        "wall_time": 1792094296.1508393
+      },
+      "push_result.json": {
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/giggio253/predictive-temporal-20261015\n",
+        "wall_time": 1792094298.9396043
+      },
+      "remote_readback": {
+        "downloaded_entry_sha256": "048d46d3fa08caaeecc2ac3d5af4b14b540dea52193b6667a0c465c977cc4943",
+        "frozen_entry_sha256": "d7d9511c211b4b29af81f7ad80515fa39287427f5dfc264e0d7834041f7d5101",
+        "kernel": "giggio253/predictive-temporal-20261015",
+        "kernel_id": 138912092,
+        "line_ending_note": "Windows CLI writes CRLF on download; both raw hashes retained.",
+        "machine_shape": "NvidiaTeslaT4",
+        "private": true,
+        "remote_metadata": {
+          "code_file": "predictive-temporal-20261015.py",
+          "competition_sources": [],
+          "dataset_sources": [],
+          "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+          "enable_gpu": true,
+          "enable_internet": true,
+          "enable_tpu": false,
+          "id": "giggio253/predictive-temporal-20261015",
+          "id_no": 138912092,
+          "is_private": true,
+          "kernel_sources": [],
+          "kernel_type": "script",
+          "keywords": [],
+          "language": "python",
+          "machine_shape": "NvidiaTeslaT4",
+          "model_sources": [],
+          "title": "predictive-temporal-20261015"
+        },
+        "same_ast": true,
+        "same_normalized_source": true
+      },
+      "status_observations": [
+        {
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "giggio253/predictive-temporal-20261015 has status \"KernelWorkerStatus.RUNNING\"\n",
+          "wall_time": 1792094330.41137
+        }
+      ]
+    }
+  },
+  "conservative_t4_hours_cap": 12,
+  "control_root": "E:\\SiliconLLM_Artifacts\\campaigns\\predictive_geometry_20261015",
+  "observed_utc": "2026-10-15T20:00:15.628077+00:00",
+  "schema": "PREDICTIVE_GEOMETRY_LAUNCH_WAVE_V1"
+}
