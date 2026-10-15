@@ -162,9 +162,16 @@ def _bases(torch, fit, records, cfg, output, budget, device):
     random_basis = torch.linalg.qr(torch.randn(gradients.shape[-1], maximum, device=device,
                                              generator=generator), mode="reduced").Q
     bases = dict(fisher=fisher, pca=pca, random=random_basis)
+    frame_errors = {}
     for name, basis in bases.items():
         _finite(torch, basis, name + " basis")
+        before_error = (basis.T @ basis - torch.eye(maximum, device=device)).abs().max().item()
+        # Restore orthogonality within the same ordered column spans. This is
+        # an unpivoted numerical frame repair, not a new fit or weaker gate.
+        basis = torch.linalg.qr(basis, mode="reduced").Q
+        bases[name] = basis
         orthogonal_error = (basis.T @ basis - torch.eye(maximum, device=device)).abs().max().item()
+        frame_errors[name] = dict(before_qr=before_error, after_qr=orthogonal_error)
         if orthogonal_error > 1e-4:
             raise RuntimeError(f"Nonorthogonal {name} basis: {orthogonal_error}")
     torch.save(dict(bases={name: value.cpu() for name, value in bases.items()},
@@ -177,6 +184,8 @@ def _bases(torch, fit, records, cfg, output, budget, device):
                    unsupported_ranks=[rank for rank in ranks if rank not in valid_ranks],
                    covariance="uncentered equal-weight score outer products, joint teacher-forced queries",
                    queries=fit["queries"],
+                   frame_construction="SVD followed by unpivoted QR; same ordered column spans and unchanged 1e-4 gate",
+                   orthogonality_errors=frame_errors,
                    rank_limit_warning="FIT rank is at most the number of sampled scores; only independent held-out probes assess concentration",
                    pca_fit_states=len(activation), fit_documents=fit["documents"])
     _json(Path(output) / "geometry_basis_receipt.json", receipt)

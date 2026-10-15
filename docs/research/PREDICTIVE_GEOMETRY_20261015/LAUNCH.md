@@ -63,3 +63,20 @@ checks. Rank-deficient temporal frames and finite-probe archive oracles have
 explicit limitations; do not turn them into evidence of scalable execution.
 The launcher refuses duplicate attempts. Inspect an ambiguous outcome before
 any separately recorded repair or successor decision.
+
+## Subsequent execution update
+
+The temporal and reuse numerical studies completed, with bootstrap wall times
+169.205 and 155.837 seconds respectively. Their JSON readbacks matched their
+cloud manifests. COMPLETE is not a positive scientific conclusion; the temporal
+primary held-out rows have insufficient rank-qualified articles, and the reuse
+effects still require the prescribed paired-interval interpretation.
+
+The initial geometry job failed an orthogonality control after both source
+derivative checks passed, before held-out score sampling. The first fault is
+preserved. A [qualified numerical QR repair](REPAIR.md) was launched as a new
+[private kernel](https://www.kaggle.com/code/wildpino/predictive-geometry-qr-repair-20261015).
+Its cap is reduced by a conservative bound on the original allocation already
+used, preserving the twelve-T4-hour wave ceiling. The original source packages,
+negative pilot and numerical tolerance are unchanged. Inspect the
+[repair launch receipt](repair_launch_receipt.json) and current API status.

@@ -1,0 +1,142 @@
+{
+  "bundle_receipt.json": {
+    "account": "acct1",
+    "conservative_t4_hours_cap": 3.6666666666666665,
+    "created_wall_time": 1792094651.0289712,
+    "entry_sha256": "5e652d2d92b0fb3689f5117ca130580b2c98a7f70584c8f126d015d79e7cda2b",
+    "kernel": "wildpino/predictive-geometry-qr-repair-20261015",
+    "max_seconds": 6600,
+    "metadata_sha256": "db05e04caad650f4104e8cbc3d231f9674e20c7f917e68da4b783703848b1adf",
+    "mode": "geometry-qr-repair",
+    "owner": "wildpino",
+    "payload_sha256": "d6063aa07fa28d91d3889b1061e7aac5b255d8df2e54089eb051ab45e54ce9fc",
+    "repair_qualification": {
+      "change": "unpivoted QR after SVD, identical ordered spans and unchanged orthogonality threshold",
+      "failure_manifest_sha256": "e8234bf6a70ad9cad4e7f7bb83234d891374ab5c23441b6ac930ff25cad50834",
+      "geometry_lineage_cap_seconds": 7200,
+      "observed_wall_time": 1792094648.475462,
+      "original_elapsed_upper_bound_seconds": 362,
+      "original_kernel": "wildpino/predictive-geometry-20261015",
+      "reason": "Nonorthogonal fisher basis: 0.00010800361633300781",
+      "repair_max_seconds": 6600,
+      "shutdown_margin_seconds": 180
+    },
+    "schema": "PREDICTIVE_GEOMETRY_BUNDLE_V1",
+    "source_files": {
+      "PROTOCOL.md": "59dc94f4a1c15da153cfe4ffcaa2b48b301b96d55c48795ef68556d5720e8038",
+      "REPAIR.md": "bacc6ab7106b6fb478527cbf11d043d385b07182b9808623c784f8ee9704b3aa",
+      "common.py": "1e159899df55b27fb8246f9970ce4b84bf313d0f49878d4085b3edeec5506347",
+      "config.json": "5ff345bd7df390962ad0006fc37716f5ebfbdb6256111d1b7685b0942c42b7d2",
+      "exclusions.json": "7a576f07c5b14689b22ae74554f23acf20157d99a085b5b94ab527931844adf3",
+      "geometry.py": "42160e51c080e17fde980ba0fab5023a80de4d062651cca6c2d4a9396dc57b9f",
+      "reuse.py": "beeed97e8782bdffb159a22b42bddade07954a0965c590d6586cf7e58495ccf0",
+      "support.py": "951cf51a1ca18e60af7f9303dc50240b02baa87d105861746017ad9ca7ff6021",
+      "temporal.py": "ae92e308e6b2683f3324bcb2e8bc23c17906ab8352811c1e8529ee524fae1bee"
+    }
+  },
+  "launch_attempt.json": {
+    "account": "acct1",
+    "bundle_receipt_sha256": "f18f2a00adf114bd36a7d9f27a2b73e226a97827f8ec2d507555b2ad871aed6b",
+    "conservative_t4_hours_cap": 3.6666666666666665,
+    "kernel": "wildpino/predictive-geometry-qr-repair-20261015",
+    "max_seconds": 6600,
+    "mode": "geometry-qr-repair",
+    "repair_qualification": {
+      "change": "unpivoted QR after SVD, identical ordered spans and unchanged orthogonality threshold",
+      "failure_manifest_sha256": "e8234bf6a70ad9cad4e7f7bb83234d891374ab5c23441b6ac930ff25cad50834",
+      "geometry_lineage_cap_seconds": 7200,
+      "observed_wall_time": 1792094648.475462,
+      "original_elapsed_upper_bound_seconds": 362,
+      "original_kernel": "wildpino/predictive-geometry-20261015",
+      "reason": "Nonorthogonal fisher basis: 0.00010800361633300781",
+      "repair_max_seconds": 6600,
+      "shutdown_margin_seconds": 180
+    },
+    "wall_time": 1792094658.0061939
+  },
+  "observed_utc": "2026-10-15T20:06:04.909424+00:00",
+  "preserved_first_fault": {
+    "bootstrap_terminal.json": {
+      "artifact_manifest_sha256": "e8234bf6a70ad9cad4e7f7bb83234d891374ab5c23441b6ac930ff25cad50834",
+      "elapsed_seconds": 105.236309173,
+      "exception": "Command '['/usr/bin/python3', '-B', '/kaggle/working/predictive_source/support.py', '--config', '/kaggle/working/predictive_source/effective_config.json', '--output', '/kaggle/working/predictive_output']' returned non-zero exit status 1.",
+      "exception_type": "CalledProcessError",
+      "finished_wall_time": 1792094401.7862315,
+      "schema": "PREDICTIVE_BOOTSTRAP_V1",
+      "started_wall_time": 1792094296.5500784,
+      "status": "FAILED",
+      "traceback": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 26, in <module>\n    run([sys.executable,'-B',str(root/'support.py'),'--config',str(root/'effective_config.json'),'--output',str(out)])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/src/script.py\", line 9, in run\n    subprocess.run(command,check=True,timeout=left)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['/usr/bin/python3', '-B', '/kaggle/working/predictive_source/support.py', '--config', '/kaggle/working/predictive_source/effective_config.json', '--output', '/kaggle/working/predictive_output']' returned non-zero exit status 1.\n"
+    },
+    "geometry_derivative_checks.json": [
+      {
+        "absolute_error": 2.9905224015922775e-05,
+        "analytic": -0.0010077627375721931,
+        "document": 0,
+        "epsilon": 0.07673413276672364,
+        "finite_difference": -0.0009778575135562704,
+        "pass_check": true,
+        "query": 63,
+        "token_id": 370,
+        "tolerance": "max(1e-4,0.10*abs(analytic))"
+      },
+      {
+        "absolute_error": 4.7827543740706125e-09,
+        "analytic": -4.107310758172389e-07,
+        "document": 1,
+        "epsilon": 0.07254945755004882,
+        "finite_difference": -4.059483214431683e-07,
+        "pass_check": true,
+        "query": 79,
+        "token_id": 15,
+        "tolerance": "max(1e-4,0.10*abs(analytic))"
+      }
+    ],
+    "geometry_report.json": {
+      "elapsed_seconds": 13.764875554000014,
+      "error": "Nonorthogonal fisher basis: 0.00010800361633300781",
+      "error_type": "RuntimeError",
+      "no_positive_claim": true,
+      "status": "INCONCLUSIVE",
+      "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/predictive_source/geometry.py\", line 377, in run\n    return _run(torch, donor, records, windows, cfg, output, budget, device)\n  File \"/kaggle/working/predictive_source/geometry.py\", line 342, in _run\n    bases, ranks, basis_receipt = _bases(torch, fit, records, cfg, output, budget, device)\n                                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/predictive_source/geometry.py\", line 169, in _bases\n    raise RuntimeError(f\"Nonorthogonal {name} basis: {orthogonal_error}\")\nRuntimeError: Nonorthogonal fisher basis: 0.00010800361633300781\n"
+    }
+  },
+  "push_result.json": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/wildpino/predictive-geometry-qr-repair-20261015\n",
+    "wall_time": 1792094660.6940112
+  },
+  "remote_readback": {
+    "downloaded_sha256": "64f6edc375ae3cde5ef4adf6a658e53f49787dafcdecd0316fcc98ac9c929a9b",
+    "frozen_sha256": "5e652d2d92b0fb3689f5117ca130580b2c98a7f70584c8f126d015d79e7cda2b",
+    "metadata": {
+      "code_file": "predictive-geometry-qr-repair-20261015.py",
+      "competition_sources": [],
+      "dataset_sources": [],
+      "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+      "enable_gpu": true,
+      "enable_internet": true,
+      "enable_tpu": false,
+      "id": "wildpino/predictive-geometry-qr-repair-20261015",
+      "id_no": 138913357,
+      "is_private": true,
+      "kernel_sources": [],
+      "kernel_type": "script",
+      "keywords": [],
+      "language": "python",
+      "machine_shape": "NvidiaTeslaT4",
+      "model_sources": [],
+      "title": "predictive-geometry-qr-repair-20261015"
+    },
+    "same_normalized_source": true
+  },
+  "schema": "PREDICTIVE_GEOMETRY_QUALIFIED_REPAIR_LAUNCH_V1",
+  "status_observations": [
+    {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "wildpino/predictive-geometry-qr-repair-20261015 has status \"KernelWorkerStatus.RUNNING\"\n",
+      "wall_time": 1792094717.7213957
+    }
+  ]
+}
