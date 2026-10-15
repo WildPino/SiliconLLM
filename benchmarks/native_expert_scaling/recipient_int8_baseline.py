@@ -196,7 +196,8 @@ def run(directory):
     py = [binding['python'], '-I', '-S', '-B', '-X', 'utf8']
     # Exporter's imports require the explicit isolated site view.
     boot = ('import runpy,sys;sys.path.insert(0,' + repr(str(SITE)) + ');'
-            'p=sys.argv[1];sys.argv=sys.argv[1:];runpy.run_path(p,run_name="__main__")')
+            'p=sys.argv[1];sys.path.insert(0,__import__("os").path.dirname(p));'
+            'sys.argv=sys.argv[1:];runpy.run_path(p,run_name="__main__")')
     try:
         job('export', py + ['-c', boot, ROOT / 'benchmarks/donor_adaptation/engine/qwen_export.py',
             '--model', SOURCE, '--revision', SOURCE.name, '--quant', 'int8', '--rule', 'R8',
