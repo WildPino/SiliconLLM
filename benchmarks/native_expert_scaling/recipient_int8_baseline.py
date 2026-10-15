@@ -45,7 +45,7 @@ def env():
     return e
 
 
-def prepare(directory):
+def prepare(directory, adopt=None):
     directory.mkdir(parents=True, exist_ok=False)
     os.environ.update({k: v for k, v in env().items() if k in
                       ('CUDA_VISIBLE_DEVICES', 'HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE',
@@ -125,13 +125,61 @@ def prepare(directory):
     source = next(x for x in records if x['path'] == str(SOURCE / 'model.safetensors'))
     assert source['sha256'] == SOURCE_SHA
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+    adoption = None
+    if adopt is not None:
+        old = json.loads((adopt / 'binding.json').read_text())
+        fault = json.loads((adopt / 'audit.json.failure.json').read_text())
+        assert fault['error_type'] == 'NotImplementedError'
+        assert fault['error'] == 'Cannot copy out of meta tensor; no data!'
+        allowed = {str(HERE / 'recipient_int8_baseline.py'), str(HERE / 'recipient_int8_audit.py')}
+        differences = []
+        for x in old['inputs']:
+            p = Path(x['path'])
+            if p.stat().st_size != x['bytes'] or sha(p) != x['sha256']:
+                assert str(p) in allowed, str(p)
+                differences.append({'path': str(p), 'old_sha256': x['sha256'], 'new_sha256': sha(p)})
+        assert {x['path'] for x in differences} == allowed
+        old_cases = {x['name']: x for x in old['cases']}
+        assert all(x['sha256'] == old_cases[x['name']]['sha256'] for x in cases)
+        assert sha(parity) == sha(Path(old['parity_ids']))
+        accepted = []
+        names = ['recipient.i8.bin', 'recipient.i8.bin.json', 'recipient.i8.exe']
+        exported = json.loads((adopt / 'recipient.i8.bin.json').read_text())
+        assert sha(adopt / 'recipient.i8.bin') == exported['sha256']
+        for stage in ('export', 'compile'):
+            receipt = json.loads((adopt / f'{stage}.terminal.json').read_text())
+            assert receipt['exit_code'] == 0
+            for channel in ('stdout', 'stderr'):
+                assert sha(adopt / f'{stage}.{channel}') == receipt[channel + '_sha256']
+            accepted.append(receipt)
+            names.extend(f'{stage}.{suffix}' for suffix in ('stdout', 'stderr', 'terminal.json', 'owned.json'))
+        inherited = []
+        for name in names:
+            src, dst = adopt / name, directory / name
+            os.link(src, dst)  # Immutable retained artifact adoption; no numerical replay.
+            inherited.append({'old_path': str(src), 'path': str(dst),
+                              'bytes': dst.stat().st_size, 'sha256': sha(dst)})
+        evidence = [adopt / 'binding.json', adopt / 'failure.json',
+                    adopt / 'audit.json.failure.json', adopt / 'audit.terminal.json',
+                    adopt / 'audit.stderr', adopt / 'audit.owned.json',
+                    adopt / 'parity.logits', adopt / 'probe.terminal.json',
+                    adopt / 'probe.stdout', adopt / 'probe.stderr', adopt / 'probe.owned.json']
+        for p in evidence:
+            records.append({'path': str(p), 'bytes': p.stat().st_size, 'sha256': sha(p)})
+        for x in inherited:
+            records.append({k: x[k] for k in ('path', 'bytes', 'sha256')})
+        adoption = {'from': str(adopt), 'fault_retained': str(adopt / 'audit.json.failure.json'),
+                    'explicit_code_changes': differences, 'accepted_commands': accepted,
+                    'inherited_artifacts': inherited,
+                    'old_probe_sha256': sha(adopt / 'parity.logits'),
+                    'scope': 'Reuse sealed source conversion and native executable after CPU reference meta-buffer repair; new probe must exactly replay the retained old probe. No model data/gates changed.'}
     binding = {'schema': 'RECIPIENT_INT8_BASELINE_V1', 'git_head': head,
                'source_sha256': SOURCE_SHA, 'source_directory': str(SOURCE),
                'compiler': str(cc), 'openmp_dll': str(dll), 'python': sys.executable,
                'cases': cases, 'parity_ids': str(parity), 'inputs': records,
                'limits': {'job_seconds': 900, 'total_seconds': 2400,
                           'host_bytes': 8 << 30, 'output_bytes': 2 << 30},
-               'cost_only': True, 'quality_and_transfer_admitted': False}
+               'cost_only': True, 'quality_and_transfer_admitted': False, 'adoption': adoption}
     write(directory / 'binding.json', binding)
     print(json.dumps({'prepared': str(directory), 'inputs': len(records),
                       'input_bytes': sum(x['bytes'] for x in records),
@@ -199,16 +247,24 @@ def run(directory):
             'p=sys.argv[1];sys.path.insert(0,__import__("os").path.dirname(p));'
             'sys.argv=sys.argv[1:];runpy.run_path(p,run_name="__main__")')
     try:
-        job('export', py + ['-c', boot, ROOT / 'benchmarks/donor_adaptation/engine/qwen_export.py',
-            '--model', SOURCE, '--revision', SOURCE.name, '--quant', 'int8', '--rule', 'R8',
-            '--load-dtype', 'bfloat16', '--fold', 'none', '--head-ternary', '--threads', '6', '--out', artifact])
+        adoption = binding.get('adoption')
+        if adoption:
+            commands.extend(adoption['accepted_commands'])
+            print(json.dumps({'adopted': ['export', 'compile'], 'from': adoption['from']}), flush=True)
+        else:
+            job('export', py + ['-c', boot, ROOT / 'benchmarks/donor_adaptation/engine/qwen_export.py',
+                '--model', SOURCE, '--revision', SOURCE.name, '--quant', 'int8', '--rule', 'R8',
+                '--load-dtype', 'bfloat16', '--fold', 'none', '--head-ternary', '--threads', '6', '--out', artifact])
         artifact_sha = sha(artifact)
-        job('compile', [binding['compiler'], '-O3', '-std=c11', '-march=x86-64-v3',
-            '-ffp-contract=on', '-fopenmp', '-Wl,--no-insert-timestamp',
-            '-DSILICON_QWEN_RECIPIENT_I8', ROOT / 'benchmarks/phase60/engine.c',
-            '-o', exe, '-lpsapi', '-lm'])
+        if not adoption:
+            job('compile', [binding['compiler'], '-O3', '-std=c11', '-march=x86-64-v3',
+                '-ffp-contract=on', '-fopenmp', '-Wl,--no-insert-timestamp',
+                '-DSILICON_QWEN_RECIPIENT_I8', ROOT / 'benchmarks/phase60/engine.c',
+                '-o', exe, '-lpsapi', '-lm'])
         logits = directory / 'parity.logits'
         job('probe', [exe, artifact, binding['parity_ids'], '0', '6', 'probe', logits])
+        if adoption:
+            assert sha(logits) == adoption['old_probe_sha256'], 'native probe replay differs'
         job('audit', py + [HERE / 'recipient_int8_audit.py', '--source', SOURCE / 'model.safetensors',
             '--artifact', artifact, '--artifact-sha', artifact_sha, '--ids', binding['parity_ids'],
             '--logits', logits, '--out', directory / 'audit.json'])
@@ -238,6 +294,7 @@ def run(directory):
                   'source_sha256': SOURCE_SHA, 'artifact_sha256': artifact_sha,
                   'artifact_bytes': artifact.stat().st_size, 'executable_sha256': sha(exe),
                   'binding_sha256': sha(directory / 'binding.json'), 'commands': commands,
+                  'adoption': adoption,
                   'cases': results, 'cost_summary': by_case, 'seconds': time.monotonic() - started,
                   'output_bytes': output_bytes, 'quality_admitted': False,
                   'donor_transfer_admitted': False, 'goal_complete': False,
@@ -255,5 +312,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', choices=('prepare', 'run'))
     parser.add_argument('directory', type=Path)
+    parser.add_argument('--adopt', type=Path)
     a = parser.parse_args()
-    (prepare if a.mode == 'prepare' else run)(a.directory.resolve())
+    if a.mode == 'prepare':
+        prepare(a.directory.resolve(), a.adopt.resolve() if a.adopt else None)
+    else:
+        assert a.adopt is None, '--adopt belongs to preparation'
+        run(a.directory.resolve())

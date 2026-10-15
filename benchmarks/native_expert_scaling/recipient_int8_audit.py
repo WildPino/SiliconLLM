@@ -219,6 +219,7 @@ def run(args):
     torch.set_num_threads(6)
     torch.set_num_interop_threads(1)
     from transformers import Qwen2Config, Qwen2ForCausalLM
+    from transformers.models.qwen2.modeling_qwen2 import Qwen2RotaryEmbedding
 
     hf_config = Qwen2Config.from_pretrained(str(args.source.parent), local_files_only=True)
     hf_config.tie_word_embeddings = False  # the archive has an explicit quantized head
@@ -270,8 +271,18 @@ def run(args):
     fail_unless(set(model.state_dict()) == set(state), "decoded state tensor set mismatch")
     model.load_state_dict(state, strict=True, assign=True)
     del state
+    # inv_freq is a nonpersistent buffer, so assign=True cannot materialize the
+    # instance constructed on meta. Rebuild it solely from the pinned config.
+    rotary = Qwen2RotaryEmbedding(config=hf_config, device=torch.device("cpu"))
+    fail_unless(not tuple(rotary.named_parameters()), "rotary embedding has parameters")
+    model.model.rotary_emb = rotary
     model.eval()
-    fail_unless(next(model.parameters()).device.type == "cpu", "model is not CPU")
+    for name, tensor in model.named_parameters():
+        fail_unless(not tensor.is_meta and tensor.device.type == "cpu",
+                    f"parameter is not materialized on CPU: {name}")
+    for name, tensor in model.named_buffers():
+        fail_unless(not tensor.is_meta and tensor.device.type == "cpu",
+                    f"buffer is not materialized on CPU: {name}")
     guard()
     with torch.inference_mode():
         reference = model(torch.from_numpy(ids.astype(np.int64))[None],
