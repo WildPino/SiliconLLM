@@ -32,3 +32,19 @@ package entry point after resolving aliases; hashes still seal the actual files.
 The original exclusive directory and terminal fault remain intact. The corrected
 launch uses `--output results/native_expert_scaling/first_attention_source_repair1_20261015`;
 this changes neither the data rule nor model revision, tensors or numerical gates.
+
+## Physical vocabulary padding correction
+
+The corrected runtime launch acquired the four tokenizer files, then stopped
+before any weight request: the official tokenizer has200,019 IDs (maximum
+ID200,018), while the checkpoint allocates201,088 embedding/head rows. Exact
+equality was an invalid precondition for this padded vocabulary. The next
+launch requires every tokenizer ID to address an existing source row, retaining
+all physical model rows in accounting. No token ID, text, split or metric changes.
+
+The tokenizer files already obtained from the immutable revision are SHA-256
+pinned in the corrected source. `--tokenizer-cache` may reuse those exact bytes;
+each hit records its input descriptor and zero new network-body bytes. No
+cache file is trusted by path alone. This avoids a repeated28MB metadata fetch.
+The next exclusive output is`first_attention_source_repair2_20261015`; all
+earlier ownership/terminal receipts remain unchanged.

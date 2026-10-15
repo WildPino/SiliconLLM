@@ -52,6 +52,12 @@ MAX_SPAN = 2 << 20
 MAX_GAPS = 100 << 20
 FIXED_CLOCK_DATE = '2026-10-15'
 HOLDOUT_SALT = 'first-attention-source-holdout-v1:'
+TOKENIZER_HASHES = {
+    'tokenizer.json': '0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3',
+    'tokenizer_config.json': '9279e942392b742d633c7adbb89ebe002c98399db8926a7af5125c726f404070',
+    'special_tokens_map.json': 'dd5e191d20c12d2fee1da5bae14ca1db0f5f4215300af691f23cdee97120a293',
+    'chat_template.jinja': 'a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146',
+}
 RANGE = re.compile(r'bytes (\d+)-(\d+)/(\d+)')
 TARGETS = ('q_proj.weight', 'k_proj.weight', 'v_proj.weight', 'o_proj.weight',
            'q_proj.bias', 'k_proj.bias', 'v_proj.bias', 'o_proj.bias', 'sinks')
@@ -353,12 +359,26 @@ def main(args, process, began):
     budget=Budget(guard)
     tokdir=OUT/'tokenizer';tokdir.mkdir()
     tokenizer_names=('tokenizer.json','tokenizer_config.json','special_tokens_map.json','chat_template.jinja')
+    cached_tokenizer_pins=[]
     for name in tokenizer_names:
-        data=budget.small(name)
+        if args.tokenizer_cache:
+            source=args.tokenizer_cache/name
+            cached_tokenizer_pins.append(desc(source))
+            assert cached_tokenizer_pins[-1]['sha256']==TOKENIZER_HASHES[name]
+            assert sum(p['bytes'] for p in cached_tokenizer_pins)<=MAX_TOKENIZER
+            data=source.read_bytes()
+            budget.record(dict(kind='verified_local_tokenizer_cache',name=name,
+                source=cached_tokenizer_pins[-1],network_body_bytes=0))
+        else:
+            data=budget.small(name)
+        assert hashlib.sha256(data).hexdigest()==TOKENIZER_HASHES[name]
         with (tokdir/name).open('xb') as stream:stream.write(data)
     shutil.copyfile(CONFIG,tokdir/'config.json')
     tokenizer=AutoTokenizer.from_pretrained(str(tokdir),local_files_only=True,trust_remote_code=False)
-    assert len(tokenizer)==config['vocab_size']
+    vocab=tokenizer.get_vocab()
+    tokenizer_count=len(tokenizer)
+    assert 0 < tokenizer_count <= config['vocab_size']
+    assert all(type(value) is int and 0<=value<config['vocab_size'] for value in vocab.values())
     cases=[];used=set()
     fixed_clock=datetime(2026,10,15,tzinfo=timezone.utc).strftime
     for row in chosen:
@@ -433,7 +453,7 @@ def main(args, process, began):
         row_lookup={str(token):i for i,token in enumerate(token_ids)},
         source_shard=embedding_shard,source_row_bytes=row_size)
     del extracted
-    pins=initial+[desc(tokdir/name) for name in (*tokenizer_names,'config.json')]
+    pins=initial+cached_tokenizer_pins+[desc(tokdir/name) for name in (*tokenizer_names,'config.json')]
     assert all(desc(p['path'])==p for p in pins)
     assert budget.weights <= MAX_WEIGHTS and budget.calls <= MAX_CALLS
     write(OUT/'manifest.json',dict(schema='FIRST_ATTENTION_SOURCE_V1',source_model='openai/gpt-oss-120b',
@@ -442,6 +462,8 @@ def main(args, process, began):
         tokenizer_files=[desc(tokdir/name) for name in (*tokenizer_names,'config.json')],
         tokenizer_runtime=dict(transformers=transformers.__version__,tokenizers=tokenizers.__version__,
                                jinja2=jinja2.__version__),
+        tokenizer_rows=tokenizer_count,tokenizer_max_id=max(vocab.values()),
+        physical_vocabulary_rows=config['vocab_size'],
         selection_plan_sha256=desc(OUT/'selection_plan.json')['sha256'],
         eligibility_plan_sha256=desc(OUT/'eligibility_plan.json')['sha256'],
         common_prefix_length=common_prefix_length,evaluation_query_start=common_prefix_length,
@@ -449,6 +471,7 @@ def main(args, process, began):
         host_date_utc=datetime.now(timezone.utc).date().isoformat(),
         source_headers=heads,network=dict(calls=budget.calls,metadata_bytes=budget.metadata,
             tokenizer_bytes=budget.tokenizer,weight_bytes=budget.weights,
+            cached_tokenizer_bytes=sum(p['bytes'] for p in cached_tokenizer_pins),
             unused_embedding_gap_bytes=gap_bytes,events=budget.events),
         no_experts=True,no_full_head=True,no_full_checkpoint=True,no_model_inference=True,
         seconds=time.monotonic()-began,OS_peak=process.memory_info().peak_wset))
@@ -459,7 +482,8 @@ def main(args, process, began):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--freeze',required=True)
-    parser.add_argument('--output',type=Path,default=OUT);args=parser.parse_args()
+    parser.add_argument('--output',type=Path,default=OUT)
+    parser.add_argument('--tokenizer-cache',type=Path);args=parser.parse_args()
     OUT=args.output.resolve()
     import psutil
     proc=psutil.Process();began=time.monotonic()
