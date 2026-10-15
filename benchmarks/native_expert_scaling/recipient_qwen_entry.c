@@ -49,6 +49,61 @@ static const uint8_t *rc_head;
 static unsigned char rc_used[RC_FIELD_COUNT];
 static int rc_threads;
 static void require(int ok,const char *what){if(!ok){fprintf(stderr,"recipient: %s\n",what);exit(2);}}
+#ifdef RC_DIAGNOSTIC
+/* Diagnostic-only trace: records are LE u32(pos,layer,tag,n), then n F32. */
+static HANDLE rc_trace_file=INVALID_HANDLE_VALUE;
+static uint32_t rc_trace_pos,rc_trace_layer,rc_trace_organ;
+static void rc_trace_write(const void *data,size_t bytes){
+    const uint8_t *p=(const uint8_t*)data;
+    while(bytes){DWORD step=(DWORD)(bytes>0x40000000u?0x40000000u:bytes),written=0;
+        require(WriteFile(rc_trace_file,p,step,&written,NULL)&&written==step,"trace write");
+        p+=step;bytes-=step;}
+}
+static void rc_trace_open(void){
+    const char *path=getenv("SILICON_RECIPIENT_TRACE");
+    require(path&&path[0],"SILICON_RECIPIENT_TRACE required");
+    rc_trace_file=CreateFileA(path,GENERIC_WRITE,0,NULL,CREATE_NEW,FILE_ATTRIBUTE_NORMAL,NULL);
+    require(rc_trace_file!=INVALID_HANDLE_VALUE,"exclusive trace create");
+}
+static void rc_trace_close(void){
+    require(FlushFileBuffers(rc_trace_file),"trace flush");
+    require(CloseHandle(rc_trace_file),"trace close");
+    rc_trace_file=INVALID_HANDLE_VALUE;
+}
+static void rc_trace_values(uint32_t tag,const float *values,uint32_t n){
+    if(rc_trace_pos>=8)return;
+    uint32_t header[4]={rc_trace_pos,rc_trace_layer,tag,n};
+    rc_trace_write(header,sizeof header);
+    rc_trace_write(values,(size_t)n*sizeof(float));
+}
+static void rc_trace_codes(uint32_t tag,const int8_t *codes,uint32_t n){
+    if(rc_trace_pos>=8)return;
+    uint32_t header[4]={rc_trace_pos,rc_trace_layer,tag,n};
+    rc_trace_write(header,sizeof header);
+    float buffer[256];
+    for(uint32_t base=0;base<n;base+=256){
+        uint32_t count=n-base<256?n-base:256;
+        for(uint32_t i=0;i<count;i++)buffer[i]=(float)codes[base+i];
+        rc_trace_write(buffer,(size_t)count*sizeof(float));
+    }
+}
+static void rc_trace_projection(const int8_t *codes,const float *scales,
+                                const float *output,int rows,int cols,int groups){
+    if(rc_trace_pos>=8)return;
+    require(rc_trace_organ>=1&&rc_trace_organ<=8,"trace organ");
+    uint32_t tag=rc_trace_organ*10;
+    rc_trace_codes(tag,codes,(uint32_t)cols);
+    rc_trace_values(tag+1,scales,(uint32_t)groups);
+    if(rc_trace_organ!=8)rc_trace_values(tag+2,output,(uint32_t)rows);
+}
+#define RC_TRACE_CONTEXT(pos,layer,organ) do{rc_trace_pos=(uint32_t)(pos);rc_trace_layer=(uint32_t)(layer);rc_trace_organ=(uint32_t)(organ);}while(0)
+#define RC_TRACE_VALUES(tag,values,n) rc_trace_values((tag),(values),(uint32_t)(n))
+#define RC_TRACE_PROJECTION(codes,scales,output,rows,cols,groups) rc_trace_projection((codes),(scales),(output),(rows),(cols),(groups))
+#else
+#define RC_TRACE_CONTEXT(pos,layer,organ) ((void)0)
+#define RC_TRACE_VALUES(tag,values,n) ((void)0)
+#define RC_TRACE_PROJECTION(codes,scales,output,rows,cols,groups) ((void)0)
+#endif
 static unsigned char *alloc(size_t bytes,size_t align){(void)align;unsigned char *p=(unsigned char*)malloc(bytes);require(p!=NULL,"worker allocation");return p;}
 #include "meth388_switch_thread_binding.h"
 static void rc_die(const char *s){require(0,s);}
@@ -172,6 +227,7 @@ static void rc_w8(const uint8_t *w,const int8_t *x,float as,float *out,int rows,
         float ws=rc_f32(p);float y=(float)((double)rc_i8dot((const int8_t*)(p+4),x,cols)*(double)ws*(double)as);
         require(isfinite(y),"nonfinite W8 output");out[row]=y;
     }
+    RC_TRACE_PROJECTION(x,&as,out,rows,cols,1);
 }
 static int32_t rc_w4dot(const uint8_t *p,const int8_t *x){
     __m128i packed=_mm_loadu_si128((const __m128i*)(p+2));
@@ -196,6 +252,7 @@ static void rc_w4(const uint8_t *w,const int8_t *x,const float *as,float *out,in
             y+=(double)rc_w4dot(block,x+32*g)*(double)_cvtsh_ss(rc_u16(block))*(double)as[g];}
         require(isfinite(y),"nonfinite W4 output");out[row]=(float)y;
     }
+    RC_TRACE_PROJECTION(x,as,out,rows,cols,groups);
 }
 static void rc_norm(const float *x,const float *w,float *out){
     double sum=0;for(int i=0;i<RC_D;i++){require(isfinite(x[i]),"nonfinite norm input");sum+=(double)x[i]*x[i];}
@@ -226,13 +283,19 @@ static void rc_forward(RcState *s,int token,int pos,int head){
     }
     for(int li=0;li<RC_L;li++){
         const RcLayer *l=&rc_layer[li];rc_norm(s->x,l->in_norm,s->norm);
+        RC_TRACE_CONTEXT(pos,li,0);RC_TRACE_VALUES(90,s->norm,RC_D);
         rc_quant(s->norm,RC_D,s->qa,s->qscale,0);
+        RC_TRACE_CONTEXT(pos,li,1);
         rc_w8(l->q,s->qa,s->qscale[0],s->q,RC_D,RC_D);
+        RC_TRACE_CONTEXT(pos,li,2);
         rc_w8(l->k,s->qa,s->qscale[0],s->k,RC_KD,RC_D);
+        RC_TRACE_CONTEXT(pos,li,3);
         rc_w8(l->v,s->qa,s->qscale[0],s->v,RC_KD,RC_D);
         for(int i=0;i<RC_D;i++)s->q[i]+=l->qb[i];
         for(int i=0;i<RC_KD;i++){s->k[i]+=l->kb[i];s->v[i]+=l->vb[i];}
         rc_rope(s->q,RC_NH,co,si);rc_rope(s->k,RC_NKV,co,si);
+        RC_TRACE_VALUES(94,s->q,RC_D);RC_TRACE_VALUES(95,s->k,RC_KD);
+        RC_TRACE_VALUES(96,s->v,RC_KD);
         memcpy(s->kc+((size_t)li*s->capacity+pos)*RC_KD,s->k,sizeof s->k);
         memcpy(s->vc+((size_t)li*s->capacity+pos)*RC_KD,s->v,sizeof s->v);
         #pragma omp parallel for schedule(static) if(rc_threads>1)
@@ -260,22 +323,32 @@ static void rc_forward(RcState *s,int token,int pos,int head){
             for(int j=0;j<16;j++)_mm_storeu_ps(s->attn+h*64+4*j,_mm256_cvtpd_ps(values[j]));
             for(int j=0;j<64;j++)require(isfinite(s->attn[h*64+j]),"attention output");
         }
+        RC_TRACE_VALUES(93,s->attn,RC_D);
         rc_quant(s->attn,RC_D,s->qa,s->qscale,0);
+        RC_TRACE_CONTEXT(pos,li,4);
         rc_w8(l->o,s->qa,s->qscale[0],s->tmp,RC_D,RC_D);
         for(int i=0;i<RC_D;i++)s->x[i]+=s->tmp[i];
         rc_norm(s->x,l->post_norm,s->norm);
+        RC_TRACE_VALUES(91,s->norm,RC_D);
         rc_quant(s->norm,RC_D,s->qa,s->qscale,1);
+        RC_TRACE_CONTEXT(pos,li,5);
         rc_w4(l->gate,s->qa,s->qscale,s->active,RC_H,RC_D);
         /* The up projection must see the same quantized post-attention norm. */
+        RC_TRACE_CONTEXT(pos,li,6);
         rc_w4(l->up,s->qa,s->qscale,s->up,RC_H,RC_D);
         for(int i=0;i<RC_H;i++){s->active[i]=rc_silu(s->active[i])*s->up[i];require(isfinite(s->active[i]),"FFN activation");}
+        RC_TRACE_VALUES(92,s->active,RC_H);
         rc_quant(s->active,RC_H,s->qa,s->qscale,1);
+        RC_TRACE_CONTEXT(pos,li,7);
         rc_w4(l->down,s->qa,s->qscale,s->tmp,RC_D,RC_H);
         for(int i=0;i<RC_D;i++){s->x[i]+=s->tmp[i];require(isfinite(s->x[i]),"residual");}
+        RC_TRACE_VALUES(97,s->x,RC_D);
     }
     rc_norm(s->x,rc_last_norm,s->head_norm);
+    RC_TRACE_CONTEXT(pos,RC_L,0);RC_TRACE_VALUES(98,s->head_norm,RC_D);
     if(head){
         rc_quant(s->head_norm,RC_D,s->qa,s->qscale,0);
+        RC_TRACE_CONTEXT(pos,RC_L,8);
         rc_w8(rc_head,s->qa,s->qscale[0],s->logits,RC_V,RC_D);
         int top[8];for(int k=0;k<8;k++)top[k]=-1;
         for(int id=0;id<RC_V;id++)for(int k=0;k<8;k++){
@@ -286,6 +359,7 @@ static void rc_forward(RcState *s,int token,int pos,int head){
         for(int k=0;k<8;k++){int id=top[k];double z=0;const uint16_t *row=rc_embed+(size_t)id*RC_D;
             for(int j=0;j<RC_D;j++)z+=(double)rc_bf16(row[j])*s->head_norm[j];
             s->logits[id]=(float)z;require(isfinite(s->logits[id]),"refined head");}
+        RC_TRACE_VALUES(82,s->logits,RC_V);
     }
 }
 static int rc_argmax(const float *x){int id=0;for(int i=1;i<RC_V;i++)if(x[i]>x[id])id=i;return id;}
@@ -347,9 +421,15 @@ int main(int argc,char **argv){
     require(_setmode(_fileno(stdin),_O_BINARY)>=0&&_setmode(_fileno(stdout),_O_BINARY)>=0,"binary mode");
     require(fesetround(FE_TONEAREST)==0&&fegetround()==FE_TONEAREST,"rounding");
     require(__builtin_cpu_supports("avx2"),"AVX2 required");
+#ifdef RC_DIAGNOSTIC
+    rc_trace_open();
+#endif
     worker_setup(rc_threads);for(int i=0;i<rc_threads;i++)require(worker_masks[i]==((DWORD_PTR)1<<(2*i)),"physical worker indices 0,2,4,6,8,10");
     rc_load(argv[1]);RcState *s=rc_state((int)cap);rc_binding("binding_start");
     if(!strcmp(argv[2],"probe"))rc_probe(s);else rc_stream(s);
     rc_binding("binding_end");
+#ifdef RC_DIAGNOSTIC
+    rc_trace_close();
+#endif
     free(s->kc);free(s->vc);free(s->scores);free(s);free(rc_blob);return 0;
 }
