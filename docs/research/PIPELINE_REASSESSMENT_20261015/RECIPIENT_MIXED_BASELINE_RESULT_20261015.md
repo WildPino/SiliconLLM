@@ -12,6 +12,12 @@ The bounded controller exited 1 after audit rejection. Export took 20.937 s,
 compilation 1.625 s, native probe 1.359 s and audit child 29.375 s. No generation
 case, fitting, source download or T4 job ran. First-fault outputs remain in
 `results/native_expert_scaling/recipient_mixed_baseline_20261015`.
+The [closure receipt](recipient_mixed_failed_closure_20261015.json),
+[full audit diagnostics](recipient_mixed_failed_audit_20261015.json) and
+[controller failure](recipient_mixed_failed_controller_20261015.json) are
+retained verbatim for review; all four owned child identities were absent
+at closure. Closure SHA256 is
+`7a55024441c183a1889edf7007871c866a7ef34d4edd089fa129c534aeca8b2a`.
 
 The packet contains all 291 roles, including explicit W8 head and retained
 BF16 embedding: 630039552 bytes, SHA256
