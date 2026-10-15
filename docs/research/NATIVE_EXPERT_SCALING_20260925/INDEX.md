@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-15 October 2026. **Goal INCOMPLETE / ACTIVE. Depth closed; joint replay binding prepared.**
+15 October 2026. **Goal INCOMPLETE / long-run pause requested. Joint replay training active.**
 Current state supersedes the historical [handoff](../../../HANDOFF.md) and its
 [preserved interruption observation](HANDOFF_SNAPSHOT_20261014/active_router_interruption_observation.json).
 [Method](METHOD.md), [prior evidence](PRIOR_EVIDENCE.md), [goal](HANDOFF_SNAPSHOT_20261014/goal-objective.md).
@@ -16,6 +16,15 @@ conversion master/gradient/optimizer costs remain required.
 
 ## Latest decisive evidence
 
+[Balanced replay state](CHATBOT_BALANCED_REPLAY_STATE_20261015.md): both
+current-runtime FIT controls EXACT(error0/all argmax); first3 training updates
+completed with finite gradients,positive groups,route counts/mass checks.
+No final quality outcome. Session31222; exact holder/worker/create/affinity
+and confirmed running status in [launch observation](chatbot_balanced_replay_launch_20261015.json).
+Expected1.5--3h,total4h/GPU3h/OS16GiB/allocated6GiB/reserved10GiB/CPU6.
+Pause under>=1h rule,user resumes. Inspect same handle/identities and actual
+durable16-step checkpoint,then receipts/final result. Do not replay a live fit.
+
 [Depth diagnostic](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md) is CLOSED.
 FIT3/6/12 all fail; unchanged selector admits none. Nonselected6 evaluation
 has0/16 tasks,own-followup false,DEV KL14.82421/disagreement99.11140%.
@@ -24,15 +33,15 @@ replay exactly; F64 and current complete input/output seals PASS. Original
 worker/holder exit1/posthash deadline remains explicit. CPU recovery1152.563s/
 OS1.159GB/no GPU/no numerical replay. No candidate or useful-rate promotion.
 
-[Balanced replay](CHATBOT_BALANCED_REPLAY_PROTOCOL_20261015.md) is PREPARED,
-not executed: source-informed D512/L12/SSM+SWA/E72/k8 ternary/AQ63 target,
+[Balanced replay](CHATBOT_BALANCED_REPLAY_PROTOCOL_20261015.md) now executes
+source-informed D512/L12/SSM+SWA/E72/k8 ternary/AQ63 target,
 512 fixed old/new FIT updates from actual Adam318 to830,final-only80-case
 prefix evaluation. This changes adaptation schedule,not active geometry.
 Current-runtime controls before training; no DEV update/selection or RESERVED.
 Full native/own-generation/fresh heldout/capacity/DRAM/rate remain separate.
 [Prepared binding and cost census](CHATBOT_BALANCED_REPLAY_STATE_20261015.md)
 records all current pins,512-update order,actual candidate lineage and charged
-master/gradient/Adam/checkpoint costs. No training/control outcome yet.
+master/gradient/Adam/checkpoint costs. No final training/quality outcome yet.
 
 [Generator codec](CONTEXTUAL_GENERATOR_CODEC_RESULT_20261014.md),
 [physical workers](PHYSICAL_WORKER_ORGANS_RESULT_20261014.md) and
@@ -72,12 +81,12 @@ before choosing; it is not a cheap router or optimal sparsity bound.
 
 ## Exact next action
 
-Freeze/check the balanced-replay worker/protocol and prepare the pinned binding
-only after inspecting diagnostic recovery closure. The two current-runtime
-shortest/longest FIT controls must pass before any training update. Run one
-owned fixed512-update trial with announced budgets,then audit final serialized
-state and all stored prefix metrics. Preserve first faults and durable16-step
-boundaries. No promotion from training-only or known-prefix results.
+On resume inspect session31222 and exact holder24160/create1792053780.9727,
+worker26392/create1792053808.0107627. Both runtime controls passed; fit is live
+at last observation. Check durable16-step boundary/receipts before any further
+action. If terminal,inspect actual final candidate/Adam830 or first fault and
+all saved prefix scores. Independently audit final serialized state and every
+metric before advancing. No automatic replay or promotion from prefix results.
 
 Owner wait rule: pause only for expected runs>=1h. Continue shorter audits and
 closures here with progress updates. New training estimate1.5--3h; total4h/

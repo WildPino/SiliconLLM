@@ -1,5 +1,21 @@
 # Balanced joint replay: prepared binding
 
+Launch update: current-runtime shortest/longest FIT controls both relative0
+and all argmax IDs exact against the old actual checkpoint outputs. Training
+updates1--3 observed completed with finite full gradients/positive group norms/
+exact route-count and mass checks; first compute8.000/11.657/8.063s. No quality
+admission or final outcome. At these first observations durable boundary0;
+first persistent model/Adam/RNG snapshot is scheduled at16,not every log row.
+
+Actual holder/worker identities,creation times/affinity/running status verified
+in [launch observation](chatbot_balanced_replay_launch_20261015.json) and
+[owned process receipt](chatbot_balanced_replay_result_20261015.owned_process.json).
+Terminal session31222. Expected>=1h,so pause as requested after this verified
+training launch. User resumes manually; inspect same handle/exact identities,
+durable candidate boundary,worker/holder receipts and final result. Never
+restart a live worker or infer weights beyond the last durable checkpoint.
+Prepared/no-control-outcome observations below are historical.
+
 15 October2026. Goal INCOMPLETE. Depth diagnostic recovery is fully closed;
 new balanced-replay code/protocol frozen08e2bd3d9152213923662caa3ba131be7ffa2faf.
 CPU-only preparation exited0. Binding2,167,321B SHA256

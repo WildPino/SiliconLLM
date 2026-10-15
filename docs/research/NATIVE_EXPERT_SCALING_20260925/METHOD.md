@@ -1,6 +1,12 @@
 # Pretrained-to-native conditional-capacity method
 
 15 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Balanced replay launched](CHATBOT_BALANCED_REPLAY_STATE_20261015.md):
+current-runtime shortest/longest FIT controls EXACT(error0/all IDs); initial
+joint updates execute. Fixed512 updates/Adam830,original compact conditional
+target,known old/new FIT only. No final transfer/quality/native/rate admission.
+Owner-requested long-run pause during this1.5--3h job; resume exact session31222
+and owned PID/create receipts. Prepared-only statements below are historical.
 [Depth campaign closed](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md): all FIT
 arms/frozen selection/nonselected6 evaluation fully audited. Numerical and
 current-custody PASS; tasks0/16,DEV KL14.82421/disagreement99.11140%,followup
