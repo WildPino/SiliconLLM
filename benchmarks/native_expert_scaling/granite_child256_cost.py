@@ -33,7 +33,7 @@ FILES = {
     "physical_profile": PROFILE,
 }
 FLAGS = ("-O3", "-std=c11", "-march=x86-64-v3", "-fno-fast-math",
-         "-ffp-contract=off", "-fopenmp")
+         "-ffp-contract=off", "-fopenmp", "-Wl,--no-insert-timestamp")
 LIMIT_S = 900
 LIMIT_BYTES = 6 << 30
 LIMIT_OUTPUT = 512 << 20

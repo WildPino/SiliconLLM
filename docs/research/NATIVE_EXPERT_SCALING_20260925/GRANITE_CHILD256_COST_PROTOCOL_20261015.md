@@ -25,3 +25,12 @@ python benchmarks/native_expert_scaling/granite_child256_cost.py --run --binding
 ```
 
 The freeze binds exact source, protocol, helpers, physical-worker profile, Git HEAD, compiler and OpenMP runtime hashes. The controller compiles a fresh binary, keeps exclusive JSONL process logs and exit receipts, verifies the separate numeric control and full output hashes, and records every timing decision. Nothing in this protocol authorizes a model port, weight download, training run, or extrapolation to a larger-family core.
+
+## First launch and deterministic-build repair
+
+The initial numeric control passed. Timing stopped before launching any worker
+because separately linked PE binaries differed in timestamps (two byte offsets,
+128 and94724). The strict binary-identity check retained that first failure.
+The repaired freeze adds `-Wl,--no-insert-timestamp`; it changes PE metadata,
+not C arithmetic or timing gates. New exclusive check/timing directories retain
+the original results. The repaired numeric stage must pass before timing.
