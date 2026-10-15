@@ -1,5 +1,12 @@
 # Nonselected six-block defect evaluation: launch observation
 
+Authoritative completion: [full diagnostic result](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md).
+Recovery32108 exit0/1152.563s,all81,270 native positions/166,440,960 BF and
+integer words exact; complete math/current custody PASS,quality FAIL0/16/
+DEV KL14.82420871593/disagreement99.11140%/followup false. Original worker/
+holder exit1/posthash false preserved. No GPU replay. All pending/live
+observations below are historical; no diagnostic process remains active.
+
 CPU recovery launched under freeze797b9791a45b4a95ee92e8f4b0b8f4de7e7e76a3,
 PID32108/create1792052062.3094175/session35763. Actual WMI/psutil live identity
 verified; [owned receipt](fixed_depth_evaluation6_recovery_pipeline_20261015.owned_process.json).

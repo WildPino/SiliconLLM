@@ -1,5 +1,12 @@
 # Native expert-count scaling: prior evidence
 
+**Depth campaign closure15 October2026:** [result](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md)
+all FIT arms and nonselected6 diagnostic fully audited. All81,270 native
+positions/166,440,960 BF and integer words exact; current seals PASS. Quality
+FAIL0/16 tasks/followupfalse/DEV KL14.82421/disagreement99.11140%. Original
+posthash deadline/exit1 retained. Recovery1152.563s/OS1.159GB/no GPU/no replay.
+Joint adaptation is the next substantive variable; no more unchanged omission.
+
 **FIT family closure15 October2026:** [result](FIXED_DEPTH_FIT_RESULT_20261015.md)
 all full stored audits and per-phase closures complete. Formal unchanged
 selector admits none of3/6/12; control24 passes. FIT12 KL5.44700801/

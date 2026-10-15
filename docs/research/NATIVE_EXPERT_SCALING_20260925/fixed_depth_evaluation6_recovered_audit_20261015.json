@@ -1,0 +1,494 @@
+{
+  "schema": "FIXED_DEPTH_QUALITY_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_evaluation6_recovered_result_20261015.json",
+    "bytes": 1383206,
+    "sha256": "42916b9bad38f9a5032968ab2004916387cc5c4a43057398575a5afe15c14a98"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_io_binding_20261014.json",
+    "bytes": 3298220,
+    "sha256": "e0c3512a339b85c6b48f5289aa913faedfe2c9b6848e0564890d9a7be62b070c"
+  },
+  "depth": 6,
+  "phase": "evaluation",
+  "native": {
+    "counts": {
+      "sequence_sites": 438,
+      "native_positions": 81270,
+      "output_words": 166440960,
+      "integer_words": 166440960
+    },
+    "maxima": {
+      "fields": 0,
+      "B_projection": 1.4571727959704463e-07,
+      "C_projection": 1.4888177874274867e-07,
+      "scan": 7.187635962425936e-07,
+      "state": 1.367624706881927e-06,
+      "norm": 0,
+      "contextual_generator": 3.978662668856359e-05
+    },
+    "all_stored_native_words_and_state_exact": true,
+    "independent_F64_and_integer_controls": true
+  },
+  "all_numeric_pass": true,
+  "FIT_quality": null,
+  "quality": {
+    "categories": {
+      "arithmetic": 0,
+      "extraction": 0,
+      "history": 0,
+      "instruction": 0
+    },
+    "correct": 0,
+    "domains": {
+      "apigen-80k": {
+        "KL": 15.790564459726163,
+        "disagreement": 0.985
+      },
+      "everyday-conversations": {
+        "KL": 15.099139667820761,
+        "disagreement": 0.9941860465116279
+      },
+      "explore-instruct-rewriting": {
+        "KL": 15.043066536007005,
+        "disagreement": 0.99609375
+      },
+      "metamathqa-50k": {
+        "KL": 14.489281489917719,
+        "disagreement": 0.9823809718586387
+      },
+      "numina-cot-100k": {
+        "KL": 14.383049693543937,
+        "disagreement": 0.986328125
+      },
+      "openhermes-100k": {
+        "KL": 16.15441242881165,
+        "disagreement": 0.994140625
+      },
+      "self-oss-instruct": {
+        "KL": 15.179139631511514,
+        "disagreement": 0.9921875
+      },
+      "smol-constraints": {
+        "KL": 12.650988309219803,
+        "disagreement": 1.0
+      },
+      "smol-magpie-ultra": {
+        "KL": 15.23782148856026,
+        "disagreement": 0.994140625
+      },
+      "smol-rewrite": {
+        "KL": 14.576818910520426,
+        "disagreement": 0.9914285714285714
+      },
+      "smol-summarize": {
+        "KL": 14.23217569989703,
+        "disagreement": 0.9852941176470589
+      },
+      "systemchats-30k": {
+        "KL": 15.054046275620683,
+        "disagreement": 0.9921875
+      }
+    },
+    "DEV_case_KL": 14.824208715929748,
+    "DEV_case_disagreement": 0.9911139860371581,
+    "gates": {
+      "task_min": false,
+      "category_min": false,
+      "blank_max": true,
+      "no_special_leak": true,
+      "stop_policy": true,
+      "own_answer_followup": false,
+      "DEV_case_KL": false,
+      "DEV_case_disagreement": false,
+      "domain_KL": false,
+      "domain_disagreement": false,
+      "prefix_logits_routes_bit_exact": true,
+      "mass_defect": true
+    },
+    "all_pass": false
+  },
+  "selection": {
+    "schema": "FIXED_DEPTH_FIT_SELECTION_V1",
+    "reports": [
+      {
+        "depth": 24,
+        "report": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit24_result_20261014.json",
+          "bytes": 3080363,
+          "sha256": "92166542f9d7280aff74b50e64fb9a4fd720a00937b9075bc3ca4a31945f78a2"
+        },
+        "audit": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit24_audit_20261014.json",
+          "bytes": 3746,
+          "sha256": "d6a92a7f2cb40c0a88b56b66550cc5b8a2142861b69ec7bbca492e94ec914e2f"
+        },
+        "FIT_quality": {
+          "KL": 0.005775420188977017,
+          "disagreement": 0.0279708252112736,
+          "domains": {
+            "apigen-80k": {
+              "KL": 2.687027466790055e-05,
+              "disagreement": 0.0
+            },
+            "everyday-conversations": {
+              "KL": 0.005845065295084266,
+              "disagreement": 0.04511494252873563
+            },
+            "explore-instruct-rewriting": {
+              "KL": 0.0020108226520638784,
+              "disagreement": 0.038461538461538464
+            },
+            "metamathqa-50k": {
+              "KL": 0.004335476147971446,
+              "disagreement": 0.009085181451612903
+            },
+            "numina-cot-100k": {
+              "KL": 0.0013409278616473021,
+              "disagreement": 0.001953125
+            },
+            "openhermes-100k": {
+              "KL": 0.0015926431127874217,
+              "disagreement": 0.005859375
+            },
+            "self-oss-instruct": {
+              "KL": 0.004480421665787552,
+              "disagreement": 0.015625
+            },
+            "smol-constraints": {
+              "KL": 0.007338038293048774,
+              "disagreement": 0.04060846560846561
+            },
+            "smol-magpie-ultra": {
+              "KL": 0.012855618370319295,
+              "disagreement": 0.060546875
+            },
+            "smol-rewrite": {
+              "KL": 0.006747657130071288,
+              "disagreement": 0.03980034722222223
+            },
+            "smol-summarize": {
+              "KL": 0.01104567464494755,
+              "disagreement": 0.04539192726270837
+            },
+            "systemchats-30k": {
+              "KL": 0.011685826819327533,
+              "disagreement": 0.033203125
+            }
+          },
+          "gates": {
+            "case_KL": true,
+            "case_disagreement": true,
+            "domain_KL": true,
+            "domain_disagreement": true
+          },
+          "all_pass": true
+        }
+      },
+      {
+        "depth": 3,
+        "report": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit3_result_20261014.json",
+          "bytes": 762134,
+          "sha256": "4d396535f73b2f5b0ed1da71c64640d437b9f7108978b6c321feb6b1a34a6bd9"
+        },
+        "audit": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit3_audit_20261014.json",
+          "bytes": 3723,
+          "sha256": "48802d90349ef96cea6be240e89fde38c2aacc8cf78db969003030b7ac87f3a6"
+        },
+        "FIT_quality": {
+          "KL": 15.615985240134775,
+          "disagreement": 0.9986658982240436,
+          "domains": {
+            "apigen-80k": {
+              "KL": 18.028322640936622,
+              "disagreement": 1.0
+            },
+            "everyday-conversations": {
+              "KL": 15.427361030318322,
+              "disagreement": 1.0
+            },
+            "explore-instruct-rewriting": {
+              "KL": 14.711856361671243,
+              "disagreement": 1.0
+            },
+            "metamathqa-50k": {
+              "KL": 16.147530630705106,
+              "disagreement": 0.998046875
+            },
+            "numina-cot-100k": {
+              "KL": 16.446823196671367,
+              "disagreement": 0.998046875
+            },
+            "openhermes-100k": {
+              "KL": 16.1330737552869,
+              "disagreement": 0.998046875
+            },
+            "self-oss-instruct": {
+              "KL": 15.700064502688832,
+              "disagreement": 0.998046875
+            },
+            "smol-constraints": {
+              "KL": 15.445158202767434,
+              "disagreement": 1.0
+            },
+            "smol-magpie-ultra": {
+              "KL": 15.027091536160547,
+              "disagreement": 1.0
+            },
+            "smol-rewrite": {
+              "KL": 14.098704563291395,
+              "disagreement": 1.0
+            },
+            "smol-summarize": {
+              "KL": 14.793815219296398,
+              "disagreement": 0.9918032786885246
+            },
+            "systemchats-30k": {
+              "KL": 15.432021241823119,
+              "disagreement": 1.0
+            }
+          },
+          "gates": {
+            "case_KL": false,
+            "case_disagreement": false,
+            "domain_KL": false,
+            "domain_disagreement": false
+          },
+          "all_pass": false
+        }
+      },
+      {
+        "depth": 6,
+        "report": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit6_result_20261014.json",
+          "bytes": 1084537,
+          "sha256": "492a06ab34b716005696c1684bc9ced5e65acff3771db9a0d6d20c283b0bd74f"
+        },
+        "audit": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit6_audit_20261014.json",
+          "bytes": 3227,
+          "sha256": "09d3064de8d70853b8cb919af436e0a10f7177b6dbd152395272fb905634542d"
+        },
+        "FIT_quality": {
+          "KL": 14.682199397319112,
+          "disagreement": 0.9894407711216799,
+          "domains": {
+            "apigen-80k": {
+              "KL": 16.324441722773912,
+              "disagreement": 1.0
+            },
+            "everyday-conversations": {
+              "KL": 13.364964721292496,
+              "disagreement": 0.9817528735632184
+            },
+            "explore-instruct-rewriting": {
+              "KL": 14.864844810485383,
+              "disagreement": 0.9722222222222222
+            },
+            "metamathqa-50k": {
+              "KL": 15.71950440576017,
+              "disagreement": 0.9812373991935484
+            },
+            "numina-cot-100k": {
+              "KL": 16.102505816535476,
+              "disagreement": 0.998046875
+            },
+            "openhermes-100k": {
+              "KL": 15.854837392031754,
+              "disagreement": 0.994140625
+            },
+            "self-oss-instruct": {
+              "KL": 14.582936104187018,
+              "disagreement": 0.986328125
+            },
+            "smol-constraints": {
+              "KL": 13.860575483992687,
+              "disagreement": 0.9947089947089947
+            },
+            "smol-magpie-ultra": {
+              "KL": 14.583332108409824,
+              "disagreement": 0.982421875
+            },
+            "smol-rewrite": {
+              "KL": 13.374037510973972,
+              "disagreement": 0.9924913194444445
+            },
+            "smol-summarize": {
+              "KL": 13.705082993467812,
+              "disagreement": 0.9957983193277311
+            },
+            "systemchats-30k": {
+              "KL": 13.849329697918847,
+              "disagreement": 0.994140625
+            }
+          },
+          "gates": {
+            "case_KL": false,
+            "case_disagreement": false,
+            "domain_KL": false,
+            "domain_disagreement": false
+          },
+          "all_pass": false
+        }
+      },
+      {
+        "depth": 12,
+        "report": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit12_result_20261014.json",
+          "bytes": 1746489,
+          "sha256": "9150465dd171738f23cb7a89c8d13f611948ac5ea503e2d8633173b637e398f9"
+        },
+        "audit": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit12_audit_20261014.json",
+          "bytes": 3238,
+          "sha256": "00b9821e258fa2bf04660340013477509eec83fb42cfa933177ced4a48732f6b"
+        },
+        "FIT_quality": {
+          "KL": 5.447008011116555,
+          "disagreement": 0.8187035152832111,
+          "domains": {
+            "apigen-80k": {
+              "KL": 5.673032771354958,
+              "disagreement": 0.7898048279404212
+            },
+            "everyday-conversations": {
+              "KL": 4.624207742839271,
+              "disagreement": 0.8014367816091954
+            },
+            "explore-instruct-rewriting": {
+              "KL": 4.76722215487946,
+              "disagreement": 0.8012820512820513
+            },
+            "metamathqa-50k": {
+              "KL": 4.8398567662203344,
+              "disagreement": 0.7559979838709677
+            },
+            "numina-cot-100k": {
+              "KL": 7.1122310562595406,
+              "disagreement": 0.76171875
+            },
+            "openhermes-100k": {
+              "KL": 6.150210931657815,
+              "disagreement": 0.79296875
+            },
+            "self-oss-instruct": {
+              "KL": 5.819298213609196,
+              "disagreement": 0.802734375
+            },
+            "smol-constraints": {
+              "KL": 4.808714062252237,
+              "disagreement": 0.8314814814814815
+            },
+            "smol-magpie-ultra": {
+              "KL": 4.954951299557543,
+              "disagreement": 0.86328125
+            },
+            "smol-rewrite": {
+              "KL": 5.00070346026118,
+              "disagreement": 0.8763888888888889
+            },
+            "smol-summarize": {
+              "KL": 6.113362863570833,
+              "disagreement": 0.8957845433255269
+            },
+            "systemchats-30k": {
+              "KL": 5.5003048109362975,
+              "disagreement": 0.8515625
+            }
+          },
+          "gates": {
+            "case_KL": false,
+            "case_disagreement": false,
+            "domain_KL": false,
+            "domain_disagreement": false
+          },
+          "all_pass": false
+        }
+      }
+    ],
+    "selected_depth": null,
+    "evaluation_depth": 6,
+    "nonselected_defect_diagnostic": true,
+    "decision": "NO_FIT_CANDIDATE_DEFECT6",
+    "inputs": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit24_result_20261014.json",
+        "bytes": 3080363,
+        "sha256": "92166542f9d7280aff74b50e64fb9a4fd720a00937b9075bc3ca4a31945f78a2"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit24_audit_20261014.json",
+        "bytes": 3746,
+        "sha256": "d6a92a7f2cb40c0a88b56b66550cc5b8a2142861b69ec7bbca492e94ec914e2f"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_binding_20261014.json",
+        "bytes": 3296903,
+        "sha256": "6572a0bfc04f9a1e97cf78ca5a4089a5025cc2a8e45d27609472c412b5fd71a7"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit3_result_20261014.json",
+        "bytes": 762134,
+        "sha256": "4d396535f73b2f5b0ed1da71c64640d437b9f7108978b6c321feb6b1a34a6bd9"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit3_audit_20261014.json",
+        "bytes": 3723,
+        "sha256": "48802d90349ef96cea6be240e89fde38c2aacc8cf78db969003030b7ac87f3a6"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_binding_20261014.json",
+        "bytes": 3296903,
+        "sha256": "6572a0bfc04f9a1e97cf78ca5a4089a5025cc2a8e45d27609472c412b5fd71a7"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit6_result_20261014.json",
+        "bytes": 1084537,
+        "sha256": "492a06ab34b716005696c1684bc9ced5e65acff3771db9a0d6d20c283b0bd74f"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit6_audit_20261014.json",
+        "bytes": 3227,
+        "sha256": "09d3064de8d70853b8cb919af436e0a10f7177b6dbd152395272fb905634542d"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_io_binding_20261014.json",
+        "bytes": 3298220,
+        "sha256": "e0c3512a339b85c6b48f5289aa913faedfe2c9b6848e0564890d9a7be62b070c"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit12_result_20261014.json",
+        "bytes": 1746489,
+        "sha256": "9150465dd171738f23cb7a89c8d13f611948ac5ea503e2d8633173b637e398f9"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_fit12_audit_20261014.json",
+        "bytes": 3238,
+        "sha256": "00b9821e258fa2bf04660340013477509eec83fb42cfa933177ced4a48732f6b"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_quality_io_binding_20261014.json",
+        "bytes": 3298220,
+        "sha256": "e0c3512a339b85c6b48f5289aa913faedfe2c9b6848e0564890d9a7be62b070c"
+      }
+    ],
+    "DEV_queries": 0,
+    "task_choice_queries": 0
+  },
+  "decision": "INDEPENDENT_STORED_NUMERIC_PASS",
+  "quality_admissible": false,
+  "before_after_hashes_exact": true,
+  "original_posthash_complete": false,
+  "recovery_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\fixed_depth_evaluation6_recovery_binding_20261015.json",
+    "bytes": 275381,
+    "sha256": "0006db4e369a4c9c8d35127ec3f9e96ac3b8c134e88ddf8747ef0d6f22ac827e"
+  },
+  "seconds": 934.1560000000027,
+  "OS_peak": 1158828032,
+  "GPU_calls": 0,
+  "scope": "Every kept trajectory/state and independent F64/quantizer/integer/metrics/control/FIT choice checked. Source GPU attention/FFN/head are witnesses, no independent GPU arithmetic or final CPU TPS/DRAM/n admission."
+}

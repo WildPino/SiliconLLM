@@ -1,6 +1,14 @@
 # Pretrained-to-native conditional-capacity method
 
 15 October 2026, resumed procedure: **ACTIVE / INCOMPLETE**.
+[Depth campaign closed](FIXED_DEPTH_DIAGNOSTIC_RESULT_20261015.md): all FIT
+arms/frozen selection/nonselected6 evaluation fully audited. Numerical and
+current-custody PASS; tasks0/16,DEV KL14.82421/disagreement99.11140%,followup
+false. Original evaluation deadline/failed posthash retained; no GPU replay.
+No unchanged depth/runtime grids. [New balanced joint adaptation protocol](CHATBOT_BALANCED_REPLAY_PROTOCOL_20261015.md)
+retains the source-informed compact SSM/SWA/ternary-bank target and tests512
+fixed replay updates with full fixed-final evaluation. This is PREPARED,not
+executed or admitted. Earlier next-depth/fallback instructions below are history.
 [Frozen FIT family closed](FIXED_DEPTH_FIT_RESULT_20261015.md): all numerical
 audits/closures complete, selector admits no reduced candidate. FIT12
 KL5.44700801/disagreement81.87035% still fails every gate. Execute only the
