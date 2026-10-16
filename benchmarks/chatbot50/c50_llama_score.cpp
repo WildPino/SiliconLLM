@@ -10,6 +10,8 @@
 //   PREFIX.logp.f32  (only with --dump-logprobs) the full log-softmax row, n_vocab float32
 //                    per scored position, same order as PREFIX.pos.bin
 //   PREFIX.json      runtime record (CONFIG fields, positions, wall seconds)
+// --max-projected-s S: after the first document, stop (exit 3) if the projected wall time of
+//   all positions exceeds S seconds (protocol stop rule).
 // Position p is predicted from the logits after ids[0..p-1]; the first token of each
 // document is context only.  KV cache F16, flash attention disabled, context cleared per
 // document.  Prints and the caller asserts one CONFIG line.
@@ -36,6 +38,7 @@ struct Options {
     std::string model, ids, out;
     int threads = 6, ubatch = 512, ctx = 4096;
     bool dump = false;
+    double max_projected_s = 0.0;  // 0 = no stop rule
 };
 
 struct Rec {
@@ -85,6 +88,7 @@ int main(int argc, char ** argv) {
         else if (a == "--ubatch") o.ubatch = std::stoi(next());
         else if (a == "--ctx") o.ctx = std::stoi(next());
         else if (a == "--dump-logprobs") o.dump = true;
+        else if (a == "--max-projected-s") o.max_projected_s = std::stod(next());
         else throw std::runtime_error("unknown argument " + a);
     }
     if (o.model.empty() || o.ids.empty() || o.out.empty()) {
@@ -122,8 +126,8 @@ int main(int argc, char ** argv) {
         positions += d.second.size() - 1;
     }
     printf("CONFIG model=%s n_vocab=%d docs=%zu positions=%zu threads=%d ubatch=%d ctx=%d flash_attn=disabled "
-           "kv=f16 dump=%d system_info=[%s]\n", o.model.c_str(), n_vocab, docs.size(), positions, o.threads,
-           o.ubatch, o.ctx, o.dump ? 1 : 0, llama_print_system_info());
+           "kv=f16 dump=%d max_projected_s=%.0f system_info=[%s]\n", o.model.c_str(), n_vocab, docs.size(),
+           positions, o.threads, o.ubatch, o.ctx, o.dump ? 1 : 0, o.max_projected_s, llama_print_system_info());
     fflush(stdout);
 
     FILE * fpos = fopen((o.out + ".pos.bin").c_str(), "wb");
@@ -132,6 +136,7 @@ int main(int argc, char ** argv) {
     std::vector<float> row(n_vocab);
     llama_batch batch = llama_batch_init(o.ubatch, 0, 1);
     auto t0 = std::chrono::steady_clock::now();
+    bool first_doc = true;
     for (auto & d : docs) {
         const auto & ids = d.second;
         const int n = static_cast<int>(ids.size());
@@ -164,6 +169,19 @@ int main(int argc, char ** argv) {
                     for (int v = 0; v < n_vocab; ++v) row[v] = static_cast<float>(lg[v] - lse);
                     fwrite(row.data(), sizeof(float), n_vocab, flp);
                 }
+            }
+        }
+        if (first_doc) {
+            first_doc = false;
+            const double t1 = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
+            const double projected = t1 * static_cast<double>(positions) / static_cast<double>(ids.size() - 1);
+            printf("FIRST_DOC positions=%zu wall_s=%.1f projected_s=%.0f\n", ids.size() - 1, t1, projected);
+            fflush(stdout);
+            if (o.max_projected_s > 0.0 && projected > o.max_projected_s) {
+                printf("STOP projected_s=%.0f exceeds max_projected_s=%.0f\n", projected, o.max_projected_s);
+                fclose(fpos);
+                if (flp) fclose(flp);
+                return 3;
             }
         }
     }

@@ -160,3 +160,31 @@ C50-A1.
 3. The Q8_0 GGUF built for that timing (`ling-mini-2.0-a810f64-q8_0.gguf`, default
    `llama-quantize ... Q8_0`) is kept. No cell uses it unless a later protocol
    names it.
+
+## Addendum 2 (16 October 2026, before any A2b arm)
+
+1. **Runner and floor script.**
+   - `c50_a2b_floor_run.py` runs the arms in the order R0, R3, R1, R2, R0b.
+   - It asserts each `CONFIG` line: threads, micro-batch, dump, AVX2 present
+     exactly in the AVX2 build, flash attention disabled.
+   - It then calls `c50_compare.py` for each pair and records numbers only.
+   - `c50_a2b_floor.py` applies the floor definition above.
+2. **Negative control added: R0b,** a repeat of R0 without the dump. R0 and R0b
+   must give bit-identical target log-probabilities and zero top-1 disagreement;
+   otherwise the floor is VOID.
+3. **The stop rule is now in the scorer.** `--max-projected-s 3600` makes it
+   project the wall time of all positions from the first document and exit
+   (code 3, recorded as STOPPED) above one hour. A stopped arm leaves its pair
+   uncomputed, and the floor is then VOID rather than taken from fewer pairs.
+4. **Smoke observations.** One document, the first 160 tokens (159 positions), on
+   a box busy with the imatrix run. Not evidence; the definitions above do not
+   change.
+   - Repeats with identical settings are bit-identical.
+   - Micro-batch 2 is bit-identical to micro-batch 512.
+   - Micro-batch 1 (the single-token path) differs. On Q8_0: top-1 6/159, mean KL
+     4.3e-3 nats. On BF16: 1/159 and 4.4e-3.
+   - The per-position KL is heavy-tailed: two positions above 0.13 nats; the mean
+     over positions 0-9 is 1.9e-4, over 50-158 it is 5.9e-3.
+   - A first hypothesis, not tested: rounding differences are amplified by
+     discrete top-8 routing flips. Q8_0 against BF16 at the same settings showed
+     KL 7-10e-3 on the same positions.
