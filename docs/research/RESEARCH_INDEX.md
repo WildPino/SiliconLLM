@@ -1,5 +1,12 @@
 # Research control index
 
+**Active direction — 16 October 2026 (APPROVED by the owner):**
+[CHATBOT50 roadmap](CHATBOT50_ROADMAP_20261016/ROADMAP.md). First a pretrained
+sparse chatbot (Ling-mini-2.0) at >=50 accepted tok/s in `engine.c`, then the
+conversion pipeline for other donors, then capacity growth at fixed per-token
+cost. Cells, results and decisions are logged in the roadmap's §12. It
+supersedes the "next selected step" below; historical results are unchanged.
+
 **Priority decision — 25 September 2026:** donor-adaptation is **PAUSED**;
 see the [pause/restart record](donor_adaptation/PAUSE_20260925.md).
 The active question is native expert-count scaling at fixed active expert

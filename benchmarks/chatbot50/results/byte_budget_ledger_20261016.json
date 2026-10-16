@@ -1,0 +1,3249 @@
+{
+ "constants": {
+  "BW_PLAN": 32000000000.0,
+  "T_FIXED": 0.002,
+  "CALIBRATION": 0.85,
+  "CALIBRATION_W4": 0.53,
+  "SHORTLIST_RANK": 256,
+  "SHORTLIST_RERANK": 64
+ },
+ "sources": {
+  "BW_PLAN": "0.88x of E30 BW-CEIL 36.30 GB/s (SPEED_LEDGER s40); E61 int8 stream 34.0-34.9 GB/s (s60.3); METH409 Q6_K head 264.07 MB in 6.695-7.733 ms = 34.1-39.4 GB/s at six workers.",
+  "T_FIXED": "ASSUMPTION to be measured in Phase A cell A1; R1 measured 1.20 ms of non-matvec work at 0.5B/short context (SPEED_LEDGER s11.1).",
+  "CALIBRATION": "Qwen2.5-0.5B-Instruct all-I8 complete recipient, context 2048: measured median 44.532/s (RECIPIENT_INT8_BASELINE_RESULT_20261015) vs this desk model 52.4/s -> 0.85.  One artifact, one kernel family.",
+  "CALIBRATION_W4": "Same source, W4G32 FFN / W8 attention+head complete recipient, context 2048: measured median 35.729/s (RECIPIENT_MIXED_SCALAR_RESULT_20261015) vs desk 67.8/s -> 0.53. The only complete 4-bit C artifact measured so far.",
+  "bytes_per_weight": "ggml block sizes: Q4_K 144/256, Q6_K 210/256, Q8_0 34/32, IQ3_S 110/256, MXFP4 17/32 (gpt-oss experts)."
+ },
+ "policies": [
+  {
+   "key": "P0",
+   "label": "Q4_K matrices, Q6_K head, F32 router, F16 KV",
+   "core": "Q4_K",
+   "routed": null,
+   "head": "Q6_K",
+   "router": "F32",
+   "kv": "F16"
+  },
+  {
+   "key": "P1",
+   "label": "P0 + int8 KV",
+   "core": "Q4_K",
+   "routed": null,
+   "head": "Q6_K",
+   "router": "F32",
+   "kv": "I8"
+  },
+  {
+   "key": "P2",
+   "label": "P1 + approximate head scan + exact rerank",
+   "core": "Q4_K",
+   "routed": null,
+   "head": "SHORTLIST",
+   "router": "F32",
+   "kv": "I8"
+  },
+  {
+   "key": "P3",
+   "label": "P2 + IQ3_S routed experts",
+   "core": "Q4_K",
+   "routed": "IQ3_S",
+   "head": "SHORTLIST",
+   "router": "F32",
+   "kv": "I8"
+  },
+  {
+   "key": "P4",
+   "label": "P3 + BF16 router",
+   "core": "Q4_K",
+   "routed": "IQ3_S",
+   "head": "SHORTLIST",
+   "router": "BF16",
+   "kv": "I8"
+  }
+ ],
+ "rows": [
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 264069120,
+    "kv_cache": 20971520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 763125760,
+   "desk_tok_s": 38.688191744868405,
+   "calibrated_tok_s": 32.88496298313814,
+   "calibrated_w4_tok_s": 20.504741624780255
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 264069120,
+    "kv_cache": 83886080,
+    "recurrent_state": 0
+   },
+   "total_bytes": 826040320,
+   "desk_tok_s": 35.95342736832417,
+   "calibrated_tok_s": 30.560413263075542,
+   "calibrated_w4_tok_s": 19.05531650521181
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 264069120,
+    "kv_cache": 167772160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 909926400,
+   "desk_tok_s": 32.856692251077696,
+   "calibrated_tok_s": 27.92818841341604,
+   "calibrated_w4_tok_s": 17.41404689307118
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 264069120,
+    "kv_cache": 10649600,
+    "recurrent_state": 0
+   },
+   "total_bytes": 752803840,
+   "desk_tok_s": 39.177092997016274,
+   "calibrated_tok_s": 33.30052904746383,
+   "calibrated_w4_tok_s": 20.763859288418626
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 264069120,
+    "kv_cache": 42598400,
+    "recurrent_state": 0
+   },
+   "total_bytes": 784752640,
+   "desk_tok_s": 37.70238641025022,
+   "calibrated_tok_s": 32.04702844871269,
+   "calibrated_w4_tok_s": 19.982264797432617
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 264069120,
+    "kv_cache": 85196800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 827351040,
+   "desk_tok_s": 35.900558325483075,
+   "calibrated_tok_s": 30.515474576660615,
+   "calibrated_w4_tok_s": 19.027295912506034
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 23790592,
+    "kv_cache": 10649600,
+    "recurrent_state": 0
+   },
+   "total_bytes": 512525312,
+   "desk_tok_s": 55.50493505478559,
+   "calibrated_tok_s": 47.17919479656775,
+   "calibrated_w4_tok_s": 29.417615579036365
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 23790592,
+    "kv_cache": 42598400,
+    "recurrent_state": 0
+   },
+   "total_bytes": 544474112,
+   "desk_tok_s": 52.59056937495478,
+   "calibrated_tok_s": 44.70198396871156,
+   "calibrated_w4_tok_s": 27.873001768726034
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 268959744,
+    "router": 39845888,
+    "head": 23790592,
+    "kv_cache": 85196800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 587072512,
+   "desk_tok_s": 49.149671365637374,
+   "calibrated_tok_s": 41.77722066079177,
+   "calibrated_w4_tok_s": 26.04932582378781
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 205455360,
+    "router": 39845888,
+    "head": 23790592,
+    "kv_cache": 10649600,
+    "recurrent_state": 0
+   },
+   "total_bytes": 449020928,
+   "desk_tok_s": 62.3756230077226,
+   "calibrated_tok_s": 53.019279556564214,
+   "calibrated_w4_tok_s": 33.05908019409298
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 205455360,
+    "router": 39845888,
+    "head": 23790592,
+    "kv_cache": 42598400,
+    "recurrent_state": 0
+   },
+   "total_bytes": 480969728,
+   "desk_tok_s": 58.7188578665419,
+   "calibrated_tok_s": 49.91102918656062,
+   "calibrated_w4_tok_s": 31.12099466926721
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 205455360,
+    "router": 39845888,
+    "head": 23790592,
+    "kv_cache": 85196800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 523568128,
+   "desk_tok_s": 54.46176958053109,
+   "calibrated_tok_s": 46.292504143451424,
+   "calibrated_w4_tok_s": 28.86473787768148
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 205455360,
+    "router": 19922944,
+    "head": 23790592,
+    "kv_cache": 10649600,
+    "recurrent_state": 0
+   },
+   "total_bytes": 429097984,
+   "desk_tok_s": 64.89582403159855,
+   "calibrated_tok_s": 55.16145042685877,
+   "calibrated_w4_tok_s": 34.394786736747236
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 205455360,
+    "router": 19922944,
+    "head": 23790592,
+    "kv_cache": 42598400,
+    "recurrent_state": 0
+   },
+   "total_bytes": 461046784,
+   "desk_tok_s": 60.94694982457031,
+   "calibrated_tok_s": 51.80490735088476,
+   "calibrated_w4_tok_s": 32.30188340702227
+  },
+  {
+   "donor": "Ling-mini-2.0 (16.26B, A1.43B)",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 117964800,
+    "dense_ffn": 17694720,
+    "shared_expert": 33619968,
+    "routed_experts": 205455360,
+    "router": 19922944,
+    "head": 23790592,
+    "kv_cache": 85196800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 503645184,
+   "desk_tok_s": 56.3732431842494,
+   "calibrated_tok_s": 47.91725670661199,
+   "calibrated_w4_tok_s": 29.877818887652182
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 168161280,
+    "kv_cache": 29360128,
+    "recurrent_state": 0
+   },
+   "total_bytes": 567046144,
+   "desk_tok_s": 50.70944542527781,
+   "calibrated_tok_s": 43.10302861148614,
+   "calibrated_w4_tok_s": 26.876006075397243
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 168161280,
+    "kv_cache": 117440512,
+    "recurrent_state": 0
+   },
+   "total_bytes": 655126528,
+   "desk_tok_s": 44.49842795953704,
+   "calibrated_tok_s": 37.82366376560648,
+   "calibrated_w4_tok_s": 23.584166818554632
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 168161280,
+    "kv_cache": 146800640,
+    "recurrent_state": 0
+   },
+   "total_bytes": 684486656,
+   "desk_tok_s": 42.752933193240516,
+   "calibrated_tok_s": 36.33999321425444,
+   "calibrated_w4_tok_s": 22.659054592417476
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 168161280,
+    "kv_cache": 14909440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 552595456,
+   "desk_tok_s": 51.89788489132168,
+   "calibrated_tok_s": 44.11320215762343,
+   "calibrated_w4_tok_s": 27.50587899240049
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 168161280,
+    "kv_cache": 59637760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 597323776,
+   "desk_tok_s": 48.38779605589139,
+   "calibrated_tok_s": 41.129626647507685,
+   "calibrated_w4_tok_s": 25.64553190962244
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 168161280,
+    "kv_cache": 74547200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 612233216,
+   "desk_tok_s": 47.320952657847556,
+   "calibrated_tok_s": 40.222809759170424,
+   "calibrated_w4_tok_s": 25.080104908659205
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 29405696,
+    "kv_cache": 14909440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 413839872,
+   "desk_tok_s": 66.96804070799683,
+   "calibrated_tok_s": 56.92283460179731,
+   "calibrated_w4_tok_s": 35.49306157523833
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 29405696,
+    "kv_cache": 59637760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 458568192,
+   "desk_tok_s": 61.23602716332187,
+   "calibrated_tok_s": 52.050623088823585,
+   "calibrated_w4_tok_s": 32.45509439656059
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 191102976,
+    "router": 28311552,
+    "head": 29405696,
+    "kv_cache": 74547200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 473477632,
+   "desk_tok_s": 59.537361361300334,
+   "calibrated_tok_s": 50.606757157105285,
+   "calibrated_w4_tok_s": 31.55480152148918
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 145981440,
+    "router": 28311552,
+    "head": 29405696,
+    "kv_cache": 14909440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 368718336,
+   "desk_tok_s": 73.9511070776534,
+   "calibrated_tok_s": 62.858441016005386,
+   "calibrated_w4_tok_s": 39.194086751156306
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 145981440,
+    "router": 28311552,
+    "head": 29405696,
+    "kv_cache": 59637760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 413446656,
+   "desk_tok_s": 67.02319431471733,
+   "calibrated_tok_s": 56.969715167509726,
+   "calibrated_w4_tok_s": 35.52229298680018
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 145981440,
+    "router": 28311552,
+    "head": 29405696,
+    "kv_cache": 74547200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 428356096,
+   "desk_tok_s": 64.99360982828168,
+   "calibrated_tok_s": 55.24456835403943,
+   "calibrated_w4_tok_s": 34.44661320898929
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 145981440,
+    "router": 14155776,
+    "head": 29405696,
+    "kv_cache": 14909440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 354562560,
+   "desk_tok_s": 76.45213179124286,
+   "calibrated_tok_s": 64.98431202255644,
+   "calibrated_w4_tok_s": 40.51962984935872
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 145981440,
+    "router": 14155776,
+    "head": 29405696,
+    "kv_cache": 59637760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 399290880,
+   "desk_tok_s": 69.07107690097418,
+   "calibrated_tok_s": 58.71041536582805,
+   "calibrated_w4_tok_s": 36.60767075751632
+  },
+  {
+   "donor": "Trinity-Nano-Preview (6B, A1B)",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 115605504,
+    "dense_ffn": 10616832,
+    "shared_expert": 23887872,
+    "routed_experts": 145981440,
+    "router": 14155776,
+    "head": 29405696,
+    "kv_cache": 74547200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 414200320,
+   "desk_tok_s": 66.91756291589265,
+   "calibrated_tok_s": 56.87992847850875,
+   "calibrated_w4_tok_s": 35.46630834542311
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 110100480,
+    "kv_cache": 6291456,
+    "recurrent_state": 0
+   },
+   "total_bytes": 921960448,
+   "desk_tok_s": 32.45566296793277,
+   "calibrated_tok_s": 27.587313522742853,
+   "calibrated_w4_tok_s": 17.20150137300437
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 110100480,
+    "kv_cache": 25165824,
+    "recurrent_state": 0
+   },
+   "total_bytes": 940834816,
+   "desk_tok_s": 31.846030303153828,
+   "calibrated_tok_s": 27.06912575768075,
+   "calibrated_w4_tok_s": 16.87839606067153
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 110100480,
+    "kv_cache": 50331648,
+    "recurrent_state": 0
+   },
+   "total_bytes": 966000640,
+   "desk_tok_s": 31.067941860696322,
+   "calibrated_tok_s": 26.407750581591873,
+   "calibrated_w4_tok_s": 16.466009186169053
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 110100480,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 918863872,
+   "desk_tok_s": 32.557916626728954,
+   "calibrated_tok_s": 27.67422913271961,
+   "calibrated_w4_tok_s": 17.255695812166348
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 110100480,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 928448512,
+   "desk_tok_s": 32.24348629987165,
+   "calibrated_tok_s": 27.406963354890898,
+   "calibrated_w4_tok_s": 17.089047738931974
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 110100480,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 941228032,
+   "desk_tok_s": 31.833573061360866,
+   "calibrated_tok_s": 27.058537102156738,
+   "calibrated_w4_tok_s": 16.87179372252126
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 10593280,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 819356672,
+   "desk_tok_s": 36.22545797672993,
+   "calibrated_tok_s": 30.79163928022044,
+   "calibrated_w4_tok_s": 19.199492727666865
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 10593280,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 828941312,
+   "desk_tok_s": 35.83662170174068,
+   "calibrated_tok_s": 30.46112844647958,
+   "calibrated_w4_tok_s": 18.993409501922564
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 544997376,
+    "router": 5767168,
+    "head": 10593280,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 841720832,
+   "desk_tok_s": 35.330974920095464,
+   "calibrated_tok_s": 30.031328682081142,
+   "calibrated_w4_tok_s": 18.725416707650595
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 416317440,
+    "router": 5767168,
+    "head": 10593280,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 690676736,
+   "desk_tok_s": 42.40226109209229,
+   "calibrated_tok_s": 36.04192192827844,
+   "calibrated_w4_tok_s": 22.473198378808913
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 416317440,
+    "router": 5767168,
+    "head": 10593280,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 700261376,
+   "desk_tok_s": 41.870492222807286,
+   "calibrated_tok_s": 35.58991838938619,
+   "calibrated_w4_tok_s": 22.191360878087863
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 416317440,
+    "router": 5767168,
+    "head": 10593280,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 713040896,
+   "desk_tok_s": 41.181873650058186,
+   "calibrated_tok_s": 35.00459260254946,
+   "calibrated_w4_tok_s": 21.826393034530838
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 416317440,
+    "router": 2883584,
+    "head": 10593280,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 687793152,
+   "desk_tok_s": 42.564899553647436,
+   "calibrated_tok_s": 36.180164620600316,
+   "calibrated_w4_tok_s": 22.559396763433142
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 416317440,
+    "router": 2883584,
+    "head": 10593280,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 697377792,
+   "desk_tok_s": 42.02906932173824,
+   "calibrated_tok_s": 35.72470892347751,
+   "calibrated_w4_tok_s": 22.27540674052127
+  },
+  {
+   "donor": "LFM2-8B-A1B (8.3B, A1.5B)",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 205258752,
+    "dense_ffn": 49545216,
+    "shared_expert": 0,
+    "routed_experts": 416317440,
+    "router": 2883584,
+    "head": 10593280,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 710157312,
+   "desk_tok_s": 41.335268044332565,
+   "calibrated_tok_s": 35.13497783768268,
+   "calibrated_w4_tok_s": 21.907692063496263
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 161602560,
+    "kv_cache": 15335424,
+    "recurrent_state": 0
+   },
+   "total_bytes": 990366720,
+   "desk_tok_s": 30.34997159242659,
+   "calibrated_tok_s": 25.797475853562602,
+   "calibrated_w4_tok_s": 16.085484943986092
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 161602560,
+    "kv_cache": 61341696,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1036372992,
+   "desk_tok_s": 29.081048183341817,
+   "calibrated_tok_s": 24.718890955840543,
+   "calibrated_w4_tok_s": 15.412955537171163
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 161602560,
+    "kv_cache": 122683392,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1097714688,
+   "desk_tok_s": 27.545489723549057,
+   "calibrated_tok_s": 23.413666265016698,
+   "calibrated_w4_tok_s": 14.599109553481002
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 161602560,
+    "kv_cache": 7787520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 982818816,
+   "desk_tok_s": 30.568804754843075,
+   "calibrated_tok_s": 25.983484041616613,
+   "calibrated_w4_tok_s": 16.20146652006683
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 161602560,
+    "kv_cache": 31150080,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1006181376,
+   "desk_tok_s": 29.901473448926847,
+   "calibrated_tok_s": 25.416252431587818,
+   "calibrated_w4_tok_s": 15.847780927931229
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 161602560,
+    "kv_cache": 62300160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1037331456,
+   "desk_tok_s": 29.055739601067017,
+   "calibrated_tok_s": 24.697378660906963,
+   "calibrated_w4_tok_s": 15.39954198856552
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 19335936,
+    "kv_cache": 7787520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 840552192,
+   "desk_tok_s": 35.376620921394,
+   "calibrated_tok_s": 30.0701277831849,
+   "calibrated_w4_tok_s": 18.749609088338822
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 19335936,
+    "kv_cache": 31150080,
+    "recurrent_state": 0
+   },
+   "total_bytes": 863914752,
+   "desk_tok_s": 34.4859265692545,
+   "calibrated_tok_s": 29.313037583866326,
+   "calibrated_w4_tok_s": 18.277541081704886
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 331776000,
+    "router": 9830400,
+    "head": 19335936,
+    "kv_cache": 62300160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 895064832,
+   "desk_tok_s": 33.36583610647919,
+   "calibrated_tok_s": 28.360960690507316,
+   "calibrated_w4_tok_s": 17.683893136433973
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 253440000,
+    "router": 9830400,
+    "head": 19335936,
+    "kv_cache": 7787520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 762216192,
+   "desk_tok_s": 38.73078294742498,
+   "calibrated_tok_s": 32.92116550531123,
+   "calibrated_w4_tok_s": 20.52731496213524
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 253440000,
+    "router": 9830400,
+    "head": 19335936,
+    "kv_cache": 31150080,
+    "recurrent_state": 0
+   },
+   "total_bytes": 785578752,
+   "desk_tok_s": 37.665725425298774,
+   "calibrated_tok_s": 32.01586661150395,
+   "calibrated_w4_tok_s": 19.96283447540835
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 253440000,
+    "router": 9830400,
+    "head": 19335936,
+    "kv_cache": 62300160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 816728832,
+   "desk_tok_s": 36.333544261668955,
+   "calibrated_tok_s": 30.88351262241861,
+   "calibrated_w4_tok_s": 19.256778458684547
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 253440000,
+    "router": 4915200,
+    "head": 19335936,
+    "kv_cache": 7787520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 757300992,
+   "desk_tok_s": 38.962573175608675,
+   "calibrated_tok_s": 33.118187199267375,
+   "calibrated_w4_tok_s": 20.6501637830726
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 253440000,
+    "router": 4915200,
+    "head": 19335936,
+    "kv_cache": 31150080,
+    "recurrent_state": 0
+   },
+   "total_bytes": 780663552,
+   "desk_tok_s": 37.884906865260355,
+   "calibrated_tok_s": 32.2021708354713,
+   "calibrated_w4_tok_s": 20.07900063858799
+  },
+  {
+   "donor": "GigaChat3.1-10B-A1.8B",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 365654016,
+    "dense_ffn": 23224320,
+    "shared_expert": 82944000,
+    "routed_experts": 253440000,
+    "router": 4915200,
+    "head": 19335936,
+    "kv_cache": 62300160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 811813632,
+   "desk_tok_s": 36.537453666855,
+   "calibrated_tok_s": 31.056835616826753,
+   "calibrated_w4_tok_s": 19.364850443433152
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 126443520,
+    "kv_cache": 4194304,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 998385664,
+   "desk_tok_s": 30.120888378252815,
+   "calibrated_tok_s": 25.602755121514893,
+   "calibrated_w4_tok_s": 15.964070840473992
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 126443520,
+    "kv_cache": 16777216,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 1010968576,
+   "desk_tok_s": 29.76831203668599,
+   "calibrated_tok_s": 25.30306523118309,
+   "calibrated_w4_tok_s": 15.777205379443576
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 126443520,
+    "kv_cache": 33554432,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 1027745792,
+   "desk_tok_s": 29.31085261283975,
+   "calibrated_tok_s": 24.914224720913786,
+   "calibrated_w4_tok_s": 15.534751884805067
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 126443520,
+    "kv_cache": 2129920,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 996321280,
+   "desk_tok_s": 30.179531999961373,
+   "calibrated_tok_s": 25.652602199967166,
+   "calibrated_w4_tok_s": 15.995151959979529
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 126443520,
+    "kv_cache": 8519680,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 1002711040,
+   "desk_tok_s": 29.998752051914636,
+   "calibrated_tok_s": 25.49893924412744,
+   "calibrated_w4_tok_s": 15.899338587514757
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 126443520,
+    "kv_cache": 17039360,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 1011230720,
+   "desk_tok_s": 29.761054446063447,
+   "calibrated_tok_s": 25.29689627915393,
+   "calibrated_w4_tok_s": 15.773358856413628
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 15317760,
+    "kv_cache": 2129920,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 885195520,
+   "desk_tok_s": 33.712759200549115,
+   "calibrated_tok_s": 28.655845320466746,
+   "calibrated_w4_tok_s": 17.867762376291033
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 15317760,
+    "kv_cache": 8519680,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 891585280,
+   "desk_tok_s": 33.48733040341517,
+   "calibrated_tok_s": 28.464230842902897,
+   "calibrated_w4_tok_s": 17.74828511381004
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 318504960,
+    "router": 15728640,
+    "head": 15317760,
+    "kv_cache": 17039360,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 900104960,
+   "desk_tok_s": 33.19140687752503,
+   "calibrated_tok_s": 28.21269584589628,
+   "calibrated_w4_tok_s": 17.59144564508827
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 243302400,
+    "router": 15728640,
+    "head": 15317760,
+    "kv_cache": 2129920,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 809992960,
+   "desk_tok_s": 36.61356723056442,
+   "calibrated_tok_s": 31.121532145979756,
+   "calibrated_w4_tok_s": 19.405190632199144
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 243302400,
+    "router": 15728640,
+    "head": 15317760,
+    "kv_cache": 8519680,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 816382720,
+   "desk_tok_s": 36.347828362646645,
+   "calibrated_tok_s": 30.895654108249644,
+   "calibrated_w4_tok_s": 19.264349032202723
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 243302400,
+    "router": 15728640,
+    "head": 15317760,
+    "kv_cache": 17039360,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 824902400,
+   "desk_tok_s": 35.99945280831731,
+   "calibrated_tok_s": 30.599534887069712,
+   "calibrated_w4_tok_s": 19.079709988408176
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 243302400,
+    "router": 7864320,
+    "head": 15317760,
+    "kv_cache": 2129920,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 802128640,
+   "desk_tok_s": 36.94601300795227,
+   "calibrated_tok_s": 31.404111056759422,
+   "calibrated_w4_tok_s": 19.581386894214702
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 243302400,
+    "router": 7864320,
+    "head": 15317760,
+    "kv_cache": 8519680,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 808518400,
+   "desk_tok_s": 36.67544432300798,
+   "calibrated_tok_s": 31.17412767455678,
+   "calibrated_w4_tok_s": 19.43798549119423
+  },
+  {
+   "donor": "Granite-4.0-H-Tiny (6.94B, A1B)",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 310265856,
+    "dense_ffn": 0,
+    "shared_expert": 106168320,
+    "routed_experts": 243302400,
+    "router": 7864320,
+    "head": 15317760,
+    "kv_cache": 17039360,
+    "recurrent_state": 117080064
+   },
+   "total_bytes": 817038080,
+   "desk_tok_s": 36.320791037772175,
+   "calibrated_tok_s": 30.872672382106344,
+   "calibrated_w4_tok_s": 19.250019250019253
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 84510720,
+    "kv_cache": 67108864,
+    "recurrent_state": 0
+   },
+   "total_bytes": 763987968,
+   "desk_tok_s": 38.64790460336738,
+   "calibrated_tok_s": 32.85071891286227,
+   "calibrated_w4_tok_s": 20.483389439784712
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 84510720,
+    "kv_cache": 268435456,
+    "recurrent_state": 0
+   },
+   "total_bytes": 965314560,
+   "desk_tok_s": 31.08864990698276,
+   "calibrated_tok_s": 26.425352420935344,
+   "calibrated_w4_tok_s": 16.476984450700865
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 84510720,
+    "kv_cache": 536870912,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1233750016,
+   "desk_tok_s": 24.658061726427288,
+   "calibrated_tok_s": 20.959352467463194,
+   "calibrated_w4_tok_s": 13.068772715006464
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 84510720,
+    "kv_cache": 34078720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 730957824,
+   "desk_tok_s": 40.25370784953744,
+   "calibrated_tok_s": 34.21565167210682,
+   "calibrated_w4_tok_s": 21.334465160254844
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 84510720,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 833193984,
+   "desk_tok_s": 35.666757212674305,
+   "calibrated_tok_s": 30.31674363077316,
+   "calibrated_w4_tok_s": 18.903381322717383
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 84510720,
+    "kv_cache": 272629760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 969508864,
+   "desk_tok_s": 30.962482388540014,
+   "calibrated_tok_s": 26.31811003025901,
+   "calibrated_w4_tok_s": 16.41011566592621
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 8399872,
+    "kv_cache": 34078720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 654846976,
+   "desk_tok_s": 44.515732928394485,
+   "calibrated_tok_s": 37.83837298913531,
+   "calibrated_w4_tok_s": 23.59333845204908
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 8399872,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 757083136,
+   "desk_tok_s": 38.97291102079096,
+   "calibrated_tok_s": 33.12697436767232,
+   "calibrated_w4_tok_s": 20.65564284101921
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 452984832,
+    "router": 8388608,
+    "head": 8399872,
+    "kv_cache": 272629760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 893398016,
+   "desk_tok_s": 33.423925541119985,
+   "calibrated_tok_s": 28.410336709951988,
+   "calibrated_w4_tok_s": 17.714680536793594
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 346030080,
+    "router": 8388608,
+    "head": 8399872,
+    "kv_cache": 34078720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 547892224,
+   "desk_tok_s": 52.29679140357894,
+   "calibrated_tok_s": 44.4522726930421,
+   "calibrated_w4_tok_s": 27.71729944389684
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 346030080,
+    "router": 8388608,
+    "head": 8399872,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 650128384,
+   "desk_tok_s": 44.80986992949436,
+   "calibrated_tok_s": 38.08838944007021,
+   "calibrated_w4_tok_s": 23.749231062632013
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 346030080,
+    "router": 8388608,
+    "head": 8399872,
+    "kv_cache": 272629760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 786443264,
+   "desk_tok_s": 37.62743660228462,
+   "calibrated_tok_s": 31.983321111941926,
+   "calibrated_w4_tok_s": 19.94254139921085
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 346030080,
+    "router": 4194304,
+    "head": 8399872,
+    "kv_cache": 34078720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 543697920,
+   "desk_tok_s": 52.65774153052886,
+   "calibrated_tok_s": 44.759080300949535,
+   "calibrated_w4_tok_s": 27.908603011180297
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 346030080,
+    "router": 4194304,
+    "head": 8399872,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 645934080,
+   "desk_tok_s": 45.07460749031797,
+   "calibrated_tok_s": 38.31341636677028,
+   "calibrated_w4_tok_s": 23.889541969868528
+  },
+  {
+   "donor": "OLMoE-1B-7B-0924",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 150994944,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 346030080,
+    "router": 4194304,
+    "head": 8399872,
+    "kv_cache": 272629760,
+    "recurrent_state": 0
+   },
+   "total_bytes": 782248960,
+   "desk_tok_s": 37.81393125729809,
+   "calibrated_tok_s": 32.14184156870337,
+   "calibrated_w4_tok_s": 20.041383566367987
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 255252480,
+    "kv_cache": 50331648,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1884739584,
+   "desk_tok_s": 16.420870321891094,
+   "calibrated_tok_s": 13.95773977360743,
+   "calibrated_w4_tok_s": 8.70306127060228
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 255252480,
+    "kv_cache": 201326592,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2035734528,
+   "desk_tok_s": 15.24002180908081,
+   "calibrated_tok_s": 12.954018537718689,
+   "calibrated_w4_tok_s": 8.077211558812829
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 255252480,
+    "kv_cache": 402653184,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2237061120,
+   "desk_tok_s": 13.906627564938388,
+   "calibrated_tok_s": 11.82063343019763,
+   "calibrated_w4_tok_s": 7.3705126094173465
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 255252480,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1859966976,
+   "desk_tok_s": 16.632302112861215,
+   "calibrated_tok_s": 14.137456795932032,
+   "calibrated_w4_tok_s": 8.815120119816443
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 255252480,
+    "kv_cache": 102236160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1936644096,
+   "desk_tok_s": 15.994848890904384,
+   "calibrated_tok_s": 13.595621557268725,
+   "calibrated_w4_tok_s": 8.477269912179324
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 255252480,
+    "kv_cache": 204472320,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2038880256,
+   "desk_tok_s": 15.217224047206994,
+   "calibrated_tok_s": 12.934640440125944,
+   "calibrated_w4_tok_s": 8.065128745019706
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 23034880,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1627749376,
+   "desk_tok_s": 18.915331345155465,
+   "calibrated_tok_s": 16.078031643382147,
+   "calibrated_w4_tok_s": 10.025125612932397
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 23034880,
+    "kv_cache": 102236160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1704426496,
+   "desk_tok_s": 18.09518239654333,
+   "calibrated_tok_s": 15.380905037061828,
+   "calibrated_w4_tok_s": 9.590446670167964
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1019215872,
+    "router": 50331648,
+    "head": 23034880,
+    "kv_cache": 204472320,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1806662656,
+   "desk_tok_s": 17.106237673245133,
+   "calibrated_tok_s": 14.540302022258361,
+   "calibrated_w4_tok_s": 9.06630596681992
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 778567680,
+    "router": 50331648,
+    "head": 23034880,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1387101184,
+   "desk_tok_s": 22.052218241453794,
+   "calibrated_tok_s": 18.744385505235723,
+   "calibrated_w4_tok_s": 11.687675667970511
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 778567680,
+    "router": 50331648,
+    "head": 23034880,
+    "kv_cache": 102236160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1463778304,
+   "desk_tok_s": 20.945447331080832,
+   "calibrated_tok_s": 17.803630231418705,
+   "calibrated_w4_tok_s": 11.101087085472841
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 778567680,
+    "router": 50331648,
+    "head": 23034880,
+    "kv_cache": 204472320,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1566014464,
+   "desk_tok_s": 19.63172763600704,
+   "calibrated_tok_s": 16.68696849060598,
+   "calibrated_w4_tok_s": 10.40481564708373
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 778567680,
+    "router": 25165824,
+    "head": 23034880,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1361935360,
+   "desk_tok_s": 22.441409966858526,
+   "calibrated_tok_s": 19.075198471829747,
+   "calibrated_w4_tok_s": 11.89394728243502
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 778567680,
+    "router": 25165824,
+    "head": 23034880,
+    "kv_cache": 102236160,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1438612480,
+   "desk_tok_s": 21.29624266131478,
+   "calibrated_tok_s": 18.10180626211756,
+   "calibrated_w4_tok_s": 11.287008610496834
+  },
+  {
+   "donor": "Qwen3-30B-A3B",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 509607936,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 778567680,
+    "router": 25165824,
+    "head": 23034880,
+    "kv_cache": 204472320,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1540848640,
+   "desk_tok_s": 19.93957511158186,
+   "calibrated_tok_s": 16.94863884484458,
+   "calibrated_w4_tok_s": 10.567974809138386
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 475070400,
+    "kv_cache": 15728640,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2127007680,
+   "desk_tok_s": 14.60515190891526,
+   "calibrated_tok_s": 12.414379122577971,
+   "calibrated_w4_tok_s": 7.740730511725088
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 475070400,
+    "kv_cache": 53477376,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2164756416,
+   "desk_tok_s": 14.357782559940368,
+   "calibrated_tok_s": 12.204115175949314,
+   "calibrated_w4_tok_s": 7.609624756768396
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 475070400,
+    "kv_cache": 103809024,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2215088064,
+   "desk_tok_s": 14.040703606615878,
+   "calibrated_tok_s": 11.934598065623495,
+   "calibrated_w4_tok_s": 7.441572911506415
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 475070400,
+    "kv_cache": 7987200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2119266240,
+   "desk_tok_s": 14.656938953995827,
+   "calibrated_tok_s": 12.458398110896452,
+   "calibrated_w4_tok_s": 7.768177645617788
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 475070400,
+    "kv_cache": 27156480,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2138435520,
+   "desk_tok_s": 14.52936974064058,
+   "calibrated_tok_s": 12.349964279544492,
+   "calibrated_w4_tok_s": 7.700565962539508
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 475070400,
+    "kv_cache": 52715520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2163994560,
+   "desk_tok_s": 14.362692160253749,
+   "calibrated_tok_s": 12.208288336215686,
+   "calibrated_w4_tok_s": 7.612226844934487
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 30582432,
+    "kv_cache": 7987200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1674778272,
+   "desk_tok_s": 18.403726636860114,
+   "calibrated_tok_s": 15.643167641331097,
+   "calibrated_w4_tok_s": 9.75397511753586
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 30582432,
+    "kv_cache": 27156480,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1693947552,
+   "desk_tok_s": 18.20304591203185,
+   "calibrated_tok_s": 15.472589025227073,
+   "calibrated_w4_tok_s": 9.64761433337688
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1269043200,
+    "router": 8847360,
+    "head": 30582432,
+    "kv_cache": 52715520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1719506592,
+   "desk_tok_s": 17.942182071845128,
+   "calibrated_tok_s": 15.250854761068357,
+   "calibrated_w4_tok_s": 9.509356498077917
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1026432000,
+    "router": 8847360,
+    "head": 30582432,
+    "kv_cache": 7987200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1432167072,
+   "desk_tok_s": 21.387985739603284,
+   "calibrated_tok_s": 18.17978787866279,
+   "calibrated_w4_tok_s": 11.335632441989741
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1026432000,
+    "router": 8847360,
+    "head": 30582432,
+    "kv_cache": 27156480,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1451336352,
+   "desk_tok_s": 21.117423836473765,
+   "calibrated_tok_s": 17.9498102610027,
+   "calibrated_w4_tok_s": 11.192234633331095
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1026432000,
+    "router": 8847360,
+    "head": 30582432,
+    "kv_cache": 52715520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1476895392,
+   "desk_tok_s": 20.767146274910786,
+   "calibrated_tok_s": 17.652074333674168,
+   "calibrated_w4_tok_s": 11.006587525702718
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1026432000,
+    "router": 4423680,
+    "head": 30582432,
+    "kv_cache": 7987200,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1427743392,
+   "desk_tok_s": 21.451410592204585,
+   "calibrated_tok_s": 18.233699003373896,
+   "calibrated_w4_tok_s": 11.369247613868431
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1026432000,
+    "router": 4423680,
+    "head": 30582432,
+    "kv_cache": 27156480,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1446912672,
+   "desk_tok_s": 21.179251847587917,
+   "calibrated_tok_s": 18.00236407044973,
+   "calibrated_w4_tok_s": 11.225003479221597
+  },
+  {
+   "donor": "gpt-oss-20b",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 358318080,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1026432000,
+    "router": 4423680,
+    "head": 30582432,
+    "kv_cache": 52715520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 1472471712,
+   "desk_tok_s": 20.826937294111406,
+   "calibrated_tok_s": 17.702896699994696,
+   "calibrated_w4_tok_s": 11.038276765879045
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 475070400,
+    "kv_cache": 23592960,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2992789440,
+   "desk_tok_s": 10.468499917351192,
+   "calibrated_tok_s": 8.898224929748514,
+   "calibrated_w4_tok_s": 5.548304956196132
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 475070400,
+    "kv_cache": 80216064,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3049412544,
+   "desk_tok_s": 10.278111091210404,
+   "calibrated_tok_s": 8.736394427528843,
+   "calibrated_w4_tok_s": 5.447398878341515
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 475070400,
+    "kv_cache": 155713536,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3124910016,
+   "desk_tok_s": 10.03477672290644,
+   "calibrated_tok_s": 8.529560214470473,
+   "calibrated_w4_tok_s": 5.318431663140413
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 475070400,
+    "kv_cache": 11980800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2981177280,
+   "desk_tok_s": 10.508419398163907,
+   "calibrated_tok_s": 8.93215648843932,
+   "calibrated_w4_tok_s": 5.569462281026871
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 475070400,
+    "kv_cache": 40734720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3009931200,
+   "desk_tok_s": 10.410122386603838,
+   "calibrated_tok_s": 8.848604028613263,
+   "calibrated_w4_tok_s": 5.517364864900034
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 475070400,
+    "kv_cache": 79073280,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3048269760,
+   "desk_tok_s": 10.281885076697208,
+   "calibrated_tok_s": 8.739602315192625,
+   "calibrated_w4_tok_s": 5.4493990906495196
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 30582432,
+    "kv_cache": 11980800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2536689312,
+   "desk_tok_s": 12.304430157169039,
+   "calibrated_tok_s": 10.458765633593682,
+   "calibrated_w4_tok_s": 6.521347983299591
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 30582432,
+    "kv_cache": 40734720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2565443232,
+   "desk_tok_s": 12.169876729249731,
+   "calibrated_tok_s": 10.344395219862271,
+   "calibrated_w4_tok_s": 6.450034666502358
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1903564800,
+    "router": 53084160,
+    "head": 30582432,
+    "kv_cache": 79073280,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2603781792,
+   "desk_tok_s": 11.994984033536728,
+   "calibrated_tok_s": 10.195736428506219,
+   "calibrated_w4_tok_s": 6.357341537774466
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1539648000,
+    "router": 53084160,
+    "head": 30582432,
+    "kv_cache": 11980800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2172772512,
+   "desk_tok_s": 14.306327455440405,
+   "calibrated_tok_s": 12.160378337124342,
+   "calibrated_w4_tok_s": 7.582353551383415
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1539648000,
+    "router": 53084160,
+    "head": 30582432,
+    "kv_cache": 40734720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2201526432,
+   "desk_tok_s": 14.124752440760751,
+   "calibrated_tok_s": 12.006039574646639,
+   "calibrated_w4_tok_s": 7.4861187936031985
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1539648000,
+    "router": 53084160,
+    "head": 30582432,
+    "kv_cache": 79073280,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2239864992,
+   "desk_tok_s": 13.889702786889691,
+   "calibrated_tok_s": 11.806247368856237,
+   "calibrated_w4_tok_s": 7.361542477051537
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1539648000,
+    "router": 26542080,
+    "head": 30582432,
+    "kv_cache": 11980800,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2146230432,
+   "desk_tok_s": 14.478128405391534,
+   "calibrated_tok_s": 12.306409144582803,
+   "calibrated_w4_tok_s": 7.673408054857513
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1539648000,
+    "router": 26542080,
+    "head": 30582432,
+    "kv_cache": 40734720,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2174984352,
+   "desk_tok_s": 14.292194570906942,
+   "calibrated_tok_s": 12.148365385270901,
+   "calibrated_w4_tok_s": 7.5748631225806795
+  },
+  {
+   "donor": "gpt-oss-120b",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 537477120,
+    "dense_ffn": 0,
+    "shared_expert": 0,
+    "routed_experts": 1539648000,
+    "router": 26542080,
+    "head": 30582432,
+    "kv_cache": 79073280,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2213322912,
+   "desk_tok_s": 14.05158654988318,
+   "calibrated_tok_s": 11.943848567400703,
+   "calibrated_w4_tok_s": 7.447340871438086
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 528138240,
+    "kv_cache": 33554432,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3409625088,
+   "desk_tok_s": 9.212278006209518,
+   "calibrated_tok_s": 7.83043630527809,
+   "calibrated_w4_tok_s": 4.882507343291045
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 528138240,
+    "kv_cache": 134217728,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3510288384,
+   "desk_tok_s": 8.952831042745542,
+   "calibrated_tok_s": 7.609906386333711,
+   "calibrated_w4_tok_s": 4.7450004526551375
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 528138240,
+    "kv_cache": 268435456,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3644506112,
+   "desk_tok_s": 8.628811449563008,
+   "calibrated_tok_s": 7.334489732128557,
+   "calibrated_w4_tok_s": 4.573270068268395
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 528138240,
+    "kv_cache": 17039360,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3393110016,
+   "desk_tok_s": 9.256286277237177,
+   "calibrated_tok_s": 7.8678433356516,
+   "calibrated_w4_tok_s": 4.905831726935705
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 528138240,
+    "kv_cache": 68157440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3444228096,
+   "desk_tok_s": 9.121413751997954,
+   "calibrated_tok_s": 7.753201689198262,
+   "calibrated_w4_tok_s": 4.834349288558916
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 528138240,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3512385536,
+   "desk_tok_s": 8.947581203952168,
+   "calibrated_tok_s": 7.605444023359342,
+   "calibrated_w4_tok_s": 4.7422180380946495
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 24946688,
+    "kv_cache": 17039360,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2889918464,
+   "desk_tok_s": 10.83306813982527,
+   "calibrated_tok_s": 9.20810791885148,
+   "calibrated_w4_tok_s": 5.741526114107393
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 24946688,
+    "kv_cache": 68157440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2941036544,
+   "desk_tok_s": 10.648788968604302,
+   "calibrated_tok_s": 9.051470623313657,
+   "calibrated_w4_tok_s": 5.643858153360281
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1755316224,
+    "router": 130023424,
+    "head": 24946688,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 3009193984,
+   "desk_tok_s": 10.412619628504387,
+   "calibrated_tok_s": 8.85072668422873,
+   "calibrated_w4_tok_s": 5.518688403107326
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1340866560,
+    "router": 130023424,
+    "head": 24946688,
+    "kv_cache": 17039360,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2475468800,
+   "desk_tok_s": 12.601060505252123,
+   "calibrated_tok_s": 10.710901429464304,
+   "calibrated_w4_tok_s": 6.678562067783625
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1340866560,
+    "router": 130023424,
+    "head": 24946688,
+    "kv_cache": 68157440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2526586880,
+   "desk_tok_s": 12.352413365113621,
+   "calibrated_tok_s": 10.499551360346578,
+   "calibrated_w4_tok_s": 6.54677908351022
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1340866560,
+    "router": 130023424,
+    "head": 24946688,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2594744320,
+   "desk_tok_s": 12.035756789129689,
+   "calibrated_tok_s": 10.230393270760235,
+   "calibrated_w4_tok_s": 6.378951098238735
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1340866560,
+    "router": 65011712,
+    "head": 24946688,
+    "kv_cache": 17039360,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2410457088,
+   "desk_tok_s": 12.93212970036359,
+   "calibrated_tok_s": 10.992310245309051,
+   "calibrated_w4_tok_s": 6.854028741192703
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1340866560,
+    "router": 65011712,
+    "head": 24946688,
+    "kv_cache": 68157440,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2461575168,
+   "desk_tok_s": 12.670381149392105,
+   "calibrated_tok_s": 10.76982397698329,
+   "calibrated_w4_tok_s": 6.715302009177816
+  },
+  {
+   "donor": "Ling-flash-2.0 (103B, A6.1B)",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 679477248,
+    "dense_ffn": 63700992,
+    "shared_expert": 219414528,
+    "routed_experts": 1340866560,
+    "router": 65011712,
+    "head": 24946688,
+    "kv_cache": 136314880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 2529732608,
+   "desk_tok_s": 12.337432124383422,
+   "calibrated_tok_s": 10.486817305725909,
+   "calibrated_w4_tok_s": 6.538839025923215
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P0",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 111672960,
+    "kv_cache": 6291456,
+    "recurrent_state": 0
+   },
+   "total_bytes": 319241856,
+   "desk_tok_s": 83.49818658638372,
+   "calibrated_tok_s": 70.97345859842616,
+   "calibrated_w4_tok_s": 44.25403889078337
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P0",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 111672960,
+    "kv_cache": 25165824,
+    "recurrent_state": 0
+   },
+   "total_bytes": 338116224,
+   "desk_tok_s": 79.57898261772198,
+   "calibrated_tok_s": 67.64213522506368,
+   "calibrated_w4_tok_s": 42.17686078739265
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P0",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 111672960,
+    "kv_cache": 50331648,
+    "recurrent_state": 0
+   },
+   "total_bytes": 363282048,
+   "desk_tok_s": 74.89198329249723,
+   "calibrated_tok_s": 63.65818579862264,
+   "calibrated_w4_tok_s": 39.692751145023536
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P1",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 111672960,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 316145280,
+   "desk_tok_s": 84.1783436058972,
+   "calibrated_tok_s": 71.55159206501263,
+   "calibrated_w4_tok_s": 44.61452211112552
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P1",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 111672960,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 325729920,
+   "desk_tok_s": 82.10814299297319,
+   "calibrated_tok_s": 69.7919215440272,
+   "calibrated_w4_tok_s": 43.51731578627579
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P1",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 111672960,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 338509440,
+   "desk_tok_s": 79.50124101437224,
+   "calibrated_tok_s": 67.5760548622164,
+   "calibrated_w4_tok_s": 42.13565773761729
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P2",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 226856896,
+   "desk_tok_s": 110.01973974170447,
+   "calibrated_tok_s": 93.51677878044879,
+   "calibrated_w4_tok_s": 58.31046206310337
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P2",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 236441536,
+   "desk_tok_s": 106.50990680596173,
+   "calibrated_tok_s": 90.53342078506748,
+   "calibrated_w4_tok_s": 56.450250607159724
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P2",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 249221056,
+   "desk_tok_s": 102.164268292359,
+   "calibrated_tok_s": 86.83962804850515,
+   "calibrated_w4_tok_s": 54.147062194950266
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P3",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 226856896,
+   "desk_tok_s": 110.01973974170447,
+   "calibrated_tok_s": 93.51677878044879,
+   "calibrated_w4_tok_s": 58.31046206310337
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P3",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 236441536,
+   "desk_tok_s": 106.50990680596173,
+   "calibrated_tok_s": 90.53342078506748,
+   "calibrated_w4_tok_s": 56.450250607159724
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P3",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 249221056,
+   "desk_tok_s": 102.164268292359,
+   "calibrated_tok_s": 86.83962804850515,
+   "calibrated_w4_tok_s": 54.147062194950266
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P4",
+   "context": 512,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 3194880,
+    "recurrent_state": 0
+   },
+   "total_bytes": 226856896,
+   "desk_tok_s": 110.01973974170447,
+   "calibrated_tok_s": 93.51677878044879,
+   "calibrated_w4_tok_s": 58.31046206310337
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P4",
+   "context": 2048,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 12779520,
+    "recurrent_state": 0
+   },
+   "total_bytes": 236441536,
+   "desk_tok_s": 106.50990680596173,
+   "calibrated_tok_s": 90.53342078506748,
+   "calibrated_w4_tok_s": 56.450250607159724
+  },
+  {
+   "donor": "Qwen2.5-0.5B-Instruct (dense control)",
+   "policy": "P4",
+   "context": 4096,
+   "organs_bytes": {
+    "attention_or_mixer": 24772608,
+    "dense_ffn": 176504832,
+    "shared_expert": 0,
+    "routed_experts": 0,
+    "router": 0,
+    "head": 22384576,
+    "kv_cache": 25559040,
+    "recurrent_state": 0
+   },
+   "total_bytes": 249221056,
+   "desk_tok_s": 102.164268292359,
+   "calibrated_tok_s": 86.83962804850515,
+   "calibrated_w4_tok_s": 54.147062194950266
+  }
+ ],
+ "gguf": {
+  "path": "benchmarks/donor_adaptation/density/results/strat01_gigachat_q4_97045b2/GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+  "architecture": "deepseek2",
+  "tensors": 414,
+  "expert_count": 64,
+  "expert_used_count": 4,
+  "organs_bytes": {
+   "attention": 372469760,
+   "dense_ffn": 26772480,
+   "embedding_row": 864,
+   "head": 161602560,
+   "routed_experts": 356106240,
+   "router": 9836800,
+   "shared_expert": 89026560,
+   "small_tensors": 378880
+  },
+  "organ_tensor_types": {
+   "head": {
+    "Q6_K": 1
+   },
+   "small_tensors": {
+    "F32": 79
+   },
+   "embedding_row": {
+    "Q4_K": 1
+   },
+   "attention": {
+    "Q5_0": 26,
+    "Q4_K": 104
+   },
+   "dense_ffn": {
+    "Q6_K": 1,
+    "Q4_K": 2
+   },
+   "router": {
+    "F32": 50
+   },
+   "routed_experts": {
+    "Q6_K": 12,
+    "Q4_K": 63
+   },
+   "shared_expert": {
+    "Q6_K": 12,
+    "Q4_K": 63
+   }
+  },
+  "total_weight_bytes_per_token": 1016194144
+ }
+}

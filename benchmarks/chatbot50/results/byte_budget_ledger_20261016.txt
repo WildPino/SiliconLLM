@@ -1,0 +1,84 @@
+DESK MODEL: BW_PLAN=32.0 GB/s, T_FIXED=2.0 ms, calibrations x0.85 (I8 runtime) / x0.53 (W4G32 runtime).  MB = 1e6 bytes per decoded token.
+
+| donor | evidence | policy | MB/token @2048 | desk tok/s @512 / 2048 / 4096 | x0.85 / x0.53 @2048 |
+|---|---|---|---:|---|---|
+| Ling-mini-2.0 (16.26B, A1.43B) | VERIFIED-HEADERS (METH407, rev a810f64) | P0 | 826.0 | 38.7 / 36.0 / 32.9 | 30.6 / 19.1 |
+| Ling-mini-2.0 (16.26B, A1.43B) | VERIFIED-HEADERS (METH407, rev a810f64) | P1 | 784.8 | 39.2 / 37.7 / 35.9 | 32.0 / 20.0 |
+| Ling-mini-2.0 (16.26B, A1.43B) | VERIFIED-HEADERS (METH407, rev a810f64) | P2 | 544.5 | 55.5 / 52.6 / 49.1 | 44.7 / 27.9 |
+| Ling-mini-2.0 (16.26B, A1.43B) | VERIFIED-HEADERS (METH407, rev a810f64) | P3 | 481.0 | 62.4 / 58.7 / 54.5 | 49.9 / 31.1 |
+| Ling-mini-2.0 (16.26B, A1.43B) | VERIFIED-HEADERS (METH407, rev a810f64) | P4 | 461.0 | 64.9 / 60.9 / 56.4 | 51.8 / 32.3 |
+| Trinity-Nano-Preview (6B, A1B) | CONFIG (fetched 2026-10-16, not header-verified) | P0 | 655.1 | 50.7 / 44.5 / 42.8 | 37.8 / 23.6 |
+| Trinity-Nano-Preview (6B, A1B) | CONFIG (fetched 2026-10-16, not header-verified) | P1 | 597.3 | 51.9 / 48.4 / 47.3 | 41.1 / 25.6 |
+| Trinity-Nano-Preview (6B, A1B) | CONFIG (fetched 2026-10-16, not header-verified) | P2 | 458.6 | 67.0 / 61.2 / 59.5 | 52.1 / 32.5 |
+| Trinity-Nano-Preview (6B, A1B) | CONFIG (fetched 2026-10-16, not header-verified) | P3 | 413.4 | 74.0 / 67.0 / 65.0 | 57.0 / 35.5 |
+| Trinity-Nano-Preview (6B, A1B) | CONFIG (fetched 2026-10-16, not header-verified) | P4 | 399.3 | 76.5 / 69.1 / 66.9 | 58.7 / 36.6 |
+| LFM2-8B-A1B (8.3B, A1.5B) | CONFIG (fetched 2026-10-16, not header-verified) | P0 | 940.8 | 32.5 / 31.8 / 31.1 | 27.1 / 16.9 |
+| LFM2-8B-A1B (8.3B, A1.5B) | CONFIG (fetched 2026-10-16, not header-verified) | P1 | 928.4 | 32.6 / 32.2 / 31.8 | 27.4 / 17.1 |
+| LFM2-8B-A1B (8.3B, A1.5B) | CONFIG (fetched 2026-10-16, not header-verified) | P2 | 828.9 | 36.2 / 35.8 / 35.3 | 30.5 / 19.0 |
+| LFM2-8B-A1B (8.3B, A1.5B) | CONFIG (fetched 2026-10-16, not header-verified) | P3 | 700.3 | 42.4 / 41.9 / 41.2 | 35.6 / 22.2 |
+| LFM2-8B-A1B (8.3B, A1.5B) | CONFIG (fetched 2026-10-16, not header-verified) | P4 | 697.4 | 42.6 / 42.0 / 41.3 | 35.7 / 22.3 |
+| GigaChat3.1-10B-A1.8B | VERIFIED-HEADERS (STRAT-01, rev 189fff2) | P0 | 1,036.4 | 30.3 / 29.1 / 27.5 | 24.7 / 15.4 |
+| GigaChat3.1-10B-A1.8B | VERIFIED-HEADERS (STRAT-01, rev 189fff2) | P1 | 1,006.2 | 30.6 / 29.9 / 29.1 | 25.4 / 15.8 |
+| GigaChat3.1-10B-A1.8B | VERIFIED-HEADERS (STRAT-01, rev 189fff2) | P2 | 863.9 | 35.4 / 34.5 / 33.4 | 29.3 / 18.3 |
+| GigaChat3.1-10B-A1.8B | VERIFIED-HEADERS (STRAT-01, rev 189fff2) | P3 | 785.6 | 38.7 / 37.7 / 36.3 | 32.0 / 20.0 |
+| GigaChat3.1-10B-A1.8B | VERIFIED-HEADERS (STRAT-01, rev 189fff2) | P4 | 780.7 | 39.0 / 37.9 / 36.5 | 32.2 / 20.1 |
+| Granite-4.0-H-Tiny (6.94B, A1B) | VERIFIED-HEADERS (NATIVE_DONOR_PREFLIGHT) | P0 | 1,011.0 | 30.1 / 29.8 / 29.3 | 25.3 / 15.8 |
+| Granite-4.0-H-Tiny (6.94B, A1B) | VERIFIED-HEADERS (NATIVE_DONOR_PREFLIGHT) | P1 | 1,002.7 | 30.2 / 30.0 / 29.8 | 25.5 / 15.9 |
+| Granite-4.0-H-Tiny (6.94B, A1B) | VERIFIED-HEADERS (NATIVE_DONOR_PREFLIGHT) | P2 | 891.6 | 33.7 / 33.5 / 33.2 | 28.5 / 17.7 |
+| Granite-4.0-H-Tiny (6.94B, A1B) | VERIFIED-HEADERS (NATIVE_DONOR_PREFLIGHT) | P3 | 816.4 | 36.6 / 36.3 / 36.0 | 30.9 / 19.3 |
+| Granite-4.0-H-Tiny (6.94B, A1B) | VERIFIED-HEADERS (NATIVE_DONOR_PREFLIGHT) | P4 | 808.5 | 36.9 / 36.7 / 36.3 | 31.2 / 19.4 |
+| OLMoE-1B-7B-0924 | CONFIG (local HF cache) | P0 | 965.3 | 38.6 / 31.1 / 24.7 | 26.4 / 16.5 |
+| OLMoE-1B-7B-0924 | CONFIG (local HF cache) | P1 | 833.2 | 40.3 / 35.7 / 31.0 | 30.3 / 18.9 |
+| OLMoE-1B-7B-0924 | CONFIG (local HF cache) | P2 | 757.1 | 44.5 / 39.0 / 33.4 | 33.1 / 20.7 |
+| OLMoE-1B-7B-0924 | CONFIG (local HF cache) | P3 | 650.1 | 52.3 / 44.8 / 37.6 | 38.1 / 23.7 |
+| OLMoE-1B-7B-0924 | CONFIG (local HF cache) | P4 | 645.9 | 52.7 / 45.1 / 37.8 | 38.3 / 23.9 |
+| Qwen3-30B-A3B | CONFIG (TARGET_DONOR_DECISION) | P0 | 2,035.7 | 16.4 / 15.2 / 13.9 | 13.0 / 8.1 |
+| Qwen3-30B-A3B | CONFIG (TARGET_DONOR_DECISION) | P1 | 1,936.6 | 16.6 / 16.0 / 15.2 | 13.6 / 8.5 |
+| Qwen3-30B-A3B | CONFIG (TARGET_DONOR_DECISION) | P2 | 1,704.4 | 18.9 / 18.1 / 17.1 | 15.4 / 9.6 |
+| Qwen3-30B-A3B | CONFIG (TARGET_DONOR_DECISION) | P3 | 1,463.8 | 22.1 / 20.9 / 19.6 | 17.8 / 11.1 |
+| Qwen3-30B-A3B | CONFIG (TARGET_DONOR_DECISION) | P4 | 1,438.6 | 22.4 / 21.3 / 19.9 | 18.1 / 11.3 |
+| gpt-oss-20b | CONFIG (local HF cache) | P0 | 2,164.8 | 14.6 / 14.4 / 14.0 | 12.2 / 7.6 |
+| gpt-oss-20b | CONFIG (local HF cache) | P1 | 2,138.4 | 14.7 / 14.5 / 14.4 | 12.3 / 7.7 |
+| gpt-oss-20b | CONFIG (local HF cache) | P2 | 1,693.9 | 18.4 / 18.2 / 17.9 | 15.5 / 9.6 |
+| gpt-oss-20b | CONFIG (local HF cache) | P3 | 1,451.3 | 21.4 / 21.1 / 20.8 | 17.9 / 11.2 |
+| gpt-oss-20b | CONFIG (local HF cache) | P4 | 1,446.9 | 21.5 / 21.2 / 20.8 | 18.0 / 11.2 |
+| gpt-oss-120b | CONFIG (LARGE_FAMILY_SELECTION) | P0 | 3,049.4 | 10.5 / 10.3 / 10.0 | 8.7 / 5.4 |
+| gpt-oss-120b | CONFIG (LARGE_FAMILY_SELECTION) | P1 | 3,009.9 | 10.5 / 10.4 / 10.3 | 8.8 / 5.5 |
+| gpt-oss-120b | CONFIG (LARGE_FAMILY_SELECTION) | P2 | 2,565.4 | 12.3 / 12.2 / 12.0 | 10.3 / 6.5 |
+| gpt-oss-120b | CONFIG (LARGE_FAMILY_SELECTION) | P3 | 2,201.5 | 14.3 / 14.1 / 13.9 | 12.0 / 7.5 |
+| gpt-oss-120b | CONFIG (LARGE_FAMILY_SELECTION) | P4 | 2,175.0 | 14.5 / 14.3 / 14.1 | 12.1 / 7.6 |
+| Ling-flash-2.0 (103B, A6.1B) | CONFIG (fetched 2026-10-16, not header-verified) | P0 | 3,510.3 | 9.2 / 9.0 / 8.6 | 7.6 / 4.7 |
+| Ling-flash-2.0 (103B, A6.1B) | CONFIG (fetched 2026-10-16, not header-verified) | P1 | 3,444.2 | 9.3 / 9.1 / 8.9 | 7.8 / 4.8 |
+| Ling-flash-2.0 (103B, A6.1B) | CONFIG (fetched 2026-10-16, not header-verified) | P2 | 2,941.0 | 10.8 / 10.6 / 10.4 | 9.1 / 5.6 |
+| Ling-flash-2.0 (103B, A6.1B) | CONFIG (fetched 2026-10-16, not header-verified) | P3 | 2,526.6 | 12.6 / 12.4 / 12.0 | 10.5 / 6.5 |
+| Ling-flash-2.0 (103B, A6.1B) | CONFIG (fetched 2026-10-16, not header-verified) | P4 | 2,461.6 | 12.9 / 12.7 / 12.3 | 10.8 / 6.7 |
+| Qwen2.5-0.5B-Instruct (dense control) | VERIFIED (recipient baseline) | P0 | 338.1 | 83.5 / 79.6 / 74.9 | 67.6 / 42.2 |
+| Qwen2.5-0.5B-Instruct (dense control) | VERIFIED (recipient baseline) | P1 | 325.7 | 84.2 / 82.1 / 79.5 | 69.8 / 43.5 |
+| Qwen2.5-0.5B-Instruct (dense control) | VERIFIED (recipient baseline) | P2 | 236.4 | 110.0 / 106.5 / 102.2 | 90.5 / 56.5 |
+| Qwen2.5-0.5B-Instruct (dense control) | VERIFIED (recipient baseline) | P3 | 236.4 | 110.0 / 106.5 / 102.2 | 90.5 / 56.5 |
+| Qwen2.5-0.5B-Instruct (dense control) | VERIFIED (recipient baseline) | P4 | 236.4 | 110.0 / 106.5 / 102.2 | 90.5 / 56.5 |
+
+Organ split at P0, context 2048 (MB/token):
+  Ling-mini-2.0 (16.26B, A1.43B): attention_or_mixer=118.0, dense_ffn=17.7, shared_expert=33.6, routed_experts=269.0, router=39.8, head=264.1, kv_cache=83.9
+  Trinity-Nano-Preview (6B, A1B): attention_or_mixer=115.6, dense_ffn=10.6, shared_expert=23.9, routed_experts=191.1, router=28.3, head=168.2, kv_cache=117.4
+  LFM2-8B-A1B (8.3B, A1.5B): attention_or_mixer=205.3, dense_ffn=49.5, routed_experts=545.0, router=5.8, head=110.1, kv_cache=25.2
+  GigaChat3.1-10B-A1.8B: attention_or_mixer=365.7, dense_ffn=23.2, shared_expert=82.9, routed_experts=331.8, router=9.8, head=161.6, kv_cache=61.3
+  Granite-4.0-H-Tiny (6.94B, A1B): attention_or_mixer=310.3, shared_expert=106.2, routed_experts=318.5, router=15.7, head=126.4, kv_cache=16.8, recurrent_state=117.1
+  OLMoE-1B-7B-0924: attention_or_mixer=151.0, routed_experts=453.0, router=8.4, head=84.5, kv_cache=268.4
+  Qwen3-30B-A3B: attention_or_mixer=509.6, routed_experts=1019.2, router=50.3, head=255.3, kv_cache=201.3
+  gpt-oss-20b: attention_or_mixer=358.3, routed_experts=1269.0, router=8.8, head=475.1, kv_cache=53.5
+  gpt-oss-120b: attention_or_mixer=537.5, routed_experts=1903.6, router=53.1, head=475.1, kv_cache=80.2
+  Ling-flash-2.0 (103B, A6.1B): attention_or_mixer=679.5, dense_ffn=63.7, shared_expert=219.4, routed_experts=1755.3, router=130.0, head=528.1, kv_cache=134.2
+  Qwen2.5-0.5B-Instruct (dense control): attention_or_mixer=24.8, dense_ffn=176.5, head=111.7, kv_cache=25.2
+
+Actual GGUF header ledger: benchmarks/donor_adaptation/density/results/strat01_gigachat_q4_97045b2/GigaChat3.1-10B-A1.8B-q4_K_M.gguf
+  arch=deepseek2 tensors=414 experts=4/64
+  attention            372.47 MB  {'Q5_0': 26, 'Q4_K': 104}
+  dense_ffn             26.77 MB  {'Q6_K': 1, 'Q4_K': 2}
+  embedding_row          0.00 MB  {'Q4_K': 1}
+  head                 161.60 MB  {'Q6_K': 1}
+  routed_experts       356.11 MB  {'Q6_K': 12, 'Q4_K': 63}
+  router                 9.84 MB  {'F32': 50}
+  shared_expert         89.03 MB  {'Q6_K': 12, 'Q4_K': 63}
+  small_tensors          0.38 MB  {'F32': 79}
+  TOTAL weights/token 1016.19 MB
