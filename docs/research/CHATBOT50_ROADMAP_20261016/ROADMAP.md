@@ -469,3 +469,4 @@ Append-only. Each entry: date, decision or measurement, evidence link, label.
 | --- | --- | --- | --- |
 | 2026-10-16 | Owner approves the roadmap: direction (§0), programme rules (§6) and the phase order. The owner's directive asks to follow the phases without pausing for questions; the pinned Ling-mini-2.0 download (A2) is read as covered by it and is recorded here as such. | owner directive in session, 2026-10-16 | DECISION |
 | 2026-10-16 | Work branch `research/chatbot50` opened from `research/native-expert-scaling` at `e21adbc`. | git | DECISION |
+| 2026-10-16 | **C50-A0 closed.** Phase-A donor = Ling-mini-2.0 @ `a810f64` (no other candidate eligible under the §5 rule). Ling-flash-2.0 tokenizer identical; Ling-3.x flash id-compatible except 9 special tokens. Deviation: the roadmap was pushed after the screen ran. | [A0 result](C50_A0_DONOR_SCREEN_RESULT_20261016.md) | SOURCE-DERIVED |

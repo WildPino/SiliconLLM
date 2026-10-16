@@ -1,0 +1,2397 @@
+{
+ "cell": "C50-A0",
+ "constants": {
+  "BW_PLAN": 32000000000.0,
+  "T_FIXED": 0.002,
+  "CALIBRATION": 0.85,
+  "CALIBRATION_W4": 0.53,
+  "SHORTLIST_RANK": 256,
+  "SHORTLIST_RERANK": 64
+ },
+ "candidates": [
+  {
+   "repo": "inclusionAI/Ling-mini-2.0",
+   "revision": "a810f6416bc4e1e29c9d7f271dd2fa7e56e71eab",
+   "role": "candidate",
+   "api": {
+    "sha": "a810f6416bc4e1e29c9d7f271dd2fa7e56e71eab",
+    "license": "mit",
+    "license_name": null,
+    "gated": false,
+    "last_modified": "2026-09-24T10:57:11.000Z",
+    "architectures": [
+     "BailingMoeV2ForCausalLM"
+    ],
+    "base_model": [
+     "inclusionAI/Ling-mini-base-2.0"
+    ],
+    "siblings": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "configuration_bailing_moe_v2.py",
+     "generation_config.json",
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors",
+     "model.safetensors.index.json",
+     "modeling_bailing_moe_v2.py",
+     "special_tokens_map.json",
+     "tokenizer.json",
+     "tokenizer_config.json"
+    ]
+   },
+   "files": {
+    "config.json": {
+     "bytes": 1522,
+     "sha256": "88388c4e5040292a19b40da6fa89a3d6a0bb6d6878f389b0bba55ac51c239aa3"
+    },
+    "generation_config.json": {
+     "bytes": 156,
+     "sha256": "adb7a0202c7ac95b2afac51b7f8f31a44ac91af4191d9f7b8187851b085aeec0"
+    },
+    "tokenizer_config.json": {
+     "bytes": 4591,
+     "sha256": "d1822baf77d965ef18e8e5bb48d96e38d791ccf75d511c5460e3153be0eec993"
+    },
+    "special_tokens_map.json": {
+     "bytes": 152,
+     "sha256": "483323261f732c497b5e0de4c29999f8b69e510c81aab6dc33c602355879a8b5"
+    },
+    "tokenizer.json": {
+     "bytes": 7663374,
+     "sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d"
+    }
+   },
+   "chat": {
+    "chat_template_source": "tokenizer_config.json",
+    "eos_token_id_config": 156895,
+    "pad_token_id_config": 156892,
+    "bos_token_id_config": null,
+    "eos_token_id_generation": [
+     156892,
+     156895
+    ],
+    "eos_token": "<|role_end|>",
+    "pad_token": "<|endoftext|>",
+    "bos_token": "<|startoftext|>",
+    "tokenizer_class": "PreTrainedTokenizerFast"
+   },
+   "tokenizer": {
+    "tokenizer_json_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+    "canonical_json_sha256": "bd35b7f02475d66e78c4a2b3415d21110632064bfb1f316c4ae7cf32943b4ac1",
+    "model_type": "BPE",
+    "vocab_entries": 156891,
+    "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+    "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+    "merges": 156635,
+    "ignore_merges": null,
+    "added_tokens": 262,
+    "added_tokens_sha256": "064fe8f663c8979478bfca53d7ce42726d3f379af0d94c523cce678f84f52104",
+    "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+    "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef"
+   },
+   "tensor_count": 14813,
+   "organs": {
+    "per_token_coefficients": {
+     "attention_or_mixer": 209715200,
+     "dense_ffn": 31457280,
+     "embedding_row": 2048,
+     "head": 321912832,
+     "routed": 478150656,
+     "router": 9961472,
+     "shared": 59768832,
+     "small": 93952
+    },
+    "stored_coefficients": {
+     "attention_or_mixer": 209715200,
+     "dense_ffn": 31457280,
+     "embedding_row": 321912832,
+     "head": 321912832,
+     "routed": 15300820992,
+     "router": 9961472,
+     "shared": 59768832,
+     "small": 93952
+    },
+    "total_stored": 16255643392
+   },
+   "cache_geometry": {
+    "kv_values_per_pos": 20480,
+    "kv_window_per_pos": 0,
+    "kv_window": 0,
+    "state_bytes": 0,
+    "basis": "GQA, every layer full attention"
+   },
+   "ledger": [
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P0",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 264069120,
+      "kv_cache": 20971520,
+      "recurrent_state": 0
+     },
+     "total_bytes": 763125760,
+     "desk_tok_s": 38.688191744868405,
+     "calibrated_tok_s": 32.88496298313814,
+     "calibrated_w4_tok_s": 20.504741624780255
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P0",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 264069120,
+      "kv_cache": 83886080,
+      "recurrent_state": 0
+     },
+     "total_bytes": 826040320,
+     "desk_tok_s": 35.95342736832417,
+     "calibrated_tok_s": 30.560413263075542,
+     "calibrated_w4_tok_s": 19.05531650521181
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P0",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 264069120,
+      "kv_cache": 167772160,
+      "recurrent_state": 0
+     },
+     "total_bytes": 909926400,
+     "desk_tok_s": 32.856692251077696,
+     "calibrated_tok_s": 27.92818841341604,
+     "calibrated_w4_tok_s": 17.41404689307118
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P1",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 264069120,
+      "kv_cache": 10649600,
+      "recurrent_state": 0
+     },
+     "total_bytes": 752803840,
+     "desk_tok_s": 39.177092997016274,
+     "calibrated_tok_s": 33.30052904746383,
+     "calibrated_w4_tok_s": 20.763859288418626
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P1",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 264069120,
+      "kv_cache": 42598400,
+      "recurrent_state": 0
+     },
+     "total_bytes": 784752640,
+     "desk_tok_s": 37.70238641025022,
+     "calibrated_tok_s": 32.04702844871269,
+     "calibrated_w4_tok_s": 19.982264797432617
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P1",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 264069120,
+      "kv_cache": 85196800,
+      "recurrent_state": 0
+     },
+     "total_bytes": 827351040,
+     "desk_tok_s": 35.900558325483075,
+     "calibrated_tok_s": 30.515474576660615,
+     "calibrated_w4_tok_s": 19.027295912506034
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P2",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 23790592,
+      "kv_cache": 10649600,
+      "recurrent_state": 0
+     },
+     "total_bytes": 512525312,
+     "desk_tok_s": 55.50493505478559,
+     "calibrated_tok_s": 47.17919479656775,
+     "calibrated_w4_tok_s": 29.417615579036365
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P2",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 23790592,
+      "kv_cache": 42598400,
+      "recurrent_state": 0
+     },
+     "total_bytes": 544474112,
+     "desk_tok_s": 52.59056937495478,
+     "calibrated_tok_s": 44.70198396871156,
+     "calibrated_w4_tok_s": 27.873001768726034
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P2",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 268959744,
+      "router": 39845888,
+      "head": 23790592,
+      "kv_cache": 85196800,
+      "recurrent_state": 0
+     },
+     "total_bytes": 587072512,
+     "desk_tok_s": 49.149671365637374,
+     "calibrated_tok_s": 41.77722066079177,
+     "calibrated_w4_tok_s": 26.04932582378781
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P3",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 205455360,
+      "router": 39845888,
+      "head": 23790592,
+      "kv_cache": 10649600,
+      "recurrent_state": 0
+     },
+     "total_bytes": 449020928,
+     "desk_tok_s": 62.3756230077226,
+     "calibrated_tok_s": 53.019279556564214,
+     "calibrated_w4_tok_s": 33.05908019409298
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P3",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 205455360,
+      "router": 39845888,
+      "head": 23790592,
+      "kv_cache": 42598400,
+      "recurrent_state": 0
+     },
+     "total_bytes": 480969728,
+     "desk_tok_s": 58.7188578665419,
+     "calibrated_tok_s": 49.91102918656062,
+     "calibrated_w4_tok_s": 31.12099466926721
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P3",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 205455360,
+      "router": 39845888,
+      "head": 23790592,
+      "kv_cache": 85196800,
+      "recurrent_state": 0
+     },
+     "total_bytes": 523568128,
+     "desk_tok_s": 54.46176958053109,
+     "calibrated_tok_s": 46.292504143451424,
+     "calibrated_w4_tok_s": 28.86473787768148
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P4",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 205455360,
+      "router": 19922944,
+      "head": 23790592,
+      "kv_cache": 10649600,
+      "recurrent_state": 0
+     },
+     "total_bytes": 429097984,
+     "desk_tok_s": 64.89582403159855,
+     "calibrated_tok_s": 55.16145042685877,
+     "calibrated_w4_tok_s": 34.394786736747236
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P4",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 205455360,
+      "router": 19922944,
+      "head": 23790592,
+      "kv_cache": 42598400,
+      "recurrent_state": 0
+     },
+     "total_bytes": 461046784,
+     "desk_tok_s": 60.94694982457031,
+     "calibrated_tok_s": 51.80490735088476,
+     "calibrated_w4_tok_s": 32.30188340702227
+    },
+    {
+     "donor": "Ling-mini-2.0",
+     "policy": "P4",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 117964800,
+      "dense_ffn": 17694720,
+      "shared_expert": 33619968,
+      "routed_experts": 205455360,
+      "router": 19922944,
+      "head": 23790592,
+      "kv_cache": 85196800,
+      "recurrent_state": 0
+     },
+     "total_bytes": 503645184,
+     "desk_tok_s": 56.3732431842494,
+     "calibrated_tok_s": 47.91725670661199,
+     "calibrated_w4_tok_s": 29.877818887652182
+    }
+   ]
+  },
+  {
+   "repo": "inclusionAI/Ling-3.0-tiny",
+   "revision": "9a98e35fe1c9ee255f78dd64771c7ae15a799481",
+   "role": "candidate",
+   "api": {
+    "sha": "9a98e35fe1c9ee255f78dd64771c7ae15a799481",
+    "license": "mit",
+    "license_name": null,
+    "gated": false,
+    "last_modified": "2026-09-24T08:58:30.000Z",
+    "architectures": [
+     "BailingMoeV3ForCausalLM"
+    ],
+    "base_model": null,
+    "siblings": [
+     ".gitattributes",
+     "README.md",
+     "chat_template.jinja",
+     "config.json",
+     "configuration_bailing_moe_v3.py",
+     "generation_config.json",
+     "model-00000-of-00032.safetensors",
+     "model-00001-of-00032.safetensors",
+     "model-00002-of-00032.safetensors",
+     "model-00003-of-00032.safetensors",
+     "model-00004-of-00032.safetensors",
+     "model-00005-of-00032.safetensors",
+     "model-00006-of-00032.safetensors",
+     "model-00007-of-00032.safetensors",
+     "model-00008-of-00032.safetensors",
+     "model-00009-of-00032.safetensors",
+     "model-00010-of-00032.safetensors",
+     "model-00011-of-00032.safetensors",
+     "model-00012-of-00032.safetensors",
+     "model-00013-of-00032.safetensors",
+     "model-00014-of-00032.safetensors",
+     "model-00015-of-00032.safetensors",
+     "model-00016-of-00032.safetensors",
+     "model-00017-of-00032.safetensors",
+     "model-00018-of-00032.safetensors",
+     "model-00019-of-00032.safetensors",
+     "model-00020-of-00032.safetensors",
+     "model-00021-of-00032.safetensors",
+     "model-00022-of-00032.safetensors",
+     "model-00023-of-00032.safetensors",
+     "model-00024-of-00032.safetensors",
+     "model-00025-of-00032.safetensors",
+     "model-00026-of-00032.safetensors",
+     "model-00027-of-00032.safetensors",
+     "model-00028-of-00032.safetensors",
+     "model-00029-of-00032.safetensors",
+     "model-00030-of-00032.safetensors",
+     "model-00031-of-00032.safetensors",
+     "model.safetensors.index.json",
+     "modeling_bailing_moe_v3.py",
+     "special_tokens_map.json",
+     "tokenizer.json",
+     "tokenizer_config.json"
+    ]
+   },
+   "files": {
+    "config.json": {
+     "bytes": 2130,
+     "sha256": "9750d847957913f665a13c0b5a6537199e33c6f3ec970d9fcb55a0e5076d4012"
+    },
+    "generation_config.json": {
+     "bytes": 56,
+     "sha256": "64752c5973a55faf4cfc02604c7587c38b090f00013f91191f52362dcc79a4a8"
+    },
+    "tokenizer_config.json": {
+     "bytes": 49671,
+     "sha256": "2456b0372956cd3e82f17e33372148b115a94970bfd4878ba5e7e60cd3204f74"
+    },
+    "special_tokens_map.json": {
+     "bytes": 580,
+     "sha256": "69b63b9f81044ead642d16a5fdc01bcc737dc1183746485c8397ab14d3126614"
+    },
+    "chat_template.jinja": {
+     "bytes": 6041,
+     "sha256": "eb6226c94ae38058f875d159f86a206b3a165828c0e7d6bda664ae14667f798a"
+    },
+    "tokenizer.json": {
+     "bytes": 12205732,
+     "sha256": "40fb9d7d7795b8bd305aeff39ce9963f3f450915b9553f2938e009be9a1fed60"
+    }
+   },
+   "chat": {
+    "chat_template_source": "chat_template.jinja",
+    "eos_token_id_config": 156895,
+    "pad_token_id_config": 156892,
+    "bos_token_id_config": null,
+    "eos_token_id_generation": null,
+    "eos_token": "<|role_end|>",
+    "pad_token": "<|endoftext|>",
+    "bos_token": "<|startoftext|>",
+    "tokenizer_class": "PreTrainedTokenizerFast"
+   },
+   "tokenizer": {
+    "tokenizer_json_sha256": "40fb9d7d7795b8bd305aeff39ce9963f3f450915b9553f2938e009be9a1fed60",
+    "canonical_json_sha256": "1de9252485fcfa2a6968e6d5edcab85e0b36f96617d94b4394f574ef4b6829b5",
+    "model_type": "BPE",
+    "vocab_entries": 156891,
+    "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+    "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+    "merges": 156635,
+    "ignore_merges": false,
+    "added_tokens": 262,
+    "added_tokens_sha256": "1c6bc830e87f297cb98efdf795751fbc1ba446fe44223490a551f9883d7a16f6",
+    "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+    "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef"
+   },
+   "tensor_count": 9283,
+   "organs": {
+    "per_token_coefficients": {
+     "attention_or_mixer": 384651552,
+     "dense_ffn": 21233664,
+     "embedding_row": 1536,
+     "head": 241434624,
+     "routed": 434110464,
+     "router": 4521984,
+     "shared": 54263808,
+     "small": 85120
+    },
+    "stored_coefficients": {
+     "attention_or_mixer": 384651552,
+     "dense_ffn": 21233664,
+     "embedding_row": 241434624,
+     "head": 241434624,
+     "routed": 6945767424,
+     "router": 4521984,
+     "shared": 54263808,
+     "small": 85120
+    },
+    "total_stored": 7893392800
+   },
+   "cache_geometry": {
+    "kv_values_per_pos": 3456,
+    "kv_window_per_pos": 0,
+    "kv_window": 0,
+    "state_bytes": 37748736,
+    "basis": "6 MLA layers cache 576 latent values/pos; 18 KDA layers keep a 16x128x128 F32 state (read+write per token, ASSUMED head_dim 128 for key and value)"
+   },
+   "ledger": [
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P0",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 198051840,
+      "kv_cache": 3538944,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 760448418,
+     "desk_tok_s": 38.8138291024048,
+     "calibrated_tok_s": 32.99175473704408,
+     "calibrated_w4_tok_s": 20.571329424274545
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P0",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 198051840,
+      "kv_cache": 14155776,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 771065250,
+     "desk_tok_s": 38.32035879830948,
+     "calibrated_tok_s": 32.572304978563054,
+     "calibrated_w4_tok_s": 20.309790163104022
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P0",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 198051840,
+      "kv_cache": 28311552,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 785221026,
+     "desk_tok_s": 37.68159174146496,
+     "calibrated_tok_s": 32.029352980245214,
+     "calibrated_w4_tok_s": 19.97124362297643
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P1",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 198051840,
+      "kv_cache": 1797120,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 758706594,
+     "desk_tok_s": 38.89600525068844,
+     "calibrated_tok_s": 33.06160446308517,
+     "calibrated_w4_tok_s": 20.61488278286487
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P1",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 198051840,
+      "kv_cache": 7188480,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 764097954,
+     "desk_tok_s": 38.642771480630906,
+     "calibrated_tok_s": 32.84635575853627,
+     "calibrated_w4_tok_s": 20.480668884734378
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P1",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 198051840,
+      "kv_cache": 14376960,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 771286434,
+     "desk_tok_s": 38.3102115603137,
+     "calibrated_tok_s": 32.56367982626664,
+     "calibrated_w4_tok_s": 20.30441212696626
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P2",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 23501568,
+      "kv_cache": 1797120,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 584156322,
+     "desk_tok_s": 49.37080595196293,
+     "calibrated_tok_s": 41.96518505916849,
+     "calibrated_w4_tok_s": 26.166527154540354
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P2",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 23501568,
+      "kv_cache": 7188480,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 589547682,
+     "desk_tok_s": 48.963527652753584,
+     "calibrated_tok_s": 41.61899850484054,
+     "calibrated_w4_tok_s": 25.9506696559594
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P2",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 244187136,
+      "router": 18087936,
+      "head": 23501568,
+      "kv_cache": 14376960,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 596736162,
+     "desk_tok_s": 48.43082888507016,
+     "calibrated_tok_s": 41.16620455230964,
+     "calibrated_w4_tok_s": 25.668339309087187
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P3",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 186531840,
+      "router": 18087936,
+      "head": 23501568,
+      "kv_cache": 1797120,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 526501026,
+     "desk_tok_s": 54.191269093578164,
+     "calibrated_tok_s": 46.062578729541436,
+     "calibrated_w4_tok_s": 28.721372619596426
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P3",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 186531840,
+      "router": 18087936,
+      "head": 23501568,
+      "kv_cache": 7188480,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 531892386,
+     "desk_tok_s": 53.70097143681242,
+     "calibrated_tok_s": 45.64582572129055,
+     "calibrated_w4_tok_s": 28.46151486151058
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P3",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 186531840,
+      "router": 18087936,
+      "head": 23501568,
+      "kv_cache": 14376960,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 539080866,
+     "desk_tok_s": 53.06087757723688,
+     "calibrated_tok_s": 45.10174594065135,
+     "calibrated_w4_tok_s": 28.122265115935548
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P4",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 186531840,
+      "router": 9043968,
+      "head": 23501568,
+      "kv_cache": 1797120,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 517457058,
+     "desk_tok_s": 55.03415868760509,
+     "calibrated_tok_s": 46.77903488446433,
+     "calibrated_w4_tok_s": 29.1681041044307
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P4",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 186531840,
+      "router": 9043968,
+      "head": 23501568,
+      "kv_cache": 7188480,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 522848418,
+     "desk_tok_s": 54.528561411236524,
+     "calibrated_tok_s": 46.34927719955105,
+     "calibrated_w4_tok_s": 28.90013754795536
+    },
+    {
+     "donor": "Ling-3.0-tiny",
+     "policy": "P4",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 216366498,
+      "dense_ffn": 11943936,
+      "shared_expert": 30523392,
+      "routed_experts": 186531840,
+      "router": 9043968,
+      "head": 23501568,
+      "kv_cache": 14376960,
+      "recurrent_state": 37748736
+     },
+     "total_bytes": 530036898,
+     "desk_tok_s": 53.86870766401451,
+     "calibrated_tok_s": 45.78840151441233,
+     "calibrated_w4_tok_s": 28.55041506192769
+    }
+   ]
+  },
+  {
+   "repo": "utter-project/EuroMoE-2.6B-A0.6B-Instruct-2512",
+   "revision": "96e19829c2fe57c4d5d484ecbd6b0ad6b950cac6",
+   "role": "candidate",
+   "api": {
+    "sha": "96e19829c2fe57c4d5d484ecbd6b0ad6b950cac6",
+    "license": "apache-2.0",
+    "license_name": null,
+    "gated": false,
+    "last_modified": "2026-09-19T17:19:14.000Z",
+    "architectures": [
+     "MixtralForCausalLM"
+    ],
+    "base_model": [
+     "utter-project/EuroMoE-2.6B-A0.6B-2512"
+    ],
+    "siblings": [
+     ".gitattributes",
+     "README.md",
+     "chat_template.jinja",
+     "config.json",
+     "generation_config.json",
+     "model-00001-of-00003.safetensors",
+     "model-00002-of-00003.safetensors",
+     "model-00003-of-00003.safetensors",
+     "model.safetensors.index.json",
+     "special_tokens_map.json",
+     "tokenizer.json",
+     "tokenizer.model",
+     "tokenizer_config.json"
+    ]
+   },
+   "files": {
+    "config.json": {
+     "bytes": 753,
+     "sha256": "af0a81a9dfef046120910ae436078ea0b6ec92b849bb6b08a52d380321390480"
+    },
+    "generation_config.json": {
+     "bytes": 132,
+     "sha256": "b2cde4263f00b492814babac80b566a3a76372ec239818ce9c9f63a39c06a3ff"
+    },
+    "tokenizer_config.json": {
+     "bytes": 46959,
+     "sha256": "758bc8e1772626fda16ed9311508d98c352cc47034f3423959eb7ed57ece7bf7"
+    },
+    "special_tokens_map.json": {
+     "bytes": 557,
+     "sha256": "5a1e50e0e488ce4306a390682135546eeb6a91039212d85520a4db3e650b5c4f"
+    },
+    "chat_template.jinja": {
+     "bytes": 295,
+     "sha256": "9850c24e4c4adc21d258566d1b1f0c1855c44256287143956631e892a38fc4de"
+    },
+    "tokenizer.json": {
+     "bytes": 15783075,
+     "sha256": "d869676e23a78b395eb0308cff52fd9c3ea7d52597627360cdb97407bb0b02b8"
+    }
+   },
+   "chat": {
+    "chat_template_source": "chat_template.jinja",
+    "eos_token_id_config": 4,
+    "pad_token_id_config": null,
+    "bos_token_id_config": 1,
+    "eos_token_id_generation": 4,
+    "eos_token": "<|im_end|>",
+    "pad_token": "</s>",
+    "bos_token": "<s>",
+    "tokenizer_class": "LlamaTokenizer"
+   },
+   "tokenizer": {
+    "tokenizer_json_sha256": "d869676e23a78b395eb0308cff52fd9c3ea7d52597627360cdb97407bb0b02b8",
+    "canonical_json_sha256": "2fe716b698265081542c854ed189b1c81e5cddb52633c1cdcb3e89b3d96bc177",
+    "model_type": "BPE",
+    "vocab_entries": 128000,
+    "vocab_sha256": "f28a80bc705a9cf4362b0c9f2f00cc6c4f5a2b3dd4f981c7ff7c8063e896b81e",
+    "merges_sha256": "4ecca7f9844f86f1276c52e94d5b03edb41841bf83e2be4e86b8b1753a861484",
+    "merges": 260662,
+    "ignore_merges": false,
+    "added_tokens": 261,
+    "added_tokens_sha256": "97ba29cff971cc71bda89c0e9c3aa84fa97133f00f4e1c1a83d8f1d6a5e76ee8",
+    "pre_tokenizer_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "normalizer_sha256": "8949893b0cabbefd6364f3c90e455d53de71315c0276b92ccb1706ebbf818b89"
+   },
+   "tensor_count": 4778,
+   "organs": {
+    "per_token_coefficients": {
+     "attention_or_mixer": 62914560,
+     "embedding_row": 1024,
+     "routed": 301989888,
+     "router": 1572864,
+     "small": 50176
+    },
+    "stored_coefficients": {
+     "attention_or_mixer": 62914560,
+     "embedding_row": 131072000,
+     "routed": 2415919104,
+     "router": 1572864,
+     "small": 50176
+    },
+    "total_stored": 2611528704
+   },
+   "cache_geometry": {
+    "kv_values_per_pos": 12288,
+    "kv_window_per_pos": 0,
+    "kv_window": 0,
+    "state_bytes": 0,
+    "basis": "GQA, every layer full attention"
+   },
+   "ledger": [
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P0",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 107520000,
+      "kv_cache": 12582912,
+      "recurrent_state": 0
+     },
+     "total_bytes": 331653120,
+     "desk_tok_s": 80.87892748071846,
+     "calibrated_tok_s": 68.74708835861068,
+     "calibrated_w4_tok_s": 42.865831564780784
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P0",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 107520000,
+      "kv_cache": 50331648,
+      "recurrent_state": 0
+     },
+     "total_bytes": 369401856,
+     "desk_tok_s": 73.83447845687122,
+     "calibrated_tok_s": 62.75930668834054,
+     "calibrated_w4_tok_s": 39.13227358214175
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P0",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 107520000,
+      "kv_cache": 100663296,
+      "recurrent_state": 0
+     },
+     "total_bytes": 419733504,
+     "desk_tok_s": 66.15212660564443,
+     "calibrated_tok_s": 56.229307614797754,
+     "calibrated_w4_tok_s": 35.060627100991546
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P1",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 107520000,
+      "kv_cache": 6389760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 325459968,
+     "desk_tok_s": 82.16505579335949,
+     "calibrated_tok_s": 69.84029742435557,
+     "calibrated_w4_tok_s": 43.54747957048053
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P1",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 107520000,
+      "kv_cache": 25559040,
+      "recurrent_state": 0
+     },
+     "total_bytes": 344629248,
+     "desk_tok_s": 78.31059611278731,
+     "calibrated_tok_s": 66.56400669586921,
+     "calibrated_w4_tok_s": 41.504615939777274
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P1",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 107520000,
+      "kv_cache": 51118080,
+      "recurrent_state": 0
+     },
+     "total_bytes": 370188288,
+     "desk_tok_s": 73.70074431855703,
+     "calibrated_tok_s": 62.64563267077347,
+     "calibrated_w4_tok_s": 39.06139448883523
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P2",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 19010048,
+      "kv_cache": 6389760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 236950016,
+     "desk_tok_s": 106.32994948902078,
+     "calibrated_tok_s": 90.38045706566766,
+     "calibrated_w4_tok_s": 56.35487322918102
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P2",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 19010048,
+      "kv_cache": 25559040,
+      "recurrent_state": 0
+     },
+     "total_bytes": 256119296,
+     "desk_tok_s": 99.96273389280476,
+     "calibrated_tok_s": 84.96832380888405,
+     "calibrated_w4_tok_s": 52.980248963186526
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P2",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 169869312,
+      "router": 6291456,
+      "head": 19010048,
+      "kv_cache": 51118080,
+      "recurrent_state": 0
+     },
+     "total_bytes": 281678336,
+     "desk_tok_s": 92.5716096943952,
+     "calibrated_tok_s": 78.68586824023592,
+     "calibrated_w4_tok_s": 49.06295313802946
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P3",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 129761280,
+      "router": 6291456,
+      "head": 19010048,
+      "kv_cache": 6389760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 196841984,
+     "desk_tok_s": 122.67963733936327,
+     "calibrated_tok_s": 104.27769173845877,
+     "calibrated_w4_tok_s": 65.02020778986254
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P3",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 129761280,
+      "router": 6291456,
+      "head": 19010048,
+      "kv_cache": 25559040,
+      "recurrent_state": 0
+     },
+     "total_bytes": 216011264,
+     "desk_tok_s": 114.28111691963936,
+     "calibrated_tok_s": 97.13894938169345,
+     "calibrated_w4_tok_s": 60.56899196740886
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P3",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 129761280,
+      "router": 6291456,
+      "head": 19010048,
+      "kv_cache": 51118080,
+      "recurrent_state": 0
+     },
+     "total_bytes": 241570304,
+     "desk_tok_s": 104.72221803333349,
+     "calibrated_tok_s": 89.01388532833347,
+     "calibrated_w4_tok_s": 55.50277555766676
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P4",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 129761280,
+      "router": 3145728,
+      "head": 19010048,
+      "kv_cache": 6389760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 193696256,
+     "desk_tok_s": 124.17720186047251,
+     "calibrated_tok_s": 105.55062158140163,
+     "calibrated_w4_tok_s": 65.81391698605043
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P4",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 129761280,
+      "router": 3145728,
+      "head": 19010048,
+      "kv_cache": 25559040,
+      "recurrent_state": 0
+     },
+     "total_bytes": 212865536,
+     "desk_tok_s": 115.57957144944181,
+     "calibrated_tok_s": 98.24263573202553,
+     "calibrated_w4_tok_s": 61.257172868204165
+    },
+    {
+     "donor": "EuroMoE-2.6B-A0.6B-Instruct-2512",
+     "policy": "P4",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 35389440,
+      "dense_ffn": 0,
+      "shared_expert": 0,
+      "routed_experts": 129761280,
+      "router": 3145728,
+      "head": 19010048,
+      "kv_cache": 51118080,
+      "recurrent_state": 0
+     },
+     "total_bytes": 238424576,
+     "desk_tok_s": 105.81150653576513,
+     "calibrated_tok_s": 89.93978055540036,
+     "calibrated_w4_tok_s": 56.08009846395552
+    }
+   ]
+  },
+  {
+   "repo": "arcee-ai/Trinity-Nano-Preview",
+   "revision": "b576b32b8bba7f5218312c9509e494537f8d282d",
+   "role": "candidate",
+   "api": {
+    "sha": "b576b32b8bba7f5218312c9509e494537f8d282d",
+    "license": "other",
+    "license_name": "openmdw-1.1",
+    "gated": false,
+    "last_modified": "2026-05-28T22:45:39.000Z",
+    "architectures": [
+     "AfmoeForCausalLM"
+    ],
+    "base_model": [
+     "arcee-ai/Trinity-Nano-Base"
+    ],
+    "siblings": [
+     ".gitattributes",
+     "LICENSE",
+     "README.md",
+     "chat_template.jinja",
+     "config.json",
+     "configuration_afmoe.py",
+     "generation_config.json",
+     "model-00001-of-00003.safetensors",
+     "model-00002-of-00003.safetensors",
+     "model-00003-of-00003.safetensors",
+     "model.safetensors.index.json",
+     "modeling_afmoe.py",
+     "special_tokens_map.json",
+     "tokenizer.json",
+     "tokenizer_config.json"
+    ]
+   },
+   "files": {
+    "config.json": {
+     "bytes": 2556,
+     "sha256": "15750458af859d21ad4fe4460cfe1e77a9415dc50cbd29b539b46566300f64f3"
+    },
+    "generation_config.json": {
+     "bytes": 69,
+     "sha256": "9b6a9a36d2ca9019f244b1f7e7f9f77cdc90fb64e32b834f924733232373eb5e"
+    },
+    "tokenizer_config.json": {
+     "bytes": 6173,
+     "sha256": "b57019eb2c887b8aa0c197c49ed311f93df5e6517de48b7af3fa3b8b975e0e6a"
+    },
+    "special_tokens_map.json": {
+     "bytes": 436,
+     "sha256": "c82f6489f79fddeba92ca459e172c237df2245bfc773302bc19725416c65038d"
+    },
+    "chat_template.jinja": {
+     "bytes": 2712,
+     "sha256": "c295e73aea820982584a1f874fa71c61b1f3e6856adc6ef1d7efe339b936f2ad"
+    },
+    "tokenizer.json": {
+     "bytes": 14614897,
+     "sha256": "606b0740c5d8940dbee3268e05beaa3e34f4e43bc7df153681122f8fcc78e134"
+    }
+   },
+   "chat": {
+    "chat_template_source": "chat_template.jinja",
+    "eos_token_id_config": null,
+    "pad_token_id_config": null,
+    "bos_token_id_config": null,
+    "eos_token_id_generation": null,
+    "eos_token": "<|im_end|>",
+    "pad_token": "<|pad|>",
+    "bos_token": "<|begin_of_text|>",
+    "tokenizer_class": "PreTrainedTokenizerFast"
+   },
+   "tokenizer": {
+    "tokenizer_json_sha256": "606b0740c5d8940dbee3268e05beaa3e34f4e43bc7df153681122f8fcc78e134",
+    "canonical_json_sha256": "bcbe948d2a67061f41534747784873ffedad27c4eac969303c8e65cac511f3e0",
+    "model_type": "BPE",
+    "vocab_entries": 200000,
+    "vocab_sha256": "1a3af6d01b0d6a2ee870c06692b0584728fab5423c3d7d74ac9d8f377a174f71",
+    "merges_sha256": "22aadbe463f37b7c8118d6689d5bf03ee04413e0ac8fec418c71bf0b8eab09f8",
+    "merges": 199712,
+    "ignore_merges": false,
+    "added_tokens": 32,
+    "added_tokens_sha256": "d45fb4488d2b43c54b71a75e18ce2d4daa7d84b7e68c636f65103e64d045b9e0",
+    "pre_tokenizer_sha256": "d823a8371fcd0e041dac5c63ad8fc4b6d1875d5e4896cdd64cdef12c96d861ce",
+    "normalizer_sha256": "a044f671002c0869f899164eb3a4421aefd81030544d01e20004334aa0589b50"
+   },
+   "tensor_count": 21631,
+   "organs": {
+    "per_token_coefficients": {
+     "attention_or_mixer": 205520896,
+     "dense_ffn": 18874368,
+     "embedding_row": 1024,
+     "head": 204996608,
+     "routed": 339738624,
+     "router": 7077888,
+     "shared": 42467328,
+     "small": 251648
+    },
+    "stored_coefficients": {
+     "attention_or_mixer": 205520896,
+     "dense_ffn": 18874368,
+     "embedding_row": 204996608,
+     "head": 204996608,
+     "routed": 5435817984,
+     "router": 7077888,
+     "shared": 42467328,
+     "small": 251648
+    },
+    "total_stored": 6120003328
+   },
+   "cache_geometry": {
+    "kv_values_per_pos": 7168,
+    "kv_window_per_pos": 21504,
+    "kv_window": 2048,
+    "state_bytes": 0,
+    "basis": "14 full + 42 sliding-window layers"
+   },
+   "ledger": [
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P0",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 168161280,
+      "kv_cache": 29360128,
+      "recurrent_state": 0
+     },
+     "total_bytes": 567046144,
+     "desk_tok_s": 50.70944542527781,
+     "calibrated_tok_s": 43.10302861148614,
+     "calibrated_w4_tok_s": 26.876006075397243
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P0",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 168161280,
+      "kv_cache": 117440512,
+      "recurrent_state": 0
+     },
+     "total_bytes": 655126528,
+     "desk_tok_s": 44.49842795953704,
+     "calibrated_tok_s": 37.82366376560648,
+     "calibrated_w4_tok_s": 23.584166818554632
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P0",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 168161280,
+      "kv_cache": 146800640,
+      "recurrent_state": 0
+     },
+     "total_bytes": 684486656,
+     "desk_tok_s": 42.752933193240516,
+     "calibrated_tok_s": 36.33999321425444,
+     "calibrated_w4_tok_s": 22.659054592417476
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P1",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 168161280,
+      "kv_cache": 14909440,
+      "recurrent_state": 0
+     },
+     "total_bytes": 552595456,
+     "desk_tok_s": 51.89788489132168,
+     "calibrated_tok_s": 44.11320215762343,
+     "calibrated_w4_tok_s": 27.50587899240049
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P1",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 168161280,
+      "kv_cache": 59637760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 597323776,
+     "desk_tok_s": 48.38779605589139,
+     "calibrated_tok_s": 41.129626647507685,
+     "calibrated_w4_tok_s": 25.64553190962244
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P1",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 168161280,
+      "kv_cache": 74547200,
+      "recurrent_state": 0
+     },
+     "total_bytes": 612233216,
+     "desk_tok_s": 47.320952657847556,
+     "calibrated_tok_s": 40.222809759170424,
+     "calibrated_w4_tok_s": 25.080104908659205
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P2",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 29405696,
+      "kv_cache": 14909440,
+      "recurrent_state": 0
+     },
+     "total_bytes": 413839872,
+     "desk_tok_s": 66.96804070799683,
+     "calibrated_tok_s": 56.92283460179731,
+     "calibrated_w4_tok_s": 35.49306157523833
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P2",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 29405696,
+      "kv_cache": 59637760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 458568192,
+     "desk_tok_s": 61.23602716332187,
+     "calibrated_tok_s": 52.050623088823585,
+     "calibrated_w4_tok_s": 32.45509439656059
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P2",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 191102976,
+      "router": 28311552,
+      "head": 29405696,
+      "kv_cache": 74547200,
+      "recurrent_state": 0
+     },
+     "total_bytes": 473477632,
+     "desk_tok_s": 59.537361361300334,
+     "calibrated_tok_s": 50.606757157105285,
+     "calibrated_w4_tok_s": 31.55480152148918
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P3",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 145981440,
+      "router": 28311552,
+      "head": 29405696,
+      "kv_cache": 14909440,
+      "recurrent_state": 0
+     },
+     "total_bytes": 368718336,
+     "desk_tok_s": 73.9511070776534,
+     "calibrated_tok_s": 62.858441016005386,
+     "calibrated_w4_tok_s": 39.194086751156306
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P3",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 145981440,
+      "router": 28311552,
+      "head": 29405696,
+      "kv_cache": 59637760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 413446656,
+     "desk_tok_s": 67.02319431471733,
+     "calibrated_tok_s": 56.969715167509726,
+     "calibrated_w4_tok_s": 35.52229298680018
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P3",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 145981440,
+      "router": 28311552,
+      "head": 29405696,
+      "kv_cache": 74547200,
+      "recurrent_state": 0
+     },
+     "total_bytes": 428356096,
+     "desk_tok_s": 64.99360982828168,
+     "calibrated_tok_s": 55.24456835403943,
+     "calibrated_w4_tok_s": 34.44661320898929
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P4",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 145981440,
+      "router": 14155776,
+      "head": 29405696,
+      "kv_cache": 14909440,
+      "recurrent_state": 0
+     },
+     "total_bytes": 354562560,
+     "desk_tok_s": 76.45213179124286,
+     "calibrated_tok_s": 64.98431202255644,
+     "calibrated_w4_tok_s": 40.51962984935872
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P4",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 145981440,
+      "router": 14155776,
+      "head": 29405696,
+      "kv_cache": 59637760,
+      "recurrent_state": 0
+     },
+     "total_bytes": 399290880,
+     "desk_tok_s": 69.07107690097418,
+     "calibrated_tok_s": 58.71041536582805,
+     "calibrated_w4_tok_s": 36.60767075751632
+    },
+    {
+     "donor": "Trinity-Nano-Preview",
+     "policy": "P4",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 115605504,
+      "dense_ffn": 10616832,
+      "shared_expert": 23887872,
+      "routed_experts": 145981440,
+      "router": 14155776,
+      "head": 29405696,
+      "kv_cache": 74547200,
+      "recurrent_state": 0
+     },
+     "total_bytes": 414200320,
+     "desk_tok_s": 66.91756291589265,
+     "calibrated_tok_s": 56.87992847850875,
+     "calibrated_w4_tok_s": 35.46630834542311
+    }
+   ]
+  },
+  {
+   "repo": "LiquidAI/LFM2.5-8B-A1B",
+   "revision": "5dd22602c2e9f6a097b1de4c4efe0658b605015c",
+   "role": "candidate",
+   "api": {
+    "sha": "5dd22602c2e9f6a097b1de4c4efe0658b605015c",
+    "license": "other",
+    "license_name": "lfm1.0",
+    "gated": false,
+    "last_modified": "2026-08-24T21:05:21.000Z",
+    "architectures": [
+     "Lfm2MoeForCausalLM"
+    ],
+    "base_model": "LiquidAI/LFM2.5-8B-A1B-Base",
+    "siblings": [
+     ".eval_results/aime_2026.yaml",
+     ".gitattributes",
+     "LICENSE",
+     "README.md",
+     "chat_template.jinja",
+     "config.json",
+     "generation_config.json",
+     "model.safetensors",
+     "tokenizer.json",
+     "tokenizer_config.json"
+    ]
+   },
+   "files": {
+    "config.json": {
+     "bytes": 1205,
+     "sha256": "9c0255c2d5c744c99b760a12edca2572935348dae340e79e2e6625af975d2d68"
+    },
+    "generation_config.json": {
+     "bytes": 318,
+     "sha256": "11ddb22e01d6d45f5bc88baf7e9c897a0497f9f468b32f862cff709db4c931d9"
+    },
+    "tokenizer_config.json": {
+     "bytes": 315,
+     "sha256": "b53c3caceb7fa0de424e1aa67b3cc5008cd2f8b8d2426a8fa221ef3cf1a949d5"
+    },
+    "chat_template.jinja": {
+     "bytes": 4762,
+     "sha256": "c5b67247c9f736f6c40eaa91ae1ef27dc67f5b041eedaadb97a1bea5030fb0ff"
+    },
+    "tokenizer.json": {
+     "bytes": 17905598,
+     "sha256": "695be7802a0e4b8a81048f0ff5ebb7fc811a0ba5a6be63dbb24deb5a81096f41"
+    }
+   },
+   "chat": {
+    "chat_template_source": "chat_template.jinja",
+    "eos_token_id_config": 124900,
+    "pad_token_id_config": 124893,
+    "bos_token_id_config": 124894,
+    "eos_token_id_generation": 124900,
+    "eos_token": "<|im_end|>",
+    "pad_token": "<|pad|>",
+    "bos_token": "<|startoftext|>",
+    "tokenizer_class": "TokenizersBackend"
+   },
+   "tokenizer": {
+    "tokenizer_json_sha256": "695be7802a0e4b8a81048f0ff5ebb7fc811a0ba5a6be63dbb24deb5a81096f41",
+    "canonical_json_sha256": "28570459b4af4ebca3b35ae005955dae1c903d4cf28fded759478b425c8cbef6",
+    "model_type": "BPE",
+    "vocab_entries": 124893,
+    "vocab_sha256": "47604c9a0297e732a4980a0cf074d210024f402ec3eeee29f24a5ff88e322516",
+    "merges_sha256": "bdfeb04570b458313aa3abeff026423098f8fb31a6ece70f70224afbc94491ab",
+    "merges": 293320,
+    "ignore_merges": true,
+    "added_tokens": 124,
+    "added_tokens_sha256": "4f8feecf72108264fa655fb1a0b3f6b56dcdaab642e43db841be399d3c771867",
+    "pre_tokenizer_sha256": "5b82ee011fa887a2a3dbbff1fc614c01d0a2ef165ceb2fa41fdf64826384839a",
+    "normalizer_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+   },
+   "tensor_count": 2302,
+   "organs": {
+    "per_token_coefficients": {
+     "attention_or_mixer": 365015040,
+     "dense_ffn": 88080384,
+     "embedding_row": 2048,
+     "routed": 968884224,
+     "router": 1441792,
+     "small": 101824
+    },
+    "stored_coefficients": {
+     "attention_or_mixer": 365015040,
+     "dense_ffn": 88080384,
+     "embedding_row": 262144000,
+     "routed": 7751073792,
+     "router": 1441792,
+     "small": 101824
+    },
+    "total_stored": 8467856832
+   },
+   "cache_geometry": {
+    "kv_values_per_pos": 6144,
+    "kv_window_per_pos": 0,
+    "kv_window": 0,
+    "state_bytes": 884736,
+    "basis": "6 attention layers; 18 short-conv layers with a D x L_cache state"
+   },
+   "ledger": [
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P0",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 215040000,
+      "kv_cache": 6291456,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 1027846912,
+     "desk_tok_s": 29.308138025855403,
+     "calibrated_tok_s": 24.911917321977093,
+     "calibrated_w4_tok_s": 15.533313153703364
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P0",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 215040000,
+      "kv_cache": 25165824,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 1046721280,
+     "desk_tok_s": 28.81010796876062,
+     "calibrated_tok_s": 24.488591773446526,
+     "calibrated_w4_tok_s": 15.26935722344313
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P0",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 215040000,
+      "kv_cache": 50331648,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 1071887104,
+     "desk_tok_s": 28.171813807298932,
+     "calibrated_tok_s": 23.94604173620409,
+     "calibrated_w4_tok_s": 14.931061317868435
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P1",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 215040000,
+      "kv_cache": 3194880,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 1024750336,
+     "desk_tok_s": 29.391494947837145,
+     "calibrated_tok_s": 24.982770705661572,
+     "calibrated_w4_tok_s": 15.577492322353688
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P1",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 215040000,
+      "kv_cache": 12779520,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 1034334976,
+     "desk_tok_s": 29.13500953647132,
+     "calibrated_tok_s": 24.76475810600062,
+     "calibrated_w4_tok_s": 15.4415550543298
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P1",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 215040000,
+      "kv_cache": 25559040,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 1047114496,
+     "desk_tok_s": 28.799912263947277,
+     "calibrated_tok_s": 24.479925424355184,
+     "calibrated_w4_tok_s": 15.263953499892057
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P2",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 19588096,
+      "kv_cache": 3194880,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 829298432,
+     "desk_tok_s": 35.82229505133622,
+     "calibrated_tok_s": 30.448950793635785,
+     "calibrated_w4_tok_s": 18.985816377208195
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P2",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 19588096,
+      "kv_cache": 12779520,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 838883072,
+     "desk_tok_s": 35.44202011575647,
+     "calibrated_tok_s": 30.125717098393,
+     "calibrated_w4_tok_s": 18.78427066135093
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P2",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 544997376,
+      "router": 5767168,
+      "head": 19588096,
+      "kv_cache": 25559040,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 851662592,
+     "desk_tok_s": 34.94737065768435,
+     "calibrated_tok_s": 29.705265059031696,
+     "calibrated_w4_tok_s": 18.522106448572707
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P3",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 416317440,
+      "router": 5767168,
+      "head": 19588096,
+      "kv_cache": 3194880,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 700618496,
+     "desk_tok_s": 41.85093633936891,
+     "calibrated_tok_s": 35.57329588846357,
+     "calibrated_w4_tok_s": 22.180996259865523
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P3",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 416317440,
+      "router": 5767168,
+      "head": 19588096,
+      "kv_cache": 12779520,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 710203136,
+     "desk_tok_s": 41.33282146767228,
+     "calibrated_tok_s": 35.13289824752144,
+     "calibrated_w4_tok_s": 21.90639537786631
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P3",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 416317440,
+      "router": 5767168,
+      "head": 19588096,
+      "kv_cache": 25559040,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 722982656,
+     "desk_tok_s": 40.66163308178421,
+     "calibrated_tok_s": 34.56238811951658,
+     "calibrated_w4_tok_s": 21.550665533345633
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P4",
+     "context": 512,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 416317440,
+      "router": 2883584,
+      "head": 19588096,
+      "kv_cache": 3194880,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 697734912,
+     "desk_tok_s": 42.009365063734926,
+     "calibrated_tok_s": 35.707960304174684,
+     "calibrated_w4_tok_s": 22.26496348377951
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P4",
+     "context": 2048,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 416317440,
+      "router": 2883584,
+      "head": 19588096,
+      "kv_cache": 12779520,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 707319552,
+     "desk_tok_s": 41.48734453447383,
+     "calibrated_tok_s": 35.26424285430275,
+     "calibrated_w4_tok_s": 21.988292603271127
+    },
+    {
+     "donor": "LFM2.5-8B-A1B",
+     "policy": "P4",
+     "context": 4096,
+     "organs_bytes": {
+      "attention_or_mixer": 205320960,
+      "dense_ffn": 49545216,
+      "shared_expert": 0,
+      "routed_experts": 416317440,
+      "router": 2883584,
+      "head": 19588096,
+      "kv_cache": 25559040,
+      "recurrent_state": 884736
+     },
+     "total_bytes": 720099072,
+     "desk_tok_s": 40.81116933141836,
+     "calibrated_tok_s": 34.689493931705606,
+     "calibrated_w4_tok_s": 21.629919745651733
+    }
+   ]
+  }
+ ],
+ "tokenizers": {
+  "inclusionAI/Ling-mini-2.0": {
+   "tokenizer_json_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+   "canonical_json_sha256": "bd35b7f02475d66e78c4a2b3415d21110632064bfb1f316c4ae7cf32943b4ac1",
+   "model_type": "BPE",
+   "vocab_entries": 156891,
+   "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+   "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+   "merges": 156635,
+   "ignore_merges": null,
+   "added_tokens": 262,
+   "added_tokens_sha256": "064fe8f663c8979478bfca53d7ce42726d3f379af0d94c523cce678f84f52104",
+   "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+   "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef"
+  },
+  "inclusionAI/Ling-3.0-tiny": {
+   "tokenizer_json_sha256": "40fb9d7d7795b8bd305aeff39ce9963f3f450915b9553f2938e009be9a1fed60",
+   "canonical_json_sha256": "1de9252485fcfa2a6968e6d5edcab85e0b36f96617d94b4394f574ef4b6829b5",
+   "model_type": "BPE",
+   "vocab_entries": 156891,
+   "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+   "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+   "merges": 156635,
+   "ignore_merges": false,
+   "added_tokens": 262,
+   "added_tokens_sha256": "1c6bc830e87f297cb98efdf795751fbc1ba446fe44223490a551f9883d7a16f6",
+   "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+   "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef"
+  },
+  "utter-project/EuroMoE-2.6B-A0.6B-Instruct-2512": {
+   "tokenizer_json_sha256": "d869676e23a78b395eb0308cff52fd9c3ea7d52597627360cdb97407bb0b02b8",
+   "canonical_json_sha256": "2fe716b698265081542c854ed189b1c81e5cddb52633c1cdcb3e89b3d96bc177",
+   "model_type": "BPE",
+   "vocab_entries": 128000,
+   "vocab_sha256": "f28a80bc705a9cf4362b0c9f2f00cc6c4f5a2b3dd4f981c7ff7c8063e896b81e",
+   "merges_sha256": "4ecca7f9844f86f1276c52e94d5b03edb41841bf83e2be4e86b8b1753a861484",
+   "merges": 260662,
+   "ignore_merges": false,
+   "added_tokens": 261,
+   "added_tokens_sha256": "97ba29cff971cc71bda89c0e9c3aa84fa97133f00f4e1c1a83d8f1d6a5e76ee8",
+   "pre_tokenizer_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+   "normalizer_sha256": "8949893b0cabbefd6364f3c90e455d53de71315c0276b92ccb1706ebbf818b89"
+  },
+  "arcee-ai/Trinity-Nano-Preview": {
+   "tokenizer_json_sha256": "606b0740c5d8940dbee3268e05beaa3e34f4e43bc7df153681122f8fcc78e134",
+   "canonical_json_sha256": "bcbe948d2a67061f41534747784873ffedad27c4eac969303c8e65cac511f3e0",
+   "model_type": "BPE",
+   "vocab_entries": 200000,
+   "vocab_sha256": "1a3af6d01b0d6a2ee870c06692b0584728fab5423c3d7d74ac9d8f377a174f71",
+   "merges_sha256": "22aadbe463f37b7c8118d6689d5bf03ee04413e0ac8fec418c71bf0b8eab09f8",
+   "merges": 199712,
+   "ignore_merges": false,
+   "added_tokens": 32,
+   "added_tokens_sha256": "d45fb4488d2b43c54b71a75e18ce2d4daa7d84b7e68c636f65103e64d045b9e0",
+   "pre_tokenizer_sha256": "d823a8371fcd0e041dac5c63ad8fc4b6d1875d5e4896cdd64cdef12c96d861ce",
+   "normalizer_sha256": "a044f671002c0869f899164eb3a4421aefd81030544d01e20004334aa0589b50"
+  },
+  "LiquidAI/LFM2.5-8B-A1B": {
+   "tokenizer_json_sha256": "695be7802a0e4b8a81048f0ff5ebb7fc811a0ba5a6be63dbb24deb5a81096f41",
+   "canonical_json_sha256": "28570459b4af4ebca3b35ae005955dae1c903d4cf28fded759478b425c8cbef6",
+   "model_type": "BPE",
+   "vocab_entries": 124893,
+   "vocab_sha256": "47604c9a0297e732a4980a0cf074d210024f402ec3eeee29f24a5ff88e322516",
+   "merges_sha256": "bdfeb04570b458313aa3abeff026423098f8fb31a6ece70f70224afbc94491ab",
+   "merges": 293320,
+   "ignore_merges": true,
+   "added_tokens": 124,
+   "added_tokens_sha256": "4f8feecf72108264fa655fb1a0b3f6b56dcdaab642e43db841be399d3c771867",
+   "pre_tokenizer_sha256": "5b82ee011fa887a2a3dbbff1fc614c01d0a2ef165ceb2fa41fdf64826384839a",
+   "normalizer_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "inclusionAI/Ling-flash-2.0": {
+   "tokenizer_json_sha256": "88b69cfdd43445e5e1b5b964aecba566623841c2a9d210f13378128e64341e89",
+   "canonical_json_sha256": "bd35b7f02475d66e78c4a2b3415d21110632064bfb1f316c4ae7cf32943b4ac1",
+   "model_type": "BPE",
+   "vocab_entries": 156891,
+   "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+   "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+   "merges": 156635,
+   "ignore_merges": null,
+   "added_tokens": 262,
+   "added_tokens_sha256": "064fe8f663c8979478bfca53d7ce42726d3f379af0d94c523cce678f84f52104",
+   "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+   "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef",
+   "revision": "96f9b7a73e531b0ca05f8839ea9f271948ad8ea4",
+   "license": "mit",
+   "chat": {
+    "chat_template_source": "tokenizer_config.json",
+    "eos_token_id_config": 156895,
+    "pad_token_id_config": 156892,
+    "bos_token_id_config": null,
+    "eos_token_id_generation": [
+     156892,
+     156895
+    ],
+    "eos_token": "<|role_end|>",
+    "pad_token": "<|endoftext|>",
+    "bos_token": "<|startoftext|>",
+    "tokenizer_class": "PreTrainedTokenizerFast"
+   }
+  },
+  "inclusionAI/Ling-3.0-flash": {
+   "tokenizer_json_sha256": "40fb9d7d7795b8bd305aeff39ce9963f3f450915b9553f2938e009be9a1fed60",
+   "canonical_json_sha256": "1de9252485fcfa2a6968e6d5edcab85e0b36f96617d94b4394f574ef4b6829b5",
+   "model_type": "BPE",
+   "vocab_entries": 156891,
+   "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+   "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+   "merges": 156635,
+   "ignore_merges": false,
+   "added_tokens": 262,
+   "added_tokens_sha256": "1c6bc830e87f297cb98efdf795751fbc1ba446fe44223490a551f9883d7a16f6",
+   "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+   "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef",
+   "revision": "fcc60a52b34c69c6271d0ac8a8cb0815020b6a43",
+   "license": "mit",
+   "chat": {
+    "chat_template_source": "chat_template.jinja",
+    "eos_token_id_config": 156895,
+    "pad_token_id_config": 156892,
+    "bos_token_id_config": null,
+    "eos_token_id_generation": null,
+    "eos_token": "<|role_end|>",
+    "pad_token": "<|endoftext|>",
+    "bos_token": "<|startoftext|>",
+    "tokenizer_class": "PreTrainedTokenizerFast"
+   }
+  },
+  "inclusionAI/Ling-3.1-flash": {
+   "tokenizer_json_sha256": "40fb9d7d7795b8bd305aeff39ce9963f3f450915b9553f2938e009be9a1fed60",
+   "canonical_json_sha256": "1de9252485fcfa2a6968e6d5edcab85e0b36f96617d94b4394f574ef4b6829b5",
+   "model_type": "BPE",
+   "vocab_entries": 156891,
+   "vocab_sha256": "460776e5a51798d78f68f1212bfa30c7473e9726289a5ec9a913e278b60c0d8c",
+   "merges_sha256": "95805cafb553ef63d5b0f3a13feafa4d7bb7885c794462899701e57404aa1842",
+   "merges": 156635,
+   "ignore_merges": false,
+   "added_tokens": 262,
+   "added_tokens_sha256": "1c6bc830e87f297cb98efdf795751fbc1ba446fe44223490a551f9883d7a16f6",
+   "pre_tokenizer_sha256": "2e1c2912ea920a1ce421bf807e5b3e0593b546b51b976cd554fd890e0f924d5f",
+   "normalizer_sha256": "d9903ccf2534b3166d75e1f05ce4f0cb5db26682b0e6bea0f06bc0f2e18201ef",
+   "revision": "a4ccd6b45c002ddb236f9cb77d52cc427482bf19",
+   "license": "mit",
+   "chat": {
+    "chat_template_source": "chat_template.jinja",
+    "eos_token_id_config": 156895,
+    "pad_token_id_config": 156892,
+    "bos_token_id_config": null,
+    "eos_token_id_generation": null,
+    "eos_token": "<|role_end|>",
+    "pad_token": "<|endoftext|>",
+    "bos_token": "<|startoftext|>",
+    "tokenizer_class": "PreTrainedTokenizerFast"
+   }
+  }
+ },
+ "tokenizer_identity_vs_ling_mini": {
+  "inclusionAI/Ling-3.0-tiny": {
+   "vocab_sha256": true,
+   "merges_sha256": true,
+   "added_tokens_sha256": false,
+   "pre_tokenizer_sha256": true,
+   "normalizer_sha256": true,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": false,
+   "added_token_changes": [
+    [
+     156900,
+     "<|reserved_token_5|>",
+     "<|fim_start|>"
+    ],
+    [
+     156901,
+     "<|reserved_token_6|>",
+     "<|fim_hole|>"
+    ],
+    [
+     156902,
+     "<|reserved_token_7|>",
+     "<|fim_end|>"
+    ],
+    [
+     156903,
+     "<|reserved_token_8|>",
+     "<think>"
+    ],
+    [
+     156904,
+     "<|reserved_token_9|>",
+     "</think>"
+    ],
+    [
+     156905,
+     "<|reserved_token_10|>",
+     "<arg_key>"
+    ],
+    [
+     156906,
+     "<|reserved_token_11|>",
+     "</arg_key>"
+    ],
+    [
+     156907,
+     "<|reserved_token_12|>",
+     "<arg_value>"
+    ],
+    [
+     156908,
+     "<|reserved_token_13|>",
+     "</arg_value>"
+    ]
+   ]
+  },
+  "utter-project/EuroMoE-2.6B-A0.6B-Instruct-2512": {
+   "vocab_sha256": false,
+   "merges_sha256": false,
+   "added_tokens_sha256": false,
+   "pre_tokenizer_sha256": false,
+   "normalizer_sha256": false,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": false
+  },
+  "arcee-ai/Trinity-Nano-Preview": {
+   "vocab_sha256": false,
+   "merges_sha256": false,
+   "added_tokens_sha256": false,
+   "pre_tokenizer_sha256": false,
+   "normalizer_sha256": false,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": false
+  },
+  "LiquidAI/LFM2.5-8B-A1B": {
+   "vocab_sha256": false,
+   "merges_sha256": false,
+   "added_tokens_sha256": false,
+   "pre_tokenizer_sha256": false,
+   "normalizer_sha256": false,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": false
+  },
+  "inclusionAI/Ling-flash-2.0": {
+   "vocab_sha256": true,
+   "merges_sha256": true,
+   "added_tokens_sha256": true,
+   "pre_tokenizer_sha256": true,
+   "normalizer_sha256": true,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": true,
+   "added_token_changes": []
+  },
+  "inclusionAI/Ling-3.0-flash": {
+   "vocab_sha256": true,
+   "merges_sha256": true,
+   "added_tokens_sha256": false,
+   "pre_tokenizer_sha256": true,
+   "normalizer_sha256": true,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": false,
+   "added_token_changes": [
+    [
+     156900,
+     "<|reserved_token_5|>",
+     "<|fim_start|>"
+    ],
+    [
+     156901,
+     "<|reserved_token_6|>",
+     "<|fim_hole|>"
+    ],
+    [
+     156902,
+     "<|reserved_token_7|>",
+     "<|fim_end|>"
+    ],
+    [
+     156903,
+     "<|reserved_token_8|>",
+     "<think>"
+    ],
+    [
+     156904,
+     "<|reserved_token_9|>",
+     "</think>"
+    ],
+    [
+     156905,
+     "<|reserved_token_10|>",
+     "<arg_key>"
+    ],
+    [
+     156906,
+     "<|reserved_token_11|>",
+     "</arg_key>"
+    ],
+    [
+     156907,
+     "<|reserved_token_12|>",
+     "<arg_value>"
+    ],
+    [
+     156908,
+     "<|reserved_token_13|>",
+     "</arg_value>"
+    ]
+   ]
+  },
+  "inclusionAI/Ling-3.1-flash": {
+   "vocab_sha256": true,
+   "merges_sha256": true,
+   "added_tokens_sha256": false,
+   "pre_tokenizer_sha256": true,
+   "normalizer_sha256": true,
+   "tokenizer_json_sha256": false,
+   "canonical_json_sha256": false,
+   "added_token_changes": [
+    [
+     156900,
+     "<|reserved_token_5|>",
+     "<|fim_start|>"
+    ],
+    [
+     156901,
+     "<|reserved_token_6|>",
+     "<|fim_hole|>"
+    ],
+    [
+     156902,
+     "<|reserved_token_7|>",
+     "<|fim_end|>"
+    ],
+    [
+     156903,
+     "<|reserved_token_8|>",
+     "<think>"
+    ],
+    [
+     156904,
+     "<|reserved_token_9|>",
+     "</think>"
+    ],
+    [
+     156905,
+     "<|reserved_token_10|>",
+     "<arg_key>"
+    ],
+    [
+     156906,
+     "<|reserved_token_11|>",
+     "</arg_key>"
+    ],
+    [
+     156907,
+     "<|reserved_token_12|>",
+     "<arg_value>"
+    ],
+    [
+     156908,
+     "<|reserved_token_13|>",
+     "</arg_value>"
+    ]
+   ]
+  }
+ }
+}
