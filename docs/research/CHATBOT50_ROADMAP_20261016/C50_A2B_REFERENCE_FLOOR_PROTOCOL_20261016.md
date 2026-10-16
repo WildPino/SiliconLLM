@@ -133,3 +133,30 @@ C50-A1.
 - The floor is llama.cpp's own sensitivity to these three changes on one artifact.
   It is not the quantization damage, which is measured in A4.
 - Fidelity on FIT positions says nothing about DEV or RESERVED quality.
+
+## Addendum 1 (16 October 2026, before the imatrix run)
+
+1. **The imatrix stop rule fired, so the input is halved by rule.**
+   - On the BF16 GGUF, a 4-chunk smoke took 35.5 s per pass of 2,048 tokens
+     (log kept in the session scratchpad; smoke runs are not evidence). All of FIT
+     projects to ~95 minutes, beyond the one-hour rule.
+   - A Q8_0 GGUF as the imatrix source measured 25.5 s per pass, so ~68 minutes:
+     still beyond the rule.
+   - The imatrix therefore keeps the **BF16 source** and uses the **first 24 FIT
+     items of each category** in `fit.jsonl` order. That is 72 spans and 589,961
+     bytes, file SHA-256
+     `e290c7a490e5fba89587eab31f832a6b03c99c20868d9daf0188994f86cea5ea`, and
+     161,790 source tokens, about 316 chunks of 512 or ~47 minutes.
+   - The other 72 FIT items stay FIT; they are simply not in the imatrix sample.
+   - No other option changes.
+2. **llama.cpp's text tokenizer differs from the source tokenizer on this input,**
+   measured on the full imatrix input:
+   - 43 differing regions covering 116 of 161,790 source tokens (0.07%);
+   - llama.cpp emits 161,767 tokens;
+   - the regions are runs of backslashes and escape sequences.
+
+   This confirms the roadmap rule that every *scored* runtime is fed source IDs.
+   For the imatrix sample the difference is accepted, as the protocol states.
+3. The Q8_0 GGUF built for that timing (`ling-mini-2.0-a810f64-q8_0.gguf`, default
+   `llama-quantize ... Q8_0`) is kept. No cell uses it unless a later protocol
+   names it.
