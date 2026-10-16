@@ -87,3 +87,22 @@ run on all 26,363 positions with the binary whose SHA-256 the run records.
   speed (A7).
 - FIT positions only: A3 selects no threshold. DEV is read once in A6, and
   RESERVED in A7.
+
+## Addendum 1 (16 October 2026, before the gate run)
+
+1. **Runner and verdict are separate.**
+   - `c50_a3_run.py` re-runs the engine self-test with the exact binary it then
+     uses; a failure makes the run VOID.
+   - It checks the A2b position file hash, asserts the `CONFIG` line
+     (26,363 positions, dump on), and calls `c50_compare.py` against R3 and R0.
+   - `c50_a3_verdict.py` applies the table above with the floor file from
+     `c50_a2b_floor.py`.
+2. **The engine gained a `--bench` mode** (a decode-rate bench for A7). Forward
+   numerics are unchanged, so the self-test recorded in
+   `c50_a3_selftest_20261016.txt` belongs to an earlier binary. The gate run records
+   its own self-test output and binary hash.
+3. **A development smoke on the Q8_0 artifact is kept**
+   (`c50_a3_smoke_20261016.txt`; 159 positions, contended box, not evidence). The
+   engine against llama.cpp micro-batch 1 gave a top-1 disagreement of 2/159 and
+   a mean KL of 3.9e-3 nats. On the same positions llama.cpp differs from itself
+   (micro-batch 512 vs 1) by 6/159 and 4.3e-3.

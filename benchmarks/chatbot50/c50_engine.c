@@ -21,6 +21,7 @@
  *
  * Modes:
  *   --selftest                                      kernel and dequantizer unit test (no model)
+ *   --bench IDS.tsv [--ctx C] [--steps N]           decode-rate bench (needs a clean box)
  *   --score IDS.tsv --out PREFIX [--dump-logprobs]   teacher-forced scoring, output format
  *                                                    identical to c50_llama_score.cpp
  * Build:
@@ -638,8 +639,46 @@ static int read_line_ids(FILE *f, int *doc, int **ids, unsigned *n, unsigned *ca
     return 1;
 }
 
+static int cmpd(const void *a, const void *b) {
+    double x = *(const double *)a, y = *(const double *)b;
+    return x < y ? -1 : x > y;
+}
+
+/* Decode-rate bench: the first document of IDS with >= ctx + n tokens is decoded token by
+ * token (teacher-forced, full head, no log-softmax, no dump); steps at positions
+ * ctx .. ctx+n-1 are timed one by one.  Prints one JSON line.  Rates need a clean box. */
+static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigned nsteps, const char *types,
+                 const char *model_path) {
+    int doc, *ids = NULL;
+    unsigned n, cap = 0, p;
+    double *t = malloc(sizeof(double) * nsteps), t_pre, med;
+    while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
+        if (n < ctx + nsteps) continue;
+        printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%d,%d,%d,%d,%d,%d "
+               "kv=f16 types=[%s]\n", model_path, doc, ctx, nsteps, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4],
+               g_cpu[5], types);
+        fflush(stdout);
+        t_pre = now_s();
+        for (p = 0; p < ctx; ++p) forward(md, st, ids[p], p);
+        t_pre = now_s() - t_pre;
+        for (p = 0; p < nsteps; ++p) {
+            double t0 = now_s();
+            forward(md, st, ids[ctx + p], ctx + p);
+            t[p] = now_s() - t0;
+        }
+        qsort(t, nsteps, sizeof *t, cmpd);
+        med = nsteps % 2 ? t[nsteps / 2] : 0.5 * (t[nsteps / 2 - 1] + t[nsteps / 2]);
+        printf("{\"mode\":\"bench\",\"ctx\":%u,\"steps\":%u,\"fill_s\":%.3f,\"median_step_s\":%.6f,\"min_step_s\":%.6f,"
+               "\"max_step_s\":%.6f,\"median_tok_s\":%.3f}\n", ctx, nsteps, t_pre, med, t[0], t[nsteps - 1], 1.0 / med);
+        return 0;
+    }
+    fprintf(stderr, "no document with >= %u tokens\n", ctx + nsteps);
+    return 2;
+}
+
 int main(int argc, char **argv) {
-    const char *model_path = NULL, *ids_path = NULL, *out = NULL;
+    const char *model_path = NULL, *ids_path = NULL, *out = NULL, *bench_path = NULL;
+    unsigned bench_ctx = 2048, bench_n = 128;
     int dump = 0, i;
     model_t *md = calloc(1, sizeof *md);
     state_t *st;
@@ -656,10 +695,14 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "--out") && i + 1 < argc) out = argv[++i];
         else if (!strcmp(argv[i], "--dump-logprobs")) dump = 1;
         else if (!strcmp(argv[i], "--selftest")) return selftest();
+        else if (!strcmp(argv[i], "--bench") && i + 1 < argc) bench_path = argv[++i];
+        else if (!strcmp(argv[i], "--ctx") && i + 1 < argc) bench_ctx = (unsigned)atoi(argv[++i]);
+        else if (!strcmp(argv[i], "--steps") && i + 1 < argc) bench_n = (unsigned)atoi(argv[++i]);
         else { fprintf(stderr, "unknown argument %s\n", argv[i]); return 2; }
     }
-    if (!model_path || !ids_path || !out) {
-        fprintf(stderr, "usage: c50_engine --model GGUF --score IDS.tsv --out PREFIX [--dump-logprobs]\n");
+    if (!model_path || (!bench_path && (!ids_path || !out)) || bench_ctx + bench_n > MAXCTX || !bench_n) {
+        fprintf(stderr, "usage: c50_engine --model GGUF --score IDS.tsv --out PREFIX [--dump-logprobs]\n"
+                        "       c50_engine --model GGUF --bench IDS.tsv [--ctx 2048] [--steps 128]\n");
         return 2;
     }
     load_model(md, model_path);
@@ -674,6 +717,11 @@ int main(int argc, char **argv) {
     if (!st->kc || !st->vc || !st->logits || !row) { fprintf(stderr, "allocation failed\n"); return 2; }
     start_pool();
     type_summary(md, types, sizeof types);
+    if (bench_path) {
+        fi = fopen(bench_path, "rb");
+        if (!fi) { fprintf(stderr, "cannot open ids\n"); return 2; }
+        return bench(md, st, fi, bench_ctx, bench_n, types, model_path);
+    }
     fi = fopen(ids_path, "rb");
     if (!fi) { fprintf(stderr, "cannot open ids\n"); return 2; }
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
