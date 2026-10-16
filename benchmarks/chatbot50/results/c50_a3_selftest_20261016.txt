@@ -1,0 +1,19 @@
+C50-A3 engine kernel/dequantizer self-test (c50_engine.exe --selftest), 16 October 2026.
+Not a gate: a unit test that must pass before the engine output is used.
+
+First version (normaliser = sum_i |w_i * x_i|, planted = bit 3 of one quant byte), FAIL on the
+planted criterion only -- the perturbation was undersized for that normaliser, kernels agreed:
+selftest Q4_K: worst |avx2-generic| 2.03e-08, worst |generic-oracle| 1.33e-08 (bound 1e-5); planted detected 194/200
+selftest Q5_K: worst |avx2-generic| 1.58e-08, worst |generic-oracle| 1.17e-08 (bound 1e-5); planted detected 184/200
+selftest Q6_K: worst |avx2-generic| 1.87e-08, worst |generic-oracle| 9.26e-09 (bound 1e-5); planted detected 191/200
+selftest Q8_0: worst |avx2-generic| 2.23e-08, worst |generic-oracle| 1.81e-08 (bound 1e-5); planted detected 178/200
+selftest FAIL
+
+Second version (normaliser of C50-A1 addendum 1: sum over quant blocks of |block dot|; same
+perturbation, same bound, same 190/200 criterion):
+selftest Q4_K: worst |avx2-generic| 2.43e-07, worst |generic-oracle| 1.71e-07 (bound 1e-5); planted detected 197/200
+selftest Q5_K: worst |avx2-generic| 3.22e-07, worst |generic-oracle| 2.05e-07 (bound 1e-5); planted detected 193/200
+selftest Q6_K: worst |avx2-generic| 2.63e-07, worst |generic-oracle| 1.90e-07 (bound 1e-5); planted detected 198/200
+selftest Q8_0: worst |avx2-generic| 1.34e-07, worst |generic-oracle| 1.09e-07 (bound 1e-5); planted detected 199/200
+selftest PASS
+binary sha256: 663363986b0bd8afe0a771c5f7a9a5e2190ddadeb66b5f6137b315c453eecc83
