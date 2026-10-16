@@ -1,0 +1,19 @@
+C50-A3 development smoke, 16 October 2026. NOT EVIDENCE (A3 protocol: development runs).
+Artifact: ling-mini-2.0-a810f64-q8_0.gguf (default llama-quantize Q8_0; not the P0 artifact).
+Positions: the A2b smoke document = first 160 source tokens of FIT item 0 (code), 159 positions.
+Box busy with the imatrix run (6 threads), so wall times are contended and are not rates.
+Engine binary sha256 663363986b0bd8afe0a771c5f7a9a5e2190ddadeb66b5f6137b315c453eecc83.
+
+engine CONFIG: threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000
+  weights_scale=2.5 types=[embd=Q8_0 head=Q8_0 qkv=Q8_0 o=Q8_0 dense=Q8_0/Q8_0/Q8_0
+  exps=Q8_0/Q8_0/Q8_0 shexp=Q8_0/Q8_0/Q8_0]; DONE positions=159 wall_s=32.9
+
+Pair (ref vs other)                         top-1 disagr.  mean KL (nats)  max KL   dBPB
+llama.cpp Q8_0 ub1   vs engine Q8_0         0.0126 (2/159)  3.90e-3        0.077   -0.0032
+llama.cpp Q8_0 ub512 vs engine Q8_0         0.0252 (4/159)  4.12e-3        0.055   +0.0005
+llama.cpp BF16 ub512 vs engine Q8_0         0.0314 (5/159)  8.48e-3        0.365   -0.0107
+For scale, llama.cpp vs itself on the same positions:
+llama.cpp Q8_0 ub512 vs Q8_0 ub1            0.0377 (6/159)  4.34e-3        -        +0.0037
+llama.cpp BF16 ub512 vs BF16 ub1            0.0063 (1/159)  4.43e-3        -        -0.0119
+llama.cpp BF16 ub512 vs Q8_0 ub512          0.0440          9.83e-3        -        -0.0111
+Repeats with identical settings: bit-identical (llama.cpp ub512, ub1; ub2 == ub512 bit-identically).
