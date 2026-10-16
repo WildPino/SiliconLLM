@@ -1,0 +1,33 @@
+# C50-A1 SMOKE outputs, 2026-10-16 -- CONTENDED BOX (foreign occupancy not measured / ~5-50%), INADMISSIBLE, not evidence.
+# Kept because rule 5 keeps every run. Smoke 1 and 2 used the first instrument (scalar expf attention, per-call powf/cosf/sinf RoPE, scalar SwiGLU).
+## smoke 1 (--quick, order 0, first instrument)
+{"cell":"S1_Q4_K","median_gbs":38.9325} {"cell":"S1_Q8_0","median_gbs":39.4193} {"cell":"S1_IQ4_XS","median_gbs":39.1604}
+{"cell":"S2_Q4_K","median_gbs":40.0561} {"cell":"S2_Q8_0","median_gbs":40.3300} {"cell":"S2_IQ4_XS","median_gbs":40.0400}
+{"cell":"S3_Q4_K","median_gbs":35.4837} {"cell":"S3_IQ4_XS","median_gbs":35.9110} {"cell":"S3_IQ3_S","median_gbs":14.9038}
+{"cell":"S4_Q6_K","median_gbs":35.8888} {"cell":"S4_Q4_K","median_gbs":32.8779} {"cell":"S5_Q4_K","median_gbs":31.3051}
+{"cell":"L1","median_s":0.001704750,"bytes":28114944} {"cell":"T20","median_s":0.040595200,"bytes":561971200}
+## smoke 2 (--quick, order 12, first instrument + phase timers)
+L1 median_s 0.001827000; phases mean s/call: norm_quant 2.1e-5, qkv 1.69e-4, qknorm_rope_kvstore 1.35e-4, attention 7.45e-4, attention_combine 1.5e-5, o_proj_residual 1.31e-4, router_matvec 8.0e-5, route_select 1.2e-5, experts_gate_up 5.30e-4, experts_swiglu_quant 2.38e-4, experts_down 2.94e-4, experts_combine 5.6e-5
+T20 median_s 0.035016950
+## smoke 3 (--quick, order 12, revised attention / RoPE table / vector SwiGLU)
+L1 median_s 0.001343300; phases: qkv 1.10e-4, qknorm_rope_kvstore 4.3e-6, attention 2.78e-4, o_proj_residual 8.3e-5, router_matvec 6.7e-5, experts_gate_up 4.24e-4, experts_swiglu_quant 3.6e-6, experts_down 4.14e-4
+T20 median_s 0.029033100
+## smoke 4 (--quick, order 0, revised instrument; used only to exercise c50_a1_verdict.py with a fabricated 5-process file)
+CONFIG cell=C50-A1 threads=6 cpus=0,2,4,6,8,10 pool_min_bytes=1073741824 calls=20 calls_head=4 calls_l1=20 calls_t20=4 order=0 seed=1 quick=1 ctx=2048 kernels=Q4_K,Q6_K,IQ4_XS,IQ3_S,Q8_0 cells=14
+{"cell":"S1_Q4_K","class":"Q4_K","shape":"3072x2048","bytes":3538944,"calls":20,"median_s":0.000126450,"min_s":0.000114600,"max_s":0.001628300,"median_gbs":27.9869,"min_gbs":2.1734,"max_gbs":30.8808}
+{"cell":"S1_Q8_0","class":"Q8_0","shape":"3072x2048","bytes":6684672,"calls":20,"median_s":0.000192450,"min_s":0.000180500,"max_s":0.000333400,"median_gbs":34.7346,"min_gbs":20.0500,"max_gbs":37.0342}
+{"cell":"S1_IQ4_XS","class":"IQ4_XS","shape":"3072x2048","bytes":3342336,"calls":20,"median_s":0.000105550,"min_s":0.000102500,"max_s":0.000292200,"median_gbs":31.6663,"min_gbs":11.4385,"max_gbs":32.6082}
+{"cell":"S2_Q4_K","class":"Q4_K","shape":"2048x2048","bytes":2359296,"calls":20,"median_s":0.000087400,"min_s":0.000085100,"max_s":0.000096500,"median_gbs":26.9942,"min_gbs":24.4487,"max_gbs":27.7238}
+{"cell":"S2_Q8_0","class":"Q8_0","shape":"2048x2048","bytes":4456448,"calls":20,"median_s":0.000130000,"min_s":0.000117000,"max_s":0.000268200,"median_gbs":34.2893,"min_gbs":16.6161,"max_gbs":38.0893}
+{"cell":"S2_IQ4_XS","class":"IQ4_XS","shape":"2048x2048","bytes":2228224,"calls":20,"median_s":0.000070450,"min_s":0.000064800,"max_s":0.000098400,"median_gbs":31.6304,"min_gbs":22.6446,"max_gbs":34.3862}
+{"cell":"S3_Q4_K","class":"Q4_K","shape":"8x(1024x2048+2048x512)","bytes":14155776,"calls":20,"median_s":0.000954950,"min_s":0.000865800,"max_s":0.008545300,"median_gbs":14.8236,"min_gbs":1.6566,"max_gbs":16.3499}
+{"cell":"S3_IQ4_XS","class":"IQ4_XS","shape":"8x(1024x2048+2048x512)","bytes":13369344,"calls":20,"median_s":0.000621750,"min_s":0.000541400,"max_s":0.001432000,"median_gbs":21.5028,"min_gbs":9.3361,"max_gbs":24.6940}
+{"cell":"S3_IQ3_S","class":"IQ3_S","shape":"8x(1024x2048+2048x512)","bytes":10813440,"calls":20,"median_s":0.001102100,"min_s":0.000994100,"max_s":0.009835900,"median_gbs":9.8117,"min_gbs":1.0994,"max_gbs":10.8776}
+{"cell":"S4_Q6_K","class":"Q6_K","shape":"157184x2048","bytes":264069120,"calls":4,"median_s":0.007223900,"min_s":0.006807900,"max_s":0.009183600,"median_gbs":36.5851,"min_gbs":28.7544,"max_gbs":38.7886}
+{"cell":"S4_Q4_K","class":"Q4_K","shape":"157184x2048","bytes":181075968,"calls":4,"median_s":0.005199850,"min_s":0.004495500,"max_s":0.006593300,"median_gbs":35.0337,"min_gbs":27.4636,"max_gbs":40.2794}
+{"cell":"S5_Q4_K","class":"Q4_K","shape":"10240x2048+2048x5120","bytes":17694720,"calls":20,"median_s":0.000461800,"min_s":0.000447300,"max_s":0.000786500,"median_gbs":38.3175,"min_gbs":22.4981,"max_gbs":39.5590}
+{"cell":"L1","class":"P0","shape":"moe_layer_ctx2048","bytes":28114944,"calls":20,"median_s":0.001011400,"min_s":0.000882900,"max_s":0.001377600,"median_gbs":27.8014,"min_gbs":20.4086,"max_gbs":31.8439}
+{"cell":"L1_phases","mean_s_per_call":{"norm_quant":0.000018536,"qkv":0.000116454,"qknorm_rope_kvstore":0.000004315,"attention":0.000259582,"attention_combine":0.000009528,"o_proj_residual":0.000087364,"router_matvec":0.000053813,"route_select":0.000014769,"experts_gate_up":0.000305082,"experts_swiglu_quant":0.000002554,"experts_down":0.000178749,"experts_combine":0.000003931}}
+{"cell":"T20","class":"P0","shape":"20_layers_no_head_ctx2048","bytes":561971200,"calls":4,"median_s":0.021653100,"min_s":0.020826600,"max_s":0.023236200,"median_gbs":25.9575,"min_gbs":24.1852,"max_gbs":26.9833}
+{"cell":"T20_phases","mean_s_per_call":{"norm_quant":0.000397667,"qkv":0.002261067,"qknorm_rope_kvstore":0.000090400,"attention":0.005496833,"attention_combine":0.000193333,"o_proj_residual":0.001454250,"router_matvec":0.001143433,"route_select":0.000234483,"experts_gate_up":0.006837100,"experts_swiglu_quant":0.000095050,"experts_down":0.003528850,"experts_combine":0.000073717}}
+DONE

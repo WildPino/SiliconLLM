@@ -111,3 +111,41 @@ six workers.
 Synthetic values give the decode arithmetic and memory traffic of real shapes,
 not model quality; real-weight value statistics do not change the byte stream.
 Rates of a matvec are not rates of a model.
+
+## Addendum 1 (pre-run, 16 October 2026; pushed before any admissible timed run)
+
+Changes made while building the instrument, before the first admissible run.
+Every smoke output is kept in
+[`c50_a1_smoke_20261016.txt`](../../../benchmarks/chatbot50/results/c50_a1_smoke_20261016.txt)
+(contended box, inadmissible, not evidence).
+
+1. **Compiler.** clang 21.1.8 (llvm-mingw 20251216) instead of GCC 15.2.0: the
+   reused `strat01_q4k_q8k.h` refuses to compile under GCC (`#error` requiring
+   Clang target attributes for its reference-generic arm). Flags unchanged:
+   `-O2 -mavx2 -mfma -mf16c`, no `-ffast-math`.
+2. **Unit-test normalisation.** The first self-test failed 4 of 1,000 trials
+   (Q6_K 3, IQ4_XS 1) at 1.6-2.0e-5 of |result|: results near zero formed from
+   much larger terms (cancellation), not kernel faults. The error is now
+   normalised by the sum over quant blocks of |block dot| (each block scored by
+   the generic oracle alone), bound 1e-5; measured worst 7.2e-7. A planted
+   control was added: one high bit flipped in one quant byte of the oracle's
+   copy must exceed the same bound in >= 190 of 200 trials per class (measured
+   194-200; a single flip can be invisible when multiplied by a zero quant,
+   scale or activation).
+3. **Instrument repairs after a contended smoke.** The first synthetic layer
+   computed attention with a scalar `expf` per position and re-read each K/V row
+   for every query head of its GQA group, recomputed RoPE angles with
+   `powf/cosf/sinf` per call, and used a scalar SwiGLU (smoke: attention
+   0.75 ms, RoPE 0.13 ms of a 1.8 ms layer). These are naive instrument choices,
+   not properties of the decode: attention now reads each K and V row once per
+   group and uses the vector exp of GGML (`ggml_v_expf`), RoPE uses a per-position
+   cos/sin table, SwiGLU uses `ggml_v_silu`. No gate or threshold changed.
+4. **Counts left open by the protocol, fixed now:** L1 200 timed calls after one
+   warm-up pass over the 19 MoE layers; T20 40 timed tokens after 2 warm-up
+   tokens; process i starts at cell (3i mod 14). One process takes ~12 s.
+5. **Per-organ breakdown.** L1 and T20 also print mean wall time per organ
+   (warm-up calls included in sum and count). The T20 residual prices the F32
+   router and F16 KV at 32 GB/s (no measured cell for them).
+6. **Runner and verdict.** `benchmarks/chatbot50/c50_a1_run.py` (pre-flight,
+   five admissible processes, VOID handling) writes numbers only;
+   `benchmarks/chatbot50/c50_a1_verdict.py` applies the gates above.
