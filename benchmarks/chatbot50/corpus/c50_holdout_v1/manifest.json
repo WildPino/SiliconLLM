@@ -1,0 +1,2075 @@
+{
+ "config": {
+  "DEV": {
+   "code": 32,
+   "prose": 32,
+   "technical_general": 32
+  },
+  "FIT": {
+   "code": 48,
+   "prose": 48,
+   "technical_general": 48
+  },
+  "RESERVED": {
+   "code": 32,
+   "prose": 32,
+   "technical_general": 32
+  },
+  "min_source_bytes": 8192,
+  "name": "c50_holdout_v1",
+  "role_salt": "c50-role-v1",
+  "seed": 20261016,
+  "span_bytes": 8192
+ },
+ "document_machinery": {
+  "blob_sha256": "63cd0726a021306240729e94a91f322277eb7a31d32369877e9dd274309eb910",
+  "commit": "44cda684e5526f829bfaf564cc62481cc6478f5e",
+  "path": "benchmarks/donor_adaptation/density/build_document_holdout.py"
+ },
+ "exclusions": {
+  "excluded_unique_documents": 230,
+  "sources": [
+   {
+    "jsonl_sha256": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+    "path": "benchmarks/donor_adaptation/density/corpus/strat02_document_holdout_v1/calib.jsonl",
+    "rows": 48
+   },
+   {
+    "jsonl_sha256": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+    "path": "benchmarks/donor_adaptation/density/corpus/strat02_document_holdout_v1/heldout.jsonl",
+    "rows": 96
+   },
+   {
+    "jsonl_sha256": "1b5d6313034adda8fa45c156c5a85b2856688e7437c45f98801c81781ebb811b",
+    "path": "benchmarks/donor_adaptation/density/corpus/strat01_gigachat_fresh_v1/calib.jsonl",
+    "rows": 48
+   },
+   {
+    "jsonl_sha256": "4d90694f1caa7b66aea1a5172bd8663e493f55bd08a46dfb5f86232f482bb334",
+    "path": "benchmarks/donor_adaptation/density/corpus/strat01_gigachat_fresh_v1/heldout.jsonl",
+    "rows": 96
+   },
+   {
+    "jsonl_sha256": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+    "path": "benchmarks/donor_adaptation/density/corpus/strat01_gigachat_fresh_v2/calib.jsonl",
+    "rows": 48
+   },
+   {
+    "jsonl_sha256": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e",
+    "path": "benchmarks/donor_adaptation/density/corpus/strat01_gigachat_fresh_v2/heldout.jsonl",
+    "rows": 96
+   }
+  ]
+ },
+ "parts": {
+  "DEV": {
+   "category_counts": {
+    "code": 32,
+    "prose": 32,
+    "technical_general": 32
+   },
+   "ids_jsonl_sha256": "05c06c7db6d6a9e2fe4941a27a03527946d3201de0e47d732fcac5c3a61918e8",
+   "items": 96,
+   "items_aggregate_sha256": "bfd54eb02fe363f5fac723387e6005777c256b902fdd50be338d7203edca6c69",
+   "jsonl_sha256": "3f92bace0c05b33e13dc909d342587a39b645aee66485e2d9471389e80731fbb",
+   "span_bytes_total": 786426,
+   "tokens_by_category": {
+    "code": 74853,
+    "prose": 65491,
+    "technical_general": 68392
+   },
+   "tokens_total": 208736
+  },
+  "FIT": {
+   "category_counts": {
+    "code": 48,
+    "prose": 48,
+    "technical_general": 48
+   },
+   "ids_jsonl_sha256": "7c4680861b0d46c6650c1857a5b780ee139e5d957454b8686c5e9b98f406947c",
+   "items": 144,
+   "items_aggregate_sha256": "94cfb764d3e2aa2dfc440580b1b8d4046b445c2751d629d2ecb0f91f94ae79ee",
+   "jsonl_sha256": "83f193c8da158ef3aaa928a30869891d4d991f0ee7ab65b791ad144b87b8b79d",
+   "span_bytes_total": 1179642,
+   "tokens_by_category": {
+    "code": 114543,
+    "prose": 103165,
+    "technical_general": 109870
+   },
+   "tokens_total": 327578
+  },
+  "RESERVED": {
+   "category_counts": {
+    "code": 32,
+    "prose": 32,
+    "technical_general": 32
+   },
+   "ids_jsonl_sha256": "1e4cc3d55ebda17c67d6a0fe8b9632f16ad21bb1bd9278d0118529bdc3acd1a7",
+   "items": 96,
+   "items_aggregate_sha256": "6e7074c325012f8b3f63b58ad49b3cedb9d1a1d6903ec11108add955c0f3b420",
+   "jsonl_sha256": "f5f0566f6cbbc089963f5a1d1f8acd6e432d8aaa541ad2418117d635fdc5c760",
+   "span_bytes_total": 786430,
+   "tokens_by_category": {
+    "code": 80043,
+    "prose": 67412,
+    "technical_general": 72211
+   },
+   "tokens_total": 219666
+  }
+ },
+ "planning": {
+  "availability": {
+   "DEV": {
+    "code": 607,
+    "prose": 9456,
+    "technical_general": 1373
+   },
+   "FIT": {
+    "code": 671,
+    "prose": 9493,
+    "technical_general": 1399
+   },
+   "RESERVED": {
+    "code": 663,
+    "prose": 9436,
+    "technical_general": 1425
+   }
+  },
+  "deduplication": {
+   "duplicate_content_groups": 2,
+   "duplicates_removed": 2,
+   "unique_documents": 34753
+  },
+  "eligibility": {
+   "eligible_documents_before_exact_dedup": 34755,
+   "min_source_bytes": 8192,
+   "rejected_short_source_documents": {
+    "code": 3757,
+    "prose": 219,
+    "technical_general": 18986
+   }
+  },
+  "nfc_unstable_spans_skipped": {
+   "DEV": {
+    "code": 0,
+    "prose": 0,
+    "technical_general": 1
+   },
+   "FIT": {
+    "code": 0,
+    "prose": 0,
+    "technical_general": 1
+   },
+   "RESERVED": {
+    "code": 0,
+    "prose": 0,
+    "technical_general": 0
+   }
+  }
+ },
+ "role_rule": "ROLES[int(sha256(role_salt + ':' + content_sha256)[:16], 16) % 3], all categories; PG19 publisher split ignored",
+ "schema": "c50_document_holdout_v1",
+ "source_discovery_counts": {
+  "code.non_utf8_or_empty": 691,
+  "code.seen": 6463,
+  "code.utf8_documents": 5772,
+  "prose.test.seen": 100,
+  "prose.test.utf8_documents": 100,
+  "prose.train.seen": 28602,
+  "prose.train.utf8_documents": 28602,
+  "technical_general.seen": 23243,
+  "technical_general.utf8_documents": 23243
+ },
+ "source_files": [
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/bn/docs/concepts/cluster-administration/_index.md",
+   "sha256": "f302a6bfddbf496f57ec61dec2488ce08772e24e5bfde332a96382f2178c5771"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/bn/docs/concepts/extend-kubernetes/_index.md",
+   "sha256": "d9cefeea51a3baad1de0a29ece33f487b19f64945019886e7dbaf9080058f442"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/bn/releases/release.md",
+   "sha256": "2718d7018fffa6cbfd700f4ebe999345f3f1e7bb1e4af6b8c757bd60696d4f92"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2016/bringing-end-to-end-testing-to-azure.md",
+   "sha256": "fe8cef9c00237f559cdecc8912e879eb16ff2b88573a7a2ee01e50a8d5f710a2"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2016/kompose-tool-go-from-docker-compose-to-kubernetes.md",
+   "sha256": "2dffe0445153c5d385d837e8c9e5e96534c8649ed164f07e68a98f543651dfe5"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2016/kubernetes-and-openstack-at-yahoo-japan.md",
+   "sha256": "d399e81f76709264ab586250d842e94773d718faca895cf69c6dba39c5389702"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2017/kubeadm-v18-released.md",
+   "sha256": "0a0b42dbaa56a04128154d2cf5fcae320abd5f3dffac001160e55183209970fa"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2018/first-beta-version-of-kubernetes-1-10.md",
+   "sha256": "c923a0b6d6f312189d814f08d9f0b408cfe2b07247a33582ec1a5c2195ae8575"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2018/fixing-subpath-volume-vulnerability.md",
+   "sha256": "b32a7eaeafb652dce380c0b7af40d590485234bd5f523e89ad98f51e34790c2c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2018/kubernetes-1-11-release-interview.md",
+   "sha256": "a97dc3c60eabf2fc85ef6c1db2c4c8ff69096c8e7ca6360c2b57ad2375cec6b8"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2018/volume-snapshot-alpha.md",
+   "sha256": "78b74908384c2363c86f202934387ed13a5a11125e61c69567cf887437399d0c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2019/container-storage-interface-ga.md",
+   "sha256": "48dbcf3b3e0543d232e12be36b432ce0872b8df58a37a38987e63bf9b2126b0c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2019/get-started-with-kubernetes-using-python.md",
+   "sha256": "1cd5b89d0388aa3230373d606bd1c3e176cc90063ec5d37be86a07e80fd25f77"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2020/kubernetes-1.18-release-announcement.md",
+   "sha256": "1ab19fc4faa2272defd346687523c0b911dbf6c3b109e9a4d0a613bcdeea8ca1"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2020/wsl2-dockerdesktop-k8s.md",
+   "sha256": "fc8d83c6d3e3620bbf863eefa5b14fda5bff20108cfc6fa5a744bcb121f56a2c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2021/volume-health-monitoring-alpha.md",
+   "sha256": "32ecd23a9c180204d0252acc864e4d39d5d60bdd1b00a10f4efddd51336486d8"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2022/increasing-the-security-bar-in-ingress-nginx/index.md",
+   "sha256": "2a9c368b5c330526a31194a8dfa3cc98c41578f4ca9f13edb0ccd0551a45c8c7"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2022/sig-storage-spotlight.md",
+   "sha256": "5d1cd74849fdec6c50a758672b9c7ec3fad55a3ba2e98d0a3e51eb435617a425"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2023/sig-architecture-conformance-spotlight.md",
+   "sha256": "25dd81cfcbde84dfe71003b097e53cc0deae75bfe08b2d6c11ae7a26acce32dc"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2024/cri-streaming-explained/index.md",
+   "sha256": "b96bbea8e8759ab60dc599d3d948392163236b40b32e19968d1a796f4181e3d1"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2024/pod-failure-policy-for-jobs-goes-ga.md",
+   "sha256": "49d219fd2b29761fad2fb06a14af840b9cc53fd926cfa5d45005f5e179e45d39"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2024/sig-scheduling-spotlight/index.md",
+   "sha256": "931e967395ca5a14b74311911d0697882832b5d548d629710123553dc91cb29a"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2024/structured-authz-beta.md",
+   "sha256": "59e8319352686162fbc355752a617d95b37bf733be47cbb731659fd2abf9d741"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2025/gang-scheduling.md",
+   "sha256": "04db1392008586a13d882c971d724079011f917d7c98d698e1526e61bb140b92"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2025/nftables-kube-proxy/index.md",
+   "sha256": "b6f067ecec897d21fe1cda1530c396b842559d74e51b856fc59a9a9248eee6b1"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2025/per-container-restart-policy.md",
+   "sha256": "70b32989f9e79d0184a83276cbecce6a68529b3030838cf6e97caf381728b4a5"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/concepts/security/pod-security-standards.md",
+   "sha256": "1424ac90531d58fa2c08dfed32cf8d4b4944011d407f9e2e8e8e54522e2b9b2e"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/concepts/storage/ephemeral-volumes.md",
+   "sha256": "04697edcccf5760871b7efc6aa6e1c59674a750c41ce5973a5814996627ee39d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/concepts/workloads/controllers/deployment.md",
+   "sha256": "118b095f81408752fb2fcf8afc1c64c598fa275e9953ae66b058048986d66a08"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/access-authn-authz/admission-controllers.md",
+   "sha256": "0fe2fc2851551e7009514a0af4c8274660e51963fe6c32293cb88d4ea8d4552d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/access-authn-authz/certificate-signing-requests.md",
+   "sha256": "d03abb4476d11e433defba54f9b37c80e565c7fc8bf96c97b960cc861b09703a"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubectl/generated/kubectl_api-resources/_index.md",
+   "sha256": "c13811dcfa5524c3fd46bf7d2bfa4223b7669b9061ae4b76862d5323501791de"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubectl/generated/kubectl_attach/_index.md",
+   "sha256": "ff586c988f89d2c9d8604c0bd5a35aca6ea40a01270a6960693a54fc84be0163"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubectl/generated/kubectl_create/kubectl_create_token.md",
+   "sha256": "d61de5dbb5a3c4ca63beaac02946b122b61aa29551599a7d6b62d9ce3b5f8fa9"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubectl/generated/kubectl_set/kubectl_set_env.md",
+   "sha256": "64d167e35bbfcd8972b336d8fe73435f8aab17a38948ff106512da59dc842363"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubectl/generated/kubectl_set/kubectl_set_resources.md",
+   "sha256": "061b2630ea190e5eb7648e0fba43132bc6ff3aa2a812a073155da96a21b59f1d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubernetes-api/apiserverinternal/storage-version-v1alpha1.md",
+   "sha256": "6e8696063dd47901c0d2b1a5fe2158f96a4f4cb75130f21fbaa77e9530843c9d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubernetes-api/events/event-v1.md",
+   "sha256": "292ebfe5dc2dec794302337c1d29dc2000ce22185e34e6a0b1940ae201645bb2"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubernetes-api/node/runtime-class-v1.md",
+   "sha256": "efccd32607265ebb8edcf067668bd1a7bc646954f614ca7ba8ee7bcb483bea51"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/kubernetes-api/policy/pod-disruption-budget-v1.md",
+   "sha256": "6187a0f38e33013699072785d3bbf04d07946e8d0024498e57bbedb67e3fb9ab"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/reference/using-api/deprecation-policy.md",
+   "sha256": "9a741bf3f846c1bfa86ee4191631cf01ad039cea8c061ab977182a83c104eefb"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/setup/production-environment/tools/kubeadm/kubelet-integration.md",
+   "sha256": "438fa7c44b8da396e89601817b03dad03e41894fe166af4501e5b4704cecf23d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/tasks/administer-cluster/configure-feature-gates.md",
+   "sha256": "381a85cf6b3645e1e846ba1cead1dd1aa6541822caecb5cd5203ca7a79c106dc"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/tasks/administer-cluster/controller-manager-leader-migration.md",
+   "sha256": "2235b2abe638fcf825b8e4ec54617265b0a7ee3ed4665406087442b12711057f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/docs/tasks/configure-pod-container/pull-image-private-registry.md",
+   "sha256": "a2f46ab5e58bd5c546c347c5a171b6763bae6ea9f26f97174a9882b3f321e884"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/en/releases/version-skew-policy.md",
+   "sha256": "3ab0269690246965a9454fd568006337173134d279e58da30c6b6413606afdc0"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/es/docs/concepts/workloads/controllers/jobs-run-to-completion.md",
+   "sha256": "80b3120f4a5fbb97aa1fcc77d3686a47e9067d526f4f98953367afdf3dddc087"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/fr/docs/concepts/storage/persistent-volumes.md",
+   "sha256": "f1ad11ae3ca12510501c09a11332eb78ef0913556d9f8a2bc99983912df25cde"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/fr/docs/concepts/workloads/pods/init-containers.md",
+   "sha256": "036bc0851449cdc786eb0a19559329438b970955e93f77636696d85f2ffaaa11"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/fr/docs/contribute/generate-ref-docs/kubernetes-components.md",
+   "sha256": "8529486fd11d77ebeb52e6bf1aa4ebee1c593a3e654afe3f7f4300a32a5a4a9f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/fr/docs/contribute/localization.md",
+   "sha256": "e4af94c67dd586c3b3f27002acd601324bc6b62d3580088f6719d00b768acdc3"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/fr/docs/contribute/style/write-new-topic.md",
+   "sha256": "66794b563578716ebd65331d371f2db75d056aa8862c99d682629b32e102a8a0"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/fr/docs/reference/setup-tools/kubeadm/kubeadm-init.md",
+   "sha256": "c913693dd9c446b1e131a1e8b409d36f131cf2fc6f9312ba22dac85b4eda24d0"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/hi/docs/tasks/configmap-secret/managing-secret-using-config-file.md",
+   "sha256": "7c2e006b9e0a229c352ee58c16c94d87c74b7fdb1b071db8bdbc3763fa48924f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/id/docs/concepts/security/overview.md",
+   "sha256": "8c82459ca470642562a6f2a6ded9fcd98f9c64097c2032bab9d8de36515c2c41"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/id/docs/concepts/services-networking/topology-aware-routing.md",
+   "sha256": "0c33ebdd7da05b6b9d54945ee8280b0a892d6da0840f1f6b114f7e8f96b7ac9d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/id/docs/concepts/workloads/controllers/deployment.md",
+   "sha256": "4df6c370c92beeba6ea3cefdbd2617d3c269bb1f61585773247cc2776f24f90f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/id/docs/tasks/manage-kubernetes-objects/declarative-config.md",
+   "sha256": "a5a9e1769c22bbde5d506f06b37156757485e13af5ee82f7581170faeb72d03c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/id/docs/tasks/manage-kubernetes-objects/kustomization.md",
+   "sha256": "d480eb7f71ebc59c83e3ac2fdf421ddcd50171646def17d661f82b6f5b02f027"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/id/docs/tutorials/hello-minikube.md",
+   "sha256": "776524f26d5dd1b7eb2a5c653c24a675c8aeda1cb7257c1bfb75178eae9868c4"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/blog/_posts/2024/image-filesystem.md",
+   "sha256": "e94a0f33183b0cdc1b3a160e1bd78d58f1bd77edff616f376a106da5e11bb15d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/blog/_posts/2025/kubernetes-1.33-sneak-peek.md",
+   "sha256": "72ec4015fe1f9741950a6ecf052f078aa4f4152d346de78f25bdfcb6172de255"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/concepts/architecture/control-plane-node-communication.md",
+   "sha256": "d1cbfe7e55b38457bf3c573d16c54f3fc308d4f8bfb48034465b0b4266cc65e3"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/concepts/security/pod-security-standards.md",
+   "sha256": "6887c6cc169706a01bc6d0a7f48b96c46fe5edb5fc84779d2181d063d20cd340"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/contribute/localization.md",
+   "sha256": "2b6f71cc2a4814d7acceba348eba6a681898e06f690fd9ee6f035b548a1c0efd"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/contribute/review/for-approvers.md",
+   "sha256": "d1f1000da616343f07ef4d1d7b05008b5b4e7b1b24df9bf5cc524c9dab13f461"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/setup/best-practices/cluster-large.md",
+   "sha256": "2cae0c6946101b5c0f9cec937b60e61c96287ddc55fdcfb3eb484bf4cbe99454"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md",
+   "sha256": "a5d648f3882c1dec8432ed688bff60e8bcae52fbb6d6984133706f93bb7e3699"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/setup/production-environment/tools/kubeadm/setup-ha-etcd-with-kubeadm.md",
+   "sha256": "3df55413f28783746f3e4d7cd029db13710d39dc0b9523b424677e8e9aae99be"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ja/docs/tasks/run-application/horizontal-pod-autoscale.md",
+   "sha256": "c1b81b24e1eed980db25505c6ae44d71a6eca6f82acb916bcce19b8ae6d6db26"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/concepts/architecture/cloud-controller.md",
+   "sha256": "613094e3d14caa8d12f169dce083fdf2b8aacc8f7d23254a37b9b75f2dbf40e6"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/concepts/cluster-administration/node-autoscaling.md",
+   "sha256": "93bcbc70e97f600e7eb55294bd75ab914ee61c81c6635942143b1096eaedcbc1"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/concepts/containers/images.md",
+   "sha256": "4fc1cd40a2eb5e2bcf62daeb30afcbf1e7d2b09d832147f84e3aac56e55bfd6f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/concepts/scheduling-eviction/pod-overhead.md",
+   "sha256": "1749cecf0ca79227696385a173876294a4a3a832dcc60ccab7e28b9498dc14c2"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/concepts/workloads/management.md",
+   "sha256": "c2afc11a00f5e1691a2c03a292680e0664c930cf8eed8eb8006bc05b7218ca2c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/reference/command-line-tools-reference/kube-proxy.md",
+   "sha256": "cbbd0f22c2e75643d1b21446455d695ff78ef9b44a9d0e2c08405044688e9548"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/ko/docs/tasks/extend-kubectl/kubectl-plugins.md",
+   "sha256": "98994d603b7ec962bc948a02ecb02383dfe15e1c37f37e12df92dd9b014b6304"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/pt-br/docs/concepts/cluster-administration/system-metrics.md",
+   "sha256": "5e8bef37d06b149af3d7ee05d7ee4af500100e9f7318cfdd17da689e246c3398"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/pt-br/docs/concepts/configuration/manage-resources-containers.md",
+   "sha256": "c39a82d0d4968a5c142c8d6115aad2f588d3f9fcb4c5436f8b6e708f6bc9b57f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/pt-br/docs/contribute/style/style-guide.md",
+   "sha256": "601aed84427f18a7aaeecd01996a15c7c029d3b4ce2422722ef9d010e5e653a6"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/pt-br/docs/tasks/administer-cluster/dns-custom-nameservers.md",
+   "sha256": "91f068a4172a162088b88b9a3ef9f0c38b5dca7a4eb7a0d6f1cc5250fb804b07"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/pt-br/docs/tasks/configure-pod-container/configure-persistent-volume-storage.md",
+   "sha256": "3878537772a3de20f720d4e16c806bdb24c2e0bc1a673883024115afcc9fe098"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2016/simple-leader-election-with-kubernetes.md",
+   "sha256": "f490e0b0dbacecfb905932fe8368032b2d0637610fda67c42b792a1e7f1446b6"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2020/kubernetes-release-1.20.md",
+   "sha256": "5826bc85c06d84c68c32084e3af87c206449478a2b9ccef4431a510b8d3debae"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2020/writing-crl-scheduler/index.md",
+   "sha256": "dc4d4238f4cf8f10254428b593560c2d7e6da4ba8c55aa0d0702ee7a88d636d9"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2021/dual-stack-networking-ga.md",
+   "sha256": "ae20402de992917fbe303f42dd76db93de713d9d81fce64ba117136d988d26d0"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2022/kubernetes-release-artifact-signing.md",
+   "sha256": "ce3e55b1ec7c6f684d60b71d9022d810ff248670629f091419bc31664ab6b9e3"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2022/service-ip-dynamic-and-static-allocation.md",
+   "sha256": "b53e0cb35fc1aed41601cfbd51d785d9ff337a76d717452c310a842040c739c1"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2023/forensic-container-analysis/index.md",
+   "sha256": "25516a969c9f289e5b97e4b193e7d67f83f68b6404fb1df2b7d02d0c3884883f"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2023/kubeadm-use-etcd-learner-mode.md",
+   "sha256": "a2537897f86e890ff741f5c143f8d9827fa8f30ec6b9191198f3bd193e5c66f6"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2023/statefulset-autodelete.md",
+   "sha256": "94f19ed6da150b80b7a86a4fcd2a6662968b7f746509f95860e46893dfdd1bd6"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2023/swap-beta1-graduation.md",
+   "sha256": "709ece586775c69ba4f1bf452a84d0db11f913046ee4ed4dce0f28f5c71225d7"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2025/container-stop-signals.md",
+   "sha256": "cef214074004051481aebc1bfe6feb5c0d7942f0794d4b797316a6b1d9f0424d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2025/kubernetes-configuration-best-practices/index.md",
+   "sha256": "0564fca1302b31599553f1c1f7dd423d4d875f7db0e28c5757d50577263fb5bf"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2025/prevent-etcd-zombies.md",
+   "sha256": "13d76e5fedc2935038c29e539be66b93b3f74ae7b4998d0ee7744897736ee5b2"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2025/seven-kubernetes-pitfalls-and-how-to-avoid.md",
+   "sha256": "7af9f77c14b34c530682bbe5de947dedcdb4b4f271964d427197cce414430259"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2026/announcing-ai-gateway-wg.md",
+   "sha256": "09efd9655af8a5c223675fc27af2bf4cd7ad992ea73c15147a68c8866cfd9114"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2026/headlamp-in-2025/index.md",
+   "sha256": "da4f1acc1875f4ae321c3313cdc68f268d333870cd8385757a401db006ef67ef"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2026/ingress2gateway-v1-0-release.md",
+   "sha256": "c86e70914299f814bd9a0893b01b3eaf028d3f9ae5ec68f48556d910d37d6308"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/concepts/architecture/cloud-controller.md",
+   "sha256": "b459b9526a551492dec37852b495c0023ce1ae38e04fc1342c8918bfc3e75fde"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/concepts/architecture/nodes.md",
+   "sha256": "7abac4595384422c62ab175b883b4a348cd33b08bc2c41f40773bc6f74974de4"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/concepts/cluster-administration/networking.md",
+   "sha256": "5b242915b5ba545afd903fa4e5eaaa1bf7bd0cdd9e9403197f902463a00bcf4d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/concepts/security/pod-security-standards.md",
+   "sha256": "0f3c663e315f989ed6d41f4f60bf9b943a14642bebb2ef39283cb27b695753b0"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/concepts/workloads/pods/_index.md",
+   "sha256": "52292f4c28f3c420d086e75c249241103954417eb214102817e6b97a4204da74"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/concepts/workloads/pods/pod-condition.md",
+   "sha256": "a76e21b383635f61763991891234e82c9c40175e1f89f1cd4a982c07cad3cebb"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/contribute/advanced.md",
+   "sha256": "091af8c6d9691d31c266a2d79bdcf4ce0405c568ca593f3c43560f3b141ad429"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/contribute/style/diagram-guide.md",
+   "sha256": "4250e7d402af2333f146cf55fb24f8610f25455f77a970133852e643b8ab98dc"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/config-api/apiserver-config.v1.md",
+   "sha256": "5ae12a990884c56263fe89902ca441840907cb196b1a06b3345b1befe3586d34"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubectl/generated/kubectl_alpha/kubectl_alpha_kuberc_set.md",
+   "sha256": "d0c5246021f86321007ba6ad6909517b18f1c1d55f99c7f4235074b8ff15859b"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubectl/generated/kubectl_config/kubectl_config_set-context.md",
+   "sha256": "483572ac01d5176496f595a9cf85c6b69df6eccd7b738da2740fb750ba94850b"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubectl/generated/kubectl_config/kubectl_config_view.md",
+   "sha256": "3e78e8fe5cbbb5e11741419fbfb183197d7cd74770cc1404872f6738553a1eac"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubectl/generated/kubectl_create/kubectl_create_deployment.md",
+   "sha256": "e469f38aa6b2e21b8cae4a529504627fe6b6551cd73d96f38cc48fa991fa520e"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret_tls.md",
+   "sha256": "b3ee3614fa65d4d8ddb2a0e76964c707a69847eee7bcf1057a804790f62b41ec"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubectl/generated/kubectl_logs/_index.md",
+   "sha256": "70f9819d9e96c380e5dbe32f1b5ee3deaf76e680c91a89dadd3b33d7ffd3f6fc"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubernetes-api/common-definitions/object-meta.md",
+   "sha256": "ed55537b3c88ced94c904df6e64a8a24710a5cbd70bddb38898f2e096c632f8b"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubernetes-api/config-and-storage-resources/csi-driver-v1.md",
+   "sha256": "797caf446ba6aa7608b179f6183c0908d9d3f5a859812b126b4752505e9e613a"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubernetes-api/config-and-storage-resources/csi-storage-capacity-v1.md",
+   "sha256": "29c037f931cfccd6e23bde6cc16477ded384ccddae6d51e92477cd0185c0067d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubernetes-api/extend-resources/custom-resource-definition-v1.md",
+   "sha256": "ac9730fa76016412e1099c0b5fc03a99a2e793b2125a28b8fb74a8e1aa1f74cf"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/kubernetes-api/policy-resources/flow-schema-v1.md",
+   "sha256": "202ad7e5cad054b3428052fc576cc52077a1d27a6f6298073fb23675d167b614"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/networking/service-protocols.md",
+   "sha256": "67c5794436eb58d5212c88e0558318853e762215ebf0bf3da9727de7ad8c1eca"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init.md",
+   "sha256": "0af8847e5bbba1661763a1d8cfd9069d91b505f24eb2aa1bcc0077c3e8e5a71c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm.md",
+   "sha256": "f15af91c4e8b3b7ad1d7fd862bc94eb579d2f64a0201fb883f4bef22134f4160"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tasks/access-application-cluster/access-cluster.md",
+   "sha256": "60d354fd22e7192df08d5ba141600ae931e17f7f66b298fdb8a0e1b7598bb1a3"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tasks/configure-pod-container/assign-memory-resource.md",
+   "sha256": "987fca5b0f08fcea71a61813aa5c09de18a439f79b12f9f906b8dc40ee5b0029"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tasks/configure-pod-container/security-context.md",
+   "sha256": "37e60eb76dab02f31bb19e5051f06d51b1ccaf7dbe56533070da875efff2a54c"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tasks/extend-kubernetes/socks5-proxy-access-api.md",
+   "sha256": "8b01e7f56a443f5e528672e1a49c2367a54e19b18b717ff44ac7810f443ae4a9"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tasks/run-application/run-single-instance-stateful-application.md",
+   "sha256": "8eb8fbb5a5013159ad339ed57c4cae84557663d2a90f391b72564da062a0a97d"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tutorials/kubernetes-basics/update/update-intro.md",
+   "sha256": "219457de86e68e9ce489e87f4f163f46803fda3f4791c36f19f4e204ad6579d7"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tutorials/stateful-application/cassandra.md",
+   "sha256": "ebbf96a8029f05162556121dd9dc15446d46f1facc01de49d66a015706800336"
+  },
+  {
+   "path": "data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume.md",
+   "sha256": "fa22daf3b5e72dc674f69758f15f50c04330209906d2596cbbbf3b32e7b1754f"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/REVIEWING.md",
+   "sha256": "b154d6e0b09199519bcadc59c5fcb0cc59839c984d2041b2071e4e5fcadc4aa9"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/games/anatomy/index.md",
+   "sha256": "6e1bd04b0aaebcfe794d934b055a54596d3274d88972f7c111a8321f2d9e8070"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/games/tutorials/2d_breakout_game_pure_javascript/collision_detection/index.md",
+   "sha256": "6b0dacbc990469898f4535d6a964fe1bc32fb1b409a5810e34a558e1be23a5af"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/about/index.md",
+   "sha256": "bc9fcf452c864b8e5a2e0a50f75fdd6b5ae554bfb2a987b31b39a3d7027e1115"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/accessibility/test_your_skills/html/index.md",
+   "sha256": "85846d7c7ffcd3bf3e5b333f097f1051aed45d80ab1023f2b27bebed2de33585"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/css_layout/mobile-first_challenge/index.md",
+   "sha256": "3314e7740acdcebaed8683bc133ccc48af2c347d021e00d85fa317f3cac4bd5b"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/frameworks_libraries/ember_routing/index.md",
+   "sha256": "13ed1fda160540ab9b237ed41701ab1ee9084aa799167d46a05e46de17dd23a0"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/frameworks_libraries/react_resources/index.md",
+   "sha256": "067deab760964595bb46e16f45e3cde098458679c25f923c9dede182c82a6122"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/scripting/silly_story_generator/index.md",
+   "sha256": "4ab0fdb3b7e78b3eb8461eca5862da8ecc031365b61d063b2dad1035231bcdfd"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/structuring_content/debugging_html/index.md",
+   "sha256": "a1f03d4e09f50adb2fd9701dbb149552a8ba3a7589d7d1887a15dd057ce4c8ed"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/structuring_content/headings_and_paragraphs/index.md",
+   "sha256": "00f9161a60adf759111f5048ddd72c059a95ac185dde404968999104a319e7ca"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/styling_basics/what_is_css/index.md",
+   "sha256": "3dc3d18a2d1c83d6949f854998bdee56e207b35c94e88fbc27765015d3caa4df"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/extensions/server-side/express_nodejs/deployment/index.md",
+   "sha256": "7cf99650b487b3e88bdbb0b8f521f520d993dca1963b2a05a48b7edb4ebd7a46"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/extensions/server-side/express_nodejs/forms/create_book_form/index.md",
+   "sha256": "dbb78e6ff63104c3c8a7c3479adf535ea3d82e2f8249e6246281bf781e567c80"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/extensions/server-side/express_nodejs/forms/create_genre_form/index.md",
+   "sha256": "4052207d660d850a87a62a172c555f06fdb953f5b85726987fdd9efe0e0ff0b4"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/extensions/testing/html_and_css/index.md",
+   "sha256": "1ecf49a45af9e28e699855b2495f3dfae357d1df6324b4944601ccc879b3ab56"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/extensions/testing/your_own_automation_environment/index.md",
+   "sha256": "87012eb60a1fee7904539f36b0d73b284496e853f09254ead57a322544229321"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/learn_web_development/getting_started/environment_setup/code_editors/index.md",
+   "sha256": "e9c42fec013c7f2e3ad96bcf29867ecdac6f21938ad53af6d753ecee1324bf3b"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mdn/writing_guidelines/page_structures/page_types/api_event_subpage_template/index.md",
+   "sha256": "45a6df5668fea1b8acdc795d88385adc30b1540095c77a05873bccb1a812ef42"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mdn/writing_guidelines/page_structures/page_types/css_function_page_template/index.md",
+   "sha256": "24ceaf7756bb2ea3b1a50e564482dc3c3605977c6e194b59d970b7f83af849ae"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mdn/writing_guidelines/page_structures/sidebars/index.md",
+   "sha256": "ea31bbc18d55ba17c1797374694d5798bcb1e25213d70406aff3ce8e4beffcb3"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/add-ons/webextensions/api/menus/index.md",
+   "sha256": "19ee54abb4a80a079748559a08656e55075c0c1086697ac02c91b732f6b75576"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/add-ons/webextensions/api/tabs/executescript/index.md",
+   "sha256": "fcaf6b226088735e04b492ffdf82ff34b99c77bb06218fe74722294506e14c45"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/add-ons/webextensions/content_security_policy/index.md",
+   "sha256": "d046892b1602ad23e23c7e678378fa038fe85846e11fb41a0d67efe91b33e7c7"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/firefox/releases/5/index.md",
+   "sha256": "8eb30850575b5870aaf6850df7c4f4f031adadb6ec941a35e6ed78ed9699d424"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/firefox/releases/56/index.md",
+   "sha256": "ffac760b7f0810d4419c6a943fa8d2eaa9bf0528e74de6dfa6ec2aa97dbc56ab"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/firefox/releases/63/index.md",
+   "sha256": "22770096c2a67c6178ffaa3720964addadd38b8228483940a82c5b8f98b6ad98"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/mozilla/firefox/releases/72/index.md",
+   "sha256": "f610b7228cc6b09868fb745ea5ceba25d5dac9752eadd449f6e7c3c973ee10e4"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/accessibility/aria/guides/live_regions/index.md",
+   "sha256": "ef580299a98151be9e95c5927d2c46e3e2e256b8485d462f0a44e6a177ef3d0b"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/accessibility/aria/reference/roles/combobox_role/index.md",
+   "sha256": "72d9cabff1dc866230bbd1889dbe670ba1e59f22b42e70110e542d5c7b21eb8c"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/accessibility/aria/reference/roles/menuitemradio_role/index.md",
+   "sha256": "c93e1352b50adb6b9509a81dbcafc7d81e39296a57bb38d58e00af7953b1c756"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/accessibility/aria/reference/roles/rowgroup_role/index.md",
+   "sha256": "8480c3da023ede2a07d9680c26cc3b795fdb91f2eaf7fbfc263ebca489a217e9"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/accessibility/aria/reference/roles/slider_role/index.md",
+   "sha256": "57ade2850428806c645339c2bfb9cf24fa7b039910970d814bed31b8c715d186"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/abortsignal/index.md",
+   "sha256": "3cd7656ddd59815c4bfb2e72c6514b9f2b778454becd1b4591096617fe4bd672"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/element/attachshadow/index.md",
+   "sha256": "5677ce4a1c0a784eddc1863f0601aec1393c4f8aee96b9d9f049ed54ddbcce56"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/element/movebefore/index.md",
+   "sha256": "6d77fd2f130873a8c03d5e0a7d59956026a68a2f2b393ee06081296b39f020dd"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/element/setattribute/index.md",
+   "sha256": "69098df85006931405451911fc25f3799bd02bab39f65c496eabc6cd00347415"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/integrityviolationreport/index.md",
+   "sha256": "cce841ea4e59b541911b9db16bee3ff529a11f840ae1d8bc72280a67ad94f4c9"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/keyboardevent/index.md",
+   "sha256": "0c86a1254129d8de6cb42373dfa9866f8ac8058f106ada77747f02d71c261ff2"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/node/index.md",
+   "sha256": "f3845d59d578e99785e0827df1e5658f0639068595ad94c3313fc8f73e1db393"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/rtcinboundrtpstreamstats/index.md",
+   "sha256": "4801ace8f30516980238e875ac1bbc9f9f33db3846617eec15b4adecc732b27d"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/rtcrtpscripttransformer/index.md",
+   "sha256": "cf38c0f6010a26dbacbc0966022a6d789af5853028399957c3ba112cf926dbfe"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/rtcrtpsender/getcapabilities_static/index.md",
+   "sha256": "541c8e1acd8fd21f20b1de7e836382403c7633b021dfe9134e420798df2e539a"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/shared_storage_api/index.md",
+   "sha256": "a16efef925a3df2f8ba787e6e2294d5366c6651444c7f1d76caf5e1a359ef2b1"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/subtlecrypto/generatekey/index.md",
+   "sha256": "424e7c491945b581210a176ce3c5b3c7cdd2316997fdf020d876e980c6ac7ae4"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/web_storage_api/using_the_web_storage_api/index.md",
+   "sha256": "58e88ece49575c7458d88d17a003102563575c0a53259d758c72633c25fb15ce"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/webgl_api/webgl_model_view_projection/index.md",
+   "sha256": "fce68de1db78b943bf23ce025888ccbe8315fed4f7bf5347848b492fcd9dfa30"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/webglrenderingcontext/getframebufferattachmentparameter/index.md",
+   "sha256": "0574952c0e73d377256b682433e0d65669dae89faa3e41124af60bdbff920594"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/webrtc_api/perfect_negotiation/index.md",
+   "sha256": "9195a107f2cfe37cf3f19d09df1c513b00fa5c56b033642687285e909737fe3a"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/webxr_device_api/bounded_reference_spaces/index.md",
+   "sha256": "bab8a415b44a57bb9fa72754e051681314d8ade9e7665b209648c9c862c735c6"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/webxr_device_api/movement_and_motion/index.md",
+   "sha256": "5ad7d1d331ddf984f45f524781876efb22c992e1c58e328cd7d2dfbd4fd3be14"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/api/window/postmessage/index.md",
+   "sha256": "b87882cf9bbb3b2606ef97a2bee969772111eee54040df0b03350ba58865f97b"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/guides/containment/container_size_and_style_queries/index.md",
+   "sha256": "e06eb26bf2e633f7dd40bdf389623be468586edd1553626406b56bb2a1dbe8ef"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/guides/display/multi-keyword_syntax/index.md",
+   "sha256": "d7d56fbed22cfcdadd1f5323aacaf19f72485d79e11527a97735ad7a1055882d"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/guides/display/visual_formatting_model/index.md",
+   "sha256": "0662ab77605d4546483d2b49f82b60f6f39a5fd39ff0bf8883117ec51b63bafb"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/at-rules/@page/page-orientation/index.md",
+   "sha256": "ae1aec55a574c7273e6f46678b116be84cc90ea62dc8af99db0a9f31e9bfe0c3"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/at-rules/@starting-style/index.md",
+   "sha256": "6685e8a3052309aa7359b6b05cc73f7425d25e1938f6fe9f07e233636ccdcbf9"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/selectors/_doublecolon_column/index.md",
+   "sha256": "66d5f5ee94b96af8fad78d8fe82d049c7cabcbe0cc5afb9d0710adf7c7e2b2b1"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/values/calc-size/index.md",
+   "sha256": "f678bdf3dcdc84746820a5260f537073b2634e2e00cb5bdf9221f9a21c864e58"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/values/color_value/hsl/index.md",
+   "sha256": "17414d2b40a2277b8c50f998170d750263c6a18f5023425c26608c1a14c5c39e"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/values/line-style/index.md",
+   "sha256": "0414c948fec63c7670ffaa78d8ca943108ea2e840efd71d0de2843eb04a9bf0c"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/css/reference/values/overflow_value/index.md",
+   "sha256": "f19770af812bdd8742127d3fffffe89aabc4b7f5bc5765f4db818178a5b5017d"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/html/reference/elements/dialog/index.md",
+   "sha256": "523c38b45cf6a19d6a732f485894732e80602cc38c7ff5647995584e936d340f"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/html/reference/elements/fencedframe/index.md",
+   "sha256": "21ea6ac55177fbb98fb35c35022d8efe85f8c2b32ae85ef4a422fe275cc1c174"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/html/reference/elements/input/radio/index.md",
+   "sha256": "656fec37233e22d4b0b5995312c21b9915da357d9d4d24d0074c2c38728ef009"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/html/reference/elements/script/type/speculationrules/index.md",
+   "sha256": "107e15acc47ad3f54f28938bd18c4c335bfe463ce554d0df99bf1e4a4bb7e6dd"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/html/reference/elements/template/index.md",
+   "sha256": "931120c3d59fdc92cec259441d3eb32004d93cfad751601e1ce186fbf94348e6"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/http/reference/status/index.md",
+   "sha256": "caba8c6ecd9e3982c07ec7ec6b651ded17ec13c2908c631ae87c2c36ee314fd3"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/guide/inheritance_and_the_prototype_chain/index.md",
+   "sha256": "bd7d9009174df68d8ecdddaac3b5350e78e63f1bdea95d164b7bd889a6e7a226"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/guide/iterators_and_generators/index.md",
+   "sha256": "dadeacf36f9fc391bd7be034d23e687ca45f73b71d0b94080b5df69c61fb3f06"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/guide/numbers_and_strings/index.md",
+   "sha256": "e089b5cbcec9b195e0ebbd59612e964a210ea85a35b8cf42e222c1cb68e68ee5"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/classes/extends/index.md",
+   "sha256": "402d07a1f32429d5d5d14fae90cc541539b04e2325db66ed2594ca492c978c97"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/global_objects/json/index.md",
+   "sha256": "656f93c9ef257a8ab7c8d3cbf7235194d1d54f77efb3f38d24400088964c997d"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/global_objects/object/index.md",
+   "sha256": "0016e9d4dd091578472bdbc6b7581952147e14a1da63770aa50fe392b71cb09f"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/global_objects/parseint/index.md",
+   "sha256": "23eee3bc77e5252b9d95335515d7de9d02a2f56e6ce0e2682a04f437750b89dd"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/global_objects/regexp/index.md",
+   "sha256": "54ec8f390b4b37fe541087f1c47fa0e8f46d3981242ea8a26747ddbf9b27e696"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/global_objects/temporal/plainmonthday/from/index.md",
+   "sha256": "0cb8aa80d866ffc10f87bfde0b6ab5c82389a4a5f087b06a67d161a4e43fb3e1"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/operators/object_initializer/index.md",
+   "sha256": "e0a3962e1dc4e87ac0661fbe502ab6f46a36dcdf679886213752b0bbc2d7e7cb"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/statements/try...catch/index.md",
+   "sha256": "715ecdae02b68960ca9a0db3ee149a6108483cda233c25584e5439eb8ad4791e"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/media/guides/audio_and_video_delivery/adding_captions_and_subtitles_to_html5_video/index.md",
+   "sha256": "959eb6ef06e034f69460e0ebda0ed63b6786c528b6176058b7be2fef18ad0075"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/media/guides/formats/image_types/index.md",
+   "sha256": "d704d69ffb7e24845a6400df4b92be4a37fe393446bc5e8d00bed0f6d6b0d086"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/media/guides/formats/webrtc_codecs/index.md",
+   "sha256": "74f630f21e139dd905f34466ea4a1b4f9b0aac82463b2daa4d076fa11189ae4d"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/progressive_web_apps/guides/caching/index.md",
+   "sha256": "4255e71797f44ead15d9b908739f500117d00f122b34b6f0a8ec32e5b57b6f46"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/progressive_web_apps/index.md",
+   "sha256": "0aae8a3509e6b027db9eaf250146fe9aeffcf811833ee91e4ea0755beb0e6937"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/security/practical_implementation_guides/index.md",
+   "sha256": "67a4bb540dea4568eaf9bf227418aae60a539e6dcfb5daca90095d84e9382ad1"
+  },
+  {
+   "path": "data/external/markdown_corpus/mdn/files/en-us/web/uri/reference/fragment/text_fragments/index.md",
+   "sha256": "dd7eae5eb0ad5b530b269da75d8e8597101e1e8cca466d264e4ff3c5d9e5c83e"
+  },
+  {
+   "path": "data/external/markdown_corpus/rust_book/nostarch/chapter07.md",
+   "sha256": "0eb12dccef7f89cc12497682e11824abb19088d56a9fa27fd514c76c04c65049"
+  },
+  {
+   "path": "data/external/markdown_corpus/rust_book/nostarch/chapter16.md",
+   "sha256": "ceb760a49f5ee1dd8358212046704a30f6f5ab2ecb1eec27e75209e698f1a84f"
+  },
+  {
+   "path": "data/external/markdown_corpus/rust_book/src/ch13-01-closures.md",
+   "sha256": "a20cbb0b6af2a985486d9ec88f5be83dac27fd45893983bfe600a08c5faf7b6e"
+  },
+  {
+   "path": "data/external/markdown_corpus/typescript_website/packages/documentation/copy/en/handbook-v2/Basics.md",
+   "sha256": "c89617a7d260a61a8841f169e1e3c15af3cda5726f3b47218563e9b8870114f1"
+  },
+  {
+   "path": "data/external/markdown_corpus/typescript_website/packages/documentation/copy/en/javascript/Type Checking JavaScript Files.md",
+   "sha256": "2725f7f788d37398487290b952aab8bc5c5b9878ae0a0b45130a1f9019669146"
+  },
+  {
+   "path": "data/external/markdown_corpus/typescript_website/packages/documentation/copy/en/release-notes/TypeScript 2.3.md",
+   "sha256": "77e03c93b78cae82fa2ea471347848e5eae3030079acc61f5d2c9da2c179b946"
+  },
+  {
+   "path": "data/external/markdown_corpus/typescript_website/packages/documentation/copy/en/release-notes/TypeScript 3.9.md",
+   "sha256": "e08d775e5ec5664e922dbf05b48cfc69014241f131b95064b9ae532ff4230062"
+  },
+  {
+   "path": "data/external/markdown_corpus/typescript_website/packages/documentation/copy/en/release-notes/TypeScript 4.3.md",
+   "sha256": "f1a9822edaa1af4c31b246e0cafea4f73e91d1d8d08ebd4a5225015c6422ff13"
+  },
+  {
+   "path": "data/external/pg19/data/train-00000-of-00023-5263dc4323e881d2.parquet",
+   "sha256": "589252c8a3e870278db2b5d3f0da73e4845085e852cb024056c37b76d088ba41"
+  },
+  {
+   "path": "data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet",
+   "sha256": "2e1872733cd492551e96a8faafc4493b432157d3e319ba44105f7ed0a90ba78d"
+  },
+  {
+   "path": "data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet",
+   "sha256": "8138293ecaeb20d33395cdd5e738b7bdb8e30c0b9758940927769f0378751c04"
+  },
+  {
+   "path": "data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet",
+   "sha256": "a8667487ba7cce1894211efde87b343f438ae5fb7da590ca4280bddab2a333d0"
+  },
+  {
+   "path": "data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet",
+   "sha256": "12aedf1e63224370c98cc3ee0850cc870d814759d3c980876cffec132d9c790e"
+  },
+  {
+   "path": "data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet",
+   "sha256": "047e8d8d9609a57bff14be4091d9226cebe5fab59f504eb3e5a917c8f69df5ac"
+  },
+  {
+   "path": "data/external/pg19/data/train-00006-of-00023-c50fea56d0518a87.parquet",
+   "sha256": "d4d8e090b8dd808dad686d93ea1309221edfbff3e412bb5da76a1f28108a7f5a"
+  },
+  {
+   "path": "data/external/pg19/data/train-00007-of-00023-e9fea5c158e172e2.parquet",
+   "sha256": "7dc048a9b88a7ed1ebb36f2c7f666d29686439a06396b87b2275234fc44c9fac"
+  },
+  {
+   "path": "data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet",
+   "sha256": "301391ea8dd506cef0b5ce71a540996895c983b2c225c18ef5a3ee6509051c3b"
+  },
+  {
+   "path": "data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet",
+   "sha256": "c863b22c3ccd23ab3f61d44281e5438d13b7e223147167cc7f4cf402e7368b5e"
+  },
+  {
+   "path": "data/external/pg19/data/train-00010-of-00023-dd5d8583a9f6a549.parquet",
+   "sha256": "ed08834a0a5d4b63af11f94595561fb6988693ff3a75eacbf6e1a934cec39f78"
+  },
+  {
+   "path": "data/external/pg19/data/train-00011-of-00023-6c0bc91e6df2e661.parquet",
+   "sha256": "f19395403425b8650adab39208cdce17b1c8e1446aa8cd5090cc10fbccc0ed81"
+  },
+  {
+   "path": "data/external/pg19/data/train-00012-of-00023-78d820574bddc6bb.parquet",
+   "sha256": "646d8e8dbe535cbdbab611463a446c32852ee570731635a7109232d34c702bcf"
+  },
+  {
+   "path": "data/external/pg19/data/train-00013-of-00023-5b853732c713dded.parquet",
+   "sha256": "d5d34a4477c8c500a0ee67439e20adf9b6b16e2b62db69bb1831fee8622d70c6"
+  },
+  {
+   "path": "data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet",
+   "sha256": "15f3ecb5e314ce58bbf8eae927b51bf893b9fdabe4a04c8e246547206357a2d5"
+  },
+  {
+   "path": "data/external/pg19/data/train-00015-of-00023-7a78b1e66cfe52de.parquet",
+   "sha256": "2c7d4179231207bc22510392667faf592537cd3d10adeebf811826bcc98fa333"
+  },
+  {
+   "path": "data/external/pg19/data/train-00016-of-00023-8269d10108995a28.parquet",
+   "sha256": "750ebe5956aa6d52c1fb634352c6d3c5da19aec4b4ab30b3a4666970c05c24e2"
+  },
+  {
+   "path": "data/external/pg19/data/train-00017-of-00023-e240b232c0daddca.parquet",
+   "sha256": "61c4add09ed3883b494e9bc2ec8b4eb01d6f8b190c7cd1ed248bbef74c6dcaa0"
+  },
+  {
+   "path": "data/external/pg19/data/train-00018-of-00023-f59d477d80180c78.parquet",
+   "sha256": "32503f557397bfd57d9bb9d1343d41207663f891606dfe8731fabb33038d6e25"
+  },
+  {
+   "path": "data/external/pg19/data/train-00019-of-00023-198af082bd917d87.parquet",
+   "sha256": "0350fe8e5ae6a191c0ba3b8ef1c9fb7218b7b0d5e64da129be735383a64d7d29"
+  },
+  {
+   "path": "data/external/pg19/data/train-00020-of-00023-f9b058c5e9338514.parquet",
+   "sha256": "2209510ad9c2ed75e090813b50a5224f43f81e86649c2a85049cb764b2c9f5d5"
+  },
+  {
+   "path": "data/external/pg19/data/train-00021-of-00023-e221306b7359a366.parquet",
+   "sha256": "43ed2e129200a09f9d60e2a200fd650eb5f0c80029b31af55a94e2b62da213c8"
+  },
+  {
+   "path": "data/external/pg19/data/train-00022-of-00023-5a956eb2a5d6cab5.parquet",
+   "sha256": "e3be06f4d89b998ec11cc3222b540c75f11ceed17311db1f6aef384149681d4a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/_osx_support.py",
+   "sha256": "2cb7a6c97361c994d732b1f353a6654b928617bb9160973b3ce9ce05d3bf881d"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/argparse.py",
+   "sha256": "65b10a31fe48301e0f47ef56007918cc17dea9cc45d950a1edf330eb3772e000"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/asyncio/proactor_events.py",
+   "sha256": "1b08d2024073df8c3ca76002407d2692215057233b6fbb8017f573957cd2588a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/asyncio/streams.py",
+   "sha256": "7c0ee71f4bbbdad42ab491a2c4cc63f033943f3c634a83ca5847801f1cebc437"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/ctypes/__init__.py",
+   "sha256": "b63d5f3bc9fcabfb161317fc9bd37dd04470b620d2e51e6d9c183aa239ee6c85"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/email/_policybase.py",
+   "sha256": "37c3b576da6f0183d2930eac7c9afdb274f48e9fa491cb7c89f60391a1936c36"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/email/feedparser.py",
+   "sha256": "9d3dd62a48d57e7f8b91140afdf18f50c0204cff5b39196fe43099fd607b54f9"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/aliases.py",
+   "sha256": "21325c16e7ae6c3ca9393e6fb57886191ba18b211f61c27e0398a44459555dc8"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp1026.py",
+   "sha256": "8c1d85be11a3a0a5e6a40101c68548480d0378df0414e3c16d9cbe9f923c028e"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp1251.py",
+   "sha256": "46fa091d1822434e8d0af7a92439607018872598fcde44026f413dd973f14c98"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp1253.py",
+   "sha256": "e0b0afbd19db367c34c505f99a2fccafc6bae3dfd4e316f86375179dcfc60a28"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp850.py",
+   "sha256": "dcbe5938d7fe65072d4a286a184046db211544c30f0c3c370b9cd594cf3b36bd"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp865.py",
+   "sha256": "0722bbf3a0f93700e99b3816e9e52c75674e14319146f9ac3fd1e17f87e66cb0"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp874.py",
+   "sha256": "94179e22722674527bd56386b5e9dac5427b0f55248d1aa63e204c105da18d8b"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/cp875.py",
+   "sha256": "5c42adfec39cf9d891fbb2ed19d882c6160a00b8487b7867f9e2296b9e2f491b"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/iso8859_1.py",
+   "sha256": "ccfdba207b483dcd38673d85b6e2a773a5bf64e8ae9db7e90a01f8014e62b24a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/iso8859_7.py",
+   "sha256": "41feb2bec72e3f07c0d67f0e421ff8e51a8e1688aa20af7c8a12ce0ddf464104"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/encodings/kz1048.py",
+   "sha256": "da8bac477f14620d8aa89eb6cb8963602e1c39724148369c88ef48c95d495011"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/hashlib.py",
+   "sha256": "b4dbab0eed293c7d0d8b86c48d710d041124c4b0530c9dfa6138cb8cda9b9abe"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/http/cookiejar.py",
+   "sha256": "066909f8bed8dd56f6112df683fb3fb7a8a82b37cfe434a0e3fcbe241f9a5a18"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/idlelib/autocomplete.py",
+   "sha256": "d6863e5703612857b03bc44ce9e5c591b24bbaa02eade5900664e9d87217df10"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/idlelib/debugger.py",
+   "sha256": "b6675126a9492e6411c627561a783446f6067abbb953c1c55861cfe66864664c"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/idlelib/hyperparser.py",
+   "sha256": "e81e9177fcf8acfae3d47ea8a9552ee4f012cc733e3e4a2043e86856403abe40"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/idlelib/multicall.py",
+   "sha256": "e745266a652117182f34403f0e66ef62609d9cf1a5a3896f0262b8e82201ca3e"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/idlelib/tree.py",
+   "sha256": "d950208e60643d82c636a0fd1817adaca6ec229a518044b1cd597aae492dfaa7"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/multiprocessing/context.py",
+   "sha256": "f5ccd5b5895dcc77603cd46c50b775186b3bfe2800a848380b01f8c410eb6b23"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/multiprocessing/pool.py",
+   "sha256": "91b36155e311d5afab072bc68d84c25827575534700021028e43e95842291ca7"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/multiprocessing/util.py",
+   "sha256": "b5875b7f7238afbe01ad42740f3cd1d183ff0c80c464055f1e40e887a3c90ac8"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/pickletools.py",
+   "sha256": "a9ad9705a7cb619a126de7dc9e57b9e0a28a052c0f0296be42d39ce7803b31fb"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/poplib.py",
+   "sha256": "5b7191306c8a951486ddae2c365e110194c71ab1ce5d419d35c07a96d7b5ecef"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/profiling/sampling/collector.py",
+   "sha256": "ab71e1d81f958de4e81cbc036cc2f84cc9de4483a792902e68a4b352556d1cf6"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/selectors.py",
+   "sha256": "b3d6cebd4a3a03b4a614f12f171622ce4e4ba3295b9e8b89e2bde051003106eb"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/smtplib.py",
+   "sha256": "1d98352683a60d4d7b91f14553abe604dbcc5d3d40147fc7cbce205ca4f6601d"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/string/__init__.py",
+   "sha256": "7bc1d115e63b8705d75227ce627a4de83eb39683a46a92cfa5fc3f403c3c8fec"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/libregrtest/refleak.py",
+   "sha256": "1a0586a3a1dc4dc485e923c36b529605974f352cc7b9c8e4f548cd520fae5f9e"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/libregrtest/result.py",
+   "sha256": "e36c09bb46063e0a7d421e9f8cee4bc79c1dbdb1cf2cc1bb4942522a6aefbbde"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/libregrtest/results.py",
+   "sha256": "bde3442d00478a8ec446abbebd9e72edd50a820373dd218d9070cfe350d88f55"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/seq_tests.py",
+   "sha256": "d39d5d7fbe6f884037e4fb10acf137dc7ef38d86cfeb17e84dfcf0b9e0c80de4"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/string_tests.py",
+   "sha256": "3d5d7c5c122d86707bf020fa935ad197b737b62a6b5bad1806c64a04e591ea40"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_asyncio/test_graph.py",
+   "sha256": "3b298d2fac1b9b2770ff50411d4190f5536b49daac487fe4259dfda6396dc149"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_asyncio/test_windows_events.py",
+   "sha256": "d0e41a4f45136e1f1cc83a18ddebcaa35140eae0f97a829094b3e7ff09f19346"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_binascii.py",
+   "sha256": "fa0e3950e399946c26be55e9b60e3007ee2130bfa4f5cb5eb24cc550fafd9a94"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_codecs.py",
+   "sha256": "2cbe3293da8035b2b55d24be471d2debaf57747490ffe7c764b2cc255fe6b79a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_complex.py",
+   "sha256": "a5c1c3254a9aef0dbdd0840c17e36eb522dbb41b0eeca371edebf0ec73055f43"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_config.py",
+   "sha256": "f6f8815ca627f942b53a34a066e4a97751338d4be9bc77443440b50c2846f007"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_getargs.py",
+   "sha256": "35d580b236de7c70bf740694e024e9362787b4c3f593c712a4ec053e1a52c8cf"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_import.py",
+   "sha256": "c9938720ea04051c7e868c23439a4ac7d239f00ca9fd303423d3e7fdbec33494"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_list.py",
+   "sha256": "a7efd83eb6753d9a49dd6e1c2545dcf467662fb724d506c734c47348fcd0e644"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_set.py",
+   "sha256": "f93c05c8d22877f9db56ad83393d07d06171162e4b485ba0917dc8924c9b947a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_tuple.py",
+   "sha256": "2cfc2580709e97fb64df358918e931a6ebb51e11f7ed77983737ab17c3812d53"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_capi/test_watchers.py",
+   "sha256": "13e4208acb24366cde965ce592c21a1a55fe28761abdc569cd5ac68dbcae4b43"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_compile.py",
+   "sha256": "d538d881f2fda3670a2dfd8d88a6817214c174a8b146dc5b232ca32acdeae629"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_concurrent_futures/test_interpreter_pool.py",
+   "sha256": "c878bfacd8130672c2fcc876b683870317b28720915a1ded23b96cd410344463"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_concurrent_futures/test_process_pool.py",
+   "sha256": "f3ecb2635234aea4bb3d429896252048e7f3f44cf050380196ea1da9ff2d0158"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_dictviews.py",
+   "sha256": "ee83a498c38fbc461cc7c310a625e98c8c82bf6bfaaf0c539b5ef8aa29cf5456"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_email/test_contentmanager.py",
+   "sha256": "0c66f22d944d385dd2c33b6f36323ac0225660d8a905a77f195f26c7b0dc3963"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_ensurepip.py",
+   "sha256": "c790d4a7e650c134d7f31f64e2fbc674ca56c4e354c447700f2307860b2f462c"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_extcall.py",
+   "sha256": "d9480ba592675cbb19444721cec9406028ff4df33b93f6535771c826484c5ff2"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_ftplib.py",
+   "sha256": "8a54e9bbf58f9272d3cbfd8d1780f087138ab1ffaafc85012aa482e84ceb7b8c"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_genericclass.py",
+   "sha256": "4173ea14bf3c053344620f98355078878d6a863d6f704deaf5cece8a3e353650"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_gettext.py",
+   "sha256": "f6f72175971a62bc73f7af1c14e740b519d6378793bc7ccefaf875288f8abf4a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_importlib/import_/test_relative_imports.py",
+   "sha256": "9404c26df589390f7b5a076f05631e5e5b22c79ab3cdd68912e17648484af2cd"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_importlib/metadata/fixtures.py",
+   "sha256": "1f091cd3e3e89e1c2392e4701101846bf5e4bdd835e6cd547ebeb6c0bb7f40fe"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_importlib/test_spec.py",
+   "sha256": "4b132450e0d3011e90e8ff461cb3cc1be3bfbf0313910238ac5574c498bd3852"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_iter.py",
+   "sha256": "541008d4a2137c998a94bad7ac89f8f114f15b7a2d536f847eb3323455f42139"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_marshal.py",
+   "sha256": "8d6814f4fcbe72a994bcf353453f7d4bf45b5bb46f9cd77b20c6e37e4fd329b9"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_os/test_os.py",
+   "sha256": "68447a8e28cbeb4d64d9fbbb9e52673566316ee610e6e7b29c96e3e3f5dbc9e9"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_os/test_posix.py",
+   "sha256": "7a7e8b8b25e00916c33664e89afa42526778c1ac8666e72d2cb03f066dc1cc96"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_pdb.py",
+   "sha256": "2a24e2db8cefeffdc75598039b6709cbbe581d3afb9e8d113e144ad22799a58b"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_peepholer.py",
+   "sha256": "3819c7e6e0af7259c14ca657be7e43427b31c86d9021a61141d3fcd52421f9b1"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_pickle.py",
+   "sha256": "385b98e2982050604926e8cc8509759f3f158db7b74d09449cd9b816afa2c094"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_pkg.py",
+   "sha256": "70a17bcccbb831fdb77266ff882b3284051bba93a9e134ec539cf6a02b680cbe"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_plistlib.py",
+   "sha256": "59f132dc892de7c2291f21c45dd7be45ad73fc96aba992ecfa646a5823238eee"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_poplib.py",
+   "sha256": "eb1ee7508c037231ea8ee7b14ab86adeb56339fd88af1deb3eb756c8be470301"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_pyrepl/test_terminfo.py",
+   "sha256": "730d1cf6b06573341190cd5a04b393b241819246b09979604d3321e259169ac8"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_readline.py",
+   "sha256": "b9c9679cfdb9a86e0ad2fa8a9b49fa76e1f3a7397fcf2e3054745a890eb337e0"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_sax.py",
+   "sha256": "272d4514f7b55199685a425d02cd06b52ef123156722390c0893c722ab014cc1"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_signal.py",
+   "sha256": "42227af935ef7346708322c1f361c973a68184bb37e2f398a983881e6af17c91"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_syntax.py",
+   "sha256": "3f5a1fb34af4b94e83b0287e3b95d2bd48cf22046b37b074b9f4808abd2dfc4d"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_sys_settrace.py",
+   "sha256": "fe9326cbe8f968eb65574e9ed18329bf33bb338d2ad2fffc746e2a961856be94"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_time.py",
+   "sha256": "d2041386cd3bc8cf8c882caf1c92cb46f63523abb01a72e2d5fca3aadb21fc16"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_tkinter/test_text.py",
+   "sha256": "06b6a3bb9e232acd59030b2250f6544faccd6cd5f2b8fc08519e13a03cab223b"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_tools/test_i18n.py",
+   "sha256": "c20dc36fe32b64cc89f943ae2626d784028b5abac860028de4762931365d6a39"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_trace.py",
+   "sha256": "9c850c96fe5354342175bd81dfa7e1915bcdcde37e084c8b1238976fa79f2383"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_type_cache.py",
+   "sha256": "783555aa4c6ea470b7a1fe9027d8d1365e7514696fa22890d1f8100f556164d1"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_unittest/testmock/testasync.py",
+   "sha256": "0cc47d81489cfa5d5c7ca97dde77df984a2c4bda47871b9c55f77cf60d75839a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_webbrowser.py",
+   "sha256": "7de41ee821c92b2555748513f2ff45f6d1dbc5f1ad679cbd1527122d41efa1fb"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_with.py",
+   "sha256": "27a0a91ce1e31048aef3b2e0d444a6b617de8aa4a23dd94ee03b86bcea1e831c"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_xml_etree_c.py",
+   "sha256": "3c31e34c248e592c99a3782f8f44c3aed82a60706cf95d5c5f777a1a6884120b"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_xpickle.py",
+   "sha256": "06ae349d518a329215b20d12e39039b6c6802708e52329c9d6cad54eb4cd5d87"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_zipfile/_path/test_path.py",
+   "sha256": "a447348c8600c815e6966aa468a46ce6029dcdc0b253f7d2ea5eda0d60d92144"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_zlib.py",
+   "sha256": "33fe2253c4bda958b9f061108aff68dde290dcdbfe73493ce3f409198d8af65c"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/test/test_zoneinfo/test_zoneinfo_property.py",
+   "sha256": "8269fd281d8d13f6d301df3e9690dc25823d36e495ac9662ff92733945d79569"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/threading.py",
+   "sha256": "38ca8f8551bef5aa79c33fff679964fbd4152abacd748d536e455b22f52ff9d9"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/tkinter/dnd.py",
+   "sha256": "ec28874fbdf05b2e53d8785bfd86579ce3a90d600a80af4890e7d39df4bee90a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/trace.py",
+   "sha256": "3f2dda40fb06c1b05411b81610f94234241308c2039f8969cb391d3dc4fb7ea4"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Lib/unittest/runner.py",
+   "sha256": "27c48298d23ef3b8598d7002e43680bf88cd808bf51c326fd4f1267cd1f146c3"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Modules/_decimal/tests/deccheck.py",
+   "sha256": "6ea22f8da0bd3e6c55156996f4fda855f852b9236e8c837fdd0da0ef937ba4e0"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Platforms/Android/__main__.py",
+   "sha256": "48a1b829c3aaa5aacdf3acfe92f0d653fdb7b600d66920f5a0dbaf350bbb027a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/c-analyzer/c_analyzer/analyze.py",
+   "sha256": "395dad2959d49c4d262faf2d5d2e1ae533b830aafd3182b0bef749201611e014"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/c-analyzer/c_analyzer/info.py",
+   "sha256": "b4ca5020232ab1353302b12535d170ab4b8d34cd930d2170bd8e8964e8a9d80b"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/c-analyzer/c_common/fsutil.py",
+   "sha256": "15bb322cd138f8bcea5ee56c149918efe5b64c28a5292a5615046fe95536ec02"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/c-analyzer/c_parser/parser/_regexes.py",
+   "sha256": "0f646422966c7728e4e80431efe0d474c09e3960a68fc971aa6ac719c833d2e0"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/c-analyzer/cpython/_capi.py",
+   "sha256": "b28c46ba4513bc9fc3facc1627bdc2fed02b7926001cfe28c89f02484e7f42a5"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/cases_generator/tier1_generator.py",
+   "sha256": "dd10a4bd6ebb855965be5e636dd3c2f6eb21c45e98fef4b383a4eb15dc54d595"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/clinic/libclinic/dsl_parser.py",
+   "sha256": "b8670660cf0aaf1e2cb107e7ea782e8ec192e93d14b149e4bfe36d640e0ada5c"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/gdb/libpython.py",
+   "sha256": "0834d87967dca936d0c2ed761d694ce3b9a50eaa2c1e5973d8a755e489176ab7"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/jit/_stencils.py",
+   "sha256": "35bcbd07aab41f71c9d834657bfe02b43c732ddecb3b6a0de4be74221853793a"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/patchcheck/patchcheck.py",
+   "sha256": "524c92ec0a8b94f5a055f772156b3d4c40ba68c7fe2f477d5b282ce4b6c05555"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/ssl/multissltests.py",
+   "sha256": "c6b38f4a6bca0e9cd8ecdb61dd94cd24f07d60d030346f4d94f79b58514a52fc"
+  },
+  {
+   "path": "data/external/the_stack_python/cpython/Tools/unicode/mkstringprep.py",
+   "sha256": "c7c007184ebe221bbe21686af1161dc7b09d1c784c3551403b2587c37d46e80f"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/conf/global_settings.py",
+   "sha256": "7515e98594cbc03bce36be89e691471aa9746b302c830908c64c974034c12be6"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/admin/options.py",
+   "sha256": "88176e437ebe17f8539a28482e927d4dfe0ecb1c689c7dd1fc5bacc5e568349a"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/admin/utils.py",
+   "sha256": "be9710a626ccc6ba6869bd6ce1da3008a6825ec8ca96a965aa82602bf4e0a5df"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/admindocs/views.py",
+   "sha256": "d09f266933b46f220a7ab667c7af2f25195d469a2a28190e0bd34ff23668a671"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/gis/db/models/functions.py",
+   "sha256": "07e696f66039bb97bcd85aef2f98e731578dac06631273ebd138cf02059cbb62"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/gis/gdal/geometries.py",
+   "sha256": "dcbf246f17b3aa00b3f1f04456d31e0785175b27aea58c479750645c67a40c76"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/gis/gdal/layer.py",
+   "sha256": "587b5735d5865ff7d84c5e6779e71ef0c605a8e33136281bae2cbdc5c0382b42"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/gis/gdal/raster/band.py",
+   "sha256": "34b7751b9d500f7c60d8239a7b018327896dcc6841718605aadb6834e8ef0068"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/gis/gdal/srs.py",
+   "sha256": "d027afc1e8ac97e66d4d437cb9d7fb1324f9b0f3433f44e0b0dcc591b23c7c0e"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/gis/geoip2.py",
+   "sha256": "4f97e29dfde87b0aa21e45056d29d23b82318997be1d2d9e3bf0b65c80a53547"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/postgres/forms/array.py",
+   "sha256": "34296cdef9849d3e5ef2b8d31baf1635dfb6314e2e8c760351a4cfb9c7ba45f2"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/postgres/search.py",
+   "sha256": "69daa4c878e9205b028e3ae6b6fa4e50a6c1ba123850103db2e0457de7bce0e7"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/contrib/sessions/backends/file.py",
+   "sha256": "9c4d7eac66ad211faf58a2049c9e7a96824d3a3d289031ca0b8a0c9674d69b7f"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/core/cache/backends/base.py",
+   "sha256": "4dea7b0163aa6af81b8ce430078b84016ec17df36364b5552ae502300ab3ae1d"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/core/files/storage/base.py",
+   "sha256": "1d987b1e1300fce14c6517cef4064d76952a92179f6ffdf6fa63f007ecf47662"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/core/mail/message.py",
+   "sha256": "561c19d78a53304d3acac17e9c1e94a290e1765a1cfda9e764b619867a0d18bb"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/db/backends/base/operations.py",
+   "sha256": "4d612cbf86c63a54e7bcb91083f9ef3e917cf29b5667415c3655bdc7fefe203c"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/db/backends/mysql/operations.py",
+   "sha256": "fab2a69276d4e38ad93e461ff63a8ed092bd1d9511e85522ff08c9efe656ea57"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/db/backends/oracle/schema.py",
+   "sha256": "4ad1e86c6909f62914a7690432220c8fa0aa0a7aa0ddcdb9df7b1dc7f8ce07ae"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/db/transaction.py",
+   "sha256": "38f19fd9b3887132b31e33060ea103f16d3c3a7fc3c6b6078f6f808ab855a5b1"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/forms/boundfield.py",
+   "sha256": "36e09f706b040e54de3bdaa60671e6c8efd43c99f3adcb604f05b60b287d9669"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/forms/fields.py",
+   "sha256": "a4d1993d46db60edc05b27d51cec5dbe1ef744aefa60d3890a0e7da46ad67e55"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/forms/models.py",
+   "sha256": "d10afb63e079decee6aa701498acf1f81ed1a8d6841fa6a170847f127e11a501"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/middleware/cache.py",
+   "sha256": "f6d736811834a47ba04af43f50b113978aa8cb37f92bde8316ff04fae9545f88"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/tasks/base.py",
+   "sha256": "141ec1aee794c693b603520b3ddc9b4ade21fa401441740baa7dcd78783bf0a6"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/template/defaultfilters.py",
+   "sha256": "c52bfd1ac1e34026fdc6f2cef51367ecb59e107fae849c9e943a734655a78fae"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/test/selenium.py",
+   "sha256": "a08e77244747d2f34bfdb2b997586ed5402dd1749a6012fdeffca07395bcf3e8"
+  },
+  {
+   "path": "data/external/the_stack_python/django/django/views/generic/base.py",
+   "sha256": "d6078004c9671232cd689b1b4a3d1a6c6b964a96929baaef1d639f53b0b02b71"
+  },
+  {
+   "path": "data/external/the_stack_python/django/docs/conf.py",
+   "sha256": "8122cc4e6eef80cd394d55917595e4019746bc677255e763b147f49ce6d2377e"
+  },
+  {
+   "path": "data/external/the_stack_python/django/scripts/manage_translations.py",
+   "sha256": "fb0b2f86203701189e259eb5fb081e89396524439f8b5ae005c5dceb41ef6631"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/admin_views/test_templatetags.py",
+   "sha256": "703566e7103451ec08deccaa5ce2af72e7e7e4054583ff29c775364b89fb2df3"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/asgi/tests.py",
+   "sha256": "54f1ef0f3a1ab52589e3477b243d12d12469f264a1459f97b2b25e8828757f58"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/auth_tests/test_validators.py",
+   "sha256": "974f2a40ef88b60b64d21250b6f565882a6afe26fbaaf62a438992cf12b0396d"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/composite_pk/test_values.py",
+   "sha256": "e82dee193ff14affb738804af9cbd44fffceb9b24d46c2269cd55cab9befbefc"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/conditional_processing/tests.py",
+   "sha256": "d6509b8b2d012b7e51c8ce1c36fe1c517cda85924b3347010ddf7983d62a69cd"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/csrf_tests/tests.py",
+   "sha256": "1d1249aabee4db7d87503de1446cd128d9b46a48113d313e7763a132bc1a41da"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/expressions_case/tests.py",
+   "sha256": "9eb23e4b65d0dc5a6b3e6b2a4422d8f19c29635d0fa685e277056fe4f9e66024"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/extra_regress/tests.py",
+   "sha256": "59c00cb02a9cd28b2a35f5f2dc78cc4159c16f242ebf9c8629fe0e6690a2c195"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/file_storage/test_inmemory_storage.py",
+   "sha256": "009af5a7f98a111f7f03ca366426d392c4bab50bc609962d4bfeffe476c7c93e"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/fixtures_regress/models.py",
+   "sha256": "cf87c6fff48eecd7749766feb7ad8667a56556fab44bd2e66ee43dafa0cdfd79"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/forms_tests/tests/test_media.py",
+   "sha256": "9cb043409d95860da7a5987ed0a7bdeaae4d0d1c06aa3db5fadaf53a4671646b"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/generic_inline_admin/tests.py",
+   "sha256": "6fef612cd2cf49f33db72f81a4c2612d8b3c08e58f47e9e2cd04643ea7e39b1c"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/generic_relations/test_forms.py",
+   "sha256": "0b782f18a89ec5aa305ad250b946f161180197a43c50586ea47ec773e6cd5e4c"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/generic_views/views.py",
+   "sha256": "557ab592b732f8422226d865a675f27b0017d3d7c6c027f23199066832db1d4e"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/gis_tests/distapp/tests.py",
+   "sha256": "1b10a3a0b657c64cd6d15d050c10600975d931629cbc1dc5299184d995f506d4"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/gis_tests/gis_migrations/test_operations.py",
+   "sha256": "24dccf3887bfda28487c2cf5b9db4de81d8c5269b3d415e70c5b1962c546ddd6"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/handlers/tests.py",
+   "sha256": "9351e94ce8502e436a276d83fc0f23ed147a8857964495d9aa100d90b26e31bb"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/inspectdb/tests.py",
+   "sha256": "5bdad0afab4a403af7494b47b28233487bfd0d5b6c9549148cf78bb9625cc578"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/migrations/test_loader.py",
+   "sha256": "5c680f6dcdac93010ca1b9851d5bfdfe5cf1d93b1c68da6707a3a43038e8e440"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/migrations/test_optimizer.py",
+   "sha256": "f9768bb162aac3f0b4c09cf4abe3d78dee0a66910a5f3421eea16ecfdf56b2cb"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/migrations/test_writer.py",
+   "sha256": "e4ec1e200f594076816f28031b3b1278708a32cc68fdae98ec75ac87ed547124"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/model_enums/tests.py",
+   "sha256": "b1c99c765d2e7d1c7afca4a3e88bd6a900a1c6e69e1093a42ca4709649aa8c75"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/model_fields/tests.py",
+   "sha256": "f20eb3b76fa79b99896816f43c8ebebd48c72f4fe54d3fa475789149d21e7281"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/model_indexes/tests.py",
+   "sha256": "b27d27229dba70e4f456394038677fef6b85f3500870e3e2646fd9e2e97b35d9"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/model_inheritance_regress/tests.py",
+   "sha256": "6a1e3e02581e6872c53d4c398ef7ffdc8131c3e6ec04e89651b240a2af7b4330"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/model_meta/results.py",
+   "sha256": "f29c041c4432c5ee81f1ba421abb1a2831e06d57a20433080afec1e0fbe38242"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/one_to_one/tests.py",
+   "sha256": "e7fee514bf2a52c727b69a5ab85c6c15e0f3a03fa62884013684fbaf32852092"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/postgres_tests/test_operations.py",
+   "sha256": "2e9b1ccbfce5192bfa76d675a685af91413827ffbada9d9d4752e63243050f4b"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/select_related/tests.py",
+   "sha256": "46153874aaa36d2463e9b7f57e6efb8ebb1a02ff6d55962205cc1795e0fa0e3b"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/template_tests/syntax_tests/test_basic.py",
+   "sha256": "29e8bb6e9b5f8ebc7c64b16da419952d6189da52133541aaf6ff4daeb5e96ddf"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/template_tests/templatetags/inclusion.py",
+   "sha256": "3ce46728ccfce75b98377748de00d692a30d186321346fb513bd7d498d78d367"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/template_tests/test_response.py",
+   "sha256": "75588c6c6949586a1997482e16a7c3e77365c4902cedef6ff46b0476d57ffe4b"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/test_runner/tests.py",
+   "sha256": "33a30517a54fef50fe5e58ef96f44c0a9a83d512271a89790bed8593a8ed3d3f"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/transaction_hooks/tests.py",
+   "sha256": "3083aad6ce823bd9411a0805a3a8d1daef9df3c4065ac168b151f0dcf4ec759c"
+  },
+  {
+   "path": "data/external/the_stack_python/django/tests/view_tests/views.py",
+   "sha256": "475a7a53a0ad76b37c9cc40ac859d37f76af5b48b933a08db815165ca4f71d2d"
+  },
+  {
+   "path": "data/external/the_stack_python/flask/src/flask/sessions.py",
+   "sha256": "a54f511cc925913ea1596933cf3afaaba3b6335a0273906787e3ab3bef3c1cca"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/_add_newdocs_scalars.py",
+   "sha256": "db6f2b889f9dcfd7d5df64ef3a430f532b3fdbfc279c3b94f8451b1757a16efb"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/_dtype.py",
+   "sha256": "59a285cabfcef070f8c3e6eaa15c1d4fde4791983e374e275944fd638c11f926"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/arrayprint.py",
+   "sha256": "ea1e7577acc4048383d842a628827e33dc544f06842ab5848b3ee3bb298eaea2"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/defchararray.py",
+   "sha256": "a174cd2354ef6fd8851d51c6f5b43f3fc836a344d1a37fa9600060387858d395"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/einsumfunc.py",
+   "sha256": "043ed40c717aae2130d3440b70c8237ceea1a2ac1187ee307b245d167a12059c"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/numerictypes.py",
+   "sha256": "f80ee6bcbef2d80de08e6439f8808c6c63fdc5b4b2eff2404fca2ca3dc4da4f5"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/tests/test_cython.py",
+   "sha256": "4cb1236228698b027765972e16c78e131522851b7b898dedadd6c71d6070c261"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/tests/test_deprecations.py",
+   "sha256": "05cbbabd5fe9be617876f88ebf7c675ad05661c89efc5f7b9a9c84e5113f49ed"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/tests/test_nditer.py",
+   "sha256": "977384deff6d6c628c549585c3cae22a55684f48c1bbc3cd13b6971f27f57773"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_core/tests/test_nep50_promotions.py",
+   "sha256": "48136d08733607f2c32b4e264958e263652c816b064eb31b57dfbbe2ece1eb01"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/_utils/_pep440.py",
+   "sha256": "8adf4fe3fa075d6c37071768573ec93ccba3e64c45e4ceff049f19d66f67bb4c"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/f2py/f2py2e.py",
+   "sha256": "e01b3861161235c6f003aa774bff70afd211cf421465311abd5386f626f4d137"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/f2py/tests/test_character.py",
+   "sha256": "a9c9eb98ea7e1a6e2e4fac0cb3521f82aa2340d6aa97a820a81c464b3d0cd281"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/lib/_npyio_impl.py",
+   "sha256": "51eb4572baad1e8198f71b3488a3cbcdb81ac85aa3c15cc2708cd907198a1fb5"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/lib/_twodim_base_impl.py",
+   "sha256": "29de00d975a532b7a966b61ff0473666f5e444c1c89b3c0c109825fdf6d2305e"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/lib/tests/test_function_base.py",
+   "sha256": "ad1a03466adfb8b9e8d7defe2a578d53917058da222c438dc7955e2b86332c47"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/linalg/lapack_lite/clapack_scrub.py",
+   "sha256": "fa6b38e325debf74214357af19c4e4b9f1797041252822b0e92f3a7beb9065a9"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/ma/tests/test_old_ma.py",
+   "sha256": "2799916c33dcbd8fd954faa180f13273113d38e7cc00e77bba83139396226718"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/matrixlib/tests/test_interaction.py",
+   "sha256": "04ca5a008786389e441075aea330627cdf25dc0bf944eea31a868f81dcd38aa4"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/polynomial/hermite.py",
+   "sha256": "5389fdb0d8b7a70c8a64ef344efb2712273a82af08e7414445e583cce52526b5"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/polynomial/tests/test_hermite_e.py",
+   "sha256": "80e5b7c28e2de60781599ba0c4dd7b108978c140139b4bb255499cf58e489352"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/numpy/polynomial/tests/test_polynomial.py",
+   "sha256": "df44a45dc7b881efc0b9f77bfb1040ba3fad5a5b35777f7ac0b7140fa97b9dca"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/tools/ci/check_c_api_usage.py",
+   "sha256": "352e99ef52ce854c57b357a7142f84d71684b0f7d07435807d171e96c3607eb2"
+  },
+  {
+   "path": "data/external/the_stack_python/numpy/tools/swig/test/testSuperTensor.py",
+   "sha256": "e1c894603a78315da64709bd72584c298d1ca3cc3751cd169c2f1a850359499c"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/cache.py",
+   "sha256": "c4923a8bbe208d18667516698e6a9fff456eae64f560ff81a6a6bc3313f009c2"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/cli/base_command.py",
+   "sha256": "f5ddcf159a4e54e9c34df1b04c5d679cbc359c1ba37b48f247373adae51d48c8"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/cli/parser.py",
+   "sha256": "c3c1335754208b0eb67195701e99e7344f051e5a7c14955f55c645177f2a0d8b"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/index/sources.py",
+   "sha256": "911d77077d2376e8cac3a995911dc042dec3ca20915ae6cbb530d8872c34bab5"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/metadata/importlib/_dists.py",
+   "sha256": "60219c5cf1db5434392eeaa2b50163699ef316ddb2fcbea8cf98def5d9480ae1"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/network/auth.py",
+   "sha256": "81cc6bcbb4890a207d70f0a6f2596dba393b7cbc3cb367983708519b1e35467a"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_internal/vcs/subversion.py",
+   "sha256": "709d73ac407a8f96573c62155d41f3b43df41cef5047e76c49c704214b0f0c70"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/packaging/_manylinux.py",
+   "sha256": "400e97797404f806ef142e7d4e1e5ffc9c5af59874a7e8f627d6e112ac4e8800"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/packaging/_parser.py",
+   "sha256": "adc134d5789337d7807c212ca73b06bdce92e2a38f9985a863582583d03bdcaa"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/pygments/lexer.py",
+   "sha256": "985d442c2b7bd148450c1c28eb1b10206257eee0648b58a0db24bcb2cf68d4e4"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/pygments/lexers/__init__.py",
+   "sha256": "d520e45821ebc43e9657a05c481a9484be39945ad29b3c2ddddc94ab1e948590"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/requests/cookies.py",
+   "sha256": "25e2eb2c0ab6f8225414aaabb5782e887eba6fd5ceddc401d9222a550b83b9d7"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/rich/style.py",
+   "sha256": "c7b32b726c1a7453cdde97a9ad0245a7a9659296ed5d8729baf30a583a286913"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/urllib3/connectionpool.py",
+   "sha256": "d0b5bbc70ca4a651880ff58e766e5a8ad3172dfd7135d040a662cd55f4f568ae"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/src/pip/_vendor/urllib3/util/retry.py",
+   "sha256": "78cedb9a7ec9dc824eb5b164dbaf9dd0f1eb13450b10b4b790232db832a541cb"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/functional/test_install_config.py",
+   "sha256": "b1bdc2a664549d7c5f749663a4dfcb217a77df0b70a7569c0ced09633548aa7f"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/functional/test_install_release_control.py",
+   "sha256": "f4ad6409e56835738bca42c74a79540844132f27c24a71c1e32c9ff2f3295a0c"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/functional/test_install_report.py",
+   "sha256": "7b085cddfb0d0d3eb66c54db8c179cdb4ea17696d37d0f85e41d9177aa8ea862"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/functional/test_list.py",
+   "sha256": "32faa5289f90d6f94cc4dfac42b8327c08526231c993d5b68d5e4ec30b7acb85"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/unit/resolution_resolvelib/test_provider.py",
+   "sha256": "0cceb930cea983bdee2f155f6632adef9d4bbf70fd1c41c604500ae2a7db0bb1"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/unit/resolution_resolvelib/test_resolver.py",
+   "sha256": "93f0f22fda8802d319b7f0c8b3ed7af1d7d8d4223754ac45ccf59178a327100a"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/unit/test_command_install.py",
+   "sha256": "77afbd969b1f9f5d69fe958684a51142aee70fd757ea9a0f21d6e1add15df02f"
+  },
+  {
+   "path": "data/external/the_stack_python/pip/tests/unit/test_link.py",
+   "sha256": "bfc1145f57ddbe4061243396468594baa9fe62b205597b7b5ee31ddeaf5938cc"
+  }
+ ],
+ "tokenizer": {
+  "add_special_tokens": false,
+  "path": "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/sources/Ling-mini-2.0_a810f64/tokenizer.json",
+  "roundtrip": "decode(ids) == span for every item",
+  "sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d"
+ }
+}
