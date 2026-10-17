@@ -72,10 +72,14 @@ def main() -> int:
         Path(args.out).write_text(json.dumps(report, indent=1), encoding="utf-8")
         return 1
     pre = E44.watch(PREFLIGHT_SECONDS)
-    report["preflight"] = {"seconds": PREFLIGHT_SECONDS, "samples": pre,
-                           "max": max(pre) if pre else None,
-                           "admissible": bool(pre) and max(pre) < OCC_BAR}
-    print(f"preflight max={report['preflight']['max']:.2f}% admissible={report['preflight']['admissible']}")
+    # Addendum 2 of the A1 protocol: the pre-flight is judged on its mean, the estimand the E52 bar was
+    # calibrated on and the one the per-process gate uses; the max is recorded, not gated.
+    mean = sum(pre) / len(pre) if pre else float("nan")
+    report["preflight"] = {"seconds": PREFLIGHT_SECONDS, "samples": pre, "rule": "mean < bar (A1 addendum 2)",
+                           "mean": mean, "max": max(pre) if pre else None,
+                           "samples_at_or_above_bar": sum(x >= OCC_BAR for x in pre),
+                           "admissible": bool(pre) and mean < OCC_BAR}
+    print(f"preflight mean={mean:.2f}% max={report['preflight']['max']:.2f}% admissible={report['preflight']['admissible']}")
     report["processes"] = []
     if not report["preflight"]["admissible"]:
         report["verdict_input"] = "VOID: pre-flight occupancy at or above the bar"

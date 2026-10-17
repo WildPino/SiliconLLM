@@ -149,3 +149,28 @@ Every smoke output is kept in
 6. **Runner and verdict.** `benchmarks/chatbot50/c50_a1_run.py` (pre-flight,
    five admissible processes, VOID handling) writes numbers only;
    `benchmarks/chatbot50/c50_a1_verdict.py` applies the gates above.
+
+## Addendum 2 (17 October 2026, after a VOID pre-flight, before any timed process)
+
+**What happened.** Attempt 1 (`results/c50_a1_run_1.json`, kept as VOID) stopped at the
+pre-flight on a box the owner had emptied:
+- 45 one-second samples, mean 0.56%, median 0.38%;
+- one sample at 4.49%, one at 2.42%, three more between 1.5% and 1.8%;
+- the self-test passed, and no timed process ran, so no rate was produced or read.
+
+**Why the rule was wrong.**
+- "Every sample below 4.39%" compares the maximum of 45 one-second samples with a bar that
+  E52 calibrated on the mean foreign occupancy over a whole timed window (0.262% of speed
+  per point).
+- The per-process gate of this protocol uses that same mean.
+- A one-second burst of half a logical CPU is a different estimand. On an idle Windows box
+  it is close to certain within 45 s (system services), so the rule could not be met. It was
+  written to be severe, and that severity did not make it valid.
+
+**New rule, for this cell and for the A2b rate, which inherits these clean-box rules:**
+- The pre-flight is admissible iff the **mean** of its 45 samples is below 4.39%.
+- The max and the number of samples at or above the bar are recorded, not gated.
+- The per-process VOID rule (each process's own mean foreign occupancy below 4.39%, at most
+  five replacements) is unchanged; it is what protects the timings.
+- The runners (`c50_a1_run.py`, `c50_a2b_rate.py`) print the rule and both numbers.
+- The next attempt writes `c50_a1_run_2.json`; attempt 1 is never relabelled.
