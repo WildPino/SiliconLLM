@@ -7,6 +7,9 @@ The float32 preview is not priced (it only separates rank error from storage err
 
 Registered prediction (scored, not a gate): IVF with exact rerank reaches 0.999 at < 15 MB/token.
 
+--grid 1b applies the same rule to the part 1b report (every preview_1b configuration is priced) and adds the
+registered budget arithmetic: Ling-mini P4 = 461.0 - 23.8 (ledger head) + selected MB, against B = 530 MB.
+
 Usage:
     python -I benchmarks/chatbot50/c50_a5_select.py --report benchmarks/chatbot50/results/c50_a5_offline_fit.json \
         --out benchmarks/chatbot50/results/c50_a5_select_fit.json
@@ -25,8 +28,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--grid", choices=["1", "1b"], default="1")
     args = ap.parse_args()
     rep = json.loads(Path(args.report).read_text(encoding="utf-8"))
+    if args.grid == "1b":
+        return select_1b(rep, args)
     o = rep["oracle"]
     if o["q8k"]["argmax_agreement"] < 0.999 or o["q8k"]["lse_abs_err_median"] > 1e-4:
         raise SystemExit("oracle control not met in the report: VOID")
@@ -65,6 +71,29 @@ def main() -> int:
     }
     Path(args.out).write_text(json.dumps(out, indent=1), encoding="utf-8")
     print(json.dumps({k: out[k] for k in ("verdict", "selected", "prediction_ivf_under_15mb")}, indent=1))
+    return 0
+
+
+def select_1b(rep: dict, args) -> int:
+    if rep["oracle"]["q8k_rank_code_recall_at_1"] < 0.999:
+        raise SystemExit("oracle control not met in the report: VOID")
+    cands = [{"config": f"{key} K={k}", "recall": v["recall"], "mb_per_token": v["mb_per_token"], "candidates": int(k)}
+             for key, ks in rep["preview_1b"].items() for k, v in ks.items()]
+    ok = sorted((c for c in cands if c["recall"] >= RECALL), key=lambda c: (c["mb_per_token"], c["candidates"]))
+    sel = ok[0] if ok else None
+    p4 = 461.0 - 23.8 + sel["mb_per_token"] if sel else None
+    out = {"cell": "C50-A5 part 1b selection (FIT)", "report": args.report, "recall_threshold": RECALL,
+           "verdict": "SELECTED" if sel else "FAIL", "selected": sel,
+           "highest_recall_miss": None if sel else max(cands, key=lambda c: c["recall"]),
+           "qualifying_count": len(ok), "candidate_count": len(cands),
+           "per_family_cheapest": {key: next((c for c in ok if c["config"].startswith(key + " ")), None)
+                                   for key in rep["preview_1b"]},
+           "budget": {"ling_mini_p4_mb_per_token": p4, "B_mb": 530.0,
+                      "within_B": bool(p4 is not None and p4 <= 530.0)},
+           "prediction_selected_80_to_110_mb": {"predicted": True,
+                                               "observed": bool(sel and 80.0 <= sel["mb_per_token"] <= 110.0)}}
+    Path(args.out).write_text(json.dumps(out, indent=1), encoding="utf-8")
+    print(json.dumps({k: out[k] for k in ("verdict", "selected", "budget", "prediction_selected_80_to_110_mb")}, indent=1))
     return 0
 
 
