@@ -1,0 +1,32 @@
+{
+ "schema": "c50_holdout_ext_v1",
+ "base_manifest": "c50_holdout_v1",
+ "parts": {
+  "sel": {
+   "role": "FIT",
+   "ranks": [
+    49,
+    248
+   ],
+   "items": 600,
+   "tokens": 1344686,
+   "jsonl_sha256": "71187424d2b70320146684130d5abfa8882fbfaf430d9806b3050cbdd306feaf",
+   "ids_jsonl_sha256": "99c5647f60950f4acbc15aad94e13eacc599672cb6cb001d220b3ca1667d72a3",
+   "ids_tsv_sha256": "5003ca46f578a1194778c99d1422b728204b7fa17017411d84b11b69a03ca7be",
+   "proof_check": "regenerated FIT ranks 1-48 equal the committed item_sha256"
+  },
+  "devb": {
+   "role": "DEV",
+   "ranks": [
+    33,
+    44
+   ],
+   "items": 36,
+   "tokens": 80297,
+   "jsonl_sha256": "b18017d9a5753372e3a18f75baff713a9f8fc9c7ad23d78af711e5e7578ea879",
+   "ids_jsonl_sha256": "e3831cc2ce8609d597480c25ee18e7209416f8f7940bc50756bfd37ad4bc5881",
+   "ids_tsv_sha256": "0dd2ea3400fdfaf895b50980d83cf965636d3efd73187437077dd237c38e3c1d",
+   "proof_check": "regenerated DEV ranks 1-32 equal the committed item_sha256"
+  }
+ }
+}
