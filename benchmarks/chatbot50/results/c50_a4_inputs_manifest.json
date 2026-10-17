@@ -1,0 +1,69 @@
+{
+ "cell": "C50-A4 inputs",
+ "tokenizer_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+ "chat_template_sha256": "a503d55b21709d881b07ee2e9d8ce29505fa95d9f758379a9fc4ccc94272734a",
+ "stop_ids": [
+  156892,
+  156895
+ ],
+ "sources": {
+  "piqa_valid.jsonl": "93503cc97c679e459b065c3d13e848282e44b2a25213985bed3e5d458abef72d",
+  "piqa_valid-labels.lst": "b4192dc3a2a0363d9d60ccf79800cbbe2f32ebb17726efdde6970e0b8131bceb",
+  "gsm8k_test.parquet": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59",
+  "arc_challenge_test.parquet": "62f03257e737aed263f55c6abf87c7bb0028a44a6bdd2a26eb1279eb42c1d1e9",
+  "ifeval_input_data.jsonl": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2"
+ },
+ "args": {
+  "out": "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a4/inputs",
+  "docs_per_category": 24,
+  "gsm8k": 100,
+  "arc": 600,
+  "rollout_per_category": 24
+ },
+ "files": {
+  "docs": {
+   "tsv_sha256": "260114892abdba2ef0beefa4134afeda6a81ed14902b78fd85345ae782a5a60c",
+   "meta_sha256": "39145e96ab358877771f14336d6d770cb2d4ece3f799e24beea5c2237f13e60e",
+   "lines": 72,
+   "items": 72
+  },
+  "rollout": {
+   "tsv_sha256": "ad9955fddb35f796f08844f9923384e74bf2666475c2d886f4783481f9dcbc2c",
+   "meta_sha256": "8d77acdf233db6531059f1a800bf11329e9ce6901bc3d8887a5aaf0cdec14b3f",
+   "lines": 72,
+   "items": 72
+  },
+  "piqa": {
+   "tsv_sha256": "c4984711474edccca980199e764e45ebe1682e89d13e761a186ed051abd55e09",
+   "meta_sha256": "afba92f6de471a3947004ed8f498d7ee413626ec0402ff3b91cd1bce22e7784f",
+   "lines": 3676,
+   "items": 1838
+  },
+  "arc": {
+   "tsv_sha256": "c7eb5dddd21b69513155cf780127f87eae3261c1f13ff9e4f5aa00b88ec72766",
+   "meta_sha256": "73d726ac574ad99c667f4e744774bb45e19fa21eb90649e0f56cb8f049f675ca",
+   "lines": 2397,
+   "items": 600
+  },
+  "gsm8k": {
+   "tsv_sha256": "e88d4dd9b699229ac160223308f239ecf67a377534fe0f018e93fb61af32359a",
+   "meta_sha256": "d2220dcde7607e4a6b9a39319b35f3dadd19e6694f9aa3a97470c1a1fbea8f04",
+   "lines": 100,
+   "items": 100
+  },
+  "ifeval": {
+   "tsv_sha256": "5e08716df3ee3f2beaafb799474dbabf7bbcf6cfee6a974ff043443d1056c882",
+   "meta_sha256": "2fa408e7f107536ea6060364b5a1cd67335b41b197e3daf5f1f8c1559eea4f4a",
+   "lines": 173,
+   "items": 173
+  },
+  "chat": {
+   "tsv_sha256": "b01736a1bb75d6bc09e274b7cbd7358dc0790a4ebc0329c1abdfb7a15987d31e",
+   "meta_sha256": "f0ef08b8e176fc5060d08c227549032fa1286a99a31f466bae0a47136918bc13",
+   "lines": 40,
+   "items": 40
+  }
+ },
+ "chat_panel_sha256": "36d8229b760af703b5214b968d565f360b4682f22fc31e11f7aea3b3c5ef1797",
+ "chat_example_rendering": "<role>SYSTEM</role>detailed thinking off<|role_end|><role>HUMAN</role>EXAMPLE<|role_end|><role>ASSISTANT</role>"
+}

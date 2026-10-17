@@ -4,7 +4,7 @@ Panels (sizes are arguments; the A4 protocol fixes them):
   docs     FIT documents outside the imatrix sample: per category, items 25..24+N in role order
                                                            -> docs.tsv           (c50_llama_score)
   piqa     PIQA validation, original order, 2 options      -> piqa.tsv + meta     (c50_llama_score)
-  arc      ARC-Challenge test, original order, 3-5 options -> arc.tsv + meta      (c50_llama_score)
+  arc      ARC-Challenge test, first N in file order, 3-5 options -> arc.tsv + meta (c50_llama_score)
   gsm8k    GSM8K test, first N in file order, chat format  -> gsm8k.tsv + meta    (c50_llama_generate)
   ifeval   IFEval, single-instruction items of the checked types, file order, chat format
                                                            -> ifeval.tsv + meta   (c50_llama_generate)
@@ -23,7 +23,7 @@ a sandboxed Jinja environment, one user turn plus the generation prompt.
 
 Usage:
     python -I benchmarks/chatbot50/c50_a4_tasks.py --out E:/.../a4/inputs --docs-per-category 16 \
-        --gsm8k 100 --rollout-per-category 24
+        --gsm8k 100 --arc 600 --rollout-per-category 24
 """
 from __future__ import annotations
 
@@ -78,6 +78,7 @@ def main() -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--docs-per-category", type=int, required=True)
     ap.add_argument("--gsm8k", type=int, required=True)
+    ap.add_argument("--arc", type=int, required=True, help="first N ARC-Challenge test items, file order")
     ap.add_argument("--rollout-per-category", type=int, required=True)
     args = ap.parse_args()
     out = Path(args.out)
@@ -148,7 +149,7 @@ def main() -> int:
     write("piqa", lines, meta)
 
     # ARC-Challenge: prefix "Question: {q}\nAnswer:", suffix " {choice}"
-    arc = pq.read_table(PATHS["arc_challenge_test.parquet"]).to_pylist()
+    arc = pq.read_table(PATHS["arc_challenge_test.parquet"]).to_pylist()[: args.arc]
     lines, meta = [], []
     for i, a in enumerate(arc):
         pre = enc(f"Question: {a['question']}\nAnswer:")

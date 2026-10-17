@@ -215,8 +215,8 @@ def main() -> int:
     rows = gen_rows(arm, "rollout")
     items = []
     for m in meta(inputs, "rollout"):
-        r = rows[m["item"]]
-        items.append({"item": m["item"], "category": m["category"], **rollout_flags(r["gen"]),
+        r = rows[m["index"]]
+        items.append({"item": m["index"], "category": m["category"], **rollout_flags(r["gen"]),
                       "text": decode(tok, r["gen"])})
     res["rollout"] = {"items": items, "degenerate": sum(i["degenerate"] for i in items), "n": len(items)}
     print("rollout degenerate", res["rollout"]["degenerate"], "/", len(items))
