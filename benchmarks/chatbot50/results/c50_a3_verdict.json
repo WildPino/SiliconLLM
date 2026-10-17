@@ -1,0 +1,27 @@
+{
+ "run": "benchmarks/chatbot50/results/c50_a3_run.json",
+ "floor": "benchmarks/chatbot50/results/c50_a2b_floor.json",
+ "floor_dbpb": 0.002219625613555904,
+ "dbpb_ci95_reported": [
+  -0.0017673023201554255,
+  0.0026656861957396376
+ ],
+ "checks": {
+  "top1": {
+   "value": 0.03994234343587604,
+   "limit": 0.08200887607631908,
+   "pass": true
+  },
+  "mean_kl": {
+   "value": 0.014391014448716034,
+   "limit": 0.02987442038200635,
+   "pass": true
+  },
+  "abs_dbpb": {
+   "value": 0.0005121014980660528,
+   "limit": 0.004439251227111808,
+   "pass": true
+  }
+ },
+ "verdict": "PASS"
+}

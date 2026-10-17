@@ -17,3 +17,11 @@ llama.cpp Q8_0 ub512 vs Q8_0 ub1            0.0377 (6/159)  4.34e-3        -    
 llama.cpp BF16 ub512 vs BF16 ub1            0.0063 (1/159)  4.43e-3        -        -0.0119
 llama.cpp BF16 ub512 vs Q8_0 ub512          0.0440          9.83e-3        -        -0.0111
 Repeats with identical settings: bit-identical (llama.cpp ub512, ub1; ub2 == ub512 bit-identically).
+
+--- 2026-10-17, P0 artifact (Q4_K_M), timing-only smoke before the gate run (not evidence, not a rate)
+Purpose: project the gate run's wall time for the one-hour rule (rule 7). No comparison was computed.
+Same 159-position smoke document, --dump-logprobs, box not clean.
+  run 1 (model pages cold after the A2b dumps): DONE positions=159 wall_s=78.4
+  run 2 (warm):                                 DONE positions=159 wall_s=5.0
+Projection for 26,363 positions from run 2: ~14 min plus context growth, under the hour.
+CONFIG prints layer-0 types: qkv=Q6_K (Q4_K on the other 10 layers per the A2 result).

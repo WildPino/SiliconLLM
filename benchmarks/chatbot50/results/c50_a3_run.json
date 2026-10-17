@@ -1,0 +1,144 @@
+{
+ "cell": "C50-A3",
+ "exe_sha256": "d14ea9a5903557342763c5ebb7eb18897333c86a4484c24566b42c8627c9035d",
+ "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+ "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4",
+ "source_sha256": {
+  "c50_engine.c": "915b756d31a9fca87fff4a2438e5de0a1a066eff15373836a5e8115b3a5d528a",
+  "c50_gguf.h": "729ff47da205f50b1174a17ca23680bbe70c849c7b4e00eb83747ef03c18bd02",
+  "c50_kquants_a3.h": "0a0bbf2f0205eaebaee2b1fc13cb2c384b1c43c2dbc95e0af413c4adefe40f91",
+  "c50_kquants.h": "efc87ed3fc0ac2349a83df8baedee88404ac2a5da1341d8f67f24dc211a92b56"
+ },
+ "started": "2026-10-17T02:42:30",
+ "selftest": "selftest Q4_K: worst |avx2-generic| 2.43e-07, worst |generic-oracle| 1.71e-07 (bound 1e-5); planted detected 197/200\nselftest Q5_K: worst |avx2-generic| 3.22e-07, worst |generic-oracle| 2.05e-07 (bound 1e-5); planted detected 193/200\nselftest Q6_K: worst |avx2-generic| 2.63e-07, worst |generic-oracle| 1.90e-07 (bound 1e-5); planted detected 198/200\nselftest Q8_0: worst |avx2-generic| 1.34e-07, worst |generic-oracle| 1.09e-07 (bound 1e-5); planted detected 199/200\nselftest PASS\n",
+ "engine": {
+  "returncode": 0,
+  "wall_s": 1149.3548419475555,
+  "config": [
+   "CONFIG engine=c50_engine model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=12 positions=26363 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K]"
+  ],
+  "stdout_tail": [
+   "CONFIG engine=c50_engine model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=12 positions=26363 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K]",
+   "DONE positions=26363 wall_s=1147.7"
+  ],
+  "stderr_tail": ""
+ },
+ "pairs": {
+  "R3-ENGINE": {
+   "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R3",
+   "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\ENGINE",
+   "ref_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 1,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 2287.27,
+    "meta_repaired": true
+   },
+   "other_meta": {
+    "engine": "c50_engine",
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 1,
+    "ctx": 8192,
+    "flash_attn": "n/a",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 1147.686,
+    "types": "embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K",
+    "meta_repaired": true
+   },
+   "positions": 26363,
+   "documents": 12,
+   "scored_bytes": 98271.0,
+   "top1_disagreement": 0.03994234343587604,
+   "top1_disagreement_ci95": [
+    0.030700805299840962,
+    0.050121678505733916
+   ],
+   "bpb_ref": 0.7851106462708578,
+   "dbpb": 0.0005121014980660528,
+   "dbpb_ci95": [
+    -0.0017673023201554255,
+    0.0026656861957396376
+   ],
+   "max_abs_dlogp_target": 6.238906145095825,
+   "bit_identical_logp_target": false,
+   "mean_kl_nats": 0.014391014448716034,
+   "mean_kl_ci95": [
+    0.012029079234086632,
+    0.016943716514121795
+   ],
+   "p99_kl_nats": 0.1847648830905061,
+   "max_kl_nats": 3.960683164284144
+  },
+  "R0-ENGINE": {
+   "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0",
+   "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\ENGINE",
+   "ref_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 810.067,
+    "meta_repaired": true
+   },
+   "other_meta": {
+    "engine": "c50_engine",
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 1,
+    "ctx": 8192,
+    "flash_attn": "n/a",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 1147.686,
+    "types": "embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K",
+    "meta_repaired": true
+   },
+   "positions": 26363,
+   "documents": 12,
+   "scored_bytes": 98271.0,
+   "top1_disagreement": 0.040738914387588664,
+   "top1_disagreement_ci95": [
+    0.03154818536214839,
+    0.05068146303836065
+   ],
+   "bpb_ref": 0.7865475299310041,
+   "dbpb": -0.0009247821620803744,
+   "dbpb_ci95": [
+    -0.003582355113144728,
+    0.0016193400496712239
+   ],
+   "max_abs_dlogp_target": 6.029217541217803,
+   "bit_identical_logp_target": false,
+   "mean_kl_nats": 0.015098643939959393,
+   "mean_kl_ci95": [
+    0.012723095783008209,
+    0.01769633421924459
+   ],
+   "p99_kl_nats": 0.19369608817925046,
+   "max_kl_nats": 3.30674932380109
+  }
+ },
+ "status": "COMPLETE",
+ "finished": "2026-10-17T03:03:58"
+}
