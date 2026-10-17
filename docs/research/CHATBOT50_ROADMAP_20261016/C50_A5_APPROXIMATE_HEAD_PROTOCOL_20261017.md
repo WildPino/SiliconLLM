@@ -82,3 +82,37 @@ only to separate the rank error from the storage error.
   candidate set to contain the tokens a repetition penalty touches; the runtime
   adds those, and part 3 tests that.
 - FIT positions only. DEV is part 2.
+
+## Addendum 1 (17 October 2026): the oracle control was mis-specified; attempt 1 is VOID
+
+Pushed before attempt 2 runs. No preview or IVF statistic had been computed: attempt 1
+stopped at its first control.
+
+- **Attempt 1, kept:** `benchmarks/chatbot50/results/c50_a5_offline_fit_attempt1_VOID.log`.
+  The float32 oracle agreed with the engine top-1 on 0.98984 of 7,971 positions, with a
+  median |lse error| of 0.0288 nats (max 0.476). Both limits were missed, so the run was
+  VOID by its own rule.
+- **Diagnostic** (4,000 of those positions; it reads only the oracle quantities):
+
+  | Activation fed to the dequantized head | Argmax agreement | lse error, median | lse error, max |
+  | --- | --- | --- | --- |
+  | float32 state (registered oracle) | 0.99425 | 0.0317 | — |
+  | state quantized to Q8_K as ggml does (`quantize_row_q8_K_ref`) | 1.00000 | 1.98e-6 | 1.9e-5 |
+
+- **Reading:** the capture is correct. The engine's head multiplies a Q8_K-quantized
+  activation, and the registered limits assumed that this step would cost less than 1%
+  agreement and 1e-2 nats. It costs more than that. Emulating the step reproduces the
+  engine to float rounding.
+- **Change (control only):**
+  - The oracle becomes "Q8_K-emulated state × gguf-py dequantized head", with strict
+    limits: agreement ≥ 0.999 and median |lse error| ≤ 1e-4. The float32 oracle is
+    still reported beside it.
+  - The rank-code control uses the same Q8_K oracle.
+- **What does not change:** the candidates, the byte prices, the ground truth (the
+  engine top-1) and the selection rule. The preview and IVF candidates still score the
+  float32 state, as the runtime would see it before its own exact rerank.
+- **One consequence, stated before reading:** part of the float32-versus-engine
+  disagreement (about 0.6% of positions) is near-ties that the Q8_K step flips. An
+  approximate head whose candidate set is reranked by the engine's own kernel recovers
+  those positions whenever the engine top-1 is among the candidates. Recall is counted
+  against the engine top-1, so the runtime's rerank sees exactly what is counted.

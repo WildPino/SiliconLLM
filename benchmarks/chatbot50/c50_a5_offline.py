@@ -65,6 +65,18 @@ def q4_sim(a: np.ndarray) -> np.ndarray:
     return (np.clip(np.round(g / s), -8, 7) * s).reshape(a.shape).astype(np.float32)
 
 
+def q8k(x: np.ndarray) -> np.ndarray:
+    """ggml quantize_row_q8_K_ref then dequantize: per 256 values, iscale = -127 / (the signed value of
+    largest magnitude), q = min(127, round-half-even(iscale * x)), d = 1 / iscale (float32 throughout).
+    The engine multiplies the head with this activation (A5 addendum 1)."""
+    g = x.reshape(len(x), -1, 256).astype(np.float32)
+    mx = np.take_along_axis(g, np.abs(g).argmax(axis=2)[..., None], axis=2)
+    mx[mx == 0] = 1.0
+    iscale = (np.float32(-127.0) / mx).astype(np.float32)
+    q = np.minimum(127, np.rint(iscale * g)).astype(np.float32)
+    return (q * (np.float32(1.0) / iscale)).reshape(x.shape).astype(np.float32)
+
+
 def ranks_of_top1(scores_fn, h: np.ndarray, top1: np.ndarray, chunk: int = 256) -> np.ndarray:
     out = np.empty(len(h), dtype=np.int64)
     for s in range(0, len(h), chunk):
@@ -112,20 +124,24 @@ def main() -> int:
               "exact_head_mb_per_token": V * D * 6.5625 / 8 / 1e6}
 
     sub = np.arange(0, len(h), 10)
-    agree, lse_err = 0, []
-    for s in range(0, len(sub), 256):
-        idx = sub[s:s + 256]
-        lg = h[idx] @ w.T
-        agree += int((lg.argmax(axis=1) == top1[idx]).sum())
-        m = lg.max(axis=1, keepdims=True)
-        lse = (m[:, 0] + np.log(np.exp(lg - m).sum(axis=1))).astype(np.float64)
-        lse_err.extend(np.abs(lse - rec["lse"][idx]).tolist())
-    report["oracle"] = {"positions": int(len(sub)), "argmax_agreement": agree / len(sub),
-                        "lse_abs_err_median": float(np.median(lse_err)), "lse_abs_err_max": float(np.max(lse_err))}
-    if report["oracle"]["argmax_agreement"] < 0.99 or report["oracle"]["lse_abs_err_median"] > 1e-2:
+    report["oracle"] = {"positions": int(len(sub))}
+    for act, f in (("q8k", q8k), ("f32", lambda x: x)):  # q8k is the control; f32 is reported beside it
+        agree, lse_err = 0, []
+        for s in range(0, len(sub), 256):
+            idx = sub[s:s + 256]
+            lg = f(h[idx]) @ w.T
+            agree += int((lg.argmax(axis=1) == top1[idx]).sum())
+            m = lg.max(axis=1, keepdims=True)
+            lse = (m[:, 0] + np.log(np.exp(lg - m).sum(axis=1))).astype(np.float64)
+            lse_err.extend(np.abs(lse - rec["lse"][idx]).tolist())
+        report["oracle"][act] = {"argmax_agreement": agree / len(sub), "lse_abs_err_median": float(np.median(lse_err)),
+                                 "lse_abs_err_max": float(np.max(lse_err))}
+    o = report["oracle"]["q8k"]
+    if o["argmax_agreement"] < 0.999 or o["lse_abs_err_median"] > 1e-4:
         raise SystemExit(f"oracle control failed: {report['oracle']}: VOID")
+    report["oracle"]["argmax_agreement"] = o["argmax_agreement"]
     # control of the rank code: through ranks_of_top1, the full head must reproduce the oracle agreement
-    rk_full = ranks_of_top1(lambda x: x @ w.T, h[sub], top1[sub])
+    rk_full = ranks_of_top1(lambda x: q8k(x) @ w.T, h[sub], top1[sub])
     report["oracle"]["rank_code_recall_at_1_full_head"] = float((rk_full == 0).mean())
     # rank 0 = no logit strictly above the engine top-1; argmax = first maximum: they differ only on exact ties
     if abs(report["oracle"]["rank_code_recall_at_1_full_head"] - report["oracle"]["argmax_agreement"]) * len(sub) > 2:
