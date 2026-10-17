@@ -17,7 +17,7 @@
  *   logits = Wout (rmsnorm(x) * output_norm)
  * Matrix x vector products quantize the activation the way llama.cpp's CPU backend does
  * (Q8_K for k-quants, Q8_0 for Q8_0) and use AVX2 dot kernels transcribed from it.
- * Attention, norms, router and RoPE run in F32; the KV cache is F16.
+ * Attention, norms, router and RoPE run in F32 (the router optionally on BF16 rows); the KV cache is F16.
  *
  * Modes:
  *   --selftest                                      kernel and dequantizer unit test (no model)
@@ -34,6 +34,15 @@
  *                             routed and shared experts then run as separate jobs.  The output is
  *                             byte-identical: every dot and every sum is computed in the same order.
  * The bench line also reports the process's peak working set and peak commit.
+ * S1 options (default off; printed on the CONFIG line):
+ *   the expert count E is read from the header (T0: 256).  An expanded GGUF (c50_s1_expand.py)
+ *   keeps 8 groups of E/8 experts; slot g*(E/8) + 32k + j holds copy k of T0's expert 32g + j.
+ *   --router f32|bf16         the router as stored (F32), or converted at load time to BF16; the
+ *                             load exits 5 if any value is not exactly representable.  The BF16 dot
+ *                             expands to F32 in the F32 kernel's order, so the logits are identical.
+ *   --hash-copies             arm H: the router reads only T0's 256 rows (copy 0 of each group)
+ *                             and selects as T0 does; each selected expert then goes to one of its
+ *                             byte-identical copies by a fixed hash of (layer, position, expert).
  * Build:
  *   clang -O2 -mavx2 -mfma -mf16c -o bin/c50_engine.exe c50_engine.c
  */
@@ -54,7 +63,8 @@
 #define NKV 4U
 #define HD 128U
 #define ROT 64U
-#define NE 256U
+#define NE0 256U        /* T0's expert count; the GGUF's own count is g_ne */
+#define MAXNE 4096U
 #define NU 8U
 #define NG 8U
 #define TG 4U
@@ -65,6 +75,10 @@
 #define MAXCTX 8192U
 #define QKV_ROWS ((NH + 2 * NKV) * HD)
 #define MAXSEG 20
+#define GE0 (NE0 / NG)  /* experts per group in T0 */
+
+static unsigned g_ne = NE0;   /* S1: experts in the GGUF */
+static int g_rbf16, g_hash;   /* S1: BF16 router; hashed copies (arm H) */
 
 /* ------------------------------------------------------------------ weights -- */
 typedef struct { uint32_t type; unsigned cols; uint64_t rows; size_t rb; const uint8_t *data; } wt;
@@ -90,7 +104,9 @@ static const float *f32_get(const gguf *g, const char *name, uint64_t n) {
 typedef struct {
     wt qkv, o, gate, up, down;               /* gate/up/down: dense (layer 0) or routed experts */
     wt sgate, sup, sdown;                    /* shared expert */
+    wt rt;                                   /* router as read: F32 rows, or their BF16 copy */
     const float *attn_norm, *ffn_norm, *qn, *kn, *router, *bias;
+    float *hbias;                            /* arm H: the bias of copy 0, in T0's expert order */
 } layer_t;
 
 typedef struct { gguf g; wt embd, out; const float *out_norm; layer_t l[NL]; } model_t;
@@ -107,7 +123,7 @@ static int needs_q80(uint32_t type) { return type == GT_Q8_0; }
 
 /* make the representation `type` consumes available in a (from a->f) */
 static void act_prepare(act_t *a, uint32_t type, unsigned n) {
-    if (type == GT_F32) return;
+    if (type == GT_F32 || type == GT_BF16) return;
     if (needs_q80(type)) {
         if (!a->has_z) { c50_quantize_row_q8_0(a->f, a->z, n); a->has_z = 1; }
     } else if (!a->has_k) {
@@ -133,6 +149,16 @@ static float dot_row(uint32_t type, const uint8_t *row, const act_t *a, unsigned
         __m256 s = _mm256_setzero_ps();
         unsigned k;
         for (k = 0; k < cols; k += 8) s = _mm256_fmadd_ps(_mm256_loadu_ps(w + k), _mm256_loadu_ps(a->f + k), s);
+        return c50_hsum_float_8(s);
+    }
+    case GT_BF16: {   /* S1: the F32 chain on BF16 rows expanded exactly to F32 */
+        const uint16_t *w = (const uint16_t *)row;
+        __m256 s = _mm256_setzero_ps();
+        unsigned k;
+        for (k = 0; k < cols; k += 8) {
+            const __m256 wf = _mm256_castsi256_ps(_mm256_slli_epi32(_mm256_cvtepu16_epi32(_mm_loadu_si128((const __m128i *)(w + k))), 16));
+            s = _mm256_fmadd_ps(wf, _mm256_loadu_ps(a->f + k), s);
+        }
         return c50_hsum_float_8(s);
     }
     default: fprintf(stderr, "unsupported weight type %u\n", type); exit(2);
@@ -359,13 +385,13 @@ static void rope(float *v) {
     }
 }
 
-static void route(const float *logits, const float *bias, unsigned *sel, float *w, float scale) {
-    float sc[NE], bs[NE], gs[NG], sum = 0.0f;
+static void route(const float *logits, const float *bias, unsigned *sel, float *w, float scale, unsigned ne) {
+    float sc[MAXNE], bs[MAXNE], gs[NG], sum = 0.0f;
     unsigned keep[NG] = {0}, g, e, k, i;
-    for (e = 0; e < NE; ++e) { sc[e] = 1.0f / (1.0f + expf(-logits[e])); bs[e] = sc[e] + bias[e]; }
+    for (e = 0; e < ne; ++e) { sc[e] = 1.0f / (1.0f + expf(-logits[e])); bs[e] = sc[e] + bias[e]; }
     for (g = 0; g < NG; ++g) {
         float a = -INFINITY, b = -INFINITY;
-        for (e = g * (NE / NG); e < (g + 1) * (NE / NG); ++e) {
+        for (e = g * (ne / NG); e < (g + 1) * (ne / NG); ++e) {
             if (bs[e] > a) { b = a; a = bs[e]; } else if (bs[e] > b) b = bs[e];
         }
         gs[g] = a + b;
@@ -377,9 +403,9 @@ static void route(const float *logits, const float *bias, unsigned *sel, float *
     }
     for (k = 0; k < NU; ++k) {
         unsigned best = 0; float bv = -INFINITY;
-        for (e = 0; e < NE; ++e) {
+        for (e = 0; e < ne; ++e) {
             int taken = 0;
-            if (!keep[e / (NE / NG)]) continue;
+            if (!keep[e / (ne / NG)]) continue;
             for (i = 0; i < k; ++i) taken |= sel[i] == e;
             if (!taken && bs[e] > bv) { bv = bs[e]; best = e; }
         }
@@ -390,9 +416,21 @@ static void route(const float *logits, const float *bias, unsigned *sel, float *
     for (k = 0; k < NU; ++k) w[k] = w[k] / sum * scale;
 }
 
+/* S1 arm H: the slot of one of T0 expert e's byte-identical copies, by splitmix64 of (layer, position, e) */
+static unsigned copy_slot(unsigned l, unsigned pos, unsigned e) {
+    const unsigned G = g_ne / NG, g = e / GE0, j = e % GE0, nc = (G - 1 - j) / GE0 + 1;
+    uint64_t z = ((uint64_t)l << 48) ^ ((uint64_t)pos << 16) ^ e;
+    z += 0x9E3779B97F4A7C15ULL;
+    z = (z ^ (z >> 30)) * 0xBF58476D1CE4E5B9ULL;
+    z = (z ^ (z >> 27)) * 0x94D049BB133111EBULL;
+    z ^= z >> 31;
+    return g * G + GE0 * (unsigned)(z % nc) + j;
+}
+
 /* ------------------------------------------------------------------ state -- */
 typedef struct {
-    float x[D], h[D], qkv[QKV_ROWS], ao[D], tmp[D], logits_r[NE];
+    float x[D], h[D], qkv[QKV_ROWS], ao[D], tmp[D], logits_r[MAXNE];
+    unsigned last_sel[NL][NU];    /* S1: the expert slots each MoE layer selected for the last token */
     float gu[MAXSEG * FFE > 2 * FFD ? MAXSEG * FFE : 2 * FFD];   /* gate/up outputs */
     float y[(NU + 1) * D];                                       /* expert down outputs */
     act_t xa, ea[NU + 1];
@@ -471,8 +509,19 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
         } else {
             unsigned sel[NU];
             float w[NU];
-            matvec(&(wt){GT_F32, D, NE, 4 * D, (const uint8_t *)L->router}, &st->xa, st->logits_r, NE);
-            route(st->logits_r, L->bias, sel, w, st->wscale);
+            if (!g_hash) {
+                matvec(&L->rt, &st->xa, st->logits_r, g_ne);
+                route(st->logits_r, L->bias, sel, w, st->wscale, g_ne);
+            } else {   /* S1 arm H: T0's rows are copy 0 of each group, GE0 contiguous rows per group */
+                mv_job mr;
+                memset(&mr, 0, sizeof mr);
+                mr.rows_per_seg = GE0; mr.nseg = NG; mr.cols = D; mr.out = st->logits_r;
+                for (e = 0; e < NG; ++e) { mr.w[e] = &L->rt; mr.r0[e] = (uint64_t)e * (g_ne / NG); mr.act[e] = &st->xa; }
+                run(mv_worker, &mr);
+                route(st->logits_r, L->hbias, sel, w, st->wscale, NE0);
+                for (e = 0; e < NU; ++e) sel[e] = copy_slot(l, pos, sel[e]);
+            }
+            memcpy(st->last_sel[l], sel, sizeof sel);
             lap(O_ROUTER);
             act_prepare(&st->xa, L->gate.type, D);
             act_prepare(&st->xa, L->up.type, D);
@@ -554,7 +603,7 @@ static void organ_bytes(const model_t *md, unsigned pos, double *b) {
         b[O_KV] += 2.0 * (pos + 1) * NKV * HD * sizeof(uint16_t);
         if (l == 0) b[O_DENSE] += (double)(L->gate.rb + L->up.rb) * FFD + (double)L->down.rb * D;
         else {
-            b[O_ROUTER] += (double)NE * D * sizeof(float);
+            b[O_ROUTER] += (double)L->rt.rb * (g_hash ? NE0 : g_ne);
             b[O_ROUTED] += NU * ((double)(L->gate.rb + L->up.rb) * FFE + (double)L->down.rb * D);
             b[O_SHARED] += (double)(L->sgate.rb + L->sup.rb) * FFE + (double)L->sdown.rb * D;
         }
@@ -620,13 +669,18 @@ static void load_model(model_t *md, const char *path) {
     if (gguf_u(g, "bailingmoe2.block_count") != NL || gguf_u(g, "bailingmoe2.embedding_length") != D ||
         gguf_u(g, "bailingmoe2.attention.head_count") != NH || gguf_u(g, "bailingmoe2.attention.head_count_kv") != NKV ||
         gguf_u(g, "bailingmoe2.attention.key_length") != HD || gguf_u(g, "bailingmoe2.rope.dimension_count") != ROT ||
-        gguf_u(g, "bailingmoe2.expert_count") != NE || gguf_u(g, "bailingmoe2.expert_used_count") != NU ||
+        gguf_u(g, "bailingmoe2.expert_used_count") != NU ||
         gguf_u(g, "bailingmoe2.expert_group_count") != NG || gguf_u(g, "bailingmoe2.expert_group_used_count") != TG ||
         gguf_u(g, "bailingmoe2.expert_feed_forward_length") != FFE || gguf_u(g, "bailingmoe2.feed_forward_length") != FFD ||
         gguf_u(g, "bailingmoe2.leading_dense_block_count") != 1 || gguf_u(g, "bailingmoe2.expert_shared_count") != 1 ||
         gguf_u(g, "bailingmoe2.expert_gating_func") != 2 || gguf_u(g, "bailingmoe2.expert_weights_norm") != 1 ||
         gguf_u(g, "bailingmoe2.vocab_size") != VOCAB) {
         fprintf(stderr, "GGUF hyper-parameters differ from the compiled Ling-mini-2.0 shape\n");
+        exit(2);
+    }
+    g_ne = (unsigned)gguf_u(g, "bailingmoe2.expert_count");
+    if (g_ne % NG || g_ne / NG < GE0 || g_ne > MAXNE) {
+        fprintf(stderr, "expert count %u: must be a multiple of %u, at least %u and at most %u\n", g_ne, NG, NE0, MAXNE);
         exit(2);
     }
     md->embd = wt_get(g, "token_embd.weight", D);
@@ -652,8 +706,29 @@ static void load_model(model_t *md, const char *path) {
             L->sgate = wt_get(g, NM("ffn_gate_shexp.weight"), D);
             L->sup = wt_get(g, NM("ffn_up_shexp.weight"), D);
             L->sdown = wt_get(g, NM("ffn_down_shexp.weight"), FFE);
-            L->router = f32_get(g, NM("ffn_gate_inp.weight"), (uint64_t)NE * D);
-            L->bias = f32_get(g, NM("exp_probs_b.bias"), NE);
+            L->router = f32_get(g, NM("ffn_gate_inp.weight"), (uint64_t)g_ne * D);
+            L->bias = f32_get(g, NM("exp_probs_b.bias"), g_ne);
+            L->rt = (wt){GT_F32, D, g_ne, 4 * D, (const uint8_t *)L->router};
+            if (g_rbf16) {   /* S1: BF16 copy of the router; every value must be exactly representable */
+                const uint64_t n = (uint64_t)g_ne * D;
+                const uint32_t *src = (const uint32_t *)L->router;
+                uint16_t *dst = VirtualAlloc(NULL, (SIZE_T)(n * 2), MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+                uint64_t i;
+                if (!dst || (g_mem && !VirtualLock(dst, (SIZE_T)(n * 2)))) { fprintf(stderr, "BF16 router allocation failed\n"); exit(4); }
+                for (i = 0; i < n; ++i) {
+                    if (src[i] & 0xFFFFU) {
+                        fprintf(stderr, "router of layer %u: value %llu is not exactly representable in BF16\n", l, (unsigned long long)i);
+                        exit(5);
+                    }
+                    dst[i] = (uint16_t)(src[i] >> 16);
+                }
+                L->rt = (wt){GT_BF16, D, g_ne, 2 * D, (const uint8_t *)dst};
+            }
+            if (g_hash) {   /* S1 arm H: copy 0 of T0 expert 32g + j sits at slot g * (E/8) + j */
+                unsigned e;
+                L->hbias = malloc(sizeof(float) * NE0);
+                for (e = 0; e < NE0; ++e) L->hbias[e] = L->bias[(e / GE0) * (g_ne / NG) + e % GE0];
+            }
         }
 #undef NM
     }
@@ -786,11 +861,13 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
     double *t = malloc(sizeof(double) * nsteps), t_pre, med, sum_t = 0, ob[NORG], bytes[NORG] = {0};
     PROCESS_MEMORY_COUNTERS pmc;
     int k;
+    unsigned *cnt = calloc((size_t)NL * g_ne, sizeof(unsigned)), l, e, distinct = 0, copy0 = 0;   /* S1 selection spread */
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
         if (n < ctx + nsteps) continue;
         printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%d,%d,%d,%d,%d,%d "
-               "kv=f16 types=[%s] mem=%s prio=%s organs=%d plant=%s\n", model_path, doc, ctx, nsteps, NT, g_cpu[0], g_cpu[1],
-               g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5], types, g_mem_name[g_mem], g_prio ? "high" : "normal", g_organs,
+               "kv=f16 types=[%s] mem=%s prio=%s organs=%d experts=%u router=%s hash=%d plant=%s\n", model_path, doc, ctx, nsteps,
+               NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5], types, g_mem_name[g_mem],
+               g_prio ? "high" : "normal", g_organs, g_ne, g_rbf16 ? "bf16" : "f32", g_hash,
 #ifdef C50_PLANT_HEAD_TWICE
                "head_twice"
 #else
@@ -809,7 +886,13 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
             sum_t += t[p];
             organ_bytes(md, ctx + p, ob);
             for (k = 0; k < NORG; ++k) bytes[k] += ob[k] / nsteps;
+            for (l = 1; l < NL; ++l) for (k = 0; k < (int)NU; ++k) ++cnt[(size_t)l * g_ne + st->last_sel[l][k]];
         }
+        for (l = 1; l < NL; ++l)
+            for (e = 0; e < g_ne; ++e) {
+                distinct += cnt[(size_t)l * g_ne + e] > 0;
+                if (e % (g_ne / NG) < GE0) copy0 += cnt[(size_t)l * g_ne + e];
+            }
         qsort(t, nsteps, sizeof *t, cmpd);
         med = nsteps % 2 ? t[nsteps / 2] : 0.5 * (t[nsteps / 2 - 1] + t[nsteps / 2]);
         memset(&pmc, 0, sizeof pmc);
@@ -818,6 +901,9 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
                "\"max_step_s\":%.6f,\"median_tok_s\":%.3f,\"mean_step_s\":%.6f,\"peak_working_set_bytes\":%llu,"
                "\"peak_commit_bytes\":%llu,\"organs\":%d", ctx, nsteps, t_pre, med, t[0], t[nsteps - 1], 1.0 / med,
                sum_t / nsteps, (unsigned long long)pmc.PeakWorkingSetSize, (unsigned long long)pmc.PeakPagefileUsage, g_organs);
+        /* S1: the share of the pool's (layer, slot) pairs selected at least once, and of selections on copy 0 */
+        printf(",\"experts\":%u,\"sel_distinct_frac\":%.5f,\"sel_copy0_frac\":%.5f", g_ne,
+               (double)distinct / ((NL - 1) * g_ne), (double)copy0 / ((double)(NL - 1) * NU * nsteps));
         printf(",\"organ_bytes\":{");   /* the mean bytes each organ streams per timed token */
         for (k = 0; k < NORG; ++k) printf("%s\"%s\":%.0f", k ? "," : "", g_org_name[k], bytes[k]);
         printf("}");
@@ -863,6 +949,12 @@ int main(int argc, char **argv) {
             if (g_prio < 0) { fprintf(stderr, "--prio must be normal or high\n"); return 2; }
         }
         else if (!strcmp(argv[i], "--organs")) g_organs = 1;
+        else if (!strcmp(argv[i], "--hash-copies")) g_hash = 1;
+        else if (!strcmp(argv[i], "--router") && i + 1 < argc) {
+            ++i;
+            g_rbf16 = !strcmp(argv[i], "f32") ? 0 : !strcmp(argv[i], "bf16") ? 1 : -1;
+            if (g_rbf16 < 0) { fprintf(stderr, "--router must be f32 or bf16\n"); return 2; }
+        }
         else if (!strcmp(argv[i], "--selftest")) return selftest();
         else if (!strcmp(argv[i], "--bench") && i + 1 < argc) bench_path = argv[++i];
         else if (!strcmp(argv[i], "--ctx") && i + 1 < argc) bench_ctx = (unsigned)atoi(argv[++i]);
@@ -872,7 +964,8 @@ int main(int argc, char **argv) {
     if (!model_path || (!bench_path && (!ids_path || !out)) || bench_ctx + bench_n > MAXCTX || !bench_n) {
         fprintf(stderr, "usage: c50_engine --model GGUF --score IDS.tsv --out PREFIX [--dump-logprobs]\n"
                         "       c50_engine --model GGUF --bench IDS.tsv [--ctx 2048] [--steps 128]\n"
-                        "       options: [--mem map|private|large] [--prio normal|high] [--organs]\n");
+                        "       options: [--mem map|private|large] [--prio normal|high] [--organs]\n"
+                        "                [--router f32|bf16] [--hash-copies]\n");
         return 2;
     }
     if (g_prio && !SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS)) { fprintf(stderr, "priority change failed\n"); return 4; }
@@ -909,9 +1002,11 @@ int main(int argc, char **argv) {
     }
     rewind(fi);
     printf("CONFIG engine=c50_engine model=%s docs=%u positions=%zu threads=%d cores=%d,%d,%d,%d,%d,%d kv=f16 "
-           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s] mem=%s prio=%s organs=%d\n",
+           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s] mem=%s prio=%s organs=%d "
+           "experts=%u router=%s hash=%d\n",
            model_path, docs, positions, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5],
-           st->eps, st->rope_base, st->wscale, dump, hidden, types, g_mem_name[g_mem], g_prio ? "high" : "normal", g_organs);
+           st->eps, st->rope_base, st->wscale, dump, hidden, types, g_mem_name[g_mem], g_prio ? "high" : "normal", g_organs,
+           g_ne, g_rbf16 ? "bf16" : "f32", g_hash);
     fflush(stdout);
     snprintf(path, sizeof path, "%s.pos.bin", out);
     fpos = fopen(path, "wb");
