@@ -91,3 +91,14 @@ waits (`_mm_pause`), with no sleep. Two causes remain plausible, neither yet mea
 - **One box, one artifact.** The gate's scope is this 3600X and P0; another artifact needs its
   own check in A7.
 - **Not a rate gate:** stability is a precondition of A7.
+
+## Addendum 1 (17 October 2026, before any A1b process)
+
+- **Why:** S0 extends `c50_engine.c`, which this runner hashed next to the pinned binary. The
+  recorded source hash would then no longer have matched the binary.
+- **The fix:** the A1b source is frozen as `benchmarks/chatbot50/c50_engine_a1b.c`. It is a byte
+  copy of the 7ab2048 `c50_engine.c` (sha256 `f874031b…`).
+- **The runner now:** records the hash of that copy, and refuses to run unless
+  `bin/c50_engine_a1b.exe` is the pinned `6cbafb90…`.
+- **Unchanged:** the arms, order, gate and verdict script.
+- **Details:** in the [S0 protocol](C50_S0_V0_PROTOCOL_20261017.md).

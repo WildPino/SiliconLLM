@@ -28,11 +28,18 @@
  *   --mem map|private|large   weights read from the file mapping (default), copied into private
  *                             memory locked in the working set, or copied onto large pages
  *   --prio normal|high        process priority class
+ * S0 option (default off; printed on the CONFIG line):
+ *   --organs                  times each organ per token (attention, kv, dense, router, routed,
+ *                             shared, head, other) by laps of one clock on the main thread; the
+ *                             routed and shared experts then run as separate jobs.  The output is
+ *                             byte-identical: every dot and every sum is computed in the same order.
+ * The bench line also reports the process's peak working set and peak commit.
  * Build:
  *   clang -O2 -mavx2 -mfma -mf16c -o bin/c50_engine.exe c50_engine.c
  */
 #define _WIN32_WINNT 0x0A00
 #include <windows.h>
+#include <psapi.h>
 
 #include <math.h>
 #include <stdio.h>
@@ -211,6 +218,15 @@ static double now_s(void) {
     if (!f.QuadPart) QueryPerformanceFrequency(&f);
     QueryPerformanceCounter(&c);
     return (double)c.QuadPart / (double)f.QuadPart;
+}
+
+/* S0 organ clock: lap(k) charges the time since the previous lap to organ k. */
+enum { O_ATTN, O_KV, O_DENSE, O_ROUTER, O_ROUTED, O_SHARED, O_HEAD, O_OTHER, NORG };
+static const char *const g_org_name[NORG] = {"attention", "kv", "dense", "router", "routed", "shared", "head", "other"};
+static int g_organs;
+static double g_ot[NORG], g_olast;
+static void lap(int k) {
+    if (g_organs) { double t = now_s(); g_ot[k] += t - g_olast; g_olast = t; }
 }
 
 /* -------------------------------------------------------------- matvec job -- */
@@ -402,8 +418,10 @@ static void swiglu_worker(int tid, void *p) {
 static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
     unsigned l, h, i, e;
     float *x = st->x;
+    if (g_organs) g_olast = now_s();
     dequant_row(&md->embd, (uint64_t)token, x);
     rope_table(pos, st->rope_base);
+    lap(O_OTHER);
     for (l = 0; l < NL; ++l) {
         const layer_t *L = &md->l[l];
         uint16_t *kc = st->kc + (size_t)l * MAXCTX * NKV * HD, *vc = st->vc + (size_t)l * MAXCTX * NKV * HD;
@@ -418,6 +436,7 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
             rmsnorm_w(v, v, h < NH ? L->qn : L->kn, HD, st->eps);
             rope(v);
         }
+        lap(O_ATTN);
         for (i = 0; i < NKV * HD; ++i) {
             kc[(size_t)pos * NKV * HD + i] = _cvtss_sh(st->qkv[NH * HD + i], 0);
             vc[(size_t)pos * NKV * HD + i] = _cvtss_sh(st->qkv[(NH + NKV) * HD + i], 0);
@@ -425,13 +444,16 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
         st->att.q = st->qkv; st->att.kc = kc; st->att.vc = vc; st->att.npos = pos + 1; st->att.out = st->ao;
         run(att_worker, &st->att);
         att_combine(&st->att);
+        lap(O_KV);
         act_set(&st->xa, st->ao, D);
         matvec(&L->o, &st->xa, st->tmp, D);
         for (i = 0; i < D; ++i) x[i] += st->tmp[i];
+        lap(O_ATTN);
         /* FFN */
         rmsnorm_w(st->h, x, L->ffn_norm, D, st->eps);
         act_set(&st->xa, st->h, D);
         memset(&m, 0, sizeof m);
+        lap(O_OTHER);
         if (l == 0) {
             act_prepare(&st->xa, L->gate.type, D);
             act_prepare(&st->xa, L->up.type, D);
@@ -445,15 +467,18 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
             m.rows_per_seg = D; m.nseg = 1; m.cols = FFD; m.w[0] = &L->down; m.act[0] = &st->ea[0]; m.out = st->tmp;
             run(mv_worker, &m);
             for (i = 0; i < D; ++i) x[i] += st->tmp[i];
+            lap(O_DENSE);
         } else {
             unsigned sel[NU];
             float w[NU];
             matvec(&(wt){GT_F32, D, NE, 4 * D, (const uint8_t *)L->router}, &st->xa, st->logits_r, NE);
             route(st->logits_r, L->bias, sel, w, st->wscale);
+            lap(O_ROUTER);
             act_prepare(&st->xa, L->gate.type, D);
             act_prepare(&st->xa, L->up.type, D);
             act_prepare(&st->xa, L->sgate.type, D);
             act_prepare(&st->xa, L->sup.type, D);
+            lap(O_OTHER);
             /* gate/up: segment 2e = gate of expert e, 2e+1 = up; 2NU, 2NU+1 = shared */
             m.rows_per_seg = FFE; m.nseg = 2 * (NU + 1); m.cols = D; m.out = st->gu;
             for (e = 0; e < NU; ++e) {
@@ -461,26 +486,79 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
                 m.w[2 * e + 1] = &L->up; m.r0[2 * e + 1] = (uint64_t)sel[e] * FFE; m.act[2 * e + 1] = &st->xa;
             }
             m.w[2 * NU] = &L->sgate; m.w[2 * NU + 1] = &L->sup; m.act[2 * NU] = m.act[2 * NU + 1] = &st->xa;
-            run(mv_worker, &m);
-            sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = NU + 1;
-            run(swiglu_worker, &sj);
-            for (e = 0; e < NU; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
-            act_prepare(&st->ea[NU], L->sdown.type, FFE);
+            if (!g_organs) {
+                run(mv_worker, &m);
+                sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = NU + 1;
+                run(swiglu_worker, &sj);
+                for (e = 0; e < NU; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
+                act_prepare(&st->ea[NU], L->sdown.type, FFE);
+            } else {   /* S0: the same rows in two jobs, routed (segments 0..2NU-1) then shared */
+                mv_job ms = m;
+                m.nseg = 2 * NU;
+                run(mv_worker, &m);
+                sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = NU;
+                run(swiglu_worker, &sj);
+                for (e = 0; e < NU; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
+                lap(O_ROUTED);
+                ms.nseg = 2; ms.out = st->gu + (size_t)2 * NU * FFE;
+                ms.w[0] = ms.w[2 * NU]; ms.w[1] = ms.w[2 * NU + 1]; ms.r0[0] = ms.r0[1] = 0;
+                ms.act[0] = ms.act[1] = &st->xa;
+                run(mv_worker, &ms);
+                sj.gu = st->gu + (size_t)2 * NU * FFE; sj.ea = &st->ea[NU]; sj.n = 1;
+                run(swiglu_worker, &sj);
+                act_prepare(&st->ea[NU], L->sdown.type, FFE);
+                lap(O_SHARED);
+            }
             memset(&m, 0, sizeof m);
             m.rows_per_seg = D; m.nseg = NU + 1; m.cols = FFE; m.out = st->y;
             for (e = 0; e < NU; ++e) { m.w[e] = &L->down; m.r0[e] = (uint64_t)sel[e] * D; m.act[e] = &st->ea[e]; }
             m.w[NU] = &L->sdown; m.act[NU] = &st->ea[NU];
-            run(mv_worker, &m);
+            if (!g_organs) run(mv_worker, &m);
+            else {
+                mv_job ms;
+                memset(&ms, 0, sizeof ms);
+                ms.rows_per_seg = D; ms.nseg = 1; ms.cols = FFE; ms.out = st->y + (size_t)NU * D;
+                ms.w[0] = &L->sdown; ms.act[0] = &st->ea[NU];
+                m.nseg = NU;
+                run(mv_worker, &m);
+                lap(O_ROUTED);
+                run(mv_worker, &ms);
+                lap(O_SHARED);
+            }
             for (i = 0; i < D; ++i) {
                 float s = 0.0f;
                 for (e = 0; e < NU; ++e) s += w[e] * st->y[(size_t)e * D + i];
                 x[i] += s + st->y[(size_t)NU * D + i];
             }
+            lap(O_OTHER);
         }
     }
     rmsnorm_w(st->h, x, md->out_norm, D, st->eps);
     act_set(&st->xa, st->h, D);
     matvec(&md->out, &st->xa, st->logits, VOCAB);
+#ifdef C50_PLANT_HEAD_TWICE   /* S0 planted control: the head is computed twice; only its organ time may grow */
+    matvec(&md->out, &st->xa, st->logits, VOCAB);
+#endif
+    lap(O_HEAD);
+}
+
+/* S0: bytes each organ streams for one token at position pos (KV: the K and V rows read). */
+static void organ_bytes(const model_t *md, unsigned pos, double *b) {
+    unsigned l, k;
+    for (k = 0; k < NORG; ++k) b[k] = 0;
+    b[O_OTHER] = (double)md->embd.rb;
+    b[O_HEAD] = (double)md->out.rb * md->out.rows;
+    for (l = 0; l < NL; ++l) {
+        const layer_t *L = &md->l[l];
+        b[O_ATTN] += (double)L->qkv.rb * QKV_ROWS + (double)L->o.rb * D;
+        b[O_KV] += 2.0 * (pos + 1) * NKV * HD * sizeof(uint16_t);
+        if (l == 0) b[O_DENSE] += (double)(L->gate.rb + L->up.rb) * FFD + (double)L->down.rb * D;
+        else {
+            b[O_ROUTER] += (double)NE * D * sizeof(float);
+            b[O_ROUTED] += NU * ((double)(L->gate.rb + L->up.rb) * FFE + (double)L->down.rb * D);
+            b[O_SHARED] += (double)(L->sgate.rb + L->sup.rb) * FFE + (double)L->sdown.rb * D;
+        }
+    }
 }
 
 /* ------------------------------------------------------------------ loading -- */
@@ -705,25 +783,50 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
                  const char *model_path) {
     int doc, *ids = NULL;
     unsigned n, cap = 0, p;
-    double *t = malloc(sizeof(double) * nsteps), t_pre, med;
+    double *t = malloc(sizeof(double) * nsteps), t_pre, med, sum_t = 0, ob[NORG], bytes[NORG] = {0};
+    PROCESS_MEMORY_COUNTERS pmc;
+    int k;
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
         if (n < ctx + nsteps) continue;
         printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%d,%d,%d,%d,%d,%d "
-               "kv=f16 types=[%s] mem=%s prio=%s\n", model_path, doc, ctx, nsteps, NT, g_cpu[0], g_cpu[1], g_cpu[2],
-               g_cpu[3], g_cpu[4], g_cpu[5], types, g_mem_name[g_mem], g_prio ? "high" : "normal");
+               "kv=f16 types=[%s] mem=%s prio=%s organs=%d plant=%s\n", model_path, doc, ctx, nsteps, NT, g_cpu[0], g_cpu[1],
+               g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5], types, g_mem_name[g_mem], g_prio ? "high" : "normal", g_organs,
+#ifdef C50_PLANT_HEAD_TWICE
+               "head_twice"
+#else
+               "none"
+#endif
+               );
         fflush(stdout);
         t_pre = now_s();
         for (p = 0; p < ctx; ++p) forward(md, st, ids[p], p);
         t_pre = now_s() - t_pre;
+        memset(g_ot, 0, sizeof g_ot);
         for (p = 0; p < nsteps; ++p) {
             double t0 = now_s();
             forward(md, st, ids[ctx + p], ctx + p);
             t[p] = now_s() - t0;
+            sum_t += t[p];
+            organ_bytes(md, ctx + p, ob);
+            for (k = 0; k < NORG; ++k) bytes[k] += ob[k] / nsteps;
         }
         qsort(t, nsteps, sizeof *t, cmpd);
         med = nsteps % 2 ? t[nsteps / 2] : 0.5 * (t[nsteps / 2 - 1] + t[nsteps / 2]);
+        memset(&pmc, 0, sizeof pmc);
+        GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof pmc);
         printf("{\"mode\":\"bench\",\"ctx\":%u,\"steps\":%u,\"fill_s\":%.3f,\"median_step_s\":%.6f,\"min_step_s\":%.6f,"
-               "\"max_step_s\":%.6f,\"median_tok_s\":%.3f}\n", ctx, nsteps, t_pre, med, t[0], t[nsteps - 1], 1.0 / med);
+               "\"max_step_s\":%.6f,\"median_tok_s\":%.3f,\"mean_step_s\":%.6f,\"peak_working_set_bytes\":%llu,"
+               "\"peak_commit_bytes\":%llu,\"organs\":%d", ctx, nsteps, t_pre, med, t[0], t[nsteps - 1], 1.0 / med,
+               sum_t / nsteps, (unsigned long long)pmc.PeakWorkingSetSize, (unsigned long long)pmc.PeakPagefileUsage, g_organs);
+        printf(",\"organ_bytes\":{");   /* the mean bytes each organ streams per timed token */
+        for (k = 0; k < NORG; ++k) printf("%s\"%s\":%.0f", k ? "," : "", g_org_name[k], bytes[k]);
+        printf("}");
+        if (g_organs) {   /* the mean seconds per step charged to each organ */
+            printf(",\"organ_mean_s\":{");
+            for (k = 0; k < NORG; ++k) printf("%s\"%s\":%.7f", k ? "," : "", g_org_name[k], g_ot[k] / nsteps);
+            printf("}");
+        }
+        printf("}\n");
         return 0;
     }
     fprintf(stderr, "no document with >= %u tokens\n", ctx + nsteps);
@@ -759,6 +862,7 @@ int main(int argc, char **argv) {
             g_prio = !strcmp(argv[i], "normal") ? 0 : !strcmp(argv[i], "high") ? 1 : -1;
             if (g_prio < 0) { fprintf(stderr, "--prio must be normal or high\n"); return 2; }
         }
+        else if (!strcmp(argv[i], "--organs")) g_organs = 1;
         else if (!strcmp(argv[i], "--selftest")) return selftest();
         else if (!strcmp(argv[i], "--bench") && i + 1 < argc) bench_path = argv[++i];
         else if (!strcmp(argv[i], "--ctx") && i + 1 < argc) bench_ctx = (unsigned)atoi(argv[++i]);
@@ -768,7 +872,7 @@ int main(int argc, char **argv) {
     if (!model_path || (!bench_path && (!ids_path || !out)) || bench_ctx + bench_n > MAXCTX || !bench_n) {
         fprintf(stderr, "usage: c50_engine --model GGUF --score IDS.tsv --out PREFIX [--dump-logprobs]\n"
                         "       c50_engine --model GGUF --bench IDS.tsv [--ctx 2048] [--steps 128]\n"
-                        "       options: [--mem map|private|large] [--prio normal|high]\n");
+                        "       options: [--mem map|private|large] [--prio normal|high] [--organs]\n");
         return 2;
     }
     if (g_prio && !SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS)) { fprintf(stderr, "priority change failed\n"); return 4; }
@@ -805,9 +909,9 @@ int main(int argc, char **argv) {
     }
     rewind(fi);
     printf("CONFIG engine=c50_engine model=%s docs=%u positions=%zu threads=%d cores=%d,%d,%d,%d,%d,%d kv=f16 "
-           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s] mem=%s prio=%s\n",
+           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s] mem=%s prio=%s organs=%d\n",
            model_path, docs, positions, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5],
-           st->eps, st->rope_base, st->wscale, dump, hidden, types, g_mem_name[g_mem], g_prio ? "high" : "normal");
+           st->eps, st->rope_base, st->wscale, dump, hidden, types, g_mem_name[g_mem], g_prio ? "high" : "normal", g_organs);
     fflush(stdout);
     snprintf(path, sizeof path, "%s.pos.bin", out);
     fpos = fopen(path, "wb");

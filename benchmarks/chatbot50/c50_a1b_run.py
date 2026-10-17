@@ -26,6 +26,10 @@ sys.path.insert(0, str(HERE.parent / "donor_adaptation" / "engine"))
 import e44_interval as E44  # noqa: E402
 
 EXE = HERE / "bin" / "c50_engine_a1b.exe"
+# Addendum 1 (17 October, before any A1b process): S0 extends c50_engine.c, so the A1b source is the frozen
+# byte copy c50_engine_a1b.c (sha256 f874031b..., the 7ab2048 c50_engine.c) and the binary must be the pinned one.
+SOURCE = HERE / "c50_engine_a1b.c"
+EXE_SHA256_PIN = "6cbafb9071ed8635612aa17e926293dd4a9494a1e7c1814bdfb0b6e811868b60"
 MODEL = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/gguf/ling-mini-2.0-a810f64-q4_k_m.gguf")
 IDS = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a4/inputs/docs.tsv")
 ARMS = {"B0": ["--mem", "map", "--prio", "normal"], "B1": ["--mem", "private", "--prio", "high"],
@@ -68,7 +72,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
-    report = {"cell": "C50-A1b", "exe": str(EXE), "exe_sha256": sha256(EXE), "source_sha256": sha256(HERE / "c50_engine.c"),
+    if sha256(EXE) != EXE_SHA256_PIN:
+        print("VOID: bin/c50_engine_a1b.exe is not the pinned A1b binary", file=sys.stderr)
+        return 1
+    report = {"cell": "C50-A1b", "exe": str(EXE), "exe_sha256": sha256(EXE), "source": SOURCE.name, "source_sha256": sha256(SOURCE),
               "model_sha256_pin": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4",
               "ids_sha256": sha256(IDS), "occ_bar_pct": OCC_BAR, "started": time.strftime("%Y-%m-%dT%H:%M:%S")}
     # B2 needs SeLockMemoryPrivilege; the engine exits 4 without it.  Probe once with a tiny allocation-free check:

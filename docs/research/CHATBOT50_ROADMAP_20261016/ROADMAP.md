@@ -7,9 +7,8 @@ restructuring cite its section numbers (for example "§5 A1b" or "§6 rule 2"). 
 result or verdict changes. Sections 0-11 are the 17 October text. Later amendments are made in
 place, and each one is recorded in §12, which continues unchanged.
 
-**Status: PAUSED until the owner's go** (directive of 17 October: rewrite the plan, then stop).
-The only job running is the A4 → A6 chain launched at 09:17, which the directive lets finish
-(§11).
+**Status: Phase 1 under way** (the owner's go, 17 October; §12). The A4 → A6 chain launched at
+09:17 is still running, and the S0 protocol is pushed (§11).
 
 Labels used throughout: **MEASURED** (a canonical local result), **SOURCE-DERIVED** (headers,
 configs, arithmetic), **DESK-MODEL** (rates derived from bytes; never quoted as a rate),
@@ -656,9 +655,11 @@ it is available, and the table fills as tiers are measured.
 - At 10:20 the P0 document panel had finished, in 2,714 s.
 - Nothing else runs; the DEV-B capture was cancelled.
 
-**Paused until the owner's go,** in this order:
-1. The A4 and A6 verdicts. The scripts exist; no new run.
-2. The S0 protocol, pushed before any rate run. Then A1b and S0, in one empty-machine session.
+**The owner gave the go for Phase 1 on 17 October.** The steps, in order:
+1. The A4 and A6 verdicts. The scripts exist; no new run. They wait for the chain to finish.
+2. The S0 protocol, pushed before any rate run: **done**
+   ([C50_S0_V0_PROTOCOL](C50_S0_V0_PROTOCOL_20261017.md)). Then A1b and S0 in one
+   empty-machine session (~1.5-1.75 h), after the A4 verdict.
 3. The S1 protocol, the engine generalization (byte-identical at E = 256), the BF16 router option
    (byte-identical at m = 1) and the expander; then the S1 sweep in both router formats.
 4. The S2 protocol and the Ling-flash-2.0 download (owner approval).
@@ -753,3 +754,5 @@ Append-only. Each entry: date, decision or measurement, evidence link, label.
 | 2026-10-17 | **Labels for the record.** The directive's "~38-41 tok/s with the exact head, ~3× llama.cpp" is the desk rate of the A6 candidates (E4B 38.2; P4 41.8 before IQ3_S was repriced), not a measurement. T0 is 34.4 desk tok/s at 2048. The engine's own decode rate has not been measured yet: A1b is the first measurement, with a registered prediction of 24-30 tok/s. llama.cpp measured 14.39 tok/s on T0. | §0, §3; [A1 + A2b rate](C50_A1_A2B_RATE_RESULT_20261017.md) | DESK-MODEL / MEASURED |
 | 2026-10-17 | The `--kv q8_0` engine draft was written after the A1b commit and never built or run. It is saved outside the repository (source, diff and patch script) and stashed, and the working tree is back at the committed source. That source rebuilds `c50_engine_a1b.exe` byte-identical apart from the link timestamp, which the PE file stores twice, so the source hash the A1b runner records matches its binary. The draft is the starting point of O2. | `E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/drafts/` | DECISION / MEASURED |
 | 2026-10-17 | **Plan amendment (owner note on the BF16 router).** S1 measures the expert pool in both router formats, T0's F32 and the lossless BF16, interleaved in one session. The BF16 router is a load-time engine option whose output at m = 1 must be byte-identical to T0's; otherwise the BF16 arm is VOID. A hashed-copy arm H keeps the router at T0's 256 rows and sends each selected expert to one of its copies, so it measures the pool effect alone, with output byte-identical to T0's at every m. Arm E minus arm H gives each format's router cost per byte; the formats are not assumed to share one, because this box streams formats at different bandwidths. The raw ratio v(m) / v(1) is reported, not gated, against a baseline of the same format: desk 0.977 at 2× and 0.934 at 4× with BF16, against 0.955 and 0.878 with F32. Ratios against the F32 T0 are labelled as including the router upgrade. **Correction:** the first 17 October version of §3 said that a BF16 router makes 2× free relative to T0. That mixed the format change (+2.2%) with capacity; it is corrected in place. The lossless half of O4 moves into S1, and rule 9 now requires a same-skeleton baseline. If the known positive passes, S4 and S5 use the BF16 router; T0 stays P0. | owner note in session, 2026-10-17; §3, §5 S1, §6 rule 9, §7 O4 | DECISION / DESK-MODEL |
+| 2026-10-17 | **The owner gives the go for Phase 1** ("via Fase 1"), with no correction to the plan. T0 = P0 therefore stands as written in §1 and §4: the go answered the open question of COMMUNICATION item 1, which said that a different T0 had to be asked for. At the go, A4 was still running (since 09:17). Step 1 of §11, the A4 and A6 verdicts, waits for the chain, and step 2 started. | owner in session, 2026-10-17 | DECISION |
+| 2026-10-17 | **S0 protocol pushed before any S0 or A1b process.** v0 at 512, 2048 and 4096: 10 interleaved fresh processes per context, with the contexts rotated per round. The memory mode and priority come from the A1b adopted arm; if A1b fails, the complete arm with the smallest max/min is used and v0 is labelled UNSTABLE. The engine gets `--organs` (default off): an organ clock of laps on the main thread, with the routed and shared experts as separate jobs. It also gets per-organ byte counts and the peak working set and commit. The output is byte-identical to A3 in four configurations (`cmp` on 199 positions, the full log-probability rows included). A planted binary computes the head twice: the breakdown is VALIDATED only if the median head ratio is ≥ 1.7 and the other organs stay inside [0.90, 1.12]. A mechanics check on the busy box showed why the second half is needed: head ×2.16, the rest ×1.44. A1b addendum 1 (tooling only) freezes the A1b source as `c50_engine_a1b.c` and pins its binary, because S0 extends `c50_engine.c`. The session is ~1.5-1.75 h of empty machine (ESTIMATE). | [C50_S0_V0_PROTOCOL](C50_S0_V0_PROTOCOL_20261017.md); [A1b addendum 1](C50_A1B_TIMING_STABILITY_PROTOCOL_20261017.md#addendum-1-17-october-2026-before-any-a1b-process) | PROTOCOL / MEASURED (parity) |
