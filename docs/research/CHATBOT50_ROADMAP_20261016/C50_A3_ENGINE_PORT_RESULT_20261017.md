@@ -92,3 +92,31 @@ Routing was not instrumented, so it remains a hypothesis.
   clean-box session (`docs/COMMUNICATION.md`, item 1).
 - A4 (P0 quality against BF16) is next in order: a frozen task panel and
   fresh-document dBPB.
+
+## Planted-fault control (A3 addendum 3; outside the verdict)
+
+Two planted engines went through the unchanged verdict against R3. Each `CONFIG`
+line carries its planted value. Record: `benchmarks/chatbot50/results/c50_a3_planted.json`.
+
+| Engine | top-1 | mean KL (nats) | p99 KL | dBPB (CI) | Verdict | Registered expectation |
+| --- | --- | --- | --- | --- | --- | --- |
+| healthy (gate run) | 3.99% | 0.0144 | 0.185 | +0.0005 (−0.0018, +0.0027) | PASS | — |
+| `PLANT_WSCALE` (routed scale × 0.9) | 6.87% | **0.0443** | 0.525 | −0.0084 (−0.0173, −0.0001) | **FAIL** (KL, dBPB) | FAIL: **met** |
+| `PLANT_ROPE` (RoPE base 500000) | 5.15% | 0.0238 | 0.292 | −0.0020 (−0.0055, +0.0014) | **PASS** | none; recorded as a blind spot |
+| limit | 8.20% | 0.0299 | — | \|point\| ≤ 0.0044 | | |
+
+**What this establishes.**
+
+1. **The gate fails a known-bad engine.** A 10% error on the routed contribution
+   fails it on two criteria. So the A3 PASS is not a gate that cannot fail.
+2. **The margin is modest.** That fault's KL is 1.5× the limit, so a routed-scale
+   error of ~5% would probably pass. The top-1 criterion did not fire on
+   either plant: at this floor it is the weakest of the three.
+3. **A RoPE-base error of −17% passes.** It is a fault class this gate cannot
+   see. Its KL (0.024) is, however, 1.65× the healthy engine's (0.0144), and
+   their bootstrap intervals do not overlap (healthy 0.0120-0.0169). A sharper
+   check exists: compare a candidate against the healthy engine's own distance
+   from R3, not against 2× the llama.cpp floor. It is not a gate here; any later
+   engine change that needs one must register it.
+4. Nothing is relabelled. The A3 verdict stands as PASS, scoped to "no error
+   larger than the routed-scale plant".

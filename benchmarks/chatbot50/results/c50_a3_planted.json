@@ -1,0 +1,209 @@
+{
+ "cell": "C50-A3 planted control",
+ "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4",
+ "source_sha256": "16034584d8ca082b3afef19f19719eaa992ab2407a337913effb8cf70b7a09eb",
+ "plants": {
+  "PLANT_WSCALE": {
+   "exe": "c50_engine_plant_wscale.exe",
+   "exe_sha256": "4147a5227dd3448b546c12f89f2ce529cf84d4e584f6ccc791f3bcac6d608b95",
+   "expect_config": "weights_scale=2.25 ",
+   "returncode": 0,
+   "wall_s": 1201.428581237793,
+   "config": [
+    "CONFIG engine=c50_engine model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=12 positions=26363 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.25 dump=1 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K]"
+   ],
+   "stdout_tail": [
+    "CONFIG engine=c50_engine model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=12 positions=26363 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.25 dump=1 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K]",
+    "DONE positions=26363 wall_s=1199.7"
+   ],
+   "stderr_tail": "",
+   "compare": {
+    "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R3",
+    "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\PLANT_WSCALE",
+    "ref_meta": {
+     "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+     "n_vocab": 157184,
+     "docs": 12,
+     "positions": 26363,
+     "threads": 6,
+     "ubatch": 1,
+     "ctx": 8192,
+     "flash_attn": "disabled",
+     "kv": "f16",
+     "dump": 1,
+     "wall_s": 2287.27,
+     "meta_repaired": true
+    },
+    "other_meta": {
+     "engine": "c50_engine",
+     "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+     "n_vocab": 157184,
+     "docs": 12,
+     "positions": 26363,
+     "threads": 6,
+     "ubatch": 1,
+     "ctx": 8192,
+     "flash_attn": "n/a",
+     "kv": "f16",
+     "dump": 1,
+     "wall_s": 1199.739,
+     "types": "embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K",
+     "meta_repaired": true
+    },
+    "positions": 26363,
+    "documents": 12,
+    "scored_bytes": 98271.0,
+    "top1_disagreement": 0.06865682964761219,
+    "top1_disagreement_ci95": [
+     0.05210379898793052,
+     0.08690203169761514
+    ],
+    "bpb_ref": 0.7851106462708578,
+    "dbpb": -0.008437209412831723,
+    "dbpb_ci95": [
+     -0.017320887730634803,
+     -0.00012039571530896316
+    ],
+    "max_abs_dlogp_target": 11.717717170715332,
+    "bit_identical_logp_target": false,
+    "mean_kl_nats": 0.04428795292776811,
+    "mean_kl_ci95": [
+     0.03493288357693732,
+     0.05670968092068579
+    ],
+    "p99_kl_nats": 0.5254289882738326,
+    "max_kl_nats": 8.327171900266144
+   },
+   "verdict": {
+    "run": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\run_PLANT_WSCALE.json",
+    "floor": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\results\\c50_a2b_floor.json",
+    "floor_dbpb": 0.002219625613555904,
+    "dbpb_ci95_reported": [
+     -0.017320887730634803,
+     -0.00012039571530896316
+    ],
+    "checks": {
+     "top1": {
+      "value": 0.06865682964761219,
+      "limit": 0.08200887607631908,
+      "pass": true
+     },
+     "mean_kl": {
+      "value": 0.04428795292776811,
+      "limit": 0.02987442038200635,
+      "pass": false
+     },
+     "abs_dbpb": {
+      "value": -0.008437209412831723,
+      "limit": 0.004439251227111808,
+      "pass": false
+     }
+    },
+    "verdict": "FAIL"
+   },
+   "status": "COMPLETE"
+  },
+  "PLANT_ROPE": {
+   "exe": "c50_engine_plant_rope.exe",
+   "exe_sha256": "e6160d8dfc371ffe382c1eda6c72f2a09da08563bd4c9d2fd3a4200cef051d5c",
+   "expect_config": "rope_base=500000 ",
+   "returncode": 0,
+   "wall_s": 1152.8949871063232,
+   "config": [
+    "CONFIG engine=c50_engine model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=12 positions=26363 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=500000 weights_scale=2.5 dump=1 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K]"
+   ],
+   "stdout_tail": [
+    "CONFIG engine=c50_engine model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=12 positions=26363 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=500000 weights_scale=2.5 dump=1 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K]",
+    "DONE positions=26363 wall_s=1148.9"
+   ],
+   "stderr_tail": "",
+   "compare": {
+    "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R3",
+    "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\PLANT_ROPE",
+    "ref_meta": {
+     "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+     "n_vocab": 157184,
+     "docs": 12,
+     "positions": 26363,
+     "threads": 6,
+     "ubatch": 1,
+     "ctx": 8192,
+     "flash_attn": "disabled",
+     "kv": "f16",
+     "dump": 1,
+     "wall_s": 2287.27,
+     "meta_repaired": true
+    },
+    "other_meta": {
+     "engine": "c50_engine",
+     "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+     "n_vocab": 157184,
+     "docs": 12,
+     "positions": 26363,
+     "threads": 6,
+     "ubatch": 1,
+     "ctx": 8192,
+     "flash_attn": "n/a",
+     "kv": "f16",
+     "dump": 1,
+     "wall_s": 1148.896,
+     "types": "embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K",
+     "meta_repaired": true
+    },
+    "positions": 26363,
+    "documents": 12,
+    "scored_bytes": 98271.0,
+    "top1_disagreement": 0.05147365626066836,
+    "top1_disagreement_ci95": [
+     0.03979710491986955,
+     0.0639414636823856
+    ],
+    "bpb_ref": 0.7851106462708578,
+    "dbpb": -0.0020442065307448944,
+    "dbpb_ci95": [
+     -0.0054716167535886606,
+     0.0014066501468845557
+    ],
+    "max_abs_dlogp_target": 6.107976913452148,
+    "bit_identical_logp_target": false,
+    "mean_kl_nats": 0.02379764514971026,
+    "mean_kl_ci95": [
+     0.020280240388865747,
+     0.027776220048495635
+    ],
+    "p99_kl_nats": 0.29167617666997353,
+    "max_kl_nats": 4.281023284331819
+   },
+   "verdict": {
+    "run": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\run_PLANT_ROPE.json",
+    "floor": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\results\\c50_a2b_floor.json",
+    "floor_dbpb": 0.002219625613555904,
+    "dbpb_ci95_reported": [
+     -0.0054716167535886606,
+     0.0014066501468845557
+    ],
+    "checks": {
+     "top1": {
+      "value": 0.05147365626066836,
+      "limit": 0.08200887607631908,
+      "pass": true
+     },
+     "mean_kl": {
+      "value": 0.02379764514971026,
+      "limit": 0.02987442038200635,
+      "pass": true
+     },
+     "abs_dbpb": {
+      "value": -0.0020442065307448944,
+      "limit": 0.004439251227111808,
+      "pass": true
+     }
+    },
+    "verdict": "PASS"
+   },
+   "status": "COMPLETE"
+  }
+ },
+ "started": "2026-10-17T03:07:09",
+ "finished": "2026-10-17T03:55:13"
+}
