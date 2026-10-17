@@ -1,0 +1,369 @@
+{
+ "cell": "C50-A2b-rate",
+ "bench": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-bench.exe",
+ "bench_sha256": "10acbcccd1873c53290ed089f58f311417cb99d04d428269bacdae004942dae3",
+ "args": [
+  "-t",
+  "6",
+  "-p",
+  "0",
+  "-n",
+  "128",
+  "-d",
+  "512,2048,4096",
+  "-r",
+  "3",
+  "-fa",
+  "off",
+  "-o",
+  "json"
+ ],
+ "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+ "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4",
+ "occ_bar_pct": 4.39,
+ "started": "2026-10-17T08:57:48",
+ "preflight": {
+  "seconds": 45,
+  "samples": [
+   0.24038461538461453,
+   0.0,
+   0.2560819462227859,
+   0.5221932114882533,
+   0.13037809647978849,
+   0.26041666666666297,
+   0.2600780234070177,
+   0.39011703511053764,
+   0.13037809647978849,
+   0.5188067444876765,
+   0.390625,
+   0.7874015748031482,
+   0.25706940874036244,
+   0.649350649350644,
+   0.520833333333337,
+   0.5305039787798393,
+   0.12836970474967568,
+   0.12919896640827266,
+   0.0,
+   0.25940337224383825,
+   0.5161290322580614,
+   0.13297872340425343,
+   0.7692307692307665,
+   0.2631578947368429,
+   0.1345895020188448,
+   0.12610340479193294,
+   0.6451612903225823,
+   0.0,
+   0.9138381201044377,
+   0.0,
+   0.9198423127463884,
+   0.2564102564102555,
+   0.7863695937090465,
+   0.12987012987012436,
+   0.13054830287205776,
+   0.2614379084967311,
+   0.6345177664974666,
+   0.13210039630119352,
+   0.390625,
+   0.3942181340341633,
+   1.0243277848911658,
+   0.2624671916010457,
+   0.13071895424836555,
+   0.13003901170350884,
+   0.7853403141361293
+  ],
+  "rule": "mean < bar (A1 addendum 2)",
+  "mean": 0.36070249374492463,
+  "max": 1.0243277848911658,
+  "samples_at_or_above_bar": 0,
+  "admissible": true
+ },
+ "processes": [
+  {
+   "rows": [
+    {
+     "n_depth": 512,
+     "avg_ts": 15.241651,
+     "stddev_ts": 0.188441,
+     "samples_ts": [
+      15.1269,
+      15.4591,
+      15.1389
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 2048,
+     "avg_ts": 14.493983,
+     "stddev_ts": 0.198791,
+     "samples_ts": [
+      14.3257,
+      14.4429,
+      14.7133
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 4096,
+     "avg_ts": 13.502744,
+     "stddev_ts": 0.111134,
+     "samples_ts": [
+      13.4326,
+      13.6309,
+      13.4447
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    }
+   ],
+   "system_pct": 31.023161639480755,
+   "foreign_pct": 1.7588843053400447,
+   "wall_s": 137.61346411705017,
+   "timing": {
+    "seq": 0,
+    "since_start_s": 419.119,
+    "wall_s": 137.613,
+    "clock_pct": 106.60310395202512
+   },
+   "void": false
+  },
+  {
+   "rows": [
+    {
+     "n_depth": 512,
+     "avg_ts": 15.164202,
+     "stddev_ts": 0.018014,
+     "samples_ts": [
+      15.1533,
+      15.185,
+      15.1543
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 2048,
+     "avg_ts": 14.357398,
+     "stddev_ts": 0.028201,
+     "samples_ts": [
+      14.3248,
+      14.3741,
+      14.3733
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 4096,
+     "avg_ts": 13.580698,
+     "stddev_ts": 0.0284,
+     "samples_ts": [
+      13.6074,
+      13.5839,
+      13.5509
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    }
+   ],
+   "system_pct": 31.55885671305002,
+   "foreign_pct": 2.1286197818728847,
+   "wall_s": 138.55325746536255,
+   "timing": {
+    "seq": 1,
+    "since_start_s": 558.006,
+    "wall_s": 138.553,
+    "clock_pct": 106.3531456657367
+   },
+   "void": false
+  },
+  {
+   "rows": [
+    {
+     "n_depth": 512,
+     "avg_ts": 15.1076,
+     "stddev_ts": 0.242075,
+     "samples_ts": [
+      14.9149,
+      15.3793,
+      15.0286
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 2048,
+     "avg_ts": 14.307281,
+     "stddev_ts": 0.084766,
+     "samples_ts": [
+      14.3546,
+      14.3578,
+      14.2094
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 4096,
+     "avg_ts": 13.559318,
+     "stddev_ts": 0.111447,
+     "samples_ts": [
+      13.4306,
+      13.6225,
+      13.6248
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    }
+   ],
+   "system_pct": 31.101731088451505,
+   "foreign_pct": 1.8506046952810054,
+   "wall_s": 137.1723074913025,
+   "timing": {
+    "seq": 2,
+    "since_start_s": 695.178,
+    "wall_s": 137.172,
+    "clock_pct": 106.28235014618981
+   },
+   "void": false
+  },
+  {
+   "rows": [
+    {
+     "n_depth": 512,
+     "avg_ts": 15.11288,
+     "stddev_ts": 0.34876,
+     "samples_ts": [
+      14.7549,
+      15.4516,
+      15.1321
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 2048,
+     "avg_ts": 14.44078,
+     "stddev_ts": 0.083156,
+     "samples_ts": [
+      14.4315,
+      14.3626,
+      14.5282
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 4096,
+     "avg_ts": 13.559194,
+     "stddev_ts": 0.026745,
+     "samples_ts": [
+      13.5533,
+      13.5884,
+      13.5359
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    }
+   ],
+   "system_pct": 31.322780905375183,
+   "foreign_pct": 1.6754068018816997,
+   "wall_s": 135.11663556098938,
+   "timing": {
+    "seq": 3,
+    "since_start_s": 830.295,
+    "wall_s": 135.117,
+    "clock_pct": 106.20260213694827
+   },
+   "void": false
+  },
+  {
+   "rows": [
+    {
+     "n_depth": 512,
+     "avg_ts": 15.146566,
+     "stddev_ts": 0.092843,
+     "samples_ts": [
+      15.0468,
+      15.1624,
+      15.2305
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 2048,
+     "avg_ts": 14.391133,
+     "stddev_ts": 0.064135,
+     "samples_ts": [
+      14.3582,
+      14.3501,
+      14.465
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    },
+    {
+     "n_depth": 4096,
+     "avg_ts": 13.596094,
+     "stddev_ts": 0.125899,
+     "samples_ts": [
+      13.5232,
+      13.7415,
+      13.5236
+     ],
+     "build_commit": "5b335f4",
+     "cpu_info": "AMD Ryzen 5 3600X 6-Core Processor             ",
+     "type_k": "f16"
+    }
+   ],
+   "system_pct": 31.166300267839144,
+   "foreign_pct": 1.5974348882083578,
+   "wall_s": 135.55229783058167,
+   "timing": {
+    "seq": 4,
+    "since_start_s": 965.85,
+    "wall_s": 135.552,
+    "clock_pct": 106.236551402762
+   },
+   "void": false
+  }
+ ],
+ "verdict_input": "COMPLETE",
+ "summary": {
+  "512": {
+   "median_tok_s": 15.146566,
+   "min": 15.1076,
+   "max": 15.241651,
+   "max_over_min": 1.0088730837459292
+  },
+  "2048": {
+   "median_tok_s": 14.391133,
+   "min": 14.307281,
+   "max": 14.493983,
+   "max_over_min": 1.0130494396524399
+  },
+  "4096": {
+   "median_tok_s": 13.559318,
+   "min": 13.502744,
+   "max": 13.596094,
+   "max_over_min": 1.0069134096003005
+  }
+ },
+ "finished": "2026-10-17T09:09:59"
+}

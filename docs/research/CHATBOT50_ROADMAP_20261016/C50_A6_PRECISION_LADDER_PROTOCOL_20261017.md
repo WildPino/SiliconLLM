@@ -162,3 +162,36 @@ stored 6,574.6 MB.
 - E3B is 149 MB over the first figure and 245 MB over the second.
 - Swapping the exact head for the A5 part-1b preview (94.5 MB, failed on DEV) would make it
   556 MB, which is 52.6 desk tok/s, or 44.7 at 0.85.
+
+## Addendum 2 (17 October 2026, after A1, before any arm is scored)
+
+**Why.**
+- [A1](C50_A1_A2B_RATE_RESULT_20261017.md) measured IQ3_S on the eight-expert shapes at
+  **12.45 GB/s** (FAIL against 30). Every other class passed at 35-41 GB/s.
+- The A1 protocol fixed the consequence before its run: A6 prices a failing class at its
+  measured bandwidth instead of 32 GB/s.
+- Bytes alone no longer order the arms, because an IQ3_S byte costs 2.6× a byte of any other
+  class.
+
+**Change to the FIT rule.**
+- **Cost:** desk ms per token at context 2048 =
+  (bytes outside IQ3_S) / 32 GB/s + (IQ3_S routed bytes) / 12.45 GB/s + 2 ms.
+- **FIT candidate:** the qualifying arm (upper CI95 ≤ +0.015, unchanged) with the lowest cost.
+- **For arms without IQ3_S** this is the same order as bytes.
+- `c50_a6_verdict.py` prints MB and desk ms for every arm.
+- Arms, statistic, bound and predictions are unchanged. E3/E3B are still scored: their
+  quality cost is worth knowing if the IQ3_S kernel is tuned later.
+
+**Repriced arms** (desk, not a rate; T_FIXED stays 2 ms, although A1 measured a 2.70 ms residual):
+
+| Arm | MB/token at 2048 | IQ3_S MB | Desk ms | Desk tok/s |
+| --- | --- | --- | --- | --- |
+| R | 867.2 | 0 | 29.10 | 34.4 |
+| K8 | 827.9 | 0 | 27.87 | 35.9 |
+| E3 | 744.9 | 205.5 | 35.37 | 28.3 |
+| E4 | 793.5 | 0 | 26.80 | 37.3 |
+| E3B | 725.0 | 205.5 | 34.74 | 28.8 |
+| E4B | 773.6 | 0 | 26.18 | 38.2 |
+
+- The registered FIT-candidate prediction was "K8 or E4B". It still stands, and is now
+  favoured on cost.

@@ -3,7 +3,10 @@
 Per arm against R (P0, KV f16, same runtime): paired dBPB over the 72 non-imatrix FIT documents of the A4
 panel, document bootstrap (10,000 draws, seed 20261016), and bytes per token at context 2048 =
 per-token weight bytes (GGUF check) + KV (20 layers x 2 x 512 values x 2048 positions; f16 2 B, q8_0 34/32 B).
-FIT candidate = the arm with the fewest bytes per token whose dBPB upper CI95 <= +0.015 (ROADMAP §5 A6);
+Addendum 2: cost = desk ms per token at context 2048, with IQ3_S routed-expert bytes at the A1-measured
+12.4479 GB/s (A1 consequence rule: a failing class is priced at its measured bandwidth), every other byte at
+32 GB/s, plus T_FIXED 2 ms; for arms without IQ3_S this orders exactly as bytes do.
+FIT candidate = the arm with the lowest desk ms per token whose dBPB upper CI95 <= +0.015 (ROADMAP §5 A6);
 none = A6 stops at P0/P1 as the roadmap says.  DEV confirmation and the task panels are a later protocol.
 
 Usage:
@@ -29,6 +32,8 @@ REC = np.dtype([("doc", "<i4"), ("pos", "<i4"), ("target", "<i4"), ("top1", "<i4
 CAMP = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016")
 KV_VALUES = 20 * 2 * 512 * 2048
 KV_BYTES = {"f16": KV_VALUES * 2, "q8_0": KV_VALUES * 34 / 32}
+BW_PLAN, BW_IQ3S, T_FIXED_MS = 32e9, 12.4479e9, 2.0   # BW_IQ3S: results/c50_a1_verdict_2.json, S3_IQ3_S median
+N_EXP, K_EXP = 256, 8
 
 
 def main() -> int:
@@ -64,16 +69,21 @@ def main() -> int:
         st = num[idx].sum(axis=1) / den[idx].sum(axis=1)
         lo, hi = (float(x) for x in np.percentile(st, [2.5, 97.5]))
         w = p0_w if rec["build"] is None else run["builds"][rec["build"]]["per_token_weight_bytes"]
+        iq3 = 0.0 if rec["build"] is None else run["builds"][rec["build"]]["bytes_by_type"].get("IQ3_S", 0) * K_EXP / N_EXP
+        total = w + KV_BYTES[rec["kv"]]
+        ms = 1e3 * ((total - iq3) / BW_PLAN + iq3 / BW_IQ3S) + T_FIXED_MS
         out["arms"][a] = {"dbpb": float(num.sum() / den.sum()), "dbpb_ci95": [lo, hi], "qualifies": hi <= BOUND,
                           "top1_agreement_with_R": float((o["top1"] == r["top1"]).mean()),
                           "weight_mb_per_token": w / 1e6, "kv": rec["kv"],
-                          "mb_per_token_at_2048": (w + KV_BYTES[rec["kv"]]) / 1e6}
-    q = sorted((a for a, v in out["arms"].items() if v["qualifies"]), key=lambda a: out["arms"][a]["mb_per_token_at_2048"])
+                          "mb_per_token_at_2048": total / 1e6, "iq3s_mb_per_token": iq3 / 1e6,
+                          "desk_ms_per_token_at_2048": ms}
+    q = sorted((a for a, v in out["arms"].items() if v["qualifies"]), key=lambda a: out["arms"][a]["desk_ms_per_token_at_2048"])
     out["fit_candidate"] = q[0] if q else None
     Path(args.out).write_text(json.dumps(out, indent=1), encoding="utf-8")
     for a, v in out["arms"].items():
         print(f"{a:4s} dBPB {v['dbpb']:+.5f} CI ({v['dbpb_ci95'][0]:+.5f}, {v['dbpb_ci95'][1]:+.5f}) "
-              f"{v['mb_per_token_at_2048']:.1f} MB/token {'qualifies' if v['qualifies'] else ''}")
+              f"{v['mb_per_token_at_2048']:.1f} MB/token {v['desk_ms_per_token_at_2048']:.2f} desk ms "
+              f"{'qualifies' if v['qualifies'] else ''}")
     print("FIT candidate:", out["fit_candidate"])
     return 0
 
