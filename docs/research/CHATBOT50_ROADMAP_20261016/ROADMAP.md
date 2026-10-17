@@ -4,8 +4,8 @@
 [decision log](#12-decision-and-progress-log)). The plan approved on 16 October is kept
 unchanged in [`ROADMAP_V1_20261016.md`](ROADMAP_V1_20261016.md). Protocols written before the
 restructuring cite its section numbers (for example "§5 A1b" or "§6 rule 2"). No historical
-result or verdict changes. Sections 0-11 are the 17 October text; later changes are recorded
-only in §12, which continues unchanged.
+result or verdict changes. Sections 0-11 are the 17 October text. Later amendments are made in
+place, and each one is recorded in §12, which continues unchanged.
 
 **Status: PAUSED until the owner's go** (directive of 17 October: rewrite the plan, then stop).
 The only job running is the A4 → A6 chain launched at 09:17, which the directive lets finish
@@ -97,7 +97,7 @@ It is regrouped by phase so that every clause has an instrument.
 | --- | --- |
 | Reference artifact | T0 = P0 (`44de7315…`); one container hash and one printed-and-asserted `CONFIG` line in every cell. Engine fidelity: A3 (PASS). Quality 1×: A4 against BF16 (paired document-level dBPB upper CI95 ≤ +0.02 on fresh FIT documents; task and rollout panels with frozen non-inferiority margins). |
 | v0 | Accepted tok/s of T0 in the engine: batch 1, declared decode mode, context 2048 primary with 512 and 4096 reported; clean box (foreign occupancy below 4.39%, E52); ≥ 10 fresh processes interleaved; A1b passed first. Reported as central value, lower CI95 and dispersion, with a per-organ time breakdown; never as a desk number. |
-| Speed invariance | At stored capacity m ≈ 2 and m ≈ 4 times T0's, with the same top-k and expert size. The bytes that grow with capacity (router rows, keys, lookups) are priced before the run. The measured rate must be explained by v0 and those bytes: the CI95 of the residual ratio v(m) / v_pred(m) lies inside 1 ± τ, with τ fixed before the run. This is an equivalence test, so noise widens the CI and fails it rather than passing it. The routing/lookup overhead is reported explicitly at each m. |
+| Speed invariance | At stored capacity m ≈ 2 and m ≈ 4 times T0's, with the same top-k and expert size, in both router formats (T0's F32 and the lossless BF16). The bytes that grow with capacity (router rows, keys, lookups) are priced before the run. The measured rate must be explained by v0 and those bytes: the CI95 of the residual ratio v(m) / v_pred(m) lies inside 1 ± τ, with τ fixed before the run. This is an equivalence test, so noise widens the CI and fails it rather than passing it. Reported at each m, not gated: the routing/lookup overhead and the raw ratio v(m) / v(1). The raw ratio always uses a baseline with the same router format; a ratio against the F32 T0 is labelled as including the router upgrade. |
 | Quality growth | Held-out quality at m ≈ 2 and m ≈ 4 is better than at m = 1 (CI excluding zero), and monotone in m. It beats a LoRA control with matched trainable parameters and data, by a margin frozen in the protocol. Removing the added capacity, or shuffling it at matched frequency, erases the gain. No regression on the general panel. |
 | Pipeline | One reproducible recipe (pinned sources, scripts, manifests) takes a donor to a qualified T0, measures its v0 and grows its capacity. It is applied to T0's family and to ≥ 1 other family, each ending in a documented applicability class. |
 
@@ -181,7 +181,7 @@ measurements are the reason to measure it rather than assume it:
 | Head (157,184 × 2048, Q6_K, exact) | 264.1 | 30.4% | O1 (A5, frozen) |
 | Attention (QKV and output) | 134.4 | 15.5% | O5 |
 | KV cache (F16) | 83.9 | 9.7% | O2 |
-| Router (F32) | 39.9 | 4.6% | O4 (lossless in BF16 here) |
+| Router (F32) | 39.9 | 4.6% | S1 (BF16, lossless here); O4 (int8, two-level) |
 | Shared expert | 36.1 | 4.2% | O3 |
 | Dense FFN (layer 0) | 20.4 | 2.4% | O3 |
 | Norms and biases | 0.2 | 0.0% | |
@@ -216,16 +216,26 @@ built artifacts).**
 - **Group sizes.** Expert counts are multiples of 8, so that Ling's eight routing groups stay
   equal.
 
-| Routed experts per layer | Stored GB | m (× T0 stored) | Router MB/token (F32) | MB/token at 2048 | Desk speed vs T0 | Same, BF16 router |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 256 (T0) | 9.91 | 1.00 | 39.9 | 867.2 | 1.000 | 1.022 |
-| 536 | 20.01 | 2.02 | 83.4 | 910.8 | 0.955 | 0.998 |
-| 1,088 | 39.91 | 4.03 | 169.3 | 996.7 | 0.878 | 0.954 |
-| 2,048 | 74.52 | 7.52 | 318.8 | 1,146.1 | 0.770 | 0.886 |
+The raw ratio is the desk speed relative to m = 1 with the same router format. The last column
+compares the BF16 expansions with the F32 T0, so it includes the router upgrade.
+
+| Routed experts per layer | Stored GB | m (× T0 stored) | Router MB/token, F32 / BF16 | MB/token at 2048, F32 / BF16 | Raw ratio, F32 router | Raw ratio, BF16 router | BF16 router against the F32 T0 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 256 (T0) | 9.91 | 1.00 | 39.9 / 19.9 | 867.2 / 847.3 | 1.000 | 1.000 | 1.022 |
+| 536 | 20.01 | 2.02 | 83.4 / 41.7 | 910.8 / 869.1 | 0.955 | 0.977 | 0.998 |
+| 1,088 | 39.91 | 4.03 | 169.3 / 84.7 | 996.7 / 912.0 | 0.878 | 0.934 | 0.954 |
+| 2,048 | 74.52 | 7.52 | 318.8 / 159.4 | 1,146.1 / 986.8 | 0.770 | 0.867 | 0.886 |
 
 - **With T0's F32 router**, capacity costs speed: −4.5% at 2× and −12% at 4× (DESK-MODEL).
-- **A BF16 router**, lossless for this checkpoint, makes 2× free relative to T0. A sublinear
-  router (two-level, product keys) bounds the term at larger m.
+- **A BF16 router** is lossless for this checkpoint (§2) and halves the slope: −2.3% at 2× and
+  −6.6% at 4× against a BF16 T0. It does not remove the slope: a flat router still loses ~2.35%
+  per extra T0-sized pool. S1 measures both formats.
+- **Correction (17 October).** The first version of this section said that a BF16 router makes
+  2× free relative to T0. That compares a BF16 expansion with the F32 T0, so the +2.2% of the
+  format change hides half of the slope. Raw ratios are therefore always taken against a
+  baseline with the same router format (rule 9).
+- **A sublinear router** (two-level, product keys) bounds the term at larger m. An int8 router
+  would cost −3.5% at 4× against an int8 T0, but it is lossy and needs a quality cell (O4).
 - **Conditional memory banks with deterministic addressing** read a fixed number of rows per
   token whatever the table size, so their per-token cost is O(1) in capacity. Index, TLB and
   page effects remain to be measured: in METH177 the selected-expert cost rose 1.31× from
@@ -308,27 +318,58 @@ ESTIMATE).
 **S1. Speed invariance with capacity only** (CPU, no training; ~1 week, ESTIMATE).
 - **Question:** does the engine's time per token stay at v0, apart from the priced
   routing/lookup bytes, when stored capacity grows at fixed active bytes?
-- **Engine change:** the expert count, today a compile-time 256 asserted against the header,
-  becomes a header value. At E = 256 the output stays byte-identical to A3's.
-- **Arm E (expert pool):**
+- **Engine changes**, each default off and printed on the `CONFIG` line:
+  - the expert count, today a compile-time 256 asserted against the header, becomes a header
+    value. At E = 256 the output stays byte-identical to A3's;
+  - a BF16 router. The F32 router rows are converted to BF16 at load time, and the load exits
+    if any row is not exactly representable. The dot expands them back to F32 in the F32
+    kernel's accumulation order (one 8-lane FMA chain), so the logits are identical to the bit
+    by construction. No extra GGUF is needed.
+- **Known positive:** at m = 1 the BF16 router's output is byte-identical to T0's (`cmp` on the
+  A3 positions). If it is not, the BF16 arm is VOID and S1 runs on F32 only.
+- **Arm E (expert pool),** in both router formats (F32 and BF16), interleaved in one session:
   - expanded GGUFs at m ≈ 2, at m ≈ 4, and at the largest m that stays resident with ~10 GB
     free (≈ 7 here);
-  - the extra experts are byte copies of T0's experts at new addresses, and their router rows
-    are copies with a fixed perturbation, so that selections spread over the whole pool;
+  - the extra experts are byte copies of T0's experts at new addresses. Their router rows are
+    copies with a fixed perturbation, exactly representable in BF16, so that selections spread
+    over the whole pool;
   - quality is not read, because the copies add no knowledge.
+- **Arm H (hashed copies):** the same expanded GGUFs, with the router kept at T0's 256 rows.
+  Each selected expert is sent to one of its byte-identical copies by a fixed hash. The router
+  bytes do not grow, so arm H measures the pool effect alone (TLB, page and L3). Its output
+  must be byte-identical to T0's at every m: a second known positive.
 - **Arm M (memory bank):** a lookup microbenchmark (k rows per token from tables of 1-60 GB,
   deterministic addresses, synthetic values). It prices the conditional-memory route before S4
   chooses between the two.
 - **Measured:**
-  - v(m) with its CI;
-  - the desk prediction from the built artifacts' bytes;
-  - the router's own time;
-  - the residual that bytes do not explain (TLB, page and L3 effects).
-- **Gate:** the §1 equivalence test, with τ fixed in the protocol before the run (default 3%).
-  - It is passed or failed at m ≈ 2 and m ≈ 4.
-  - The routing overhead is reported at each m.
+  - v(m) with its CI, per arm and format;
+  - the desk prediction from the built artifacts' bytes, and the router's own time;
+  - the pool effect, from arm H;
+  - the router's real cost per byte in each format, from arm E minus arm H. This box streams
+    different formats at different bandwidths (§2, E60/E61), so the two formats are not assumed
+    to cost the same per byte. Without arm H they would measure only a combination of their two
+    costs, which a pool effect growing with E could also absorb;
+  - consistency: each format's router cost must come out constant across m.
+- **Gate:** the §1 equivalence test in each format, with τ fixed in the protocol before the
+  run (default 3%). It is passed or failed at m ≈ 2 and m ≈ 4.
+- **Reported, not gated:**
+  - the routing overhead at each m;
+  - the raw ratio v(m) / v(1) in each format, against the m = 1 arm of the same format in the
+    same session;
+  - the BF16 expansions against the F32 T0, labelled "includes the router upgrade".
+
+  No product threshold on the raw ratio is set; if one is wanted, it is fixed before S1 runs.
+  For example, ≥ 0.95 at 4× would already exclude the flat BF16 router on desk (0.934).
+- **Resolution.** At 2× the BF16 effect (desk −2.3%) is close to the CI half-width that process
+  dispersion alone may produce.
+  - The number of processes per arm is set after A1b, from its measured dispersion.
+  - The format effect can also be measured paired inside one process, by alternating blocks of
+    F32 and BF16 steps; the protocol decides which.
 - **Stop:** if the residual fails the test, the diagnostic budget (rule 3) applies before any
   T4 spend. The quality half would otherwise rest on a speed claim that does not hold.
+- **After S1:** if the BF16 known positive passes, the later Phase-1 artifacts (S4, S5) use the BF16
+  router. T0 stays P0, the qualified container, and v0 with the BF16 router is reported beside
+  v0.
 
 **S2. Gap map** (the old C0; CPU; needs the Ling-flash-2.0 download, which the owner approves).
 - **Arms:** T0 against Ling-flash-2.0.
@@ -433,7 +474,7 @@ ESTIMATE).
 | --- | --- |
 | A1b | As registered: B0 max/min 1.04-1.15, B1 ≤ 1.06, medians 24-30 tok/s at 2048 |
 | S0 | v0 at 2048 is 0.70-0.90 of T0's desk (24-31 tok/s), and v0 at 512 is 1.05-1.20 × v0 at 2048 |
-| S1 | At m ≈ 4 the measured slowdown is 10-16% with the F32 router, and the residual that bytes do not explain is ≤ 3% |
+| S1 | At m ≈ 4 the raw slowdown is 10-16% with the F32 router and 5-9% with the BF16 router; the residual that bytes do not explain is ≤ 3% in both formats; the BF16 router is byte-identical to T0 at m = 1 |
 | S2 | The Ling-mini → Ling-flash gap is larger on closed-book knowledge than on short math |
 
 ---
@@ -465,7 +506,10 @@ ESTIMATE).
    - The lesson is A5: six cells in one day on ~18% of T0's bytes.
 9. **NEW: invariance is a priced decomposition.** Every capacity cell prices, before its run, the
    bytes that grow with capacity (router rows, keys, indices, page tables), and reports the
-   measured residual. "≈ v0" is never written without both numbers.
+   measured residual.
+   - "≈ v0" is never written without both numbers.
+   - A raw ratio is always taken against a baseline with the same skeleton (for example the same
+     router format), so that an organ upgrade cannot pass for invariance.
 10. **NEW: hardware numbers are runtime parameters.** Thread count, core map, cache sizes and
     memory mode are read or configured per machine. The engine's compiled-in core map
     (`cores=0,2,4,6,8,10`) becomes a parameter in Phase 3, with a default that stays
@@ -493,7 +537,7 @@ ESTIMATE).
 | O1 | Head (30.4%) | A5 frozen. Part-6 FIT selection: r1024, c 0, K 16,384, 106.3 MB/token, FIT12 recall 0.99967, with `part6_r1024_{vr,preview,norms}.npy` frozen by sha256. DEV-B (DEV 33-44) unread. Parts 1, 1b, 2, 4 and 5 recorded | DEV-B capture (~40 min) and its registered confirmation; then the C head (A5 part 3) | −157.8 MB (T0 → 41.4 desk tok/s) |
 | O2 | KV cache (9.7%) | A6 arm K8 scored on FIT (chain); engine `--kv q8_0` draft saved, not built | port; a floor for llama.cpp's flash-attention q8_0 path; an A3-style gate | −39.3 MB |
 | O3 | Routed, shared and dense experts (39.9%) | A6 FIT ranking (chain); A6 part 2 registered; IQ3_S compute-bound at 12.45 GB/s | A6 part 2 (~7-8 h); IQ4_XS and IQ3_S in the engine; a faster IQ3_S kernel | E4: −34.5 MB; E3 needs the kernel |
-| O4 | Router (4.6%) | exactly BF16-representable for this checkpoint | BF16 router in the engine (identical outputs expected); a two-level router for large m | −19.9 MB, and half the capacity term |
+| O4 | Router (4.6%) | exactly BF16-representable for this checkpoint; the lossless BF16 router moved into S1 on 17 October | an int8 router (lossy, so a quality cell) or a two-level router for large m | BF16 (in S1): −19.9 MB and half the capacity slope; int8: −29.9 MB |
 | O5 | Attention (15.5%) | post-hoc rank cuts were expensive (E65, first-attention results) | a protocol that prices quality per MB saved | open |
 | O6 | Speculation / MTP | not a primary lever: routed experts do not amortize under i.i.d. routing (a 2-position verify costs 1.43×), and the chat checkpoint has no MTP head | only if S0's breakdown or a routing-locality measurement changes this | open |
 | O7 | Kernels, threading, prefill | non-streaming residual 2.70 ms (desk 2); prefill token by token | barriers and synchronization; batched prefill (TTFT) | ≤ 0.7 ms/token |
@@ -574,7 +618,7 @@ it is available, and the table fills as tiers are measured.
 | --- | --- | --- |
 | A4 fails (T0 quality above +0.02) | S0 | T0 = Q5_K_M or Q6_K with the exact head; v0 re-measured; the invariance cells are unchanged |
 | Process-to-process dispersion | A1b | placement and paging fixes within the diagnostic budget; no CI-based gate until solved |
-| The router grows linearly with E (−12% desk at 4× with F32) | S1 | report it (rule 9); a BF16 router (O4, lossless here); a two-level router at large m |
+| The router grows linearly with E: at 4×, −12% desk with F32 and −6.6% with BF16 (same-format baseline) | S1 | report it (rule 9); the BF16 router measured in S1; an int8 or two-level router (O4) at large m |
 | Residual slowdown at large pools (TLB and pages; METH177 1.31×) | S1 | large pages (A1b arm B2) if the privilege is granted; expert placement |
 | The Ling-mini → Ling-flash gap is reasoning, not knowledge | S2 | stored capacity is the wrong tool; the quality half of Phase 1 is re-planned before T4 spend |
 | Teacher-signal throughput | S3 | sequence-level KD; offline bank construction in batches; an id-compatible Ling-3.x teacher |
@@ -590,8 +634,9 @@ it is available, and the table fills as tiers are measured.
 
 **Phase 1:**
 - S0: ~1.5 h of empty machine plus ~1 day of tooling.
-- S1: ~1 week. That covers the engine generalization, an expander, 20-75 GB artifacts on E:,
-  and ~1-2 h of empty machine.
+- S1: ~1 week. That covers the engine generalization, the BF16 router option (~half a day), an
+  expander, 20-75 GB artifacts on E:, and ~2-4 h of empty machine (both router formats; the
+  process count is set after A1b).
 - S2: several days of contended CPU, for the Ling-flash-2.0 download (~206 GB in BF16, then a
   ~63 GB Q4_K_M), its conversion and the panels.
 - S4-S5: weeks to months of T4, within the granted 90 h/week.
@@ -614,8 +659,8 @@ it is available, and the table fills as tiers are measured.
 **Paused until the owner's go,** in this order:
 1. The A4 and A6 verdicts. The scripts exist; no new run.
 2. The S0 protocol, pushed before any rate run. Then A1b and S0, in one empty-machine session.
-3. The S1 protocol, the engine generalization (byte-identical at E = 256) and the expander; then
-   the S1 sweep.
+3. The S1 protocol, the engine generalization (byte-identical at E = 256), the BF16 router option
+   (byte-identical at m = 1) and the expander; then the S1 sweep in both router formats.
 4. The S2 protocol and the Ling-flash-2.0 download (owner approval).
 5. S3 (an owner decision), then S4.
 
@@ -632,7 +677,7 @@ new cells:
 | Cell | Nearest prior cell | Changed coordinate | Why the prior cell does not answer |
 | --- | --- | --- | --- |
 | S0 | A2b rate (llama.cpp on T0); the recipient int8/mixed baselines | The engine's own rate on T0, with an organ breakdown | llama.cpp is a different runtime; the recipients are different models |
-| S1 | METH177 (selected-expert cost at extreme pool sizes); E63 Part B (synthetic 10B) | A pretrained artifact's pool grown 2-7× at fixed top-k, with the routing bytes priced | METH177 used synthetic shapes at 12,800-128,000 experts; E63 had no growing pool |
+| S1 | METH177 (selected-expert cost at extreme pool sizes); E63 Part B (synthetic 10B) | A pretrained artifact's pool grown 2-7× at fixed top-k, in two router formats plus a hashed-copy arm, so that the pool effect and the router's cost per byte are measured separately | METH177 used synthetic shapes at 12,800-128,000 experts; E63 had no growing pool |
 | S2 | none on this family | Ling-mini against Ling-flash on frozen panels | no prior cell compared the two |
 | S4 | H1/H2I/H4 (router training at 1.5B); the memory-grafting review | Capacity added to a frozen pretrained MoE, against a matched LoRA control | the earlier cells trained routers or small recipients, not capacity at a fixed cost |
 | S6 | the 16 October Phase B outline | A recipe that includes v0 and capacity growth | the outline stopped at rate and quality |
@@ -707,3 +752,4 @@ Append-only. Each entry: date, decision or measurement, evidence link, label.
 | 2026-10-17 | **Owner directive: the roadmap is restructured into three phases.** Phase 1 is a scale-invariance pipeline at a measured v0, Phase 2 an organ-by-organ optimization that raises v0, and Phase 3 a set of hardware tiers. A5 is frozen with its state recorded: the part-6 FIT selection and arrays, and DEV-B unread. The A4 → A6 chain continues, which is the first of the directive's two options for running jobs, because it qualifies the exact-head artifact. The DEV-B capture watcher (`after_chain_devb.cmd`) was stopped before it started, after its PID was checked against its command line; nothing was captured. T0 = P0 (§4). A6 part 2 moves to Phase 2, and the rate half of A7 on T0 becomes S0. The 16 October text is kept as `ROADMAP_V1_20261016.md`. Work is paused until the owner's go. | owner directive in session, 2026-10-17; [ROADMAP_V1](ROADMAP_V1_20261016.md) | DECISION |
 | 2026-10-17 | **Labels for the record.** The directive's "~38-41 tok/s with the exact head, ~3× llama.cpp" is the desk rate of the A6 candidates (E4B 38.2; P4 41.8 before IQ3_S was repriced), not a measurement. T0 is 34.4 desk tok/s at 2048. The engine's own decode rate has not been measured yet: A1b is the first measurement, with a registered prediction of 24-30 tok/s. llama.cpp measured 14.39 tok/s on T0. | §0, §3; [A1 + A2b rate](C50_A1_A2B_RATE_RESULT_20261017.md) | DESK-MODEL / MEASURED |
 | 2026-10-17 | The `--kv q8_0` engine draft was written after the A1b commit and never built or run. It is saved outside the repository (source, diff and patch script) and stashed, and the working tree is back at the committed source. That source rebuilds `c50_engine_a1b.exe` byte-identical apart from the link timestamp, which the PE file stores twice, so the source hash the A1b runner records matches its binary. The draft is the starting point of O2. | `E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/drafts/` | DECISION / MEASURED |
+| 2026-10-17 | **Plan amendment (owner note on the BF16 router).** S1 measures the expert pool in both router formats, T0's F32 and the lossless BF16, interleaved in one session. The BF16 router is a load-time engine option whose output at m = 1 must be byte-identical to T0's; otherwise the BF16 arm is VOID. A hashed-copy arm H keeps the router at T0's 256 rows and sends each selected expert to one of its copies, so it measures the pool effect alone, with output byte-identical to T0's at every m. Arm E minus arm H gives each format's router cost per byte; the formats are not assumed to share one, because this box streams formats at different bandwidths. The raw ratio v(m) / v(1) is reported, not gated, against a baseline of the same format: desk 0.977 at 2× and 0.934 at 4× with BF16, against 0.955 and 0.878 with F32. Ratios against the F32 T0 are labelled as including the router upgrade. **Correction:** the first 17 October version of §3 said that a BF16 router makes 2× free relative to T0. That mixed the format change (+2.2%) with capacity; it is corrected in place. The lossless half of O4 moves into S1, and rule 9 now requires a same-skeleton baseline. If the known positive passes, S4 and S5 use the BF16 router; T0 stays P0. | owner note in session, 2026-10-17; §3, §5 S1, §6 rule 9, §7 O4 | DECISION / DESK-MODEL |
