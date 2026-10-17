@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\chatbot50\c50_compare.py", line 119, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\chatbot50\c50_compare.py", line 80, in main
+    meta_r = json.loads(Path(args.ref + ".json").read_text())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Invalid \escape: line 1 column 13 (char 12)
+R0 rc 0 820s DONE positions=26363 wall_s=810.1
+R3 rc 0 2297s DONE positions=26363 wall_s=2287.3
+R1 rc 0 1659s DONE positions=26363 wall_s=1650.4
+R2 rc 0 3434s DONE positions=26363 wall_s=3431.1
+R0b rc 0 394s DONE positions=26363 wall_s=380.3
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\chatbot50\c50_a2b_floor_run.py", line 97, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\chatbot50\c50_a2b_floor_run.py", line 88, in main
+    subprocess.run([sys.executable, "-I", str(HERE / "c50_compare.py"), "--ref", str(work / a), "--other",
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe', '-I', 'D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\c50_compare.py', '--ref', 'E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0', '--other', 'E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R1', '--ids', 'E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\a2b_ids.tsv', '--tokenizer', 'E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/sources/Ling-mini-2.0_a810f64/tokenizer.json', '--json', 'E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\compare_R0_R1.json']' returned non-zero exit status 1.
+exit=1

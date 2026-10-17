@@ -188,3 +188,45 @@ C50-A1.
    - A first hypothesis, not tested: rounding differences are amplified by
      discrete top-8 routing flips. Q8_0 against BF16 at the same settings showed
      KL 7-10e-3 on the same positions.
+
+## Addendum 3 (17 October 2026, after the arms, before any pair was computed)
+
+1. **All five arms completed, and each CONFIG line confirms its registered arm.**
+
+   | Arm | Wall time (s) |
+   | --- | ---: |
+   | R0 | 820 |
+   | R3 | 2,297 |
+   | R1 | 1,659 |
+   | R2 | 3,434 |
+   | R0b | 394 |
+
+   None hit the stop rule. The R2 time is 95% of the hour; its first-document
+   projection was under it.
+2. **The comparison step failed before computing any pair.**
+   - Cause: `c50_llama_score.exe` writes the model path into its metadata file
+     (`<arm>.json`) without JSON escaping, so a Windows path with backslashes
+     makes the file invalid. `c50_compare.py` stopped on R0-R1 with
+     `JSONDecodeError`.
+   - The smoke runs passed a forward-slash path and never exercised this.
+   - No pair statistic was printed or read. The failed attempt is kept
+     unchanged: `benchmarks/chatbot50/results/c50_a2b_floor_run_attempt1_20261017.log`
+     and `…_attempt1_20261017.json`. Because the runner crashed before its final
+     write, R0b's status is not in that JSON.
+3. **Repair (the measurement does not change).**
+   - `c50_compare.py` reads a metadata file that fails to parse with its
+     backslashes doubled and marks it `meta_repaired`. The path is the only
+     field the writer emits that can hold a backslash. The metadata is only
+     used for `dump` and `n_vocab`; positions, targets and rows come from the
+     binary files.
+   - `c50_a2b_floor_run.py --compare-only` runs no arm again. It:
+     - re-reads the recorded report;
+     - checks the model and position-file hashes against it;
+     - re-applies the same CONFIG check to every recorded arm, through the same
+       function the full run now uses;
+     - then computes the four pairs.
+   - The scorer binaries are not rebuilt, so the hashes recorded for the arms
+     stay those of the binaries that ran. The engine's metadata writer has the
+     same flaw and is likewise left as it is; the reader covers both.
+4. Nothing else changes: the floor definition, the negative control and the A3
+   gate are as registered.

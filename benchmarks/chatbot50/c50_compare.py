@@ -65,6 +65,19 @@ def boot(per_doc_num: np.ndarray, per_doc_den: np.ndarray) -> tuple[float, float
     return float(lo), float(hi)
 
 
+def load_meta(prefix: str) -> dict:
+    """Run metadata.  c50_llama_score.exe (A2b binaries) writes the model path into its JSON without
+    escaping, so a Windows path makes the file invalid; such a file is read with its backslashes doubled
+    and marked meta_repaired.  The path is the only field the writer emits that can hold a backslash."""
+    text = Path(prefix + ".json").read_text()
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        meta = json.loads(text.replace("\\", "\\\\"))
+        meta["meta_repaired"] = True
+        return meta
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--ref", required=True)
@@ -77,8 +90,7 @@ def main() -> int:
     if len(r) != len(o) or not (np.array_equal(r["doc"], o["doc"]) and np.array_equal(r["pos"], o["pos"])
                                 and np.array_equal(r["target"], o["target"])):
         raise SystemExit("runs do not score the same positions")
-    meta_r = json.loads(Path(args.ref + ".json").read_text())
-    meta_o = json.loads(Path(args.other + ".json").read_text())
+    meta_r, meta_o = load_meta(args.ref), load_meta(args.other)
     blen = byte_lengths(Path(args.tokenizer))
     nbytes = blen[r["target"]].astype(np.float64)
     docs = np.unique(r["doc"])
