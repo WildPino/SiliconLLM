@@ -24,6 +24,10 @@
  *   --bench IDS.tsv [--ctx C] [--steps N]           decode-rate bench (needs a clean box)
  *   --score IDS.tsv --out PREFIX [--dump-logprobs]   teacher-forced scoring, output format
  *                                                    identical to c50_llama_score.cpp
+ * A1b options (default off; printed on the CONFIG line):
+ *   --mem map|private|large   weights read from the file mapping (default), copied into private
+ *                             memory locked in the working set, or copied onto large pages
+ *   --prio normal|high        process priority class
  * Build:
  *   clang -O2 -mavx2 -mfma -mf16c -o bin/c50_engine.exe c50_engine.c
  */
@@ -480,11 +484,61 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
 }
 
 /* ------------------------------------------------------------------ loading -- */
+static int g_mem, g_prio;  /* A1b: 0 map / 1 private / 2 large pages; 0 normal / 1 high priority */
+static const char *const g_mem_name[] = {"map", "private", "large"};
+
+/* A1b: move the whole GGUF image out of the file mapping into private memory (locked in the working
+ * set, or on large pages, which are never paged), and rebase every pointer gguf_open derived from it. */
+static void privatize(gguf *g) {
+    SIZE_T n = (SIZE_T)g->size, lp;
+    uint8_t *mem;
+    const uint8_t *old = g->base;
+    uint64_t i;
+    DWORD flags = MEM_COMMIT | MEM_RESERVE;
+    if (g_mem == 2) {
+        HANDLE tok;
+        TOKEN_PRIVILEGES tp;
+        lp = GetLargePageMinimum();
+        if (!lp || !OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &tok) ||
+            !LookupPrivilegeValueA(NULL, "SeLockMemoryPrivilege", &tp.Privileges[0].Luid)) {
+            fprintf(stderr, "large pages unavailable\n"); exit(4);
+        }
+        tp.PrivilegeCount = 1;
+        tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+        if (!AdjustTokenPrivileges(tok, FALSE, &tp, 0, NULL, NULL) || GetLastError() != ERROR_SUCCESS) {
+            fprintf(stderr, "large pages unavailable: SeLockMemoryPrivilege not held\n"); exit(4);
+        }
+        CloseHandle(tok);
+        n = (n + lp - 1) / lp * lp;
+        flags |= MEM_LARGE_PAGES;
+    }
+    mem = VirtualAlloc(NULL, n, flags, PAGE_READWRITE);
+    if (!mem) { fprintf(stderr, "private weight allocation failed (%lu)\n", (unsigned long)GetLastError()); exit(4); }
+    memcpy(mem, old, (size_t)g->size);
+    if (g_mem == 1) {
+        if (!SetProcessWorkingSetSizeEx(GetCurrentProcess(), n + ((SIZE_T)1 << 30), n + ((SIZE_T)2 << 30),
+                                        QUOTA_LIMITS_HARDWS_MIN_ENABLE) || !VirtualLock(mem, n)) {
+            fprintf(stderr, "working-set lock failed (%lu)\n", (unsigned long)GetLastError()); exit(4);
+        }
+    }
+    for (i = 0; i < g->n_kv; ++i) {
+        g->kv[i].key = (const char *)mem + ((const uint8_t *)g->kv[i].key - old);
+        g->kv[i].val = mem + (g->kv[i].val - old);
+    }
+    for (i = 0; i < g->n_tensors; ++i) {
+        g->t[i].name = (const char *)mem + ((const uint8_t *)g->t[i].name - old);
+        g->t[i].data = mem + (g->t[i].data - old);
+    }
+    UnmapViewOfFile(old);
+    g->base = mem;
+}
+
 static void load_model(model_t *md, const char *path) {
     char name[96];
     unsigned l;
     gguf *g = &md->g;
     gguf_open(g, path);
+    if (g_mem) privatize(g);
     if (gguf_u(g, "bailingmoe2.block_count") != NL || gguf_u(g, "bailingmoe2.embedding_length") != D ||
         gguf_u(g, "bailingmoe2.attention.head_count") != NH || gguf_u(g, "bailingmoe2.attention.head_count_kv") != NKV ||
         gguf_u(g, "bailingmoe2.attention.key_length") != HD || gguf_u(g, "bailingmoe2.rope.dimension_count") != ROT ||
@@ -655,8 +709,8 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
         if (n < ctx + nsteps) continue;
         printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%d,%d,%d,%d,%d,%d "
-               "kv=f16 types=[%s]\n", model_path, doc, ctx, nsteps, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4],
-               g_cpu[5], types);
+               "kv=f16 types=[%s] mem=%s prio=%s\n", model_path, doc, ctx, nsteps, NT, g_cpu[0], g_cpu[1], g_cpu[2],
+               g_cpu[3], g_cpu[4], g_cpu[5], types, g_mem_name[g_mem], g_prio ? "high" : "normal");
         fflush(stdout);
         t_pre = now_s();
         for (p = 0; p < ctx; ++p) forward(md, st, ids[p], p);
@@ -695,6 +749,16 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "--out") && i + 1 < argc) out = argv[++i];
         else if (!strcmp(argv[i], "--dump-logprobs")) dump = 1;
         else if (!strcmp(argv[i], "--dump-hidden")) hidden = 1;  /* A5: final-norm output, D floats per position */
+        else if (!strcmp(argv[i], "--mem") && i + 1 < argc) {
+            ++i;
+            g_mem = !strcmp(argv[i], "map") ? 0 : !strcmp(argv[i], "private") ? 1 : !strcmp(argv[i], "large") ? 2 : -1;
+            if (g_mem < 0) { fprintf(stderr, "--mem must be map, private or large\n"); return 2; }
+        }
+        else if (!strcmp(argv[i], "--prio") && i + 1 < argc) {
+            ++i;
+            g_prio = !strcmp(argv[i], "normal") ? 0 : !strcmp(argv[i], "high") ? 1 : -1;
+            if (g_prio < 0) { fprintf(stderr, "--prio must be normal or high\n"); return 2; }
+        }
         else if (!strcmp(argv[i], "--selftest")) return selftest();
         else if (!strcmp(argv[i], "--bench") && i + 1 < argc) bench_path = argv[++i];
         else if (!strcmp(argv[i], "--ctx") && i + 1 < argc) bench_ctx = (unsigned)atoi(argv[++i]);
@@ -703,9 +767,11 @@ int main(int argc, char **argv) {
     }
     if (!model_path || (!bench_path && (!ids_path || !out)) || bench_ctx + bench_n > MAXCTX || !bench_n) {
         fprintf(stderr, "usage: c50_engine --model GGUF --score IDS.tsv --out PREFIX [--dump-logprobs]\n"
-                        "       c50_engine --model GGUF --bench IDS.tsv [--ctx 2048] [--steps 128]\n");
+                        "       c50_engine --model GGUF --bench IDS.tsv [--ctx 2048] [--steps 128]\n"
+                        "       options: [--mem map|private|large] [--prio normal|high]\n");
         return 2;
     }
+    if (g_prio && !SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS)) { fprintf(stderr, "priority change failed\n"); return 4; }
     load_model(md, model_path);
     st = calloc(1, sizeof *st);
     st->kc = VirtualAlloc(NULL, (size_t)NL * MAXCTX * NKV * HD * 2, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
@@ -739,9 +805,9 @@ int main(int argc, char **argv) {
     }
     rewind(fi);
     printf("CONFIG engine=c50_engine model=%s docs=%u positions=%zu threads=%d cores=%d,%d,%d,%d,%d,%d kv=f16 "
-           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s]\n",
+           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s] mem=%s prio=%s\n",
            model_path, docs, positions, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5],
-           st->eps, st->rope_base, st->wscale, dump, hidden, types);
+           st->eps, st->rope_base, st->wscale, dump, hidden, types, g_mem_name[g_mem], g_prio ? "high" : "normal");
     fflush(stdout);
     snprintf(path, sizeof path, "%s.pos.bin", out);
     fpos = fopen(path, "wb");
