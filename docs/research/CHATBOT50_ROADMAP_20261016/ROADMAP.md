@@ -562,6 +562,27 @@ memory) fits, and what does the Phase-2 artifact reach?
 **H0. Inventory (owner).** The machines available and those worth renting: CPU model; memory
 type, speed, channels and size; OS.
 
+**H0 inventory, given by the owner on 17 October** (besides R0; rentals if needed):
+
+| Machine | CPU: cores/threads, ISA | RAM as given | Peak GB/s if dual channel | T0 (9.91 GB) resident |
+| --- | --- | --- | ---: | --- |
+| ASUS VivoBook Max X541U | Core i5-7200U, Kaby Lake, 2/4, AVX2 | 8 GB DDR4-2133 | 34.1 | no |
+| HP 15s-eq0020nl | Ryzen 5 3500U, Zen+, 4/8, AVX2 on a 128-bit datapath | 8 GB DDR4-2400 | 38.4 | no |
+| Lenovo ThinkPad T490s | Core i5-8265U, Whiskey Lake, 4/8, AVX2 | 16 GB DDR4-2400 | 38.4 | yes, ~6 GB left for the OS |
+| Microsoft Surface Pro 11 | Snapdragon X Elite, 12 Oryon cores, ARM64 (NEON, no AVX2) | 16 GB LPDDR5x | 135 (LPDDR5x-8448, 128-bit bus) | yes, ~6 GB left for the OS |
+
+- **The peaks are upper bounds (SOURCE-DERIVED from the vendors' specifications).** The channel
+  and module layout of the laptops is not known. H1's read ceiling measures the bandwidth
+  instead of assuming dual channel.
+- **The two 8 GB machines cannot hold T0 resident.** They form a tier below the planning
+  table's smallest row. Serving them needs a smaller resident artifact or experts streamed from
+  the SSD, and Phase 1 builds neither. Until that changes, their H1 pack is the read ceiling,
+  the A1 roofline and A1b.
+- **The Surface is the list's only ARM64 machine and its highest peak** (about 2.6× R0's). The
+  A3 engine is x86 AVX2 C, so the portability gate needs an ARM64 kernel path before our engine
+  can measure that tier's v0. An x64 build run under emulation is not a measurement of the tier.
+  A native ARM64 build of the pinned llama.cpp can give the reference runtime's number.
+
 **H1. Probe pack per machine** (~2-3 h of machine time each, ESTIMATE):
 - E30-style read ceiling;
 - A1 kernel roofline at Ling-mini shapes;
@@ -662,7 +683,8 @@ it is available, and the table fills as tiers are measured.
    empty-machine session (~1.5-1.75 h), after the A4 verdict.
 3. The S1 protocol, the engine generalization (byte-identical at E = 256), the BF16 router option
    (byte-identical at m = 1) and the expander; then the S1 sweep in both router formats.
-4. The S2 protocol and the Ling-flash-2.0 download (owner approval).
+4. The S2 protocol and the Ling-flash-2.0 download (owner approval): **done**. The owner gave
+   "ok S2" on 17 October; the builds and the arms follow the A1b + S0 session.
 5. S3 (an owner decision), then S4.
 
 The owner's actions are listed in `docs/COMMUNICATION.md`.
@@ -759,3 +781,4 @@ Append-only. Each entry: date, decision or measurement, evidence link, label.
 | 2026-10-17 | **S1 tools, before the S1 protocol** (which waits for A1b's dispersion and adopted memory mode). Engine: the expert count E is read from the header (multiple of 8, ≥ 32 per group, ≤ 4,096); `--router bf16` converts the F32 router at load time, exits 5 if any value is not exactly BF16, and expands it back to F32 in the F32 kernel's FMA order; `--hash-copies` (arm H) reads only T0's 256 router rows and sends each pick to one of its copies by splitmix64 of (layer, position, expert). The bench line now reports the selection spread. On T0 (E = 256) all five combinations are byte-identical to A3, including the log-probability rows: default, BF16, H, BF16 + H, and BF16 + H + `--organs` + private memory. This previews the BF16 known positive, which S1 runs on the A3 positions. `c50_s1_expand.py` grows each pool by byte copies (slot g·E/8 + 32k + j = copy k of T0 expert 32g + j). The router rows of copies k ≥ 1 get a seeded multiplicative perturbation rounded to BF16, and every slot is re-checked against its source. On a synthetic GGUF it passes independent checks at E = 256, 264 and 536, and its E = 256 output is byte-identical to the source file. **Constraint found for the S1 protocol:** E: is a USB disk and C: (NVMe) has 139 GB free, so an m ≈ 7 artifact (~70 GB) cannot be re-read per process under `--mem private`. The protocol must choose between page-cache residency (`--mem map`) and NVMe staging for the large arms. | `c50_engine.c`, `c50_s1_expand.py` | TOOLING / MEASURED (parity) |
 | 2026-10-17 | **The owner leaves the machine free and authorizes the downloads.** Two consequences. (1) The A1b + S0 session is launched by me once the box is clean: after the A4 → A6 chain, with A4's verdict first, as the S0 protocol requires. It is never run during the chain or during a download. (2) The S2 download of Ling-flash-2.0 starts now, during the chain, so that it ends long before the session. It is pinned at revision `96f9b7a73e531b0ca05f8839ea9f271948ad8ea4` (MIT, not gated, 22 safetensors, 205.79 GB from the API), with the same `hf download --revision --local-dir` path as A2, and it will be verified by `a2_source_manifest.py`. **Measured before the download:** the pinned `tokenizer.json` differs from Ling-mini's in bytes but is equal as canonical JSON (vocabulary 156,891, merges, 262 added tokens, pre-tokenizer and normalizer). `tokenizer_config.json` (chat template included) and `special_tokens_map.json` are byte-identical. S2's "same source-tokenizer IDs" therefore holds. Ling-flash config: 32 layers, hidden 4,096, 256 experts, top-8, expert FFN 1,024, 32/4 heads, vocab 157,184, 1 dense layer, 8 groups, top-4 groups, 1 shared expert. Its GGUF conversion is a long CPU job and waits for the S2 protocol and an empty slot after S0. | owner in session, 2026-10-17; HF API at the pinned revision | DECISION / SOURCE-DERIVED |
 | 2026-10-17 | **S2 protocol pushed before any S2 arm is built.** The arms are M0 (Ling-mini Q4_K_M, no imatrix) and F0 (Ling-flash-2.0 `96f9b7a` Q4_K_M, the same recipe), with T0 reported beside. No imatrix is a measured constraint: the 205.8 GB BF16 neither fits the RAM nor reads fast from E:, so the gap map compares two artifacts made one way (rule 9), and T0 − M0 is the imatrix effect. Panels: NQ-open 600 and TriviaQA 600 (closed-book short answers, SQuAD-normalized whole-word alias match), MMLU 570 (10 per subject), and A4's GSM8K 100, ARC 600, 72 documents and chat 40. The knowledge datasets are pinned by revision and sha256. Rule: D = RER_K − RER_R (K = nq + tqa, R = gsm8k + arc) with an item bootstrap. KNOWLEDGE, REASONING or MIXED by the CI95 of D; S3-S5 proceed iff the outcome is not REASONING and the CI95 of RER_K is above 0. Controls before the push: planted synthetic cases pass (knowledge-only, reasoning-only, equal, no gap), a null control (T0 against itself) gives exact zeros on the real pipeline, and 15/15 known-answer checks pass. Disclosure: the smoke printed P0's own accuracies on A4's panels before the A4 verdict; they enter no decision. Cost ~18 h of CPU (ESTIMATE). It runs only with the owner's explicit go and never beside a rate cell. | [C50_S2_GAP_MAP_PROTOCOL](C50_S2_GAP_MAP_PROTOCOL_20261017.md) | PROTOCOL |
+| 2026-10-17 | **Owner answers: "ok S2", no product threshold, hardware inventory.** S2 is authorized (rule 7) and runs after the A1b + S0 session, in the protocol's order, never beside a rate cell. No product threshold on the raw ratio v(m)/v(1) is set, as §5 already states. The H0 inventory is recorded in §8: two 8 GB laptops that cannot hold T0 resident, a 16 GB AVX2 laptop, and a 16 GB ARM64 Surface whose tier needs an ARM64 kernel path. Rentals are available if needed. The owner offered to free space on C:. Not needed: F0's Q4_K_M (~63 GB) is staged on the NVMe C: for the panels, S1's large arms are staged there later, one at a time, within the 139 GB free, and the 205.8 GB BF16 intermediate stays on E:. The owner keeps at least 100 GB free on C: until S1 ends. The runner's F0 path and pin are set at build time. | owner in session, 2026-10-17 | DECISION |
