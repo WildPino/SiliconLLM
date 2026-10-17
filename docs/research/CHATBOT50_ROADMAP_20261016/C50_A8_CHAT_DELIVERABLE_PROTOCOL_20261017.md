@@ -86,3 +86,15 @@ content. Each is rendered with `add_generation_prompt=True`.
 
 **What this cannot say:** no rate (A7), no quality (A4/A7), and nothing about Unicode
 versions newer than 15.0.
+
+## Tools frozen before the first verification attempt (17 October 2026)
+
+| Item | sha256 |
+| --- | --- |
+| `c50_tok.h` | `eafbc321e398a8b3…` |
+| `c50_unicode_tables.h` (from `c50_a8_gen_unicode.py`, unicodedata 15.0.0) | `a8d6a784d6205808…` |
+| `bin/c50_tok_cli.exe` (clang -O2) | `1ebc1218064afb3a…` |
+| stress set S, `E:/…/a8/stress_v1.json` (3,000 random, 1,000 mixed, 500 nfc, 500 newer) | `a5a76499c6e4cf79…` |
+
+Scripts: `c50_a8_stress.py`, `c50_a8_verify.py` (prints numbers), `c50_a8_verdict.py` (applies
+the rule).
