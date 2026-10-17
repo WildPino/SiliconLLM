@@ -421,25 +421,28 @@ static void c50_encode(const c50_tok *t, const uint8_t *s, uint32_t n, c50_ids *
     if (seg < n) c50_encode_plain(t, s + seg, n - seg, out);
 }
 
+/* raw ByteLevel-decoder bytes of one token into o (capacity >= its text length); returns the count */
+static uint32_t c50_token_raw(const c50_tok *t, int32_t id, uint8_t *o) {
+    const uint8_t *s = (const uint8_t *)t->s[id];
+    uint32_t l = t->len[id], p = 0, nb = 0;
+    while (p < l) {  /* token texts are valid UTF-8 */
+        uint32_t k = c50_utf8_valid_len(s + p, l - p), c;
+        if (!k) break;
+        c50_utf8_dec(s + p, k, &c);
+        if (c >= 0x144 || t->sym_byte[c] < 0) break;
+        o[nb++] = (uint8_t)t->sym_byte[c]; p += k;
+    }
+    if (p < l) { memcpy(o, s, l); return l; }  /* not all byte-level symbols: the token's own bytes */
+    return nb;
+}
+
 /* decode ids into out (malloc'd, NUL-terminated, valid UTF-8); returns its length */
 static uint32_t c50_decode(const c50_tok *t, const int32_t *ids, uint32_t n, uint8_t **out_p) {
     uint32_t cap = 64, len = 0, i, olen = 0;
     uint8_t *raw = malloc(cap), *out;
     for (i = 0; i < n; ++i) {
-        const uint8_t *s = (const uint8_t *)t->s[ids[i]];
-        uint32_t l = t->len[ids[i]], p = 0, nb = 0, ok = 1;
-        uint32_t *cp = malloc(4 * ((size_t)l + 1));
-        while (p < l) {  /* token texts are valid UTF-8 */
-            uint32_t k = c50_utf8_valid_len(s + p, l - p), c;
-            if (!k) { ok = 0; break; }
-            c50_utf8_dec(s + p, k, &c);
-            if (c >= 0x144 || t->sym_byte[c] < 0) ok = 0;
-            cp[nb++] = c; p += k;
-        }
-        while (len + l + 1 > cap) { cap *= 2; raw = realloc(raw, cap); }
-        if (ok) { uint32_t q; for (q = 0; q < nb; ++q) raw[len++] = (uint8_t)t->sym_byte[cp[q]]; }
-        else { memcpy(raw + len, s, l); len += l; }
-        free(cp);
+        while (len + t->len[ids[i]] + 1 > cap) { cap *= 2; raw = realloc(raw, cap); }
+        len += c50_token_raw(t, ids[i], raw + len);
     }
     out = malloc(3 * (size_t)len + 1);
     i = 0;

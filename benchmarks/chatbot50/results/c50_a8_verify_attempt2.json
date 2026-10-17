@@ -1,0 +1,52 @@
+{
+ "cell": "C50-A8 verification",
+ "cli": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_tok_cli.exe",
+ "cli_sha256": "855b38df26c3898f3fe3e8e650b8a42ea7cdd294fa79c65200130e9127b4494a",
+ "tokenizer_json_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+ "gguf": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+ "checks": {
+  "T1": {
+   "items": 144,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T2": {
+   "items": 40,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T3": {
+   "items": 4500,
+   "mismatches": 0,
+   "examples": [],
+   "mismatches_by_group": {
+    "mixed": 0,
+    "nfc": 0,
+    "random": 0
+   }
+  },
+  "newer": {
+   "items": 500,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T4": {
+   "items": 6684,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T5_text": {
+   "items": 12,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T5_ids": {
+   "items": 12,
+   "mismatches": 0,
+   "examples": []
+  }
+ },
+ "config_encode": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=encode",
+ "config_decode": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=decode",
+ "config_template": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=template"
+}
