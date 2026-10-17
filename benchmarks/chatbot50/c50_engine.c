@@ -679,11 +679,11 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
 int main(int argc, char **argv) {
     const char *model_path = NULL, *ids_path = NULL, *out = NULL, *bench_path = NULL;
     unsigned bench_ctx = 2048, bench_n = 128;
-    int dump = 0, i;
+    int dump = 0, hidden = 0, i;
     model_t *md = calloc(1, sizeof *md);
     state_t *st;
     char types[256], path[1024];
-    FILE *fi, *fpos, *flp = NULL;
+    FILE *fi, *fpos, *flp = NULL, *fhid = NULL;
     int doc, *ids = NULL;
     unsigned n, cap = 0, docs = 0;
     size_t positions = 0;
@@ -694,6 +694,7 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "--score") && i + 1 < argc) ids_path = argv[++i];
         else if (!strcmp(argv[i], "--out") && i + 1 < argc) out = argv[++i];
         else if (!strcmp(argv[i], "--dump-logprobs")) dump = 1;
+        else if (!strcmp(argv[i], "--dump-hidden")) hidden = 1;  /* A5: final-norm output, D floats per position */
         else if (!strcmp(argv[i], "--selftest")) return selftest();
         else if (!strcmp(argv[i], "--bench") && i + 1 < argc) bench_path = argv[++i];
         else if (!strcmp(argv[i], "--ctx") && i + 1 < argc) bench_ctx = (unsigned)atoi(argv[++i]);
@@ -738,14 +739,15 @@ int main(int argc, char **argv) {
     }
     rewind(fi);
     printf("CONFIG engine=c50_engine model=%s docs=%u positions=%zu threads=%d cores=%d,%d,%d,%d,%d,%d kv=f16 "
-           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d types=[%s]\n",
+           "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s]\n",
            model_path, docs, positions, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5],
-           st->eps, st->rope_base, st->wscale, dump, types);
+           st->eps, st->rope_base, st->wscale, dump, hidden, types);
     fflush(stdout);
     snprintf(path, sizeof path, "%s.pos.bin", out);
     fpos = fopen(path, "wb");
     if (dump) { snprintf(path, sizeof path, "%s.logp.f32", out); flp = fopen(path, "wb"); }
-    if (!fpos || (dump && !flp)) { fprintf(stderr, "cannot open outputs\n"); return 2; }
+    if (hidden) { snprintf(path, sizeof path, "%s.hid.f32", out); fhid = fopen(path, "wb"); }
+    if (!fpos || (dump && !flp) || (hidden && !fhid)) { fprintf(stderr, "cannot open outputs\n"); return 2; }
     t0 = now_s();
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
         unsigned p;
@@ -765,11 +767,13 @@ int main(int argc, char **argv) {
                 for (v = 0; v < VOCAB; ++v) row[v] = (float)(st->logits[v] - lse);
                 fwrite(row, sizeof(float), VOCAB, flp);
             }
+            if (fhid) fwrite(st->h, sizeof(float), D, fhid);
         }
     }
     wall = now_s() - t0;
     fclose(fpos);
     if (flp) fclose(flp);
+    if (fhid) fclose(fhid);
     snprintf(path, sizeof path, "%s.json", out);
     fi = fopen(path, "w");
     fprintf(fi, "{\"engine\":\"c50_engine\",\"model\":\"%s\",\"n_vocab\":%u,\"docs\":%u,\"positions\":%zu,\"threads\":%d,"
