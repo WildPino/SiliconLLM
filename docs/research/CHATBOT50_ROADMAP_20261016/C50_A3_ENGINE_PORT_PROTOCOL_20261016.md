@@ -106,3 +106,28 @@ run on all 26,363 positions with the binary whose SHA-256 the run records.
    engine against llama.cpp micro-batch 1 gave a top-1 disagreement of 2/159 and
    a mean KL of 3.9e-3 nats. On the same positions llama.cpp differs from itself
    (micro-batch 512 vs 1) by 6/159 and 4.3e-3.
+
+## Addendum 2 (17 October 2026, after the A2b floor, before any engine output on P0)
+
+1. **The dBPB criterion is put in the same form as the other two (programme
+   rule 2).**
+   - The registered form ("dBPB 95% CI inside [−0.002, +0.002]") fails
+     llama.cpp against itself. R0-R2 has a CI end at −0.0048 and R0-R3 at
+     −0.0038; with 12 documents the CI half-width is ~0.0025 even for an unbiased
+     pair ([A2b result](C50_A2B_REFERENCE_FLOOR_RESULT_20261017.md)).
+   - New criterion: **|dBPB| point estimate ≤ max(2 × floor_dBPB, 0.002)**, where
+     floor_dBPB is the largest |dBPB| point estimate over the three floor pairs:
+     0.00222 (R0-R2), so the limit is **0.00444**. The CI is reported, not gated.
+   - The top-1 and KL criteria are unchanged: ≤ 0.0820 and ≤ 0.0299 nats.
+   - `c50_a3_verdict.py` implements this.
+   - Calibration check: the R0-R2 and R0-R3 floor pairs, fed to it in the
+     engine's place, both PASS.
+   - What the gate can and cannot detect: it catches gross errors (RoPE,
+     routing, scaling, a wrong organ), which put KL far above 0.03 nats. It does
+     not see a bias below ~0.004 BPB.
+2. **The P0 artifact contains no Q5_K tensor.** `attn_qkv` is Q4_K on 10 layers
+   and Q6_K on 10 ([A2 result](C50_A2_ACQUISITION_RESULT_20261016.md)). The
+   engine dispatches on the GGUF type, so its Q5_K path is unused on P0.
+3. **The engine's metadata file has the same unescaped-path flaw** as the
+   scorer's (A2b addendum 3). The engine is not changed: `c50_compare.py` reads
+   such a file and marks it `meta_repaired`.

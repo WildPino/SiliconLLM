@@ -1,0 +1,393 @@
+{
+ "cell": "C50-A2b",
+ "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+ "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4",
+ "ids_sha256": "cf76819b8b5ee1636feea8badd7ae4b52d08b1bcc5dffcd87d8704722eeaa460",
+ "exe_sha256": {
+  "avx2": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+  "generic": "232e2f58be8b2d147b8eefde9e4fc45606eca61d354776ab02428e7eaa7f437d"
+ },
+ "source_sha256": "2eab4fcabecce512327070d083dd51c980a715ab7ef8719d095c140e3dc3b434",
+ "arms": {
+  "R0": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\a2b_ids.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--ctx",
+    "8192",
+    "--max-projected-s",
+    "3600",
+    "--dump-logprobs"
+   ],
+   "returncode": 0,
+   "wall_s": 819.832763671875,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=2159 wall_s=67.3 projected_s=822",
+    "DONE positions=26363 wall_s=810.1"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "status": "COMPLETE"
+  },
+  "R3": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\a2b_ids.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R3",
+    "--threads",
+    "6",
+    "--ubatch",
+    "1",
+    "--ctx",
+    "8192",
+    "--max-projected-s",
+    "3600",
+    "--dump-logprobs"
+   ],
+   "returncode": 0,
+   "wall_s": 2296.829418897629,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=1 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=1 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=2159 wall_s=186.7 projected_s=2280",
+    "DONE positions=26363 wall_s=2287.3"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "status": "COMPLETE"
+  },
+  "R1": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\a2b_ids.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R1",
+    "--threads",
+    "1",
+    "--ubatch",
+    "512",
+    "--ctx",
+    "8192",
+    "--max-projected-s",
+    "3600",
+    "--dump-logprobs"
+   ],
+   "returncode": 0,
+   "wall_s": 1658.9607236385345,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=1 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=1 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=2159 wall_s=136.0 projected_s=1661",
+    "DONE positions=26363 wall_s=1650.4"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "status": "COMPLETE"
+  },
+  "R2": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_generic.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\a2b_ids.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R2",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--ctx",
+    "8192",
+    "--max-projected-s",
+    "3600",
+    "--dump-logprobs"
+   ],
+   "returncode": 0,
+   "wall_s": 3434.041100502014,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=1 max_projected_s=3600 system_info=[CPU : LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=2159 wall_s=279.9 projected_s=3418",
+    "DONE positions=26363 wall_s=3431.1"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.............................................................\n",
+   "status": "COMPLETE"
+  },
+  "R0b": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\a2b_ids.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0b",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--ctx",
+    "8192",
+    "--max-projected-s",
+    "3600"
+   ],
+   "returncode": 0,
+   "wall_s": 393.77818989753723,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=12 positions=26363 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=3600 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=2159 wall_s=31.5 projected_s=385",
+    "DONE positions=26363 wall_s=380.3"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "status": "COMPLETE"
+  }
+ },
+ "pairs": {
+  "R0-R1": {
+   "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0",
+   "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R1",
+   "ref_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 810.067,
+    "meta_repaired": true
+   },
+   "other_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 1,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 1650.43,
+    "meta_repaired": true
+   },
+   "positions": 26363,
+   "documents": 12,
+   "scored_bytes": 98271.0,
+   "top1_disagreement": 0.0,
+   "top1_disagreement_ci95": [
+    0.0,
+    0.0
+   ],
+   "bpb_ref": 0.7865475299310041,
+   "dbpb": 0.0,
+   "dbpb_ci95": [
+    0.0,
+    0.0
+   ],
+   "max_abs_dlogp_target": 0.0,
+   "bit_identical_logp_target": true,
+   "mean_kl_nats": 0.0,
+   "mean_kl_ci95": [
+    0.0,
+    0.0
+   ],
+   "p99_kl_nats": 0.0,
+   "max_kl_nats": 0.0
+  },
+  "R0-R2": {
+   "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0",
+   "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R2",
+   "ref_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 810.067,
+    "meta_repaired": true
+   },
+   "other_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 3431.12,
+    "meta_repaired": true
+   },
+   "positions": 26363,
+   "documents": 12,
+   "scored_bytes": 98271.0,
+   "top1_disagreement": 0.04100443803815954,
+   "top1_disagreement_ci95": [
+    0.03110108661982465,
+    0.05183449405122942
+   ],
+   "bpb_ref": 0.7865475299310041,
+   "dbpb": -0.002219625613555904,
+   "dbpb_ci95": [
+    -0.004835313194228719,
+    0.0002814755904943254
+   ],
+   "max_abs_dlogp_target": 6.724891006946564,
+   "bit_identical_logp_target": false,
+   "mean_kl_nats": 0.014937210191003174,
+   "mean_kl_ci95": [
+    0.012462761792227701,
+    0.017636425945436945
+   ],
+   "p99_kl_nats": 0.18785646766474134,
+   "max_kl_nats": 3.8455459709624162
+  },
+  "R0-R3": {
+   "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0",
+   "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R3",
+   "ref_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 810.067,
+    "meta_repaired": true
+   },
+   "other_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 1,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 2287.27,
+    "meta_repaired": true
+   },
+   "positions": 26363,
+   "documents": 12,
+   "scored_bytes": 98271.0,
+   "top1_disagreement": 0.03838713348253234,
+   "top1_disagreement_ci95": [
+    0.02904772206463428,
+    0.048486810270096874
+   ],
+   "bpb_ref": 0.7865475299310041,
+   "dbpb": -0.0014368836601464277,
+   "dbpb_ci95": [
+    -0.003800312549434372,
+    0.0009160468602819003
+   ],
+   "max_abs_dlogp_target": 3.592796325683594,
+   "bit_identical_logp_target": false,
+   "mean_kl_nats": 0.01391486760286011,
+   "mean_kl_ci95": [
+    0.0115539805582408,
+    0.01651287672339449
+   ],
+   "p99_kl_nats": 0.173544607782529,
+   "max_kl_nats": 3.676722745271495
+  },
+  "R0-R0b": {
+   "ref": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0",
+   "other": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a2b\\R0b",
+   "ref_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 1,
+    "wall_s": 810.067,
+    "meta_repaired": true
+   },
+   "other_meta": {
+    "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+    "n_vocab": 157184,
+    "docs": 12,
+    "positions": 26363,
+    "threads": 6,
+    "ubatch": 512,
+    "ctx": 8192,
+    "flash_attn": "disabled",
+    "kv": "f16",
+    "dump": 0,
+    "wall_s": 380.293,
+    "meta_repaired": true
+   },
+   "positions": 26363,
+   "documents": 12,
+   "scored_bytes": 98271.0,
+   "top1_disagreement": 0.0,
+   "top1_disagreement_ci95": [
+    0.0,
+    0.0
+   ],
+   "bpb_ref": 0.7865475299310041,
+   "dbpb": 0.0,
+   "dbpb_ci95": [
+    0.0,
+    0.0
+   ],
+   "max_abs_dlogp_target": 0.0,
+   "bit_identical_logp_target": true
+  }
+ },
+ "started": "2026-10-16T23:52:38",
+ "compare_only": {
+  "started": "2026-10-17T02:18:32",
+  "reason": "addendum 3: the first comparison step failed on an unescaped path in the arm metadata"
+ },
+ "finished": "2026-10-17T02:35:07"
+}
