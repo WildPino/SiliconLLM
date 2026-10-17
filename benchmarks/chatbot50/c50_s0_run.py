@@ -30,8 +30,11 @@ import e44_interval as E44  # noqa: E402
 
 EXE = {"s0": HERE / "bin" / "c50_engine_s0.exe", "plant": HERE / "bin" / "c50_engine_s0_plant_head.exe"}
 EXE_SHA256_PIN = {"s0": "786e1c6dfb58de5ef3f92a28dfce24abedcc1f4be686fc8ceaa4ae52f953e758", "plant": "f2cd3401a9daf698d8f09e619431e0b8465bc5607aa898f6452dc7dd2a23331b"}
-SOURCE = HERE / "c50_engine.c"
-SOURCE_SHA256_PIN = "47736ad389846cff42befca8dfed65b7a074587224c12b9efe64316ed4386242"
+# Addendum 1 (17 October, before any S0 process): S1 extends c50_engine.c, so the S0 source is checked as the git blob
+# of commit 78356877 (LF blob sha256 1ec8a12e...; the CRLF working copy the binaries were built from was 47736ad3...).
+SOURCE_COMMIT = "78356877e5a3a4ee06cdbec4ccfe6f8826a12042"
+SOURCE_PATH = "benchmarks/chatbot50/c50_engine.c"
+SOURCE_SHA256_PIN = "1ec8a12ebaab71b0ac51613f78adc121532196be9751481bec22ae8afb458aaf"
 MODEL = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/gguf/ling-mini-2.0-a810f64-q4_k_m.gguf")
 MODEL_SHA256 = "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"
 IDS = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a4/inputs/docs.tsv")
@@ -47,6 +50,11 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: f.read(1 << 24), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def source_blob_sha256() -> str:
+    blob = subprocess.run(["git", "-C", str(HERE), "show", f"{SOURCE_COMMIT}:{SOURCE_PATH}"], capture_output=True, check=True).stdout
+    return hashlib.sha256(blob).hexdigest()
 
 
 def adopted(verdict_path: Path) -> dict:
@@ -108,7 +116,7 @@ def main() -> int:
     args = ap.parse_args()
     out_path = Path(args.out)
     report = {"cell": "C50-S0", "started": time.strftime("%Y-%m-%dT%H:%M:%S"), "occ_bar_pct": OCC_BAR,
-              "source": SOURCE.name, "source_sha256": sha256(SOURCE), "ids_sha256": sha256(IDS),
+              "source": f"{SOURCE_PATH} @ {SOURCE_COMMIT}", "source_sha256": source_blob_sha256(), "ids_sha256": sha256(IDS),
               "exe_sha256": {k: sha256(p) for k, p in EXE.items()}, "model": MODEL.as_posix()}
 
     def save():
