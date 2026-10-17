@@ -1,99 +1,128 @@
-# CHATBOT50 roadmap: a pretrained sparse chatbot at >=50 tok/s in engine.c, then capacity at fixed per-token cost
+# CHATBOT50 roadmap: a speed that does not depend on model size, then a faster base speed, then hardware tiers
 
-16 October 2026. **Status: APPROVED by the owner on 16 October 2026** (directive:
-follow the phases and rules of this document and record every decision,
-measurement and step; see the [decision log](#12-decision-and-progress-log)).
-When it was written, apart from the desk ledger in
-[`benchmarks/chatbot50/`](../../../benchmarks/chatbot50/byte_budget_ledger.py)
-(which read one local GGUF header and no tensor values), nothing had been
-downloaded, compiled, trained or timed. It replaces the "next selected step" of
-[`HANDOFF.md`](../../../HANDOFF.md) §1/§12 (SmolLM2-135M recipient plus donor
-memory). It changes no historical result or verdict. Sections 0-11 are the
-approved text; later changes are recorded only in §12.
+16 October 2026, **restructured on 17 October 2026 by the owner's directive** (see the
+[decision log](#12-decision-and-progress-log)). The plan approved on 16 October is kept
+unchanged in [`ROADMAP_V1_20261016.md`](ROADMAP_V1_20261016.md). Protocols written before the
+restructuring cite its section numbers (for example "§5 A1b" or "§6 rule 2"). No historical
+result or verdict changes. Sections 0-11 are the 17 October text; later changes are recorded
+only in §12, which continues unchanged.
 
-Labels used throughout: **MEASURED** (a canonical local result), **SOURCE-DERIVED**
-(headers, configs, arithmetic), **DESK-MODEL** (rates derived from bytes; never
-quoted as a rate), **PROPOSED**, **[L?]** (literature not re-read in this
-session; read it in its own tables before it enters a decision).
+**Status: PAUSED until the owner's go** (directive of 17 October: rewrite the plan, then stop).
+The only job running is the A4 → A6 chain launched at 09:17, which the directive lets finish
+(§11).
+
+Labels used throughout: **MEASURED** (a canonical local result), **SOURCE-DERIVED** (headers,
+configs, arithmetic), **DESK-MODEL** (rates derived from bytes; never quoted as a rate),
+**ESTIMATE** (times, costs or sizes not yet measured), **PROPOSED**, **[L?]** (literature not
+re-read in this session; read it in its own tables before it enters a decision).
 
 ---
 
 ## 0. The decision in one page
 
-**What went wrong so far.** Since 21 September the programme closed many
-component cells but never ran a pretrained chatbot end to end in `engine.c`.
-Two patterns account for most of it:
+**Two problems, decoupled.** The 16 October plan coupled two questions: (1) does the decode
+speed stay the same when the model's stored capacity grows, and (2) how high is that speed,
+on this machine and on others. Phase A made (2) a precondition of everything (≥ 50 tok/s at
+context 2048 before any pipeline work), so (1), the project's actual thesis, had no cell
+running. The restructuring orders them:
 
-1. *Per-tensor bit-exact parity used as a system gate.* STRAT-01 produced 57
-   protocols and 55 scientific engine results in five days (21-25 September)
-   and reached layer 2 of 26 of GigaChat 3.1. MoE routing turns a last-bit
-   reduction-order difference into a different expert set at near-ties, so the
-   cascade has no natural end point. The project's own laws already say why:
-   kernel bit-exactness does not compose to system correctness, and a gate
-   written to be severe is not thereby valid.
-2. *Cost screens of new representations before any complete baseline path.*
-   The native-expert-scaling campaign indexes 609 report files. The cost
-   screens of new representations (additive codebooks, LUTs, palettes, child
-   experts, protected cores, compact recipients) all failed their envelopes;
-   the only passing rates (Switch, METH391) belong to an encoder-decoder
-   infilling model, not a chatbot.
-
-**The physics.** Batch-1 decode on the reference Ryzen 5 3600X is
-bandwidth-bound: rate ~= BW_eff / bytes per token. With the measured 34-36 GB/s
-(32 GB/s used for planning), 50 accepted tok/s at a declared 2048-token context leaves a budget of
-**B ~= 0.45-0.55 GB per token, KV included** (§3). "Independent of model size"
-can therefore only mean: stored capacity grows, bounded by 80 GB of RAM, while
-bytes per token stay below B.
-
-**What the ledger says (DESK-MODEL, §3).** Among header-verified donors only
-**Ling-mini-2.0** (16.26B total, 1.43B active, MIT, chat post-trained) reaches B
-at a plausibly quality-safe precision: 826 MB/token with a plain Q4 policy,
-**461-545 MB/token** once the KV cache is int8 and the 157k-row head is scored
-by an approximate scan plus exact rerank, i.e. 53-61 desk tok/s at context 2048.
-GigaChat 3.1 tops out near 38 desk tok/s even with every lever (its MLA
-attention alone streams 366 MB/token at Q4). Qwen3-30B-A3B, gpt-oss-120b and
-Ling-flash-2.0 exceed B with their always-on path alone; gpt-oss-20b exceeds it
-through its routed experts. **In every family screened, the large members miss
-B by 3-5x under every post-hoc policy priced here.**
-
-**Consequence.** The scalable claim has to be built, not found: a narrow, fast,
-pretrained MoE core, plus capacity added at fixed per-token cost and
-transferred from the large member of the same family.
-
-**Proposal: three phases, each with a deliverable that stands alone.**
-
-| Phase | Deliverable | Horizon (ESTIMATE) | Main risk |
+| Phase | Question | Deliverable | Horizon (ESTIMATE) |
 | --- | --- | --- | --- |
-| **A** | Ling-mini-2.0 running in `engine.c`, >=50 accepted tok/s (lower CI95, context 2048) on the same artifact that passes donor-relative quality gates; an interactive chatbot | 3-6 weeks, CPU only | complete 4-bit runtime efficiency (the only complete 4-bit C artifact ran at 0.53 of desk) and timing stability |
-| **B** | The conversion pipeline: triage ledger -> precision policy -> conversion -> fidelity/quality/rate gates -> optional T4 healing, applied to >=2 donors of other families, each ending in a documented applicability class | +1-2 months | operator coverage per architecture |
-| **C** | Capacity at fixed cost: the Phase-A artifact grows its stored capacity (extra experts or memory layers) by distillation from Ling-flash-2.0 (same family, ~6x larger) while keeping >=50 tok/s | months, T4 | teacher-signal throughput; whether added sparse capacity is useful at all |
+| **1** | Does the speed stay at v0 while stored capacity grows? | A reproducible pipeline: a reference artifact T0 at a measured speed v0; the same model at 2× and 4× stored capacity running at ≈ v0, with the routing/lookup overhead priced and measured, and held-out quality rising; then the same pipeline on another family | weeks for the speed half (CPU); months for the quality half (T4) |
+| **2** | How high can v0 go? | Organ-by-organ upgrades of the active skeleton (head, KV, expert precision, router, attention, speculation, kernels), each gated for quality. Targets: ≥ 50 tok/s (lower CI95, context 2048), then 100 | days to weeks per organ |
+| **3** | What does each machine get? | Hardware tiers: the v0 (bytes per token over bandwidth) and the capacity ceiling N_tot (GB of experts or memory) per CPU and RAM class | per available machine |
 
-**Asked of the owner now:** approve the direction; approve the pinned
-Ling-mini-2.0 download (~32.5 GB BF16); accept the programme rules in §6
-(statistical end-to-end fidelity calibrated on the reference's own noise
-instead of per-tensor bit-exact cascades; a diagnostic budget per failure).
-**Later (Phase C):** the teacher-signal budget (§8, C1).
+**Why now.**
+- **A5 took six cells in one day** (parts 1, 1b, 2, 4, 5, 6) to remove ~158 MB/token of head
+  bytes. It failed three times: parts 1 and 5 on FIT, part 2 on DEV. The pipeline waited
+  behind it.
+- **Fifty at 2048 was never one lever away.** Even if every Phase-A lever passed, the desk
+  model puts Ling-mini at ~47 tok/s at context 2048 (§3).
+- **The engine already runs the exact-head artifact in C** (A3 PASS, A8 chat).
+
+**The physics is unchanged.** Batch-1 decode on the reference Ryzen 5 3600X is
+bandwidth-bound: rate ≈ BW_eff / bytes per token.
+- **Size independence** therefore means fixed bytes per token while the stored bytes grow.
+- **Two separate limits:** capacity is bounded by RAM (80 GB here), speed by bandwidth
+  (36.3 GB/s measured here).
+- Phase 3 turns these two axes into a product table.
+
+**Where things stand (17 October).**
+- **T0 = the P0 artifact:** Ling-mini-2.0 Q4_K_M with the exact Q6_K head, F16 KV and an F32
+  router (sha256 `44de7315…`). It is 867.3 MB/token at context 2048, so **34.4 desk tok/s**
+  (DESK-MODEL, not a rate).
+- **Engine and chat:** the engine matches llama.cpp within llama.cpp's own floor (A3 PASS),
+  and Ling-mini chats in C (A8).
+- **Quality against BF16 (A4)** is being measured now.
+- **llama.cpp** decodes T0 at **14.39 tok/s** at depth 2048 (MEASURED, A2b).
+- **The engine's own rate on a clean box is not measured yet.** A1b gives the first engine
+  rates; its registered prediction is 24-30 tok/s at context 2048.
+  - The "~38-41 tok/s, ~3× llama.cpp" of the directive is the desk rate of the A6 candidates
+    (E4B 38.2; P4 with the exact head 41.8 before IQ3_S was repriced), not a measurement.
+
+**What is frozen, what continues.**
+- **A5 is frozen as a requirement.** Its state is kept for Phase 2:
+  - the part-6 FIT selection (r1024, c = 0, K = 16,384, 106.3 MB/token, recall 0.99967, with
+    its arrays frozen by sha256);
+  - DEV-B (DEV items 33-44), unread and reserved for its single confirmation. The DEV-B
+    capture was cancelled before it started.
+- **The A4 → A6 chain continues.** A4 qualifies T0's quality (the 1× baseline). A6 ranks the
+  exact-head precision policies, which feeds Phase 2.
+- **Moved:**
+  - A6 part 2 goes to Phase 2;
+  - the rate half of A7 becomes S0 (v0 on T0);
+  - A7 itself is the final rate adjudication at the end of Phase 2.
+
+**Asked of the owner:**
+- now: the go for Phase 1;
+- after the chain: an empty machine for A1b and S0;
+- when Phase 1 reaches them: the Ling-flash-2.0 download (S2) and the teacher-signal decision
+  (S3);
+- for Phase 3: the list of available hardware.
 
 ---
 
 ## 1. The contract
 
-Inherited from [RESEARCH_INDEX §2](../RESEARCH_INDEX.md), the
-[scope clarification](../NATIVE_EXPERT_SCALING_20260925/SCOPE_CLARIFICATION_20261015.md)
-and the [original objective](../NATIVE_EXPERT_SCALING_20260925/HANDOFF_SNAPSHOT_20261014/goal-objective.md);
-restated so that every clause has an instrument.
+Inherited, as on 16 October, from
+- [RESEARCH_INDEX §2](../RESEARCH_INDEX.md),
+- the [scope clarification](../NATIVE_EXPERT_SCALING_20260925/SCOPE_CLARIFICATION_20261015.md),
+- and the [original objective](../NATIVE_EXPERT_SCALING_20260925/HANDOFF_SNAPSHOT_20261014/goal-objective.md).
+
+It is regrouped by phase so that every clause has an instrument.
+
+**Phase 1: scale invariance.**
 
 | Gate | Requirement |
 | --- | --- |
-| Rate | Accepted tokens/s, batch 1, declared decode mode (greedy + the project repetition penalty, or a declared sampler), context 2048 primary with 512 and 4096 reported; clean box (foreign occupancy <= 4.39%, E52); >=10 fresh processes interleaved; **lower CI95 >= 50**. TTFT/prefill, RAM and dispersion reported separately. 100 tok/s remains the stretch target. |
-| Same artifact | One container hash and one printed-and-asserted `CONFIG` line for every quality and rate cell. |
-| Engine fidelity | Engine versus a pinned reference runtime on the identical quantized artifact, within a tolerance derived from the reference's own measured noise floor (§6, rule 2). |
-| Quality | Against the BF16 source: paired document-level dBPB with upper CI95 <= +0.02 (preferred <= +0.01) on fresh documents; donor-relative non-inferiority on a frozen task and rollout panel. |
-| Size-insensitivity (Phase C) | The rate gate still holds after distinct stored capacity grows >=2x and >=4x over the Phase-A artifact; held-out quality improves monotonically with capacity and degrades when the added capacity is removed or shuffled; every cost that grows with capacity (router rows, key scoring, page/TLB effects) is measured. |
+| Reference artifact | T0 = P0 (`44de7315…`); one container hash and one printed-and-asserted `CONFIG` line in every cell. Engine fidelity: A3 (PASS). Quality 1×: A4 against BF16 (paired document-level dBPB upper CI95 ≤ +0.02 on fresh FIT documents; task and rollout panels with frozen non-inferiority margins). |
+| v0 | Accepted tok/s of T0 in the engine: batch 1, declared decode mode, context 2048 primary with 512 and 4096 reported; clean box (foreign occupancy below 4.39%, E52); ≥ 10 fresh processes interleaved; A1b passed first. Reported as central value, lower CI95 and dispersion, with a per-organ time breakdown; never as a desk number. |
+| Speed invariance | At stored capacity m ≈ 2 and m ≈ 4 times T0's, with the same top-k and expert size. The bytes that grow with capacity (router rows, keys, lookups) are priced before the run. The measured rate must be explained by v0 and those bytes: the CI95 of the residual ratio v(m) / v_pred(m) lies inside 1 ± τ, with τ fixed before the run. This is an equivalence test, so noise widens the CI and fails it rather than passing it. The routing/lookup overhead is reported explicitly at each m. |
+| Quality growth | Held-out quality at m ≈ 2 and m ≈ 4 is better than at m = 1 (CI excluding zero), and monotone in m. It beats a LoRA control with matched trainable parameters and data, by a margin frozen in the protocol. Removing the added capacity, or shuffling it at matched frequency, erases the gain. No regression on the general panel. |
+| Pipeline | One reproducible recipe (pinned sources, scripts, manifests) takes a donor to a qualified T0, measures its v0 and grows its capacity. It is applied to T0's family and to ≥ 1 other family, each ending in a documented applicability class. |
+
+**Phase 2: absolute speed.**
+
+| Gate | Requirement |
+| --- | --- |
+| Rate | The 16 October rate gate, unchanged: accepted tok/s, batch 1, declared decode mode, context 2048 primary with 512 and 4096 reported; clean box; ≥ 10 fresh interleaved processes; **lower CI95 ≥ 50**, with 100 tok/s as the stretch target. TTFT/prefill, RAM and dispersion are reported separately. |
+| Quality | Cumulative, against BF16: paired document-level dBPB upper CI95 ≤ +0.02 (preferred ≤ +0.01) on fresh documents, plus donor-relative non-inferiority on the frozen task and rollout panel. Each organ change is also gated against the artifact it replaces. |
+| Engine fidelity | The engine against a pinned reference runtime on the identical artifact, within a tolerance derived from that runtime's own measured noise (§6, rule 2). A new runtime configuration (for example flash attention with q8_0 KV) gets its own floor. |
+| Invariance kept | Every adopted upgrade re-runs the S1 sweep, so the Phase-1 claim still holds on the faster skeleton. |
+
+**Phase 3: hardware tiers.**
+
+| Gate | Requirement |
+| --- | --- |
+| Tier record | For each machine measured: the CPU and ISA class; memory type, channels and speed; measured bandwidth; the A1 kernel roofline; A1b stability; the measured v0 of T0 (and of the Phase-2 artifact); the capacity ceiling N_tot (GB) and m_max; and the per-token budgets for 50 and 100 tok/s. |
+| Portability | The same source tree builds and runs on every tier. Thread count, core map, cache sizes and memory mode are runtime parameters, never the 3600X's constants (§6, rule 10). |
 
 ---
 
 ## 2. What the evidence already settles (reused, not rerun)
+
+The 16 October rows are unchanged; the rows from the first Phase-A results (16-17 October)
+follow them.
 
 | Fact | Status | Source |
 | --- | --- | --- |
@@ -113,292 +142,429 @@ restated so that every clause has an instrument.
 | Selected-expert cost is not constant at extreme pool sizes (E128000 vs E12800: 1.31x) | MEASURED | METH177 |
 | Ling-mini-2.0 geometry, 14,813 tensors, 16.256B positions | SOURCE-DERIVED (headers) | [METH407](../NATIVE_EXPERT_SCALING_20260925/METH_407_LING_MINI_SOURCE_HEADERS_RESULT_20261004.md) |
 | Resources: 80 GiB RAM; RTX 3060 12 GB; Kaggle 3 accounts x 30 GPU-h/week of T4x2 (granted 90 h/week), ~30 GiB host RAM per session; D: 992 GB and E: 5.2 TB free | MEASURED/RECORDED | HANDOFF §13, COMMUNICATION history, `df` 2026-10-16 |
+| Reference box: Ryzen 5 3600X (Zen 2, 6 cores, AVX2/FMA, no AVX-512/VNNI, L3 2 × 16 MB), DDR4-3200 on two channels (four DIMMs: 2 × 8 + 2 × 32 GB). Its theoretical peak is 51.2 GB/s, so the E30 median is 0.71 of peak | SOURCE-DERIVED (SMBIOS, 2026-10-17) / MEASURED | `Win32_PhysicalMemory`, E30 |
+| Kernels at Ling-mini shapes, six workers: Q4_K 35.4-40.4 GB/s, Q6_K head 39.6, Q8_0 38.9-40.2, IQ4_XS 37.7-40.7, **IQ3_S 12.45 (compute-bound)**. One P0 layer takes 903 µs. A 20-layer synthetic token takes 18.54 ms for 562 MB, a non-streaming residual of 2.70 ms (the desk model assumes 2) | MEASURED | [A1 + A2b rate](C50_A1_A2B_RATE_RESULT_20261017.md) |
+| llama.cpp against itself on T0: top-1 4.10%, KL 0.0149 nats (generic build); thread counts are bit-identical | MEASURED | [A2b](C50_A2B_REFERENCE_FLOOR_RESULT_20261017.md) |
+| llama.cpp decodes T0 at 15.15 / 14.39 / 13.56 tok/s at depth 512 / 2048 / 4096 | MEASURED | A2b rate |
+| The engine runs T0 within llama.cpp's floor (top-1 3.99%, KL 0.0144, dBPB +0.0005). A planted routed-scale fault fails the gate; a planted RoPE-base fault does not | MEASURED | [A3](C50_A3_ENGINE_PORT_RESULT_20261017.md) |
+| Ling-mini chats in C: the C tokenizer and template match the source with 0 mismatches on five test sets | MEASURED | [A8](C50_A8_CHAT_DELIVERABLE_RESULT_20261017.md) |
+| Ling-mini's head is not low-rank (r512 holds 44% of ‖W‖²). No approximate head has been confirmed on DEV at 99.9% recall, and a frequency-selected head cannot reach the bar | MEASURED | A5 parts 1-6 (§12) |
+| `llama-quantize` silently ignores an `ffn_gate_inp` override. The F32 router is exactly BF16-representable, so a BF16 router halves its bytes without changing a weight | MEASURED | [A6 protocol](C50_A6_PRECISION_LADDER_PROTOCOL_20261017.md) |
+| Ling-flash-2.0's tokenizer is identical to Ling-mini's; Ling-3.x flash is id-compatible except for 9 special tokens | SOURCE-DERIVED | [A0](C50_A0_DONOR_SCREEN_RESULT_20261016.md) |
 
-Two of these deserve emphasis. The engine **can** stream at the wall (int8 and
-Q6_K both did). But the **only complete 4-bit C runtime ran at about half of its
-desk rate** (§3), and complete runtimes show process-to-process spreads up to
-1.63. Neither is a hardware limit; both are the critical path of Phase A.
-
----
-
-## 3. The byte budget and the donor ledger
-
-**Model (DESK-MODEL).** `t_token = bytes_per_token / BW_PLAN + T_FIXED`, with
-`BW_PLAN = 32 GB/s` (0.88 of the E30 median; E61 and METH409 sit above it) and
-`T_FIXED = 2 ms` for norms, routing, softmax, barriers and sampling (an
-assumption that cell A1 measures; R1 measured 1.20 ms at 0.5B). For a lower
-CI95 at 50 tok/s with a ~5% band, the central time must be ~18.5 ms, so
-`bytes_per_token <= (18.5 - 2) ms x 32 GB/s ~= 0.53 GB`, KV included.
-
-**Policies priced** (block sizes from ggml: Q4_K 4.5 bit, Q6_K 6.56, IQ3_S 3.44):
-
-| Policy | Matrices | Routed experts | Head | Router | KV |
-| --- | --- | --- | --- | --- | --- |
-| P0 | Q4_K | native (Q4_K; gpt-oss MXFP4) | Q6_K full scan | F32 | F16 |
-| P1 | Q4_K | native | Q6_K full scan | F32 | int8 + F16 scale |
-| P2 | Q4_K | native | approximate scan (placeholder: rank-256 Q4_K preview) + exact Q6_K rerank of 64 rows | F32 | int8 |
-| P3 | Q4_K | IQ3_S | as P2 | F32 | int8 |
-| P4 | Q4_K | IQ3_S | as P2 | BF16 | int8 |
-
-P2-P4 are hypotheses whose quality and fidelity are unmeasured; the rank-256
-preview is a byte placeholder until cell A5 chooses the actual scheme.
-
-**Ledger at context 2048** (full table, 512/4096 columns and provenance:
-[`results/byte_budget_ledger_20261016.txt`](../../../benchmarks/chatbot50/results/byte_budget_ledger_20261016.txt)):
-
-| Donor (evidence) | P0 MB/token | P0 desk tok/s | P4 MB/token | P4 desk tok/s | P4 at x0.85 / x0.53 |
-| --- | ---: | ---: | ---: | ---: | --- |
-| **Ling-mini-2.0** 16.3B/A1.43B (headers) | 826.0 | 36.0 | **461.0** | **60.9** | 51.8 / 32.3 |
-| Trinity-Nano-Preview 6B/A1B (config) | 655.1 | 44.5 | 399.3 | 69.1 | 58.7 / 36.6 |
-| OLMoE-1B-7B (config) | 965.3 | 31.1 | 645.9 | 45.1 | 38.3 / 23.9 |
-| LFM2-8B-A1B (config) | 940.8 | 31.8 | 697.4 | 42.0 | 35.7 / 22.3 |
-| GigaChat3.1-10B-A1.8B (headers) | 1,036.4 | 29.1 | 780.7 | 37.9 | 32.2 / 20.1 |
-| Granite-4.0-H-Tiny (headers) | 1,011.0 | 29.8 | 808.5 | 36.7 | 31.2 / 19.4 |
-| Qwen3-30B-A3B (config) | 2,035.7 | 15.2 | 1,438.6 | 21.3 | 18.1 / 11.3 |
-| gpt-oss-20b (config) | 2,164.8 | 14.4 | 1,446.9 | 21.2 | 18.0 / 11.2 |
-| gpt-oss-120b (config) | 3,049.4 | 10.3 | 2,175.0 | 14.3 | 12.1 / 7.6 |
-| Ling-flash-2.0 103B/A6.1B (config) | 3,510.3 | 9.0 | 2,461.6 | 12.7 | 10.8 / 6.7 |
-
-The actual producer GGUF of GigaChat 3.1 (Q4_K_M, read from its header) streams
-1,016.2 MB of weights per token plus 61.3 MB of F16 latent KV at 2048, within 4%
-of its P0 row.
-
-**Scoring the desk model against reality.** On the two complete C artifacts
-measured on this machine the desk model is optimistic: the all-I8 Qwen runtime
-reached **0.85** of its desk rate at context 2048, the W4G32 runtime **0.53**.
-The last column applies both factors. **Ling-mini P4 clears 50 only if the
-complete 4-bit runtime reaches >= 0.83 of desk** (50/60.9). Closing that gap is
-engineering with known precedents (the Q6_K head kernel already reached the
-wall), and it is the first thing Phase A measures.
-
-**What the ledger decides.**
-
-1. For Ling-mini the head is the single largest lever: an approximate scan cuts
-   240 MB/token. Without it no policy reaches 50 at 2048 (P1 with a Q4_K head:
-   ~702 MB, 41 desk tok/s).
-2. Speculative decoding is not a primary lever for Ling-mini. Its routed
-   experts (45% of P4 bytes) do not amortize under the measured i.i.d. routing,
-   so a two-position verify costs 1.43x a single step and a draft must be
-   accepted more than 43% of the time merely to break even; the chat checkpoint
-   ships no MTP head. It remains a lever for always-on-dominated donors
-   (GigaChat: 68% of P0 bytes always-on), consistent with Phase 63.
-3. Large members are excluded by the always-on core, not by expert payload:
-   Ling-flash's attention, dense, shared, router and approximate head already
-   cost ~1.05 GB/token at P4 before KV; gpt-oss-120b's ~0.59 GB. Shrinking
-   experts cannot fix that, which is why the gpt-oss protected-core screen
-   failed.
-4. Trinity-Nano is even cheaper per token but is a 6B preview; it is the natural
-   candidate for the second, independent family in Phase B.
+**What is not settled.** The engine streams at the wall kernel by kernel (A1). What remains
+unmeasured is the rate of the complete engine on a clean box (A1b, S0). Two earlier
+measurements are the reason to measure it rather than assume it:
+- the only earlier complete 4-bit C runtime ran at about half its desk rate;
+- complete runtimes showed process-to-process spreads up to 1.63.
 
 ---
 
-## 4. Why this route and not the documented restart points
+## 3. The byte budget, T0's organs and capacity accounting
 
-| Restart point in the record | What it would deliver | Why it is not first |
+**Model (DESK-MODEL), unchanged.**
+- **Formula:** `t_token = bytes_per_token / BW_PLAN + T_FIXED`.
+- **Constants:**
+  - `BW_PLAN = 32 GB/s`: 0.88 of the E30 median, or 0.625 of the box's theoretical peak;
+  - `T_FIXED = 2 ms`; A1 measured a 2.70 ms non-streaming residual on a 20-layer synthetic
+    token.
+- **Budgets, KV included:** a lower CI95 at 50 tok/s with a ~5% band needs a central time of
+  ~18.5 ms, so `bytes_per_token ≤ (18.5 − 2) ms × 32 GB/s ≈ 0.53 GB`. At 100 tok/s the budget
+  is ≈ 0.23 GB.
+
+**T0 per token at context 2048** (SOURCE-DERIVED from the GGUF header,
+`benchmarks/chatbot50/results/c50_a2_gguf_check_q4_k_m.json`):
+
+| Organ | MB/token | Share | Phase-2 cell |
+| --- | ---: | ---: | --- |
+| Routed experts (8 of 256 per MoE layer, Q4_K/Q6_K mix) | 288.4 | 33.3% | O3 |
+| Head (157,184 × 2048, Q6_K, exact) | 264.1 | 30.4% | O1 (A5, frozen) |
+| Attention (QKV and output) | 134.4 | 15.5% | O5 |
+| KV cache (F16) | 83.9 | 9.7% | O2 |
+| Router (F32) | 39.9 | 4.6% | O4 (lossless in BF16 here) |
+| Shared expert | 36.1 | 4.2% | O3 |
+| Dense FFN (layer 0) | 20.4 | 2.4% | O3 |
+| Norms and biases | 0.2 | 0.0% | |
+| **Total** | **867.3** | | **29.1 ms, 34.4 desk tok/s** |
+
+T0 stores 9.91 GB. Of that, 9.23 GB is routed experts: 4,864 experts in 19 MoE layers, 1.90 MB
+each.
+
+**What the Phase-A levers add up to (DESK-MODEL, context 2048).** Each row adds one lever to the
+rows above it:
+
+| Step | MB/token | Desk tok/s |
+| --- | ---: | ---: |
+| T0 | 867.3 | 34.4 |
+| + the part-6 head (106.3 MB, selected on FIT only) | 709.5 | 41.4 |
+| + q8_0 KV | 670.2 | 43.6 |
+| + BF16 router | 650.2 | 44.8 |
+| + IQ4_XS routed experts (A6 arm E4B) | 615.8 | 47.1 |
+
+- **With the measured residual:** if the fixed term is A1's 2.70 ms instead of 2 ms, the last
+  row is 45.6 desk tok/s.
+- **What 50 needs:** ≤ ~528 MB/token at 2048, roughly 90 MB/token more than every Phase-A lever
+  removes. That has to come from attention, IQ3-class experts with a faster kernel, or a
+  shorter declared context.
+- That is Phase 2's problem, not Phase 1's.
+
+**Capacity accounting (SOURCE-DERIVED from T0's header; the S1 protocol re-derives it from the
+built artifacts).**
+- **Expert bytes stay flat.** Adding routed experts of T0's size and keeping top-8 leaves the
+  expert bytes per token unchanged.
+- **The router grows.** A flat router reads E × 2048 coefficients per MoE layer for every token.
+- **Group sizes.** Expert counts are multiples of 8, so that Ling's eight routing groups stay
+  equal.
+
+| Routed experts per layer | Stored GB | m (× T0 stored) | Router MB/token (F32) | MB/token at 2048 | Desk speed vs T0 | Same, BF16 router |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 256 (T0) | 9.91 | 1.00 | 39.9 | 867.2 | 1.000 | 1.022 |
+| 536 | 20.01 | 2.02 | 83.4 | 910.8 | 0.955 | 0.998 |
+| 1,088 | 39.91 | 4.03 | 169.3 | 996.7 | 0.878 | 0.954 |
+| 2,048 | 74.52 | 7.52 | 318.8 | 1,146.1 | 0.770 | 0.886 |
+
+- **With T0's F32 router**, capacity costs speed: −4.5% at 2× and −12% at 4× (DESK-MODEL).
+- **A BF16 router**, lossless for this checkpoint, makes 2× free relative to T0. A sublinear
+  router (two-level, product keys) bounds the term at larger m.
+- **Conditional memory banks with deterministic addressing** read a fixed number of rows per
+  token whatever the table size, so their per-token cost is O(1) in capacity. Index, TLB and
+  page effects remain to be measured: in METH177 the selected-expert cost rose 1.31× from
+  12,800 to 128,000 experts.
+- **On this box,** T0's policy hosts m ≈ 7.6: 75.9 GB of the 85.9 GB, leaving ~10 GB for the
+  OS, KV and buffers (ESTIMATE). 2× and 4× fit; 8× does not.
+
+**The 16 October donor ledger** (policies P0-P4 over ten donors) is unchanged in
+[ROADMAP_V1 §3](ROADMAP_V1_20261016.md#3-the-byte-budget-and-the-donor-ledger) and
+[`results/byte_budget_ledger_20261016.txt`](../../../benchmarks/chatbot50/results/byte_budget_ledger_20261016.txt).
+Its conclusion still holds: in every family screened, the large members miss the budget
+because of their always-on core. Capacity therefore has to be added at a fixed per-token cost,
+not found in a large model.
+
+---
+
+## 4. What changed on 17 October
+
+The directive and its reasons are in §0. This table keeps every cell traceable.
+
+| Cell (16 October) | State on 17 October | Place now |
 | --- | --- | --- |
-| STRAT-01 normalization-parity cell (PAUSE record) | Bit-exact layer 1-2 of GigaChat 3.1 | The ledger caps GigaChat at ~29 desk tok/s as shipped and ~38 with every post-hoc lever; the cascade has no end point. Its kernels (Q4_K/Q6_K/Q5_0 x Q8, MLA, router, SwiGLU) are reused. |
-| SmolLM2-135M recipient + frozen donor memory (HANDOFF §12) | A transfer falsifier on a cheap core | The core is not a useful chatbot (source-reported MMLU-cloze 29.3, GSM8K 1.4), so any failure or success is dominated by it. The memory mechanism is kept for Phase C on a strong core. |
-| Native-MoE carving of gpt-oss or Granite | Finer experts with learned masses | Their always-on cores exceed the budget before any expert is read (protected core 34-54 ms). |
-| New codebook/LUT activation formats | Fewer stored bits | Every complete cost screen failed; on Zen2 without VNNI, byte streams with cheap decode win. |
-| Phase-64 native SSM ladder | A from-scratch CPU-native model | Not a pretrained chatbot within the T4 budget; remains parked. |
-| Compress a large member (e.g. Ling-flash) into B | One big model at 50 tok/s | Its always-on core alone is ~2x B; reducing it needs retraining a 100B core, infeasible on T4. |
+| A0 donor screen | closed: Ling-mini-2.0 | T0's donor; its second-family notes feed S6 |
+| A1 kernel roofline | closed: FAIL on IQ3_S only | evidence; the IQ3_S kernel is Phase 2 (O7) |
+| A1b timing stability | protocol registered, not run (needs an empty box) | Phase 1, prerequisite of S0 (protocol unchanged) |
+| A2, A2b | closed | T0, its reference floor, llama.cpp's rate |
+| A3 engine port | PASS | qualifies the engine on T0 |
+| A4 quality | running (chain) | T0's quality baseline (1×) |
+| A5 approximate head | frozen: part 2 FAIL on DEV, part 5 FAIL on FIT, part-6 FIT selection frozen, DEV-B unread, its capture cancelled | Phase 2, O1 |
+| A6 precision ladder (FIT) | queued in the chain after A4 | information for Phase 2 (O2-O4); T0 is not replaced in Phase 1 |
+| A6 part 2 (DEV and tasks) | protocol registered, not run | Phase 2, O3 |
+| A7 final adjudication | not started | its rate half on T0 → S0 (v0); the RESERVED adjudication → end of Phase 2 |
+| A8 chat deliverable | done | T0's chat |
+| Phase B (pipeline to other LLMs) | not started | Phase 1, S6 |
+| Phase C (C0-C3) | not started | Phase 1, S2-S5 |
+| `--kv q8_0` engine draft | written after the A1b commit, never built or run | saved outside the repository; Phase 2, O2 |
+
+**Why T0 is P0 and not the A6 winner.**
+- **The engine runs only P0's tensor types today:** Q4_K, Q6_K and Q8_0 weights, an F32
+  router, F16 KV.
+- **The A6 candidates need more:**
+  - q8_0 KV, IQ4_XS or IQ3_S experts and a BF16 router in the engine;
+  - a new reference floor for llama.cpp's flash-attention path.
+
+  That is days of organ work, which is what Phase 2 is for.
+- **Phase 1's claim is a ratio,** v(m) / v0, and it does not need the fastest T0.
+- **Every Phase-2 upgrade that passes then raises v0** for T0 and for its expansions alike
+  (§7).
 
 ---
 
-## 5. Phase A: Ling-mini-2.0 at >=50 tok/s in engine.c
+## 5. Phase 1: the scale-invariance pipeline
 
-Experiment IDs use the prefix `C50-`. Each cell gets its own protocol pushed
-before its run (§6); the outlines below fix the question, the gate and the stop
-rule. Compact no-duplication cards are in Appendix A.
+Experiment IDs keep the prefix `C50-`; the Phase-1 cells are S0-S6.
+- **Protocols:** each cell gets its own protocol, pushed before its run (§6). The outlines below
+  fix the question, the gate and the stop rule.
+- **Order:** S1 and S2 are independent and can be prepared in parallel. They run one at a time,
+  because S1 needs an empty machine and S2 is a long CPU job.
 
-**A0. Pin and screen (desk, ~1-2 days).** Run
-[`conditional_donor_preflight.py`](../../../benchmarks/native_expert_scaling/conditional_donor_preflight.py)
-and the ledger on pinned revisions of Ling-mini-2.0, Trinity-Nano, LFM2.5-8B-A1B
-and any newer instruct MoE with <=1.5B active found at screen time. Verify
-licence, chat template, EOS/pad IDs, tokenizer files, and **tokenizer identity
-between Ling-mini and Ling-flash** (needed for Phase C). *Decision rule, fixed
-now:* the Phase-A donor is the MIT/Apache instruct checkpoint with the lowest P2
-bytes at 2048 among those whose producer-reported scores are not lower than
-Ling-mini's on every benchmark the two cards share (at least two shared
-benchmarks are required for eligibility); default Ling-mini-2.0. No weights
-acquired.
+**S0. T0 and its measured speed v0** (CPU; ~1.5 h of empty machine plus ~1 day of tooling,
+ESTIMATE).
+- **Qualification, existing or running:**
+  - A3 PASS: engine fidelity on T0;
+  - A8: chat in C;
+  - the A4 verdict: quality against BF16, the 1× baseline;
+  - the A6 verdict: the FIT ranking of exact-head precision policies, recorded for Phase 2.
+- **If A4 fails,** T0 becomes the cheapest higher-precision exact-head artifact that passes
+  (Q5_K_M, then Q6_K), and the rest of Phase 1 is unchanged.
+- **Stability:** A1b, as registered. Gate: max/min of the 10 per-process medians ≤ 1.06. The
+  adopted arm fixes the memory mode and priority of every later rate cell.
+- **v0, the rate half of the old A7, on T0:**
+  - ≥ 10 fresh interleaved processes per context, at 512, 2048 and 4096, on a clean box;
+  - reported: central value, lower CI95, dispersion, TTFT/prefill and RAM.
+- **Organ breakdown:** an instrumented engine option, default off and with byte-identical
+  output, times each organ per token: attention, KV, dense, shared, router, routed experts,
+  head, and the residual. This list is Phase 2's work order.
+- **Outcome:** v0 is a measurement, not a target. Without an A1b PASS it is reported as medians
+  and spread, and no invariance gate can rest on its CI.
 
-**A1. Kernel and layer roofline (synthetic values, real shapes).** Measure
-Q4_K, Q6_K, IQ4_XS, IQ3_S and Q8_0 matvec at six physical workers on
-[3072x2048], [2048x2048], the fused 8x[512x2048] gate/up/down of one MoE layer
-and [157184x2048], then one complete synthetic Ling-mini layer with its
-barriers, and a 20-layer synthetic token without head. Start from the existing
-llama.cpp-derived AVX2 kernels (`benchmarks/phase60/strat01_q4k_q8k.h`,
-`strat01_q6k_q8k_avx2.h`). **Gate:** every streamed class >= 30 GB/s, complete
-layer <= bytes/30 GB/s + 80 us. **Stop:** if Q4_K stays < 25 GB/s after one
-tuning iteration, Phase A is re-planned (P-policies with an int8 core do not
-fit B) before any download.
+**S1. Speed invariance with capacity only** (CPU, no training; ~1 week, ESTIMATE).
+- **Question:** does the engine's time per token stay at v0, apart from the priced
+  routing/lookup bytes, when stored capacity grows at fixed active bytes?
+- **Engine change:** the expert count, today a compile-time 256 asserted against the header,
+  becomes a header value. At E = 256 the output stays byte-identical to A3's.
+- **Arm E (expert pool):**
+  - expanded GGUFs at m ≈ 2, at m ≈ 4, and at the largest m that stays resident with ~10 GB
+    free (≈ 7 here);
+  - the extra experts are byte copies of T0's experts at new addresses, and their router rows
+    are copies with a fixed perturbation, so that selections spread over the whole pool;
+  - quality is not read, because the copies add no knowledge.
+- **Arm M (memory bank):** a lookup microbenchmark (k rows per token from tables of 1-60 GB,
+  deterministic addresses, synthetic values). It prices the conditional-memory route before S4
+  chooses between the two.
+- **Measured:**
+  - v(m) with its CI;
+  - the desk prediction from the built artifacts' bytes;
+  - the router's own time;
+  - the residual that bytes do not explain (TLB, page and L3 effects).
+- **Gate:** the §1 equivalence test, with τ fixed in the protocol before the run (default 3%).
+  - It is passed or failed at m ≈ 2 and m ≈ 4.
+  - The routing overhead is reported at each m.
+- **Stop:** if the residual fails the test, the diagnostic budget (rule 3) applies before any
+  T4 spend. The quality half would otherwise rest on a speed claim that does not hold.
 
-**A1b. Timing stability.** Root-cause the 1.14-1.63 process spreads: physical-
-core affinity across the two CCXs, wait policy, pre-faulted and locked weight
-pages, large pages if the privilege is available, priority. **Gate:** across 10
-fresh processes the max/min of per-process median tok/s <= 1.06. A rate gate on
-a lower CI is meaningless until this passes.
+**S2. Gap map** (the old C0; CPU; needs the Ling-flash-2.0 download, which the owner approves).
+- **Arms:** T0 against Ling-flash-2.0.
+  - Ling-flash is pinned by revision and converted with the pinned llama.cpp. A Q4_K_M is
+    ~63 GB at Ling-mini's 4.87 bits per weight (ESTIMATE) and fits in RAM.
+  - Both arms are fed the same source-tokenizer IDs; the tokenizers are identical.
+- **Panels, frozen in the protocol:** closed-book knowledge, reasoning (short math, ARC), chat,
+  and fresh-document BPB. The documents are held out and never used for training or selection.
+- **Decision rule:**
+  - if the gap is mostly knowledge, stored capacity is the right tool, and S3-S5 proceed;
+  - if it is mostly reasoning, active compute is the right tool, and the quality half of
+    Phase 1 is re-planned before any T4 spend.
+- **Outputs:**
+  - a donor-gap panel for S4-S5, restricted to items where Ling-flash clearly beats Ling-mini
+    (the margin is set in the protocol);
+  - a general panel.
 
-**A2. Acquisition and references (needs owner approval).** Download the pinned
-BF16 checkpoint; record hashes; convert with pinned llama.cpp to BF16 and
-Q4_K_M GGUF (imatrix from FIT documents only). Build a fresh document holdout
-with FIT/DEV/RESERVED roles (`build_document_holdout.py`). Feed **source-
-tokenizer IDs** to every runtime: STRAT-01 found the llama.cpp text tokenizer
-mismatching on 95/96 documents for GigaChat.
+**S3. Teacher signal** (the old C1; owner decision).
+- **The constraint:** Ling-flash does not fit a T4x2 at 4 bits.
+- **The options:**
+  - top-k logits from the local CPU, which is slow and occupies the benchmark machine;
+  - sequence-level outputs from a hosted endpoint, after checking its terms of use and cost;
+  - an id-compatible Ling-3.x teacher;
+  - offline construction of memory values, where the teacher runs once per bank row and not
+    once per training token (the project's
+    [memory-grafting review](../PIPELINE_REASSESSMENT_20261015/CARVING_STRATEGY_REVIEW_20261015.md)).
+- **What the choice fixes:** the realistic distillation volume, and which S4 arms are
+  affordable.
+- **Before the owner decides,** S3 is sized in tokens/s and in GB.
 
-**A2b. Reference noise floor.** On the Q4_K_M artifact, compare llama.cpp with
-itself (generic vs AVX2 build, 1 vs 6 threads) on FIT positions: per-position
-top-1 disagreement, mean KL, dBPB. This sets the engine tolerance before any
-engine output exists. Also record llama.cpp's own decode rate at six threads as
-the external reference rate.
+**S4. Falsifier at m ≈ 2** (the old C2; T4). On the frozen T0 base, with matched data.
+- **Arms:**
+  - (a) extra routed experts, with new router rows;
+  - (b) a conditional memory bank: deterministic addressing, values built offline from the
+    teacher and frozen, plus a trained read-out and gate;
+  - (c) a LoRA control with the same trainable-parameter count.
+- **Memory plan, shown before any spend.**
+  - Optimizer state is charged on total trainable parameters: about 16 B each under
+    mixed-precision Adam.
+  - Arm (a) at the full m = 2 would train ~15B new parameters. Its protocol must therefore use
+    a recipe that fits 2 × 16 GiB of GPU and ~30 GiB of host RAM: staged per-layer training,
+    frozen banks, or experts taken from the teacher through trained adapters.
+- **Gate:**
+  - (a) or (b) beats (c) on the S2 donor-gap panel by a margin frozen in the protocol. One
+    form, from the review: recovering ≥ 20% of the donor-minus-T0 gap, with the number fixed
+    before results.
+  - No regression on the general panel.
+  - On the same checkpoint, removing the capacity, shuffling it at matched frequency, or masking
+    entries at equal lookup count erases the gain.
+  - The engine passes S1's invariance gate on the trained artifact.
+- **Literature anchors** [L?]: Lifelong-MoE, Memory Layers at Scale, Engram and Memory Grafting.
+  - The last two were examined in the project's
+    [large-family gate](../PIPELINE_REASSESSMENT_20261015/LARGE_FAMILY_GATE.md) and
+    memory-grafting review.
+  - Their warning: a large table is not the same amount of useful knowledge, so the controls
+    above are mandatory.
+- **Stop:** if neither (a) nor (b) beats (c) beyond the margin, capacity transfer is closed at
+  that budget. It is recorded as such, not as a general impossibility.
 
-**A3. Engine port, P0 artifact.** A clean bailingmoe2 decode path behind a new
-`engine.c` profile: GGUF loader, QK-norm, partial RoPE (theta 600000), GQA
-16/4, sigmoid router with expert bias, 8-group/top-4-group selection, top-8,
-normalization and scaling 2.5 exactly as the pinned source code specifies,
-shared expert, dense layer 0, KV cache, exact head, greedy/sampling, `--bpb`
-scoring. Kernels are unit-tested against scalar oracles (existing practice).
-**Gate (system fidelity vs llama.cpp on the same GGUF):** top-1 disagreement and
-mean KL each <= max(2 x floor, 0.2% / 1e-4 nats); |dBPB| upper CI <= 0.002.
+**S5. Scaling to m ≈ 4** (the old C3).
+- **What runs:** the S4 winner, at m ≈ 2 and m ≈ 4.
+- **Gate:**
+  - held-out gains are monotone in m, and the controls still erase them;
+  - the speed-invariance gate holds at each m, with the routing/lookup overhead reported;
+  - every cost that grows with capacity is measured: router rows grow as E × D per layer, keys
+    as ~√N, and index and page effects as measured.
+- This is the first point where "quality up at ≈ v0" becomes a measured claim.
 
-**A4. Quality of P0 against BF16.** Fresh-document dBPB per category; a frozen
-task panel scored on both arms (PIQA reuse, knowledge multiple choice, short
-math with exact match, verifiable instructions, an Italian/English chat panel
-with automatic checks) with non-inferiority margins frozen in the protocol; the
-96-document rollout degeneration test reused.
+**S6. The pipeline as a recipe, and a second family** (the old Phase B).
+- **Recipe:** pinned HF checkpoint → pinned converter → precision policy → engine container with
+  an architecture descriptor → reference floor (A2b) → engine fidelity (A3) → quality (A4) →
+  v0 (S0) → capacity sweep (S1) → capacity training (the S4/S5 recipe). Each stage has one
+  script and one manifest.
+- **Operator registry,** grown only as donors need it: GQA/MLA/SWA, QK-norm, partial RoPE/YaRN,
+  dense and MoE FFN, router variants, shared experts, and short-conv or SSM mixers.
+- **Second family,** chosen by a rule in the S6 protocol. A0's notes:
+  - Trinity-Nano-Preview is the cheapest with reported scores (OpenMDW-1.1 licence);
+  - EuroMoE-2.6B-A0.6B is the cheapest per token but reports no scores;
+  - Ling-3.0-tiny would exercise KDA/MLA;
+  - GigaChat 3.1 stays the test case for the Lossy class.
+- **Applicability classes:**
+  - **Direct:** passes the Phase-1 gates at a quality-safe policy.
+  - **Lossy:** passes only with healed lossy levers, needed when the donor misses the tier's RAM
+    or a declared speed floor.
+  - **Capacity-transfer:** serves as the teacher of a fixed-active recipient.
+  - **Unsupported:** with the measured reason.
 
-**A5. Approximate head (offline first).** On captured FIT hidden states compare
-low-rank preview heads (rank 128/256/512) and IVF partitions (centroids C,
-probes P; the Phase-56 recall-tier machinery is reusable) with exact rerank.
-Candidate sets always include the tokens touched by the repetition penalty.
-*Selection rule, fixed now:* the cheapest configuration with top-1 recall
->= 99.9% on FIT; confirmed once on DEV. Then C implementation. **Gate:**
-teacher-forced top-1 agreement with the exact head >= 99.9% on DEV positions;
-likelihood scoring (BPB, PIQA) always uses the exact head of the same weights.
-Literature anchor: SVD-softmax [L?].
+  Unlike 16 October, the classes no longer depend on the 50 tok/s budget, which becomes a
+  per-tier property (Phases 2-3).
+- **Gate:** at least one other family goes end to end through the recipe, including S0 and S1,
+  with a documented class.
 
-**A6. Precision ladder P1 -> P4.** int8 KV, IQ3_S or IQ4_XS routed experts
-(imatrix from FIT), BF16 router; each step priced in bytes and in quality on FIT,
-the chosen policy confirmed once on DEV. *Selection rule:* the cheapest policy
-whose DEV dBPB upper CI <= +0.015 (leaving margin to the +0.02 gate) and whose
-task deltas stay inside the non-inferiority margins. If no step beyond P2
-qualifies, stop at P2 and take the rate consequence honestly.
-
-**A7. Final adjudication on one artifact.** RESERVED documents and the frozen
-task/rollout panel for quality; clean-box rate at 512/2048/4096 with >=10
-interleaved processes; RAM, TTFT and prefill rate recorded.
-
-**A8. Usable chatbot (deliverable, not a gate).** C tokenizer verified against
-the source tokenizer, chat template, interactive loop.
+**Phase 1 exit (§1):**
+- v0 measured (S0);
+- speed invariance at m ≈ 2 and m ≈ 4 (S1, re-checked on S5's trained artifacts);
+- quality growth (S4, S5);
+- the recipe reproduced on ≥ 1 other family (S6).
 
 **Registered predictions (to be scored, not gates).**
 
 | Cell | Prediction |
 | --- | --- |
-| A1 | Q4_K on the fused expert and attention shapes reaches 30-36 GB/s at six workers |
-| A2b | llama.cpp's own build/thread floor is >0 (top-1 disagreement of order 0.1-1%) |
-| A2b | llama.cpp decodes Ling-mini Q4_K_M at <= 30 tok/s at context 2048 |
-| A4 | P0 fresh dBPB lies in +0.005..+0.020 |
-| A5 | IVF with exact rerank needs < 15 MB/token for 99.9% recall; a rank-256 preview alone may not reach it |
-| A6 | IQ3_S routed experts cost +0.01..+0.04 BPB over P2 |
-| A7 | Final central rate at 2048 is 48-58 tok/s |
+| A1b | As registered: B0 max/min 1.04-1.15, B1 ≤ 1.06, medians 24-30 tok/s at 2048 |
+| S0 | v0 at 2048 is 0.70-0.90 of T0's desk (24-31 tok/s), and v0 at 512 is 1.05-1.20 × v0 at 2048 |
+| S1 | At m ≈ 4 the measured slowdown is 10-16% with the F32 router, and the residual that bytes do not explain is ≤ 3% |
+| S2 | The Ling-mini → Ling-flash gap is larger on closed-book knowledge than on short math |
 
 ---
 
-## 6. Programme rules (proposed changes are marked NEW)
+## 6. Programme rules
 
-1. **NEW: complete path first.** No component optimization before a complete
-   P0 forward runs with its full per-organ cost breakdown.
-2. **NEW: system fidelity is statistical and calibrated.** The engine is judged
-   against a pinned reference on the same artifact with a tolerance derived from
-   the reference's own measured disagreement across builds/threads (A2b), set
-   before the engine is measured. Per-kernel bit-exactness against a scalar
-   oracle stays a unit test; it is never a cascade gate.
-3. **NEW: diagnostic budget.** After any gate failure, at most three diagnostic
-   cells or three working days, then a written design review that changes the
-   coordinate or stops the line.
-4. FIT selects, DEV confirms once, RESERVED adjudicates the final artifact. No
-   threshold moves after DEV is read.
-5. Protocols of discretionary gates are pushed before their run; `CONFIG` is
-   printed and asserted; VOID runs are kept and never relabelled.
+1. **Complete path first.** No component optimization before a complete P0 forward runs with
+   its full per-organ cost breakdown. T0 satisfies the first half (A3, A8); S0's breakdown
+   completes it.
+2. **System fidelity is statistical and calibrated.** The engine is judged against a pinned
+   reference on the same artifact.
+   - The tolerance is derived from the reference's own measured disagreement across builds and
+     threads (A2b), and is set before the engine is measured.
+   - Per-kernel bit-exactness against a scalar oracle stays a unit test; it is never a cascade
+     gate.
+3. **Diagnostic budget.** After any gate failure: at most three diagnostic cells or three working
+   days, then a written design review that changes the coordinate or stops the line.
+4. FIT selects, DEV confirms once, RESERVED adjudicates the final artifact. No threshold moves
+   after DEV is read.
+5. Protocols of discretionary gates are pushed before their run; `CONFIG` is printed and
+   asserted; VOID runs are kept and never relabelled.
 6. Desk rates are never quoted as rates; every claim carries its label.
-7. Runs expected to exceed one hour are launched or explicitly authorized by
-   the owner; T4 work is announced with reason, budget and stop rule first.
+7. Runs expected to exceed one hour are launched or explicitly authorized by the owner. T4 work
+   is announced first, with its reason, budget and stop rule.
+8. **NEW (17 October): no organ blocks the pipeline.** A component that fails its gate is frozen
+   with its state recorded (the selection, the unread sets, the artifacts and their hashes),
+   and the pipeline continues on the exact component.
+   - Resuming it is a Phase-2 cell with its own protocol.
+   - The lesson is A5: six cells in one day on ~18% of T0's bytes.
+9. **NEW: invariance is a priced decomposition.** Every capacity cell prices, before its run, the
+   bytes that grow with capacity (router rows, keys, indices, page tables), and reports the
+   measured residual. "≈ v0" is never written without both numbers.
+10. **NEW: hardware numbers are runtime parameters.** Thread count, core map, cache sizes and
+    memory mode are read or configured per machine. The engine's compiled-in core map
+    (`cores=0,2,4,6,8,10`) becomes a parameter in Phase 3, with a default that stays
+    byte-identical on the 3600X.
 
 ---
 
-## 7. Phase B: the pipeline to other LLMs
+## 7. Phase 2: modular optimization of the organs, to raise v0
 
-**Stages** (each reusing Phase-A tools):
+**Principle.** T0's skeleton is a list of organs with measured bytes and times (S0).
+- An upgrade to one organ applies to T0 and to every expansion alike, because the expansions
+  share the skeleton and change only the stored capacity.
+- This is checked, not assumed: re-running S1 on the upgraded engine or artifact is part of
+  every adopted upgrade.
 
-1. *Triage, metadata only:* ledger at P0-P4 against B; licence; operator
-   coverage. Output: a class.
-2. *Conversion:* pinned HF checkpoint -> pinned llama.cpp converter -> imatrix
-   quantization per the chosen policy -> engine container with an architecture
-   descriptor.
-3. *Operator registry:* GQA/MLA/SWA, QK-norm, partial RoPE/YaRN, dense and MoE
-   FFN, router variants (softmax/sigmoid, bias, groups, scaling), shared
-   experts, short-conv or SSM mixers only when a selected donor needs them.
-4. *Gates:* A2b/A3 fidelity, A4 quality, A7 rate protocols, unchanged.
-5. *Lossy levers and healing,* only for over-budget donors: IQ2/IQ3 experts,
-   top-k reduction, attention low-rank, head approximation; QLoRA plus logit
-   distillation from the BF16 teacher on T4. Every lever is reported as a
-   measured rate-distortion point.
+**Rules per organ cell:**
+- FIT selects, DEV confirms once, and RESERVED is not read before A7.
+- The engine is checked against the matching reference runtime, with a new floor for each new
+  runtime configuration.
+- The rate is measured on a clean box.
+- The quality gate is set against the artifact it replaces and, cumulatively, against BF16.
 
-**Applicability classes** (documented in the method record):
-*Direct* (passes at P0-P4), *Lossy* (passes only with healed lossy levers),
-*Capacity-transfer* (the donor serves as a teacher for a fixed-active
-recipient, Phase C), *Unsupported* (with the measured reason). A dense donor
-is Direct only if all its weights fit B at a quality-safe policy (on this
-machine roughly <=0.8B parameters at 4-bit with an approximate head; the ledger
-decides per donor); larger dense donors are Capacity-transfer, because
-post-hoc dense-to-MoE carving is closed.
+| Cell | Organ (share of T0 at 2048) | State at the freeze | Next step | Desk gain at 2048 |
+| --- | --- | --- | --- | --- |
+| O1 | Head (30.4%) | A5 frozen. Part-6 FIT selection: r1024, c 0, K 16,384, 106.3 MB/token, FIT12 recall 0.99967, with `part6_r1024_{vr,preview,norms}.npy` frozen by sha256. DEV-B (DEV 33-44) unread. Parts 1, 1b, 2, 4 and 5 recorded | DEV-B capture (~40 min) and its registered confirmation; then the C head (A5 part 3) | −157.8 MB (T0 → 41.4 desk tok/s) |
+| O2 | KV cache (9.7%) | A6 arm K8 scored on FIT (chain); engine `--kv q8_0` draft saved, not built | port; a floor for llama.cpp's flash-attention q8_0 path; an A3-style gate | −39.3 MB |
+| O3 | Routed, shared and dense experts (39.9%) | A6 FIT ranking (chain); A6 part 2 registered; IQ3_S compute-bound at 12.45 GB/s | A6 part 2 (~7-8 h); IQ4_XS and IQ3_S in the engine; a faster IQ3_S kernel | E4: −34.5 MB; E3 needs the kernel |
+| O4 | Router (4.6%) | exactly BF16-representable for this checkpoint | BF16 router in the engine (identical outputs expected); a two-level router for large m | −19.9 MB, and half the capacity term |
+| O5 | Attention (15.5%) | post-hoc rank cuts were expensive (E65, first-attention results) | a protocol that prices quality per MB saved | open |
+| O6 | Speculation / MTP | not a primary lever: routed experts do not amortize under i.i.d. routing (a 2-position verify costs 1.43×), and the chat checkpoint has no MTP head | only if S0's breakdown or a routing-locality measurement changes this | open |
+| O7 | Kernels, threading, prefill | non-streaming residual 2.70 ms (desk 2); prefill token by token | barriers and synchronization; batched prefill (TTFT) | ≤ 0.7 ms/token |
 
-**Donors.** B1: the best second-family Direct candidate from A0 (currently
-Trinity-Nano or LFM2.5). B2: GigaChat 3.1 as the Lossy test case (MLA plus MTP,
-always-on dominated; it exercises speculation, attention compression and
-healing, and its quality evidence already exists).
+**A7, the final adjudication, moves here.**
+- **Quality:** the RESERVED documents and the frozen task and rollout panel.
+- **Rate:** clean box at 512/2048/4096 with ≥ 10 interleaved processes; RAM, TTFT and prefill
+  rate recorded.
+- **Artifact:** the final one, i.e. the upgraded T0 or, if Phase 1's quality half passed, its
+  m ≈ 4 expansion.
 
-**Gate.** At least two donors of different families processed end to end with
-a documented class; at least one besides Ling-mini passes the full contract.
+**Targets.** ≥ 50 tok/s lower CI95 at 2048 (the Phase-2 rate gate), then 100. The desk sum of
+the Phase-A levers is 47.1 tok/s (§3), so 50 needs O5, or O3 with a faster IQ3_S kernel.
 
 ---
 
-## 8. Phase C: capacity at fixed per-token cost
+## 8. Phase 3: hardware tiers
 
-The thesis to test: **at fixed bytes per token, held-out quality rises with
-stored capacity transferred from the family's large member.**
+**Question.** Memory bandwidth sets v0, and past some point the CPU's compute does. RAM size
+sets capacity. For each class of machine: what v0 does T0 reach, what N_tot (GB of experts or
+memory) fits, and what does the Phase-2 artifact reach?
 
-**C0. Gap map.** Ling-mini artifact versus Ling-flash-2.0 (local llama.cpp; an
-IQ3/Q4 GGUF of 44-58 GB fits in RAM) on frozen panels: closed-book knowledge,
-reasoning, chat, fresh-document BPB. If the gap is mostly knowledge, sparse
-capacity is the right tool; if it is mostly reasoning, active compute is, and
-Phase C is reconsidered before spending T4 time.
+**H0. Inventory (owner).** The machines available and those worth renting: CPU model; memory
+type, speed, channels and size; OS.
 
-**C1. Teacher signal (owner decision).** Ling-flash does not fit a T4x2 at 4
-bits. Options: top-k logits from the local CPU (slow, and it occupies the
-benchmark machine), sequence-level outputs from a hosted endpoint (cheap;
-check terms of use and spend), or a smaller same-tokenizer teacher. The choice
-fixes the realistic KD volume.
+**H1. Probe pack per machine** (~2-3 h of machine time each, ESTIMATE):
+- E30-style read ceiling;
+- A1 kernel roofline at Ling-mini shapes;
+- A1b stability;
+- S0 v0 of T0, and of the Phase-2 artifact once it exists;
+- S1 arm E at the machine's largest resident m.
 
-**C2. Falsifier with matched trainable parameters and data (T4).** On the
-frozen 4-bit Ling-mini base: (a) extra experts per MoE layer with new router
-rows; (b) one product-key memory layer (~1M rows, sparse updates); (c) a LoRA
-control with the same trainable-parameter count. **Gate:** (a) or (b) beats (c)
-on the held-out Ling-flash-gap panel by a margin frozen in the protocol, with no
-regression on the general panel; removing or shuffling the new parameters
-erases the gain; the engine still meets the rate gate. Literature anchors:
-Lifelong-MoE, Memory Layers at Scale, Engram, Memory Grafting [L?, the last two
-already examined in ACTIVE_WORK_REVIEW].
+Every number keeps its label; until a tier is measured, its row is DESK-MODEL.
 
-**C3. Scaling.** The winner at 2x and 4x capacity; monotone held-out gains, rate
-gate still met, and all capacity-growing costs reported (router rows grow as
-E x D per layer; product keys as sqrt(N)).
+**H2. Runtime parameters.**
+- Topology detection: physical cores, CCX/CCD and NUMA nodes, L3 size.
+- Thread map and memory mode chosen at run time (rule 10).
+- The 3600X defaults stay byte-identical.
 
-**Stop.** If C2 shows no gain over the LoRA control beyond its pre-registered
-margin, capacity transfer is closed at that budget and recorded as such, not as
-a general impossibility.
+**H3. Tier table.** The measured rows, and the product rule: speed is bought with bandwidth,
+capacity with gigabytes. A tier is a (memory class, RAM size, CPU class) triple. Rows of
+unmeasured tiers are planning numbers.
+
+**Planning table (DESK-MODEL).**
+- **Bandwidth only:** compute and NUMA are not modelled.
+- **BW_PLAN = 0.625 × theoretical peak,** calibrated on the reference box only.
+- **Capacity** at T0's policy, with 6-16 GB left for the OS (ESTIMATE).
+
+| Tier (example) | Peak GB/s | BW_PLAN GB/s | T0 desk tok/s at 2048 | Budget at 50 / 100 tok/s (MB/token) | N_tot (GB) | m_max |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| DDR4-3200 dual channel, 16 GB | 51.2 | 32 | 34.4 | 528 / 232 | ~11 | 1 |
+| DDR4-3200 dual channel, 32 GB | 51.2 | 32 | 34.4 | 528 / 232 | ~26 | 2 |
+| **R0, this box: DDR4-3200 dual channel, 80 GB** | 51.2 | 32 (E30 median 36.3) | 34.4 | 528 / 232 | ~76 | 7 |
+| DDR5-5600 dual channel, 64 GB | 89.6 | 56 | 57.2 | 924 / 406 | ~59 | 5 |
+| DDR5-6400 dual channel, 96 GB | 102.4 | 64 | 64.3 | 1,056 / 464 | ~93 | 9 |
+| Workstation, DDR4-3200 4 channels, 128 GB | 102.4 | 64 | 64.3 | 1,056 / 464 | ~125 | 12 |
+| Server, DDR4-3200 8 channels, 256 GB | 204.8 | 128 | 114.0 | 2,112 / 928 | ~259 | 26 |
+| Server, DDR5-4800 12 channels, 384 GB | 460.8 | 288 | 199.6 | 4,752 / 2,088 | ~396 | 39 |
+
+- **Peak** = channels × 8 bytes × MT/s (SOURCE-DERIVED). The 0.625 factor is the reference box's
+  ratio of planning bandwidth to peak, not a law; other memory controllers differ.
+- **At high bandwidth the fixed term and the kernels' compute limit dominate.** IQ3_S is already
+  compute-bound at 12.45 GB/s on six Zen 2 cores. The high-bandwidth rows are upper bounds until
+  measured.
+- **Multi-socket and NUMA machines** need per-node placement of the experts, which is not
+  modelled.
+- **Capacity rows** count 9.91 GB per m at T0's policy. Denser storage of the added capacity
+  (IQ3/IQ4 experts, int8 memory rows) raises m_max for the same GB.
+
+**Phase 3 does not wait for Phase 2.** H0 and the probe pack can run on any machine as soon as
+it is available, and the table fills as tiers are measured.
 
 ---
 
@@ -406,42 +572,71 @@ a general impossibility.
 
 | Risk | Where it shows | Fallback |
 | --- | --- | --- |
-| 4-bit kernels below the wall | A1 | Tune once; else re-plan before download (Trinity-class donor, shorter declared context) |
-| Process-to-process dispersion | A1b | Placement/paging fixes; no rate claim until solved |
-| Approximate head recall | A5 | Larger probe set; at P1 with a Q4_K head Ling-mini is ~41 desk tok/s, so a failed A5 means a cheaper donor |
-| IQ3 experts cost too much quality | A6 | IQ4_XS (+~15 MB/token) or Phase-B healing |
-| Chat quality insufficient for the owner's use (Italian) | A4/A7 | Not a gate; triggers a donor switch through the A0 rule |
-| Teacher-signal throughput | C1 | Sequence-level KD; smaller same-tokenizer teacher |
-| Custom MoE training code too slow on T4 | C2 | Grouped-expert kernels; smaller ΔE |
+| A4 fails (T0 quality above +0.02) | S0 | T0 = Q5_K_M or Q6_K with the exact head; v0 re-measured; the invariance cells are unchanged |
+| Process-to-process dispersion | A1b | placement and paging fixes within the diagnostic budget; no CI-based gate until solved |
+| The router grows linearly with E (−12% desk at 4× with F32) | S1 | report it (rule 9); a BF16 router (O4, lossless here); a two-level router at large m |
+| Residual slowdown at large pools (TLB and pages; METH177 1.31×) | S1 | large pages (A1b arm B2) if the privilege is granted; expert placement |
+| The Ling-mini → Ling-flash gap is reasoning, not knowledge | S2 | stored capacity is the wrong tool; the quality half of Phase 1 is re-planned before T4 spend |
+| Teacher-signal throughput | S3 | sequence-level KD; offline bank construction in batches; an id-compatible Ling-3.x teacher |
+| Training 2× capacity on T4: ~15B new trainable parameters at m = 2 (Adam ~16 B per parameter) do not fit 2 × 16 GiB | S4 | frozen banks with a trained read-out; staged per-layer training; experts taken from the teacher through trained adapters; a smaller m first |
+| The training stack for bailingmoe2 (custom modelling code shipped with the checkpoint) | S4 | review it before use, or re-implement it from the A3 engine's verified semantics |
+| The added capacity is not useful (S4 no better than LoRA) | S4 | capacity transfer closed at that budget, recorded as such |
+| Phase 2: the head's recall bar, compute-bound IQ3 kernels, attention cost | O1-O5 | each organ stays frozen until its own cell passes; the Phase-1 claim does not depend on them |
+| Access to hardware for the tiers | H0 | the owner's machines, then rentals |
 
 ---
 
 ## 10. Resources and timeline (ESTIMATES)
 
-Phase A: 3-6 weeks, CPU only, ~35 GB of new downloads plus ~20 GB of GGUF
-variants. Phase B: 1-2 months, one or two further downloads of 15-25 GB.
-Phase C: months of T4 within the granted 90 h/week, plus the C1 decision;
-a Ling-flash GGUF (44-58 GB) for the gap map and teacher. Disk is ample.
+**Phase 1:**
+- S0: ~1.5 h of empty machine plus ~1 day of tooling.
+- S1: ~1 week. That covers the engine generalization, an expander, 20-75 GB artifacts on E:,
+  and ~1-2 h of empty machine.
+- S2: several days of contended CPU, for the Ling-flash-2.0 download (~206 GB in BF16, then a
+  ~63 GB Q4_K_M), its conversion and the panels.
+- S4-S5: weeks to months of T4, within the granted 90 h/week.
+- S6: 1-2 months, with one or two further downloads of 15-25 GB.
 
-## 11. Immediate next steps after approval
+**Phase 2:** days to weeks per organ. O1 resumes with ~1 h of CPU; A6 part 2 takes ~7-8 h.
 
-1. A0 and A1 need no model download and can start at once.
-2. A2 starts on the owner's download approval.
-3. Each cell's protocol is pushed before its run.
+**Phase 3:** ~2-3 h of machine time per tier, plus access to the machine. Disk is ample (E:
+5.2 TB free on 16 October).
+
+---
+
+## 11. State at the restructuring, and next steps
+
+**Running:** the A4 → A6 chain.
+- A4 runs with `--budget-h 14`, then A6 with `--budget-h 6`, never two long runs at once.
+- At 10:20 the P0 document panel had finished, in 2,714 s.
+- Nothing else runs; the DEV-B capture was cancelled.
+
+**Paused until the owner's go,** in this order:
+1. The A4 and A6 verdicts. The scripts exist; no new run.
+2. The S0 protocol, pushed before any rate run. Then A1b and S0, in one empty-machine session.
+3. The S1 protocol, the engine generalization (byte-identical at E = 256) and the expander; then
+   the S1 sweep.
+4. The S2 protocol and the Ling-flash-2.0 download (owner approval).
+5. S3 (an owner decision), then S4.
+
+The owner's actions are listed in `docs/COMMUNICATION.md`.
 
 ---
 
 ## Appendix A: compact no-duplication cards
 
+The 16 October cards (A1-A7) are unchanged in
+[ROADMAP_V1, Appendix A](ROADMAP_V1_20261016.md#appendix-a-compact-no-duplication-cards). The
+new cells:
+
 | Cell | Nearest prior cell | Changed coordinate | Why the prior cell does not answer |
 | --- | --- | --- | --- |
-| A1 | METH409 (Q6_K head, additive codes), Granite child-256 cost, gpt-oss protected core | Standard k-quants at Ling-mini shapes, six workers, fused 8-expert layer, kernel-level gate | None measured Q4_K/IQ3_S on these shapes with six workers in a fused MoE layer |
-| A1b | Recipient int8/mixed baselines | Estimand: dispersion causes, not rate | They report spreads up to 1.63 without a cause |
-| A3 | STRAT-01 Rung 2C and successors | Donor/architecture and estimand: calibrated distributional fidelity of a complete forward | Per-tensor NRMSE cascades never certified a complete forward |
-| A4 | STRAT-01 fresh BPB | Donor and engine path | Different model, different runtime |
-| A5 | METH509/510 shortlist head, Phase-56 IVF recall tier | Sub-linear-byte approximate scan of a 157k x 2048 head with exact rerank | METH510 scanned the full head in I8; Phase 56 indexed context, not a vocabulary |
-| A6 | STRAT-02 W4, E66 one-byte 7B | Donor and per-organ k-quant policy | Precision damage is donor-specific (STRAT-02F vs STRAT-01) |
-| A7 | E63 Part B (synthetic 10B), recipient baselines | A pretrained chatbot artifact | Synthetic weights or non-qualifying artifacts |
+| S0 | A2b rate (llama.cpp on T0); the recipient int8/mixed baselines | The engine's own rate on T0, with an organ breakdown | llama.cpp is a different runtime; the recipients are different models |
+| S1 | METH177 (selected-expert cost at extreme pool sizes); E63 Part B (synthetic 10B) | A pretrained artifact's pool grown 2-7× at fixed top-k, with the routing bytes priced | METH177 used synthetic shapes at 12,800-128,000 experts; E63 had no growing pool |
+| S2 | none on this family | Ling-mini against Ling-flash on frozen panels | no prior cell compared the two |
+| S4 | H1/H2I/H4 (router training at 1.5B); the memory-grafting review | Capacity added to a frozen pretrained MoE, against a matched LoRA control | the earlier cells trained routers or small recipients, not capacity at a fixed cost |
+| S6 | the 16 October Phase B outline | A recipe that includes v0 and capacity growth | the outline stopped at rate and quality |
+| H1 | E30, A1, A1b | The same probes on other machines | they measured one machine |
 
 ## Appendix B: reproduce the ledger
 
@@ -451,13 +646,14 @@ python -I benchmarks/chatbot50/byte_budget_ledger.py --show-sources \
   --json benchmarks/chatbot50/results/byte_budget_ledger_20261016.json
 ```
 
-Standard library only; reads configs/headers, never tensor values. External
-facts used here (Ling-mini card: MIT, 16.26B total, 1.43B activated, 789M
-non-embedding, MTP only for the base model; Ling-flash, LFM2 and Trinity-Nano
-configs) were read from official Hugging Face pages on 2026-10-16 and must be
-re-pinned by revision in A0. Landscape items found only through secondary
-sources (Qwen3.5/3.6 MoE sizes, Ling 2.5/3.0, Trinity Mini/Large) are not used
-in any decision here.
+It uses the standard library only and reads configs and headers, never tensor values.
+- **External facts it uses,** read from official Hugging Face pages on 2026-10-16 and to be
+  re-pinned by revision in A0:
+  - the Ling-mini card: MIT, 16.26B total, 1.43B activated, 789M non-embedding, MTP only for the
+    base model;
+  - the Ling-flash, LFM2 and Trinity-Nano configs.
+- **Excluded:** landscape items found only through secondary sources (Qwen3.5/3.6 MoE sizes,
+  Ling 2.5/3.0, Trinity Mini/Large) are not used in any decision here.
 
 ---
 
@@ -508,3 +704,6 @@ Append-only. Each entry: date, decision or measurement, evidence link, label.
 | 2026-10-17 | **C50-A6 part 2 protocol registered** before any A6 FIT number exists (the A6 run is queued behind A4). The FIT candidate C and R (P0, f16 KV) both go through one runtime (A6 scorer plus a new A6 generator with printed --kv/--fa, sha `e4592d2f`; flash attention on). Panels: DEV items 13-32 per category (60 documents, 130,621 tokens) and the A4 task panels, copied after a hash check. Gates: DEV dBPB upper CI95 <= +0.015, plus the A4 task and rollout rules with R as reference; CONFIRMED iff all pass. A FAIL goes to the owner, never to another arm by itself. About 7-8 h; it needs the owner's authorization and runs after the A4 -> A6 chain. | [A6 part 2 protocol](C50_A6_PART2_DEV_TASKS_PROTOCOL_20261017.md) | PROPOSED |
 | 2026-10-17 | **C50-A5 part 6 FIT: selection frozen, DEV-B not yet read.** The control passes (c = 0 reproduces part 1b at all 10 points). The residual-norm bonus helps only at small K: r1024 at K 2,048 goes from 0.97900 to 0.98576 with c = 0.05. It does not lower the cost at the 0.9995 bar, and c >= 0.1 hurts (r512 c = 0.4 at K 32,768: 0.912). Selected: **r1024, c = 0, K = 16,384, 106.3 MB/token, FIT12 recall 0.99967**, the disclosed part-1b point. The prediction (r512, c 0.05-0.2, 53-68 MB) is wrong. The preview, V_r and norm arrays are frozen by sha256 in the record. DEV-B is captured once after the A4 -> A6 chain. Desk: E4B with this head is 21.25 ms (47.1 tok/s), not a rate. | [A5 part 6 protocol](C50_A5_PART6_RESIDUAL_BONUS_PROTOCOL_20261017.md), `benchmarks/chatbot50/results/c50_a5_residual_fit.json` | MEASURED |
 | 2026-10-17 | **C50-A1b protocol registered.** Levers added to the engine as default-off, printed options in a separate binary (`c50_engine_a1b.exe`, sha `6cbafb90`): `--mem private` (GGUF image copied into private memory locked in the working set), `--mem large` (large pages) and `--prio high`. Parity before the push: map and private with high priority are byte-identical to the A3 binary on 199 positions. Large pages are unavailable (SeLockMemoryPrivilege not held). Arms B0 (A3 path), B1 (private + high) and B2 (only if the privilege exists), interleaved over 10 rounds of fresh `--bench` processes at context 2048, with the E52 occupancy bar. Gate: max/min of the per-process medians <= 1.06; the first passing arm in order B0, B1, B2 is adopted. Prediction: B0 1.04-1.15, B1 PASS, rates 24-30 tok/s. It needs an empty machine (~30 min) after the chain. | [A1b protocol](C50_A1B_TIMING_STABILITY_PROTOCOL_20261017.md) | PROPOSED |
+| 2026-10-17 | **Owner directive: the roadmap is restructured into three phases.** Phase 1 is a scale-invariance pipeline at a measured v0, Phase 2 an organ-by-organ optimization that raises v0, and Phase 3 a set of hardware tiers. A5 is frozen with its state recorded: the part-6 FIT selection and arrays, and DEV-B unread. The A4 → A6 chain continues, which is the first of the directive's two options for running jobs, because it qualifies the exact-head artifact. The DEV-B capture watcher (`after_chain_devb.cmd`) was stopped before it started, after its PID was checked against its command line; nothing was captured. T0 = P0 (§4). A6 part 2 moves to Phase 2, and the rate half of A7 on T0 becomes S0. The 16 October text is kept as `ROADMAP_V1_20261016.md`. Work is paused until the owner's go. | owner directive in session, 2026-10-17; [ROADMAP_V1](ROADMAP_V1_20261016.md) | DECISION |
+| 2026-10-17 | **Labels for the record.** The directive's "~38-41 tok/s with the exact head, ~3× llama.cpp" is the desk rate of the A6 candidates (E4B 38.2; P4 41.8 before IQ3_S was repriced), not a measurement. T0 is 34.4 desk tok/s at 2048. The engine's own decode rate has not been measured yet: A1b is the first measurement, with a registered prediction of 24-30 tok/s. llama.cpp measured 14.39 tok/s on T0. | §0, §3; [A1 + A2b rate](C50_A1_A2B_RATE_RESULT_20261017.md) | DESK-MODEL / MEASURED |
+| 2026-10-17 | The `--kv q8_0` engine draft was written after the A1b commit and never built or run. It is saved outside the repository (source, diff and patch script) and stashed, and the working tree is back at the committed source. That source rebuilds `c50_engine_a1b.exe` byte-identical apart from the link timestamp, which the PE file stores twice, so the source hash the A1b runner records matches its binary. The draft is the starting point of O2. | `E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/drafts/` | DECISION / MEASURED |
