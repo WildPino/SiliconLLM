@@ -1,0 +1,174 @@
+{
+ "cell": "C50-A6 FIT",
+ "docs_tsv_sha256": "260114892abdba2ef0beefa4134afeda6a81ed14902b78fd85345ae782a5a60c",
+ "scorer_sha256": "84763138986765c9ecc333684bac179a9cedefadb4611c33f4e911c86819bb2e",
+ "builds": {
+  "exps_iq3s": {
+   "cmd": [
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-quantize.exe",
+    "--imatrix",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-imatrix-fit24.gguf",
+    "--tensor-type",
+    "ffn_gate_exps=iq3_s",
+    "--tensor-type",
+    "ffn_up_exps=iq3_s",
+    "--tensor-type",
+    "ffn_down_exps=iq3_s",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq3s.gguf",
+    "Q4_K_M",
+    "6"
+   ],
+   "wall_s": 952.7785978317261,
+   "sha256": "05ca30575c15f84b1013f08cc5b0bf93efb81f9bd7dea61de94d423bc9f409e5",
+   "per_token_weight_bytes": 700383360.0,
+   "bytes_by_type": {
+    "F32": 40221696,
+    "IQ3_S": 6574571520,
+    "Q4_K": 303759360,
+    "Q6_K": 332021760
+   },
+   "log": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\quantize_exps_iq3s.log"
+  },
+  "exps_iq4xs": {
+   "cmd": [
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-quantize.exe",
+    "--imatrix",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-imatrix-fit24.gguf",
+    "--tensor-type",
+    "ffn_gate_exps=iq4_xs",
+    "--tensor-type",
+    "ffn_up_exps=iq4_xs",
+    "--tensor-type",
+    "ffn_down_exps=iq4_xs",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq4xs.gguf",
+    "Q4_K_M",
+    "6"
+   ],
+   "wall_s": 936.8037712574005,
+   "sha256": "993afe580afe12d07537c37a28741e8cc5770665a20e5101fbf3632e0cb9326e",
+   "per_token_weight_bytes": 748945536.0,
+   "bytes_by_type": {
+    "F32": 40221696,
+    "IQ4_XS": 8128561152,
+    "Q4_K": 303759360,
+    "Q6_K": 332021760
+   },
+   "log": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\quantize_exps_iq4xs.log"
+  },
+  "exps_iq3s_rbf16": {
+   "cmd": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\c50_a6_router_bf16.py",
+    "--src",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq3s.gguf",
+    "--dst",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq3s-rbf16.gguf",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\router_bf16_exps_iq3s_rbf16.json"
+   ],
+   "wall_s": 222.46374487876892,
+   "sha256": "43fb338db9e43af600f71422085b2282c6b150e2525fb0a6c1490c7af862ccac",
+   "per_token_weight_bytes": 680460416.0,
+   "bytes_by_type": {
+    "BF16": 19922944,
+    "F32": 375808,
+    "IQ3_S": 6574571520,
+    "Q4_K": 303759360,
+    "Q6_K": 332021760
+   },
+   "log": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\quantize_exps_iq3s_rbf16.log",
+   "router_bf16_from": "exps_iq3s"
+  },
+  "exps_iq4xs_rbf16": {
+   "cmd": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\c50_a6_router_bf16.py",
+    "--src",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq4xs.gguf",
+    "--dst",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq4xs-rbf16.gguf",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\router_bf16_exps_iq4xs_rbf16.json"
+   ],
+   "wall_s": 262.8869881629944,
+   "sha256": "412bd69efa6922752d9bb2ba34a7e6038cc6a5707911e3b4e2bd0e01895fc370",
+   "per_token_weight_bytes": 729022592.0,
+   "bytes_by_type": {
+    "BF16": 19922944,
+    "F32": 375808,
+    "IQ4_XS": 8128561152,
+    "Q4_K": 303759360,
+    "Q6_K": 332021760
+   },
+   "log": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\quantize_exps_iq4xs_rbf16.log",
+   "router_bf16_from": "exps_iq4xs"
+  }
+ },
+ "arms": {},
+ "builds_void": {
+  "exps_iq3s_rbf16": {
+   "cmd": [
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-quantize.exe",
+    "--imatrix",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-imatrix-fit24.gguf",
+    "--tensor-type",
+    "ffn_gate_exps=iq3_s",
+    "--tensor-type",
+    "ffn_up_exps=iq3_s",
+    "--tensor-type",
+    "ffn_down_exps=iq3_s",
+    "--tensor-type",
+    "ffn_gate_inp=bf16",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq3s-rbf16.gguf",
+    "Q4_K_M",
+    "6"
+   ],
+   "wall_s": 955.6896572113037,
+   "sha256": "05ca30575c15f84b1013f08cc5b0bf93efb81f9bd7dea61de94d423bc9f409e5",
+   "per_token_weight_bytes": 700383360.0,
+   "bytes_by_type": {
+    "F32": 40221696,
+    "IQ3_S": 6574571520,
+    "Q4_K": 303759360,
+    "Q6_K": 332021760
+   },
+   "log": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\quantize_exps_iq3s_rbf16.log",
+   "void_reason": "ffn_gate_inp=bf16 was ignored by llama-quantize (src/llama-quant.cpp:306); byte-identical to the base build"
+  },
+  "exps_iq4xs_rbf16": {
+   "cmd": [
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-quantize.exe",
+    "--imatrix",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-imatrix-fit24.gguf",
+    "--tensor-type",
+    "ffn_gate_exps=iq4_xs",
+    "--tensor-type",
+    "ffn_up_exps=iq4_xs",
+    "--tensor-type",
+    "ffn_down_exps=iq4_xs",
+    "--tensor-type",
+    "ffn_gate_inp=bf16",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m-exps-iq4xs-rbf16.gguf",
+    "Q4_K_M",
+    "6"
+   ],
+   "wall_s": 939.735933303833,
+   "sha256": "993afe580afe12d07537c37a28741e8cc5770665a20e5101fbf3632e0cb9326e",
+   "per_token_weight_bytes": 748945536.0,
+   "bytes_by_type": {
+    "F32": 40221696,
+    "IQ4_XS": 8128561152,
+    "Q4_K": 303759360,
+    "Q6_K": 332021760
+   },
+   "log": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6\\quantize_exps_iq4xs_rbf16.log",
+   "void_reason": "ffn_gate_inp=bf16 was ignored by llama-quantize (src/llama-quant.cpp:306); byte-identical to the base build"
+  }
+ }
+}

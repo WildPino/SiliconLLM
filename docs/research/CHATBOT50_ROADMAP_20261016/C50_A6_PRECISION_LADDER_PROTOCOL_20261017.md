@@ -94,3 +94,48 @@ DEV or RESERVED data.
 - **No rate:** bytes are counted, not streamed.
 - **No task quality:** that is the second protocol.
 - **One donor:** it says nothing about other donors (option C).
+
+## Addendum 1 (17 October 2026, after the builds, before any arm is scored)
+
+**What went wrong.** The first E3B and E4B builds are VOID:
+- They are byte-identical to E3 and E4 (same sha256, `05ca3057…` and `993afe58…`).
+- The pinned `llama-quantize` never quantizes `ffn_gate_inp`
+  (`src/llama-quant.cpp:306`, "do not quantize expert gating tensors"). It ignored the
+  `--tensor-type ffn_gate_inp=bf16` override without a warning.
+- The records are kept under `builds_void` in `results/c50_a6_run.json`.
+
+**Fix.** E3B and E4B are now E3 and E4 with each router rewritten from F32 to BF16 by
+`c50_a6_router_bf16.py`:
+- It uses the pinned gguf-py, with round-to-nearest-even, the same rule as
+  `ggml_compute_fp32_to_bf16`.
+- It copies metadata, tensor order and alignment.
+- It re-reads the output and checks:
+  - 19 routers equal the BF16 rounding of the source;
+  - the other 259 tensors are byte-identical.
+- The runner builds them from the recorded base GGUF after checking its sha.
+- A test build and the runner's build have the same sha (`43fb338d…`), so the rewrite is
+  deterministic.
+
+**Measured while fixing** (a property of the checkpoint, not an A6 quality number):
+- **The F32 routers are exactly BF16-representable:** the maximum rewrite error is 0, because
+  the source checkpoint is BF16.
+- **So P4 changes no router weight.** It halves the router bytes, 39.8 → 19.9 MB/token.
+- **The only numerical change is in the compute path.** ggml's BF16 matmul rounds the router
+  input activation to BF16.
+- **The treatment treats.** On the smoke document (FIT doc 0, off-panel), all 458 records
+  differ between E3 and E3B. No statistic was computed.
+
+**Measured weight bytes per token** (GGUF check; KV at context 2048 added as registered):
+
+| Arm | Weights MB/token | + KV | Total at 2048 | Desk tok/s |
+| --- | --- | --- | --- | --- |
+| R | 783.4 | 83.9 (f16) | 867.2 | 34.4 |
+| K8 | 783.4 | 44.6 (q8_0) | 827.9 | 35.9 |
+| E3 | 700.4 | 44.6 | 744.9 | 39.6 |
+| E4 | 748.9 | 44.6 | 793.5 | 37.3 |
+| E3B | 680.5 | 44.6 | 725.0 | 40.6 |
+| E4B | 729.0 | 44.6 | 773.6 | 38.2 |
+
+- **No arm reaches B = 530 MB**, as registered.
+- The ledger's ~701 MB for IQ3_S plus an exact head corresponds to E3 (700.4 MB of weights).
+- The arms, statistic, rule and predictions are unchanged.

@@ -8,7 +8,8 @@ Arms (C50_A6_PRECISION_LADDER_PROTOCOL_20261017.md); one fixed runtime for all o
     E4    Q4_K_M, routed experts IQ4_XS                        KV q8_0   P3 fallback (risk register)
     E3B   E3 + router (ffn_gate_inp) BF16                      KV q8_0   P4
     E4B   E4 + router BF16                                     KV q8_0   P4 on the fallback
-Every built GGUF comes from the A2 BF16 GGUF with the FIT imatrix (fit24), base type Q4_K_M.
+E3/E4 come from the A2 BF16 GGUF with the FIT imatrix (fit24), base type Q4_K_M; E3B/E4B are E3/E4 with the
+routers rewritten to BF16 by c50_a6_router_bf16.py (addendum 1).
 Resumable: an arm with a completed record and its outputs is skipped.  The verdict is c50_a6_verdict.py.
 
 Usage:
@@ -40,9 +41,12 @@ EXPS = ("ffn_gate_exps", "ffn_up_exps", "ffn_down_exps")
 BUILDS = {
     "exps_iq3s": [f"{t}=iq3_s" for t in EXPS],
     "exps_iq4xs": [f"{t}=iq4_xs" for t in EXPS],
-    "exps_iq3s_rbf16": [f"{t}=iq3_s" for t in EXPS] + ["ffn_gate_inp=bf16"],
-    "exps_iq4xs_rbf16": [f"{t}=iq4_xs" for t in EXPS] + ["ffn_gate_inp=bf16"],
 }
+# Addendum 1: llama-quantize never quantizes ffn_gate_inp (src/llama-quant.cpp:306), so the router step is a
+# post-process of the matching base build (c50_a6_router_bf16.py); the first rbf16 builds are kept as VOID.
+ROUTER_BF16 = {"exps_iq3s_rbf16": "exps_iq3s", "exps_iq4xs_rbf16": "exps_iq4xs"}
+VOID_REASON = ("ffn_gate_inp=bf16 was ignored by llama-quantize (src/llama-quant.cpp:306); "
+               "byte-identical to the base build")
 ARMS = {"R": (None, "f16"), "K8": (None, "q8_0"), "E3": ("exps_iq3s", "q8_0"), "E4": ("exps_iq4xs", "q8_0"),
         "E3B": ("exps_iq3s_rbf16", "q8_0"), "E4B": ("exps_iq4xs_rbf16", "q8_0")}
 MAX_PROC_S = 3 * 3600
@@ -84,20 +88,33 @@ def main() -> int:
     def save():
         out.write_text(json.dumps(rep, indent=1), encoding="utf-8")
 
-    for build in sorted({ARMS[a][0] for a in arms} - {None}):
+    for b in list(rep["builds"]):
+        if b in ROUTER_BF16 and "router_bf16_from" not in rep["builds"][b]:
+            rep.setdefault("builds_void", {})[b] = {**rep["builds"].pop(b), "void_reason": VOID_REASON}
+    wanted = {ARMS[a][0] for a in arms} - {None}
+    wanted |= {ROUTER_BF16[b] for b in wanted if b in ROUTER_BF16}
+    for build in sorted(wanted, key=lambda b: (b in ROUTER_BF16, b)):
         dst = gguf_path(build)
         if build in rep["builds"] and dst.exists():
             continue
-        cmd = [str(QUANT), "--imatrix", str(IMATRIX)]
-        for tt in BUILDS[build]:
-            cmd += ["--tensor-type", tt]
-        cmd += [str(BF16), str(dst), "Q4_K_M", "6"]
         t0 = time.time()
         log = work / f"quantize_{build}.log"
+        if build in ROUTER_BF16:
+            base = ROUTER_BF16[build]
+            if sha256(gguf_path(base)) != rep["builds"][base]["sha256"]:
+                raise SystemExit(f"{build}: base GGUF changed since it was built")
+            cmd = [sys.executable, "-I", str(HERE / "c50_a6_router_bf16.py"), "--src", str(gguf_path(base)),
+                   "--dst", str(dst), "--out", str(work / f"router_bf16_{build}.json")]
+        else:
+            base = None
+            cmd = [str(QUANT), "--imatrix", str(IMATRIX)]
+            for tt in BUILDS[build]:
+                cmd += ["--tensor-type", tt]
+            cmd += [str(BF16), str(dst), "Q4_K_M", "6"]
         with open(log, "w", encoding="utf-8") as f:
             proc = subprocess.run(cmd, stdout=f, stderr=subprocess.STDOUT)
         if proc.returncode != 0:
-            raise SystemExit(f"quantize {build} failed, see {log}")
+            raise SystemExit(f"build {build} failed, see {log}")
         chk = work / f"gguf_check_{build}.json"
         c = subprocess.run([sys.executable, "-I", str(HERE / "c50_a2_gguf_check.py"), "--tokenizer", str(TOKENIZER),
                             "--gguf", str(dst), "--out", str(chk)], capture_output=True, text=True)
@@ -107,6 +124,8 @@ def main() -> int:
         rep["builds"][build] = {"cmd": cmd, "wall_s": time.time() - t0, "sha256": art["sha256"],
                                 "per_token_weight_bytes": art["per_token_weight_bytes"],
                                 "bytes_by_type": art["bytes_by_type"], "log": str(log)}
+        if base is not None:
+            rep["builds"][build]["router_bf16_from"] = base
         save()
         print("built", build, art["sha256"][:16], round(art["per_token_weight_bytes"] / 1e6, 1), "MB/token", flush=True)
     if args.build_only:
