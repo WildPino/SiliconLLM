@@ -10,6 +10,9 @@ Registered prediction (scored, not a gate): IVF with exact rerank reaches 0.999 
 --grid 1b applies the same rule to the part 1b report (every preview_1b configuration is priced) and adds the
 registered budget arithmetic: Ling-mini P4 = 461.0 - 23.8 (ledger head) + selected MB, against B = 530 MB.
 
+--grid dev applies the roadmap gate to the part 2 report: PASS iff DEV top-1 recall >= 0.999 (point estimate)
+and the DEV oracle control held.
+
 Usage:
     python -I benchmarks/chatbot50/c50_a5_select.py --report benchmarks/chatbot50/results/c50_a5_offline_fit.json \
         --out benchmarks/chatbot50/results/c50_a5_select_fit.json
@@ -28,11 +31,19 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--grid", choices=["1", "1b"], default="1")
+    ap.add_argument("--grid", choices=["1", "1b", "dev"], default="1")
     args = ap.parse_args()
     rep = json.loads(Path(args.report).read_text(encoding="utf-8"))
     if args.grid == "1b":
         return select_1b(rep, args)
+    if args.grid == "dev":
+        ok = rep["oracle"]["q8k_rank_code_recall_at_1"] >= 0.999
+        out = {"cell": "C50-A5 part 2 gate (DEV)", "report": args.report, "config": rep["config"], "K": rep["K"],
+               "dev_recall": rep["dev_recall"], "threshold": RECALL,
+               "verdict": "VOID" if not ok else ("PASS" if rep["dev_recall"] >= RECALL else "FAIL")}
+        Path(args.out).write_text(json.dumps(out, indent=1), encoding="utf-8")
+        print(json.dumps(out, indent=1))
+        return 0
     o = rep["oracle"]
     if o["q8k"]["argmax_agreement"] < 0.999 or o["q8k"]["lse_abs_err_median"] > 1e-4:
         raise SystemExit("oracle control not met in the report: VOID")
