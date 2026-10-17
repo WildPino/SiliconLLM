@@ -1,0 +1,36 @@
+{
+ "cell": "C50-A4 diagnostic 1 (post hoc)",
+ "tail_logp_below": -15.0,
+ "positions": 165858,
+ "tail_positions": 1846,
+ "bf16_top1_accuracy": 0.6726054817976823,
+ "tail_by_category": {
+  "code": 371,
+  "prose": 1048,
+  "technical_general": 427
+ },
+ "bf16_tail_median_logp_target": -17.128660202026367,
+ "bf16_tail_median_logp_top1": -0.2825584411621094,
+ "arms": {
+  "p0": {
+   "net_dbits": -3721.055294457554,
+   "net_dbits_outside_tail": -2605.4161674027896,
+   "net_dbits_tail": -1115.6391270547647,
+   "dbpb_pooled": -0.0063112377618040165,
+   "top1_agree_bf16": 0.9265455992475491,
+   "top1_accuracy": 0.6722919605927963,
+   "mean_abs_dlogp_nats": 0.22574465308548647,
+   "tail_median_logp_target": -16.921428680419922
+  },
+  "pc": {
+   "net_dbits": -4472.623815257775,
+   "net_dbits_outside_tail": 102.78820823904107,
+   "net_dbits_tail": -4575.412023496817,
+   "dbpb_pooled": -0.007585964218065671,
+   "top1_agree_bf16": 0.8484667607230282,
+   "top1_accuracy": 0.6664194672551218,
+   "mean_abs_dlogp_nats": 0.49511178839492526,
+   "tail_median_logp_target": -15.898435592651367
+  }
+ }
+}

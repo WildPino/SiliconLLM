@@ -1,0 +1,97 @@
+{
+ "candidate_arm": "pc",
+ "G1_documents": {
+  "documents": 72,
+  "positions": 165858,
+  "bytes": 589592.0,
+  "bpb_bf16": 0.7749278387456052,
+  "bpb_p0": 0.7673418745275394,
+  "dbpb": -0.007585964218065675,
+  "dbpb_ci95": [
+   -0.016830099337282772,
+   0.0017120877155606825
+  ],
+  "pass": true,
+  "preferred_met": true,
+  "by_category": {
+   "code": 0.007229545480226366,
+   "prose": -0.04417458275802514,
+   "technical_general": 0.014189029174466749
+  }
+ },
+ "G2_piqa": {
+  "n": 1838,
+  "bf16_correct": 1458,
+  "p0_correct": 1464,
+  "bf16_accuracy": 0.7932535364526659,
+  "p0_accuracy": 0.7965179542981502,
+  "bf16_only": 75,
+  "p0_only": 81,
+  "ability_floor": 0.5,
+  "allowed_net_loss": 24.979991993593593,
+  "relative_floor": 1312,
+  "verdict": "PASS"
+ },
+ "G3_arc": {
+  "n": 600,
+  "bf16_correct": 316,
+  "p0_correct": 332,
+  "bf16_accuracy": 0.5266666666666666,
+  "p0_accuracy": 0.5533333333333333,
+  "bf16_only": 36,
+  "p0_only": 52,
+  "ability_floor": 0.3,
+  "allowed_net_loss": 18.76166303929372,
+  "relative_floor": 284,
+  "verdict": "PASS"
+ },
+ "G4_gsm8k": {
+  "n": 100,
+  "bf16_correct": 83,
+  "p0_correct": 80,
+  "bf16_accuracy": 0.83,
+  "p0_accuracy": 0.8,
+  "bf16_only": 9,
+  "p0_only": 6,
+  "ability_floor": 0.2,
+  "allowed_net_loss": 7.745966692414834,
+  "relative_floor": 74,
+  "verdict": "PASS"
+ },
+ "G5_ifeval": {
+  "n": 173,
+  "bf16_correct": 134,
+  "p0_correct": 137,
+  "bf16_accuracy": 0.7745664739884393,
+  "p0_accuracy": 0.791907514450867,
+  "bf16_only": 10,
+  "p0_only": 13,
+  "ability_floor": 0.3,
+  "allowed_net_loss": 9.591663046625438,
+  "relative_floor": 120,
+  "verdict": "PASS"
+ },
+ "G6_chat": {
+  "n": 40,
+  "bf16_correct": 27,
+  "p0_correct": 29,
+  "bf16_accuracy": 0.675,
+  "p0_accuracy": 0.725,
+  "bf16_only": 1,
+  "p0_only": 3,
+  "ability_floor": 0.75,
+  "verdict": "INCONCLUSIVE_NO_BASELINE_ABILITY"
+ },
+ "beside_piqa_strat01_rule": {
+  "required": 1429,
+  "met": true
+ },
+ "G7_rollout": {
+  "n": 72,
+  "bf16_degenerate": 2,
+  "p0_degenerate": 1,
+  "p0_only": [],
+  "verdict": "PASS"
+ },
+ "verdict": "NOT PASSED"
+}
