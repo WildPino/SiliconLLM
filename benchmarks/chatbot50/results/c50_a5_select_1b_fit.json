@@ -1,0 +1,67 @@
+{
+ "cell": "C50-A5 part 1b selection (FIT)",
+ "report": "benchmarks/chatbot50/results/c50_a5_offline_1b_fit.json",
+ "recall_threshold": 0.999,
+ "verdict": "SELECTED",
+ "selected": {
+  "config": "rot_r512_q3sim K=32768",
+  "recall": 0.9992096250109774,
+  "mb_per_token": 94.45376,
+  "candidates": 32768
+ },
+ "highest_recall_miss": null,
+ "qualifying_count": 33,
+ "candidate_count": 91,
+ "per_family_cheapest": {
+  "rot_r256_q4sim": null,
+  "rot_r256_q3sim": null,
+  "rot_r256_t2sim": null,
+  "rot_r512_q4sim": {
+   "config": "rot_r512_q4sim K=32768",
+   "recall": 0.9991468968372454,
+   "mb_per_token": 104.513536,
+   "candidates": 32768
+  },
+  "rot_r512_q3sim": {
+   "config": "rot_r512_q3sim K=32768",
+   "recall": 0.9992096250109774,
+   "mb_per_token": 94.45376,
+   "candidates": 32768
+  },
+  "rot_r512_t2sim": null,
+  "rot_r1024_q4sim": {
+   "config": "rot_r1024_q4sim K=16384",
+   "recall": 0.9998494523830433,
+   "mb_per_token": 126.451712,
+   "candidates": 16384
+  },
+  "rot_r1024_q3sim": {
+   "config": "rot_r1024_q3sim K=16384",
+   "recall": 0.9996738134965939,
+   "mb_per_token": 106.33216,
+   "candidates": 16384
+  },
+  "rot_r1024_t2sim": null,
+  "full_q3sim": {
+   "config": "full_q3sim K=8",
+   "recall": 0.999033986124528,
+   "mb_per_token": 140.850304,
+   "candidates": 8
+  },
+  "full_t2sim": {
+   "config": "full_t2sim K=256",
+   "recall": 0.999259807549963,
+   "mb_per_token": 101.02784,
+   "candidates": 256
+  }
+ },
+ "budget": {
+  "ling_mini_p4_mb_per_token": 531.65376,
+  "B_mb": 530.0,
+  "within_B": false
+ },
+ "prediction_selected_80_to_110_mb": {
+  "predicted": true,
+  "observed": true
+ }
+}
