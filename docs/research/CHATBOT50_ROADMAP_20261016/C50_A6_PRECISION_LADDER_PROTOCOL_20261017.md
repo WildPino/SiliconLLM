@@ -139,3 +139,26 @@ DEV or RESERVED data.
 - **No arm reaches B = 530 MB**, as registered.
 - The ledger's ~701 MB for IQ3_S plus an exact head corresponds to E3 (700.4 MB of weights).
 - The arms, statistic, rule and predictions are unchanged.
+
+### Byte ledger of E3B by organ (measured, GGUF check of `43fb338d…`)
+
+These are bytes per decoded token at context 2048. Routed experts count at 8/256 of their
+stored 6,574.6 MB.
+
+| Organ | MB/token | Share of 725.0 |
+| --- | --- | --- |
+| head (Q6_K, exact) | 264.1 | 36.4% |
+| routed experts (IQ3_S) | 205.5 | 28.3% |
+| attention (Q4_K) | 134.4 | 18.5% |
+| KV q8_0 | 44.6 | 6.2% |
+| shared experts | 36.1 | 5.0% |
+| dense FFN (layer 0) | 20.4 | 2.8% |
+| router (BF16) | 19.9 | 2.8% |
+| norms, embedding row | 0.2 | 0.0% |
+
+**Desk arithmetic** (not a rate):
+- 50 tok/s at 100% of desk needs ≤ 576 MB/token; at the 0.85 of desk measured for a complete
+  C engine, it needs ≤ 480 MB.
+- E3B is 149 MB over the first figure and 245 MB over the second.
+- Swapping the exact head for the A5 part-1b preview (94.5 MB, failed on DEV) would make it
+  556 MB, which is 52.6 desk tok/s, or 44.7 at 0.85.
