@@ -1,0 +1,26 @@
+{
+ "cell": "C50-A5 part 2 DEV confirmation",
+ "config": "rot_r512_q3sim",
+ "K": 32768,
+ "capture": "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a5/DEV12",
+ "positions": 78079,
+ "docs": 36,
+ "oracle": {
+  "positions": 7808,
+  "q8k_rank_code_recall_at_1": 1.0
+ },
+ "dev_recall": 0.9987448609741416,
+ "misses": 98,
+ "per_doc_recall_min_median": [
+  0.9892384105960265,
+  1.0
+ ],
+ "recall_at_K": {
+  "1024": 0.9237823230318011,
+  "4096": 0.9782527952458407,
+  "16384": 0.9968365373531936,
+  "32768": 0.9987448609741416,
+  "65536": 0.999654196390835
+ },
+ "wall_s": 57.662296295166016
+}
