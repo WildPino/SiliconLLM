@@ -1,0 +1,45 @@
+{
+ "cell": "C50-A5 part 1 selection (FIT)",
+ "report": "benchmarks/chatbot50/results/c50_a5_offline_fit.json",
+ "recall_threshold": 0.999,
+ "exact_head_mb_per_token": 264.06912,
+ "oracle": {
+  "q8k": {
+   "argmax_agreement": 1.0,
+   "lse_abs_err_median": 1.6442705295105497e-06,
+   "lse_abs_err_max": 1.9073486328125e-05
+  },
+  "f32": {
+   "argmax_agreement": 0.9898381633421152,
+   "lse_abs_err_median": 0.028789333565427455,
+   "lse_abs_err_max": 0.47596910262062053
+  }
+ },
+ "verdict": "FAIL",
+ "selected": null,
+ "best_by_family": {
+  "preview": null,
+  "preview_highest_recall_miss": {
+   "family": "preview",
+   "config": "r512_q4sim K=1024",
+   "recall": 0.9347752449535184,
+   "mb_per_token": 51.183616,
+   "candidates": 1024
+  },
+  "ivf": null,
+  "ivf_highest_recall_miss": {
+   "family": "ivf",
+   "config": "C256 P=128",
+   "recall": 0.7074107064446926,
+   "mb_per_token": 104.33061903152719,
+   "candidates": 61769.97799495666
+  }
+ },
+ "qualifying_count": 0,
+ "candidate_count": 48,
+ "prediction_ivf_under_15mb": {
+  "predicted": true,
+  "observed": false,
+  "best_ivf_mb_per_token": null
+ }
+}
