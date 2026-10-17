@@ -714,6 +714,14 @@ int main(int argc, char **argv) {
     st->eps = gguf_f(&md->g, "bailingmoe2.attention.layer_norm_rms_epsilon");
     st->rope_base = gguf_f(&md->g, "bailingmoe2.rope.freq_base");
     st->wscale = gguf_f(&md->g, "bailingmoe2.expert_weights_scale");
+    /* Planted faults for the A3 system-gate control (addendum 3); separate binaries only, the CONFIG
+     * line prints the planted value.  The gate binary is built without either macro. */
+#ifdef C50_PLANT_WSCALE
+    st->wscale *= (float)(C50_PLANT_WSCALE);
+#endif
+#ifdef C50_PLANT_ROPE_BASE
+    st->rope_base = (float)(C50_PLANT_ROPE_BASE);
+#endif
     if (!st->kc || !st->vc || !st->logits || !row) { fprintf(stderr, "allocation failed\n"); return 2; }
     start_pool();
     type_summary(md, types, sizeof types);

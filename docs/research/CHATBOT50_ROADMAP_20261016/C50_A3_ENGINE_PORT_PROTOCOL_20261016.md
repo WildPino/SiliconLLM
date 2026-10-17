@@ -131,3 +131,32 @@ run on all 26,363 positions with the binary whose SHA-256 the run records.
 3. **The engine's metadata file has the same unescaped-path flaw** as the
    scorer's (A2b addendum 3). The engine is not changed: `c50_compare.py` reads
    such a file and marks it `meta_repaired`.
+
+## Addendum 3 (17 October 2026, after the A3 verdict, before any planted run)
+
+**Planted-fault control of the system gate.** The A3 PASS is a no-difference
+result. Under the planted-control law it counts only once the same gate is shown
+to fail a known-bad engine. The kernel self-test has planted controls; the system
+gate had none.
+
+1. **Two planted binaries,** built from `c50_engine.c` with one macro each. The
+   macro code is inert in the gate build: a rebuild without macros differs from
+   the gate binary in 4 bytes at equal size, consistent with the PE timestamp.
+   - `PLANT_WSCALE`: routed-expert weights scale × 0.9, so 2.25 instead of 2.5
+     (−10% on the routed contribution).
+   - `PLANT_ROPE`: RoPE base 500000 instead of 600000.
+2. **Runner:** `c50_a3_planted.py`.
+   - Asserts that the planted value appears in the `CONFIG` line (otherwise the
+     plant is VOID).
+   - Scores the 26,363 A2b positions, compares with R3 and applies
+     `c50_a3_verdict.py` unchanged.
+   - Each run takes ~20 min plus ~8 min for the comparison.
+3. **Expectation, registered now:**
+   - `PLANT_WSCALE` FAILS the gate.
+   - `PLANT_ROPE`: no confident expectation. A 17% change of the RoPE base moves
+     the rotation frequencies little at short distances. If it PASSES, that is
+     recorded as a fault class the gate cannot see at this floor; nothing is
+     relabelled.
+4. **Status:** a control, not a gate. The A3 verdict stands as recorded. If
+   `PLANT_WSCALE` passed, the A3 PASS would be declared uninformative, and a
+   design review (rule 3) would decide how to restore discrimination.
