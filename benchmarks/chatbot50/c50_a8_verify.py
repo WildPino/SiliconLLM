@@ -12,7 +12,7 @@ bin/c50_tok_cli.exe on the P0 GGUF.  c50_a8_verdict.py applies the rule (0 misma
   reported, not gated: stress group "newer" (unassigned code points)
 
 Usage:
-    python -I benchmarks/chatbot50/c50_a8_verify.py --stress <stress.json> --work <dir> --out results/<record>.json
+    python -I benchmarks/chatbot50/c50_a8_verify.py --stress <stress.json> --work <dir> --out results/<record>.json         [--cli <planted-defect build>]   (planted controls only; the gated record uses bin/c50_tok_cli.exe)
 """
 from __future__ import annotations
 
@@ -49,10 +49,10 @@ CONVERSATIONS = [
 ROLE_NAME = {SYSTEM: "system", USER: "user", ASSISTANT: "assistant"}
 
 
-def run_cli(mode: str, payload: bytes, work: Path) -> tuple[bytes, str]:
+def run_cli(mode: str, payload: bytes, work: Path, cli: Path = CLI) -> tuple[bytes, str]:
     inp, out = work / f"{mode}.in.bin", work / f"{mode}.out.bin"
     inp.write_bytes(payload)
-    p = subprocess.run([str(CLI), "--model", str(GGUF), f"--{mode}", str(inp), "--out", str(out)],
+    p = subprocess.run([str(cli), "--model", str(GGUF), f"--{mode}", str(inp), "--out", str(out)],
                        capture_output=True, text=True)
     if p.returncode != 0 or "DONE" not in p.stdout:
         raise SystemExit(f"c50_tok_cli {mode} failed: {p.stdout} {p.stderr}")
@@ -98,14 +98,16 @@ def main() -> int:
     ap.add_argument("--stress", required=True)
     ap.add_argument("--work", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--cli", default=str(CLI))
     args = ap.parse_args()
+    cli = Path(args.cli)
     from tokenizers import Tokenizer
     from transformers import PreTrainedTokenizerFast
     work = Path(args.work)
     work.mkdir(parents=True, exist_ok=True)
     hf = Tokenizer.from_file(str(SRC / "tokenizer.json"))
     cfg = json.loads((SRC / "tokenizer_config.json").read_text(encoding="utf-8"))
-    rec = {"cell": "C50-A8 verification", "cli_sha256": hashlib.sha256(CLI.read_bytes()).hexdigest(),
+    rec = {"cell": "C50-A8 verification", "cli": str(cli), "cli_sha256": hashlib.sha256(cli.read_bytes()).hexdigest(),
            "tokenizer_json_sha256": hashlib.sha256((SRC / "tokenizer.json").read_bytes()).hexdigest(),
            "gguf": str(GGUF), "checks": {}}
 
@@ -116,7 +118,7 @@ def main() -> int:
             "newer": [x["text"] for x in stress if x["group"] == "newer"]}
     all_texts = [t for k in ("T1", "T2", "T3", "newer") for t in sets[k]]
     payload = b"".join(struct.pack("<I", len(t.encode("utf-8"))) + t.encode("utf-8") for t in all_texts)
-    out, rec["config_encode"] = run_cli("encode", payload, work)
+    out, rec["config_encode"] = run_cli("encode", payload, work, cli)
     got = read_id_records(out)
     o = 0
     ref_ids = {}
@@ -137,7 +139,7 @@ def main() -> int:
     seqs = ref_ids["T1"] + ref_ids["T2"] + ref_ids["T3"]
     seqs += [[rng.randrange(N_SOURCE_IDS) for _ in range(rng.randint(1, 64))] for _ in range(N_RANDOM_SEQ)]
     payload = b"".join(struct.pack("<I", len(s)) + struct.pack(f"<{len(s)}i", *s) for s in seqs)
-    out, rec["config_decode"] = run_cli("decode", payload, work)
+    out, rec["config_decode"] = run_cli("decode", payload, work, cli)
     got = read_byte_records(out)
     refs = [hf.decode(s, skip_special_tokens=False).encode("utf-8") for s in seqs]
     rec["checks"]["T4"] = compare("T4", refs, got, seqs)
@@ -154,7 +156,7 @@ def main() -> int:
         payload += struct.pack("<I", len(conv))
         for r, c in conv:
             payload += struct.pack("<II", r, len(c.encode("utf-8"))) + c.encode("utf-8")
-    out, rec["config_template"] = run_cli("template", payload, work)
+    out, rec["config_template"] = run_cli("template", payload, work, cli)
     o, gt, gi = 0, [], []
     while o < len(out):
         (n,) = struct.unpack_from("<I", out, o); o += 4

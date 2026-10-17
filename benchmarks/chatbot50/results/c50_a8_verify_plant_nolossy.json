@@ -1,0 +1,88 @@
+{
+ "cell": "C50-A8 verification",
+ "cli": "C:\\Users\\giosa\\AppData\\Local\\Temp\\claude\\D---THINGS-Progetti-SiliconLLM\\e9133806-7e4a-4882-86c6-aa07e2c184e9\\scratchpad\\a8plant\\nolossy\\c50_tok_cli_nolossy.exe",
+ "cli_sha256": "32d25b4c2d30640d907d344933c36a7b2c912e45f684359ebdf309b28df5e8c3",
+ "tokenizer_json_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+ "gguf": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+ "checks": {
+  "T1": {
+   "items": 144,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T2": {
+   "items": 40,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T3": {
+   "items": 4500,
+   "mismatches": 0,
+   "examples": [],
+   "mismatches_by_group": {
+    "mixed": 0,
+    "nfc": 0,
+    "random": 0
+   }
+  },
+  "newer": {
+   "items": 500,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T4": {
+   "items": 6684,
+   "mismatches": 327,
+   "examples": [
+    {
+     "index": 4691,
+     "input": "[129352, 68491, 120511, 26591, 95789, 132815, 130041, 111578, 31111, 154668, 78574, 128605, 25369, 9739, 42124, 102121, 28455, 499, 9286, 19391, 7675, 45621, 75157, 93737, 134207, 122587, 32650, 60504, 26352, 107575, 66580, 49218, 91296, 83878, 93866, 102639, 104597, 1911, 71511, 95971, 24095, 13995",
+     "first_diff": 157,
+     "ref": "b'\\xef\\xbf\\xbd\\xe8\\x8d\\xa3\\xe5\\x85'",
+     "c": "b'\\xef\\xbf\\xbd\\xef\\xbf\\xbd\\xe8\\x8d'"
+    },
+    {
+     "index": 4694,
+     "input": "[72381, 125535, 40156, 81458, 36524, 72880, 17097, 45812, 99200, 110662, 69230, 69677, 48055, 55512, 135132, 89497, 138868, 135927, 37910, 137903, 156935]",
+     "first_diff": 122,
+     "ref": "b'\\xef\\xbf\\xbd Vist'",
+     "c": "b'\\xef\\xbf\\xbd\\xef\\xbf\\xbd V'"
+    },
+    {
+     "index": 4697,
+     "input": "[31825, 8085, 70551, 81251, 141791, 44307, 79356, 70156, 48967, 55766, 92763, 65084, 125864, 96705, 121559, 63223, 967, 116825, 111056, 8647, 109424, 34587, 146233, 139738, 92873, 129099, 114771, 78133, 43862, 14034, 110027, 82709, 116915, 76726, 54180, 62785, 103401, 63076, 53956, 65774, 74392, 119",
+     "first_diff": 281,
+     "ref": "b'\\xef\\xbf\\xbd wris'",
+     "c": "b'\\xef\\xbf\\xbd\\xef\\xbf\\xbd w'"
+    },
+    {
+     "index": 4702,
+     "input": "[153550, 104919, 72417, 112097, 69461, 132651, 99550, 106942, 5773, 97969, 43220, 148867, 74849, 25275, 38545, 63839, 124672, 19211, 91511, 118164, 119072, 38394, 156287, 141028, 144240, 66897, 139352, 92747, 60743, 149027, 62550, 146532, 9305, 56909, 143963, 80515, 29585, 25679, 56489, 95127, 15328",
+     "first_diff": 153,
+     "ref": "b'\\xef\\xbf\\xbd\\xe5\\xb0\\xb1\\xe6\\x8b'",
+     "c": "b'\\xef\\xbf\\xbd\\xef\\xbf\\xbd\\xe5\\xb0'"
+    },
+    {
+     "index": 4706,
+     "input": "[119145, 144128, 58905, 108948, 115812, 9133, 25579, 108528, 101433, 11103, 110842, 121698, 124418, 13129, 17308, 120132, 72610, 87103, 40086, 78724, 71628, 30650, 74955, 5487, 122124, 22670, 41524, 80009, 36561, 96991, 154641, 13424, 62176, 133112, 98823, 150974, 7141, 153514, 29480, 7215, 66480, 2",
+     "first_diff": 330,
+     "ref": "b'\\xef\\xbf\\xbd Pett'",
+     "c": "b'\\xef\\xbf\\xbd\\xef\\xbf\\xbd P'"
+    }
+   ]
+  },
+  "T5_text": {
+   "items": 12,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T5_ids": {
+   "items": 12,
+   "mismatches": 0,
+   "examples": []
+  }
+ },
+ "config_encode": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=encode",
+ "config_decode": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=decode",
+ "config_template": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=template"
+}

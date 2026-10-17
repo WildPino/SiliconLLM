@@ -1,0 +1,175 @@
+{
+ "cell": "C50-A8 verification",
+ "cli": "C:\\Users\\giosa\\AppData\\Local\\Temp\\claude\\D---THINGS-Progetti-SiliconLLM\\e9133806-7e4a-4882-86c6-aa07e2c184e9\\scratchpad\\a8plant\\nolook\\c50_tok_cli_nolook.exe",
+ "cli_sha256": "7b12af4734f6db8b38efbd4c544b6dda83ca00424a50378c36305b4581affd12",
+ "tokenizer_json_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+ "gguf": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+ "checks": {
+  "T1": {
+   "items": 144,
+   "mismatches": 123,
+   "examples": [
+    {
+     "index": 0,
+     "input": "'\\r\\n    import _pickle\\r\\n    has_c_implementation = True\\r\\nexcept ModuleNotFoundError:\\r\\n    has_c_implementation = False\\r\\n\\r\\nsupport.requires(\\'xpickle\\')\\r\\n\\r\\nis_windows = sys.platform.startswith(\\'win\\')\\r\\n\\r\\n# Map python version to a tuple containing the name of a corresponding valid\\",
+     "first_diff": 2,
+     "ref": "[201, 198, 305, 1690, 1640, 49246, 295]",
+     "c": "[201, 198, 263, 1684, 1640, 49246, 295]"
+    },
+    {
+     "index": 1,
+     "input": "'def test_add_inline_with_change_permission_only(self):\\r\\n        \"\"\"\\r\\n        Forged new inline instances are ignored without add permissions, but\\r\\n        but edits still work with edit permissions.\\r\\n        \"\"\"\\r\\n        self.client.force_login(self.user)\\r\\n        inline_perms = Permiss",
+     "first_diff": 12,
+     "ref": "[3535, 201, 198, 394, 9913, 201, 198, 394]",
+     "c": "[3535, 201, 198, 317, 34644, 201, 198, 317]"
+    },
+    {
+     "index": 2,
+     "input": "' = None\\r\\n\\r\\n# Default formatting for date objects. See all available format strings here:\\r\\n# https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date\\r\\nDATE_FORMAT = \"N j, Y\"\\r\\n\\r\\n# Default formatting for datetime objects. See all available format strings\\r\\n# here: https://docs.d",
+     "first_diff": 457,
+     "ref": "[831, 201, 198, 305, 16016, 56, 35891, 76]",
+     "c": "[831, 201, 198, 263, 67265, 56, 35891, 76]"
+    },
+    {
+     "index": 3,
+     "input": "' (\\r\\n                \"https://example.com/a%252Fb.whl\",\\r\\n                \"a%2Fb.whl\",\\r\\n            ),\\r\\n            (\\r\\n                \"http://yo/myproject-1.0%2Bfoobar.0-py2.py3-none-any.whl\",\\r\\n                \"myproject-1.0+foobar.0-py2.py3-none-any.whl\",\\r\\n            ),\\r\\n          ",
+     "first_diff": 3,
+     "ref": "[363, 201, 198, 921, 477, 4611, 2069, 18075]",
+     "c": "[363, 201, 198, 653, 1, 4611, 2069, 18075]"
+    },
+    {
+     "index": 4,
+     "input": "'thod.assert_called()\\r\\n        run(self._await_coroutine(coroutine))\\r\\n        mock.async_method.assert_awaited()\\r\\n        mock.async_method.assert_awaited_once()\\r\\n\\r\\n    def test_assert_called_once_and_awaited_twice(self):\\r\\n        mock = AsyncMock(AsyncClass)\\r\\n        coroutine = mock.",
+     "first_diff": 7,
+     "ref": "[739, 201, 198, 394, 2001, 3239, 3603, 29029]",
+     "c": "[739, 201, 198, 317, 12368, 3239, 3603, 29029]"
+    }
+   ]
+  },
+  "T2": {
+   "items": 40,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T3": {
+   "items": 4500,
+   "mismatches": 280,
+   "examples": [
+    {
+     "index": 51,
+     "input": "'\\u0681\\u11a9\\u0948\\U0001f39c \\u2028\\u036e\\U0001d695\\u3086\\x1d\\u05b6\\x1f\\x0b\\u1120\\u2028\\u0e54\\ubc91\\ufe0f\\U0001f932\\ufe0b\\u4f50 \\u3073\\u05ba\\u2000\\U0001f5fc\\x0b'",
+     "first_diff": 8,
+     "ref": "[95444, 87860, 250, 220, 303, 101, 137, 106]",
+     "c": "[95444, 87860, 250, 847, 101, 137, 106, 46281]"
+    },
+    {
+     "index": 65,
+     "input": "'\\U0001d6ee\\U0001f91c\\x1d\\x0b\\uff23\\x1e\\u3000\\x1f\\x1c\\U0001f553\\U0001f6e2\\uff4d\\U0001f92f\\U0001d75a\\u200b\\r\\x1d\\u0307\\u0979\\uff37\\U0001f6b4\\u06ff\\u3000\\U0001f9f8\\u06f6\\u200d\\u090e\\u2007 \\U0001d733\\u11d3\\u89a5\\u30db\\u0924'",
+     "first_diff": 48,
+     "ref": "[236, 303, 229, 123290, 250, 111, 157, 229]",
+     "c": "[236, 303, 229, 220, 46281, 250, 111, 157]"
+    },
+    {
+     "index": 71,
+     "input": "'\\u200d\\uffc7\\u75ad\\u0328\\u095b\\u5718\\U0001f93b\\u0615\\u200d\\u30e0\\U0001d599\\u06e0\\t\\u05ae\\uff71\\u11dc \\u2000\\u0e15\\ufe03\\u0697'",
+     "first_diff": 30,
+     "ref": "[157, 229, 250, 220, 39590, 76805, 22410, 225]",
+     "c": "[157, 229, 250, 847, 224, 76805, 22410, 225]"
+    },
+    {
+     "index": 79,
+     "input": "'\\u0367\\u0e32\\U0001d6d2\\uff6c\\U0001f5f4\\x0c\\u06c9\\u30f6 \\u2029\\u200c\\u0940\\U0001d61b\\u0e11\\ufe0b\\u0342\\U0001f5c5\\u0e4f\\u11f7\\u064c\\U0001d622\\u05af\\u2000\\U0001d6ad\\u094f\\u1181\\U0001f927'",
+     "first_diff": 15,
+     "ref": "[151, 231, 148900, 220, 303, 102, 64400, 49458]",
+     "c": "[151, 231, 148900, 847, 102, 64400, 49458, 46281]"
+    },
+    {
+     "index": 141,
+     "input": "'\\uff69\\u036f\\ufe0a\\u7860\\uff08\\U0001f447\\x1d\\U0001f32f\\u9533\\u1680\\ufe0f\\u0301\\u307f\\u307e\\u200c\\u200c\\u3062 \\u3000\\u1141\\u202f\\U0001d75b\\U0001d60b\\u3057\\uff02\\ufe0b\\uff0e\\u200b\\u1103\\x85\\n\\u0654\\U0001f9a3\\ufe06\\ufeff\\u0e40'",
+     "first_diff": 27,
+     "ref": "[64400, 1507, 95, 220, 2990, 157, 227, 223]",
+     "c": "[64400, 1507, 95, 31102, 157, 227, 223, 84040]"
+    }
+   ],
+   "mismatches_by_group": {
+    "mixed": 217,
+    "nfc": 0,
+    "random": 63
+   }
+  },
+  "newer": {
+   "items": 500,
+   "mismatches": 5,
+   "examples": [
+    {
+     "index": 136,
+     "input": "'Stra\\xdfecitt\\xe0  \\U0003884c\\U000ccb4f\\U000e1224\\xfcber\\U0005983aperch\\xe9\\U0008f8e3The\\xfcberThe citt\\xe0na\\xefve\\U0006d146'",
+     "first_diff": 6,
+     "ref": "[938, 1495, 15138, 220, 220, 172, 116, 94]",
+     "c": "[938, 1495, 15138, 256, 172, 116, 94, 234]"
+    },
+    {
+     "index": 196,
+     "input": "'\\U000d5a35\\U000bd900isn\\U00011ff3  don\\U00060319\\U00054d86\\U000ced4b\\U000e9e57\\U0009efdb\\U000ee359'",
+     "first_diff": 13,
+     "ref": "[239, 123, 111, 220, 1601, 173, 254, 234]",
+     "c": "[239, 123, 111, 256, 20197, 173, 254, 234]"
+    },
+    {
+     "index": 235,
+     "input": "'\\u0434\\u043e\\u043c\\U0007174c\\U0001e98eweI\\U0007cee3\\U000c5323Stra\\xdfe\\U00016597you\\u0434\\u043e\\u043c\\U000485c2\\U000cda87  \\U000e10d5'",
+     "first_diff": 36,
+     "ref": "[235, 103, 229, 220, 220, 175, 94, 225]",
+     "c": "[235, 103, 229, 256, 175, 94, 225, 243]"
+    },
+    {
+     "index": 255,
+     "input": "'\\U000de621Theyou\\U000d5b34  \\U000d7d2c\\u0434\\u043e\\u043cisnna\\xefvedon\\U000b5579'",
+     "first_diff": 9,
+     "ref": "[243, 105, 112, 220, 220, 175, 245, 112]",
+     "c": "[243, 105, 112, 256, 175, 245, 112, 105]"
+    },
+    {
+     "index": 266,
+     "input": "'\\U000c0b26\\U000694b6  x\\U0008d3cc\\U0009d9a3we\\U00019530you\\u0434\\u043e\\u043cStra\\xdfethe\\U000a0fc3\\U00013954\\U000a942d\\u0391\\u0392\\u0393\\U00049e1e\\xfcber\\U000ecbb6'",
+     "first_diff": 8,
+     "ref": "[102, 240, 114, 220, 1529, 174, 235, 237]",
+     "c": "[102, 240, 114, 256, 87, 174, 235, 237]"
+    }
+   ]
+  },
+  "T4": {
+   "items": 6684,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T5_text": {
+   "items": 12,
+   "mismatches": 0,
+   "examples": []
+  },
+  "T5_ids": {
+   "items": 12,
+   "mismatches": 2,
+   "examples": [
+    {
+     "index": 5,
+     "input": "[(1, 'Line one\\nLine two\\n\\n  indented\\ttab')]",
+     "first_diff": 19,
+     "ref": "[1307, 198, 198, 220, 1086, 10372, 197, 13426]",
+     "c": "[1307, 198, 198, 256, 606, 10372, 197, 13426]"
+    },
+    {
+     "index": 8,
+     "input": "[(1, 'Scrivi una funzione Python:\\n```python\\ndef f(x):\\n    return x**2\\n```\\n\\xc8 corretta?')]",
+     "first_diff": 28,
+     "ref": "[3698, 3535, 198, 305, 944, 1529, 480, 17]",
+     "c": "[3698, 3535, 198, 263, 1692, 1529, 480, 17]"
+    }
+   ]
+  }
+ },
+ "config_encode": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=encode",
+ "config_decode": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=decode",
+ "config_template": "CONFIG tokenizer=c50_tok model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf tokens=157184 added=262 merges=156635 unidata=15.0.0 mode=template"
+}
