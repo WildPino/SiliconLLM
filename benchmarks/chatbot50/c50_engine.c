@@ -43,6 +43,10 @@
  *   --hash-copies             arm H: the router reads only T0's 256 rows (copy 0 of each group)
  *                             and selects as T0 does; each selected expert then goes to one of its
  *                             byte-identical copies by a fixed hash of (layer, position, expert).
+ * H2 option (Phase 3 portability; printed on the CONFIG line as threads= and cores=):
+ *   --threads N               worker threads, one per physical core, the first N cores (default 6, the
+ *                             3600X).  Attention keeps A3's six position chunks whatever N is, so the
+ *                             output is byte-identical for every N.
  * Build:
  *   clang -O2 -mavx2 -mfma -mf16c -o bin/c50_engine.exe c50_engine.c
  */
@@ -57,7 +61,8 @@
 #include "c50_kquants_a3.h"
 #include "c50_gguf.h"
 
-#define NT 6
+#define NT_MAX 32
+static int g_nt = 6;   /* H2: worker threads, one per physical core (--threads; default 6, the 3600X) */
 #define D 2048U
 #define NH 16U
 #define NKV 4U
@@ -182,8 +187,9 @@ typedef void (*job_fn)(int tid, void *arg);
 static volatile LONG g_gen, g_done;
 static job_fn volatile g_fn;
 static void *volatile g_arg;
-static DWORD_PTR g_mask[NT];
-static int g_cpu[NT];
+static DWORD_PTR g_mask[NT_MAX];
+static int g_cpu[NT_MAX];
+static char g_cores[NT_MAX * 4];   /* the core list as printed on the CONFIG line */
 
 static DWORD WINAPI worker_main(LPVOID p) {
     int tid = (int)(intptr_t)p;
@@ -205,7 +211,7 @@ static void run(job_fn fn, void *arg) {
     MemoryBarrier();
     InterlockedIncrement(&g_gen);
     fn(0, arg);
-    while (g_done < NT - 1) _mm_pause();
+    while (g_done < g_nt - 1) _mm_pause();
 }
 
 static void pick_cores(void) {
@@ -217,25 +223,26 @@ static void pick_cores(void) {
     if (!GetLogicalProcessorInformationEx(RelationProcessorCore, (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)buf, &len)) {
         fprintf(stderr, "topology query failed\n"); exit(2);
     }
-    for (ptr = buf; ptr < buf + len && n < NT;) {
+    for (ptr = buf; ptr < buf + len && n < g_nt;) {
         PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX info = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)ptr;
         KAFFINITY m = info->Processor.GroupMask[0].Mask;
         int bit = 0;
         while (!((m >> bit) & 1)) ++bit;
         g_mask[n] = (DWORD_PTR)1 << bit;
         g_cpu[n] = bit;
+        snprintf(g_cores + strlen(g_cores), sizeof g_cores - strlen(g_cores), "%s%d", n ? "," : "", bit);
         ++n;
         ptr += info->Size;
     }
     free(buf);
-    if (n < NT) { fprintf(stderr, "fewer than %d physical cores\n", NT); exit(2); }
+    if (n < g_nt) { fprintf(stderr, "fewer than %d physical cores\n", g_nt); exit(2); }
 }
 
 static void start_pool(void) {
     int t;
     pick_cores();
     SetThreadAffinityMask(GetCurrentThread(), g_mask[0]);
-    for (t = 1; t < NT; ++t) CreateThread(NULL, 0, worker_main, (LPVOID)(intptr_t)t, 0, NULL);
+    for (t = 1; t < g_nt; ++t) CreateThread(NULL, 0, worker_main, (LPVOID)(intptr_t)t, 0, NULL);
 }
 
 static double now_s(void) {
@@ -269,7 +276,7 @@ typedef struct {
 static void mv_worker(int tid, void *p) {
     mv_job *j = p;
     unsigned total = j->rows_per_seg * j->nseg;
-    unsigned a = (unsigned)((uint64_t)total * tid / NT), b = (unsigned)((uint64_t)total * (tid + 1) / NT), r;
+    unsigned a = (unsigned)((uint64_t)total * tid / g_nt), b = (unsigned)((uint64_t)total * (tid + 1) / g_nt), r;
     for (r = a; r < b; ++r) {
         unsigned s = r / j->rows_per_seg, lr = r % j->rows_per_seg;
         const wt *w = j->w[s];
@@ -286,19 +293,21 @@ static void matvec(const wt *w, act_t *a, float *out, uint64_t rows) {
 }
 
 /* ---------------------------------------------------------------- attention -- */
-#define POS_PER_WORKER ((MAXCTX + NT - 1) / NT + 8)
+/* H2: attention always splits the positions into A3's six chunks, whatever the thread count, and combines them in
+   chunk order, so the output does not depend on --threads; thread t runs chunks t, t + g_nt, ... */
+#define ATT_CHUNKS 6
+#define POS_PER_WORKER ((MAXCTX + ATT_CHUNKS - 1) / ATT_CHUNKS + 8)
 typedef struct {
     const float *q;              /* NH x HD, normed and rotated */
     const uint16_t *kc, *vc;     /* [MAXCTX][NKV][HD] F16 */
     unsigned npos;
-    float m[NT][NH], l[NT][NH], acc[NT][NH][HD];
-    float sc[NT][NH][POS_PER_WORKER];
+    float m[ATT_CHUNKS][NH], l[ATT_CHUNKS][NH], acc[ATT_CHUNKS][NH][HD];
+    float sc[ATT_CHUNKS][NH][POS_PER_WORKER];
     float *out;                  /* NH x HD */
 } att_job;
 
-static void att_worker(int tid, void *p) {
-    att_job *a = p;
-    const unsigned p0 = a->npos * tid / NT, p1 = a->npos * (tid + 1) / NT, np = p1 - p0, G = NH / NKV;
+static void att_chunk(att_job *a, int tid) {
+    const unsigned p0 = a->npos * tid / ATT_CHUNKS, p1 = a->npos * (tid + 1) / ATT_CHUNKS, np = p1 - p0, G = NH / NKV;
     const float scale = 1.0f / sqrtf((float)HD);
     unsigned kv, pos, d, h, i;
     for (kv = 0; kv < NKV; ++kv) {
@@ -341,13 +350,18 @@ static void att_worker(int tid, void *p) {
     }
 }
 
+static void att_worker(int tid, void *p) {
+    int c;
+    for (c = tid; c < ATT_CHUNKS; c += g_nt) att_chunk(p, c);
+}
+
 static void att_combine(att_job *a) {
     unsigned h, t, d;
     for (h = 0; h < NH; ++h) {
         float m = -INFINITY, l = 0.0f, *o = a->out + h * HD;
-        for (t = 0; t < NT; ++t) if (a->l[t][h] > 0 && a->m[t][h] > m) m = a->m[t][h];
+        for (t = 0; t < ATT_CHUNKS; ++t) if (a->l[t][h] > 0 && a->m[t][h] > m) m = a->m[t][h];
         memset(o, 0, sizeof(float) * HD);
-        for (t = 0; t < NT; ++t) {
+        for (t = 0; t < ATT_CHUNKS; ++t) {
             float c = a->l[t][h] > 0 ? expf(a->m[t][h] - m) : 0.0f;
             l += a->l[t][h] * c;
             for (d = 0; d < HD; ++d) o[d] += a->acc[t][h][d] * c;
@@ -444,7 +458,7 @@ typedef struct { float *gu; act_t *ea; unsigned ff, n; } swiglu_job;
 static void swiglu_worker(int tid, void *p) {
     swiglu_job *j = p;
     unsigned e, i;
-    for (e = tid; e < j->n; e += NT) {
+    for (e = tid; e < j->n; e += g_nt) {
         const float *g = j->gu + (size_t)e * 2 * j->ff, *u = g + j->ff;
         float *o = j->ea[e].f;
         for (i = 0; i < j->ff; i += 8)
@@ -864,9 +878,9 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
     unsigned *cnt = calloc((size_t)NL * g_ne, sizeof(unsigned)), l, e, distinct = 0, copy0 = 0;   /* S1 selection spread */
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
         if (n < ctx + nsteps) continue;
-        printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%d,%d,%d,%d,%d,%d "
+        printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%s "
                "kv=f16 types=[%s] mem=%s prio=%s organs=%d experts=%u router=%s hash=%d plant=%s\n", model_path, doc, ctx, nsteps,
-               NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5], types, g_mem_name[g_mem],
+               g_nt, g_cores, types, g_mem_name[g_mem],
                g_prio ? "high" : "normal", g_organs, g_ne, g_rbf16 ? "bf16" : "f32", g_hash,
 #ifdef C50_PLANT_HEAD_TWICE
                "head_twice"
@@ -949,6 +963,10 @@ int main(int argc, char **argv) {
             if (g_prio < 0) { fprintf(stderr, "--prio must be normal or high\n"); return 2; }
         }
         else if (!strcmp(argv[i], "--organs")) g_organs = 1;
+        else if (!strcmp(argv[i], "--threads") && i + 1 < argc) {   /* H2 */
+            g_nt = atoi(argv[++i]);
+            if (g_nt < 1 || g_nt > NT_MAX) { fprintf(stderr, "--threads must be 1..%d\n", NT_MAX); return 2; }
+        }
         else if (!strcmp(argv[i], "--hash-copies")) g_hash = 1;
         else if (!strcmp(argv[i], "--router") && i + 1 < argc) {
             ++i;
@@ -965,7 +983,7 @@ int main(int argc, char **argv) {
         fprintf(stderr, "usage: c50_engine --model GGUF --score IDS.tsv --out PREFIX [--dump-logprobs]\n"
                         "       c50_engine --model GGUF --bench IDS.tsv [--ctx 2048] [--steps 128]\n"
                         "       options: [--mem map|private|large] [--prio normal|high] [--organs]\n"
-                        "                [--router f32|bf16] [--hash-copies]\n");
+                        "                [--router f32|bf16] [--hash-copies] [--threads N]\n");
         return 2;
     }
     if (g_prio && !SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS)) { fprintf(stderr, "priority change failed\n"); return 4; }
@@ -1001,10 +1019,10 @@ int main(int argc, char **argv) {
         positions += n - 1; ++docs;
     }
     rewind(fi);
-    printf("CONFIG engine=c50_engine model=%s docs=%u positions=%zu threads=%d cores=%d,%d,%d,%d,%d,%d kv=f16 "
+    printf("CONFIG engine=c50_engine model=%s docs=%u positions=%zu threads=%d cores=%s kv=f16 "
            "attention=f32 eps=%g rope_base=%g weights_scale=%g dump=%d hidden=%d types=[%s] mem=%s prio=%s organs=%d "
            "experts=%u router=%s hash=%d\n",
-           model_path, docs, positions, NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5],
+           model_path, docs, positions, g_nt, g_cores,
            st->eps, st->rope_base, st->wscale, dump, hidden, types, g_mem_name[g_mem], g_prio ? "high" : "normal", g_organs,
            g_ne, g_rbf16 ? "bf16" : "f32", g_hash);
     fflush(stdout);
@@ -1043,7 +1061,7 @@ int main(int argc, char **argv) {
     fi = fopen(path, "w");
     fprintf(fi, "{\"engine\":\"c50_engine\",\"model\":\"%s\",\"n_vocab\":%u,\"docs\":%u,\"positions\":%zu,\"threads\":%d,"
                 "\"ubatch\":1,\"ctx\":%u,\"flash_attn\":\"n/a\",\"kv\":\"f16\",\"dump\":%d,\"wall_s\":%.3f,\"types\":\"%s\"}\n",
-            model_path, VOCAB, docs, positions, NT, MAXCTX, dump, wall, types);
+            model_path, VOCAB, docs, positions, g_nt, MAXCTX, dump, wall, types);
     fclose(fi);
     printf("DONE positions=%zu wall_s=%.1f\n", positions, wall);
     return 0;
