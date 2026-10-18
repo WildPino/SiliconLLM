@@ -136,3 +136,53 @@ the target a log-probability below −15, while its own top-1 is confident.
   - S0 (v0 of T0) waits for A4-bis.
   - A1b (process stability, a property of machine and engine) and the S2 builds are not affected
     by A4, and may run.
+
+## Design review, step 1 (18 October; no new model output was read)
+
+This step **supersedes the fidelity-gate proposal above.** No gate is registered yet.
+
+**Two facts from tools run on data already seen:**
+
+- **The fresh documents exist.** `c50_holdout_ext.py --parts fresh` builds FIT ranks 249-272 per
+  category: 72 items, 161,506 tokens, read by no cell and outside the imatrix sample.
+  - Its proof check passes: the regenerated FIT ranks 1-248 equal `fit.jsonl` plus ext_v1's SEL.
+  - Record: `results/c50_holdout_fresh_v1_manifest.json`.
+  - The inputs are at `E:/…/a4bis/inputs`; their manifest sha256 is `2c01331f…`.
+- **The proposed fidelity gate would fail P0 on A4's own data.**
+  - The gate: top-1 disagreement with BF16, upper CI95 ≤ 2 × floor_top1 = 0.0820.
+  - The tool: `c50_a4bis_verdict.py`, which is not registered.
+  - Its null control (BF16 against itself) gives exact zeros.
+  - On the A4 outputs, P0 scores 0.0735, CI [0.0646, 0.0825], which is just over the bound. PC
+    scores 0.1515, CI [0.1329, 0.1706].
+
+**Why that gate is the wrong coordinate:**
+- floor_top1 measures how often a pure numerics change (another build of llama.cpp) flips the
+  greedy choice of one artifact. It is a fidelity bound for an engine. Applied to a quantization, it
+  counts flips between near-tied tokens as damage.
+- P0's top-1 accuracy is 0.6723 against BF16's 0.6726: P0 flips 7.3% of choices without losing
+  accuracy. A gate that fails it would measure difference, not degradation.
+
+**Why the document statistic is blind on this text: evidence from three cells.**
+- **A2b's two numerics-only pairs both gave negative point dBPB:** −0.0022 for the build change
+  and −0.0014 for the micro-batch change (A2b result table). Their CIs touch zero (upper +0.0003
+  and +0.0009). Even a pure numerics perturbation does not read as a loss here.
+- **The tail is not the whole story.** Outside BF16's overconfident tail, PC differs from BF16 by
+  +103 bits over 589,592 bytes, which is +0.0002 BPB. Q2_K barely moves the likelihood of these
+  documents at all.
+- **The likely cause is the protocol's own caveat:** FIT text (PG19, The Stack, public markdown) is
+  very probably in Ling-mini's pretraining data. On memorised text, likelihood is insensitive to
+  quantization, so fresh FIT ranks would very probably share the defect.
+
+**Direction for A4-bis (recommendation; the protocol fixes it before any run):**
+- **Text the model cannot have seen,** written after Ling-mini-2.0's release. The source, licence,
+  date filter and selection rule are pinned before any of it is scored.
+- **The document gate unchanged** (dBPB upper CI95 ≤ +0.02, roadmap §2), so the roadmap's quality
+  coordinate stays where it was.
+- **The planted Q2_K must fail it first.** If Q2_K still passes on new text, the plant is too weak
+  for this model, and a coarser plant is registered before P0's result is read.
+- **Reported, not gated:** top-1 disagreement, top-1 accuracy, mean |Δ log p| and the tail.
+- **G6 chat:** reported only. BF16's own ability sets that outcome, whatever the candidate.
+- **The cost:** a new corpus download (authorized), plus ~3 h of CPU for three arms on 72 documents.
+
+**What runs meanwhile:** S0 still waits. The S2 builds and arms do not depend on T0's qualification,
+and they run in the free slot.

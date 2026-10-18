@@ -6,7 +6,8 @@ Protocol: docs/research/CHATBOT50_ROADMAP_20261016/C50_A4_QUALITY_PROTOCOL_20261
 
 Usage:
     python -I benchmarks/chatbot50/c50_a4_run.py --work E:/.../a4 --out benchmarks/chatbot50/results/c50_a4_run.json \
-        [--arms p0,bf16] [--budget-h 12]
+        [--arms p0,bf16] [--budget-h 12] [--panels docs] [--cell C50-A4-bis]
+(--panels and --cell were added for A4-bis; the defaults keep A4's behaviour.)
 """
 from __future__ import annotations
 
@@ -48,6 +49,8 @@ def main() -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--arms", default="p0,bf16,pc")
     ap.add_argument("--budget-h", type=float, default=12.0)
+    ap.add_argument("--panels", default=",".join(p for p, _, _ in PANELS))
+    ap.add_argument("--cell", default="C50-A4")
     args = ap.parse_args()
     work = Path(args.work)
     inputs = work / "inputs"
@@ -57,7 +60,7 @@ def main() -> int:
             raise SystemExit(f"input {name}.tsv differs from its manifest")
     outp = Path(args.out)
     report = json.loads(outp.read_text(encoding="utf-8")) if outp.exists() else {
-        "cell": "C50-A4", "inputs_manifest_sha256": sha256(inputs / "manifest.json"), "arms": {}}
+        "cell": args.cell, "inputs_manifest_sha256": sha256(inputs / "manifest.json"), "arms": {}}
     report.setdefault("sessions", []).append({"started": time.strftime("%Y-%m-%dT%H:%M:%S"), "arms": args.arms,
                                               "budget_h": args.budget_h})
     t_start = time.time()
@@ -69,7 +72,7 @@ def main() -> int:
         if pin and a["model_sha256"] != pin:
             raise SystemExit(f"{arm}: model hash differs from its pin")
         (work / arm).mkdir(exist_ok=True)
-        for panel, tool, extra in PANELS:
+        for panel, tool, extra in [x for x in PANELS if x[0] in args.panels.split(",")]:
             if a["panels"].get(panel, {}).get("status") == "COMPLETE":
                 continue
             if time.time() - t_start > args.budget_h * 3600:

@@ -7,6 +7,9 @@ NFC skip) with larger counts, then:
 - writes SEL = FIT ranks 49-248 per category and DEV-B = DEV ranks 33-44 per category, as text JSONL, IDs
   JSONL and engine ids.tsv ("<index>\\t<ids>"), plus a manifest of hashes.
 Outputs go under --out-dir (gitignored); the manifest is the tracked record.
+A4-bis adds the part FRESH = FIT ranks 249-272 per category (--parts fresh). Its proof check compares the
+regenerated FIT ranks 1-248 with the committed fit.jsonl plus the SEL items of c50_holdout_ext_v1, whose
+jsonl hash must equal the tracked ext_v1 manifest.
 
 Usage:
     python -I benchmarks/chatbot50/c50_holdout_ext.py --out-dir benchmarks/chatbot50/corpus/c50_holdout_ext_v1 \
@@ -23,7 +26,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import c50_holdout as H  # noqa: E402
 
-PARTS = {"sel": ("FIT", 48, 248), "devb": ("DEV", 32, 44)}   # (role, already assigned ranks, last rank)
+PARTS = {"sel": ("FIT", 48, 248), "devb": ("DEV", 32, 44),    # (role, already assigned ranks, last rank)
+         "fresh": ("FIT", 248, 272)}
+EXT_V1_MANIFEST = Path(__file__).resolve().parent / "results" / "c50_holdout_ext_v1_manifest.json"
 
 
 def main() -> int:
@@ -31,6 +36,8 @@ def main() -> int:
     ap.add_argument("--out-dir", required=True)
     ap.add_argument("--tokenizer", required=True)
     ap.add_argument("--manifest-out", required=True)
+    ap.add_argument("--parts", default="sel,devb")
+    ap.add_argument("--ext-v1-dir", default=str(Path(__file__).resolve().parent / "corpus" / "c50_holdout_ext_v1"))
     args = ap.parse_args()
     from tokenizers import Tokenizer
     base = H.HERE / "corpus" / "c50_holdout_v1"
@@ -54,7 +61,14 @@ def main() -> int:
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
     record = {"schema": "c50_holdout_ext_v1", "base_manifest": "c50_holdout_v1", "parts": {}}
-    for part, (role, assigned, last) in PARTS.items():
+    if "fresh" in args.parts.split(","):
+        sel_bytes = (Path(args.ext_v1_dir) / "sel.jsonl").read_bytes()
+        if H.sha(sel_bytes) != json.loads(EXT_V1_MANIFEST.read_text(encoding="utf-8"))["parts"]["sel"]["jsonl_sha256"]:
+            raise SystemExit("ext_v1 sel.jsonl differs from its tracked manifest")
+        fit = [json.loads(x) for x in (base / "fit.jsonl").read_text(encoding="utf-8").splitlines()]
+        sel = [json.loads(x) for x in sel_bytes.decode("utf-8").splitlines()]
+        committed["FIT248"] = [i["item_sha256"] for c in bdh.CATEGORIES for i in fit + sel if i["category"] == c]
+    for part, (role, assigned, last) in [(k, v) for k, v in PARTS.items() if k in args.parts.split(",")]:
         regenerated_first, items = [], []
         for c in bdh.CATEGORIES:
             cand = sorted(pools[role][c], key=lambda r: (bdh._selection_key(r, role, H.CONFIG["seed"]), r.source_document_id))
@@ -79,7 +93,7 @@ def main() -> int:
             for rank, t in enumerate(taken[assigned:], start=assigned + 1):
                 t["rank"] = rank
                 items.append(t)
-        if regenerated_first != committed[role]:
+        if regenerated_first != committed["FIT248" if part == "fresh" else role]:
             raise SystemExit(f"{role}: regenerated ranks 1-{assigned} differ from the committed holdout")
         rows, tsv = [], []
         for i, t in enumerate(items):
