@@ -1,0 +1,90 @@
+{
+ "cell": "C50-A4-bis",
+ "inputs_manifest_sha256": "a102771a764bd3ff72ac8e7f5f9c95b797a722ca3010e32ea50289d394131d52",
+ "arms": {
+  "bf16": {
+   "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+   "panels": {
+    "docs": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\inputs\\docs.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\bf16\\docs",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "10800",
+      "--ctx",
+      "8192"
+     ],
+     "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+     "returncode": 0,
+     "wall_s": 2771.608139038086,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf n_vocab=157184 docs=72 positions=151739 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "stdout_tail": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf n_vocab=157184 docs=72 positions=151739 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+      "FIRST_DOC positions=2276 wall_s=44.1 projected_s=2938",
+      "DONE positions=151739 wall_s=2763.0"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..............................................................\n",
+     "status": "COMPLETE"
+    }
+   },
+   "model_sha256": "2b1c8f72ff25d1526c4163a49e36bc4c54d43b1e9afb2d261a89b72f5861668f"
+  },
+  "pc": {
+   "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q2_k.gguf",
+   "panels": {
+    "docs": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q2_k.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\inputs\\docs.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\pc\\docs",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "10800",
+      "--ctx",
+      "8192"
+     ],
+     "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+     "returncode": 0,
+     "wall_s": 2483.3922941684723,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q2_k.gguf n_vocab=157184 docs=72 positions=151739 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "stdout_tail": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q2_k.gguf n_vocab=157184 docs=72 positions=151739 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+      "FIRST_DOC positions=2276 wall_s=35.4 projected_s=2362",
+      "DONE positions=151739 wall_s=2481.3"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n...............................................................\n",
+     "status": "COMPLETE"
+    }
+   },
+   "model_sha256": "278738d5cf27b34379d189d32dcd645f1ccc65f6e3d31240214e070b959e33d6"
+  }
+ },
+ "sessions": [
+  {
+   "started": "2026-10-18T18:44:19",
+   "arms": "bf16,pc",
+   "budget_h": 5.0,
+   "finished": "2026-10-18T20:27:33"
+  }
+ ]
+}
