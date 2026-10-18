@@ -687,7 +687,7 @@ it is available, and the table fills as tiers are measured.
    ([C50_S1 protocol](C50_S1_CAPACITY_INVARIANCE_PROTOCOL_20261018.md)); the expansions are built and pinned
    by an addendum; the session (~4.5-5 h of empty machine) follows S0 and S2.
 4. The S2 protocol and the Ling-flash-2.0 download (owner approval): **done**. The owner gave
-   "ok S2" on 17 October; the builds and the arms follow the A1b + S0 session.
+   "ok S2" on 17 October. M0 and F0 are built and pinned (F0 by the owner, 18 October); **the S2 arms run from 18 October ~14:00**, before S0 (row of 18 October: S0 waits for A4-bis).
 5. S3 (an owner decision), then S4.
 
 The owner's actions are listed in `docs/COMMUNICATION.md`.
