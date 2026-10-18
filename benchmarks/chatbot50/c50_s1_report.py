@@ -110,21 +110,21 @@ def main() -> int:
         gated = [fr["by_m"].get(m, {}).get("rho_inside_tau") for m in GATED_M]
         fr["verdict"] = "PASS" if all(g is True for g in gated) else "FAIL"
         out["formats"][f] = fr
-    if run.get("membank"):
+    if run.get("bank"):
         mb = defaultdict(list)
-        for r in run["membank"]:
-            if "median_token_ns" in r:
+        for r in run["bank"]:
+            if "median_token_s" in r:
                 mb[(r["gb"], r["k"])].append(r)
-        out["membank"] = {f"{gb:g}GB/k={k}": {"n": len(rs), "median_token_ns": float(np.median([r["median_token_ns"] for r in rs])),
-                                               "median_row_ns": float(np.median([r["median_row_ns"] for r in rs])),
-                                               "effective_gb_s": float(np.median([r["effective_gb_s"] for r in rs]))}
-                          for (gb, k), rs in sorted(mb.items())}
+        out["bank"] = {f"{gb:g}GB/k={k}": {"n": len(rs), "median_token_ns": float(np.median([r["median_token_s"] for r in rs])) * 1e9,
+                                            "ns_per_row": float(np.median([r["ns_per_row"] for r in rs])),
+                                            "gb_s": float(np.median([r["gb_s"] for r in rs]))}
+                       for (gb, k), rs in sorted(mb.items())}
         for k in sorted({k for _, k in mb}):
             sizes = sorted(gb for gb, kk in mb if kk == k)
             if len(sizes) > 1:
-                lo = out["membank"][f"{sizes[0]:g}GB/k={k}"]["median_token_ns"]
-                hi = out["membank"][f"{sizes[-1]:g}GB/k={k}"]["median_token_ns"]
-                out["membank"][f"largest_over_smallest_k={k}"] = hi / lo
+                lo = out["bank"][f"{sizes[0]:g}GB/k={k}"]["median_token_ns"]
+                hi = out["bank"][f"{sizes[-1]:g}GB/k={k}"]["median_token_ns"]
+                out["bank"][f"largest_over_smallest_k={k}"] = hi / lo
     verdicts = {f: out["formats"][f].get("verdict", out["formats"][f].get("status")) for f in out["formats"]}
     out["verdict"] = verdicts
     for f, fr in out["formats"].items():

@@ -221,3 +221,25 @@ python -I benchmarks/chatbot50/c50_s1_report.py benchmarks/chatbot50/results/c50
   the independent check.
 - **Page-cache residency is the B0 arm's.** `--mem map` keeps the weights in the file cache, so a
   pool that does not fit in RAM is out of scope here; m6 is the largest that fits.
+
+## Addendum 1 (18 October 2026, before any S1 process; tooling only)
+
+- **What was wrong:** the arm-M bench named above, `c50_s1_membank.c`, duplicated an existing
+  one. `c50_s1_bank.c` was committed on 17 October (`7a89b83`) for exactly this arm, and the
+  protocol was written without searching for it.
+- **The fix:** arm M uses `c50_s1_bank.c`, unchanged since `7a89b83`. Its binary
+  `bin/c50_s1_bank.exe` was rebuilt from that source (sha256 `b076ddae…`). `c50_s1_membank.c` and
+  its binary are removed.
+- **Why the existing bench is the better instrument:** it reads k rows **per layer** over 19
+  layers, with one spin barrier per layer, as the engine runs one job per organ. The withdrawn
+  bench read all rows of a token in one job.
+- **The grid, fixed now:**
+  - tables of 1, 4, 16 and 48 GB, rows of 4,096 bytes, pageable memory;
+  - k ∈ {2, 8, 32} rows per layer, 19 layers, so 38-608 rows per token;
+  - 256 timed tokens after 16 warm-up tokens, 3 fresh processes per (table, k).
+- **Reported:** the median token time, ns per row, GB/s, and the largest-table / smallest-table
+  ratio at each k (the O(1) claim).
+- **Checks:** the runner's arm-M path ran end to end on a tiny grid (mechanics only, no rate), and
+  the report's arm-M section was checked on synthetic records.
+- **Runner pin:** `c50_s1_run.py` pins the bank binary in place of the withdrawn one. Nothing else
+  changes: arms, schedule, gate and report.

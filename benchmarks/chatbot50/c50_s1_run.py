@@ -6,7 +6,7 @@ Every process runs with the A1b adopted arm B0 (--mem map --prio normal).  Order
     model hashes; pre-flight (45 s, mean foreign occupancy < 4.39%)
     K1 / K2: --score --dump-logprobs on par1.tsv, cmp against the A3 binary on T0
     20 rounds; round r visits the artifacts rotated by r, and at each the round's arms rotated by r
-    arm M: the membank bench, 3 fresh processes per (table, k)
+    arm M: the c50_s1_bank lookup bench (committed 7a89b83), 3 fresh processes per (table, k)
 Each rate process is split into own / foreign occupancy (E44); a process at or above the bar is VOID and replaced (at
 most 5 replacements per arm).  Numbers only: c50_s1_report.py.
 
@@ -28,10 +28,10 @@ sys.path.insert(0, str(HERE.parent / "donor_adaptation" / "engine"))
 import e44_interval as E44  # noqa: E402
 
 EXE = {"s1": HERE / "bin" / "c50_engine_s1.exe", "a3": HERE / "bin" / "c50_engine.exe",
-       "membank": HERE / "bin" / "c50_s1_membank.exe"}
+       "bank": HERE / "bin" / "c50_s1_bank.exe"}
 EXE_SHA256_PIN = {"s1": "79e2e4f4dd6bf9854a257d8cf1cfec46e2279b4486b2b8d28722d48ddb1a3de1",
                   "a3": "d14ea9a5903557342763c5ebb7eb18897333c86a4484c24566b42c8627c9035d",
-                  "membank": "81a4f9cddca1b72f4c2933ebad834554a42770090e3a8f806f321e3b2ec529f6"}
+                  "bank": "b076ddae7576d98ca760a37759f7bcb93c4571c598d4b06c22d70aac07248eeb"}
 # the engine source is the git blob of the S1 tools commit (its binary was rebuilt from it on 18 October)
 SOURCE_COMMIT, SOURCE_PATH = "1eb08f9", "benchmarks/chatbot50/c50_engine.c"
 SOURCE_SHA256_PIN = "68c947d9c7da6fa5db123570c37605cfffdb5b912853820e0610e2f5f1b6c627"
@@ -47,8 +47,9 @@ SEL_IDS = HERE / "corpus" / "c50_holdout_ext_v1" / "sel_ids.tsv"
 PAR1_SHA256 = "373b4886c82eb9a98e203d2e2dd52ab4d8860c64f205057e9a4e244a183cb08a"
 MEM, PRIO, CTX, STEPS, ROUNDS = "map", "normal", 2048, 128, 20
 OCC_BAR, MAX_REPLACEMENTS, PREFLIGHT_SECONDS = 4.39, 5, 45
-MEMBANK = [(gb, k) for gb in (1, 4, 16, 48) for k in (8, 32, 128)]
-MEMBANK_REPS, MEMBANK_TOKENS, MEMBANK_WARMUP = 3, 2000, 200
+# arm M (addendum 1): k rows per layer over 19 layers, rows of 4,096 bytes, pageable memory
+BANK = [(gb, k) for gb in (1, 4, 16, 48) for k in (2, 8, 32)]
+BANK_REPS, BANK_TOKENS, BANK_WARM, BANK_LAYERS = 3, 256, 16, 19
 
 
 def arms() -> list[dict]:
@@ -163,19 +164,19 @@ def known_positives(work: Path) -> dict:
     return out
 
 
-def membank() -> list[dict]:
+def bank() -> list[dict]:
     recs = []
-    for rep in range(MEMBANK_REPS):
-        for gb, k in MEMBANK[rep % len(MEMBANK):] + MEMBANK[:rep % len(MEMBANK)]:
-            cmd = [str(EXE["membank"]), "--gb", str(gb), "--k", str(k), "--tokens", str(MEMBANK_TOKENS),
-                   "--warmup", str(MEMBANK_WARMUP)]
+    for rep in range(BANK_REPS):
+        for gb, k in BANK[rep % len(BANK):] + BANK[:rep % len(BANK)]:
+            cmd = [str(EXE["bank"]), "--table-gb", str(gb), "--row-bytes", "4096", "--k", str(k),
+                   "--layers", str(BANK_LAYERS), "--tokens", str(BANK_TOKENS), "--warm", str(BANK_WARM), "--mem", "pageable"]
             p = subprocess.run(cmd, capture_output=True, text=True)
             rows = [json.loads(ln) for ln in p.stdout.splitlines() if ln.startswith("{")]
-            rec = {"cmd": cmd, "rep": rep, "returncode": p.returncode,
+            rec = {"cmd": cmd, "rep": rep, "gb": gb, "k": k, "returncode": p.returncode,
                    "config": [ln for ln in p.stdout.splitlines() if ln.startswith("CONFIG ")]}
             rec.update(rows[0] if p.returncode == 0 and len(rows) == 1 else {"status": "FAILED"})
             recs.append(rec)
-            print(f"membank rep{rep} gb={gb} k={k} {rec.get('median_token_ns', 'FAILED')}", flush=True)
+            print(f"bank rep{rep} gb={gb} k={k} {rec.get('median_token_s', 'FAILED')}", flush=True)
     return recs
 
 
@@ -239,7 +240,7 @@ def main() -> int:
             replacements[key] = replacements.get(key, 0) + 1
             if replacements[key] > MAX_REPLACEMENTS:
                 return void(f"VOID: more than {MAX_REPLACEMENTS} replacements ({key})")
-    report["membank"] = membank()
+    report["bank"] = bank()
     report["finished"] = time.strftime("%Y-%m-%dT%H:%M:%S")
     report["verdict_input"] = "COMPLETE"
     save()
