@@ -27,7 +27,8 @@ MODELS = {"p0": (GGUF / "ling-mini-2.0-a810f64-q4_k_m.gguf",
           "pc": (GGUF / "ling-mini-2.0-a810f64-q2_k.gguf",
                  "278738d5cf27b34379d189d32dcd645f1ccc65f6e3d31240214e070b959e33d6"),
           # A4-bis coarser plant, built only if PC does not fire: Q2_K from the same BF16 with no imatrix (pin at build)
-          "pc2": (GGUF / "ling-mini-2.0-a810f64-q2_k-noimatrix.gguf", "PIN_PC2")}
+          "pc2": (GGUF / "ling-mini-2.0-a810f64-q2_k-noimatrix.gguf",
+                  "7f6375e94be5ed502dd00ef0323694e2b52d43fe5b8b443dbe7d97b94c825503")}
 STOP = "156892,156895"
 # (panel, tool, extra args)
 PANELS = [("docs", "score", ["--ctx", "8192"]), ("piqa", "score", ["--ctx", "4096"]),
