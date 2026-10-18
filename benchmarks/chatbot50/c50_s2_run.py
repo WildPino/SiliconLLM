@@ -27,7 +27,7 @@ A4_WORK, A4_RUN = CAMPAIGN / "a4", HERE / "results" / "c50_a4_run.json"
 MODELS = {"t0": (GGUF / "ling-mini-2.0-a810f64-q4_k_m.gguf", "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"),
           "m0": (GGUF / "ling-mini-2.0-a810f64-q4_k_m-noimatrix.gguf", "1f54536855ab10520d6b21c73986cc7e8cfc2f8ad394a2da766872168022b77e"),
           # F0 is staged on the NVMe C: (ROADMAP §12, 17 October): 63 GB load faster than from the USB disk E:
-          "f0": (Path("C:/SiliconLLM_stage/s2/ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf"), "PIN_F0")}
+          "f0": (Path("C:/SiliconLLM_stage/s2/ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf"), "5348c73fe6497c5152e16fd792d6c7b5aeefa15de8b15b8c8e18bef691704b8e")}
 STOP = "156892,156895"
 # (panel, input set, tool, extra args), in run order: the decision panels first
 PANELS = [("nq", "s2", "generate", ["--max-new", "32"]), ("tqa", "s2", "generate", ["--max-new", "32"]),
