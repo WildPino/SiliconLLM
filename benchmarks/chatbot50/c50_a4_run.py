@@ -25,7 +25,9 @@ MODELS = {"p0": (GGUF / "ling-mini-2.0-a810f64-q4_k_m.gguf",
           "bf16": (GGUF / "ling-mini-2.0-a810f64-bf16.gguf", None),  # BF16 hash recorded in c50_a2_gguf_check_bf16.json
           # planted positive (A4 protocol): Q2_K from the same BF16 and imatrix; the gates must fail it
           "pc": (GGUF / "ling-mini-2.0-a810f64-q2_k.gguf",
-                 "278738d5cf27b34379d189d32dcd645f1ccc65f6e3d31240214e070b959e33d6")}
+                 "278738d5cf27b34379d189d32dcd645f1ccc65f6e3d31240214e070b959e33d6"),
+          # A4-bis coarser plant, built only if PC does not fire: Q2_K from the same BF16 with no imatrix (pin at build)
+          "pc2": (GGUF / "ling-mini-2.0-a810f64-q2_k-noimatrix.gguf", "PIN_PC2")}
 STOP = "156892,156895"
 # (panel, tool, extra args)
 PANELS = [("docs", "score", ["--ctx", "8192"]), ("piqa", "score", ["--ctx", "4096"]),
