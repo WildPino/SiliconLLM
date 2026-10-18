@@ -35,6 +35,11 @@ PANELS = [("nq", "s2", "generate", ["--max-new", "32"]), ("tqa", "s2", "generate
           ("mmlu", "s2", "score", ["--ctx", "4096"]), ("docs", "a4", "score", ["--ctx", "8192"]),
           ("chat", "a4", "generate", ["--max-new", "256"])]
 MAX_PROJECTED_S = 3 * 3600
+# Addendum 1 (18 October, before F0's second session): the tools project a process's time from its first item, which
+# on F0 carries the cold start of a 63 GB model.  For the arms listed here the tool's projection is off and the runner
+# bounds each process by a wall-time limit instead; the other arms keep the registered guard.  A panel re-run after a
+# non-COMPLETE record keeps that record under "superseded".
+WALL_LIMIT_S = {"f0": 6 * 3600}
 
 
 def sha256(path: Path) -> str:
@@ -70,7 +75,7 @@ def main() -> int:
     if report["inputs_manifest_sha256"] != man:
         raise SystemExit("inputs changed since the run began")
     report.setdefault("sessions", []).append({"started": time.strftime("%Y-%m-%dT%H:%M:%S"), "arms": args.arms,
-                                              "budget_h": args.budget_h})
+                                              "budget_h": args.budget_h, "wall_limit_s": WALL_LIMIT_S})
     a4 = json.loads(A4_RUN.read_text(encoding="utf-8")) if A4_RUN.exists() else None
     t_start = time.time()
     for arm in args.arms.split(","):
@@ -97,21 +102,32 @@ def main() -> int:
             if time.time() - t_start > args.budget_h * 3600:
                 a["panels"][panel] = {"status": "NOT STARTED: session budget spent"}
                 continue
+            if panel in a["panels"]:
+                a.setdefault("superseded", {}).setdefault(panel, []).append(a["panels"][panel])
+            limit = WALL_LIMIT_S.get(arm)
             flag = "--ids" if tool == "score" else "--prompts"
             cmd = [str(exe), "--model", str(model), flag, str(inputs[src] / f"{panel}.tsv"), "--out", str(work / arm / panel),
-                   "--threads", "6", "--ubatch", "512", "--max-projected-s", str(MAX_PROJECTED_S)] + extra
+                   "--threads", "6", "--ubatch", "512", "--max-projected-s", "0" if limit else str(MAX_PROJECTED_S)] + extra
             if tool == "generate":
                 cmd += ["--stop", STOP]
             t0 = time.time()
-            proc = subprocess.run(cmd, capture_output=True, text=True)
-            lines = proc.stdout.splitlines()
+            try:
+                proc = subprocess.run(cmd, capture_output=True, text=True, timeout=limit)
+                rc, out, err = proc.returncode, proc.stdout, proc.stderr
+            except subprocess.TimeoutExpired as e:   # the child is killed; its partial outputs stay on disk
+                rc = "timeout"
+                out = e.stdout.decode("utf-8", "replace") if isinstance(e.stdout, bytes) else (e.stdout or "")
+                err = e.stderr.decode("utf-8", "replace") if isinstance(e.stderr, bytes) else (e.stderr or "")
+            lines = out.splitlines()
             config = [ln for ln in lines if ln.startswith("CONFIG ")]
-            rec = {"cmd": cmd, "exe_sha256": sha256(exe), "returncode": proc.returncode, "wall_s": time.time() - t0,
-                   "config": config, "stdout_tail": lines[-3:], "stderr_tail": proc.stderr[-600:], "dir": str(work / arm)}
+            rec = {"cmd": cmd, "exe_sha256": sha256(exe), "returncode": rc, "wall_s": time.time() - t0,
+                   "config": config, "stdout_tail": lines[-3:], "stderr_tail": err[-600:], "dir": str(work / arm),
+                   "guard": {"wall_limit_s": limit} if limit else {"max_projected_s": MAX_PROJECTED_S}}
             c = config[0] if len(config) == 1 else ""
-            ok = (proc.returncode == 0 and "AVX2 = 1" in c and "threads=6 " in c and "ubatch=512 " in c
+            ok = (rc == 0 and "AVX2 = 1" in c and "threads=6 " in c and "ubatch=512 " in c
                   and "flash_attn=disabled" in c and (tool == "score" or f"stop={STOP} " in c))
-            rec["status"] = ("COMPLETE" if ok else "STOPPED by the projected-time rule" if proc.returncode == 3
+            rec["status"] = ("COMPLETE" if ok else "STOPPED by the projected-time rule" if rc == 3
+                             else "STOPPED by the wall-time limit (addendum 1)" if rc == "timeout"
                              else "VOID: run failed or CONFIG does not confirm the registered settings")
             a["panels"][panel] = rec
             outp.write_text(json.dumps(report, indent=1), encoding="utf-8")

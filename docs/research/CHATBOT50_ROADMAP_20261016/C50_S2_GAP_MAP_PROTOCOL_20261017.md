@@ -132,3 +132,48 @@ disabled, CONFIG asserted.
 - **The panels are proxies.** The short-answer match misses correct answers phrased unlike every alias, equally for
   every arm. ARC and GSM8K mix knowledge with reasoning.
 - **Not a capacity result.** A knowledge gap says that stored capacity could help, not that S4 will close it.
+
+## Addendum 1 (18 October 2026, before F0's second session): F0's time guard
+
+**What happened.** F0's first session (18:05-18:43, owner's terminal) ran its seven panels with the registered
+guard: each tool projects its process's time from its first item and stops (exit 3) above 3 h. Six panels stopped
+there and chat completed. Every record is kept.
+
+| Panel | F0 first item: wall, projection | M0 first item: wall, projection | M0 whole panel (tool wall) |
+| --- | --- | --- | --- |
+| nq | 36.1 s, 21,661 s: STOPPED | 2.3 s, 1,366 s | 717 s |
+| tqa | 42.7 s, 25,591 s: STOPPED | 1.4 s, 869 s | 500 s |
+| gsm8k | 143.9 s, 14,393 s: STOPPED | 17.3 s, 1,734 s | 2,029 s |
+| arc | 34.4 s, 82,451 s: STOPPED | 1.0 s, 2,505 s | 1,652 s |
+| mmlu | 38.1 s, 153,983 s: STOPPED | 0.9 s, 3,780 s | 2,248 s |
+| docs | 209.4 s, 15,110 s: STOPPED | 36.9 s, 2,665 s | 2,569 s |
+| chat | 62.4 s, 2,496 s: COMPLETE in 878 s | 1.4 s, 54 s | 150 s |
+
+**The defect.** The guard reads the first item, and on F0 the first item carries the cold start of a 63 GB model.
+- On the score panels the positions are identical across arms. F0's first ARC and MMLU documents took 34-42 times
+  M0's, while F0 activates about 4.4 times M0's parameters per token.
+- On chat, the one F0 panel that completed, F0's tool wall is 5.86 times M0's. F0 also wrote 4,087 tokens against
+  M0's 1,898, so per generated token F0 is ~2.7 times slower.
+- The projection is pessimistic on M0 too: ARC 2,505 s projected against 1,652 s run; MMLU 3,780 against 2,248.
+- The guard was registered as a runaway guard; what it stopped here is a cold start, not a runaway.
+
+**The change, for F0 only.** The tools' projection is turned off (`--max-projected-s 0`). The runner bounds each F0
+process by a wall-time limit of **6 h** and records a process it kills as "STOPPED by the wall-time limit (addendum
+1)", with its partial outputs kept. T0 and M0 keep the registered 3 h guard; their panels are complete and are not
+re-run. The session budget stays `--budget-h 20`.
+- **Nothing that scores changes:** the same tools, binaries, settings and inputs; greedy decoding and scoring are
+  deterministic, so the guard cannot move a score.
+- **Records:** a panel re-run after a non-COMPLETE record keeps the earlier record under `superseded`, never
+  relabelled. Chat is COMPLETE and is not re-run.
+- **Logic check, before this push:** with the processes simulated, F0's panels run with the projection off and the
+  6 h limit, a process past the limit is recorded as STOPPED by it, a STOPPED record moves to `superseded`, a COMPLETE
+  panel is skipped, and M0 keeps the 3 h projection.
+
+**Why 6 h (ESTIMATE, not a rate).** From M0's whole-panel walls:
+- generation panels at 2.7-5.9 times M0: nq 1,940-4,200 s, tqa 1,350-2,930 s, gsm8k 5,480-11,880 s;
+- score panels at 4.4-5.9 times M0: arc 7,270-9,670 s, mmlu 9,890-13,170 s, docs 11,300-15,050 s.
+- The largest is ~4.2 h, so 6 h stops a runaway and not these. The six panels sum to ~10-16 h plus six loads of
+  ~2 min, inside the 20 h budget and near the protocol's ~12-13 h estimate for F0.
+
+**When.** After A4-bis's runs, one long job at a time. No timing is read, so under rule 7 as amended on 18 October
+it needs no owner go.
