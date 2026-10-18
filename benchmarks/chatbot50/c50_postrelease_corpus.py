@@ -24,7 +24,9 @@ Span: the c50_holdout_v1 rule (pinned build_document_holdout._bounded_span, seed
 
 The search results move with time, so a rebuild is not expected to reproduce the same items: the tracked manifest
 (every item's URL, licence, creation date, pinned commit and git blob, or Wikipedia revid, and the hashes) is the
-record, and it is committed before any arm scores the documents.
+record, and it is committed before any arm scores the documents.  Every API response is cached under
+<corpus-dir>/cache (keyed by the request), so an interrupted build resumes without re-asking, and the same responses
+give the same items.
 
 Usage:
     python -I benchmarks/chatbot50/c50_postrelease_corpus.py --tokenizer <checkpoint>/tokenizer.json \
@@ -72,10 +74,25 @@ WP_API = "https://en.wikipedia.org/w/api.php"
 WP_UA = "SiliconLLM-research/0.1 (one-off evaluation corpus build)"
 WP_BAD_SUMMARY = re.compile(r"translat|split from|copied|merg|content from|attribution", re.I)
 CATEGORIES = ("code", "technical_general", "prose")
+CACHE: Path | None = None
+
+
+def cached(kind: str, req: str, fetch):
+    """Return the cached response for this request, else fetch it and cache it."""
+    f = CACHE / f"{kind}_{hashlib.sha256(req.encode('utf-8')).hexdigest()}.json"
+    if f.exists():
+        return json.loads(f.read_text(encoding="utf-8"))
+    d = fetch()
+    f.write_text(json.dumps(d), encoding="utf-8")
+    return d
 
 
 def gh(path: str, **params) -> dict:
     cmd = ["gh", "api", "-X", "GET", path] + [x for k, v in params.items() for x in ("-f", f"{k}={v}")]
+    return cached("gh", json.dumps(cmd[3:]), lambda: gh_fetch(cmd, path))
+
+
+def gh_fetch(cmd: list, path: str) -> dict:
     for k in range(5):
         p = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
         if p.returncode == 0:
@@ -89,6 +106,10 @@ def gh(path: str, **params) -> dict:
 
 def wp(params: dict) -> dict:
     q = urllib.parse.urlencode({**params, "format": "json", "formatversion": "2"})
+    return cached("wp", q, lambda: wp_fetch(q))
+
+
+def wp_fetch(q: str) -> dict:
     req = urllib.request.Request(f"{WP_API}?{q}", headers={"User-Agent": WP_UA})
     for k in range(6):
         time.sleep(1.0)
@@ -206,6 +227,7 @@ def github_items(cat: str, repos: dict, used: set, counts: dict, rejected: list)
                       "git_blob_sha1": f["sha"], "url": f"https://github.com/{name}/blob/{commit}/{f['path']}",
                       "source_content_sha256": H.sha(raw), "source_byte_count": len(raw), "_text": text})
         used.add(name)
+        print(cat, len(items), name, f["path"], flush=True)
     if len(items) < PER_CAT:
         raise SystemExit(f"{cat}: only {len(items)} eligible repositories")
     return items
@@ -247,6 +269,7 @@ def prose_items(counts: dict, rejected: list) -> list[dict]:
                           "url": f"https://en.wikipedia.org/w/index.php?oldid={rev['revid']}",
                           "source_content_sha256": H.sha(raw), "source_byte_count": len(raw), "_text": text})
             got += 1
+            print("prose", len(items), p["title"], flush=True)
         if got < 2:
             rejected.append({"day": day, "reason": f"only {got} eligible articles"})
             raise SystemExit(f"prose {day}: only {got} eligible articles")
@@ -260,6 +283,9 @@ def main() -> int:
     ap.add_argument("--inputs-dir", required=True)
     ap.add_argument("--manifest-out", required=True)
     args = ap.parse_args()
+    global CACHE
+    CACHE = Path(args.corpus_dir) / "cache"
+    CACHE.mkdir(parents=True, exist_ok=True)
     from tokenizers import Tokenizer
     tok = Tokenizer.from_str(Path(args.tokenizer).read_bytes().decode("utf-8"))
     bdh, bdh_sha = H.load_bdh()

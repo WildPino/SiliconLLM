@@ -58,7 +58,7 @@ qualifies T0 = P0 (ROADMAP §5 S0).
 | G6 chat (40) | 27 | 28 | 0 / 1 | INCONCLUSIVE (BF16 0.675 < floor 0.75) |
 | G7 rollout (72), degenerate | 2 | 2 | 1 candidate-only | PASS |
 
-- **P0's G1 by category:** code +0.0003, technical +0.0014, prose −0.0178.
+- **P0's G1 by category:** code +0.0003, technical −0.0014, prose −0.0178. (Erratum, 18 October: the technical value was first transcribed here as +0.0014; `c50_a4_verdict_p0.json` records −0.00141.)
 
 **PC (planted positive) against BF16:**
 
