@@ -1,0 +1,96 @@
+{
+ "cell": "C50-A6 FIT selection",
+ "bound_upper_ci95": 0.015,
+ "kv_mb_at_2048": {
+  "f16": 83.88608,
+  "q8_0": 44.56448
+ },
+ "bpb_R": 0.7691909218671806,
+ "arms": {
+  "R": {
+   "dbpb": 0.0,
+   "dbpb_ci95": [
+    0.0,
+    0.0
+   ],
+   "qualifies": true,
+   "top1_agreement_with_R": 1.0,
+   "weight_mb_per_token": 783.351936,
+   "kv": "f16",
+   "mb_per_token_at_2048": 867.238016,
+   "iq3s_mb_per_token": 0.0,
+   "desk_ms_per_token_at_2048": 29.101187999999997
+  },
+  "K8": {
+   "dbpb": 0.0002640430791999725,
+   "dbpb_ci95": [
+    -0.0010856447183594975,
+    0.0015982459944837023
+   ],
+   "qualifies": true,
+   "top1_agreement_with_R": 0.9570596534384835,
+   "weight_mb_per_token": 783.351936,
+   "kv": "q8_0",
+   "mb_per_token_at_2048": 827.916416,
+   "iq3s_mb_per_token": 0.0,
+   "desk_ms_per_token_at_2048": 27.872388
+  },
+  "E3": {
+   "dbpb": 0.012132865423756864,
+   "dbpb_ci95": [
+    0.008110632936027297,
+    0.016498774183929598
+   ],
+   "qualifies": false,
+   "top1_agreement_with_R": 0.8981478131895959,
+   "weight_mb_per_token": 700.38336,
+   "kv": "q8_0",
+   "mb_per_token_at_2048": 744.94784,
+   "iq3s_mb_per_token": 205.45536,
+   "desk_ms_per_token_at_2048": 35.36436256766201
+  },
+  "E4": {
+   "dbpb": 0.0011057015017735298,
+   "dbpb_ci95": [
+    -0.0015650576812688164,
+    0.0034908074065298114
+   ],
+   "qualifies": true,
+   "top1_agreement_with_R": 0.9291743539654403,
+   "weight_mb_per_token": 748.945536,
+   "kv": "q8_0",
+   "mb_per_token_at_2048": 793.510016,
+   "iq3s_mb_per_token": 0.0,
+   "desk_ms_per_token_at_2048": 26.797188000000002
+  },
+  "E3B": {
+   "dbpb": 0.012532264750881119,
+   "dbpb_ci95": [
+    0.008538515336658364,
+    0.016633857652401714
+   ],
+   "qualifies": false,
+   "top1_agreement_with_R": 0.8988773529163502,
+   "weight_mb_per_token": 680.460416,
+   "kv": "q8_0",
+   "mb_per_token_at_2048": 725.024896,
+   "iq3s_mb_per_token": 205.45536,
+   "desk_ms_per_token_at_2048": 34.741770567662016
+  },
+  "E4B": {
+   "dbpb": 0.002279911914125753,
+   "dbpb_ci95": [
+    -0.0002470938459068739,
+    0.004622655827576033
+   ],
+   "qualifies": true,
+   "top1_agreement_with_R": 0.9292889097903025,
+   "weight_mb_per_token": 729.022592,
+   "kv": "q8_0",
+   "mb_per_token_at_2048": 773.587072,
+   "iq3s_mb_per_token": 0.0,
+   "desk_ms_per_token_at_2048": 26.174596
+  }
+ },
+ "fit_candidate": "E4B"
+}
