@@ -1,0 +1,140 @@
+{
+ "cell": "C50-H2 topology",
+ "cpu": "AMD Ryzen 5 3600X 6-Core Processor",
+ "machine": "AMD64",
+ "windows": "10.0.26200",
+ "ram_bytes": 85845110784,
+ "physical_cores": 6,
+ "logical_processors": 12,
+ "efficiency_classes": [
+  0
+ ],
+ "packages": 1,
+ "numa_nodes": [
+  {
+   "node": 0,
+   "cores": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  }
+ ],
+ "l3_domains": [
+  {
+   "bytes": 16777216,
+   "cores": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "bytes": 16777216,
+   "cores": [
+    3,
+    4,
+    5
+   ]
+  }
+ ],
+ "caches": {
+  "L1_data": {
+   "instances": 6,
+   "bytes_each": [
+    32768
+   ]
+  },
+  "L1_instruction": {
+   "instances": 6,
+   "bytes_each": [
+    32768
+   ]
+  },
+  "L2_unified": {
+   "instances": 6,
+   "bytes_each": [
+    524288
+   ]
+  },
+  "L3_unified": {
+   "instances": 2,
+   "bytes_each": [
+    16777216
+   ]
+  }
+ },
+ "cores": [
+  {
+   "logical": [
+    "0:0",
+    "0:1"
+   ],
+   "smt": true,
+   "efficiency_class": 0
+  },
+  {
+   "logical": [
+    "0:2",
+    "0:3"
+   ],
+   "smt": true,
+   "efficiency_class": 0
+  },
+  {
+   "logical": [
+    "0:4",
+    "0:5"
+   ],
+   "smt": true,
+   "efficiency_class": 0
+  },
+  {
+   "logical": [
+    "0:6",
+    "0:7"
+   ],
+   "smt": true,
+   "efficiency_class": 0
+  },
+  {
+   "logical": [
+    "0:8",
+    "0:9"
+   ],
+   "smt": true,
+   "efficiency_class": 0
+  },
+  {
+   "logical": [
+    "0:10",
+    "0:11"
+   ],
+   "smt": true,
+   "efficiency_class": 0
+  }
+ ],
+ "engine_threads_first_n": {
+  "rule": "--threads N takes the first N cores in this order, first logical each",
+  "logical_by_core": [
+   "0:0",
+   "0:2",
+   "0:4",
+   "0:6",
+   "0:8",
+   "0:10"
+  ],
+  "l3_domain_by_core": [
+   0,
+   0,
+   0,
+   1,
+   1,
+   1
+  ]
+ },
+ "known_positive_r0": "PASS"
+}
