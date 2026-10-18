@@ -1,0 +1,94 @@
+{
+ "cell": "C50-A4-bis verdict",
+ "stage": "final",
+ "plant": {
+  "G1_documents": {
+   "documents": 72,
+   "positions": 151739,
+   "bytes": 589604.0,
+   "bpb_bf16": 0.7800292314060717,
+   "bpb_p0": 0.8151617053594981,
+   "dbpb": 0.03513247395342624,
+   "dbpb_ci95": [
+    0.027379960799130534,
+    0.04368853294706636
+   ],
+   "pass": false,
+   "preferred_met": false,
+   "by_category": {
+    "code": 0.03526634141359342,
+    "prose": 0.015195156346886536,
+    "technical_general": 0.05493934841549913
+   }
+  },
+  "reported": {
+   "bf16_bpb_by_category": {
+    "code": 0.4922098996274184,
+    "prose": 0.9246884528873641,
+    "technical_general": 0.9232185049652624
+   },
+   "top1_disagreement": 0.17704743012673077,
+   "top1_disagreement_ci95": [
+    0.16358061556762984,
+    0.19022346521868883
+   ],
+   "by_category": {
+    "code": 0.12063907389787504,
+    "prose": 0.21737418804540384,
+    "technical_general": 0.19507630290814856
+   },
+   "mean_abs_dlogp_nats": 0.5279374776784933,
+   "top1_accuracy": 0.6229314810299263,
+   "bf16_top1_accuracy": 0.6345962475039377,
+   "tail_positions": 1605,
+   "net_dbits_tail": -2695.379374991857,
+   "net_dbits_outside_tail": 23409.62654782777
+  }
+ },
+ "cand": {
+  "G1_documents": {
+   "documents": 72,
+   "positions": 151739,
+   "bytes": 589604.0,
+   "bpb_bf16": 0.7800292314060717,
+   "bpb_p0": 0.7764878761356828,
+   "dbpb": -0.003541355270388943,
+   "dbpb_ci95": [
+    -0.00632605826923878,
+    -0.0007262346673857769
+   ],
+   "pass": true,
+   "preferred_met": true,
+   "by_category": {
+    "code": -0.002226450781850968,
+    "prose": -0.002817784638463046,
+    "technical_general": -0.005580203158115518
+   }
+  },
+  "reported": {
+   "bf16_bpb_by_category": {
+    "code": 0.4922098996274184,
+    "prose": 0.9246884528873641,
+    "technical_general": 0.9232185049652624
+   },
+   "top1_disagreement": 0.07667112607833187,
+   "top1_disagreement_ci95": [
+    0.07035340673404238,
+    0.08293793015801448
+   ],
+   "by_category": {
+    "code": 0.05175626387567396,
+    "prose": 0.09019530651969468,
+    "technical_general": 0.08816225165562915
+   },
+   "mean_abs_dlogp_nats": 0.20718807210008483,
+   "top1_accuracy": 0.6346423793487501,
+   "bf16_top1_accuracy": 0.6345962475039377,
+   "tail_positions": 1605,
+   "net_dbits_tail": -1019.4112607854688,
+   "net_dbits_outside_tail": -1068.5859720569356
+  }
+ },
+ "plant_fires": true,
+ "verdict": "A4 PASS"
+}

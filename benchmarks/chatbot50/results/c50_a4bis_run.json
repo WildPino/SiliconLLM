@@ -115,6 +115,44 @@
     }
    },
    "model_sha256": "7f6375e94be5ed502dd00ef0323694e2b52d43fe5b8b443dbe7d97b94c825503"
+  },
+  "p0": {
+   "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "panels": {
+    "docs": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\inputs\\docs.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\p0\\docs",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "10800",
+      "--ctx",
+      "8192"
+     ],
+     "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+     "returncode": 0,
+     "wall_s": 2290.953088760376,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=72 positions=151739 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "stdout_tail": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=72 positions=151739 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+      "FIRST_DOC positions=2276 wall_s=35.4 projected_s=2358",
+      "DONE positions=151739 wall_s=2280.9"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+     "status": "COMPLETE"
+    }
+   },
+   "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"
   }
  },
  "sessions": [
@@ -129,6 +167,12 @@
    "arms": "pc2",
    "budget_h": 5.0,
    "finished": "2026-10-18T21:21:51"
+  },
+  {
+   "started": "2026-10-18T21:22:36",
+   "arms": "p0",
+   "budget_h": 5.0,
+   "finished": "2026-10-18T22:04:46"
   }
  ]
 }
