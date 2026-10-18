@@ -10,7 +10,9 @@
  *   gcc -O2 -mavx2 -mfma -mf16c -o c50_a1_roofline.exe c50_a1_roofline.c
  * Usage:
  *   c50_a1_roofline.exe --selftest
- *   c50_a1_roofline.exe --run --order K [--seed S] [--quick]
+ *   c50_a1_roofline.exe --run --order K [--seed S] [--quick] [--threads N]
+ * --threads N (H2, Phase 3 portability): worker threads on the first N physical cores, default 6 (the 3600X);
+ * the attention cell keeps the engine's six position chunks, spread over the N threads.
  */
 #define _WIN32_WINNT 0x0A00
 #include <windows.h>
@@ -20,7 +22,8 @@
 
 #include "c50_kquants.h"
 
-#define NT 6
+#define NT_MAX 32
+static int g_nt = 6;   /* H2: --threads, default 6 */
 #define GIB (1024.0 * 1024.0 * 1024.0)
 #define POOL_MIN_BYTES (1ULL << 30)
 #define D_MODEL 2048U
@@ -108,8 +111,9 @@ typedef void (*job_fn)(int tid, void *arg);
 static volatile LONG g_gen, g_done;
 static job_fn volatile g_fn;
 static void *volatile g_arg;
-static DWORD_PTR g_mask[NT];
-static int g_cpu[NT];
+static DWORD_PTR g_mask[NT_MAX];
+static int g_cpu[NT_MAX];
+static char g_cores[NT_MAX * 4];   /* the core list as printed on the CONFIG line */
 
 static DWORD WINAPI worker_main(LPVOID p) {
     int tid = (int)(intptr_t)p;
@@ -131,10 +135,10 @@ static void run(job_fn fn, void *arg) {
     MemoryBarrier();
     InterlockedIncrement(&g_gen);
     fn(0, arg);
-    while (g_done < NT - 1) _mm_pause();
+    while (g_done < g_nt - 1) _mm_pause();
 }
 
-/* One logical processor per physical core, first NT cores. */
+/* One logical processor per physical core, first g_nt cores. */
 static void pick_cores(void) {
     DWORD len = 0;
     char *buf, *ptr;
@@ -145,25 +149,26 @@ static void pick_cores(void) {
                                           (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)buf, &len)) {
         fprintf(stderr, "topology query failed\n"); exit(2);
     }
-    for (ptr = buf; ptr < buf + len && n < NT;) {
+    for (ptr = buf; ptr < buf + len && n < g_nt;) {
         PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX info = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)ptr;
         KAFFINITY m = info->Processor.GroupMask[0].Mask;
         int bit = 0;
         while (!((m >> bit) & 1)) ++bit;
         g_mask[n] = (DWORD_PTR)1 << bit;
         g_cpu[n] = bit;
+        snprintf(g_cores + strlen(g_cores), sizeof g_cores - strlen(g_cores), "%s%d", n ? "," : "", bit);
         ++n;
         ptr += info->Size;
     }
     free(buf);
-    if (n < NT) { fprintf(stderr, "fewer than %d physical cores\n", NT); exit(2); }
+    if (n < g_nt) { fprintf(stderr, "fewer than %d physical cores\n", g_nt); exit(2); }
 }
 
 static void start_pool(void) {
     int t;
     pick_cores();
     SetThreadAffinityMask(GetCurrentThread(), g_mask[0]);
-    for (t = 1; t < NT; ++t) CreateThread(NULL, 0, worker_main, (LPVOID)(intptr_t)t, 0, NULL);
+    for (t = 1; t < g_nt; ++t) CreateThread(NULL, 0, worker_main, (LPVOID)(intptr_t)t, 0, NULL);
 }
 
 static double now_s(void) {
@@ -188,7 +193,7 @@ typedef struct {
 static void mv_worker(int tid, void *p) {
     mv_job *j = p;
     unsigned total = j->rows_per_seg * j->nseg;
-    unsigned r0 = (unsigned)((uint64_t)total * tid / NT), r1 = (unsigned)((uint64_t)total * (tid + 1) / NT), r;
+    unsigned r0 = (unsigned)((uint64_t)total * tid / g_nt), r1 = (unsigned)((uint64_t)total * (tid + 1) / g_nt), r;
     size_t rb = row_bytes(j->c, j->cols);
     for (r = r0; r < r1; ++r) {
         unsigned s = r / j->rows_per_seg, lr = r % j->rows_per_seg;
@@ -212,7 +217,7 @@ typedef struct {
 static void exp_act_worker(int tid, void *p) {
     exp_job *j = p;
     unsigned e, i;
-    for (e = tid; e < j->nexp; e += NT) {
+    for (e = tid; e < j->nexp; e += g_nt) {
         float tmp[DENSE_FF];
         const float *g = j->h + (size_t)e * 2 * j->ff, *u = g + j->ff;
         for (i = 0; i < j->ff; i += 8)
@@ -223,7 +228,7 @@ static void exp_act_worker(int tid, void *p) {
 
 static void exp_combine_worker(int tid, void *p) {
     exp_job *j = p;
-    unsigned i0 = j->cols * tid / NT, i1 = j->cols * (tid + 1) / NT, i, e;
+    unsigned i0 = j->cols * tid / g_nt, i1 = j->cols * (tid + 1) / g_nt, i, e;
     for (i = i0; i < i1; ++i) {
         float s = 0.0f;
         for (e = 0; e < j->nexp; ++e) s += j->w[e] * j->y[(size_t)e * j->cols + i];
@@ -381,21 +386,21 @@ typedef struct {
     float qn[HEAD_DIM], kn[HEAD_DIM];
 } layer_w;
 
-#define POS_PER_WORKER ((CTX + NT - 1) / NT + 8)
+#define ATT_CHUNKS 6   /* H2: the engine's six position chunks, whatever the thread count */
+#define POS_PER_WORKER ((CTX + ATT_CHUNKS - 1) / ATT_CHUNKS + 8)
 typedef struct {
     const float *q;              /* N_HEAD x HEAD_DIM, rotated */
     const uint16_t *kc, *vc;
     unsigned npos;
-    float m[NT][N_HEAD], l[NT][N_HEAD], acc[NT][N_HEAD][HEAD_DIM];
-    float sc[NT][N_HEAD][POS_PER_WORKER];
+    float m[ATT_CHUNKS][N_HEAD], l[ATT_CHUNKS][N_HEAD], acc[ATT_CHUNKS][N_HEAD][HEAD_DIM];
+    float sc[ATT_CHUNKS][N_HEAD][POS_PER_WORKER];
     float *out;                  /* N_HEAD x HEAD_DIM */
 } att_job;
 
 /* Positions split across workers; each K and V row is read once for the four query
  * heads of its GQA group; softmax numerators use the vector exp. */
-static void att_worker(int tid, void *p) {
-    att_job *a = p;
-    const unsigned p0 = a->npos * tid / NT, p1 = a->npos * (tid + 1) / NT, np = p1 - p0, G = N_HEAD / N_KV;
+static void att_chunk(att_job *a, int tid) {
+    const unsigned p0 = a->npos * tid / ATT_CHUNKS, p1 = a->npos * (tid + 1) / ATT_CHUNKS, np = p1 - p0, G = N_HEAD / N_KV;
     const float scale = 1.0f / sqrtf((float)HEAD_DIM);
     unsigned kv, pos, d, h, i;
     for (kv = 0; kv < N_KV; ++kv) {
@@ -438,13 +443,18 @@ static void att_worker(int tid, void *p) {
     }
 }
 
+static void att_worker(int tid, void *p) {
+    int c;
+    for (c = tid; c < ATT_CHUNKS; c += g_nt) att_chunk(p, c);
+}
+
 static void att_combine(att_job *a) {
     unsigned h, t, d;
     for (h = 0; h < N_HEAD; ++h) {
         float m = -INFINITY, l = 0.0f, *o = a->out + h * HEAD_DIM;
-        for (t = 0; t < NT; ++t) if (a->m[t][h] > m) m = a->m[t][h];
+        for (t = 0; t < ATT_CHUNKS; ++t) if (a->m[t][h] > m) m = a->m[t][h];
         memset(o, 0, sizeof(float) * HEAD_DIM);
-        for (t = 0; t < NT; ++t) {
+        for (t = 0; t < ATT_CHUNKS; ++t) {
             float c = a->l[t][h] > 0 ? expf(a->m[t][h] - m) : 0.0f;
             l += a->l[t][h] * c;
             for (d = 0; d < HEAD_DIM; ++d) o[d] += a->acc[t][h][d] * c;
@@ -456,7 +466,7 @@ static void att_combine(att_job *a) {
 typedef struct { const float *w; const float *x; float *out; unsigned rows, cols; } f32_job;
 static void f32_worker(int tid, void *p) {
     f32_job *j = p;
-    unsigned r0 = j->rows * tid / NT, r1 = j->rows * (tid + 1) / NT, r, k;
+    unsigned r0 = j->rows * tid / g_nt, r1 = j->rows * (tid + 1) / g_nt, r, k;
     for (r = r0; r < r1; ++r) {
         __m256 s = _mm256_setzero_ps();
         for (k = 0; k < j->cols; k += 8)
@@ -768,8 +778,12 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "--order") && i + 1 < argc) order = atoi(argv[++i]);
         else if (!strcmp(argv[i], "--seed") && i + 1 < argc) seed = strtoull(argv[++i], NULL, 10);
         else if (!strcmp(argv[i], "--quick")) quick = 1;
+        else if (!strcmp(argv[i], "--threads") && i + 1 < argc) {
+            g_nt = atoi(argv[++i]);
+            if (g_nt < 1 || g_nt > NT_MAX) { fprintf(stderr, "--threads must be 1..%d\n", NT_MAX); return 2; }
+        }
     }
-    if (!do_run) { fprintf(stderr, "usage: --selftest | --run --order K [--seed S] [--quick]\n"); return 2; }
+    if (!do_run) { fprintf(stderr, "usage: --selftest | --run --order K [--seed S] [--quick] [--threads N]\n"); return 2; }
     g_rng ^= seed * 0xD1B54A32D192ED03ULL;
     start_pool();
     {
@@ -779,9 +793,9 @@ int main(int argc, char **argv) {
             "S3_Q4_K", "S3_IQ4_XS", "S3_IQ3_S", "S4_Q6_K", "S4_Q4_K", "S5_Q4_K", "L1", "T20"};
         model *md = NULL;
         n_cells = (int)(sizeof names / sizeof *names);
-        printf("CONFIG cell=C50-A1 threads=%d cpus=%d,%d,%d,%d,%d,%d pool_min_bytes=%llu calls=%d calls_head=%d "
+        printf("CONFIG cell=C50-A1 threads=%d cpus=%s pool_min_bytes=%llu calls=%d calls_head=%d "
                "calls_l1=%d calls_t20=%d order=%d seed=%llu quick=%d ctx=%u kernels=Q4_K,Q6_K,IQ4_XS,IQ3_S,Q8_0 "
-               "cells=%d\n", NT, g_cpu[0], g_cpu[1], g_cpu[2], g_cpu[3], g_cpu[4], g_cpu[5],
+               "cells=%d\n", g_nt, g_cores,
                (unsigned long long)POOL_MIN_BYTES, calls / div, calls_head / div, calls_l1 / div, calls_t20 / div,
                order, (unsigned long long)seed, quick, CTX, n_cells);
         fflush(stdout);
