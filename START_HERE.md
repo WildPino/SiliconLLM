@@ -1,5 +1,9 @@
 # Start here
 
+> **Current work (20 October 2026): CHATBOT50, Phase 1, branch `research/chatbot50`.** Resume from
+> [HANDOFF.md](HANDOFF.md) and the [CHATBOT50 roadmap](docs/research/CHATBOT50_ROADMAP_20261016/ROADMAP.md).
+> The text below describes the earlier native-expert-scaling work and is kept as it was.
+
 The scientific goal is **incomplete**. Current authorized numerical work is the
 three-job [predictive geometry campaign](docs/research/PREDICTIVE_GEOMETRY_20261015/PROTOCOL.md).
 All three intended studies have completed Kaggle jobs, including the separate
