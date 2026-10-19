@@ -243,3 +243,22 @@ python -I benchmarks/chatbot50/c50_s1_report.py benchmarks/chatbot50/results/c50
   the report's arm-M section was checked on synthetic records.
 - **Runner pin:** `c50_s1_run.py` pins the bank binary in place of the withdrawn one. Nothing else
   changes: arms, schedule, gate and report.
+
+## Addendum 2 (19 October 2026, before any S1 process): the expansions' pins
+
+- **Built** on E: with the protocol's commands (`c50_s1_expand.py` at `1eb08f9`, σ = 0.05, seed 20261016), plus
+  `--hash`, which only records the output's sha256. One build at a time, after S2 and S0 closed. Then staged on C:
+  (`C:/SiliconLLM_stage/s1/`), every staged copy re-hashed against its record; T0 staged beside them (`44de7315…`).
+- **Every re-read check passed** (the expander exits otherwise): 57 expert tensors slot by slot against their
+  sources, 19 routers (copy 0 equal to T0, every value exactly BF16), 19 biases, every other tensor byte-identical.
+
+| Arm | E | Bytes | sha256 | copies per expert (copies: experts) | router max change / max | write + verify s |
+| --- | ---: | ---: | --- | --- | ---: | --- |
+| m2 | 536 | 20,050,507,776 | `4e7fd2e33de742efe6caf2ad5c4d301701e6105bae4112e7d687ab2e672411c2` | {'2': 232, '3': 24} | 0.1311 | 750 + 22 |
+| m4 | 1,088 | 40,037,719,008 | `21ad0abe6f1b335ed8f9a5bfd8d732b72f44da967102dd5f54b4bf95e58d3324` | {'4': 192, '5': 64} | 0.1618 | 963 + 35 |
+| m6 | 1,600 | 58,576,581,600 | `1d0021abf9f0e4bd553857b61ed793d7c4a48b0be41d3bb21bada6f53165f21b` | {'6': 192, '7': 64} | 0.1437 | 1582 + 1441 |
+
+- **Runner pin:** `c50_s1_run.py` replaces `PIN_M2`, `PIN_M4` and `PIN_M6` with these hashes. Nothing else
+  changes: arms, schedule, gate and report.
+- **F0** left C: after S2 closed; its copy on E: was checked against its pin before C:'s copy was removed.
+- **The session** runs from a terminal outside the agent session (precondition), with the machine empty.

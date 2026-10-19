@@ -39,9 +39,12 @@ STAGE = Path("C:/SiliconLLM_stage/s1")
 # name: (path, experts, sha256 of the GGUF; the expansions are pinned from their expander records at build)
 ARTIFACTS = {"m1": (STAGE / "ling-mini-2.0-a810f64-q4_k_m.gguf", 256,
                     "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"),
-             "m2": (STAGE / "t0-e536.gguf", 536, "PIN_M2"),
-             "m4": (STAGE / "t0-e1088.gguf", 1088, "PIN_M4"),
-             "m6": (STAGE / "t0-e1600.gguf", 1600, "PIN_M6")}
+             "m2": (STAGE / "t0-e536.gguf", 536,
+                    "4e7fd2e33de742efe6caf2ad5c4d301701e6105bae4112e7d687ab2e672411c2"),
+             "m4": (STAGE / "t0-e1088.gguf", 1088,
+                    "21ad0abe6f1b335ed8f9a5bfd8d732b72f44da967102dd5f54b4bf95e58d3324"),
+             "m6": (STAGE / "t0-e1600.gguf", 1600,
+                    "1d0021abf9f0e4bd553857b61ed793d7c4a48b0be41d3bb21bada6f53165f21b")}
 IDS = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a4/inputs/docs.tsv")
 SEL_IDS = HERE / "corpus" / "c50_holdout_ext_v1" / "sel_ids.tsv"
 PAR1_SHA256 = "373b4886c82eb9a98e203d2e2dd52ab4d8860c64f205057e9a4e244a183cb08a"
