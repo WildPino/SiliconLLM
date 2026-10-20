@@ -1,15 +1,19 @@
 """C50-S3 teacher run: F0's top-32 log-probabilities on the S3 corpus, resumable.  Start it, stop it with Ctrl+C,
 start the same command again: it resumes from the last finished shard (at most the shard in progress is lost).
 
-Every start checks the pins (GPU binary, corpus, model) and refuses to run otherwise; it sets the backend that the
-S3 protocol fixed (fp32 cuBLAS), runs the teacher tool with the protocol's arguments, asserts its CONFIG line, and
-appends one line per start to <out>/launches.jsonl (time, binary, environment, arguments, exit code).  The first start
-hashes the 62 GB model (~4 min); later starts check its size and modification time against that record.
+Every start checks the pins (binary, corpus, model) and refuses to run otherwise, runs the teacher tool with the
+protocol's arguments, asserts its CONFIG line, and appends one line per start to <out>/launches.jsonl (time, binary,
+environment, arguments, exit code).  The first start hashes the 62 GB model (~4 min); later starts check its size and
+modification time against that record.
+
+The teacher is the CPU build with S2's numerics (ctx 4096, ubatch 512, 6 threads), bit-identical to F0's CPU scores of
+S2: the GPU configuration failed the protocol's fidelity rule on 20 October and the ubatch-512 fallback was decided by
+construction (S3 protocol, addendum 1).  `--fidelity` reruns that check of the GPU configuration, for the record.
 
 Usage (from a terminal outside the agent session; the machine can be used, nothing here reads a rate):
     python -I benchmarks/chatbot50/c50_s3_teach.py            # start or resume
     python -I benchmarks/chatbot50/c50_s3_teach.py --status   # progress only
-    python -I benchmarks/chatbot50/c50_s3_teach.py --fidelity # the protocol's fidelity check (run once, first)
+    python -I benchmarks/chatbot50/c50_s3_teach.py --fidelity # the GPU fidelity check of 20 October (FAIL), again
 """
 from __future__ import annotations
 
@@ -24,8 +28,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 C = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016")
-BIN = C / "tools/llama-b11040-win-cuda-12.4-x64/bin/c50_s3_teacher_cuda.exe"
-BIN_SHA = "8a079d53118de71bae57d4144accb2925a38535c6d420730f2d6f8d5ddb906f1"
+BIN = HERE / "bin/c50_s3_teacher_avx2.exe"
+BIN_SHA = "2cb54d8495553ffba634f0a0f9cfe7e6be5645daaffad4e9eaefb4ae501f9363"
+GPU_BIN = C / "tools/llama-b11040-win-cuda-12.4-x64/bin/c50_s3_teacher_cuda.exe"
+GPU_BIN_SHA = "8a079d53118de71bae57d4144accb2925a38535c6d420730f2d6f8d5ddb906f1"
 MODEL = Path("C:/SiliconLLM_stage/f0/ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf")
 MODEL_SHA, MODEL_BYTES = "5348c73fe6497c5152e16fd792d6c7b5aeefa15de8b15b8c8e18bef691704b8e", 62_425_484_640
 CORPUS_MANIFEST = HERE / "results" / "c50_s3_corpus_v1_manifest.json"
@@ -33,10 +39,14 @@ CORPUS = C / "s3/corpus_v1/teacher.tsv"
 OUT = C / "s3/teacher_v1"
 FID_IDS = C / "s2/inputs/mmlu.tsv"
 FID_OUT = C / "s3/fidelity_v1"
-ENV = {"GGML_CUDA_CUBLAS_COMPUTE_TYPE": "f32"}
-ARGS = ["--ctx", "2048", "--ubatch", "2048", "--topk", "32", "--threads", "6", "--ngl", "99", "--cpu-moe"]
+ENV: dict[str, str] = {}
+ARGS = ["--ctx", "4096", "--ubatch", "512", "--topk", "32", "--threads", "6", "--ngl", "0"]
 SHARD_DOCS = "48"
-WANT = ["topk=32", "threads=6", "ubatch=2048", "ctx=2048", "ngl=99", "cpu_moe=1", "flash_attn=disabled", "kv=f16"]
+WANT = ["topk=32", "threads=6", "ubatch=512", "ctx=4096", "ngl=0", "cpu_moe=0", "flash_attn=disabled", "kv=f16",
+        "devices=[CPU]"]
+GPU_ENV = {"GGML_CUDA_CUBLAS_COMPUTE_TYPE": "f32"}
+GPU_ARGS = ["--ctx", "2048", "--ubatch", "2048", "--topk", "32", "--threads", "6", "--ngl", "99", "--cpu-moe"]
+GPU_WANT = ["topk=32", "threads=6", "ubatch=2048", "ctx=2048", "ngl=99", "cpu_moe=1", "flash_attn=disabled", "kv=f16"]
 
 
 def sha256(p: Path) -> str:
@@ -72,17 +82,18 @@ def progress(out: Path) -> str:
             f"({100 * pos / man['positions']:.1f}%)")
 
 
-def run(ids: Path, out: Path, shard_docs: str) -> int:
+def run(ids: Path, out: Path, shard_docs: str, gpu: bool = False) -> int:
     out.mkdir(parents=True, exist_ok=True)
-    got = sha256(BIN)
-    if got != BIN_SHA:
-        raise SystemExit(f"{BIN}: sha256 {got} != pin {BIN_SHA}")
+    binary, pin, env, args, want = (GPU_BIN, GPU_BIN_SHA, GPU_ENV, GPU_ARGS, GPU_WANT) if gpu else (BIN, BIN_SHA, ENV, ARGS, WANT)
+    got = sha256(binary)
+    if got != pin:
+        raise SystemExit(f"{binary}: sha256 {got} != pin {pin}")
     check_model(out)
-    cmd = [str(BIN), "--model", str(MODEL), "--ids", str(ids), "--out", str(out), "--shard-docs", shard_docs] + ARGS
-    rec = {"start": time.strftime("%Y-%m-%dT%H:%M:%S"), "bin_sha256": got, "env": ENV, "cmd": cmd}
+    cmd = [str(binary), "--model", str(MODEL), "--ids", str(ids), "--out", str(out), "--shard-docs", shard_docs] + args
+    rec = {"start": time.strftime("%Y-%m-%dT%H:%M:%S"), "bin_sha256": got, "env": env, "cmd": cmd}
     print("CMD", " ".join(cmd), flush=True)
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors="replace",
-                         env={**os.environ, **ENV})
+                         env={**{k: v for k, v in os.environ.items() if not k.startswith("GGML_")}, **env})
     rc = None
     try:
         with open(out / "teach.log", "a", encoding="utf-8") as log:
@@ -91,7 +102,7 @@ def run(ids: Path, out: Path, shard_docs: str) -> int:
                 log.flush()
                 if line.startswith("CONFIG"):
                     rec["config"] = line.strip()
-                    missing = [w for w in WANT if f" {w} " not in f" {line.strip()} "]
+                    missing = [w for w in want if f" {w} " not in f" {line.strip()} "]
                     if missing:
                         p.kill()
                         raise SystemExit(f"CONFIG does not confirm {missing}: {line.strip()}")
@@ -118,13 +129,10 @@ def main() -> int:
         print(progress(OUT))
         return 0
     if a.fidelity:
-        return run(FID_IDS, FID_OUT, "120")
+        return run(FID_IDS, FID_OUT, "120", gpu=True)
     man = json.loads(CORPUS_MANIFEST.read_text(encoding="utf-8"))
     if sha256(CORPUS) != man["teacher_tsv_sha256"]:
         raise SystemExit(f"{CORPUS}: sha256 differs from the corpus manifest")
-    verdict = HERE / "results" / "c50_s3_fidelity_v1.json"
-    if not verdict.exists() or json.loads(verdict.read_text(encoding="utf-8")).get("verdict") != "PASS":
-        raise SystemExit("the fidelity check has not passed (S3 protocol): no teacher data is kept before it")
     rc = run(CORPUS, OUT, SHARD_DOCS)
     print(progress(OUT))
     return rc

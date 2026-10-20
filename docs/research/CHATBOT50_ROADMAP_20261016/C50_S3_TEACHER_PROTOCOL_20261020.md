@@ -122,3 +122,24 @@ is F0's CPU path, the one S2's gap map was measured with.
   train items, not test items.
 - **Wikipedia 20231101 and FineWeb-Edu are very probably in F0's and T0's pretraining.** The signal is F0's
   distribution on them, which is what distillation transfers.
+
+## Addendum 1 (20 October, after the fidelity FAIL, before any teacher data is kept)
+
+- **The fidelity check FAILed** ([result](C50_S3_FIDELITY_RESULT_20261020.md)): GPU − CPU dBPB +0.0112 (CI95
+  +0.0103..+0.0121), top-1 agreement 93.3%.
+- **The first fallback (ubatch 512) is not run: its outcome is decided by construction.** A sequence shorter than the
+  batch is computed identically at ubatch 512 and 2048 (shard 0, 120 sequences: byte-identical), and only 4 of the
+  panel's 2,280 sequences exceed 512 tokens.
+- **The teacher is the second fallback, the CPU build**, as written above:
+  - binary `benchmarks/chatbot50/bin/c50_s3_teacher_avx2.exe` (built by `c50_build_scorer.sh c50_s3_teacher` at the
+    pinned commit), sha256 `2cb54d8495553ffba634f0a0f9cfe7e6be5645daaffad4e9eaefb4ae501f9363`;
+  - `--ctx 4096 --ubatch 512 --topk 32 --threads 6 --ngl 0`, 48 documents per shard: the numerics of S2's F0 scores.
+    On shard 0 of the MMLU panel it reproduced them bit for bit (20 October), and ctx 4096 against 512 gave
+    byte-identical records on a 4-token input.
+  - The launcher `c50_s3_teach.py` runs this configuration and asserts its CONFIG line (`devices=[CPU]`). `--fidelity`
+    still reruns the GPU check, for the record. Output and command are unchanged (`s3/teacher_v1/`).
+- **Volume and time (ESTIMATE):** about 20 tok/s on this corpus (per document ~0.9 s plus ~0.048 s per token, fitted on
+  the MMLU and FIT runs of S2's path), ~1.7 M tokens per day: **~29 days for the 50 M tokens**, ~6 days for 10 M. Any
+  finished prefix is a balanced mix; S4 may start from one.
+- **Registered prediction:** the first day's mean throughput is 14-22 tok/s (the box in normal use).
+- Using the GPU configuration despite the FAIL would override this protocol's rule. It is not done here.

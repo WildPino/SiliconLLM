@@ -1,0 +1,21 @@
+{
+ "cell": "C50-S3 fidelity v1",
+ "panel": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\mmlu.tsv",
+ "cpu_reference": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\f0\\mmlu.pos.bin",
+ "sequences": 2280,
+ "positions": 129316,
+ "tol_bpb": 0.002,
+ "top1_min": 0.95,
+ "config": "CONFIG model=C:\\SiliconLLM_stage\\f0\\ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf n_vocab=157184 docs=2280 positions=129316 shards=19 todo_shards=19 todo_positions=129316 topk=32 shard_docs=120 threads=6 ubatch=2048 ctx=2048 ngl=99 cpu_moe=1 flash_attn=disabled kv=f16 devices=[CUDA0,CPU] system_info=[CUDA : ARCHS = 500,610,700,750,800,860,890,900 | USE_GRAPHS = 1 | FA_QUANTS = q4_0-q4_0,q8_0-q8_0,f16-f16,bf16-bf16 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+ "dbpb_gpu_minus_cpu": 0.011185286214358589,
+ "dbpb_ci95": [
+  0.010278296238793115,
+  0.012097743503808274
+ ],
+ "cpu_bpb_mean": 1.0965886676489358,
+ "mean_abs_dlogp": 0.17836220606879158,
+ "max_abs_dlogp": 5.630600929260254,
+ "top1_agreement": 0.9327152092548486,
+ "wall_s": 4315.1,
+ "verdict": "FAIL"
+}

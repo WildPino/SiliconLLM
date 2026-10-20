@@ -69,7 +69,7 @@ Rules that are easy to break:
 | **S0** (v0 of T0 on the engine) | **Done. v0 = 35.94 tok/s at ctx 2048 (CI95 35.64..36.25), STABLE**; 39.01 at 512, 30.79 at 4096; organ breakdown validated | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S0_V0_RESULT_20261019.md) |
 | **S2** (Ling-mini -> Ling-flash gap map) | **MIXED, S3-S5 proceed** (RER_K 0.219, RER_R 0.247, D CI95 -0.111..+0.058) | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S2_GAP_MAP_RESULT_20261019.md) |
 | **S1** (speed invariance with capacity, m = 2, 4, 6) | **PASS in both router formats (20 October, run 3).** ρ at m2/m4: F32 1.011/1.009, BF16 1.003/1.003, every CI95 inside [0.97, 1.03]; raw v(m4)/v(1) F32 0.873, BF16 0.915 (the router's bytes). S4 and S5 use the BF16 router | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S1_CAPACITY_INVARIANCE_RESULT_20261020.md) |
-| **S3** (teacher signal) | **Decided: option A, local top-k logits from F0**, with resumable runs and a GPU study. Tool built and checked; **no S3 protocol yet; no teacher data kept yet** | [sizing](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_TEACHER_SIZING_20261019.md), §12 rows of 19 October |
+| **S3** (teacher signal) | **Option A, corpus (a), 50 M tokens. Protocol pushed; the GPU fidelity check FAILed (+0.0112 BPB, top-1 93.3%), so by addendum 1 the teacher is the CPU build (S2's numerics, ~1.7 M tokens/day, ESTIMATE ~29 days for 50 M).** The user starts and stops it from their own terminal; no teacher data yet (20 October evening) | [protocol + addendum 1](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_TEACHER_PROTOCOL_20261020.md), [fidelity result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_FIDELITY_RESULT_20261020.md) |
 | S4, S5 | Not started | ROADMAP §5 |
 
 Pins: T0 = P0 = `ling-mini-2.0-a810f64-q4_k_m.gguf` (sha256 `44de7315…`); M0 = Q4_K_M without imatrix (`1f545368…`);
@@ -79,9 +79,12 @@ F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,
 
 ## 3. What runs right now
 
-**Nothing.** (Updated 20 October, after S1.) The C: reset was not needed: the user fixed C: without formatting, so
-the environment of §7 is intact. The user's `tiktok_publisher` daemon (another project) was suspended during S1 and
-resumed after it: for a timed session, ask the user before pausing it again.
+**Nothing from the agent session** (20 October, evening). The S3 teacher is the user's to start, from their own
+terminal (command in COMMUNICATION and below); check its progress with
+`python -I benchmarks/chatbot50/c50_s3_teach.py --status`. While it runs it holds F0 (62 GB mapped) and six cores:
+no other long job and no rate cell beside it. F0 is staged at `C:/SiliconLLM_stage/f0/` (hash checked). The C: reset
+was not needed. The user's `tiktok_publisher` daemon (another project) was suspended during S1 and resumed after it:
+for a timed session, ask the user before pausing it again.
 
 ## 4. Next steps, in order
 
@@ -100,21 +103,32 @@ resumed after it: for a timed session, ask the user before pausing it again.
    The gate is the residual ρ_f(m) = v_E / v_pred in each router format; PASS in a format iff its CI95 lies inside
    [0.97, 1.03] at both m2 and m4 (protocol, "Gate"). Score the registered predictions, write
    `C50_S1_CAPACITY_INVARIANCE_RESULT_<date>.md`, add a §12 row, update §11 and COMMUNICATION, push.
-4. **After S1:** remove `C:/SiliconLLM_stage/s1/` (the originals stay on E:), copy F0 from
+4. **Done (20 October).** ~~After S1:~~ remove `C:/SiliconLLM_stage/s1/` (the originals stay on E:), copy F0 from
    `E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/gguf/ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf` to C:
    (it loads too slowly from the USB disk), hash it against `5348c73f…`.
-5. **S3, the F0 GPU study** (not yet done; it needs F0 on C: and a terminal outside the reaper):
+5. **Done (20 October, §12 row MEASURED).** ~~S3, the F0 GPU study~~ (it needs F0 on C: and a terminal outside the reaper):
    - fidelity: F0 on the 72 FIT documents with the GPU build against F0's CPU run of S2
      (`E:/.../s2/f0/docs.pos.bin`, same record layout as A4's scorer): paired document dBPB, mean |dlogp|, top-1
      agreement. For T0 the GPU path was as close to BF16 as the CPU path (§5); F0 has no BF16 reference that fits.
    - wall throughput at `--ubatch` 512, 1024, 2048 (reported as wall, not rates), CPU vs GPU.
    - the user asked for **no quality loss**: a GPU configuration is adopted only if its fidelity check is fixed in the
      protocol before the run and passes.
-6. **Write and push the S3 protocol before any teacher data is kept:** the corpus (a user decision: which text the
-   teacher scores), the exclusions (the S2 donor-gap panel, A4/A4-bis documents and every evaluation panel never
-   enter it), top-k (32 by default), the backend and its fidelity rule, the volume, and the command. The tool already
-   checkpoints: the user can stop it with Ctrl+C and relaunch the same command.
-7. **S4's protocol** (ROADMAP §5 S4) follows, using S2's donor-gap panel as the held-out target.
+6. **Done (20 October).** ~~Write and push the S3 protocol before any teacher data is kept~~: corpus v1 built and
+   pinned (`results/c50_s3_corpus_v1_manifest.json`), protocol pushed, fidelity check run: **FAIL**, so addendum 1
+   makes the CPU build the teacher. The run itself is the user's:
+
+   ```
+   cd /d D:\_THINGS\Progetti\SiliconLLM
+   python -I benchmarks/chatbot50/c50_s3_teach.py
+   ```
+
+   Ctrl+C stops it; the same command resumes it (at most the shard in progress is lost). The first start hashes F0
+   (~4 min). An open question to the user (COMMUNICATION): keep the CPU teacher, or override the frozen rule and use
+   the GPU path (~5 days instead of ~29, +0.0027 BPB from S2's F0 on MMLU). Do not switch without that answer.
+   When the first day has run, score the throughput prediction (14-22 tok/s, addendum 1) in a §12 row.
+7. **S4's protocol** (ROADMAP §5 S4) is next and can be written while the teacher runs: arms (a) extra experts,
+   (b) memory bank, (c) LoRA control; gate on S2's donor-gap panel; BF16 router (S1). It fixes how much teacher signal
+   it needs; any finished prefix of the S3 run is a balanced mix.
 
 ## 5. The S3 teacher tool (built 19 October)
 
@@ -184,3 +198,10 @@ freeze file; `gh auth login`; check `nvidia-smi`; check `git -C D:/_THINGS/Proge
 - `c50_s1_run.py` and `c50_s0_run.py` pin their binaries and sources by hash; a rebuilt binary with a different hash
   is refused, by design. A rebuild needs an addendum.
 - The S3 sizing note's hosted prices are unverified aggregator figures; option A does not depend on them.
+- **A panel whose sequences share a first token weighs one context many times.** S3's fidelity rule on MMLU (every
+  sequence starts with "Question") put 84% of its gap on position 1, where any Q4 build is ~1.5 nats from BF16 and
+  the value moves with the batch size. A bootstrap over sequences does not see that the draws are one context.
+- **The CUDA release build differs from our AVX2 build even with `--ngl 0`**: its CPU code is not S2's. Only
+  `bin/c50_s3_teacher_avx2.exe` reproduces S2's scores bit for bit.
+- **The drives:** only C: is NVMe (500 GB); D: and E: are USB. F0 BF16 (206 GB, on E:) runs only on a few tokens
+  (~37 min for a 4-token input).
