@@ -1,0 +1,650 @@
+{
+ "cell": "C50-S1 report",
+ "run": "benchmarks/chatbot50/results/c50_s1_run_3.json",
+ "verdict_input": "COMPLETE",
+ "known_positives": {
+  "par1_sha256": "373b4886c82eb9a98e203d2e2dd52ab4d8860c64f205057e9a4e244a183cb08a",
+  "checks": [
+   {
+    "check": "K1",
+    "m": "m1",
+    "router": "bf16",
+    "hash": false,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\ling-mini-2.0-a810f64-q4_k_m.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=256 router=bf16 hash=0"
+    ],
+    "byte_identical": true
+   },
+   {
+    "check": "K2",
+    "m": "m2",
+    "router": "f32",
+    "hash": true,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\t0-e536.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=536 router=f32 hash=1"
+    ],
+    "byte_identical": true
+   },
+   {
+    "check": "K2",
+    "m": "m2",
+    "router": "bf16",
+    "hash": true,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\t0-e536.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=536 router=bf16 hash=1"
+    ],
+    "byte_identical": true
+   },
+   {
+    "check": "K2",
+    "m": "m4",
+    "router": "f32",
+    "hash": true,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\t0-e1088.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=1088 router=f32 hash=1"
+    ],
+    "byte_identical": true
+   },
+   {
+    "check": "K2",
+    "m": "m4",
+    "router": "bf16",
+    "hash": true,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\t0-e1088.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=1088 router=bf16 hash=1"
+    ],
+    "byte_identical": true
+   },
+   {
+    "check": "K2",
+    "m": "m6",
+    "router": "f32",
+    "hash": true,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\t0-e1600.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=1600 router=f32 hash=1"
+    ],
+    "byte_identical": true
+   },
+   {
+    "check": "K2",
+    "m": "m6",
+    "router": "bf16",
+    "hash": true,
+    "returncode": 0,
+    "config": [
+     "CONFIG engine=c50_engine model=C:\\SiliconLLM_stage\\s1\\t0-e1600.gguf docs=1 positions=199 threads=6 cores=0,2,4,6,8,10 kv=f16 attention=f32 eps=1e-06 rope_base=600000 weights_scale=2.5 dump=1 hidden=0 types=[embd=Q4_K head=Q6_K qkv=Q6_K o=Q4_K dense=Q4_K/Q4_K/Q6_K exps=Q4_K/Q4_K/Q6_K shexp=Q4_K/Q4_K/Q6_K] mem=map prio=normal organs=0 experts=1600 router=bf16 hash=1"
+    ],
+    "byte_identical": true
+   }
+  ],
+  "status": "COMPLETE"
+ },
+ "void_arms": [],
+ "arms": {
+  "m1/E-bf16/organs=0": {
+   "n": 20,
+   "rate": 38.342699999999994,
+   "min": 36.452,
+   "max": 39.401,
+   "max_over_min": 1.0809009107867882,
+   "cv": 0.0232134948645659,
+   "sel_distinct_frac": 0.40728,
+   "sel_copy0_frac": 1.0,
+   "router_bytes_engine": 19922944.0,
+   "fill_s": 51.86970000000001,
+   "foreign_pct_max": 3.6345887534336763
+  },
+  "m1/E-bf16/organs=1": {
+   "n": 6,
+   "rate": 37.484500000000004,
+   "min": 36.018,
+   "max": 38.93,
+   "max_over_min": 1.0808484646565606,
+   "cv": 0.024620650909212963,
+   "sel_distinct_frac": 0.40728000000000003,
+   "sel_copy0_frac": 1.0,
+   "router_bytes_engine": 19922944.0,
+   "fill_s": 51.643166666666666,
+   "foreign_pct_max": 2.36682460257716,
+   "router_lap_s": 0.0007737999999999999
+  },
+  "m1/E-f32/organs=0": {
+   "n": 20,
+   "rate": 37.4015,
+   "min": 35.157,
+   "max": 38.559,
+   "max_over_min": 1.0967659356600392,
+   "cv": 0.02322329630333602,
+   "sel_distinct_frac": 0.40728,
+   "sel_copy0_frac": 1.0,
+   "router_bytes_engine": 39845888.0,
+   "fill_s": 52.5438,
+   "foreign_pct_max": 2.8306662851357003
+  },
+  "m1/E-f32/organs=1": {
+   "n": 6,
+   "rate": 37.341833333333334,
+   "min": 36.771,
+   "max": 38.424,
+   "max_over_min": 1.0449539038916538,
+   "cv": 0.019710725413762595,
+   "sel_distinct_frac": 0.40728000000000003,
+   "sel_copy0_frac": 1.0,
+   "router_bytes_engine": 39845888.0,
+   "fill_s": 56.7395,
+   "foreign_pct_max": 2.440280296415698,
+   "router_lap_s": 0.0012861166666666667
+  },
+  "m2/E-bf16/organs=0": {
+   "n": 20,
+   "rate": 37.253899999999994,
+   "min": 36.402,
+   "max": 38.173,
+   "max_over_min": 1.048651173012472,
+   "cv": 0.018986146686119393,
+   "sel_distinct_frac": 0.2586399999999999,
+   "sel_copy0_frac": 0.47861999999999993,
+   "router_bytes_engine": 41713664.0,
+   "fill_s": 54.399800000000006,
+   "foreign_pct_max": 4.025923859393107
+  },
+  "m2/E-bf16/organs=1": {
+   "n": 3,
+   "rate": 35.661,
+   "min": 34.387,
+   "max": 37.451,
+   "max_over_min": 1.0891034402535842,
+   "cv": 0.0447503813888655,
+   "sel_distinct_frac": 0.25864,
+   "sel_copy0_frac": 0.47862,
+   "router_bytes_engine": 41713664.0,
+   "fill_s": 55.177,
+   "foreign_pct_max": 3.6075238629983155,
+   "router_lap_s": 0.0016017666666666667
+  },
+  "m2/E-f32/organs=0": {
+   "n": 20,
+   "rate": 35.908300000000004,
+   "min": 34.586,
+   "max": 36.673,
+   "max_over_min": 1.0603423350488639,
+   "cv": 0.02030441020596119,
+   "sel_distinct_frac": 0.2586399999999999,
+   "sel_copy0_frac": 0.47861999999999993,
+   "router_bytes_engine": 83427328.0,
+   "fill_s": 56.660700000000006,
+   "foreign_pct_max": 2.4088707621718073
+  },
+  "m2/E-f32/organs=1": {
+   "n": 3,
+   "rate": 34.65166666666667,
+   "min": 31.728,
+   "max": 36.168,
+   "max_over_min": 1.1399394856278364,
+   "cv": 0.07308612631160741,
+   "sel_distinct_frac": 0.25864,
+   "sel_copy0_frac": 0.47862,
+   "router_bytes_engine": 83427328.0,
+   "fill_s": 62.96200000000001,
+   "foreign_pct_max": 2.7599137148962765,
+   "router_lap_s": 0.0026761333333333334
+  },
+  "m2/H-bf16/organs=0": {
+   "n": 10,
+   "rate": 38.541700000000006,
+   "min": 37.339,
+   "max": 39.296,
+   "max_over_min": 1.052411687511717,
+   "cv": 0.01896354182068984,
+   "sel_distinct_frac": 0.32924,
+   "sel_copy0_frac": 0.4852,
+   "router_bytes_engine": 19922944.0,
+   "fill_s": 52.007400000000004,
+   "foreign_pct_max": 2.119085352048902
+  },
+  "m2/H-f32/organs=0": {
+   "n": 10,
+   "rate": 37.2599,
+   "min": 35.516,
+   "max": 38.432,
+   "max_over_min": 1.0821038405225816,
+   "cv": 0.025133986806947478,
+   "sel_distinct_frac": 0.32924,
+   "sel_copy0_frac": 0.4852,
+   "router_bytes_engine": 39845888.0,
+   "fill_s": 61.49770000000001,
+   "foreign_pct_max": 2.9901715808762286
+  },
+  "m4/E-bf16/organs=0": {
+   "n": 20,
+   "rate": 35.0818,
+   "min": 34.245,
+   "max": 35.96,
+   "max_over_min": 1.05008030369397,
+   "cv": 0.018395296312334494,
+   "sel_distinct_frac": 0.18909999999999996,
+   "sel_copy0_frac": 0.24070000000000005,
+   "router_bytes_engine": 84672512.0,
+   "fill_s": 57.92015,
+   "foreign_pct_max": 1.699683958991752
+  },
+  "m4/E-bf16/organs=1": {
+   "n": 3,
+   "rate": 33.77033333333333,
+   "min": 33.155,
+   "max": 34.153,
+   "max_over_min": 1.0301010405670337,
+   "cv": 0.01593547198344993,
+   "sel_distinct_frac": 0.18909999999999996,
+   "sel_copy0_frac": 0.2407,
+   "router_bytes_engine": 84672512.0,
+   "fill_s": 59.06066666666667,
+   "foreign_pct_max": 1.177897107223281,
+   "router_lap_s": 0.0032359
+  },
+  "m4/E-f32/organs=0": {
+   "n": 20,
+   "rate": 32.63120000000001,
+   "min": 31.688,
+   "max": 33.318,
+   "max_over_min": 1.0514390305478414,
+   "cv": 0.017118048763915164,
+   "sel_distinct_frac": 0.18909999999999996,
+   "sel_copy0_frac": 0.24070000000000005,
+   "router_bytes_engine": 169345024.0,
+   "fill_s": 62.926649999999995,
+   "foreign_pct_max": 1.392706615356423
+  },
+  "m4/E-f32/organs=1": {
+   "n": 3,
+   "rate": 32.543,
+   "min": 31.771,
+   "max": 33.087,
+   "max_over_min": 1.0414214220515565,
+   "cv": 0.021110150485632615,
+   "sel_distinct_frac": 0.18909999999999996,
+   "sel_copy0_frac": 0.2407,
+   "router_bytes_engine": 169345024.0,
+   "fill_s": 69.63266666666667,
+   "foreign_pct_max": 1.6883662326753466,
+   "router_lap_s": 0.005289100000000001
+  },
+  "m4/H-bf16/organs=0": {
+   "n": 10,
+   "rate": 37.591300000000004,
+   "min": 36.9,
+   "max": 38.97,
+   "max_over_min": 1.0560975609756098,
+   "cv": 0.01858256926275154,
+   "sel_distinct_frac": 0.25551,
+   "sel_copy0_frac": 0.23688999999999996,
+   "router_bytes_engine": 19922944.0,
+   "fill_s": 64.4854,
+   "foreign_pct_max": 1.7180627445262568
+  },
+  "m4/H-f32/organs=0": {
+   "n": 10,
+   "rate": 37.5292,
+   "min": 35.979,
+   "max": 38.282,
+   "max_over_min": 1.064009561132883,
+   "cv": 0.02123127722259969,
+   "sel_distinct_frac": 0.25551,
+   "sel_copy0_frac": 0.23688999999999996,
+   "router_bytes_engine": 39845888.0,
+   "fill_s": 64.72040000000001,
+   "foreign_pct_max": 1.6110802868709286
+  },
+  "m6/E-bf16/organs=0": {
+   "n": 10,
+   "rate": 32.574600000000004,
+   "min": 26.428,
+   "max": 34.331,
+   "max_over_min": 1.2990388981383383,
+   "cv": 0.06944471793957212,
+   "sel_distinct_frac": 0.16463999999999998,
+   "sel_copy0_frac": 0.1433,
+   "router_bytes_engine": 124518400.0,
+   "fill_s": 63.52610000000001,
+   "foreign_pct_max": 3.940412421664391
+  },
+  "m6/E-bf16/organs=1": {
+   "n": 3,
+   "rate": 33.42666666666666,
+   "min": 32.471,
+   "max": 33.919,
+   "max_over_min": 1.0445936373995257,
+   "cv": 0.02476342102744802,
+   "sel_distinct_frac": 0.16464,
+   "sel_copy0_frac": 0.1433,
+   "router_bytes_engine": 124518400.0,
+   "fill_s": 61.71133333333333,
+   "foreign_pct_max": 1.4143110364772833,
+   "router_lap_s": 0.004626866666666667
+  },
+  "m6/E-f32/organs=0": {
+   "n": 10,
+   "rate": 29.957600000000003,
+   "min": 29.495,
+   "max": 30.608,
+   "max_over_min": 1.0377352093575183,
+   "cv": 0.015535401287778196,
+   "sel_distinct_frac": 0.16463999999999998,
+   "sel_copy0_frac": 0.1433,
+   "router_bytes_engine": 249036800.0,
+   "fill_s": 74.2313,
+   "foreign_pct_max": 1.4899973064962413
+  },
+  "m6/E-f32/organs=1": {
+   "n": 3,
+   "rate": 30.079666666666668,
+   "min": 29.483,
+   "max": 30.382,
+   "max_over_min": 1.0304921480175016,
+   "cv": 0.017179178826599816,
+   "sel_distinct_frac": 0.16464,
+   "sel_copy0_frac": 0.1433,
+   "router_bytes_engine": 249036800.0,
+   "fill_s": 69.93566666666665,
+   "foreign_pct_max": 1.3252825514785571,
+   "router_lap_s": 0.007748033333333334
+  },
+  "m6/H-bf16/organs=0": {
+   "n": 10,
+   "rate": 37.4518,
+   "min": 35.899,
+   "max": 38.636,
+   "max_over_min": 1.0762416780411712,
+   "cv": 0.02727742062149155,
+   "sel_distinct_frac": 0.21714000000000003,
+   "sel_copy0_frac": 0.15795,
+   "router_bytes_engine": 19922944.0,
+   "fill_s": 59.607000000000006,
+   "foreign_pct_max": 2.7171080285834384
+  },
+  "m6/H-f32/organs=0": {
+   "n": 10,
+   "rate": 35.12749999999999,
+   "min": 32.882,
+   "max": 37.78,
+   "max_over_min": 1.148956876102427,
+   "cv": 0.04481925254885015,
+   "sel_distinct_frac": 0.21714000000000003,
+   "sel_copy0_frac": 0.15795,
+   "router_bytes_engine": 39845888.0,
+   "fill_s": 74.3007,
+   "foreign_pct_max": 1.5929494890658833
+  }
+ },
+ "replaced": 11,
+ "formats": {
+  "f32": {
+   "c_s_per_byte": 3.227727455005311e-11,
+   "c_ci95": [
+    3.196356589334053e-11,
+    3.2612315395422147e-11
+   ],
+   "v1": 37.4015,
+   "by_m": {
+    "m2": {
+     "dR_bytes": 43581440,
+     "v_E": 35.908300000000004,
+     "v_pred": 35.53207509717545,
+     "rho": 1.0105883177888042,
+     "rho_ci95": [
+      0.9976371034911284,
+      1.023769852711764
+     ],
+     "raw_ratio": 0.9600764675213562,
+     "raw_ratio_ci95": [
+      0.9474623282486995,
+      0.972935433334538
+     ],
+     "rho_inside_tau": true,
+     "pool_effect": 0.996214055586006,
+     "pool_effect_ci95": [
+      0.9783751754876758,
+      1.0134133299958903
+     ],
+     "router_s_per_byte_E_minus_H": 2.3179820967403424e-11,
+     "router_s_per_byte_E_minus_H_ci95": [
+      1.2369664983070933e-11,
+      3.346930178432759e-11
+     ]
+    },
+    "m4": {
+     "dR_bytes": 129499136,
+     "v_E": 32.63120000000001,
+     "v_pred": 32.344900405188746,
+     "rho": 1.0088514600825709,
+     "rho_ci95": [
+      0.9973928106325421,
+      1.0205339839562972
+     ],
+     "raw_ratio": 0.8724569870192375,
+     "raw_ratio_ci95": [
+      0.8617309442861851,
+      0.8834820308673933
+     ],
+     "rho_inside_tau": true,
+     "pool_effect": 1.0034143015654453,
+     "pool_effect_ci95": [
+      0.9870441547639924,
+      1.018855109623727
+     ],
+     "router_s_per_byte_E_minus_H": 3.088513884389929e-11,
+     "router_s_per_byte_E_minus_H_ci95": [
+      2.7548776635135174e-11,
+      3.382251188882717e-11
+     ]
+    },
+    "m6": {
+     "dR_bytes": 209190912,
+     "v_E": 29.957600000000003,
+     "v_pred": 29.860544022068225,
+     "rho": 1.0032503084290778,
+     "rho_ci95": [
+      0.9913313121059577,
+      1.015687602831053
+     ],
+     "raw_ratio": 0.8009732229990777,
+     "raw_ratio_ci95": [
+      0.7904901365592487,
+      0.8120391007317976
+     ],
+     "rho_inside_tau": true,
+     "pool_effect": 0.9392002994532302,
+     "pool_effect_ci95": [
+      0.912793756710675,
+      0.9659359961612395
+     ],
+     "router_s_per_byte_E_minus_H": 2.3484702840648793e-11,
+     "router_s_per_byte_E_minus_H_ci95": [
+      1.9512766301038955e-11,
+      2.7280610549402585e-11
+     ]
+    }
+   },
+   "verdict": "PASS"
+  },
+  "bf16": {
+   "c_s_per_byte": 3.8839641370271386e-11,
+   "c_ci95": [
+    3.8257398103412824e-11,
+    3.948378981205455e-11
+   ],
+   "v1": 38.342699999999994,
+   "by_m": {
+    "m2": {
+     "dR_bytes": 21790720,
+     "v_E": 37.253899999999994,
+     "v_pred": 37.1375456259042,
+     "rho": 1.003133065799982,
+     "rho_ci95": [
+      0.9906765338554852,
+      1.0159368637812025
+     ],
+     "raw_ratio": 0.971603460371857,
+     "raw_ratio_ci95": [
+      0.9593316237138794,
+      0.9842141132113514
+     ],
+     "rho_inside_tau": true,
+     "against_f32_T0_includes_router_upgrade": 0.9960536342125315,
+     "pool_effect": 1.00519003617377,
+     "pool_effect_ci95": [
+      0.9899534787069058,
+      1.0203557303318391
+     ],
+     "router_s_per_byte_E_minus_H": 4.115989227079519e-11,
+     "router_s_per_byte_E_minus_H_ci95": [
+      2.4218769098527452e-11,
+      5.755085435995212e-11
+     ]
+    },
+    "m4": {
+     "dR_bytes": 64749568,
+     "v_E": 35.0818,
+     "v_pred": 34.970618295955994,
+     "rho": 1.003179289056404,
+     "rho_ci95": [
+      0.9914695735142615,
+      1.0156298555063754
+     ],
+     "raw_ratio": 0.9149538243264039,
+     "raw_ratio_ci95": [
+      0.903702230367283,
+      0.9268046806770012
+     ],
+     "rho_inside_tau": true,
+     "against_f32_T0_includes_router_upgrade": 0.9379784233252678,
+     "pool_effect": 0.9804030493418567,
+     "pool_effect_ci95": [
+      0.9666921760726802,
+      0.9954458052455806
+     ],
+     "router_s_per_byte_E_minus_H": 2.9388749799019775e-11,
+     "router_s_per_byte_E_minus_H_ci95": [
+      2.401986008162276e-11,
+      3.5322782180055503e-11
+     ]
+    },
+    "m6": {
+     "dR_bytes": 104595456,
+     "v_E": 32.574600000000004,
+     "v_pred": 33.17516103522239,
+     "rho": 0.9818972684236631,
+     "rho_ci95": [
+      0.9349355776067857,
+      1.0141007869268992
+     ],
+     "raw_ratio": 0.8495645846536631,
+     "raw_ratio_ci95": [
+      0.8084511129745978,
+      0.8778132148012152
+     ],
+     "rho_inside_tau": false,
+     "against_f32_T0_includes_router_upgrade": 0.8709436787294629,
+     "pool_effect": 0.9767648079034602,
+     "pool_effect_ci95": [
+      0.958165306867346,
+      0.9947719386316455
+     ],
+     "router_s_per_byte_E_minus_H": 3.82213445412448e-11,
+     "router_s_per_byte_E_minus_H_ci95": [
+      2.808835831926386e-11,
+      5.305028130381462e-11
+     ]
+    }
+   },
+   "verdict": "PASS"
+  }
+ },
+ "bank": {
+  "1GB/k=2": {
+   "n": 3,
+   "median_token_ns": 15400.000000000002,
+   "ns_per_row": 406.58,
+   "gb_s": 10.074
+  },
+  "1GB/k=8": {
+   "n": 3,
+   "median_token_ns": 29400.0,
+   "ns_per_row": 193.42,
+   "gb_s": 21.177
+  },
+  "1GB/k=32": {
+   "n": 3,
+   "median_token_ns": 107200.0,
+   "ns_per_row": 176.23,
+   "gb_s": 23.242
+  },
+  "4GB/k=2": {
+   "n": 3,
+   "median_token_ns": 14800.0,
+   "ns_per_row": 389.47,
+   "gb_s": 10.517
+  },
+  "4GB/k=8": {
+   "n": 3,
+   "median_token_ns": 30500.0,
+   "ns_per_row": 200.66,
+   "gb_s": 20.413
+  },
+  "4GB/k=32": {
+   "n": 3,
+   "median_token_ns": 90100.0,
+   "ns_per_row": 148.27,
+   "gb_s": 27.625
+  },
+  "16GB/k=2": {
+   "n": 3,
+   "median_token_ns": 14300.0,
+   "ns_per_row": 376.32,
+   "gb_s": 10.884
+  },
+  "16GB/k=8": {
+   "n": 3,
+   "median_token_ns": 28600.0,
+   "ns_per_row": 188.16,
+   "gb_s": 21.769
+  },
+  "16GB/k=32": {
+   "n": 3,
+   "median_token_ns": 82700.0,
+   "ns_per_row": 136.02,
+   "gb_s": 30.113
+  },
+  "48GB/k=2": {
+   "n": 3,
+   "median_token_ns": 15000.0,
+   "ns_per_row": 394.74,
+   "gb_s": 10.377
+  },
+  "48GB/k=8": {
+   "n": 3,
+   "median_token_ns": 30500.0,
+   "ns_per_row": 200.66,
+   "gb_s": 20.413
+  },
+  "48GB/k=32": {
+   "n": 3,
+   "median_token_ns": 84200.0,
+   "ns_per_row": 138.57,
+   "gb_s": 29.559
+  },
+  "largest_over_smallest_k=2": 0.9740259740259739,
+  "largest_over_smallest_k=8": 1.0374149659863945,
+  "largest_over_smallest_k=32": 0.7854477611940298
+ },
+ "verdict": {
+  "f32": "PASS",
+  "bf16": "PASS"
+ }
+}

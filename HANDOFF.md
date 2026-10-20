@@ -68,7 +68,7 @@ Rules that are easy to break:
 | A1b (timing stability) | PASS, arm B0 (`--mem map`, normal priority) | `results/c50_a1b_verdict_2.json` |
 | **S0** (v0 of T0 on the engine) | **Done. v0 = 35.94 tok/s at ctx 2048 (CI95 35.64..36.25), STABLE**; 39.01 at 512, 30.79 at 4096; organ breakdown validated | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S0_V0_RESULT_20261019.md) |
 | **S2** (Ling-mini -> Ling-flash gap map) | **MIXED, S3-S5 proceed** (RER_K 0.219, RER_R 0.247, D CI95 -0.111..+0.058) | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S2_GAP_MAP_RESULT_20261019.md) |
-| **S1** (speed invariance with capacity, m = 2, 4, 6) | **Ready, not run.** Expansions built, checked and pinned (addendum 2); the session needs the user's terminal and ~4.5-5 h of empty machine | [protocol + addenda](docs/research/CHATBOT50_ROADMAP_20261016/C50_S1_CAPACITY_INVARIANCE_PROTOCOL_20261018.md) |
+| **S1** (speed invariance with capacity, m = 2, 4, 6) | **PASS in both router formats (20 October, run 3).** ρ at m2/m4: F32 1.011/1.009, BF16 1.003/1.003, every CI95 inside [0.97, 1.03]; raw v(m4)/v(1) F32 0.873, BF16 0.915 (the router's bytes). S4 and S5 use the BF16 router | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S1_CAPACITY_INVARIANCE_RESULT_20261020.md) |
 | **S3** (teacher signal) | **Decided: option A, local top-k logits from F0**, with resumable runs and a GPU study. Tool built and checked; **no S3 protocol yet; no teacher data kept yet** | [sizing](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_TEACHER_SIZING_20261019.md), §12 rows of 19 October |
 | S4, S5 | Not started | ROADMAP §5 |
 
@@ -79,17 +79,18 @@ F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,
 
 ## 3. What runs right now
 
-**Nothing.** No job of this project was running when this file was written. The C: drive is about to be reset by
-the user (§7).
+**Nothing.** (Updated 20 October, after S1.) The C: reset was not needed: the user fixed C: without formatting, so
+the environment of §7 is intact. The user's `tiktok_publisher` daemon (another project) was suspended during S1 and
+resumed after it: for a timed session, ask the user before pausing it again.
 
 ## 4. Next steps, in order
 
-1. **After the C: reset, restore the environment** (§7): Claude memory, Python 3.12 with the packages, the two
+1. **Done (20 October): no restore was needed.** ~~After the C: reset, restore the environment~~ (§7): Claude memory, Python 3.12 with the packages, the two
    compilers (only if a tool must be rebuilt), `gh auth login`, the NVIDIA driver.
-2. **Re-stage S1 on C:** `python -I benchmarks/chatbot50/c50_s1_stage.py` (copies T0 and the three expansions from
+2. **Done (20 October).** ~~Re-stage S1 on C:~~ `python -I benchmarks/chatbot50/c50_s1_stage.py` (copies T0 and the three expansions from
    E: to `C:/SiliconLLM_stage/s1/`, re-hashes each against its pin; needs ~129 GB free on C:; ~1 h; reads no rate;
    launch it yourself, it is a copy). The S1 runner refuses any file whose hash differs.
-3. **The user runs command E** (S1 session) from their own terminal, machine empty (browser closed):
+3. **Done: S1 PASS (20 October, run 3, in the agent session with the reaper off; runs 1-2 VOID at the pre-flight).** ~~The user runs command E~~ (S1 session) from their own terminal, machine empty (browser closed):
 
    ```
    cmd /c "cd /d D:\_THINGS\Progetti\SiliconLLM && python -I benchmarks/chatbot50/c50_s1_run.py --out benchmarks/chatbot50/results/c50_s1_run_1.json > E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/s1_run_1.log 2>&1"
