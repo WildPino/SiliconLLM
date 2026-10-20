@@ -1,0 +1,101 @@
+{
+ "cell": "C50-S3 corpus v1",
+ "seed": 20261016,
+ "target_tokens": 50000000,
+ "chunk": 2048,
+ "min_chunk": 64,
+ "ngram": 13,
+ "min_letter_tokens": 8,
+ "tokenizer": {
+  "path": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\sources\\Ling-mini-2.0_a810f64\\tokenizer.json",
+  "sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+  "add_special_tokens": false
+ },
+ "sources": {
+  "wiki": {
+   "repo": "wikimedia/wikipedia",
+   "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+   "file": "20231101.en/train-00000-of-00041.parquet",
+   "sha256": "382e7f6f09e488b24793a7f7cfc659879d5a22da2cf2efec6491665f0c019677"
+  },
+  "edu": {
+   "repo": "HuggingFaceFW/fineweb-edu",
+   "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+   "file": "sample/10BT/000_00000.parquet",
+   "sha256": "b1ba7b2ce4cb5ea6ef42dca40263eabb85f37700d01693a68e9b30a31d78e871"
+  },
+  "gsm8k": {
+   "repo": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "file": "main/train-00000-of-00001.parquet",
+   "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d"
+  },
+  "metamath": {
+   "repo": "meta-math/MetaMathQA",
+   "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+   "file": "MetaMathQA-395K.json",
+   "sha256": "fb39a5d8c05c042ece92eae37dfd5ea414a5979df2bf3ad3b86411bef8205725"
+  }
+ },
+ "eval_files": [
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\arc.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\chat.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\docs.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\gsm8k.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\ifeval.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\piqa.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\rollout.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis\\inputs\\docs.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_post\\inputs\\docs.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4bis_smoke\\inputs\\docs.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\arc.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\chat.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\docs.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\gsm8k.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\ifeval.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\piqa.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a6dev\\inputs\\rollout.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\mmlu.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\nq.tsv",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\tqa.tsv",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\corpus\\c50_holdout_ext_v1\\devb_ids.jsonl",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\corpus\\c50_holdout_ext_v1\\sel_ids.jsonl",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\corpus\\c50_holdout_v1\\dev_ids.jsonl",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\corpus\\c50_holdout_v1\\fit_ids.jsonl",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\corpus\\c50_holdout_v1\\reserved_ids.jsonl"
+ ],
+ "eval_sequences": 17647,
+ "eval_ngrams": 1471099,
+ "stats": {
+  "wiki": {
+   "items_seen": 14729,
+   "items_dropped_contaminated": 12,
+   "windows_dropped_short": 422,
+   "chunks": 17569,
+   "tokens": 16666841,
+   "positions": 16649272
+  },
+  "edu": {
+   "items_seen": 16131,
+   "items_dropped_contaminated": 7,
+   "windows_dropped_short": 89,
+   "chunks": 18816,
+   "tokens": 16666730,
+   "positions": 16647914
+  },
+  "math": {
+   "items_seen": 71936,
+   "items_dropped_contaminated": 18,
+   "windows_dropped_short": 153,
+   "chunks": 71765,
+   "tokens": 16667157,
+   "positions": 16595392
+  }
+ },
+ "docs": 108150,
+ "tokens": 50000728,
+ "positions": 49892578,
+ "teacher_tsv_sha256": "b748733a0da0f631b26f428c220e48c116cafa0a8073d484041195fd233e6ac8",
+ "meta_sha256": "2eb78b0b156bbcd3d70be9aef27037c8a743ba6c3c89a809256eb5e9a2fdfe92",
+ "wall_s": 155.3
+}
