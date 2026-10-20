@@ -123,8 +123,12 @@ for a timed session, ask the user before pausing it again.
    ```
 
    Ctrl+C stops it; the same command resumes it (at most the shard in progress is lost). The first start hashes F0
-   (~4 min). An open question to the user (COMMUNICATION): keep the CPU teacher, or override the frozen rule and use
-   the GPU path (~5 days instead of ~29, +0.0027 BPB from S2's F0 on MMLU). Do not switch without that answer.
+   (~4 min). **Open decision (COMMUNICATION item 1, 20 October evening): A = CPU as above, stopped at S4's volume;
+   B = the local GPU in blocks (~1 day per 10 M, ESTIMATE), by an explicit decision that overrides the fidelity rule
+   (recommended: S4 compares arms under one teacher, and +0.0027 BPB is ~6% of its 20%-of-gap margin, equal for all
+   arms); C = no teacher, plain CE on corpus v1 (a ROADMAP change).** T4s cannot hold F0 Q4 (62 GB against 32 GB
+   VRAM + ~30 GB host RAM). Nothing is launched until the user answers; with B, write addendum 2 (launcher `--gpu`
+   path, block size) before the run.
    When the first day has run, score the throughput prediction (14-22 tok/s, addendum 1) in a §12 row.
 7. **S4's protocol** (ROADMAP §5 S4) is next and can be written while the teacher runs: arms (a) extra experts,
    (b) memory bank, (c) LoRA control; gate on S2's donor-gap panel; BF16 router (S1). It fixes how much teacher signal
