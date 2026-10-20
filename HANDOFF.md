@@ -119,8 +119,7 @@ for a timed session, ask the user before pausing it again.
    itself at 10 M positions):
 
    ```
-   cd /d D:\_THINGS\Progetti\SiliconLLM
-   python -I benchmarks/chatbot50/c50_s3_teach.py
+   python -I D:\_THINGS\Progetti\SiliconLLM\benchmarks\chatbot50\c50_s3_teach.py
    ```
 
    Ctrl+C stops it; the same command resumes it (at most the shard in progress is lost). The first start hashes F0
