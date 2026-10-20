@@ -77,7 +77,7 @@ path is closer to BF16 elsewhere.
 
 ## What follows
 
-- **By the protocol the teacher is the CPU build** (addendum 1): `c50_s3_teacher_avx2.exe`, ctx 4096, ubatch 512,
+- **Superseded the same evening by addendum 2** (the GPU configuration in blocks, by decision; the CPU build never ran). As first written: **by the protocol the teacher is the CPU build** (addendum 1): `c50_s3_teacher_avx2.exe`, ctx 4096, ubatch 512,
   6 threads, the numerics of S2's F0 scores. The launcher (`c50_s3_teach.py`) now runs it; its CPU path was tested on
   a 4-token input (CONFIG confirmed, output byte-identical to the diagnosis run).
 - **Its cost (ESTIMATE):** about 20 tok/s, ~1.7 M tokens per day. The 50 M tokens decided would take ~29 days of

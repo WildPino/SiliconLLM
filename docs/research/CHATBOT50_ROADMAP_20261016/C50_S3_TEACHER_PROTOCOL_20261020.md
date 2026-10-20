@@ -143,3 +143,29 @@ is F0's CPU path, the one S2's gap map was measured with.
   finished prefix is a balanced mix; S4 may start from one.
 - **Registered prediction:** the first day's mean throughput is 14-22 tok/s (the box in normal use).
 - Using the GPU configuration despite the FAIL would override this protocol's rule. It is not done here.
+
+## Addendum 2 (20 October, evening, before any teacher data is kept): the GPU configuration, in blocks, by decision
+
+- **Decided:** the teacher runs on the GPU configuration of this protocol after all, in blocks. Under addendum 1 the
+  CPU build would take ~29 days for the 50 M tokens (ESTIMATE). Three options were put to a decision (the CPU stopped
+  at S4's volume; the local GPU in blocks; no teacher and plain CE on corpus v1), and the GPU in blocks was chosen.
+- **Why it is acceptable for S4, and what it costs.** S4 is a falsifier: it compares its arms under one teacher and
+  passes only on a margin of 20% of the F0 − T0 gap (~0.046 BPB on S2's documents). The GPU path differs from S2's F0
+  by +0.0027 BPB on MMLU outside position 1 ([fidelity result](C50_S3_FIDELITY_RESULT_20261020.md)), ~6% of that
+  margin and the same for every arm. **The fidelity rule's FAIL stands and is not relabelled.** The teacher is called
+  "F0, GPU path" wherever it is used; it is not S2's F0 numerics.
+- **Configuration:** the production configuration above, unchanged: binary `c50_s3_teacher_cuda.exe` (`8a079d53…`),
+  fp32 cuBLAS, `--ngl 99 --cpu-moe --ctx 2048 --ubatch 2048 --topk 32 --threads 6`, 48 documents per shard, output
+  `s3/teacher_v1/`. The CPU configuration of addendum 1 never ran.
+- **Blocks:**
+  - **Block 1 = the first 10,000,000 positions of corpus v1** (a balanced prefix). The launcher stops by itself at the
+    first finished shard at or past it (`--until`, default 10,000,000).
+  - A later block runs only after a §12 row decides it: S4's protocol fixes the volume, or S4's pilot justifies more.
+    The command is the same with `--until` raised.
+- **Launcher test** (scratchpad, not teacher data): 6 MMLU sequences in 3 shards of 2. `--until 10` stopped after shard
+  0 and logged `block_done`; a restart with the block done ran nothing; `--until 100000` resumed shards 1-2. The 214
+  records are byte-identical to the same sequences in the fidelity run: the GPU path is deterministic from run to run.
+- **Time (ESTIMATE):** block 1 ~25 h (per document ~0.7 s plus ~0.006-0.008 s per token, from the fidelity run and
+  the GPU study); 50 M ~5 days.
+- **Registered predictions:** block 1 takes 18-36 h of wall time running, i.e. a mean of 77-154 tok/s. Addendum 1's
+  CPU throughput prediction is withdrawn unscored (the CPU did not run).
