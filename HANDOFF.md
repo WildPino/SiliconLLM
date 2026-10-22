@@ -81,6 +81,8 @@ F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,
 ## 3. What runs right now
 
 **22 October, ~22:00: S4 trainings session 1 on Kaggle** (MVE-5 PASS, 28c813c): `wildpino/c50-s4-train-b-s1`, `giggio253/c50-s4-train-a-s1`, `sirwildpino/c50-s4-train-c496-s1`; each stops at 9.5 h with `train/ckpt.pt` (PAUSED) and continues in an `-s2` kernel with `--sources` on the `-s1` one; c48 follows c496 on acct3. Earlier, MVE-5 ran as kernel `wildpino/c50-s4-eval-t0`.
+
+**23 October, ~01:40: arm (b) restarted from step 0 as `wildpino/c50-s4-train-b-s1r`** (`--task train-b --sources wildpino/c50-s4-bank`). Session `train-b-s1` was VOID: ERROR after ~2.75 h with an empty log and no files, a container-level death (a known-positive error kernel keeps both; arm (b)'s host path measured flat at 12.0 GiB of the 30 GiB limit); cause not identified (ROADMAP §12, 51a70c3). The trainer now logs cgroup memory per step and ends PAUSED-LOWMEM with `ckpt.pt` within 2 GiB of the limit; the code dataset with it (`c50_s4_train.py` sha e20b5be4) is on all three accounts, so the `-s2` sessions of (a) and (c496) and the c48 run use it. Arm (b)'s next session: `push train-b-s2 --task train-b --sources wildpino/c50-s4-train-b-s1r,wildpino/c50-s4-bank`.
 When it ends: `c50_s4_kaggle.py output eval-t0`, then `c50_s4_verdict.py mve5 --t0 <out>/eval --json
 results/c50_s4_mve5.json` (a FAIL stops the line for a design review). After a PASS the four trainings start, one per
 account at a time: b on acct1 (it reads `wildpino/c50-s4-bank`), a on acct2, c496 then c48 on acct3, e.g.
