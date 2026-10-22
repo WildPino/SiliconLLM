@@ -35,6 +35,8 @@ from c50_s4_t0_gpu import T0Quant  # noqa: E402
 
 SEED, TOKENS, LR, LR_END, WARMUP, CLIP, RATE_A = 20261016, 8192, 1e-4, 1e-5, 30, 1.0, 0.01
 TRAIN_SHARDS, VAL_SHARDS, VAL_EVERY, CKPT_EVERY = range(470), range(470, 472), 250, 100
+MEM_FLOOR_GIB = 2.0          # save and pause when the container's anon memory comes this close to its limit
+CGROUP = Path("/sys/fs/cgroup")
 ARMS = {"a": ("a", 0), "b": ("b", 0), "c48": ("c", 48), "c496": ("c", 496)}
 
 
@@ -43,6 +45,27 @@ def lr_at(step: int, total: int) -> float:
         return LR * (step + 1) / WARMUP
     f = (step - WARMUP) / max(1, total - 1 - WARMUP)
     return LR_END + 0.5 * (LR - LR_END) * (1 + math.cos(math.pi * min(1.0, f)))
+
+
+def host_mem() -> dict:
+    """The container's memory (cgroup v2: current, anon, max) and this process's RSS, in GiB; {} where unreadable.
+    Added after train-b-s1 died with no log and no output (VOID, 23 October): a container kill leaves nothing, so the
+    trainer watches the limit itself."""
+    g, out = CGROUP, {}
+    try:
+        out["cur"] = int((g / "memory.current").read_text()) / 2**30
+        stat = dict(l.split() for l in (g / "memory.stat").read_text().splitlines())
+        out["anon"] = int(stat["anon"]) / 2**30
+        m = (g / "memory.max").read_text().strip()
+        out["max"] = int(m) / 2**30 if m != "max" else None
+    except (OSError, KeyError, ValueError):
+        pass
+    try:
+        out["rss"] = int(next(l for l in Path("/proc/self/status").read_text().splitlines()
+                              if l.startswith("VmRSS")).split()[1]) / 2**20
+    except (OSError, StopIteration):
+        pass
+    return {k: round(v, 2) if v is not None else None for k, v in out.items()}
 
 
 def bank_inputs(S: Student, bank: BankReader | None, ids, segs, tid=None, tlp=None):
@@ -104,7 +127,8 @@ def main() -> int:
            "optimizer": "AdamW (0.9, 0.999) wd 0", "rate_a": RATE_A if kind == "a" else None,
            "train_shards": [TRAIN_SHARDS[0], TRAIN_SHARDS[-1]], "val_shards": [VAL_SHARDS[0], VAL_SHARDS[-1]],
            "bank": str(a.bank) if a.bank else None, "resume": str(a.resume) if a.resume else None,
-           "cap_h": a.cap_h, "stop_at": a.stop_at, "smoke": a.cpu_smoke}
+           "cap_h": a.cap_h, "stop_at": a.stop_at, "smoke": a.cpu_smoke, "mem_floor_gib": MEM_FLOOR_GIB,
+           "mem_start": host_mem()}
     print("CONFIG", json.dumps(cfg), flush=True)
     if not smoke:
         assert cfg["gpus"] == ["Tesla T4", "Tesla T4"], cfg["gpus"]
@@ -185,8 +209,15 @@ def main() -> int:
         if kind == "a":
             e["copy_share"] = round(S.load_step(), 5)
         e["s"] = round(time.time() - t1, 3)
+        e["mem"] = host_mem()
+        if not smoke:
+            e["mem"]["gpu"] = [round(torch.cuda.max_memory_allocated(i) / 2**30, 2) for i in range(2)]
         log.append(e)
         step += 1
+        m = e["mem"]
+        if m.get("max") and m.get("anon") is not None and m["max"] - m["anon"] < MEM_FLOOR_GIB:
+            save(a.out / "ckpt.pt")
+            return finish("PAUSED-LOWMEM", {"step": step, "total": total, "log": log, "vals": vals}, 0)
         if step < 4 or step % 20 == 0:
             print("STEP", json.dumps(e), flush=True)
         if step % VAL_EVERY == 0 or step == total:
