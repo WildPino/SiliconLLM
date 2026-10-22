@@ -6,7 +6,9 @@ the 128 head dimensions (theta 600000), GQA 16/4, layer 0 a dense SiLU FFN; laye
 routed experts: sigmoid scores, expert bias for selection only, 8 groups of which the best 4 (by the sum of their top-2
 biased scores) are kept, weights = unbiased scores of the selected experts normalized to sum 1, times 2.5.
 
-Weights are dequantized per layer on demand (`Layer.load`), so a forward can run with one layer's experts in memory.
+Weights are dequantized per layer on demand (`W.get`), so a forward can run with one layer's experts in memory. The
+forward is device- and dtype-agnostic: `W.dev(i)` places layer i, and matmuls run in the weights' dtype with the
+residual stream, norms and router in fp32 (on the CPU everything is fp32; `c50_s4_t0_gpu.py` holds fp16 weights).
 
     python -I benchmarks/chatbot50/c50_s4_t0_torch.py --mve1 --docs 2 --tokens 256   # MVE-1, fidelity against P0
 """
@@ -49,12 +51,21 @@ class T0Weights:
         return torch.from_numpy(np.stack(rows).astype(np.float32))
 
 
+    def dev(self, i: int) -> torch.device:
+        return torch.device("cpu")
+
+
+def mm(x: torch.Tensor, w: torch.Tensor) -> torch.Tensor:
+    """x @ w.T in w's dtype, returned in fp32 (a no-op cast on the fp32 CPU path)."""
+    return (x.to(w.dtype) @ w.T).float()
+
+
 def rms(x: torch.Tensor, w: torch.Tensor) -> torch.Tensor:
     return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + EPS) * w
 
 
 def rope(x: torch.Tensor, pos: torch.Tensor) -> torch.Tensor:
-    inv = 1.0 / (THETA ** (torch.arange(0, ROPE, 2, dtype=torch.float32) / ROPE))
+    inv = 1.0 / (THETA ** (torch.arange(0, ROPE, 2, dtype=torch.float32, device=x.device) / ROPE))
     f = pos[:, None].float() * inv[None, :]
     cos, sin = torch.cat([f, f], -1).cos(), torch.cat([f, f], -1).sin()
     r, p = x[..., :ROPE], x[..., ROPE:]
@@ -66,25 +77,27 @@ def rope(x: torch.Tensor, pos: torch.Tensor) -> torch.Tensor:
 def attention(x: torch.Tensor, W: T0Weights, i: int) -> torch.Tensor:
     T = x.shape[0]
     h = rms(x, W.get(f"blk.{i}.attn_norm.weight"))
-    qkv = h @ W.get(f"blk.{i}.attn_qkv.weight").T
+    qkv = mm(h, W.get(f"blk.{i}.attn_qkv.weight"))
     q = qkv[:, :NH * HD].view(T, NH, HD)
     k = qkv[:, NH * HD:(NH + NKV) * HD].view(T, NKV, HD)
     v = qkv[:, (NH + NKV) * HD:].view(T, NKV, HD)
     q, k = rms(q, W.get(f"blk.{i}.attn_q_norm.weight")), rms(k, W.get(f"blk.{i}.attn_k_norm.weight"))
-    pos = torch.arange(T)
+    pos = torch.arange(T, device=x.device)
     q, k = rope(q.transpose(0, 1), pos), rope(k.transpose(0, 1), pos)
     v = v.transpose(0, 1)
     k, v = k.repeat_interleave(NH // NKV, 0), v.repeat_interleave(NH // NKV, 0)
+    wo = W.get(f"blk.{i}.attn_output.weight")
+    q, k, v = q.to(wo.dtype), k.to(wo.dtype), v.to(wo.dtype)
     o = F.scaled_dot_product_attention(q[None], k[None], v[None], is_causal=True)[0]
-    return x + o.transpose(0, 1).reshape(T, NH * HD) @ W.get(f"blk.{i}.attn_output.weight").T
+    return x + mm(o.transpose(0, 1).reshape(T, NH * HD), wo)
 
 
 def swiglu(x, g, u, d):
-    return (F.silu(x @ g.T) * (x @ u.T)) @ d.T
+    return mm(F.silu(mm(x, g)) * mm(x, u), d)
 
 
 def route(h: torch.Tensor, gate_w: torch.Tensor, bias: torch.Tensor):
-    s = torch.sigmoid(h @ gate_w.T)
+    s = torch.sigmoid(mm(h, gate_w))
     b = s + bias
     g = b.view(-1, N_GROUP, N_EXP // N_GROUP).topk(2, -1)[0].sum(-1)
     keep = torch.zeros_like(g).scatter_(1, g.topk(TOPK_GROUP, -1)[1], 1.0)
@@ -112,8 +125,9 @@ def ffn(x: torch.Tensor, W: T0Weights, i: int) -> torch.Tensor:
 def logits(ids: torch.Tensor, W: T0Weights) -> torch.Tensor:
     x = W.embed_rows(ids)
     for i in range(N_LAYERS):
+        x = x.to(W.dev(i))
         x = ffn(attention(x, W, i), W, i)
-    return rms(x, W.get("output_norm.weight")) @ W.get("output.weight").T
+    return mm(rms(x, W.get("output_norm.weight")), W.get("output.weight"))
 
 
 def mve1(n_docs: int, n_tok: int, out: Path) -> dict:
