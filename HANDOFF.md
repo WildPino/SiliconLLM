@@ -69,7 +69,7 @@ Rules that are easy to break:
 | **S0** (v0 of T0 on the engine) | **Done. v0 = 35.94 tok/s at ctx 2048 (CI95 35.64..36.25), STABLE**; 39.01 at 512, 30.79 at 4096; organ breakdown validated | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S0_V0_RESULT_20261019.md) |
 | **S2** (Ling-mini -> Ling-flash gap map) | **MIXED, S3-S5 proceed** (RER_K 0.219, RER_R 0.247, D CI95 -0.111..+0.058) | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S2_GAP_MAP_RESULT_20261019.md) |
 | **S1** (speed invariance with capacity, m = 2, 4, 6) | **PASS in both router formats (20 October, run 3).** ρ at m2/m4: F32 1.011/1.009, BF16 1.003/1.003, every CI95 inside [0.97, 1.03]; raw v(m4)/v(1) F32 0.873, BF16 0.915 (the router's bytes). S4 and S5 use the BF16 router | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S1_CAPACITY_INVARIANCE_RESULT_20261020.md) |
-| **S3** (teacher signal) | **Option A, corpus (a), 50 M tokens. Protocol pushed; the GPU fidelity check FAILed (+0.0112 BPB, top-1 93.3%; addendum 1 = CPU), then the GPU configuration was chosen by decision, in blocks (addendum 2): block 1 = 10 M positions, ESTIMATE ~25 h.** The user starts and stops it from their own terminal; the teacher is labelled "F0, GPU path" | [protocol + addendum 1](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_TEACHER_PROTOCOL_20261020.md), [fidelity result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_FIDELITY_RESULT_20261020.md) |
+| **S3** (teacher signal) | **Option A, corpus (a), 50 M tokens. Protocol pushed; the GPU fidelity check FAILed (+0.0112 BPB, top-1 93.3%; addendum 1 = CPU), then the GPU configuration was chosen by decision, in blocks (addendum 2): block 1 = 10 M positions, COMPLETE 22 October (10,006,142 positions, 32.1 h, 86.5 tok/s; prediction RIGHT).** The user starts and stops it from their own terminal; the teacher is labelled "F0, GPU path" | [protocol + addendum 1](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_TEACHER_PROTOCOL_20261020.md), [fidelity result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_FIDELITY_RESULT_20261020.md) |
 | S4, S5 | Not started | ROADMAP §5 |
 
 Pins: T0 = P0 = `ling-mini-2.0-a810f64-q4_k_m.gguf` (sha256 `44de7315…`); M0 = Q4_K_M without imatrix (`1f545368…`);
@@ -125,8 +125,8 @@ for a timed session, ask the user before pausing it again.
    Ctrl+C stops it; the same command resumes it (at most the shard in progress is lost). The first start hashes F0
    (~4 min). **Decided 20 October evening: option B** (the GPU in blocks; the alternatives were the CPU stopped at
    S4's volume, or no teacher). T4s cannot hold F0 Q4 (62 GB against 32 GB VRAM + ~30 GB host RAM). A later block
-   (`--until` raised, up to 49,892,578) needs its own §12 row: S4's volume or its pilot. When block 1 ends, score its
-   prediction (18-36 h, 77-154 tok/s; addendum 2) in a §12 row with `teach.log` and `launches.jsonl`.
+   (`--until` raised, up to 49,892,578) needs its own §12 row: S4's volume or its pilot. Block 1 ended 22 October and
+   is scored in §12 (RIGHT). Nothing runs now.
    When the first day has run, score the throughput prediction (14-22 tok/s, addendum 1) in a §12 row.
 7. **S4's protocol** (ROADMAP §5 S4) is next and can be written while the teacher runs: arms (a) extra experts,
    (b) memory bank, (c) LoRA control; gate on S2's donor-gap panel; BF16 router (S1). It fixes how much teacher signal
