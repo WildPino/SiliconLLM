@@ -1,4 +1,4 @@
-"""C50-S4 Kaggle kernel: finds the two datasets on the mount, prints the code manifest, runs TASK, and fails loudly.
+"""C50-S4 Kaggle kernel: finds the datasets on the mount, prints the code manifest, runs TASK, and fails loudly.
 
 TASK is set by `c50_s4_kaggle.py push <task>`.
 """
@@ -34,6 +34,10 @@ elif TASK == "mve3":
     cmd = [sys.executable, "-u", str(code / "c50_s4_student.py"), "--mve3", "--gguf", str(gguf),
            "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
            "--cap-min", "20", "--out", str(out / "mve3.json")]
+elif TASK == "bank":
+    cmd = [sys.executable, "-u", str(code / "c50_s4_bank.py"), "--gguf", str(gguf),
+           "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
+           "--out", str(out / "bank")]
 else:
     raise SystemExit(f"unknown TASK {TASK}")
 print("CMD", json.dumps(cmd), flush=True)
