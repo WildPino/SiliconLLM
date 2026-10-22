@@ -70,7 +70,8 @@ Rules that are easy to break:
 | **S2** (Ling-mini -> Ling-flash gap map) | **MIXED, S3-S5 proceed** (RER_K 0.219, RER_R 0.247, D CI95 -0.111..+0.058) | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S2_GAP_MAP_RESULT_20261019.md) |
 | **S1** (speed invariance with capacity, m = 2, 4, 6) | **PASS in both router formats (20 October, run 3).** ρ at m2/m4: F32 1.011/1.009, BF16 1.003/1.003, every CI95 inside [0.97, 1.03]; raw v(m4)/v(1) F32 0.873, BF16 0.915 (the router's bytes). S4 and S5 use the BF16 router | [result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S1_CAPACITY_INVARIANCE_RESULT_20261020.md) |
 | **S3** (teacher signal) | **Option A, corpus (a), 50 M tokens. Protocol pushed; the GPU fidelity check FAILed (+0.0112 BPB, top-1 93.3%; addendum 1 = CPU), then the GPU configuration was chosen by decision, in blocks (addendum 2): block 1 = 10 M positions, COMPLETE 22 October (10,006,142 positions, 32.1 h, 86.5 tok/s; prediction RIGHT).** The user starts and stops it from their own terminal; the teacher is labelled "F0, GPU path" | [protocol + addendum 1](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_TEACHER_PROTOCOL_20261020.md), [fidelity result](docs/research/CHATBOT50_ROADMAP_20261016/C50_S3_FIDELITY_RESULT_20261020.md) |
-| S4, S5 | Not started | ROADMAP §5 |
+| **S4** (the falsifier at m ≈ 2) | **Design pushed; feasibility checks under way (22 October).** MVE-1: T0 in PyTorch is T0. **MVE-2 PASS** (T4 x2: dequantization bit-identical on 159 tensors; fp16 vs P0 mean \|dlogp\| 0.0782, top-1 97.26%). MVE-4: bank of 1,492,153 rows (m ≈ 1.62). Arm (a) amended before any training (copies start unpicked, so the arm starts as T0). **MVE-3 running on Kaggle.** Protocol after MVE-3 | [design](docs/research/CHATBOT50_ROADMAP_20261016/C50_S4_DESIGN_20261022.md) |
+| S5 | Not started | ROADMAP §5 |
 
 Pins: T0 = P0 = `ling-mini-2.0-a810f64-q4_k_m.gguf` (sha256 `44de7315…`); M0 = Q4_K_M without imatrix (`1f545368…`);
 F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,640 bytes); S1 expansions m2 / m4 / m6 =
@@ -79,7 +80,13 @@ F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,
 
 ## 3. What runs right now
 
-**Nothing from the agent session** (20 October, evening). The S3 teacher is the user's to start, from their own
+**22 October: S4 MVE-3 on Kaggle** (account acct1 = wildpino, kernel `wildpino/c50-s4-mve3`, ~2-2.5 h, <= 3 GPU-h).
+Check and fetch it with the S4 driver (from the `.venv`, see §7):
+`.venv/Scripts/python.exe -I benchmarks/chatbot50/c50_s4_kaggle.py status mve3` and `... output mve3` (output goes to
+`E:/.../chatbot50_20261016/s4/kaggle_out/mve3/`). Datasets on wildpino: `c50-s4-t0` (T0's GGUF), `c50-s4-code`
+(code + gguf-py + refs, versioned), `c50-s4-block1` (S3 block 1 and the corpus). Nothing runs locally.
+
+**Before that, 20 October, evening: nothing from the agent session.** The S3 teacher is the user's to start, from their own
 terminal (command in COMMUNICATION and below); check its progress with
 `python -I benchmarks/chatbot50/c50_s3_teach.py --status`. While it runs it holds F0 (62 GB mapped) and six cores:
 no other long job and no rate cell beside it. F0 is staged at `C:/SiliconLLM_stage/f0/` (hash checked). The C: reset
@@ -128,9 +135,13 @@ for a timed session, ask the user before pausing it again.
    (`--until` raised, up to 49,892,578) needs its own §12 row: S4's volume or its pilot. Block 1 ended 22 October and
    is scored in §12 (RIGHT). Nothing runs now.
    When the first day has run, score the throughput prediction (14-22 tok/s, addendum 1) in a §12 row.
-7. **S4: design pushed and MVE-1 done (22 October)** ([design](docs/research/CHATBOT50_ROADMAP_20261016/C50_S4_DESIGN_20261022.md)):
-   T0 in PyTorch (`benchmarks/chatbot50/c50_s4_t0_torch.py`) is T0. Next MVE-2 and MVE-3 on Kaggle T4 x2
-   (announced, <= 4 GPU-h), MVE-4 on the CPU, then the protocol before any arm trains. Original plan: arms (a) extra experts,
+7. **S4: design pushed, MVE-1, MVE-2 (PASS) and MVE-4 done, MVE-3 running (22 October)**
+   ([design](docs/research/CHATBOT50_ROADMAP_20261016/C50_S4_DESIGN_20261022.md)). Code: `c50_s4_dequant.py` (Q4_K/Q6_K
+   in PyTorch), `c50_s4_t0_torch.py` (T0's forward), `c50_s4_t0_gpu.py` (T0 from its quantized blocks on two GPUs,
+   MVE-2), `c50_s4_student.py` (arms, block-1 reader, 33-bucket KL, MVE-3), `c50_s4_kaggle.py` + `kaggle/c50_s4_kernel.py`
+   (Kaggle). When MVE-3 is back: record it (§12 row, design note), size the S4 run from its step times, then write and
+   push the S4 protocol (gate numbers, predictions, the arm-(a) load rate and its share curve) before any arm trains.
+   Budget so far: ~0.2 GPU-h (MVE-2) of the announced 4. Original plan: arms (a) extra experts,
    (b) memory bank, (c) LoRA control; gate on S2's donor-gap panel; BF16 router (S1). It fixes how much teacher signal
    it needs; any finished prefix of the S3 run is a balanced mix.
 
@@ -190,6 +201,12 @@ for a timed session, ask the user before pausing it again.
 
 No directory junction in the repository points to C: (scanned to depth 4). The repository, `D:/_ktmp/` (rung-1
 weights) and every CHATBOT50 artifact are on D: or E:.
+
+**22 October, a Windows reset (not planned):** the base Python 3.12.10 folder disappeared and was reinstalled by the
+user **without packages** (the MSVC runtimes were restored too). Local work now runs from the project's `.venv`
+(`D:/_THINGS/Progetti/SiliconLLM/.venv/Scripts/python.exe`: torch 2.6.0+cu124 with the RTX 3060, numpy 2.4.6,
+kaggle); the bare `python` has no torch. MVE-1, MVE-2's fingerprints and the CPU dequantization check ran earlier that
+day with torch 2.12.0+cpu. To rebuild the base packages, the freeze file is in the C: backup above.
 
 **After the reset, before any work:** restore the Claude memory folder; install Python 3.12 and the packages from the
 freeze file; `gh auth login`; check `nvidia-smi`; check `git -C D:/_THINGS/Progetti/SiliconLLM status`; then §4.
