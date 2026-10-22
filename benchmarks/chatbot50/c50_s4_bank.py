@@ -43,6 +43,67 @@ def bi_key(a, b):
     return (a << 18) | b
 
 
+class BankReader:
+    """The built bank in host RAM, read at every position: the trigram row ending at t, else its bigram row, else a
+    miss (zeros, hit False). Controls (S4 protocol): `mode="shuffle"` permutes values within bins of 1,000 rows of
+    adjacent count; `mode="mask"` hides every other row in count order; `mode="remove"` reads nothing."""
+
+    def __init__(self, d: Path, mode: str = "full", seed: int = 20261016):
+        z = np.load(d / "bank_index.npz")
+        self.tk, self.bk = z["tri_keys"], z["bi_keys"]
+        self.count = np.concatenate([z["tri_count"], z["bi_count"]]).astype(np.int64)
+        self.n_tri = len(self.tk)
+        n = len(self.count)
+        self.vals = torch.from_numpy(np.fromfile(d / "bank_values.f16", dtype=np.float16).reshape(n, H))
+        self.mode = mode
+        order = np.lexsort((np.arange(n), self.count))          # rows by count, ties by index
+        self.src = np.arange(n)
+        self.masked = np.zeros(n, dtype=bool)
+        if mode == "shuffle":
+            rng = np.random.default_rng(seed)
+            for a in range(0, n, 1000):
+                b = order[a:a + 1000]
+                self.src[b] = b[rng.permutation(len(b))]
+        elif mode == "mask":
+            self.masked[order[1::2]] = True
+        else:
+            assert mode in ("full", "remove"), mode
+
+    @staticmethod
+    def _find(keys: np.ndarray, q: np.ndarray) -> np.ndarray:
+        j = np.minimum(np.searchsorted(keys, q), len(keys) - 1)
+        return np.where((keys[j] == q) & (q >= 0), j, -1)
+
+    def rows(self, ids: np.ndarray, segs) -> np.ndarray:
+        """The row read at each position (-1 on a miss), before any control."""
+        out = np.full(len(ids), -1, dtype=np.int64)
+        for a, b in segs:
+            x = ids[a:b].astype(np.int64)
+            L = len(x)
+            if L < 2:
+                continue
+            k2 = np.full(L, -1, dtype=np.int64)
+            k2[1:] = bi_key(x[:-1], x[1:])
+            k3 = np.full(L, -1, dtype=np.int64)
+            k3[2:] = tri_key(x[:-2], x[1:-1], x[2:])
+            r3, r2 = self._find(self.tk, k3), self._find(self.bk, k2)
+            out[a:b] = np.where(r3 >= 0, r3, np.where(r2 >= 0, self.n_tri + r2, -1))
+        return out
+
+    def read(self, ids: np.ndarray, segs):
+        """(values [T, H] float32, hit [T] bool, row [T], count [T]) under this reader's mode."""
+        row = self.rows(ids, segs)
+        if self.mode == "remove":
+            row[:] = -1
+        elif self.mode == "mask":
+            row[(row >= 0) & self.masked[np.maximum(row, 0)]] = -1
+        hit = row >= 0
+        src = np.where(hit, self.src[np.maximum(row, 0)], 0)
+        v = self.vals[torch.from_numpy(src)].float() * torch.from_numpy(hit)[:, None]
+        cnt = np.where(hit, self.count[np.maximum(row, 0)], 0)
+        return v, torch.from_numpy(hit), row, cnt
+
+
 def output_embedding(gguf_path: Path, dev: str) -> torch.Tensor:
     """T0's `output.weight`, dequantized to fp32 on `dev` (the same port as MVE-2's, bit-identical to gguf-py)."""
     r = t0.gguf.GGUFReader(str(gguf_path))

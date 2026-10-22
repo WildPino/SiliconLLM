@@ -5,13 +5,17 @@ Two private datasets and one kernel per task:
 - `c50-s4-code`: the S4 code, the pinned gguf-py, the reference files and a MANIFEST.json of sha256 per file, versioned
   when the code changes. The kernel prints the manifest, so each record names the code it ran.
 - `c50-s4-block1`: S3 block 1 (494 shards, their manifest) and the corpus file, uploaded once.
-- kernel `c50-s4-<task>`: `kaggle/c50_s4_kernel.py` with TASK set, on `NvidiaTeslaT4` (2 x T4).
+- kernel `c50-s4-<name>`: `kaggle/c50_s4_kernel.py` with TASK set, on `NvidiaTeslaT4` (2 x T4); `--sources` adds
+  other kernels' outputs (a previous training session to resume, the bank, a trained arm's weights).
 
-Accounts go through `scripts/kaggle_ops.py` (per-account credentials, OAuth token hidden). Nothing here retries.
+Accounts go through `scripts/kaggle_ops.py` (per-account credentials, OAuth token hidden); `--acct` picks one, and each
+account holds its own copy of the datasets (a private dataset is not readable from another account). Nothing here
+retries.
 
     python -I benchmarks/chatbot50/c50_s4_kaggle.py stage t0|code|block1  # hard links, or the code and its manifest
     python -I benchmarks/chatbot50/c50_s4_kaggle.py upload t0|code|block1 [--new]  # --new creates, else a new version
     python -I benchmarks/chatbot50/c50_s4_kaggle.py push mve2
+    python -I benchmarks/chatbot50/c50_s4_kaggle.py --acct acct2 push train-a-s2 --task train-a --sources giggio253/c50-s4-train-a-s1
     python -I benchmarks/chatbot50/c50_s4_kaggle.py status mve2
     python -I benchmarks/chatbot50/c50_s4_kaggle.py output mve2
 """
@@ -30,7 +34,8 @@ REPO = HERE.parents[1]
 sys.path.insert(0, str(REPO / "scripts"))
 import kaggle_ops  # noqa: E402
 
-ACCT, OWNER = "acct1", "wildpino"
+ACCTS = {"acct1": "wildpino", "acct2": "giggio253", "acct3": "sirwildpino"}
+ACCT, OWNER = "acct1", "wildpino"          # set from --acct
 C = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016")
 STAGE = C / "s4/kaggle"
 T0_GGUF = C / "gguf/ling-mini-2.0-a810f64-q4_k_m.gguf"
@@ -38,9 +43,12 @@ GGUF_PY = C / "tools/llama.cpp-5b335f4/gguf-py/gguf"
 DATASETS = {"t0": "c50-s4-t0", "code": "c50-s4-code", "block1": "c50-s4-block1"}
 S3 = C / "s3"
 CODE = ["c50_s4_dequant.py", "c50_s4_t0_torch.py", "c50_s4_t0_gpu.py", "c50_s4_student.py", "c50_s1_expand.py",
-        "c50_s4_bank.py"]
+        "c50_s4_bank.py", "c50_s4_train.py", "c50_s4_eval.py"]
 REFS = {"p0.docs.pos.bin": C / "a4/p0/docs.pos.bin", "bf16.docs.pos.bin": C / "a4/bf16/docs.pos.bin",
-        "docs.tsv": C / "a4/inputs/docs.tsv", "t0_dequant_fp32_sha256.json": C / "s4/t0_dequant_fp32_sha256.json"}
+        "docs.tsv": C / "a4/inputs/docs.tsv", "t0_dequant_fp32_sha256.json": C / "s4/t0_dequant_fp32_sha256.json",
+        "c50_s4_split.json": HERE / "results/c50_s4_split.json"}
+REFS.update({f"inputs/{n}.tsv": C / f"a4/inputs/{n}.tsv" for n in ("docs", "arc", "gsm8k", "chat")})
+REFS.update({f"inputs/{n}.tsv": C / f"s2/inputs/{n}.tsv" for n in ("nq", "tqa", "mmlu")})
 
 
 def sha256(p: Path) -> str:
@@ -51,6 +59,11 @@ def sha256(p: Path) -> str:
     return h.hexdigest()
 
 
+def folder_of(which: str) -> Path:
+    """Each account stages in its own folder (dataset id and upload caches differ)."""
+    return STAGE / (which if OWNER == "wildpino" else f"{which}_{OWNER}")
+
+
 def meta(folder: Path, slug: str, title: str) -> None:
     (folder / "dataset-metadata.json").write_text(json.dumps(
         {"title": title, "id": f"{OWNER}/{slug}", "licenses": [{"name": "other"}]}, indent=1), encoding="utf-8")
@@ -58,7 +71,7 @@ def meta(folder: Path, slug: str, title: str) -> None:
 
 def cmd_stage(a: argparse.Namespace) -> int:
     if a.which == "t0":
-        t0 = STAGE / "t0"
+        t0 = folder_of("t0")
         t0.mkdir(parents=True, exist_ok=True)
         link = t0 / T0_GGUF.name
         if not link.exists():
@@ -69,7 +82,7 @@ def cmd_stage(a: argparse.Namespace) -> int:
     if a.which == "block1":
         # The shards go in a subfolder, so that `--dir-mode zip` sends them as one file (496 separate uploads failed
         # on 22 October with a JSON error from the CLI); Kaggle extracts it on its side.
-        blk = STAGE / "block1"
+        blk = folder_of("block1")
         if blk.exists():
             shutil.rmtree(blk)
         (blk / "teacher_v1").mkdir(parents=True)
@@ -82,13 +95,14 @@ def cmd_stage(a: argparse.Namespace) -> int:
         meta(blk, DATASETS["block1"], DATASETS["block1"])
         print("block1:", len(srcs), "files,", round(sum(x.stat().st_size for x in srcs) / 2**30, 2), "GiB")
         return 0
-    code = STAGE / "code"
+    code = folder_of("code")
     if code.exists():
         shutil.rmtree(code)
     (code / "refs").mkdir(parents=True)
     for n in CODE:
         shutil.copy2(HERE / n, code / n)
     for n, src in REFS.items():
+        (code / "refs" / n).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, code / "refs" / n)
     shutil.copytree(GGUF_PY, code / "gguf-py/gguf", ignore=shutil.ignore_patterns("__pycache__", "scripts"))
     files = sorted(p for p in code.rglob("*") if p.is_file())
@@ -102,7 +116,7 @@ def cmd_stage(a: argparse.Namespace) -> int:
 
 
 def cmd_upload(a: argparse.Namespace) -> int:
-    folder = STAGE / a.which
+    folder = folder_of(a.which)
     if a.new:
         args = ["datasets", "create", "-p", str(folder), "--dir-mode", "zip", "-q"]
     else:
@@ -113,18 +127,20 @@ def cmd_upload(a: argparse.Namespace) -> int:
 
 
 def cmd_push(a: argparse.Namespace) -> int:
-    k = STAGE / f"kernel_{a.task}"
+    k = STAGE / f"kernel_{OWNER}_{a.task}"
+    task = a.run or a.task
     if k.exists():
         shutil.rmtree(k)
     k.mkdir(parents=True)
     src = (HERE / "kaggle/c50_s4_kernel.py").read_text(encoding="utf-8")
     assert src.count('TASK = "__TASK__"') == 1
-    (k / "c50_s4_kernel.py").write_text(src.replace('TASK = "__TASK__"', f'TASK = "{a.task}"'), encoding="utf-8")
+    (k / "c50_s4_kernel.py").write_text(src.replace('TASK = "__TASK__"', f'TASK = "{task}"'), encoding="utf-8")
     (k / "kernel-metadata.json").write_text(json.dumps({
         "id": f"{OWNER}/c50-s4-{a.task}", "title": f"c50-s4-{a.task}", "code_file": "c50_s4_kernel.py",
         "language": "python", "kernel_type": "script", "is_private": True, "enable_gpu": True,
         "enable_internet": False, "machine_shape": "NvidiaTeslaT4",
-        "dataset_sources": [f"{OWNER}/{d}" for d in DATASETS.values()]}, indent=1), encoding="utf-8")
+        "dataset_sources": [f"{OWNER}/{d}" for d in DATASETS.values()],
+        "kernel_sources": [s for s in (a.sources or "").split(",") if s]}, indent=1), encoding="utf-8")
     r = kaggle_ops.kaggle(ACCT, "kernels", "push", "-p", str(k), check=False)
     print(r.stdout, r.stderr, sep="\n")
     return r.returncode
@@ -137,7 +153,7 @@ def cmd_status(a: argparse.Namespace) -> int:
 
 
 def cmd_output(a: argparse.Namespace) -> int:
-    out = C / f"s4/kaggle_out/{a.task}"
+    out = C / f"s4/kaggle_out/{a.task}" if OWNER == "wildpino" else C / f"s4/kaggle_out/{OWNER}_{a.task}"
     out.mkdir(parents=True, exist_ok=True)
     r = kaggle_ops.kaggle(ACCT, "kernels", "output", f"{OWNER}/c50-s4-{a.task}", "-p", str(out), check=False)
     print(r.stdout, r.stderr, sep="\n")
@@ -161,7 +177,12 @@ if __name__ == "__main__":
     u.set_defaults(f=cmd_upload)
     for n, f in (("push", cmd_push), ("status", cmd_status), ("output", cmd_output)):
         p = sub.add_parser(n)
-        p.add_argument("task")
+        p.add_argument("task", help="the kernel's name after c50-s4-")
+        if n == "push":
+            p.add_argument("--task", dest="run", help="the kernel's TASK, when it differs from the name")
+            p.add_argument("--sources", help="comma-separated kernels whose outputs are mounted")
         p.set_defaults(f=f)
+    ap.add_argument("--acct", default="acct1", choices=list(ACCTS))
     a = ap.parse_args()
+    ACCT, OWNER = a.acct, ACCTS[a.acct]
     raise SystemExit(a.f(a))

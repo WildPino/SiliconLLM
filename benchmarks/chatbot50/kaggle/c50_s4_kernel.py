@@ -38,6 +38,31 @@ elif TASK == "bank":
     cmd = [sys.executable, "-u", str(code / "c50_s4_bank.py"), "--gguf", str(gguf),
            "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
            "--out", str(out / "bank")]
+elif TASK.startswith("train-"):
+    # train-<arm>: resumes from a `ckpt.pt` mounted from the previous session's kernel, if there is one.
+    arm = TASK[len("train-"):]
+    cmd = [sys.executable, "-u", str(code / "c50_s4_train.py"), "--arm", arm, "--gguf", str(gguf),
+           "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
+           "--out", str(out / "train")]
+    ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True))
+    assert len(ck) <= 1, ck
+    if ck:
+        cmd += ["--resume", ck[0]]
+    if arm == "b":
+        cmd += ["--bank", str(find("bank/bank_values.f16").parent)]
+elif TASK.startswith("eval-"):
+    # eval-<arm>[_<control>]: t0 (MVE-5), a, b, c48, c496, a_shuffle, b_remove, b_shuffle, b_mask.
+    name = TASK[len("eval-"):]
+    arm, _, ctrl = name.partition("_")
+    cmd = [sys.executable, "-u", str(code / "c50_s4_eval.py"), "--gguf", str(gguf), "--inputs",
+           str(code / "refs/inputs"), "--split", str(code / "refs/c50_s4_split.json"), "--arm", arm,
+           "--out", str(out / "eval")]
+    if arm != "t0":
+        cmd += ["--weights", str(find("train/final.pt"))]
+    if arm == "b":
+        cmd += ["--bank", str(find("bank/bank_values.f16").parent), "--bank-mode", ctrl or "full"]
+    if arm == "a":
+        cmd += ["--a-mode", ctrl or "full"]
 else:
     raise SystemExit(f"unknown TASK {TASK}")
 print("CMD", json.dumps(cmd), flush=True)

@@ -1,0 +1,37 @@
+{
+ "cell": "C50-S4 bank",
+ "torch": "2.11.0+cu128",
+ "shards": 470,
+ "min_count": 2,
+ "devs": [
+  "cuda:0",
+  "cuda:1"
+ ],
+ "gpus": [
+  "Tesla T4",
+  "Tesla T4"
+ ],
+ "train_tokens": 9491265,
+ "occurrences": 9446145,
+ "trigram": {
+  "rows": 841679,
+  "occurrences_covered": 0.6194042119827718
+ },
+ "bigram": {
+  "rows": 649231,
+  "occurrences_covered": 0.8799340895148232
+ },
+ "read_hit": 0.8799340895148232,
+ "rows": 1490910,
+ "w_out_fp32_sha256": "ccaba272e010156024af67ed354b3ba287f73861b0a5d14acfd4d5d18321a562",
+ "accumulate_s": 18.2,
+ "values_bytes": 6106767360,
+ "check": {
+  "rows_per_kind": 8,
+  "max_abs_diff_vs_float64": 6.080536033251094e-05
+ },
+ "value_norm_mean": 0.7480053901672363,
+ "values_sha256": "69163fbb7430dc8d0bfb36ad2555d48f8bdfd426ba15b96a3a33d9e7738bfba2",
+ "index_sha256": "4b6b4354e51f89df520cc10c7d32652491d4794c8c97c6f66a6dac12728a3f0a",
+ "wall_s": 1093.4
+}
