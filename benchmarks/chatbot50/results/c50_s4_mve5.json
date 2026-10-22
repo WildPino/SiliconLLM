@@ -1,0 +1,69 @@
+{
+ "cell": "C50-S4 MVE-5 verdict",
+ "docs": {
+  "n": 36,
+  "dbpb_pytorch_minus_llama": -0.000265619169805826,
+  "threshold": 0.01
+ },
+ "general": {
+  "nq": {
+   "b": 10,
+   "c": 8,
+   "ok": true,
+   "n": 502
+  },
+  "tqa": {
+   "b": 9,
+   "c": 3,
+   "ok": true,
+   "n": 483
+  },
+  "mmlu": {
+   "b": 12,
+   "c": 4,
+   "ok": true,
+   "n": 491
+  },
+  "arc": {
+   "b": 12,
+   "c": 5,
+   "ok": true,
+   "n": 495
+  },
+  "gsm8k": {
+   "b": 3,
+   "c": 0,
+   "ok": true,
+   "n": 90
+  },
+  "chat": {
+   "b": 1,
+   "c": 0,
+   "ok": true,
+   "n": 40
+  }
+ },
+ "donor_gap_s4_reported": {
+  "nq": {
+   "n": 49,
+   "pytorch_t0_right": 3
+  },
+  "tqa": {
+   "n": 59,
+   "pytorch_t0_right": 5
+  },
+  "mmlu": {
+   "n": 40,
+   "pytorch_t0_right": 3
+  },
+  "arc": {
+   "n": 53,
+   "pytorch_t0_right": 4
+  },
+  "gsm8k": {
+   "n": 5,
+   "pytorch_t0_right": 1
+  }
+ },
+ "verdict": "PASS"
+}

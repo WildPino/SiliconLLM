@@ -1,0 +1,64 @@
+{
+ "cell": "C50-S4 eval",
+ "arm": "t0",
+ "weights": null,
+ "bank": null,
+ "bank_mode": null,
+ "a_mode": null,
+ "panels": [
+  "docs",
+  "arc",
+  "mmlu",
+  "nq",
+  "tqa",
+  "gsm8k",
+  "chat"
+ ],
+ "limit": 0,
+ "torch": "2.11.0+cu128",
+ "devs": [
+  "cuda:0",
+  "cuda:1"
+ ],
+ "gpus": [
+  "Tesla T4",
+  "Tesla T4"
+ ],
+ "panels_done": {
+  "docs": {
+   "sequences": 36,
+   "positions_or_generated": 83577,
+   "wall_s": 97.2
+  },
+  "arc": {
+   "sequences": 2191,
+   "positions_or_generated": 80985,
+   "wall_s": 131.7
+  },
+  "mmlu": {
+   "sequences": 2124,
+   "positions_or_generated": 119886,
+   "wall_s": 171.2
+  },
+  "nq": {
+   "sequences": 551,
+   "positions_or_generated": 7048,
+   "wall_s": 170.1
+  },
+  "tqa": {
+   "sequences": 542,
+   "positions_or_generated": 3760,
+   "wall_s": 157.2
+  },
+  "gsm8k": {
+   "sequences": 95,
+   "positions_or_generated": 23923,
+   "wall_s": 1520.0
+  },
+  "chat": {
+   "sequences": 40,
+   "positions_or_generated": 1905,
+   "wall_s": 565.5
+  }
+ }
+}
