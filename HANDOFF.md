@@ -80,9 +80,15 @@ F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,
 
 ## 3. What runs right now
 
-**22 October, evening: nothing runs.** MVE-3 is back and recorded (kernel `wildpino/c50-s4-mve3`, output in
-`E:/.../chatbot50_20261016/s4/kaggle_out/mve3/`); the S4 protocol is pushed. The S4 driver, from the `.venv` (§7):
-`.venv/Scripts/python.exe -I benchmarks/chatbot50/c50_s4_kaggle.py status|output <task>`. Datasets on wildpino: `c50-s4-t0` (T0's GGUF), `c50-s4-code`
+**22 October, ~21:00: S4 MVE-5 (evaluator fidelity, T0 only) on Kaggle**, kernel `wildpino/c50-s4-eval-t0`.
+When it ends: `c50_s4_kaggle.py output eval-t0`, then `c50_s4_verdict.py mve5 --t0 <out>/eval --json
+results/c50_s4_mve5.json` (a FAIL stops the line for a design review). After a PASS the four trainings start, one per
+account at a time: b on acct1 (it reads `wildpino/c50-s4-bank`), a on acct2, c496 then c48 on acct3, e.g.
+`c50_s4_kaggle.py --acct acct2 push train-a-s1 --task train-a`, a later session `push train-a-s2 --task train-a
+--sources giggio253/c50-s4-train-a-s1` (it resumes from the mounted `train/ckpt.pt`); arm b adds
+`--sources wildpino/c50-s4-bank`. Datasets `c50-s4-t0`, `c50-s4-block1`, `c50-s4-code` are on all three accounts
+(sizes checked). The driver: `.venv/Scripts/python.exe -I benchmarks/chatbot50/c50_s4_kaggle.py [--acct acctN]
+stage|upload|push|status|output`. Datasets on wildpino: `c50-s4-t0` (T0's GGUF), `c50-s4-code`
 (code + gguf-py + refs, versioned), `c50-s4-block1` (S3 block 1 and the corpus). Nothing runs locally.
 
 **Before that, 20 October, evening: nothing from the agent session.** The S3 teacher is the user's to start, from their own
