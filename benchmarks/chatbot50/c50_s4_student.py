@@ -227,10 +227,11 @@ class Student(nn.Module):
         G, U, D = (W.get(f"blk.{i}.ffn_{n}_exps.weight") for n in ("gate", "up", "down"))
         if self.arm == "a":
             nx = self.newx[str(i)]
-            rows = torch.cat([gw, nx.rows])           # originals at their T0 index, then the new slots
+            # originals at their T0 index, then the new slots. The originals' scores come from T0's own matmul: one
+            # 536-wide matmul rounds them differently on the GPU and flips near-tie picks (MVE-3: max |dlogit| 2.53).
             b_all = torch.cat([bias, nx.bias])
             perm = torch.where(nx.copy == 0, nx.src, E0 + nx.slot_new)
-            s = torch.sigmoid(mm(h, rows[perm]))
+            s = torch.sigmoid(torch.cat([mm(h, gw), mm(h, nx.rows)], 1)[:, perm])
             sb = s + b_all[perm]
             n_exp = len(perm)
         else:
