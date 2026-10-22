@@ -128,7 +128,9 @@ for a timed session, ask the user before pausing it again.
    (`--until` raised, up to 49,892,578) needs its own §12 row: S4's volume or its pilot. Block 1 ended 22 October and
    is scored in §12 (RIGHT). Nothing runs now.
    When the first day has run, score the throughput prediction (14-22 tok/s, addendum 1) in a §12 row.
-7. **S4's protocol** (ROADMAP §5 S4) is next and can be written while the teacher runs: arms (a) extra experts,
+7. **S4: design pushed and MVE-1 done (22 October)** ([design](docs/research/CHATBOT50_ROADMAP_20261016/C50_S4_DESIGN_20261022.md)):
+   T0 in PyTorch (`benchmarks/chatbot50/c50_s4_t0_torch.py`) is T0. Next MVE-2 and MVE-3 on Kaggle T4 x2
+   (announced, <= 4 GPU-h), MVE-4 on the CPU, then the protocol before any arm trains. Original plan: arms (a) extra experts,
    (b) memory bank, (c) LoRA control; gate on S2's donor-gap panel; BF16 router (S1). It fixes how much teacher signal
    it needs; any finished prefix of the S3 run is a balanced mix.
 
