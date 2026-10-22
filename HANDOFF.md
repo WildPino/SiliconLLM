@@ -80,7 +80,7 @@ F0 = Ling-flash-2.0 `96f9b7a` Q4_K_M without imatrix (`5348c73f…`, 62,425,484,
 
 ## 3. What runs right now
 
-**22 October, ~21:00: S4 MVE-5 (evaluator fidelity, T0 only) on Kaggle**, kernel `wildpino/c50-s4-eval-t0`.
+**22 October, ~22:00: S4 trainings session 1 on Kaggle** (MVE-5 PASS, 28c813c): `wildpino/c50-s4-train-b-s1`, `giggio253/c50-s4-train-a-s1`, `sirwildpino/c50-s4-train-c496-s1`; each stops at 9.5 h with `train/ckpt.pt` (PAUSED) and continues in an `-s2` kernel with `--sources` on the `-s1` one; c48 follows c496 on acct3. Earlier, MVE-5 ran as kernel `wildpino/c50-s4-eval-t0`.
 When it ends: `c50_s4_kaggle.py output eval-t0`, then `c50_s4_verdict.py mve5 --t0 <out>/eval --json
 results/c50_s4_mve5.json` (a FAIL stops the line for a design review). After a PASS the four trainings start, one per
 account at a time: b on acct1 (it reads `wildpino/c50-s4-bank`), a on acct2, c496 then c48 on acct3, e.g.
