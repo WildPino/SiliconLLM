@@ -30,6 +30,10 @@ if TASK == "mve2":
     cmd = [sys.executable, "-u", str(code / "c50_s4_t0_gpu.py"), "--mve2", "--gguf", str(gguf), "--refs",
            str(code / "refs"), "--fingerprints", str(code / "refs/t0_dequant_fp32_sha256.json"),
            "--out", str(out / "mve2.json")]
+elif TASK == "mve3":
+    cmd = [sys.executable, "-u", str(code / "c50_s4_student.py"), "--mve3", "--gguf", str(gguf),
+           "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
+           "--cap-min", "20", "--out", str(out / "mve3.json")]
 else:
     raise SystemExit(f"unknown TASK {TASK}")
 print("CMD", json.dumps(cmd), flush=True)

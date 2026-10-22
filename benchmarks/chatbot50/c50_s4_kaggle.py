@@ -4,12 +4,13 @@ Two private datasets and one kernel per task:
 - `c50-s4-t0`: T0's GGUF alone (9.9 GB), uploaded once; the kernel checks its sha256.
 - `c50-s4-code`: the S4 code, the pinned gguf-py, the reference files and a MANIFEST.json of sha256 per file, versioned
   when the code changes. The kernel prints the manifest, so each record names the code it ran.
+- `c50-s4-block1`: S3 block 1 (494 shards, their manifest) and the corpus file, uploaded once.
 - kernel `c50-s4-<task>`: `kaggle/c50_s4_kernel.py` with TASK set, on `NvidiaTeslaT4` (2 x T4).
 
 Accounts go through `scripts/kaggle_ops.py` (per-account credentials, OAuth token hidden). Nothing here retries.
 
-    python -I benchmarks/chatbot50/c50_s4_kaggle.py stage t0|code         # the GGUF's folder, or the code and manifest
-    python -I benchmarks/chatbot50/c50_s4_kaggle.py upload t0|code [--new]  # --new creates, else a new version
+    python -I benchmarks/chatbot50/c50_s4_kaggle.py stage t0|code|block1  # hard links, or the code and its manifest
+    python -I benchmarks/chatbot50/c50_s4_kaggle.py upload t0|code|block1 [--new]  # --new creates, else a new version
     python -I benchmarks/chatbot50/c50_s4_kaggle.py push mve2
     python -I benchmarks/chatbot50/c50_s4_kaggle.py status mve2
     python -I benchmarks/chatbot50/c50_s4_kaggle.py output mve2
@@ -34,8 +35,9 @@ C = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016")
 STAGE = C / "s4/kaggle"
 T0_GGUF = C / "gguf/ling-mini-2.0-a810f64-q4_k_m.gguf"
 GGUF_PY = C / "tools/llama.cpp-5b335f4/gguf-py/gguf"
-DATASETS = {"t0": "c50-s4-t0", "code": "c50-s4-code"}
-CODE = ["c50_s4_dequant.py", "c50_s4_t0_torch.py", "c50_s4_t0_gpu.py"]
+DATASETS = {"t0": "c50-s4-t0", "code": "c50-s4-code", "block1": "c50-s4-block1"}
+S3 = C / "s3"
+CODE = ["c50_s4_dequant.py", "c50_s4_t0_torch.py", "c50_s4_t0_gpu.py", "c50_s4_student.py", "c50_s1_expand.py"]
 REFS = {"p0.docs.pos.bin": C / "a4/p0/docs.pos.bin", "bf16.docs.pos.bin": C / "a4/bf16/docs.pos.bin",
         "docs.tsv": C / "a4/inputs/docs.tsv", "t0_dequant_fp32_sha256.json": C / "s4/t0_dequant_fp32_sha256.json"}
 
@@ -62,6 +64,22 @@ def cmd_stage(a: argparse.Namespace) -> int:
             os.link(T0_GGUF, link)   # a hard link on the same volume: no 9.9 GB copy
         meta(t0, DATASETS["t0"], DATASETS["t0"])
         print("t0 ->", link)
+        return 0
+    if a.which == "block1":
+        # The shards go in a subfolder, so that `--dir-mode zip` sends them as one file (496 separate uploads failed
+        # on 22 October with a JSON error from the CLI); Kaggle extracts it on its side.
+        blk = STAGE / "block1"
+        if blk.exists():
+            shutil.rmtree(blk)
+        (blk / "teacher_v1").mkdir(parents=True)
+        srcs = sorted((S3 / "teacher_v1").glob("shard_*.bin")) + [S3 / "teacher_v1/manifest.jsonl"]
+        assert len(srcs) == 495, len(srcs)
+        for src in srcs:
+            os.link(src, blk / "teacher_v1" / src.name)
+        os.link(S3 / "corpus_v1/teacher.tsv", blk / "teacher.tsv")
+        srcs.append(S3 / "corpus_v1/teacher.tsv")
+        meta(blk, DATASETS["block1"], DATASETS["block1"])
+        print("block1:", len(srcs), "files,", round(sum(x.stat().st_size for x in srcs) / 2**30, 2), "GiB")
         return 0
     code = STAGE / "code"
     if code.exists():
