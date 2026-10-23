@@ -126,12 +126,19 @@ def cmd_layout(a) -> int:
            "quant_kept": {}}
     if list(rt) != list(nt):
         rec["problems"].append("tensor names or order differ")
+    # The header (metadata and tensor infos) is compared as bytes, and tensor offsets relative to the data section,
+    # so that a metadata change and a data change are told apart (L's planted M0 control, 24 October).
+    r0, n0 = ref.tensors[0].data_offset, new.tensors[0].data_offset
+    with a.ref.open("rb") as f, a.new.open("rb") as g:
+        rec["header_equal"] = r0 == n0 and f.read(r0) == g.read(n0)
+    if not rec["header_equal"]:
+        rec["problems"].append("headers differ (metadata or tensor infos)")
     for name, t in rt.items():
         u = nt.get(name)
         if u is None:
             continue
         if (t.tensor_type != u.tensor_type or list(t.shape) != list(u.shape) or t.n_bytes != u.n_bytes
-                or t.data_offset != u.data_offset):
+                or t.data_offset - r0 != u.data_offset - n0):
             rec["problems"].append(f"{name}: type, shape, size or offset differs")
             continue
         if not np.array_equal(np.asarray(t.data), np.asarray(u.data)):
