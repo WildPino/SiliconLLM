@@ -1,0 +1,173 @@
+{
+ "cell": "C50-S4 verdict",
+ "R": {
+  "t0": 0.0,
+  "c48": 0.6991598367812975,
+  "c496": 0.6945856939977592,
+  "a": 0.5047302078489914,
+  "b": 0.3773707439623725,
+  "b_remove": 0.0,
+  "b_shuffle": 0.2572366319512633,
+  "b_mask": 0.2768906036830616,
+  "a_shuffle": -0.1402335885539631
+ },
+ "mask_lookup_share": 0.5085267906260315,
+ "arms": {
+  "a": {
+   "delta": -0.1898554861487678,
+   "ci95": [
+    -0.2405174190644511,
+    -0.15153809076434424
+   ],
+   "items_ok": true,
+   "general_ok": {
+    "nq": false,
+    "tqa": false,
+    "mmlu": false,
+    "arc": false,
+    "gsm8k": false,
+    "chat": true
+   },
+   "controls": {
+    "a_shuffle": {
+     "delta": -0.8348192825517222,
+     "threshold": -0.0949277430743839
+    }
+   },
+   "trained": true,
+   "control": "c496",
+   "items": {
+    "b": 25,
+    "c": 21,
+    "ok": true
+   },
+   "general": {
+    "nq": {
+     "b": 56,
+     "c": 16,
+     "ok": false
+    },
+    "tqa": {
+     "b": 54,
+     "c": 9,
+     "ok": false
+    },
+    "mmlu": {
+     "b": 40,
+     "c": 18,
+     "ok": false
+    },
+    "arc": {
+     "b": 43,
+     "c": 26,
+     "ok": false
+    },
+    "gsm8k": {
+     "b": 19,
+     "c": 1,
+     "ok": false
+    },
+    "chat": {
+     "b": 6,
+     "c": 2,
+     "ok": true
+    }
+   },
+   "outcome": "FAIL",
+   "why": "primary not met"
+  },
+  "b": {
+   "delta": -0.3217890928189249,
+   "ci95": [
+    -0.3989056027417856,
+    -0.2620608592389351
+   ],
+   "items_ok": false,
+   "general_ok": {
+    "nq": true,
+    "tqa": true,
+    "mmlu": true,
+    "arc": true,
+    "gsm8k": true,
+    "chat": true
+   },
+   "controls": {
+    "b_remove": {
+     "delta": -0.6991598367812975,
+     "threshold": -0.16089454640946246
+    },
+    "b_shuffle": {
+     "delta": -0.44192320483003417,
+     "threshold": -0.16089454640946246
+    },
+    "b_mask": {
+     "delta": -0.42226923309823583,
+     "threshold": -0.2399699055040899
+    }
+   },
+   "trained": true,
+   "control": "c48",
+   "items": {
+    "b": 30,
+    "c": 13,
+    "ok": false
+   },
+   "general": {
+    "nq": {
+     "b": 11,
+     "c": 8,
+     "ok": true
+    },
+    "tqa": {
+     "b": 15,
+     "c": 8,
+     "ok": true
+    },
+    "mmlu": {
+     "b": 17,
+     "c": 12,
+     "ok": true
+    },
+    "arc": {
+     "b": 23,
+     "c": 15,
+     "ok": true
+    },
+    "gsm8k": {
+     "b": 2,
+     "c": 4,
+     "ok": true
+    },
+    "chat": {
+     "b": 0,
+     "c": 0,
+     "ok": true
+    }
+   },
+   "outcome": "FAIL",
+   "why": "primary not met"
+  }
+ },
+ "s4": "FAIL",
+ "copy_share_a": [
+  0.69944
+ ],
+ "val": {
+  "a": [
+   0.7195818809602339,
+   0.5450930224938676
+  ],
+  "b": [
+   0.7195818809602339,
+   0.5473036295751239
+  ],
+  "c48": [
+   0.7195818809602339,
+   0.46288106396975354
+  ],
+  "c496": [
+   0.7195818809602339,
+   0.45575941601881104
+  ]
+ }
+}
