@@ -103,7 +103,9 @@ def cmd_quantize(a) -> int:
     """P0's recipe (A2): llama-quantize --imatrix <imatrix-fit24> <bf16> <out> Q4_K_M 6, at the pinned commit."""
     import subprocess                                                   # noqa: PLC0415
     exe = C / f"tools/llama.cpp-5b335f4/build-{a.build}/bin/llama-quantize.exe"
-    cmd = [str(exe), "--imatrix", str(IMATRIX), str(a.bf16), str(a.out), "Q4_K_M", "6"]
+    # Paths with forward slashes, as in A2's command: llama-quantize writes the imatrix path into the file's metadata
+    # (`quantize.imatrix.file`), so a backslash path alone changes the header (K0's first build, 24 October).
+    cmd = [str(exe), "--imatrix", IMATRIX.as_posix(), a.bf16.as_posix(), a.out.as_posix(), "Q4_K_M", "6"]
     print("CONFIG", json.dumps({"cmd": cmd}), flush=True)
     r = subprocess.run(cmd, capture_output=True, text=True)
     Path(str(a.json) + ".log").write_text(r.stdout + r.stderr, encoding="utf-8")
