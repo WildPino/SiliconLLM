@@ -39,13 +39,17 @@ elif TASK == "bank":
            "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
            "--out", str(out / "bank")]
 elif TASK.startswith("train-"):
-    # train-<arm>: resumes from a `ckpt.pt` mounted from the previous session's kernel, if there is one.
+    # train-<arm>[+resume]: resumes from a `ckpt.pt` mounted from the previous session's kernel, if there is one;
+    # with +resume a missing checkpoint fails at once instead of training silently from step 0.
     arm = TASK[len("train-"):]
+    need_ck = arm.endswith("+resume")
+    arm = arm.removesuffix("+resume")
     cmd = [sys.executable, "-u", str(code / "c50_s4_train.py"), "--arm", arm, "--gguf", str(gguf),
            "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
            "--out", str(out / "train")]
     ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True))
     assert len(ck) <= 1, ck
+    assert ck or not need_ck, "a resumed session with no train/ckpt.pt mounted"
     if ck:
         cmd += ["--resume", ck[0]]
     if arm == "b":
