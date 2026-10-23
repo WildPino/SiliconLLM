@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -108,6 +109,8 @@ def cmd_quantize(a) -> int:
     Path(str(a.json) + ".log").write_text(r.stdout + r.stderr, encoding="utf-8")
     rec = {"cell": "C50-T1 MVE-0 quantize", "cmd": cmd, "exe_sha256": sha256(exe), "imatrix_sha256": sha256(IMATRIX),
            "bf16": str(a.bf16), "returncode": r.returncode,
+           "runtime_dll_dir": next((d for d in os.environ.get("PATH", "").split(os.pathsep)
+                                    if (Path(d) / "libstdc++-6.dll").exists()), None),
            "sha256": sha256(a.out) if r.returncode == 0 else None, "size": a.out.stat().st_size if a.out.exists() else None}
     Path(a.json).write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
     print("QUANTIZED", r.returncode, rec["sha256"], flush=True)
