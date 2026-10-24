@@ -139,7 +139,7 @@ def cmd_push(a: argparse.Namespace) -> int:
         "id": f"{OWNER}/c50-s4-{a.task}", "title": f"c50-s4-{a.task}", "code_file": "c50_s4_kernel.py",
         "language": "python", "kernel_type": "script", "is_private": True, "enable_gpu": True,
         "enable_internet": False, "machine_shape": "NvidiaTeslaT4",
-        "dataset_sources": [f"{OWNER}/{d}" for d in DATASETS.values()],
+        "dataset_sources": [f"{OWNER}/{d}" for d in DATASETS.values()] + [s for s in (a.datasets or "").split(",") if s],
         "kernel_sources": [s for s in (a.sources or "").split(",") if s]}, indent=1), encoding="utf-8")
     r = kaggle_ops.kaggle(ACCT, "kernels", "push", "-p", str(k), check=False)
     print(r.stdout, r.stderr, sep="\n")
@@ -181,6 +181,7 @@ if __name__ == "__main__":
         if n == "push":
             p.add_argument("--task", dest="run", help="the kernel's TASK, when it differs from the name")
             p.add_argument("--sources", help="comma-separated kernels whose outputs are mounted")
+            p.add_argument("--datasets", help="comma-separated extra datasets to mount (a checkpoint moved to this account)")
         p.set_defaults(f=f)
     ap.add_argument("--acct", default="acct1", choices=list(ACCTS))
     a = ap.parse_args()

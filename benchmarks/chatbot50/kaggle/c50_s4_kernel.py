@@ -3,6 +3,7 @@
 TASK is set by `c50_s4_kaggle.py push <task>`.
 """
 import glob
+import hashlib
 import json
 import os
 import subprocess
@@ -66,6 +67,8 @@ elif TASK.startswith("t1train-"):
     assert len(ck) <= 1, ck
     assert ck or not need_ck, "a resumed session with no train/ckpt.pt mounted"
     if ck:
+        # a checkpoint moved to another account as a dataset is checked against its sha256 on arrival
+        print("CKPT", ck[0], hashlib.sha256(Path(ck[0]).read_bytes()).hexdigest(), flush=True)
         cmd += ["--resume", ck[0]]
 elif TASK.startswith("eval-"):
     # eval-<arm>[_<control>]: t0 (MVE-5), a, b, c48, c496, a_shuffle, b_remove, b_shuffle, b_mask.
