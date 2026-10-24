@@ -63,7 +63,10 @@ elif TASK.startswith("t1train-"):
     cmd = [sys.executable, "-u", str(code / "c50_t1_train.py"), "--only", only, "--tau", tau, "--gguf", str(gguf),
            "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
            "--out", str(out / "train")]
-    ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True))
+    # from the previous session's kernel output (train/ckpt.pt), or from a checkpoint moved to this account as a
+    # dataset: Kaggle flattens a dataset whose only content is one folder, so there it sits at the dataset's root
+    ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True)
+                + glob.glob("/kaggle/input/**/c50-t1-*-ckpt/ckpt.pt", recursive=True))
     assert len(ck) <= 1, ck
     assert ck or not need_ck, "a resumed session with no train/ckpt.pt mounted"
     if ck:
