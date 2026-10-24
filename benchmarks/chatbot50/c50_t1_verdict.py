@@ -24,6 +24,13 @@ P0_PIN = "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"
 KEEP = 0.80
 
 
+def both_halves(split: dict) -> dict[str, set]:
+    """Both halves of the donor-gap items, left out of every general panel. T1's runs use S2's full panels, which hold
+    S5's half too; the first readers left out S4's half only, so S5's items entered the general counts (fixed 24 October).
+    """
+    return {p: set(split["s4"][p]) | set(split["s5"][p]) for p in V.ITEM_PANELS}
+
+
 def load(p: Path) -> dict:
     return json.loads(Path(p).read_text(encoding="utf-8"))
 
@@ -54,9 +61,9 @@ def mve0(a) -> int:
         gap_items = {p: split["s4"][p] for p in V.ITEM_PANELS}
         ref = np.concatenate([[right_t0[p][i] for i in gap_items[p]] for p in V.ITEM_PANELS]).astype(bool)
         xx = np.concatenate([[right_t1[p][i] for i in gap_items[p]] for p in V.ITEM_PANELS]).astype(bool)
-        general = {}
+        general, excl = {}, both_halves(split)
         for p in V.GENERAL:
-            it = [i for i in right_t1[p] if i not in set(gap_items.get(p, []))]
+            it = [i for i in right_t1[p] if i not in excl.get(p, set())]
             t, y = np.array([right_t0[p][i] for i in it]), np.array([right_t1[p][i] for i in it])
             general[p] = {**V.paired_ok(t, y), "n": len(it), "t0_right": int(t.sum()), "t1_right": int(y.sum()),
                           "c48_pytorch_vs_pytorch_t0": post["arms"]["c48"]["general_vs_t0"][p]}
@@ -87,7 +94,7 @@ def part2a(a) -> int:
     b_t0 = V.doc_bits(V.LLAMA_T0["a4"], blen, docs)[0]
     gap = b_t0 - V.doc_bits(V.LLAMA_F0, blen, docs)[0]
     right_t0 = V.correctness(V.llama_dirs(V.LLAMA_T0), tok)
-    gap_items = {p: set(split["s4"][p]) for p in V.ITEM_PANELS}
+    gap_items = both_halves(split)
     full = load(RES / "c50_t1_mve0.json")
     rec = {"cell": "C50-T1 part 2a", "full_t1": {"R": full["R_llama_t1"],
                                                  "nq_ok": full["general_vs_t0"]["nq"]["ok"],

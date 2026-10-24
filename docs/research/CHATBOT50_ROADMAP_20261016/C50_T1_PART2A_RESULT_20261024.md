@@ -1,8 +1,9 @@
 # C50-T1 part 2a result: either half of c48 carries most of the gain, and both halves lose the same facts
 
 24 October 2026. Protocol: [C50_T1_PROTOCOL_20261024](C50_T1_PROTOCOL_20261024.md), addendum 1 (`1672670`, pushed
-before either partial merge was built). Verdict record: `results/c50_t1_part2a.json` (sha256 `694c750414d12f3a…`),
-written by `c50_t1_verdict.py part2a` from the records only. Panel runs: `results/c50_t1_part2a_run_attn.json`
+before either partial merge was built). Verdict record: `results/c50_t1_part2a.json` (sha256 `7bec0461e0f59289…`,
+corrected; the first version, `694c7504…`, is in git at `6de3ad0`), written by `c50_t1_verdict.py part2a` from the
+records only. Panel runs: `results/c50_t1_part2a_run_attn.json`
 (`916398c4…`) and `results/c50_t1_part2a_run_ffn.json` (`f6b54695…`). The artifacts are under
 `E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/t1/`.
 
@@ -10,20 +11,22 @@ written by `c50_t1_verdict.py part2a` from the records only. Panel runs: `result
 
 **No group is clean, so by the registered rule part 2's first T4 arm is the anchored LoRA.** The rule asks for a
 partial merge that keeps the gain (R ≥ 0.559) and is not worse than T0 on nq and on tqa. The attention half keeps
-the gain but regresses on tqa. The FFN half regresses on tqa and does not keep the gain.
+the gain but regresses on nq and tqa. The FFN half regresses on both and does not keep the gain.
 
 | Merge (of c48) | Tensors | R_llama, 36 S4 documents (CI95) | keeps gain | nq: T0 / X right (b, c) | tqa: T0 / X right (b, c) | clean |
 | --- | ---: | --- | --- | --- | --- | --- |
-| full (MVE-0) | 100 | 0.6970 (0.589..0.824) | yes | 174 / 154 (33, 13), **worse** | 292 / 277 (30, 15), **worse** | no |
-| attn only | 40 | **0.6783** (0.574..0.801) | yes | 174 / 165 (24, 15), not worse | 292 / 277 (28, 13), **worse** | no |
-| ffn only | 60 | 0.5332 (0.450..0.631) | **no** | 174 / 163 (25, 14), not worse | 292 / 278 (24, 10), **worse** | no |
+| full (MVE-0) | 100 | 0.6970 (0.589..0.824) | yes | 174 / 147 (33, 6), **worse** | 292 / 269 (30, 7), **worse** | no |
+| attn only | 40 | **0.6783** (0.574..0.801) | yes | 174 / 158 (24, 8), **worse** | 292 / 270 (28, 6), **worse** | no |
+| ffn only | 60 | 0.5332 (0.450..0.631) | **no** | 174 / 157 (25, 8), **worse** | 292 / 272 (24, 4), **worse** | no |
 
 b = T0 right and X wrong, c = the reverse; "worse" is A4's paired rule, as in MVE-0. The nq and tqa counts exclude
-S4's donor-gap items, as in MVE-0.
+both halves of the donor-gap items (502 nq items, 483 tqa items).
 
-**Both halves pass nq near the rule's edge.** The rule says not worse iff b − c ≤ max(2√(b + c), 1). On nq,
-b − c is 9 (attn) and 11 (ffn) against limits of 12.5 and 12.5. Each half loses about half of the full merge's
-20 nq items, and the rule's width hides that. On tqa, b − c is 15 and 14 against 12.8 and 11.7.
+**Correction, 24 October.** The first version of this record left out S4's half of the donor-gap items only, so
+S5's half sat inside the nq and tqa counts, as in MVE-0's first version (see its correction). Those items can only
+add to c. With them in, both halves passed nq near the rule's edge. With both halves out, both regress on nq
+clearly: b − c is 16 and 17, against limits of 11.3 and 11.5. The decision does not change: leaving items out can
+only lower c, so no variant could have become clean.
 
 ## Checks
 
@@ -47,7 +50,7 @@ sits in c48. It does not say what a LoRA trained on attention alone would reach.
 
 ## Post-hoc, not registered: the lost items are the same items
 
-`c50_t1_part2a_posthoc.py` (record `results/c50_t1_part2a_posthoc.json`, `0b6c8a85…`) lists, for each merge, the
+`c50_t1_part2a_posthoc.py` (record `results/c50_t1_part2a_posthoc.json`, `fc6d43cb…`) lists, for each merge, the
 items T0 gets right and the merge gets wrong:
 
 | Panel | T0 right | lost: full / attn / ffn | lost by both attn and ffn | expected if independent | full's losses also lost by a half |
@@ -67,8 +70,8 @@ is a description of c48, not a law.
 | --- | --- | --- |
 | L passes for both, exactly 40 and 60 tensors differ | 40 and 60, PASS | **RIGHT** |
 | R_llama attn 0.35-0.55, ffn 0.25-0.45, both below 0.697 | attn 0.678, ffn 0.533; both below 0.697 | **WRONG** (both above their range: I assumed the gain splits between the halves, and it overlaps) |
-| The regression sits mostly in the FFN: ffn regresses on both, attn not worse on at least one | ffn regresses on tqa only; attn regresses on tqa only | **WRONG** (attn's half is right, ffn's is wrong: the loss is not in the FFN) |
-| No group is clean, because the gain needs both parts, so part 2 starts with the anchored arm | no group is clean; the anchored arm comes first | **RIGHT on the outcome, WRONG on the reason**: attn keeps the gain alone and fails on tqa |
+| The regression sits mostly in the FFN: ffn regresses on both, attn not worse on at least one | ffn regresses on both; attn regresses on both | **WRONG** (ffn's half is right, attn's is wrong: the loss is not in the FFN) |
+| No group is clean, because the gain needs both parts, so part 2 starts with the anchored arm | no group is clean; the anchored arm comes first | **RIGHT on the outcome, WRONG on the reason**: attn keeps the gain alone and fails on nq and tqa |
 
 One of four RIGHT outright, one RIGHT on the outcome only. The decision follows the registered rule, not my
 reason for predicting it.

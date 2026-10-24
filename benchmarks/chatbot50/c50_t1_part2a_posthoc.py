@@ -13,7 +13,7 @@ T = Path("E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/t1")
 dirs = {"full": T / "t1", "attn": T / "t1_attn", "ffn": T / "t1_ffn"}
 out = {}
 for p in ("nq", "tqa"):
-    gi = set(split["s4"][p])
+    gi = set(split["s4"][p]) | set(split["s5"][p])        # both halves of the donor-gap items stay out
     rx = {}
     for k, d in dirs.items():
         rows = V.A4.gen_rows(d, p)
