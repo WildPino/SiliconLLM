@@ -1,0 +1,61 @@
+{
+ "cell": "C50-T1 part 2a",
+ "full_t1": {
+  "R": 0.6969593738622109,
+  "nq_ok": false,
+  "tqa_ok": false
+ },
+ "variants": {
+  "attn": {
+   "checks_ok": true,
+   "R": 0.6782912395895202,
+   "R_ci95": [
+    0.5735492338740426,
+    0.8011215182140514
+   ],
+   "keeps_gain": true,
+   "nq": {
+    "b": 24,
+    "c": 15,
+    "ok": true,
+    "n": 551,
+    "t0_right": 174,
+    "x_right": 165
+   },
+   "tqa": {
+    "b": 28,
+    "c": 13,
+    "ok": false,
+    "n": 541,
+    "t0_right": 292,
+    "x_right": 277
+   }
+  },
+  "ffn": {
+   "checks_ok": true,
+   "R": 0.5332081093448476,
+   "R_ci95": [
+    0.4500443075833617,
+    0.6305023441348514
+   ],
+   "keeps_gain": false,
+   "nq": {
+    "b": 25,
+    "c": 14,
+    "ok": true,
+    "n": 551,
+    "t0_right": 174,
+    "x_right": 163
+   },
+   "tqa": {
+    "b": 24,
+    "c": 10,
+    "ok": false,
+    "n": 541,
+    "t0_right": 292,
+    "x_right": 278
+   }
+  }
+ },
+ "part2b_first_arm": "no group is clean alone: the anchored arm (loss anchored to T0) comes first"
+}

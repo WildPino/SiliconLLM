@@ -1,0 +1,41 @@
+{
+ "cell": "C50-T1 part 2a post-hoc (not registered): overlap of the nq/tqa items lost against T0",
+ "nq": {
+  "n_t0_right": 174,
+  "lost": {
+   "full": 33,
+   "attn": 24,
+   "ffn": 25
+  },
+  "lost_attn&ffn": 14,
+  "expected_if_independent": 3.4,
+  "lost_full&attn": 21,
+  "lost_full&ffn": 17,
+  "lost_full_in_either": 27,
+  "won": {
+   "full": 13,
+   "attn": 15,
+   "ffn": 14
+  },
+  "won_attn&ffn": 7
+ },
+ "tqa": {
+  "n_t0_right": 292,
+  "lost": {
+   "full": 30,
+   "attn": 28,
+   "ffn": 24
+  },
+  "lost_attn&ffn": 16,
+  "expected_if_independent": 2.3,
+  "lost_full&attn": 22,
+  "lost_full&ffn": 18,
+  "lost_full_in_either": 25,
+  "won": {
+   "full": 15,
+   "attn": 13,
+   "ffn": 10
+  },
+  "won_attn&ffn": 5
+ }
+}
