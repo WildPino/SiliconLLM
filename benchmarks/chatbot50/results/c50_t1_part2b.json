@@ -1,0 +1,101 @@
+{
+ "cell": "C50-T1 part 2b verdict",
+ "arm": "a1",
+ "checks": {
+  "L": true,
+  "run_complete": true,
+  "merge_full_nonzero": true,
+  "lora_is_the_trained_arm": true,
+  "model_is_layout_new": true
+ },
+ "R_llama": 0.6711277662155444,
+ "R_ci95": [
+  0.5689380450655794,
+  0.7908931153655755
+ ],
+ "threshold": 0.559327869425038,
+ "bpb_x": 0.5830807195860112,
+ "general_vs_t0": {
+  "nq": {
+   "b": 33,
+   "c": 14,
+   "ok": false,
+   "n": 502,
+   "t0_right": 174,
+   "x_right": 155
+  },
+  "tqa": {
+   "b": 25,
+   "c": 5,
+   "ok": false,
+   "n": 483,
+   "t0_right": 292,
+   "x_right": 272
+  },
+  "mmlu": {
+   "b": 24,
+   "c": 10,
+   "ok": false,
+   "n": 491,
+   "t0_right": 281,
+   "x_right": 267
+  },
+  "arc": {
+   "b": 30,
+   "c": 16,
+   "ok": false,
+   "n": 495,
+   "t0_right": 319,
+   "x_right": 305
+  },
+  "gsm8k": {
+   "b": 2,
+   "c": 2,
+   "ok": true,
+   "n": 90,
+   "t0_right": 81,
+   "x_right": 81
+  },
+  "chat": {
+   "b": 3,
+   "c": 2,
+   "ok": true,
+   "n": 40,
+   "t0_right": 28,
+   "x_right": 27
+  }
+ },
+ "vs_c48_t1": {
+  "nq": {
+   "lost_c48": 33,
+   "lost_x": 33,
+   "c48_lost_kept_by_x": 6,
+   "b": 7,
+   "c": 15,
+   "ok": true
+  },
+  "tqa": {
+   "lost_c48": 30,
+   "lost_x": 25,
+   "c48_lost_kept_by_x": 7,
+   "b": 4,
+   "c": 7,
+   "ok": true
+  }
+ },
+ "donor_items_vs_t0": {
+  "b": 0,
+  "c": 42,
+  "ok": true,
+  "n": 206,
+  "t0_right": 0,
+  "x_right": 42
+ },
+ "gates": {
+  "L": true,
+  "G1": true,
+  "G2": false,
+  "G3": false
+ },
+ "verdict": "FAIL (G2, G3)"
+}

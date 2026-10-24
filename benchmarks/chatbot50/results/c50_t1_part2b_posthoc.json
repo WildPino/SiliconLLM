@@ -1,0 +1,149 @@
+{
+ "cell": "C50-T1 part 2b post-hoc (not registered): A1's lost and won items against T0 and c48's T1",
+ "nq": {
+  "n": 502,
+  "t0_right": 174,
+  "lost": {
+   "a1": 33,
+   "c48": 33,
+   "both": 27,
+   "expected_if_independent": 6.3
+  },
+  "won": {
+   "a1": 14,
+   "c48": 6,
+   "both": 5
+  },
+  "a1_vs_c48": {
+   "b": 7,
+   "c": 15,
+   "ok": true
+  }
+ },
+ "tqa": {
+  "n": 483,
+  "t0_right": 292,
+  "lost": {
+   "a1": 25,
+   "c48": 30,
+   "both": 23,
+   "expected_if_independent": 2.6
+  },
+  "won": {
+   "a1": 5,
+   "c48": 7,
+   "both": 5
+  },
+  "a1_vs_c48": {
+   "b": 4,
+   "c": 7,
+   "ok": true
+  }
+ },
+ "mmlu": {
+  "n": 491,
+  "t0_right": 281,
+  "lost": {
+   "a1": 24,
+   "c48": 24,
+   "both": 23,
+   "expected_if_independent": 2.0
+  },
+  "won": {
+   "a1": 10,
+   "c48": 15,
+   "both": 8
+  },
+  "a1_vs_c48": {
+   "b": 8,
+   "c": 3,
+   "ok": true
+  },
+  "t0_margin": {
+   "lost_by_a1_q25_50_75": [
+    0.1649,
+    0.2513,
+    0.4911
+   ],
+   "kept_q25_50_75": [
+    0.541,
+    1.2716,
+    2.0626
+   ],
+   "kept_share_below_lost_median": 0.117
+  }
+ },
+ "arc": {
+  "n": 495,
+  "t0_right": 319,
+  "lost": {
+   "a1": 30,
+   "c48": 28,
+   "both": 23,
+   "expected_if_independent": 2.6
+  },
+  "won": {
+   "a1": 16,
+   "c48": 24,
+   "both": 16
+  },
+  "a1_vs_c48": {
+   "b": 15,
+   "c": 5,
+   "ok": false
+  },
+  "t0_margin": {
+   "lost_by_a1_q25_50_75": [
+    0.095,
+    0.3067,
+    0.53
+   ],
+   "kept_q25_50_75": [
+    0.6101,
+    1.2397,
+    2.026
+   ],
+   "kept_share_below_lost_median": 0.128
+  }
+ },
+ "gsm8k": {
+  "n": 90,
+  "t0_right": 81,
+  "lost": {
+   "a1": 2,
+   "c48": 5,
+   "both": 1,
+   "expected_if_independent": 0.1
+  },
+  "won": {
+   "a1": 2,
+   "c48": 2,
+   "both": 0
+  },
+  "a1_vs_c48": {
+   "b": 3,
+   "c": 6,
+   "ok": true
+  }
+ },
+ "chat": {
+  "n": 40,
+  "t0_right": 28,
+  "lost": {
+   "a1": 3,
+   "c48": 2,
+   "both": 1,
+   "expected_if_independent": 0.2
+  },
+  "won": {
+   "a1": 2,
+   "c48": 2,
+   "both": 2
+  },
+  "a1_vs_c48": {
+   "b": 2,
+   "c": 1,
+   "ok": true
+  }
+ }
+}
