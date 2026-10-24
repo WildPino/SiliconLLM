@@ -38,8 +38,12 @@ def sha256(p: Path) -> str:
     return h.hexdigest()
 
 
-def deltas(lora: Path) -> dict[str, torch.Tensor]:
-    """GGUF tensor name -> B A in fp32, [n_out, n_in]."""
+GROUPS = {"all": None, "attn": ("attn_qkv", "attn_output"),
+          "ffn": ("ffn_gate", "ffn_up", "ffn_down", "ffn_gate_shexp", "ffn_up_shexp", "ffn_down_shexp")}
+
+
+def deltas(lora: Path, only: str = "all") -> dict[str, torch.Tensor]:
+    """GGUF tensor name -> B A in fp32, [n_out, n_in]; `only` keeps one group of modules (part 2a's partial merges)."""
     sd = torch.load(lora, map_location="cpu", weights_only=True)
     out = {}
     for k in sd:
@@ -47,7 +51,8 @@ def deltas(lora: Path) -> dict[str, torch.Tensor]:
             i, m = k[len("lora."):-len(".A")].split("_", 1)
             out[f"blk.{i}.{m}.weight"] = sd[k[:-2] + ".B"].double() @ sd[k].double()
     assert len(out) * 2 == len(sd), "every key is a LoRA factor"
-    return {n: d.float() for n, d in out.items()}
+    keep = GROUPS[only]
+    return {n: d.float() for n, d in out.items() if keep is None or n.split(".")[2] in keep}
 
 
 def bf16_to_f32(u: np.ndarray) -> torch.Tensor:
@@ -59,14 +64,14 @@ def f32_to_bf16(x: torch.Tensor) -> np.ndarray:
 
 
 def cmd_merge(a) -> int:
-    d = deltas(a.lora)
+    d = deltas(a.lora, a.only)
     r = GGUFReader(str(a.bf16))
     tens = {t.name: t for t in r.tensors}
     assert set(d) <= set(tens), sorted(set(d) - set(tens))
     shutil.copyfile(a.bf16, a.out)
     rec = {"cell": "C50-T1 MVE-0 merge", "bf16": str(a.bf16), "lora": str(a.lora), "lora_sha256": sha256(a.lora),
-           "zero": a.zero, "tensors": {}}
-    print("CONFIG", json.dumps({k: rec[k] for k in ("bf16", "lora", "lora_sha256", "zero")}), flush=True)
+           "zero": a.zero, "only": a.only, "tensors": {}}
+    print("CONFIG", json.dumps({k: rec[k] for k in ("bf16", "lora", "lora_sha256", "zero", "only")}), flush=True)
     with open(a.out, "r+b") as f:
         for name, dw in sorted(d.items()):
             t = tens[name]
@@ -123,7 +128,7 @@ def cmd_layout(a) -> int:
     """L: the same tensors, types, shapes and byte counts as P0; only the merged tensors' data may differ. Also the
     share of ΔW that survives Q4_K_M on the merged tensors, against P0's dequantized tensor."""
     from gguf.quants import dequantize                                  # noqa: PLC0415
-    d = deltas(a.lora)
+    d = deltas(a.lora, a.only)
     ref, new = GGUFReader(str(a.ref)), GGUFReader(str(a.new))
     rt, nt = {t.name: t for t in ref.tensors}, {t.name: t for t in new.tensors}
     rec = {"cell": "C50-T1 MVE-0 layout", "ref": str(a.ref), "new": str(a.new), "n_ref": len(rt), "n_new": len(nt),
@@ -178,6 +183,7 @@ def main() -> int:
     m.add_argument("--out", type=Path, required=True)
     m.add_argument("--json", required=True)
     m.add_argument("--zero", action="store_true", help="K1: write W back unchanged")
+    m.add_argument("--only", default="all", choices=list(GROUPS))
     m.set_defaults(f=cmd_merge)
     q = sub.add_parser("quantize")
     q.add_argument("--bf16", type=Path, required=True)
@@ -190,6 +196,7 @@ def main() -> int:
     lay.add_argument("--new", type=Path, required=True)
     lay.add_argument("--lora", type=Path, required=True)
     lay.add_argument("--json", required=True)
+    lay.add_argument("--only", default="all", choices=list(GROUPS))
     lay.set_defaults(f=cmd_layout)
     a = ap.parse_args()
     return a.f(a)

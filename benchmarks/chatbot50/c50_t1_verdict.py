@@ -77,6 +77,52 @@ def mve0(a) -> int:
     return 0
 
 
+def part2a(a) -> int:
+    """Addendum 1 (part 2a): partial merges of c48, read on the documents, nq and tqa against T0 and against the full
+    T1. Reported; the decision rule for part 2b's first arm is applied as registered."""
+    split = json.loads(V.SPLIT.read_text(encoding="utf-8"))
+    tok = V.A4.Tokenizer.from_file(V.A4.TOKENIZER)
+    blen = V.byte_lengths(Path(V.A4.TOKENIZER))
+    docs = split["s4"]["docs"]
+    b_t0 = V.doc_bits(V.LLAMA_T0["a4"], blen, docs)[0]
+    gap = b_t0 - V.doc_bits(V.LLAMA_F0, blen, docs)[0]
+    right_t0 = V.correctness(V.llama_dirs(V.LLAMA_T0), tok)
+    gap_items = {p: set(split["s4"][p]) for p in V.ITEM_PANELS}
+    full = load(RES / "c50_t1_mve0.json")
+    rec = {"cell": "C50-T1 part 2a", "full_t1": {"R": full["R_llama_t1"],
+                                                 "nq_ok": full["general_vs_t0"]["nq"]["ok"],
+                                                 "tqa_ok": full["general_vs_t0"]["tqa"]["ok"]}, "variants": {}}
+    for name, lay_p, run_p in a.variant:
+        lay, run = load(Path(lay_p)), load(Path(run_p))
+        ok = (lay.get("L") and all(run["panels"].get(p, {}).get("status") == "COMPLETE" for p in ("docs", "nq", "tqa"))
+              and Path(run["model"]) == Path(lay["new"]))
+        v = {"checks_ok": bool(ok)}
+        if ok:
+            d_dir = Path(run["panels"]["docs"]["dir"])
+            d = V.delta(b_t0, V.doc_bits(d_dir, blen, docs)[0], b_t0, gap)
+            keep = KEEP * load(RES / "c50_s4_verdict.json")["R"]["c48"]
+            v.update({"R": d["delta"], "R_ci95": d["ci95"], "keeps_gain": d["delta"] >= keep})
+            for p in ("nq", "tqa"):                          # the S4 verdict's own nq/tqa scoring, on these two panels
+                rows = V.A4.gen_rows(d_dir, p)
+                rx = {m["item"]: V.qa_check(V.A4.decode(tok, rows[m["item"]]["gen"]), m["aliases"])["match"]
+                      for m in V.A4.meta(V.INPUTS[p], p) if m["item"] in rows}
+                it = [i for i in rx if i not in gap_items[p]]
+                t, y = np.array([right_t0[p][i] for i in it]), np.array([rx[i] for i in it])
+                v[p] = {**V.paired_ok(t, y), "n": len(it), "t0_right": int(t.sum()), "x_right": int(y.sum())}
+        rec["variants"][name] = v
+    va = rec["variants"]
+    def clean(n):
+        x = va.get(n, {})
+        return bool(x.get("checks_ok") and x["keeps_gain"] and x["nq"]["ok"] and x["tqa"]["ok"])
+    if clean("attn") or clean("ffn"):
+        rec["part2b_first_arm"] = "train the LoRA on the group whose partial merge is clean: " + ",".join(n for n in ("attn", "ffn") if clean(n))
+    else:
+        rec["part2b_first_arm"] = "no group is clean alone: the anchored arm (loss anchored to T0) comes first"
+    Path(a.json).write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
+    print(json.dumps(rec, indent=1))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -84,6 +130,10 @@ def main() -> int:
     for k in ("k0", "k1", "merge", "layout", "run", "json"):
         m.add_argument(f"--{k}", required=True)
     m.set_defaults(f=mve0)
+    q = sub.add_parser("part2a")
+    q.add_argument("--variant", nargs=3, action="append", required=True, metavar=("NAME", "LAYOUT", "RUN"))
+    q.add_argument("--json", required=True)
+    q.set_defaults(f=part2a)
     a = ap.parse_args()
     return a.f(a)
 

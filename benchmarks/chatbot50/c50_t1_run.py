@@ -27,6 +27,7 @@ def main() -> int:
     ap.add_argument("--work", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--arm", default="t1")
+    ap.add_argument("--panels", default=",".join(p for p, *_ in PANELS), help="a subset of S2's panels, in S2's order")
     a = ap.parse_args()
     inputs = {"a4": A4_WORK / "inputs", "s2": S2_INPUTS}
     man = {k: check_inputs(p) for k, p in inputs.items()}
@@ -37,10 +38,14 @@ def main() -> int:
     rep.setdefault("model_sha256", sha256(a.model))
     if rep["model_sha256"] != a.pin:
         raise SystemExit("model hash differs from its pin")
-    print("CONFIG", json.dumps({"model": str(a.model), "sha256": a.pin, "panels": [p for p, *_ in PANELS]}), flush=True)
+    want = a.panels.split(",")
+    assert set(want) <= {p for p, *_ in PANELS}, want
+    print("CONFIG", json.dumps({"model": str(a.model), "sha256": a.pin, "panels": want}), flush=True)
     out = a.work / a.arm
     out.mkdir(parents=True, exist_ok=True)
     for panel, src, tool, extra in PANELS:
+        if panel not in want:
+            continue
         if rep["panels"].get(panel, {}).get("status") == "COMPLETE":
             continue
         if panel in rep["panels"]:
