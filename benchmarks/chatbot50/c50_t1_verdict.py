@@ -130,9 +130,67 @@ def part2a(a) -> int:
     return 0
 
 
+def part2b(a) -> int:
+    """Part 2b: one trained arm, merged, against T0 on the seven panels; gates L, G1, G2, G3 as registered."""
+    mg, lay, run = load(a.merge), load(a.layout), load(a.run)
+    split = json.loads(V.SPLIT.read_text(encoding="utf-8"))
+    checks = {"L": bool(lay.get("L")) and len(lay["differs"]) == 100,
+              "run_complete": len(run["panels"]) == 7 and all(r.get("status") == "COMPLETE" for r in run["panels"].values()),
+              "merge_full_nonzero": mg.get("only", "all") == "all" and not mg["zero"],   # MVE-0's record predates `only`
+              "lora_is_the_trained_arm": mg["lora_sha256"] == a.lora_sha256,
+              "model_is_layout_new": Path(run["model"]) == Path(lay["new"])}
+    rec = {"cell": "C50-T1 part 2b verdict", "arm": a.arm, "checks": checks}
+    if all(checks.values()):
+        tok = V.A4.Tokenizer.from_file(V.A4.TOKENIZER)
+        blen = V.byte_lengths(Path(V.A4.TOKENIZER))
+        docs = split["s4"]["docs"]
+        xdir = Path(run["panels"]["docs"]["dir"])
+        b_t0 = V.doc_bits(V.LLAMA_T0["a4"], blen, docs)[0]
+        gap = b_t0 - V.doc_bits(V.LLAMA_F0, blen, docs)[0]
+        d = V.delta(b_t0, V.doc_bits(xdir, blen, docs)[0], b_t0, gap)
+        right_t0 = V.correctness(V.llama_dirs(V.LLAMA_T0), tok)
+        right_x = V.correctness({p: xdir for p in V.GENERAL}, tok)
+        excl = both_halves(split)
+        general = {}
+        for p in V.GENERAL:
+            it = [i for i in right_x[p] if i not in excl.get(p, set())]
+            t, y = np.array([right_t0[p][i] for i in it]), np.array([right_x[p][i] for i in it])
+            general[p] = {**V.paired_ok(t, y), "n": len(it), "t0_right": int(t.sum()), "x_right": int(y.sum())}
+        s4i = {p: split["s4"][p] for p in V.ITEM_PANELS}
+        ref = np.concatenate([[right_t0[p][i] for i in s4i[p]] for p in V.ITEM_PANELS]).astype(bool)
+        xx = np.concatenate([[right_x[p][i] for i in s4i[p]] for p in V.ITEM_PANELS]).astype(bool)
+        c48dir = Path(load(RES / "c50_t1_run.json")["panels"]["docs"]["dir"])
+        right_c48 = V.correctness({p: c48dir for p in V.GENERAL}, tok)
+        vs_c48 = {}
+        for p in ("nq", "tqa"):
+            it = [i for i in right_x[p] if i not in excl[p]]
+            lost_c48 = {i for i in it if right_t0[p][i] and not right_c48[p][i]}
+            lost_x = {i for i in it if right_t0[p][i] and not right_x[p][i]}
+            vs_c48[p] = {"lost_c48": len(lost_c48), "lost_x": len(lost_x), "c48_lost_kept_by_x": len(lost_c48 - lost_x),
+                         **V.paired_ok(np.array([right_c48[p][i] for i in it]), np.array([right_x[p][i] for i in it]))}
+        gates = {"L": checks["L"], "G1": d["delta"] >= KEEP * load(RES / "c50_s4_verdict.json")["R"]["c48"],
+                 "G2": general["nq"]["ok"] and general["tqa"]["ok"],
+                 "G3": all(general[p]["ok"] for p in ("mmlu", "arc", "gsm8k", "chat"))}
+        rec.update({"R_llama": d["delta"], "R_ci95": d["ci95"], "threshold": KEEP * load(RES / "c50_s4_verdict.json")["R"]["c48"],
+                    "bpb_x": float(V.doc_bits(xdir, blen, docs)[0].sum() / V.doc_bits(xdir, blen, docs)[1].sum()),
+                    "general_vs_t0": general, "vs_c48_t1": vs_c48,
+                    "donor_items_vs_t0": {**V.paired_ok(ref, xx), "n": int(len(ref)), "t0_right": int(ref.sum()),
+                                          "x_right": int(xx.sum())}, "gates": gates})
+        rec["verdict"] = "PASS" if all(gates.values()) else "FAIL (" + ", ".join(k for k, v in gates.items() if not v) + ")"
+    else:
+        rec["verdict"] = "STOP: " + ", ".join(k for k, v in checks.items() if not v)
+    Path(a.json).write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
+    print(json.dumps(rec, indent=1))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
+    b = sub.add_parser("part2b")
+    for k in ("arm", "merge", "layout", "run", "lora-sha256", "json"):
+        b.add_argument(f"--{k}", required=True)
+    b.set_defaults(f=part2b)
     m = sub.add_parser("mve0")
     for k in ("k0", "k1", "merge", "layout", "run", "json"):
         m.add_argument(f"--{k}", required=True)

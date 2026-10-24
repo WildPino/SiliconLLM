@@ -1,0 +1,63 @@
+{
+ "cell": "C50-T1 part 2b MVE-A, anchor share on S4's validation shards",
+ "shards": [
+  470,
+  471
+ ],
+ "docs": 96,
+ "model_sha256_pin": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4",
+ "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+ "cmd": [
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+  "--model",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+  "--ids",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\mve_a\\val.tsv",
+  "--out",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\mve_a\\val",
+  "--threads",
+  "6",
+  "--ubatch",
+  "512",
+  "--max-projected-s",
+  "10800",
+  "--ctx",
+  "8192"
+ ],
+ "returncode": 0,
+ "wall_s": 600.7,
+ "config": [
+  "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=96 positions=41073 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+ ],
+ "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+ "positions": 41073,
+ "bits_gap_total": 25386.50527864785,
+ "mean_p_t0": 0.6063126357399866,
+ "mean_p_f0": 0.652953382002561,
+ "by_tau": {
+  "0.3": {
+   "anchored_share": 0.31514620310179436,
+   "gap_bits_anchored": -5280.062316575792,
+   "gap_bits_free": 30666.56759522364,
+   "t0_better_share_overall": 0.4158206120809291
+  },
+  "0.5": {
+   "anchored_share": 0.29389136415650186,
+   "gap_bits_anchored": -3948.344153526369,
+   "gap_bits_free": 29334.84943217422,
+   "t0_better_share_overall": 0.4158206120809291
+  },
+  "0.7": {
+   "anchored_share": 0.2722956686874589,
+   "gap_bits_anchored": -2875.293890368054,
+   "gap_bits_free": 28261.799169015903,
+   "t0_better_share_overall": 0.4158206120809291
+  },
+  "0.9": {
+   "anchored_share": 0.24105860297519052,
+   "gap_bits_anchored": -1513.3135020852483,
+   "gap_bits_free": 26899.818780733098,
+   "t0_better_share_overall": 0.4158206120809291
+  }
+ }
+}

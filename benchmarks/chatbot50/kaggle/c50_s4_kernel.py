@@ -54,6 +54,19 @@ elif TASK.startswith("train-"):
         cmd += ["--resume", ck[0]]
     if arm == "b":
         cmd += ["--bank", str(find("bank/bank_values.f16").parent)]
+elif TASK.startswith("t1train-"):
+    # t1train-<only>-<tau>[+resume] (C50-T1 part 2b): the anchored LoRA, resumed as the S4 trainings are.
+    name = TASK[len("t1train-"):]
+    need_ck = name.endswith("+resume")
+    only, tau = name.removesuffix("+resume").split("-")
+    cmd = [sys.executable, "-u", str(code / "c50_t1_train.py"), "--only", only, "--tau", tau, "--gguf", str(gguf),
+           "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
+           "--out", str(out / "train")]
+    ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True))
+    assert len(ck) <= 1, ck
+    assert ck or not need_ck, "a resumed session with no train/ckpt.pt mounted"
+    if ck:
+        cmd += ["--resume", ck[0]]
 elif TASK.startswith("eval-"):
     # eval-<arm>[_<control>]: t0 (MVE-5), a, b, c48, c496, a_shuffle, b_remove, b_shuffle, b_mask.
     name = TASK[len("eval-"):]
