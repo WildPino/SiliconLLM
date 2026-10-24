@@ -1,0 +1,135 @@
+{
+ "cell": "C50-T1 MVE-0 verdict",
+ "checks": {
+  "K0": true,
+  "K1": true,
+  "L": true,
+  "run_complete": true,
+  "same_lora": true,
+  "model_is_layout_new": true
+ },
+ "bpb": {
+  "t0": 0.7469669577712938,
+  "f0": 0.5027716697273662,
+  "t1": 0.5767727627160957
+ },
+ "R_llama_t1": 0.6969593738622109,
+ "R_llama_t1_ci95": [
+  0.5893222946019893,
+  0.8235894758525208
+ ],
+ "R_pytorch_c48": 0.6991598367812975,
+ "threshold": 0.559327869425038,
+ "M": true,
+ "donor_items_vs_t0": {
+  "b": 0,
+  "c": 46,
+  "ok": true,
+  "n": 206,
+  "t0_right": 0,
+  "t1_right": 46
+ },
+ "general_vs_t0": {
+  "nq": {
+   "b": 33,
+   "c": 13,
+   "ok": false,
+   "n": 551,
+   "t0_right": 174,
+   "t1_right": 154,
+   "c48_pytorch_vs_pytorch_t0": {
+    "b": 35,
+    "c": 9,
+    "ok": false,
+    "n": 502,
+    "t0_right": 172,
+    "x_right": 146
+   }
+  },
+  "tqa": {
+   "b": 30,
+   "c": 15,
+   "ok": false,
+   "n": 541,
+   "t0_right": 292,
+   "t1_right": 277,
+   "c48_pytorch_vs_pytorch_t0": {
+    "b": 25,
+    "c": 11,
+    "ok": false,
+    "n": 483,
+    "t0_right": 286,
+    "x_right": 272
+   }
+  },
+  "mmlu": {
+   "b": 24,
+   "c": 27,
+   "ok": true,
+   "n": 530,
+   "t0_right": 281,
+   "t1_right": 284,
+   "c48_pytorch_vs_pytorch_t0": {
+    "b": 23,
+    "c": 20,
+    "ok": true,
+    "n": 491,
+    "t0_right": 273,
+    "x_right": 270
+   }
+  },
+  "arc": {
+   "b": 28,
+   "c": 50,
+   "ok": true,
+   "n": 547,
+   "t0_right": 319,
+   "t1_right": 341,
+   "c48_pytorch_vs_pytorch_t0": {
+    "b": 32,
+    "c": 32,
+    "ok": true,
+    "n": 495,
+    "t0_right": 312,
+    "x_right": 312
+   }
+  },
+  "gsm8k": {
+   "b": 5,
+   "c": 4,
+   "ok": true,
+   "n": 95,
+   "t0_right": 81,
+   "t1_right": 80,
+   "c48_pytorch_vs_pytorch_t0": {
+    "b": 4,
+    "c": 4,
+    "ok": true,
+    "n": 90,
+    "t0_right": 78,
+    "x_right": 78
+   }
+  },
+  "chat": {
+   "b": 2,
+   "c": 2,
+   "ok": true,
+   "n": 40,
+   "t0_right": 28,
+   "t1_right": 28,
+   "c48_pytorch_vs_pytorch_t0": {
+    "b": 2,
+    "c": 3,
+    "ok": true,
+    "n": 40,
+    "t0_right": 27,
+    "x_right": 28
+   }
+  }
+ },
+ "bf16_kept_median": 1.0046920601150386,
+ "bf16_cos_median": 0.995552271604538,
+ "q4_kept_median": 4.12822413444519,
+ "q4_cos_median": 0.2417144700884819,
+ "verdict": "PASS"
+}
