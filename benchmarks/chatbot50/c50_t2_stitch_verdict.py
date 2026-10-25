@@ -1,4 +1,4 @@
-"""C50-T2 stitching cell: the verdict, from c50_t2_stitch.py's record only (protocol C50_T2_STITCH_PROTOCOL_20261026).
+"""C50-T2 stitching cell: the verdict, from c50_t2_stitch.py's record only (protocol C50_T2_STITCH_PROTOCOL_20261025).
 
 Per v0 MoE layer l, at its chosen F0 layer j: l STITCHES iff F0's experts read the mapped state at least as well as
 F0's own state with Gaussian noise of R^2 = 0.5, on both measures:

@@ -1,6 +1,6 @@
 # C50-T2 stitching cell: can F0's experts read v0's state? (protocol)
 
-26 October 2026. Registered before the cell's dumps are made. It is the first cell of step 2 of decision C, option X
+25 October 2026. Registered before the cell's dumps are made. (Its first push, `aff1fbb`, dated it 26 October by mistake; corrected the same evening. The seed 20261026 is only a number and stays.) It is the first cell of step 2 of decision C, option X
 ([design draft](C50_T2_DESIGN_20261025.md)).
 - **The choice:** option X, and the gate may learn to switch off where T0 is sure ("X, yes", 25 October; §12).
 - **Option X:** F0's own experts, frozen, are read by v0 through a learned map 2048 → 4096, inside a gated additive
