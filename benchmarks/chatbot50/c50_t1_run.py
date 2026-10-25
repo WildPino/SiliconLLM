@@ -28,8 +28,9 @@ def main() -> int:
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--arm", default="t1")
     ap.add_argument("--panels", default=",".join(p for p, *_ in PANELS), help="a subset of S2's panels, in S2's order")
+    ap.add_argument("--inputs", type=Path, help="one input set for every panel (addendum 2's fresh items)")
     a = ap.parse_args()
-    inputs = {"a4": A4_WORK / "inputs", "s2": S2_INPUTS}
+    inputs = {"a4": a.inputs, "s2": a.inputs} if a.inputs else {"a4": A4_WORK / "inputs", "s2": S2_INPUTS}
     man = {k: check_inputs(p) for k, p in inputs.items()}
     rep = json.loads(a.out.read_text(encoding="utf-8")) if a.out.exists() else {
         "cell": "C50-T1 MVE-0 run", "inputs_manifest_sha256": man, "arm": a.arm, "model": str(a.model), "panels": {}}
@@ -40,7 +41,10 @@ def main() -> int:
         raise SystemExit("model hash differs from its pin")
     want = a.panels.split(",")
     assert set(want) <= {p for p, *_ in PANELS}, want
-    print("CONFIG", json.dumps({"model": str(a.model), "sha256": a.pin, "panels": want}), flush=True)
+    if a.inputs:
+        assert set(want) <= {"nq", "tqa", "mmlu", "arc"}, want
+    print("CONFIG", json.dumps({"model": str(a.model), "sha256": a.pin, "panels": want,
+                                "inputs": {k: str(v) for k, v in inputs.items()}}), flush=True)
     out = a.work / a.arm
     out.mkdir(parents=True, exist_ok=True)
     for panel, src, tool, extra in PANELS:

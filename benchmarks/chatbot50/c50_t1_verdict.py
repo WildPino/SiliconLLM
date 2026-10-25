@@ -10,6 +10,7 @@ Protocol: docs/research/CHATBOT50_ROADMAP_20261016/C50_T1_PROTOCOL_20261024.md
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -245,6 +246,57 @@ def null(a) -> int:
     return 0
 
 
+A1_Q4 = "e490f80351e336c11a7e87c4df75cde13ee3425e4bcef2b84f2f56e10f9c5369"
+NROT_Q4 = "793e5dd459a6f3cf7b721e067173182b905538dcb31e65b382b453bac42ccc56"
+PLANT = 30
+
+
+def fresh(a) -> int:
+    """Addendum 2: on fresh items, A1 against the matched null N-rot by A4's paired rule (the amended G2 and G3).
+    T0 is reported beside. The rule is the registered one; this function applies it and chooses nothing else."""
+    inp = Path(a.inputs)
+    man = hashlib.sha256((inp / "manifest.json").read_bytes()).hexdigest()
+    runs = {k: load(Path(p)) for k, p in (("t0", a.t0), ("a1", a.a1), ("nrot", a.nrot))}
+    pins = {"t0": P0_PIN, "a1": A1_Q4, "nrot": NROT_Q4}
+    checks = {}
+    for k, r in runs.items():
+        checks[f"{k}_model_pin"] = r["model_sha256"] == pins[k]
+        checks[f"{k}_inputs"] = r["inputs_manifest_sha256"] == {"a4": man, "s2": man}
+        checks[f"{k}_complete"] = all(r["panels"].get(p, {}).get("status") == "COMPLETE" for p in NULL_PANELS)
+    rec = {"cell": "C50-T1 part 2b review, addendum 2: A1 against N-rot on fresh items", "inputs_manifest_sha256": man,
+           "checks": checks}
+    if all(checks.values()):
+        tok = V.A4.Tokenizer.from_file(V.A4.TOKENIZER)
+        right = {k: V.correctness({p: Path(r["panels"][p]["dir"]) for p in NULL_PANELS}, tok, NULL_PANELS,
+                                  {p: inp for p in NULL_PANELS}) for k, r in runs.items()}
+        rng = np.random.default_rng(20261025)
+        res, planted = {}, {}
+        for p in NULL_PANELS:
+            it = sorted(right["nrot"][p])
+            assert sorted(right["a1"][p]) == it == sorted(right["t0"][p]), p
+            t0, a1, nr = (np.array([right[k][p][i] for i in it]) for k in ("t0", "a1", "nrot"))
+            res[p] = {"n": len(it), "right": {"t0": int(t0.sum()), "a1": int(a1.sum()), "nrot": int(nr.sum())},
+                      "a1_vs_nrot": V.paired_ok(nr, a1), "a1_vs_t0": V.paired_ok(t0, a1), "nrot_vs_t0": V.paired_ok(t0, nr)}
+            # planted controls: the rule must pass a copy of the null and fail the null with PLANT of its right items broken
+            broken = nr.copy()
+            broken[rng.choice(np.flatnonzero(nr), PLANT, replace=False)] = False
+            planted[p] = {"copy_ok": V.paired_ok(nr, nr.copy())["ok"], "broken_ok": V.paired_ok(nr, broken)["ok"]}
+        rec.update({"panels": res, "planted": planted})
+        if not all(v["copy_ok"] and not v["broken_ok"] for v in planted.values()):
+            rec["verdict"] = "STOP: a planted control did not behave"
+        elif all(res[p]["a1_vs_nrot"]["ok"] for p in NULL_PANELS):
+            rec["verdict"] = ("PASS: A1 is not worse than a matched null on any of the four panels; step 1 of decision C "
+                              "closes, and step 2 (capacity on the residual) gets its own protocol")
+        else:
+            rec["verdict"] = ("FAIL: A1 is worse than a matched null on " +
+                              ", ".join(p for p in NULL_PANELS if not res[p]["a1_vs_nrot"]["ok"]) + "; review")
+    else:
+        rec["verdict"] = "STOP: " + ", ".join(k for k, v in checks.items() if not v)
+    Path(a.json).write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
+    print(json.dumps(rec, indent=1))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -265,6 +317,10 @@ def main() -> int:
                    metavar=("NAME", "NULL_REC", "MERGE", "LAYOUT", "RUN"))
     n.add_argument("--json", required=True)
     n.set_defaults(f=null)
+    f = sub.add_parser("fresh")
+    for k in ("inputs", "t0", "a1", "nrot", "json"):
+        f.add_argument(f"--{k}", required=True)
+    f.set_defaults(f=fresh)
     a = ap.parse_args()
     return a.f(a)
 

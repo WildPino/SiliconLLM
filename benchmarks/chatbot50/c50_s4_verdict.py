@@ -38,14 +38,14 @@ PAIRS = {"a": ("c496", ["a_shuffle"]), "b": ("c48", ["b_remove", "b_shuffle", "b
 
 
 # ---------------------------------------------------------------- reading
-def likelihood_present(arm: Path, name: str) -> dict[int, bool]:
+def likelihood_present(arm: Path, name: str, inputs=None) -> dict[int, bool]:
     recs = np.fromfile(arm / f"{name}.pos.bin", dtype=A4.REC)
     by = {}
     for d in np.unique(recs["doc"]):
         s = recs["doc"] == d
         by[int(d)] = (recs["pos"][s], recs["logp_target"][s].astype(np.float64))
     out = {}
-    for m in A4.meta(INPUTS[name], name):
+    for m in A4.meta(inputs or INPUTS[name], name):
         if m["item"] * 8 not in by:
             continue
         mean = []
@@ -58,19 +58,21 @@ def likelihood_present(arm: Path, name: str) -> dict[int, bool]:
     return out
 
 
-def correctness(dirs: dict[str, Path], tok, panels=None) -> dict[str, dict[int, bool]]:
-    """dirs: panel -> the directory holding its output. Returns panel -> {item: right}, for `panels` (default all)."""
+def correctness(dirs: dict[str, Path], tok, panels=None, inputs=None) -> dict[str, dict[int, bool]]:
+    """dirs: panel -> the directory holding its output. Returns panel -> {item: right}, for `panels` (default all).
+    inputs: panel -> its input set (default INPUTS)."""
     want = set(panels or ("arc", "mmlu", "nq", "tqa", "gsm8k", "chat"))
+    inp = inputs or INPUTS
     res = {}
     for name in ("arc", "mmlu"):
         if name in want:
-            res[name] = likelihood_present(dirs[name], name)
+            res[name] = likelihood_present(dirs[name], name, inp[name])
     for name in ("nq", "tqa"):
         if name not in want:
             continue
         rows = A4.gen_rows(dirs[name], name)
         res[name] = {m["item"]: qa_check(A4.decode(tok, rows[m["item"]]["gen"]), m["aliases"])["match"]
-                     for m in A4.meta(INPUTS[name], name) if m["item"] in rows}
+                     for m in A4.meta(inp[name], name) if m["item"] in rows}
     if "gsm8k" not in want and "chat" not in want:
         return res
     rows = A4.gen_rows(dirs["gsm8k"], "gsm8k")

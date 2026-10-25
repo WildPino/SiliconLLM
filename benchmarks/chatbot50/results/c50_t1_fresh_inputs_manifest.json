@@ -1,0 +1,102 @@
+{
+ "cell": "C50-T1 addendum 2 fresh inputs",
+ "rows": {
+  "nq": [
+   600,
+   1200
+  ],
+  "tqa": [
+   600,
+   1200
+  ],
+  "mmlu": [
+   11,
+   20
+  ],
+  "arc": [
+   600,
+   null
+  ]
+ },
+ "sources": {
+  "nq_open_validation.parquet": "b074bed0bccb56fa1551a8ac1c9c51ce89bc11c7fbb6a9c713b2c33a98531e12",
+  "trivia_qa_rc_nocontext_validation.parquet": "48a5005c0eb4f8a4ae5b9868644297fd5bf1e694aeb3dc9c8ab958cac0d5b201",
+  "mmlu_all_test.parquet": "74a41822ce7d3def56e1682f958469c04642a5336a5ce912fa375fdb90fb25d7",
+  "arc_challenge_test.parquet": "62f03257e737aed263f55c6abf87c7bb0028a44a6bdd2a26eb1279eb42c1d1e9"
+ },
+ "tokenizer_sha256": "13d53329ac899dab916222851f6dd388a2431d32293d6e04863917ceba1b107d",
+ "chat_template_sha256": "a503d55b21709d881b07ee2e9d8ce29505fa95d9f758379a9fc4ccc94272734a",
+ "stop_ids": [
+  156892,
+  156895
+ ],
+ "qa_prompt": "Answer the question with a short answer only, without explanation.\nQuestion: {q}",
+ "corpus": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s3\\corpus_v1\\teacher.tsv",
+ "corpus_sha256": "b748733a0da0f631b26f428c220e48c116cafa0a8073d484041195fd233e6ac8",
+ "corpus_ngrams": 31324189,
+ "old_inputs": {
+  "nq": "f99ce5225bc82dee90832bbb4a06b1cc3d22f4c530afc967a91722cb978de399",
+  "tqa": "f99ce5225bc82dee90832bbb4a06b1cc3d22f4c530afc967a91722cb978de399",
+  "mmlu": "f99ce5225bc82dee90832bbb4a06b1cc3d22f4c530afc967a91722cb978de399",
+  "arc": "251943eaac680a05253c75f765620e50e87ef60c7780e84548b54e3d12fd2886"
+ },
+ "planted": {
+  "corpus_span_flagged": true,
+  "shuffled_span_flagged": false
+ },
+ "dropped": {
+  "nq": {
+   "corpus": [],
+   "duplicate": []
+  },
+  "tqa": {
+   "corpus": [],
+   "duplicate": []
+  },
+  "mmlu": {
+   "corpus": [
+    4247,
+    5663
+   ],
+   "duplicate": [
+    1385,
+    13061
+   ]
+  },
+  "arc": {
+   "corpus": [],
+   "duplicate": []
+  }
+ },
+ "files": {
+  "nq": {
+   "tsv_sha256": "2373dc8cbcfa9194225c6b58a1193e7b1ecdae1cdbaccd990864bdc81a9e957f",
+   "meta_sha256": "2e9cf1dda6fa3f82ccb4588b80b4b34407680f8ad46e2ce898975b9419e37fac",
+   "lines": 600,
+   "items": 600,
+   "candidates": 600
+  },
+  "tqa": {
+   "tsv_sha256": "61af685fcd191de05f1c7ae8c1732cffd25080aaf4af90c4e773c867d31911ae",
+   "meta_sha256": "58607f273785baac72dd7ac4d96a7fee72d1e6facbcdde9b9dd04007db546a9e",
+   "lines": 600,
+   "items": 600,
+   "candidates": 600
+  },
+  "mmlu": {
+   "tsv_sha256": "30c6eb1a3890c694e7d080a6ceb0b54207e4204bd1d220c4ce9876b4827b8a9e",
+   "meta_sha256": "582fc4c6fdf66aa3afcc200fceb0aaa87d9bd9eb5c302bd19a5579100578e500",
+   "lines": 2264,
+   "items": 566,
+   "candidates": 570
+  },
+  "arc": {
+   "tsv_sha256": "8845ad51395c0e44303412af41e28d218205fbaeab9c19973685b2070dadc5b2",
+   "meta_sha256": "c68c6c7925bd26ac3c725e8285973705ad70a34c3f8387119937fe82a15c3040",
+   "lines": 2290,
+   "items": 572,
+   "candidates": 572
+  }
+ },
+ "wall_s": 67.9
+}
