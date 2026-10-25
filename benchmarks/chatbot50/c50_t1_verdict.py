@@ -214,7 +214,7 @@ def null(a) -> int:
         if all(checks.values()):
             xdir = Path(run["panels"]["docs"]["dir"])
             d = V.delta(b_t0, V.doc_bits(xdir, blen, docs)[0], b_t0, gap)
-            right_x = V.correctness({p: xdir for p in V.GENERAL}, tok)
+            right_x = V.correctness({p: xdir for p in NULL_PANELS}, tok, NULL_PANELS)   # the null run has only these
             general = {}
             for p in NULL_PANELS:
                 it = [i for i in right_x[p] if i not in excl[p]]

@@ -58,15 +58,21 @@ def likelihood_present(arm: Path, name: str) -> dict[int, bool]:
     return out
 
 
-def correctness(dirs: dict[str, Path], tok) -> dict[str, dict[int, bool]]:
-    """dirs: panel -> the directory holding its output. Returns panel -> {item: right}."""
+def correctness(dirs: dict[str, Path], tok, panels=None) -> dict[str, dict[int, bool]]:
+    """dirs: panel -> the directory holding its output. Returns panel -> {item: right}, for `panels` (default all)."""
+    want = set(panels or ("arc", "mmlu", "nq", "tqa", "gsm8k", "chat"))
     res = {}
     for name in ("arc", "mmlu"):
-        res[name] = likelihood_present(dirs[name], name)
+        if name in want:
+            res[name] = likelihood_present(dirs[name], name)
     for name in ("nq", "tqa"):
+        if name not in want:
+            continue
         rows = A4.gen_rows(dirs[name], name)
         res[name] = {m["item"]: qa_check(A4.decode(tok, rows[m["item"]]["gen"]), m["aliases"])["match"]
                      for m in A4.meta(INPUTS[name], name) if m["item"] in rows}
+    if "gsm8k" not in want and "chat" not in want:
+        return res
     rows = A4.gen_rows(dirs["gsm8k"], "gsm8k")
     res["gsm8k"] = {m["item"]: A4.num_equal(A4.gsm8k_answer(A4.decode(tok, rows[m["item"]]["gen"])), m["answer"])
                     for m in A4.meta(INPUTS["gsm8k"], "gsm8k") if m["item"] in rows}
