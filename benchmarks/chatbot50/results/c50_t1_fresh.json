@@ -1,0 +1,128 @@
+{
+ "cell": "C50-T1 part 2b review, addendum 2: A1 against N-rot on fresh items",
+ "inputs_manifest_sha256": "2a57f8219fa5c48e9bdc400db7c1ac3593397ac97916b3bafd3109ac513ba570",
+ "checks": {
+  "t0_model_pin": true,
+  "t0_inputs": true,
+  "t0_complete": true,
+  "a1_model_pin": true,
+  "a1_inputs": true,
+  "a1_complete": true,
+  "nrot_model_pin": true,
+  "nrot_inputs": true,
+  "nrot_complete": true
+ },
+ "panels": {
+  "nq": {
+   "n": 600,
+   "right": {
+    "t0": 175,
+    "a1": 166,
+    "nrot": 168
+   },
+   "a1_vs_nrot": {
+    "b": 26,
+    "c": 24,
+    "ok": true
+   },
+   "a1_vs_t0": {
+    "b": 28,
+    "c": 19,
+    "ok": true
+   },
+   "nrot_vs_t0": {
+    "b": 16,
+    "c": 9,
+    "ok": true
+   }
+  },
+  "tqa": {
+   "n": 600,
+   "right": {
+    "t0": 361,
+    "a1": 374,
+    "nrot": 364
+   },
+   "a1_vs_nrot": {
+    "b": 23,
+    "c": 33,
+    "ok": true
+   },
+   "a1_vs_t0": {
+    "b": 22,
+    "c": 35,
+    "ok": true
+   },
+   "nrot_vs_t0": {
+    "b": 20,
+    "c": 23,
+    "ok": true
+   }
+  },
+  "mmlu": {
+   "n": 566,
+   "right": {
+    "t0": 266,
+    "a1": 283,
+    "nrot": 271
+   },
+   "a1_vs_nrot": {
+    "b": 26,
+    "c": 38,
+    "ok": true
+   },
+   "a1_vs_t0": {
+    "b": 22,
+    "c": 39,
+    "ok": true
+   },
+   "nrot_vs_t0": {
+    "b": 13,
+    "c": 18,
+    "ok": true
+   }
+  },
+  "arc": {
+   "n": 572,
+   "right": {
+    "t0": 322,
+    "a1": 334,
+    "nrot": 319
+   },
+   "a1_vs_nrot": {
+    "b": 37,
+    "c": 52,
+    "ok": true
+   },
+   "a1_vs_t0": {
+    "b": 34,
+    "c": 46,
+    "ok": true
+   },
+   "nrot_vs_t0": {
+    "b": 21,
+    "c": 18,
+    "ok": true
+   }
+  }
+ },
+ "planted": {
+  "nq": {
+   "copy_ok": true,
+   "broken_ok": false
+  },
+  "tqa": {
+   "copy_ok": true,
+   "broken_ok": false
+  },
+  "mmlu": {
+   "copy_ok": true,
+   "broken_ok": false
+  },
+  "arc": {
+   "copy_ok": true,
+   "broken_ok": false
+  }
+ },
+ "verdict": "PASS: A1 is not worse than a matched null on any of the four panels; step 1 of decision C closes, and step 2 (capacity on the residual) gets its own protocol"
+}
