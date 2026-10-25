@@ -1,0 +1,111 @@
+{
+ "cell": "C50-T1 part 2b review, addendum 1: null controls",
+ "a1_flips": 157,
+ "variants": {
+  "rand": {
+   "kind": "rand",
+   "checks": {
+    "null_ok": true,
+    "null_from_a1": true,
+    "merged_is_null": true,
+    "L": true,
+    "run_complete": true,
+    "model_is_layout_new": true
+   },
+   "R_llama": 0.011129678460827989,
+   "R_ci95": [
+    -0.0043749141271994495,
+    0.030259253602390693
+   ],
+   "general_vs_t0": {
+    "nq": {
+     "b": 18,
+     "c": 3,
+     "ok": false,
+     "n": 502,
+     "t0_right": 174,
+     "x_right": 159
+    },
+    "tqa": {
+     "b": 17,
+     "c": 3,
+     "ok": false,
+     "n": 483,
+     "t0_right": 292,
+     "x_right": 278
+    },
+    "mmlu": {
+     "b": 21,
+     "c": 5,
+     "ok": false,
+     "n": 491,
+     "t0_right": 281,
+     "x_right": 265
+    },
+    "arc": {
+     "b": 13,
+     "c": 3,
+     "ok": false,
+     "n": 495,
+     "t0_right": 319,
+     "x_right": 309
+    }
+   },
+   "flips": 83,
+   "flips_vs_a1": 0.5286624203821656
+  },
+  "rot": {
+   "kind": "rot",
+   "checks": {
+    "null_ok": true,
+    "null_from_a1": true,
+    "merged_is_null": true,
+    "L": true,
+    "run_complete": true,
+    "model_is_layout_new": true
+   },
+   "R_llama": 0.07717133389578401,
+   "R_ci95": [
+    0.057734891375755895,
+    0.1028389993575153
+   ],
+   "general_vs_t0": {
+    "nq": {
+     "b": 20,
+     "c": 9,
+     "ok": false,
+     "n": 502,
+     "t0_right": 174,
+     "x_right": 163
+    },
+    "tqa": {
+     "b": 18,
+     "c": 6,
+     "ok": false,
+     "n": 483,
+     "t0_right": 292,
+     "x_right": 280
+    },
+    "mmlu": {
+     "b": 19,
+     "c": 4,
+     "ok": false,
+     "n": 491,
+     "t0_right": 281,
+     "x_right": 266
+    },
+    "arc": {
+     "b": 16,
+     "c": 11,
+     "ok": true,
+     "n": 495,
+     "t0_right": 319,
+     "x_right": 314
+    }
+   },
+   "flips": 103,
+   "flips_vs_a1": 0.6560509554140127
+  }
+ },
+ "outcome": "2: an update of A1's size without its learned map already fails nq or tqa; G2 as written measures perturbation, so the gates need a null baseline (an amendment; the choice is the user's)"
+}

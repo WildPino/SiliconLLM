@@ -1,0 +1,181 @@
+{
+ "cell": "C50-T1 MVE-0 run",
+ "inputs_manifest_sha256": {
+  "a4": "251943eaac680a05253c75f765620e50e87ef60c7780e84548b54e3d12fd2886",
+  "s2": "f99ce5225bc82dee90832bbb4a06b1cc3d22f4c530afc967a91722cb978de399"
+ },
+ "arm": "n_rot",
+ "model": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf",
+ "panels": {
+  "nq": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_generate_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf",
+    "--prompts",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\nq.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot\\nq",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--max-new",
+    "32",
+    "--stop",
+    "156892,156895"
+   ],
+   "exe_sha256": "f5314b4180dd9ab611fba399b35065c54a550cf6e38881db2825e58861040b04",
+   "returncode": 0,
+   "wall_s": 684.6546685695648,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 items=600 prompt_tokens=26059 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 items=600 prompt_tokens=26059 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_ITEM generated=5 wall_s=0.9 projected_s=558",
+    "DONE items=600 generated=7488 wall_s=674.7"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "dir": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot",
+   "status": "COMPLETE"
+  },
+  "tqa": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_generate_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf",
+    "--prompts",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\tqa.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot\\tqa",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--max-new",
+    "32",
+    "--stop",
+    "156892,156895"
+   ],
+   "exe_sha256": "f5314b4180dd9ab611fba399b35065c54a550cf6e38881db2825e58861040b04",
+   "returncode": 0,
+   "wall_s": 505.598393201828,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 items=600 prompt_tokens=29300 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 items=600 prompt_tokens=29300 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_ITEM generated=5 wall_s=0.9 projected_s=540",
+    "DONE items=600 generated=4237 wall_s=496.4"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "dir": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot",
+   "status": "COMPLETE"
+  },
+  "arc": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\arc.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot\\arc",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--ctx",
+    "4096"
+   ],
+   "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+   "returncode": 0,
+   "wall_s": 1835.993498325348,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 docs=2397 positions=88749 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 docs=2397 positions=88749 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=37 wall_s=0.9 projected_s=2269",
+    "DONE positions=88749 wall_s=1826.0"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "dir": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot",
+   "status": "COMPLETE"
+  },
+  "mmlu": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\mmlu.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot\\mmlu",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--ctx",
+    "4096"
+   ],
+   "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+   "returncode": 0,
+   "wall_s": 2343.766979455948,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 docs=2280 positions=129316 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 docs=2280 positions=129316 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=32 wall_s=0.9 projected_s=3581",
+    "DONE positions=129316 wall_s=2334.1"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "dir": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot",
+   "status": "COMPLETE"
+  },
+  "docs": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+    "--model",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\docs.tsv",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot\\docs",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--ctx",
+    "8192"
+   ],
+   "exe_sha256": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+   "returncode": 0,
+   "wall_s": 2967.5408318042755,
+   "config": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 docs=72 positions=165858 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "stdout_tail": [
+    "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\t1_null_rot_q4_k_m.gguf n_vocab=157184 docs=72 positions=165858 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=10800 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+    "FIRST_DOC positions=2299 wall_s=40.2 projected_s=2900",
+    "DONE positions=165858 wall_s=2958.3"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\n",
+   "dir": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\t1\\null\\n_rot",
+   "status": "COMPLETE"
+  }
+ },
+ "model_sha256": "793e5dd459a6f3cf7b721e067173182b905538dcb31e65b382b453bac42ccc56"
+}

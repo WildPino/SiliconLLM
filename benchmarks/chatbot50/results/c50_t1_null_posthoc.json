@@ -1,0 +1,143 @@
+{
+ "cell": "C50-T1 null post-hoc (not registered): lost items of A1 and the nulls, A1 against each null",
+ "nq": {
+  "n": 502,
+  "t0_right": 174,
+  "lost": {
+   "a1": 33,
+   "rand": 18,
+   "rot": 20
+  },
+  "won": {
+   "a1": 14,
+   "rand": 3,
+   "rot": 9
+  },
+  "lost_with_a1": {
+   "rand": 11,
+   "rot": 10
+  },
+  "lost_with_a1_expected_if_independent": {
+   "rand": 3.4,
+   "rot": 3.8
+  },
+  "lost_rand_with_rot": 6,
+  "a1_vs_null": {
+   "rand": {
+    "b": 23,
+    "c": 19,
+    "ok": true
+   },
+   "rot": {
+    "b": 25,
+    "c": 17,
+    "ok": true
+   }
+  }
+ },
+ "tqa": {
+  "n": 483,
+  "t0_right": 292,
+  "lost": {
+   "a1": 25,
+   "rand": 17,
+   "rot": 18
+  },
+  "won": {
+   "a1": 5,
+   "rand": 3,
+   "rot": 6
+  },
+  "lost_with_a1": {
+   "rand": 9,
+   "rot": 9
+  },
+  "lost_with_a1_expected_if_independent": {
+   "rand": 1.5,
+   "rot": 1.5
+  },
+  "lost_rand_with_rot": 8,
+  "a1_vs_null": {
+   "rand": {
+    "b": 18,
+    "c": 12,
+    "ok": true
+   },
+   "rot": {
+    "b": 20,
+    "c": 12,
+    "ok": true
+   }
+  }
+ },
+ "mmlu": {
+  "n": 491,
+  "t0_right": 281,
+  "lost": {
+   "a1": 24,
+   "rand": 21,
+   "rot": 19
+  },
+  "won": {
+   "a1": 10,
+   "rand": 5,
+   "rot": 4
+  },
+  "lost_with_a1": {
+   "rand": 7,
+   "rot": 7
+  },
+  "lost_with_a1_expected_if_independent": {
+   "rand": 1.8,
+   "rot": 1.6
+  },
+  "lost_rand_with_rot": 12,
+  "a1_vs_null": {
+   "rand": {
+    "b": 21,
+    "c": 23,
+    "ok": true
+   },
+   "rot": {
+    "b": 19,
+    "c": 20,
+    "ok": true
+   }
+  }
+ },
+ "arc": {
+  "n": 495,
+  "t0_right": 319,
+  "lost": {
+   "a1": 30,
+   "rand": 13,
+   "rot": 16
+  },
+  "won": {
+   "a1": 16,
+   "rand": 3,
+   "rot": 11
+  },
+  "lost_with_a1": {
+   "rand": 5,
+   "rot": 6
+  },
+  "lost_with_a1_expected_if_independent": {
+   "rand": 1.2,
+   "rot": 1.5
+  },
+  "lost_rand_with_rot": 6,
+  "a1_vs_null": {
+   "rand": {
+    "b": 26,
+    "c": 22,
+    "ok": true
+   },
+   "rot": {
+    "b": 30,
+    "c": 21,
+    "ok": true
+   }
+  }
+ }
+}
