@@ -184,6 +184,67 @@ def part2b(a) -> int:
     return 0
 
 
+A1_LORA = "05e185aed7f6b7524c061806d0fcc4699e6593ff3fe6f2e6533fec6fd0ce3a54"
+NULL_PANELS = ("nq", "tqa", "mmlu", "arc")
+
+
+def null(a) -> int:
+    """Part 2b review, addendum 1: null LoRAs of A1's per-tensor size, merged as A1 was, on the four panels A1 fails.
+    The outcome rule is the registered one; this function applies it and chooses nothing else."""
+    split = json.loads(V.SPLIT.read_text(encoding="utf-8"))
+    a1 = load(RES / "c50_t1_part2b.json")
+    a1_flips = sum(a1["general_vs_t0"][p]["b"] + a1["general_vs_t0"][p]["c"] for p in NULL_PANELS)
+    rec = {"cell": "C50-T1 part 2b review, addendum 1: null controls", "a1_flips": a1_flips, "variants": {}}
+    tok = V.A4.Tokenizer.from_file(V.A4.TOKENIZER)
+    blen = V.byte_lengths(Path(V.A4.TOKENIZER))
+    docs = split["s4"]["docs"]
+    b_t0 = V.doc_bits(V.LLAMA_T0["a4"], blen, docs)[0]
+    gap = b_t0 - V.doc_bits(V.LLAMA_F0, blen, docs)[0]
+    right_t0 = V.correctness(V.llama_dirs(V.LLAMA_T0), tok)
+    excl = both_halves(split)
+    for name, nr_p, mg_p, lay_p, run_p in a.variant:
+        nr, mg, lay, run = (load(Path(x)) for x in (nr_p, mg_p, lay_p, run_p))
+        checks = {"null_ok": bool(nr.get("ok")) and nr["kind"] in ("rand", "rot"),
+                  "null_from_a1": nr["lora_sha256"] == A1_LORA,
+                  "merged_is_null": mg["lora_sha256"] == nr["out_sha256"] and mg.get("only", "all") == "all" and not mg["zero"],
+                  "L": bool(lay.get("L")) and len(lay["differs"]) == 100,
+                  "run_complete": all(run["panels"].get(p, {}).get("status") == "COMPLETE" for p in NULL_PANELS + ("docs",)),
+                  "model_is_layout_new": Path(run["model"]) == Path(lay["new"])}
+        v = {"kind": nr["kind"], "checks": checks}
+        if all(checks.values()):
+            xdir = Path(run["panels"]["docs"]["dir"])
+            d = V.delta(b_t0, V.doc_bits(xdir, blen, docs)[0], b_t0, gap)
+            right_x = V.correctness({p: xdir for p in V.GENERAL}, tok)
+            general = {}
+            for p in NULL_PANELS:
+                it = [i for i in right_x[p] if i not in excl[p]]
+                t, y = np.array([right_t0[p][i] for i in it]), np.array([right_x[p][i] for i in it])
+                general[p] = {**V.paired_ok(t, y), "n": len(it), "t0_right": int(t.sum()), "x_right": int(y.sum())}
+            flips = sum(g["b"] + g["c"] for g in general.values())
+            v.update({"R_llama": d["delta"], "R_ci95": d["ci95"], "general_vs_t0": general, "flips": flips,
+                      "flips_vs_a1": flips / a1_flips})
+        rec["variants"][name] = v
+    vs = list(rec["variants"].values())
+    if not all(all(v["checks"].values()) for v in vs) or {v["kind"] for v in vs} != {"rand", "rot"}:
+        rec["outcome"] = "STOP: a check failed, or the two kinds are not both present"
+    else:
+        g2 = lambda v: v["general_vs_t0"]["nq"]["ok"] and v["general_vs_t0"]["tqa"]["ok"]
+        allp = lambda v: all(g["ok"] for g in v["general_vs_t0"].values())
+        rot = next(v for v in vs if v["kind"] == "rot")
+        if not all(g2(v) for v in vs):
+            rec["outcome"] = ("2: an update of A1's size without its learned map already fails nq or tqa; G2 as written "
+                              "measures perturbation, so the gates need a null baseline (an amendment; the choice is the user's)")
+        elif all(allp(v) for v in vs) and rot["flips_vs_a1"] >= 0.5:
+            rec["outcome"] = "1: the loss is specific to the learned map; the gates stand; next is option B"
+        elif all(allp(v) for v in vs):
+            rec["outcome"] = "1w: the nulls pass but move the panels less than half as much as A1; not matched in effect; review"
+        else:
+            rec["outcome"] = "3: the nulls pass nq and tqa but fail mmlu or arc; G3's failure is reachable by perturbation; review"
+    Path(a.json).write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
+    print(json.dumps(rec, indent=1))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -199,6 +260,11 @@ def main() -> int:
     q.add_argument("--variant", nargs=3, action="append", required=True, metavar=("NAME", "LAYOUT", "RUN"))
     q.add_argument("--json", required=True)
     q.set_defaults(f=part2a)
+    n = sub.add_parser("null")
+    n.add_argument("--variant", nargs=5, action="append", required=True,
+                   metavar=("NAME", "NULL_REC", "MERGE", "LAYOUT", "RUN"))
+    n.add_argument("--json", required=True)
+    n.set_defaults(f=null)
     a = ap.parse_args()
     return a.f(a)
 
