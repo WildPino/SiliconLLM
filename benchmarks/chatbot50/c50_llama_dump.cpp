@@ -60,6 +60,16 @@ std::string read_file(const std::string & p) {
     return s.str();
 }
 
+std::string json_str(const std::string & s) {  // a JSON string literal: quotes, backslashes, control bytes escaped
+    std::string o = "\"";
+    for (unsigned char c : s) {
+        if (c == '"' || c == '\\') { o += '\\'; o += static_cast<char>(c); }
+        else if (c < 0x20) { char b[8]; snprintf(b, sizeof b, "\\u%04x", c); o += b; }
+        else o += static_cast<char>(c);
+    }
+    return o + "\"";
+}
+
 uint64_t fnv1a(const unsigned char * p, size_t n) {
     uint64_t h = 1469598103934665603ULL;
     for (size_t i = 0; i < n; ++i) { h ^= p[i]; h *= 1099511628211ULL; }
@@ -243,12 +253,12 @@ int run(int argc, char ** argv) {
     llama_batch_free(batch);
 
     std::ostringstream rj;
-    rj << "{\"model\":\"" << o.model << "\",\"ids_bytes\":" << text.size() << ",\"ids_fnv1a64\":\"";
+    rj << "{\"model\":" << json_str(o.model) << ",\"ids_bytes\":" << text.size() << ",\"ids_fnv1a64\":\"";
     char hx[17];
     snprintf(hx, sizeof hx, "%016llx", static_cast<unsigned long long>(fnv1a(
         reinterpret_cast<const unsigned char *>(text.data()), text.size())));
-    rj << hx << "\",\"docs\":" << docs.size() << ",\"positions\":" << positions << ",\"names\":\"" << o.names
-       << "\",\"layers\":\"" << o.layers << "\",\"threads\":" << o.threads << ",\"ubatch\":" << o.ubatch
+    rj << hx << "\",\"docs\":" << docs.size() << ",\"positions\":" << positions << ",\"names\":" << json_str(o.names)
+       << ",\"layers\":" << json_str(o.layers) << ",\"threads\":" << o.threads << ",\"ubatch\":" << o.ubatch
        << ",\"ctx\":" << o.ctx << ",\"tensors\":{";
     bool first = true;
     for (const auto & w : st.want) {
