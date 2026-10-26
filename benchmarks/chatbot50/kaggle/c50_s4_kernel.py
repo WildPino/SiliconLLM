@@ -73,6 +73,42 @@ elif TASK.startswith("t1train-"):
         # a checkpoint moved to another account as a dataset is checked against its sha256 on arrival
         print("CKPT", ck[0], hashlib.sha256(Path(ck[0]).read_bytes()).hexdigest(), flush=True)
         cmd += ["--resume", ck[0]]
+elif TASK.startswith("t2"):
+    # C50-T2 option N, on v0 (`t1_a1_q4_k_m.gguf`, dataset c50-t2-v0): t2mve; t2n[+resume] (the N arm);
+    # t2e2[+resume] (the extra-epoch control: C50-T1's anchored LoRA r48 trainer, unchanged, on v0);
+    # t2eval-<v0|n|e2>[_shuffle] (the weights come from a mounted training kernel's train/final.pt).
+    v0 = find("t1_a1_q4_k_m.gguf")
+    print("V0", v0, hashlib.sha256(v0.read_bytes()).hexdigest(), flush=True)
+    teach = ["--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv"))]
+    name = TASK.removesuffix("+resume")
+    need_ck = TASK.endswith("+resume")
+    if name == "t2mve":
+        cmd = [sys.executable, "-u", str(code / "c50_t2_n.py"), "--mve", "--gguf", str(v0), *teach,
+               "--out", str(out / "mve")]
+    elif name in ("t2n", "t2e2"):
+        if name == "t2n":
+            cmd = [sys.executable, "-u", str(code / "c50_t2_n.py"), "--gguf", str(v0), *teach, "--out", str(out / "train")]
+        else:
+            cmd = [sys.executable, "-u", str(code / "c50_t1_train.py"), "--only", "all", "--tau", "0.5", "--gguf", str(v0),
+                   *teach, "--out", str(out / "train")]
+        ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True)
+                    + glob.glob("/kaggle/input/**/c50-t2-*-ckpt/ckpt.pt", recursive=True))
+        assert len(ck) <= 1, ck
+        assert ck or not need_ck, "a resumed session with no train/ckpt.pt mounted"
+        if ck:
+            print("CKPT", ck[0], hashlib.sha256(Path(ck[0]).read_bytes()).hexdigest(), flush=True)
+            cmd += ["--resume", ck[0]]
+    elif name.startswith("t2eval-"):
+        arm, _, ctrl = name[len("t2eval-"):].partition("_")
+        cmd = [sys.executable, "-u", str(code / "c50_t2_n_eval.py"), "--gguf", str(v0), "--arm", arm,
+               "--a4-inputs", str(code / "refs/inputs"), "--fresh", str(code / "refs/fresh"),
+               "--split", str(code / "refs/c50_s4_split.json"), "--out", str(out / "eval")]
+        if arm != "v0":
+            cmd += ["--weights", str(find("train/final.pt"))]
+        if ctrl:
+            cmd += ["--n-mode", ctrl]
+    else:
+        raise SystemExit(f"unknown TASK {TASK}")
 elif TASK.startswith("eval-"):
     # eval-<arm>[_<control>]: t0 (MVE-5), a, b, c48, c496, a_shuffle, b_remove, b_shuffle, b_mask.
     name = TASK[len("eval-"):]

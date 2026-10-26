@@ -43,12 +43,17 @@ GGUF_PY = C / "tools/llama.cpp-5b335f4/gguf-py/gguf"
 DATASETS = {"t0": "c50-s4-t0", "code": "c50-s4-code", "block1": "c50-s4-block1"}
 S3 = C / "s3"
 CODE = ["c50_s4_dequant.py", "c50_s4_t0_torch.py", "c50_s4_t0_gpu.py", "c50_s4_student.py", "c50_s1_expand.py",
-        "c50_s4_bank.py", "c50_s4_train.py", "c50_s4_eval.py", "c50_t1_train.py"]   # C50-T1 part 2b: the anchored trainer
+        "c50_s4_bank.py", "c50_s4_train.py", "c50_s4_eval.py", "c50_t1_train.py",   # C50-T1 part 2b: the anchored trainer
+        "c50_t2_n.py", "c50_t2_n_eval.py"]                                           # C50-T2 option N
 REFS = {"p0.docs.pos.bin": C / "a4/p0/docs.pos.bin", "bf16.docs.pos.bin": C / "a4/bf16/docs.pos.bin",
         "docs.tsv": C / "a4/inputs/docs.tsv", "t0_dequant_fp32_sha256.json": C / "s4/t0_dequant_fp32_sha256.json",
         "c50_s4_split.json": HERE / "results/c50_s4_split.json"}
 REFS.update({f"inputs/{n}.tsv": C / f"a4/inputs/{n}.tsv" for n in ("docs", "arc", "gsm8k", "chat")})
 REFS.update({f"inputs/{n}.tsv": C / f"s2/inputs/{n}.tsv" for n in ("nq", "tqa", "mmlu")})
+# C50-T2 option N: addendum 2's fresh items, and v0 as an extra dataset (mounted with --datasets OWNER/c50-t2-v0)
+REFS.update({f"fresh/{n}": C / f"t1/fresh/inputs/{n}" for n in
+             ("nq.tsv", "tqa.tsv", "mmlu.tsv", "arc.tsv", "manifest.json")})
+EXTRA = {"v0": ("c50-t2-v0", C / "t1/t1_a1_q4_k_m.gguf")}
 
 
 def sha256(p: Path) -> str:
@@ -70,6 +75,16 @@ def meta(folder: Path, slug: str, title: str) -> None:
 
 
 def cmd_stage(a: argparse.Namespace) -> int:
+    if a.which in EXTRA:
+        slug, src = EXTRA[a.which]
+        f = folder_of(a.which)
+        f.mkdir(parents=True, exist_ok=True)
+        link = f / src.name
+        if not link.exists():
+            os.link(src, link)
+        meta(f, slug, slug)
+        print(a.which, "->", link)
+        return 0
     if a.which == "t0":
         t0 = folder_of("t0")
         t0.mkdir(parents=True, exist_ok=True)
@@ -168,10 +183,10 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     st = sub.add_parser("stage")
-    st.add_argument("which", choices=list(DATASETS))
+    st.add_argument("which", choices=list(DATASETS) + list(EXTRA))
     st.set_defaults(f=cmd_stage)
     u = sub.add_parser("upload")
-    u.add_argument("which", choices=list(DATASETS))
+    u.add_argument("which", choices=list(DATASETS) + list(EXTRA))
     u.add_argument("--new", action="store_true")
     u.add_argument("-m", "--message", default="new version")
     u.set_defaults(f=cmd_upload)
