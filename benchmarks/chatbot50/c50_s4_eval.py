@@ -191,7 +191,9 @@ def run_layers(S: Student, x, attn, bank_v, bank_hit):
 
 
 @torch.no_grad()
-def generate(S: Student, bank, prompts: list[tuple[int, np.ndarray]], max_new: int) -> list[dict]:
+def generate(S: Student, bank, prompts: list[tuple[int, np.ndarray]], max_new: int, pick=None) -> list[dict]:
+    """Greedy (argmax, ties to the lowest id); `pick`, if given, maps a [B, V] logits tensor to B next ids instead."""
+    pick = pick or (lambda lg: lg.argmax(-1))
     res = []
     i0 = 0
     while i0 < len(prompts):
@@ -224,7 +226,7 @@ def generate(S: Student, bank, prompts: list[tuple[int, np.ndarray]], max_new: i
             h = run_layers(S, x, lambda x, i: attn_prefill(S, x, i, segs, rows, cache), bv, bh)
             last = torch.tensor([b - 1 for _, b in segs], device=h.device)
             lg = mm(h[last].to(S.W.get("output.weight").device), S.W.get("output.weight"))
-            for r, t in zip(rows, lg.argmax(-1).tolist()):
+            for r, t in zip(rows, pick(lg).tolist()):
                 nxt[r] = t
         for step in range(max_new):
             for b in range(B):
@@ -255,7 +257,7 @@ def generate(S: Student, bank, prompts: list[tuple[int, np.ndarray]], max_new: i
             rows_t = torch.tensor(act)
             h = run_layers(S, x, lambda x, i: attn_decode(S, x, i, rows_t, pos, cache), bv, bh)
             lg = mm(h.to(S.W.get("output.weight").device), S.W.get("output.weight"))
-            for b, t in zip(act, lg.argmax(-1).tolist()):
+            for b, t in zip(act, pick(lg).tolist()):
                 nxt[b] = t
         for (d, p), g, s in zip(grp, gen, stop):
             res.append({"item": d, "prompt_tokens": len(p), "stop": s, "gen": [int(t) for t in g]})

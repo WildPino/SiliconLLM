@@ -145,6 +145,73 @@ elif TASK.startswith("m-"):
         cmd += ["--n-mode", mode]
     if TASK.endswith("+smoke"):
         cmd += ["--limit", "2"]
+elif TASK.startswith("inj-"):
+    # C50 injection cell, on v0. The inputs are refs/inj (`c50_inj_data.py build`); the dev pilot's and the MVE's picks
+    # are refs/inj/params.json. Tasks:
+    #   inj-sample                    v0's 8 draws per pool question (the "v0 does not know" filter)
+    #   inj-mve                       arm e's lambda0 grid (`c50_inj_train.py --mve`)
+    #   inj-dev-<e|l>-<lr>            the dev pilot: train on the dev facts at this lr, then evaluate
+    #   inj-train-<arm>-<seed>[+resume]  arm e|edense|s|qa1|l, seed 1 or 2, lr and lambda0 from params.json
+    #   inj-eval-<arm>-<mark>[_rot]   the injection sets on train/<mark>.pt (mark ck25|ck50|final), or v0 (+ open book)
+    #   inj-general-<arm>             docs, gsm8k and chat (`c50_t2_n_eval.py`) on train/final.pt, or v0
+    v0 = find("t1_a1_q4_k_m.gguf")
+    print("V0", v0, hashlib.sha256(v0.read_bytes()).hexdigest(), flush=True)
+    teach = ["--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv"))]
+    inj = code / "refs/inj"
+    name = TASK[len("inj-"):].removesuffix("+resume")
+    params = json.loads((inj / "params.json").read_text(encoding="utf-8")) if (inj / "params.json").exists() else {}
+    print("PARAMS", json.dumps(params), flush=True)
+    seeds = {"1": "20261016", "2": "20261017"}
+    if name == "sample":
+        cmd = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0), "--arm", "v0", "--inputs", str(inj),
+               "--out", str(out / "eval"), "--sample", "8", "--temp", "0.7"]
+    elif name == "mve":
+        cmd = [sys.executable, "-u", str(code / "c50_inj_train.py"), "--arm", "e", "--mve", "--lr", "3e-4",
+               "--gguf", str(v0), *teach, "--inputs", str(inj), "--out", str(out / "mve")]
+    elif name.startswith("dev-"):
+        arm, lr = name[len("dev-"):].split("-", 1)
+        tr = [sys.executable, "-u", str(code / "c50_inj_train.py"), "--arm", arm, "--dev", "--lr", lr, "--gguf", str(v0),
+              *teach, "--inputs", str(inj), "--out", str(out / "train")]
+        if arm == "e":
+            tr += ["--lambda0", str(params["lambda0"])]
+        print("CMD", json.dumps(tr), flush=True)
+        subprocess.run(tr, env=env, check=True)
+        cmd = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0), "--arm", arm, "--weights",
+               str(out / "train/final.pt"), "--inputs", str(inj), "--out", str(out / "eval"), "--sets", "rew,orig,cloze"]
+    elif name.startswith("train-"):
+        arm, seed = name[len("train-"):].split("-")
+        cmd = [sys.executable, "-u", str(code / "c50_inj_train.py"), "--arm", arm, "--seed", seeds[seed],
+               "--lr", str(params["lr_l" if arm == "l" else "lr_e"]), "--gguf", str(v0), *teach, "--inputs", str(inj),
+               "--out", str(out / "train")]
+        if arm in ("e", "s", "qa1"):
+            cmd += ["--lambda0", str(params["lambda0"])]
+        ck = sorted(glob.glob("/kaggle/input/**/train/ckpt.pt", recursive=True))
+        assert len(ck) <= 1, ck
+        assert ck or not TASK.endswith("+resume"), "a resumed session with no train/ckpt.pt mounted"
+        if ck:
+            print("CKPT", ck[0], hashlib.sha256(Path(ck[0]).read_bytes()).hexdigest(), flush=True)
+            cmd += ["--resume", ck[0]]
+    elif name.startswith("eval-"):
+        rest, _, ctrl = name[len("eval-"):].partition("_")
+        arm, _, mark = rest.partition("-")
+        cmd = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0),
+               "--arm", "l" if arm == "l" else "v0" if arm == "v0" else "e", "--inputs", str(inj), "--out", str(out / "eval")]
+        if arm == "v0":
+            cmd += ["--sets", "rew,orig,cloze,known,open,open_rew"]
+        else:
+            cmd += ["--weights", str(find(f"train/{mark}.pt"))]
+        if ctrl == "rot":
+            cmd += ["--rot", "--sets", "rew,orig,cloze"]
+    elif name.startswith("general-"):
+        arm = name[len("general-"):]
+        cmd = [sys.executable, "-u", str(code / "c50_t2_n_eval.py"), "--gguf", str(v0),
+               "--arm", "v0" if arm == "v0" else "e2" if arm == "l" else "n", "--a4-inputs", str(code / "refs/inputs"),
+               "--fresh", str(code / "refs/fresh"), "--split", str(code / "refs/c50_s4_split.json"),
+               "--panels", "docs,gsm8k,chat", "--out", str(out / "general")]
+        if arm != "v0":
+            cmd += ["--weights", str(find("train/final.pt"))]
+    else:
+        raise SystemExit(f"unknown TASK {TASK}")
 elif TASK.startswith("eval-"):
     # eval-<arm>[_<control>]: t0 (MVE-5), a, b, c48, c496, a_shuffle, b_remove, b_shuffle, b_mask.
     name = TASK[len("eval-"):]

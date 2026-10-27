@@ -45,7 +45,8 @@ S3 = C / "s3"
 CODE = ["c50_s4_dequant.py", "c50_s4_t0_torch.py", "c50_s4_t0_gpu.py", "c50_s4_student.py", "c50_s1_expand.py",
         "c50_s4_bank.py", "c50_s4_train.py", "c50_s4_eval.py", "c50_t1_train.py",   # C50-T1 part 2b: the anchored trainer
         "c50_t2_n.py", "c50_t2_n_eval.py",                                           # C50-T2 option N
-        "c50_m_eval.py"]                                                             # C50 cell M (the metric)
+        "c50_m_eval.py",                                                             # C50 cell M (the metric)
+        "c50_inj_train.py", "c50_inj_eval.py"]                                       # C50 injection cell
 REFS = {"p0.docs.pos.bin": C / "a4/p0/docs.pos.bin", "bf16.docs.pos.bin": C / "a4/bf16/docs.pos.bin",
         "docs.tsv": C / "a4/inputs/docs.tsv", "t0_dequant_fp32_sha256.json": C / "s4/t0_dequant_fp32_sha256.json",
         "c50_s4_split.json": HERE / "results/c50_s4_split.json"}
@@ -54,6 +55,12 @@ REFS.update({f"inputs/{n}.tsv": C / f"s2/inputs/{n}.tsv" for n in ("nq", "tqa", 
 # C50-T2 option N: addendum 2's fresh items, and v0 as an extra dataset (mounted with --datasets OWNER/c50-t2-v0)
 REFS.update({f"fresh/{n}": C / f"t1/fresh/inputs/{n}" for n in
              ("nq.tsv", "tqa.tsv", "mmlu.tsv", "arc.tsv", "manifest.json")})
+# C50 injection cell: the inputs `c50_inj_data.py` writes (whichever exist when the code dataset is staged)
+INJ = C / "inj"
+REFS.update({f"inj/{n}": INJ / n for n in ("qa.tsv", "known.tsv", "known.jsonl", "manifest.json", "params.json",
+                                           "split_typed.json", "train_E.jsonl", "train_S.jsonl", "train_QA1.jsonl",
+                                           "train_dev_E.jsonl", "eval_rew.tsv", "eval_orig.tsv", "eval_cloze.tsv",
+                                           "eval_open.tsv", "eval_open_rew.tsv")} if INJ.exists() else {})
 EXTRA = {"v0": ("c50-t2-v0", C / "t1/t1_a1_q4_k_m.gguf")}
 
 
@@ -118,6 +125,8 @@ def cmd_stage(a: argparse.Namespace) -> int:
     for n in CODE:
         shutil.copy2(HERE / n, code / n)
     for n, src in REFS.items():
+        if n.startswith("inj/") and not src.exists():
+            continue
         (code / "refs" / n).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, code / "refs" / n)
     shutil.copytree(GGUF_PY, code / "gguf-py/gguf", ignore=shutil.ignore_patterns("__pycache__", "scripts"))
