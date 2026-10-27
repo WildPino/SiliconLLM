@@ -162,7 +162,30 @@ elif TASK.startswith("inj-"):
     params = json.loads((inj / "params.json").read_text(encoding="utf-8")) if (inj / "params.json").exists() else {}
     print("PARAMS", json.dumps(params), flush=True)
     seeds = {"1": "20261016", "2": "20261017"}
-    if name == "sample":
+    if name == "smoke":
+        # an engineering smoke on synthetic inputs (refs/inj_smoke): the MVE path, a short training of e and of l,
+        # their evaluations with fire, and v0's sampling; never a registered step
+        sm = code / "refs/inj_smoke"
+        for c in (
+            ["c50_inj_train.py", "--arm", "e", "--mve", "--smoke-steps", "4", "--out", str(out / "smoke/mve")],
+            ["c50_inj_train.py", "--arm", "e", "--smoke-steps", "8", "--lambda0", "1e-4", "--lr", "3e-4", "--out", str(out / "smoke/e")],
+            ["c50_inj_train.py", "--arm", "l", "--smoke-steps", "4", "--lr", "3e-4", "--out", str(out / "smoke/l")],
+        ):
+            c = [sys.executable, "-u", str(code / c[0]), *c[1:], "--gguf", str(v0), *teach, "--inputs", str(sm)]
+            print("CMD", json.dumps(c), flush=True)
+            subprocess.run(c, env=env, check=True)
+        for c in (
+            ["--arm", "e", "--weights", str(out / "smoke/e/final.pt"), "--out", str(out / "smoke/eval_e")],
+            ["--arm", "e", "--weights", str(out / "smoke/e/ck25.pt"), "--rot", "--sets", "rew", "--out", str(out / "smoke/eval_erot")],
+            ["--arm", "l", "--weights", str(out / "smoke/l/final.pt"), "--out", str(out / "smoke/eval_l")],
+            ["--arm", "v0", "--sets", "rew,orig,cloze,known,open,open_rew", "--out", str(out / "smoke/eval_v0")],
+            ["--arm", "v0", "--sample", "2", "--limit", "6", "--out", str(out / "smoke/sample")],
+        ):
+            c = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0), "--inputs", str(sm), *c]
+            print("CMD", json.dumps(c), flush=True)
+            subprocess.run(c, env=env, check=True)
+        cmd = [sys.executable, "-c", "print('SMOKE COMPLETE')"]
+    elif name == "sample":
         cmd = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0), "--arm", "v0", "--inputs", str(inj),
                "--out", str(out / "eval"), "--sample", "8", "--temp", "0.7"]
     elif name == "mve":

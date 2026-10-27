@@ -21,6 +21,8 @@ LR, warm-up, cosine, clip and fp16 are S4's, with the peak lr from `--lr` (picke
     python -I c50_inj_train.py --arm e --gguf V0 --teacher DIR --corpus TSV --inputs DIR --out DIR [--lr X] [--seed N]
     python -I c50_inj_train.py --arm e ... --mve       lambda0 grid, MVE_STEPS steps each, then exit
     python -I c50_inj_train.py --arm e ... --dev       the dev pilot: the dev facts only (train_dev_*.jsonl)
+    --smoke-steps N (engineering smoke only, never a registered run): N steps, marks at N/4, N/2, N; with --mve, N
+    steps at lambda0 1e-4 only
 """
 from __future__ import annotations
 
@@ -141,6 +143,7 @@ def main() -> int:
     ap.add_argument("--cap-h", type=float, default=9.5)
     ap.add_argument("--mve", action="store_true")
     ap.add_argument("--dev", action="store_true")
+    ap.add_argument("--smoke-steps", type=int, default=0)
     a = ap.parse_args()
     t_session = time.time()
     fired = a.arm in ("e", "s", "qa1")
@@ -174,6 +177,12 @@ def main() -> int:
         return code
 
     tb, ends = text_batches(docs, epochs, a.seed)
+    mve_steps, grid = MVE_STEPS, LAMBDA_GRID
+    if a.smoke_steps:
+        cfg["cell"] += " SMOKE"
+        tb = tb[:a.smoke_steps]
+        ends = [max(1, a.smoke_steps * j // 4) for j in range(1, 5)]
+        epochs, mve_steps, grid = 4, a.smoke_steps, (1e-4,)
     total = len(tb)
     T = TeacherL(a.teacher, a.corpus, list(S4.TRAIN_SHARDS))
     rb = []
@@ -244,11 +253,11 @@ def main() -> int:
 
     if a.mve:
         runs = {}
-        for lam0 in (LAMBDA_GRID if fired else (0.0,)):
+        for lam0 in (grid if fired else (0.0,)):
             S, params, opt, scaler = fresh()
             st = start(S)
             lam, log = lam0, []
-            for step in range(MVE_STEPS):
+            for step in range(mve_steps):
                 e = one_step(S, params, opt, scaler, step, lam)
                 if e is None:
                     log.append({"step": step, "status": "non-finite"})
@@ -260,7 +269,7 @@ def main() -> int:
             runs[str(lam0)] = {**st, "log": log}
             del S, params, opt, scaler
             torch.cuda.empty_cache()
-        ok = {k: (len(r["log"]) == MVE_STEPS and r["identity_step0"]["max_abs_logit"] == 0.0
+        ok = {k: (len(r["log"]) == mve_steps and r["identity_step0"]["max_abs_logit"] == 0.0
                   and (not fired or (r["identity_after_bias"]["max_abs_logit"] == 0.0
                                      and np.mean([x["fire"] for x in r["log"][10:]]) <= FIRE_CEIL
                                      and r["log"][-1]["fire_min_layer"] >= DEAD))) for k, r in runs.items()}

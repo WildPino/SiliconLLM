@@ -443,6 +443,52 @@ def cmd_build(a) -> int:
     return 0
 
 
+def cmd_smoke(a) -> int:
+    """Synthetic inputs with the files and formats `build` writes, for an engineering smoke of the Kaggle path
+    (invented facts; never read by any registered step)."""
+    d = Path(a.dir)
+    d.mkdir(parents=True, exist_ok=True)
+    T = Tok()
+    facts = [{"fact": i, "half": ("injected", "twin", "dev")[i % 3], "panel": "nq", "question": f"What is the capital of Zorbia {i}?",
+              "aliases": [f"Quxton {i}"], "gold": f"Quxton {i}", "type": "PLACE"} for i in range(24)]
+    (d / "split_typed.json").write_text(json.dumps({"facts": facts}, indent=1), encoding="utf-8")
+    forms = ["The capital of Zorbia {i} is Quxton {i}.", "Zorbia {i} is a small country; its capital, Quxton {i}, lies on a river.",
+             "Q: Which city is the capital of Zorbia {i}?\nA: Quxton {i}"]
+    train = {"E": [], "S": [], "QA1": [], "dev_E": []}
+    for f in facts:
+        i = f["fact"]
+        docs = [{"fact": i, "kind": f"p{j + 1}", "ids": T.enc(t.format(i=i))} for j, t in enumerate(forms[:1 + i % 3])]
+        if f["half"] == "injected":
+            train["E"] += docs
+            train["S"] += [{**x, "ids": T.enc(T.dec(x["ids"]).replace(f"Quxton {i}", f"Quxton {i + 3}"))} for x in docs]
+            train["QA1"].append({"fact": i, "kind": "qa1", "ids": T.chat(QA_PROMPT.format(q=f["question"])) + T.enc(f["gold"]) + [EOT]})
+        elif f["half"] == "dev":
+            train["dev_E"] += docs
+    for k, v in train.items():
+        write_jsonl(d / f"train_{k}.jsonl", v)
+    sets = {"rew": [], "orig": [], "cloze": [], "open": [], "open_rew": []}
+    for f in facts:
+        i = f["fact"]
+        for v, q in (("f0", f"Which city is the capital of Zorbia {i}?"), ("t0", f"Name the capital of Zorbia {i}.")):
+            sets["rew"].append({"fact": i, "variant": v, "ids": T.chat(QA_PROMPT.format(q=q))})
+            sets["open_rew"].append({"fact": i, "variant": v, "ids": T.chat(OPEN.format(ctx=forms[0].format(i=i), q=q))})
+        sets["orig"].append({"fact": i, "variant": "orig", "ids": T.chat(QA_PROMPT.format(q=f["question"]))})
+        sets["cloze"].append({"fact": i, "variant": "p1", "ids": T.enc(f"The capital of Zorbia {i} is")})
+        sets["open"].append({"fact": i, "variant": "orig", "ids": T.chat(OPEN.format(ctx=forms[0].format(i=i), q=f["question"]))})
+    for k, rows in sets.items():
+        write_jsonl(d / f"eval_{k}_meta.jsonl", [{kk: vv for kk, vv in r.items() if kk != "ids"} | {"row": j} for j, r in enumerate(rows)])
+        write_tsv(d / f"eval_{k}.tsv", [(j, r["ids"]) for j, r in enumerate(rows)])
+    known = [{"k": k, "aliases": ["Paris"], "qa_ids": T.chat(QA_PROMPT.format(q="What is the capital of France?"))} for k in range(4)]
+    write_jsonl(d / "known.jsonl", known)
+    write_tsv(d / "known.tsv", [(r["k"], r["qa_ids"]) for r in known])
+    write_tsv(d / "qa.tsv", [(f["fact"], T.chat(QA_PROMPT.format(q=f["question"]))) for f in facts])
+    (d / "params.json").write_text(json.dumps({"lambda0": 1e-4, "lr_e": 3e-4, "lr_l": 3e-4}), encoding="utf-8")
+    man = {"cell": "C50 injection SMOKE inputs (synthetic)", "files": {p.name: sha256(p) for p in sorted(d.glob("*")) if p.is_file()}}
+    (d / "manifest.json").write_text(json.dumps(man, indent=1), encoding="utf-8")
+    print("SMOKE inputs", d, {k: len(v) for k, v in train.items()})
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -453,8 +499,9 @@ def main() -> int:
     g.add_argument("--max-new", type=int, required=True)
     for c in ("pool", "split", "build"):
         sub.add_parser(c).add_argument("--dir", default=str(DIR))
+    sub.add_parser("smoke").add_argument("--dir", default=str(CAMPAIGN / "inj_smoke"))
     a = ap.parse_args()
-    return {"gen": cmd_gen, "pool": cmd_pool, "split": cmd_split, "build": cmd_build}[a.cmd](a)
+    return {"gen": cmd_gen, "pool": cmd_pool, "split": cmd_split, "build": cmd_build, "smoke": cmd_smoke}[a.cmd](a)
 
 
 if __name__ == "__main__":
