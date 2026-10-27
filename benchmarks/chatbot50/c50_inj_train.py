@@ -159,7 +159,7 @@ def main() -> int:
            "half_tokens": HALF_TOKENS, "lr": a.lr, "lr_end": S4.LR_END, "warmup": S4.WARMUP, "clip": S4.CLIP,
            "seed": a.seed, "tau": TAU, "gguf": str(a.gguf), "fire_cost": "adaptive L1 on g (ReMoE)" if fired else None,
            "fire0": FIRE0 if fired else None, "fire_target": FIRE_TARGET if fired else None,
-           "lambda0": a.lambda0 if fired else None, "alpha": ALPHA if fired else None,
+           "lambda0": (list(LAMBDA_GRID) if a.mve else a.lambda0) if fired else None, "alpha": ALPHA if fired else None,
            "torch": torch.__version__, "gpus": [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())],
            "resume": str(a.resume) if a.resume else None, "cap_h": a.cap_h, "mem_start": S4.host_mem()}
     print("CONFIG", json.dumps(cfg), flush=True)
@@ -183,6 +183,7 @@ def main() -> int:
         tb = tb[:a.smoke_steps]
         ends = [max(1, a.smoke_steps * j // 4) for j in range(1, 5)]
         epochs, mve_steps, grid = 4, a.smoke_steps, (1e-4,)
+        print("SMOKE", json.dumps({"steps": len(tb), "mve_grid": grid}), flush=True)
     total = len(tb)
     T = TeacherL(a.teacher, a.corpus, list(S4.TRAIN_SHARDS))
     rb = []
@@ -271,8 +272,9 @@ def main() -> int:
             torch.cuda.empty_cache()
         ok = {k: (len(r["log"]) == mve_steps and r["identity_step0"]["max_abs_logit"] == 0.0
                   and (not fired or (r["identity_after_bias"]["max_abs_logit"] == 0.0
-                                     and np.mean([x["fire"] for x in r["log"][10:]]) <= FIRE_CEIL
+                                     and np.mean([x["fire"] for x in r["log"][min(10, mve_steps // 3):]]) <= FIRE_CEIL
                                      and r["log"][-1]["fire_min_layer"] >= DEAD))) for k, r in runs.items()}
+        ok = {k: bool(v) for k, v in ok.items()}
         pick = min((float(k) for k, v in ok.items() if v), default=None)
         s_all = [x["s"] for r in runs.values() for x in r["log"][3:] if "s" in x]
         return finish("MVE COMPLETE", {"ok_by_lambda0": ok, "lambda0_pick": pick, "s_median": float(np.median(s_all)),
