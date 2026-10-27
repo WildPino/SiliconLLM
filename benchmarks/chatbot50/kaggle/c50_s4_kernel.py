@@ -77,17 +77,29 @@ elif TASK.startswith("t2"):
     # C50-T2 option N, on v0 (`t1_a1_q4_k_m.gguf`, dataset c50-t2-v0): t2mve; t2n[+resume] (the N arm);
     # t2e2[+resume] (the extra-epoch control: C50-T1's anchored LoRA r48 trainer, unchanged, on v0);
     # t2eval-<v0|n|e2>[_shuffle] (the weights come from a mounted training kernel's train/final.pt).
+    # C50-T2 N-fire: t2nfmve (the CPU controls, then a 150-step MVE of the fire cost); t2nf[+resume] (arm NF, fire
+    # target 0.25); t2eval-nf[_shuffle] (NF's weights in the N arm); t2eval-ndocs (N on the documents only, for the
+    # per-position fire count).
     v0 = find("t1_a1_q4_k_m.gguf")
     print("V0", v0, hashlib.sha256(v0.read_bytes()).hexdigest(), flush=True)
     teach = ["--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv"))]
     name = TASK.removesuffix("+resume")
     need_ck = TASK.endswith("+resume")
+    nf = ["--fire-target", "0.25"]
     if name == "t2mve":
         cmd = [sys.executable, "-u", str(code / "c50_t2_n.py"), "--mve", "--gguf", str(v0), *teach,
                "--out", str(out / "mve")]
-    elif name in ("t2n", "t2e2"):
-        if name == "t2n":
+    elif name == "t2nfmve":
+        ctl = [sys.executable, "-u", str(code / "c50_t2_n.py"), "--controls", "--gguf", str(v0), *teach,
+               "--out", str(out / "controls")]
+        print("CMD", json.dumps(ctl), flush=True)
+        subprocess.run(ctl, env=env, check=True)
+        cmd = [sys.executable, "-u", str(code / "c50_t2_n.py"), "--mve", "--mve-steps", "150", *nf, "--gguf", str(v0),
+               *teach, "--out", str(out / "mve")]
+    elif name in ("t2n", "t2e2", "t2nf"):
+        if name in ("t2n", "t2nf"):
             cmd = [sys.executable, "-u", str(code / "c50_t2_n.py"), "--gguf", str(v0), *teach, "--out", str(out / "train")]
+            cmd += nf if name == "t2nf" else []
         else:
             cmd = [sys.executable, "-u", str(code / "c50_t1_train.py"), "--only", "all", "--tau", "0.5", "--gguf", str(v0),
                    *teach, "--out", str(out / "train")]
@@ -100,6 +112,8 @@ elif TASK.startswith("t2"):
             cmd += ["--resume", ck[0]]
     elif name.startswith("t2eval-"):
         arm, _, ctrl = name[len("t2eval-"):].partition("_")
+        docs_only = arm == "ndocs"
+        arm = "n" if arm in ("nf", "ndocs") else arm
         cmd = [sys.executable, "-u", str(code / "c50_t2_n_eval.py"), "--gguf", str(v0), "--arm", arm,
                "--a4-inputs", str(code / "refs/inputs"), "--fresh", str(code / "refs/fresh"),
                "--split", str(code / "refs/c50_s4_split.json"), "--out", str(out / "eval")]
@@ -107,8 +121,30 @@ elif TASK.startswith("t2"):
             cmd += ["--weights", str(find("train/final.pt"))]
         if ctrl:
             cmd += ["--n-mode", ctrl]
+        if docs_only:
+            cmd += ["--panels", "docs"]
     else:
         raise SystemExit(f"unknown TASK {TASK}")
+elif TASK.startswith("m-"):
+    # C50 cell M (the metric): m-<s4|t2>-<arm>[_<mode>][+smoke]. One pass per arm: the temperature fit on the
+    # validation shards and the documents' target log-probabilities at every temperature (`c50_m_eval.py`).
+    name = TASK[2:].removesuffix("+smoke")
+    fam, _, rest = name.partition("-")
+    arm, _, mode = rest.partition("_")
+    g = gguf if fam == "s4" else find("t1_a1_q4_k_m.gguf")
+    print("GGUF", g, hashlib.sha256(g.read_bytes()).hexdigest(), flush=True)
+    cmd = [sys.executable, "-u", str(code / "c50_m_eval.py"), "--family", fam, "--gguf", str(g), "--arm", arm,
+           "--teacher", str(find("teacher_v1/manifest.jsonl").parent), "--corpus", str(find("teacher.tsv")),
+           "--a4-inputs", str(code / "refs/inputs"), "--split", str(code / "refs/c50_s4_split.json"),
+           "--out", str(out / "m")]
+    if arm not in ("t0", "v0"):
+        cmd += ["--weights", str(find("train/final.pt"))]
+    if arm == "b":
+        cmd += ["--bank", str(find("bank/bank_values.f16").parent)]
+    if mode:
+        cmd += ["--n-mode", mode]
+    if TASK.endswith("+smoke"):
+        cmd += ["--limit", "2"]
 elif TASK.startswith("eval-"):
     # eval-<arm>[_<control>]: t0 (MVE-5), a, b, c48, c496, a_shuffle, b_remove, b_shuffle, b_mask.
     name = TASK[len("eval-"):]

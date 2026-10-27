@@ -44,7 +44,8 @@ DATASETS = {"t0": "c50-s4-t0", "code": "c50-s4-code", "block1": "c50-s4-block1"}
 S3 = C / "s3"
 CODE = ["c50_s4_dequant.py", "c50_s4_t0_torch.py", "c50_s4_t0_gpu.py", "c50_s4_student.py", "c50_s1_expand.py",
         "c50_s4_bank.py", "c50_s4_train.py", "c50_s4_eval.py", "c50_t1_train.py",   # C50-T1 part 2b: the anchored trainer
-        "c50_t2_n.py", "c50_t2_n_eval.py"]                                           # C50-T2 option N
+        "c50_t2_n.py", "c50_t2_n_eval.py",                                           # C50-T2 option N
+        "c50_m_eval.py"]                                                             # C50 cell M (the metric)
 REFS = {"p0.docs.pos.bin": C / "a4/p0/docs.pos.bin", "bf16.docs.pos.bin": C / "a4/bf16/docs.pos.bin",
         "docs.tsv": C / "a4/inputs/docs.tsv", "t0_dequant_fp32_sha256.json": C / "s4/t0_dequant_fp32_sha256.json",
         "c50_s4_split.json": HERE / "results/c50_s4_split.json"}
