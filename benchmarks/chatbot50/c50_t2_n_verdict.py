@@ -7,8 +7,8 @@ by S2's and A4's functions (`c50_s4_verdict.correctness`) and compared by A4's p
 
     python -I benchmarks/chatbot50/c50_t2_n_verdict.py --selftest
     python -I benchmarks/chatbot50/c50_t2_n_verdict.py --evals DIR --train DIR --json OUT
-      (--evals holds v0/ n/ n_shuffle/ e2/, each with eval.json; --train holds n/ and e2/, each with train.json and
-       final.pt)
+      (--evals holds v0/ n/ n_shuffle/ e2/, each with eval.json; --train holds n/ and e2/, each with the last
+       session's train.json and final.pt, and session1.json, the first session's train.json, when the last resumed)
 """
 from __future__ import annotations
 
@@ -78,7 +78,15 @@ def run(a) -> int:
         checks[f"{k}_docs_count"] = e["panels_done"].get("docs", {}).get("sequences") == want["docs"]
     for k, t in tr.items():
         checks[f"{k}_train_complete"] = t["status"] == "COMPLETE"
-        checks[f"{k}_identity_step0"] = t.get("identity_step0", {}).get("max_abs_logit") == 0.0
+        if t["resume"]:
+            # A resumed session measures no identity (the checkpoint does not carry it): it comes from session 1, which
+            # must have started from step 0, paused, and be the prefix of the final session's log.
+            s1 = json.loads((a.train / k / "session1.json").read_text(encoding="utf-8"))
+            checks[f"{k}_session1_fresh_paused"] = s1["resume"] is None and s1["status"] == "PAUSED"
+            checks[f"{k}_session1_is_prefix"] = t["log"][:len(s1["log"])] == s1["log"] and \
+                t["vals"][:len(s1["vals"])] == s1["vals"] and "-s1/" in t["resume"]
+            t = s1
+        checks[f"{k}_identity_step0"] = (t.get("identity_step0") or {}).get("max_abs_logit") == 0.0
     rec = {"cell": "C50-T2 option N verdict", "checks": checks, "weights_sha256": wsha}
     if not all(checks.values()):
         rec["verdict"] = "STOP: " + ", ".join(k for k, v in checks.items() if not v)
