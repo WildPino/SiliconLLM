@@ -96,7 +96,7 @@ result; do not average claims or silently choose the attractive one.
 ## 2. Goal and non-negotiable gates
 
 The target is one identifiable pretrained approximately-10B artifact, executed by the project C
-engine (extensions allowed), with useful quality and at around 50 accepted end-to-end tok/s
+engine (extensions allowed), with useful quality and at least 50 accepted end-to-end tok/s
 (100 tok/s is a stretch target).  The same artifact must be used for quality and rate.
 
 | Gate | Required reading |
