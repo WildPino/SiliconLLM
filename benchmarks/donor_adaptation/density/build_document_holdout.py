@@ -40,7 +40,7 @@ import tempfile
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Sequence
 
 
 HERE = Path(__file__).resolve().parent
@@ -54,6 +54,20 @@ PRESETS = {
     "r1_preflight_v1": {
         "seed": 20260916,
         "span_bytes": 8192,
+        "min_source_bytes": 4096,
+        "calib": {"code": 16, "technical_general": 16, "prose": 16},
+        "heldout": {"code": 32, "technical_general": 32, "prose": 32},
+    },
+    "strat01_fresh_v1": {
+        "seed": 20260919,
+        "span_bytes": 8192,
+        "min_source_bytes": 4096,
+        "calib": {"code": 16, "technical_general": 16, "prose": 16},
+        "heldout": {"code": 32, "technical_general": 32, "prose": 32},
+    },
+    "strat01_fresh_v2": {
+        "seed": 20260919,
+        "span_bytes": 4095,
         "min_source_bytes": 4096,
         "calib": {"code": 16, "technical_general": 16, "prose": 16},
         "heldout": {"code": 32, "technical_general": 32, "prose": 32},
@@ -282,7 +296,12 @@ def _selection_key(ref: DocumentRef, split: str, seed: int) -> str:
     return _sha(f"{seed}:{split}:{ref.category}:{ref.source_content_sha256}".encode("ascii"))
 
 
-def plan_documents(refs: Iterable[DocumentRef], config: dict) -> tuple[dict[str, list[DocumentRef]], dict]:
+def plan_documents(
+    refs: Iterable[DocumentRef],
+    config: dict,
+    excluded_ids: set[str] | None = None,
+    excluded_content_sha256: set[str] | None = None,
+) -> tuple[dict[str, list[DocumentRef]], dict]:
     """Deduplicate, assign document splits, and select bounded item counts.
 
     Code and markdown assignment occurs from the full content hash before any text
@@ -291,6 +310,16 @@ def plan_documents(refs: Iterable[DocumentRef], config: dict) -> tuple[dict[str,
     """
     eligible, eligibility = _eligible_refs(refs, config["min_source_bytes"])
     unique, dedup = _deduplicate_globally(eligible)
+    excluded_ids = excluded_ids or set()
+    excluded_content_sha256 = excluded_content_sha256 or set()
+    excluded = [
+        ref for ref in unique
+        if ref.source_document_id in excluded_ids or ref.source_content_sha256 in excluded_content_sha256
+    ]
+    unique = [
+        ref for ref in unique
+        if ref.source_document_id not in excluded_ids and ref.source_content_sha256 not in excluded_content_sha256
+    ]
     pools: dict[str, dict[str, list[DocumentRef]]] = {
         split: {category: [] for category in CATEGORIES} for split in ("calib", "heldout")
     }
@@ -320,7 +349,45 @@ def plan_documents(refs: Iterable[DocumentRef], config: dict) -> tuple[dict[str,
         chosen[split].sort(key=lambda ref: (ref.category,
                                             _selection_key(ref, split, config["seed"]),
                                             ref.source_document_id))
-    return chosen, {"eligibility": eligibility, "deduplication": dedup, "availability": availability}
+    return chosen, {
+        "eligibility": eligibility,
+        "deduplication": dedup,
+        "exclusion": {
+            "requested_ids": len(excluded_ids),
+            "requested_content_sha256": len(excluded_content_sha256),
+            "matched_unique_documents": len(excluded),
+        },
+        "availability": availability,
+    }
+
+
+def load_exclusions(paths: Sequence[Path] | None) -> tuple[set[str], set[str], list[dict]]:
+    """Read prior JSONL identities without using their text for selection."""
+    identifiers: set[str] = set()
+    content_hashes: set[str] = set()
+    sources: list[dict] = []
+    for path in paths or []:
+        raw = path.read_bytes()
+        rows = [json.loads(line) for line in raw.decode("utf-8").splitlines() if line]
+        before_ids, before_hashes = len(identifiers), len(content_hashes)
+        for number, row in enumerate(rows, 1):
+            identifier = row.get("source_document_id")
+            content_sha = row.get("source_content_sha256")
+            if not isinstance(identifier, str) or not identifier:
+                raise InvariantError(f"invalid exclusion ID in {path}:{number}")
+            if (not isinstance(content_sha, str) or len(content_sha) != 64
+                    or any(character not in "0123456789abcdef" for character in content_sha)):
+                raise InvariantError(f"invalid exclusion content SHA-256 in {path}:{number}")
+            identifiers.add(identifier)
+            content_hashes.add(content_sha)
+        sources.append({
+            "path": _repo_path(path),
+            "jsonl_sha256": _sha(raw),
+            "rows": len(rows),
+            "new_ids": len(identifiers) - before_ids,
+            "new_content_sha256": len(content_hashes) - before_hashes,
+        })
+    return identifiers, content_hashes, sources
 
 
 def _hydrate_selected(refs: Iterable[DocumentRef]) -> tuple[dict[str, str], dict[str, str]]:
@@ -539,8 +606,10 @@ def build(args: argparse.Namespace) -> None:
     config_name, config = _resolve_config(args)
     out_dir = Path(args.out_dir).expanduser()
     print("WARNING: JSONL contains raw source text; use an ignored/local destination and do not commit it.", file=sys.stderr)
+    excluded_ids, excluded_hashes, exclusion_sources = load_exclusions(args.exclude_jsonl)
     refs, counters = discover_documents()
-    chosen, planning = plan_documents(refs, config)
+    chosen, planning = plan_documents(refs, config, excluded_ids, excluded_hashes)
+    planning["exclusion_sources"] = exclusion_sources
     all_chosen = chosen["calib"] + chosen["heldout"]
     texts, source_hashes = _hydrate_selected(all_chosen)
     items = {
@@ -611,6 +680,8 @@ def selftest(_args: argparse.Namespace) -> None:
         for split in ("calib", "heldout"):
             ref, text = _toy_ref(category, f"{category}-{split}", split)
             refs.append(ref); texts[ref.source_document_id] = text
+    spare_ref, spare_text = _toy_ref("code", "code-heldout-spare", "heldout")
+    refs.append(spare_ref); texts[spare_ref.source_document_id] = spare_text
     for split in ("train", "test"):
         ref, text = _toy_ref("prose", f"pg19-{split}", publisher_split=split)
         refs.append(DocumentRef("prose", "pg19", ref.source_document_id, ref.source_path,
@@ -632,6 +703,13 @@ def selftest(_args: argparse.Namespace) -> None:
     assert planning["deduplication"]["duplicates_removed"] == 1
     assert planning["eligibility"]["rejected_short_source_documents"] == {"code": 1}
     assert all(ref.source_document_id != "toy:short" for refs_ in chosen.values() for ref in refs_)
+    excluded_ref = chosen["heldout"][0]
+    excluded_choice, excluded_planning = plan_documents(
+        refs, config, {excluded_ref.source_document_id}, {excluded_ref.source_content_sha256}
+    )
+    assert excluded_planning["exclusion"]["matched_unique_documents"] == 1
+    assert all(excluded_ref.source_document_id != ref.source_document_id
+               for refs_ in excluded_choice.values() for ref in refs_)
     source_hashes = {ref.source_path: _sha(ref.source_path.encode("utf-8"))
                      for refs_ in chosen.values() for ref in refs_}
     items = {
@@ -675,6 +753,8 @@ def _add_config_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--span-bytes", type=int)
     parser.add_argument("--min-source-bytes", type=int,
                         help="reject shorter source documents before split/selection")
+    parser.add_argument("--exclude-jsonl", type=Path, action="append", default=[],
+                        help="prior corpus JSONL whose document IDs and content hashes are excluded; repeatable")
     for split in ("calib", "heldout"):
         for category in CATEGORIES:
             parser.add_argument(f"--{split}-{category.replace('_', '-')}", type=int,
@@ -710,9 +790,11 @@ def preflight(args: argparse.Namespace) -> None:
                           "not_gate_ready": "Run with --full-content for exact dedup/split eligibility."},
                          indent=2, sort_keys=True))
         return
+    excluded_ids, excluded_hashes, exclusion_sources = load_exclusions(args.exclude_jsonl)
     refs, counters = discover_documents()
     try:
-        _chosen, planning = plan_documents(refs, config)
+        _chosen, planning = plan_documents(refs, config, excluded_ids, excluded_hashes)
+        planning["exclusion_sources"] = exclusion_sources
     except InvariantError as exc:
         print(f"preflight FAILED ({config_name}): {exc}")
         print(json.dumps(dict(sorted(counters.items())), indent=2, sort_keys=True))
