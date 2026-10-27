@@ -1,0 +1,432 @@
+{
+ "cell": "C50 cell M (the metric), part 1",
+ "checks": {
+  "t0_arm": true,
+  "t0_gguf": true,
+  "t0_full": true,
+  "t0_instrument": true,
+  "t0_tau_inside_grid": true,
+  "c48_arm": true,
+  "c48_gguf": true,
+  "c48_full": true,
+  "c48_instrument": true,
+  "c48_tau_inside_grid": true,
+  "c496_arm": true,
+  "c496_gguf": true,
+  "c496_full": true,
+  "c496_instrument": true,
+  "c496_tau_inside_grid": true,
+  "a_arm": true,
+  "a_gguf": true,
+  "a_full": true,
+  "a_instrument": true,
+  "a_tau_inside_grid": true,
+  "b_arm": true,
+  "b_gguf": true,
+  "b_full": true,
+  "b_instrument": true,
+  "b_tau_inside_grid": true,
+  "v0_arm": true,
+  "v0_gguf": true,
+  "v0_full": true,
+  "v0_instrument": true,
+  "v0_tau_inside_grid": true,
+  "e2_arm": true,
+  "e2_gguf": true,
+  "e2_full": true,
+  "e2_instrument": true,
+  "e2_tau_inside_grid": true,
+  "n_arm": true,
+  "n_gguf": true,
+  "n_full": true,
+  "n_instrument": true,
+  "n_tau_inside_grid": true,
+  "n_shuffle_arm": true,
+  "n_shuffle_gguf": true,
+  "n_shuffle_full": true,
+  "n_shuffle_instrument": true,
+  "n_shuffle_tau_inside_grid": true
+ },
+ "logp_vs_recorded_max": {
+  "t0": 0.0,
+  "c48": 0.0,
+  "c496": 0.0,
+  "a": 0.0,
+  "b": 0.0,
+  "v0": 0.0,
+  "e2": 0.0,
+  "n": 0.0,
+  "n_shuffle": 0.0
+ },
+ "trivial_control": {
+  "R_T0": {
+   "nll": 0.4300993338590367,
+   "kl": 0.3851220019828244,
+   "oracle": 0.4481244912567322
+  },
+  "tau_T0": {
+   "nll": 1.425,
+   "kl": 1.325,
+   "oracle": 1.55
+  },
+  "shares": {
+   "nll_over_v0": 0.6389386287487159,
+   "nll_over_a": 0.8521370965530098,
+   "kl_over_v0": 0.5721220761725576,
+   "kl_over_a": 0.7630254658703682,
+   "oracle_over_v0": 0.6657160925669648,
+   "oracle_over_a": 0.8878495566304705
+  }
+ },
+ "top_decile_docs": [
+  58,
+  62,
+  40,
+  6
+ ],
+ "arms": {
+  "t0": {
+   "tau_nll": 1.425,
+   "tau_kl": 1.325,
+   "R": 0.0,
+   "R_cal": 0.0,
+   "R_acc": 0.0,
+   "R_acc_without_top_decile": 0.0,
+   "top1": 0.683633056941503,
+   "top5": 0.8424925517785994,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 27
+  },
+  "c48": {
+   "tau_nll": 1.1,
+   "tau_kl": 1.0,
+   "R": 0.6991598367812975,
+   "R_cal": 0.5086925698903948,
+   "R_acc": 0.2309069212410501,
+   "R_acc_without_top_decile": 0.3074277854195323,
+   "top1": 0.6975244385417041,
+   "top5": 0.8555942424351197,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 28
+  },
+  "c496": {
+   "tau_nll": 1.1,
+   "tau_kl": 1.0,
+   "R": 0.6945856939977592,
+   "R_cal": 0.5056131501274409,
+   "R_acc": 0.2394590294351631,
+   "R_acc_without_top_decile": 0.30364511691884455,
+   "top1": 0.6980389341565263,
+   "top5": 0.8551635019203848,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 34
+  },
+  "a": {
+   "tau_nll": 1.1,
+   "tau_kl": 1.0,
+   "R": 0.5047302078489914,
+   "R_cal": 0.1758820407823619,
+   "R_acc": -0.081145584725537,
+   "R_acc_without_top_decile": -0.0546767537826685,
+   "top1": 0.6787513311078407,
+   "top5": 0.8426361319501777,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 34
+  },
+  "b": {
+   "tau_nll": 1.2,
+   "tau_kl": 1.075,
+   "R": 0.3773707439623725,
+   "R_cal": 0.17471550637588823,
+   "R_acc": 0.0881066030230708,
+   "R_acc_without_top_decile": 0.13961485557083905,
+   "top1": 0.6889335582756021,
+   "top5": 0.8484750589276954,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 29
+  },
+  "v0": {
+   "tau_nll": 1.15,
+   "tau_kl": 1.05,
+   "R": 0.6731465503992681,
+   "R_cal": 0.49967101465717106,
+   "R_acc": 0.23050914876690534,
+   "R_acc_without_top_decile": 0.3005502063273728,
+   "top1": 0.6975005085131076,
+   "top5": 0.8553429771348576,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 35
+  },
+  "e2": {
+   "tau_nll": 1.125,
+   "tau_kl": 1.05,
+   "R": 0.68479771131086,
+   "R_cal": 0.5069671417809876,
+   "R_acc": 0.24721559268098647,
+   "R_acc_without_top_decile": 0.3345942228335626,
+   "top1": 0.6985055697141558,
+   "top5": 0.8556181724637161,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 31
+  },
+  "n": {
+   "tau_nll": 1.125,
+   "tau_kl": 1.05,
+   "R": 0.6834930685497075,
+   "R_cal": 0.5053989141504045,
+   "R_acc": 0.23309466984884647,
+   "R_acc_without_top_decile": 0.30880330123796423,
+   "top1": 0.6976560536989842,
+   "top5": 0.8554985223207342,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 31
+  },
+  "n_shuffle": {
+   "tau_nll": 1.15,
+   "tau_kl": 1.05,
+   "R": 0.6789663500023619,
+   "R_cal": 0.5015437215640582,
+   "R_acc": 0.23826571201272873,
+   "R_acc_without_top_decile": 0.31327372764786793,
+   "top1": 0.6979671440707371,
+   "top5": 0.8553908371920504,
+   "median_rank": 0.0,
+   "rank0_vs_top1_mismatch": 29
+  }
+ },
+ "readings": {
+  "S4: a - c496": {
+   "R": {
+    "delta": -0.1898554861487678,
+    "ci95": [
+     -0.2405174190644511,
+     -0.15153809076434424
+    ]
+   },
+   "R_cal": {
+    "delta": -0.329731109345079,
+    "ci95": [
+     -0.4454876673766865,
+     -0.24944922263037653
+    ]
+   },
+   "R_acc": {
+    "delta": -0.3206046141607001,
+    "ci95": [
+     -0.44472726365263276,
+     -0.2275072144205184
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "holds"
+  },
+  "S4: b - c48": {
+   "R": {
+    "delta": -0.3217890928189249,
+    "ci95": [
+     -0.3989056027417856,
+     -0.2620608592389351
+    ]
+   },
+   "R_cal": {
+    "delta": -0.33397706351450657,
+    "ci95": [
+     -0.4663589043600205,
+     -0.24662364769347966
+    ]
+   },
+   "R_acc": {
+    "delta": -0.1428003182179793,
+    "ci95": [
+     -0.1953071083158228,
+     -0.10112318759292763
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "holds"
+  },
+  "T1 part 2b: v0 - T0": {
+   "R": {
+    "delta": 0.6731465503992681,
+    "ci95": [
+     0.5728570257946938,
+     0.7914848255153872
+    ]
+   },
+   "R_cal": {
+    "delta": 0.49967101465717106,
+    "ci95": [
+     0.37800796365804157,
+     0.6839578757151711
+    ]
+   },
+   "R_acc": {
+    "delta": 0.23050914876690534,
+    "ci95": [
+     0.1761955801360319,
+     0.3081087846294355
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "holds"
+  },
+  "N: N - v0": {
+   "R": {
+    "delta": 0.01034651815043941,
+    "ci95": [
+     0.00796540374595204,
+     0.013332432398054078
+    ]
+   },
+   "R_cal": {
+    "delta": 0.005727899493233435,
+    "ci95": [
+     0.003617696123343968,
+     0.008359793335299789
+    ]
+   },
+   "R_acc": {
+    "delta": 0.002585521081941128,
+    "ci95": [
+     -0.0062835999373557294,
+     0.013604098067515091
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "loses CI"
+  },
+  "N: N - E2": {
+   "R": {
+    "delta": -0.0013046427611524969,
+    "ci95": [
+     -0.0027976060551341527,
+     8.027599308709198e-05
+    ]
+   },
+   "R_cal": {
+    "delta": -0.0015682276305830634,
+    "ci95": [
+     -0.004035474174109282,
+     0.0006735072924420113
+    ]
+   },
+   "R_acc": {
+    "delta": -0.014120922832140004,
+    "ci95": [
+     -0.02807580777667457,
+     -0.004711397465750326
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "gains CI"
+  },
+  "N: E2 - v0 (the data-bound reading)": {
+   "R": {
+    "delta": 0.011651160911591907,
+    "ci95": [
+     0.00883864542341294,
+     0.014933898956291602
+    ]
+   },
+   "R_cal": {
+    "delta": 0.007296127123816498,
+    "ci95": [
+     0.004340722109474596,
+     0.010688807375783359
+    ]
+   },
+   "R_acc": {
+    "delta": 0.01670644391408113,
+    "ci95": [
+     0.003629629518891807,
+     0.03625477528232584
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "holds"
+  },
+  "N: N-shuffle - v0": {
+   "R": {
+    "delta": 0.005819799603093867,
+    "ci95": [
+     0.004254485080241901,
+     0.0077872702617999435
+    ]
+   },
+   "R_cal": {
+    "delta": 0.0018727069068871782,
+    "ci95": [
+     0.0004133252806551621,
+     0.003975999204657265
+    ]
+   },
+   "R_acc": {
+    "delta": 0.0077565632458233835,
+    "ci95": [
+     -0.0010303183579120818,
+     0.018350666266511856
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "loses CI"
+  },
+  "null: N-shuffle - N": {
+   "R": {
+    "delta": -0.004526718547345543,
+    "ci95": [
+     -0.006067387167073721,
+     -0.0033012177236922268
+    ]
+   },
+   "R_cal": {
+    "delta": -0.0038551925863462566,
+    "ci95": [
+     -0.005699814581100947,
+     -0.0018825351548663414
+    ]
+   },
+   "R_acc": {
+    "delta": 0.005171042163882256,
+    "ci95": [
+     -0.004455616442715536,
+     0.014832564766232284
+    ]
+   },
+   "R_cal_vs_R": "holds",
+   "R_acc_vs_R": "loses CI"
+  }
+ },
+ "rules": {
+  "S4 (a, b against their LoRAs)": {
+   "R": {
+    "margin": 0.2,
+    "passes": false
+   },
+   "R_cal": {
+    "margin": 0.1484583154621524,
+    "passes": false
+   },
+   "R_acc": {
+    "margin": 0.06848706232845786,
+    "passes": false
+   }
+  },
+  "N (over v0 and over E2)": {
+   "R": {
+    "margin": 0.05,
+    "passes": false
+   },
+   "R_cal": {
+    "margin": 0.0371145788655381,
+    "passes": false
+   },
+   "R_acc": {
+    "margin": 0.017121765582114465,
+    "passes": false
+   }
+  }
+ },
+ "t1_part2b_g1": "not re-applied: an absolute threshold on R (0.559); rescaled by v0 it is tautological",
+ "outcome": "R DEMOTED",
+ "why": "one temperature fit off the documents takes 0.64 of v0's R"
+}
