@@ -18,6 +18,11 @@ At each MoE layer i (1-19), with h the MoE input (v0's ffn_norm of the residual)
     python -I benchmarks/chatbot50/c50_t2_n.py --gguf V0 --teacher DIR --corpus TSV --out DIR [--resume CKPT]
     python -I benchmarks/chatbot50/c50_t2_n.py --controls --gguf V0 --teacher DIR --corpus TSV --out DIR   (CPU)
     python -I benchmarks/chatbot50/c50_t2_n.py --mve --gguf V0 --teacher DIR --corpus TSV --out DIR       (T4 x2)
+
+**Arm NF (`--fire-target P`, C50-T2 N-fire):** N plus a fire cost, ReMoE's adaptive L1 on the gate (Wang et al. 2024,
+2412.14711, §3.3: lambda0 1e-8, alpha 1.2): the objective adds lambda * mean over (token, layer) of g, and after each
+step lambda is multiplied by alpha if the step's fire share is above P, divided by alpha if below. The forward is N's,
+so the identity at step 0 holds; the cost's gradient is added inside the checkpointed layers (`_Pen`).
 """
 from __future__ import annotations
 
@@ -43,8 +48,23 @@ from c50_s4_t0_torch import H, N_LAYERS, mm, rms  # noqa: E402
 from c50_t1_train import TAU, TeacherL, anchored, pack, val  # noqa: E402
 
 K, FF, RATE_SEL = 4, 512, 0.01
+LAMBDA0, ALPHA = 1e-8, 1.2                 # ReMoE's adaptive L1 (arm NF)
 AUX_LAYERS = range(1, N_LAYERS)
 MVE_STEPS = 20
+
+
+class _Pen(torch.autograd.Function):
+    """Identity forward; backward adds coef to the gradient of g, i.e. the gradient of coef * sum(g). Applied after the
+    ReLU, so only fired pairs are pushed down. It runs again in the checkpoint's recompute with the same coef."""
+
+    @staticmethod
+    def forward(ctx, g, coef):
+        ctx.coef = coef
+        return g.view_as(g)
+
+    @staticmethod
+    def backward(ctx, gr):
+        return gr + ctx.coef, None
 
 
 class Aux(nn.Module):
@@ -60,17 +80,28 @@ class Aux(nn.Module):
         self.register_buffer("load", torch.zeros(K, device=dev), persistent=False)
         self.register_buffer("fired", torch.zeros((), device=dev), persistent=False)
         self.register_buffer("seen", torch.zeros((), device=dev), persistent=False)
+        self.register_buffer("gsum", torch.zeros((), device=dev), persistent=False)
+        self.pen = 0.0                       # arm NF: the fire cost's coefficient for this step's backward
+        self.trace = None                    # evaluation: a list that receives each forward's fired mask
+        self.keep_g = None                   # controls: a list that receives g with its graph
 
     def forward(self, h: torch.Tensor) -> torch.Tensor:
         z = h @ self.R.T + self.c
         k = (z.detach() + self.sel).argmax(-1)
         g = F.relu(z.gather(1, k[:, None]))[:, 0]
+        if self.pen:
+            g = _Pen.apply(g, self.pen)
         on = g.detach() > 0
         with torch.no_grad():
             if torch.is_grad_enabled() or self.training:
                 self.load += torch.bincount(k, minlength=K).float()
             self.fired += on.sum()
             self.seen += len(h)
+            self.gsum += g.detach().float().sum()
+            if self.trace is not None:
+                self.trace.append(on.cpu())
+        if self.keep_g is not None:
+            self.keep_g.append(g)
         out = torch.zeros_like(h)
         for e in range(K):
             t = ((k == e) & on).nonzero(as_tuple=True)[0]
@@ -99,22 +130,30 @@ class NStudent(Student):
         h = rms(x, self.W.get(f"blk.{i}.ffn_norm.weight"))
         return y + self.aux[str(i)](h)
 
+    def set_pen(self, coef: float) -> None:
+        for ax in self.aux.values():
+            ax.pen = coef
+
     @torch.no_grad()
     def sel_step(self) -> dict:
-        """After each step: sel += rate * sign(mean load - load), per layer. Returns the fire share and the busiest
-        expert's share of the picks, over the step's forward (the checkpoint recompute counts again, equally)."""
-        fire, top = [], []
+        """After each step: sel += rate * sign(mean load - load), per layer. Returns the fire share, the busiest
+        expert's share of the picks and the mean gate, over the step's forward (the checkpoint recompute counts again,
+        equally)."""
+        fire, top, gm = [], [], []
         for ax in self.aux.values():
             if ax.load.sum() > 0:
                 top.append(float(ax.load.max() / ax.load.sum()))
                 ax.sel += RATE_SEL * torch.sign(ax.load.mean() - ax.load)
             if ax.seen > 0:
                 fire.append(float(ax.fired / ax.seen))
+                gm.append(float(ax.gsum / ax.seen))
             ax.load.zero_()
             ax.fired.zero_()
             ax.seen.zero_()
+            ax.gsum.zero_()
         return {"fire": round(float(np.mean(fire)), 5) if fire else None,
-                "top_share": round(float(np.mean(top)), 5) if top else None}
+                "top_share": round(float(np.mean(top)), 5) if top else None,
+                "g_mean": round(float(np.mean(gm)), 5) if gm else None}
 
     @torch.no_grad()
     def fire_by_layer(self, reset: bool = True) -> dict:
@@ -124,6 +163,7 @@ class NStudent(Student):
                 ax.load.zero_()
                 ax.fired.zero_()
                 ax.seen.zero_()
+                ax.gsum.zero_()
         return out
 
 
@@ -145,6 +185,36 @@ def val_n(S: NStudent, V: list) -> dict:
 
 
 # ---------------------------------------------------------------- planted controls (CPU)
+def pen_controls(S: NStudent, ids, segs, tid, tlp, coef: float = 1e-3) -> dict:
+    """Arm NF's fire cost: the gradient that `_Pen` adds inside the checkpointed layers must equal the gradient of
+    coef * sum(g), taken explicitly on a forward without checkpoints; and it must move the router (R, c)."""
+    def grads():
+        g = {nm: p.grad.detach().clone() for nm, p in S.named_parameters() if p.grad is not None}
+        S.zero_grad(set_to_none=True)
+        return g
+    loss, _ = S.loss(ids, segs, tid, tlp)
+    loss.backward()
+    g_kl = grads()
+    S.set_pen(coef)
+    loss, _ = S.loss(ids, segs, tid, tlp)
+    loss.backward()
+    S.set_pen(0.0)
+    g_pen = grads()
+    kept = []
+    for ax in S.aux.values():
+        ax.keep_g = kept
+    S.hidden(ids, segs, ckpt=False)
+    for ax in S.aux.values():
+        ax.keep_g = None
+    (coef * sum(g.float().sum() for g in kept)).backward()
+    g_exp = grads()
+    diff = max(float((g_pen[k] - g_kl[k] - g_exp.get(k, 0)).abs().max()) for k in g_pen)
+    scale = max(float(g_pen[k].abs().max()) for k in g_pen)
+    moved = max(float((g_pen[k] - g_kl[k]).abs().max()) for k in g_pen if k.rsplit(".", 1)[1] in ("R", "c"))
+    return {"pen_grad_vs_explicit_max": diff, "pen_grad_scale": scale, "pen_router_moved": moved,
+            "pen_ok": diff <= 1e-5 * scale and moved > 1e-6}
+
+
 def controls(a) -> int:
     """At step 0 the student is v0: max |dlogit| = 0 against v0's own forward. The anchor's switch must give v0's
     targets once the branch is non-zero, the branch must then move the student, and the shuffle must move it again.
@@ -177,6 +247,7 @@ def controls(a) -> int:
     rec["grad_nonzero_D_by_part"] = parts
     rec["grads_ok"] = all(v > 0 for v in parts.values())
     S.zero_grad(set_to_none=True)
+    rec.update(pen_controls(S, ids, segs, tid, tlp))
     sid = ids[:48]
     with torch.no_grad():
         ref = torch.log_softmax(t0.logits(sid, S.W).float(), -1)[:-1]
@@ -193,7 +264,7 @@ def controls(a) -> int:
     a.out.mkdir(parents=True, exist_ok=True)
     (a.out / "controls.json").write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
     print("CONTROLS", json.dumps(rec), flush=True)
-    return 0 if all(rec[k] for k in ("identity_ok", "grads_step0_ok", "grads_ok", "switch_ok", "shuffle_ok")) else 1
+    return 0 if all(rec[k] for k in ("identity_ok", "grads_step0_ok", "grads_ok", "pen_ok", "switch_ok", "shuffle_ok")) else 1
 
 
 # ---------------------------------------------------------------- training
@@ -208,11 +279,15 @@ def main() -> int:
     ap.add_argument("--stop-at", type=int, default=0)
     ap.add_argument("--controls", action="store_true", help="local: the planted controls on the CPU, then exit")
     ap.add_argument("--mve", action="store_true", help="T4: identity, then MVE_STEPS steps for time and memory")
+    ap.add_argument("--fire-target", type=float, default=0.0, help="arm NF: the fire share the adaptive L1 aims at")
+    ap.add_argument("--mve-steps", type=int, default=MVE_STEPS)
     a = ap.parse_args()
     if a.controls:
         return controls(a)
     t_session = time.time()
-    cfg = {"cell": "C50-T2 option N train" + (" MVE" if a.mve else ""), "arm": "n", "experts_per_layer": K,
+    arm = "nf" if a.fire_target else "n"
+    cfg = {"cell": ("C50-T2 N-fire train" if a.fire_target else "C50-T2 option N train") + (" MVE" if a.mve else ""),
+           "arm": arm, "experts_per_layer": K,
            "expert_ff": FF, "layers": [AUX_LAYERS[0], AUX_LAYERS[-1]], "gate": "relu(router logit of the pick)",
            "rate_sel": RATE_SEL, "tau": TAU, "anchor_base": "the --gguf model (v0)", "gguf": str(a.gguf),
            "torch": torch.__version__, "gpus": [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())],
@@ -221,6 +296,9 @@ def main() -> int:
            "train_shards": [S4.TRAIN_SHARDS[0], S4.TRAIN_SHARDS[-1]], "val_shards": [S4.VAL_SHARDS[0], S4.VAL_SHARDS[-1]],
            "resume": str(a.resume) if a.resume else None, "cap_h": a.cap_h, "stop_at": a.stop_at,
            "mem_floor_gib": S4.MEM_FLOOR_GIB, "mem_start": S4.host_mem()}
+    if a.fire_target:
+        cfg.update({"fire_cost": "adaptive L1 on g (ReMoE)", "fire_target": a.fire_target, "lambda0": LAMBDA0,
+                    "alpha": ALPHA})
     print("CONFIG", json.dumps(cfg), flush=True)
     assert cfg["gpus"] == ["Tesla T4", "Tesla T4"], cfg["gpus"]
     torch.backends.cuda.matmul.allow_fp16_reduced_precision_reduction = False
@@ -247,14 +325,15 @@ def main() -> int:
     cfg["trainable"] = sum(p.numel() for p in params)
     opt = torch.optim.AdamW(params, lr=S4.LR, betas=(0.9, 0.999), weight_decay=0.0)
     scaler = torch.amp.GradScaler("cuda")
-    log, vals, step = [], [], 0
+    log, vals, step, lam = [], [], 0, LAMBDA0
     if a.resume:
         ck = torch.load(a.resume, map_location="cpu", weights_only=False)
         S.load_state_dict(ck["model"], strict=True)
         opt.load_state_dict(ck["opt"])
         scaler.load_state_dict(ck["scaler"])
-        step, log, vals = ck["step"], ck["log"], ck["vals"]
-        assert ck["arm"] == "n" and ck["total"] == total and ck["tau"] == TAU and ck["k"] == K, (ck["arm"], ck["total"])
+        step, log, vals, lam = ck["step"], ck["log"], ck["vals"], ck.get("lam", LAMBDA0)
+        assert ck["arm"] == arm and ck["total"] == total and ck["tau"] == TAU and ck["k"] == K, (ck["arm"], ck["total"])
+        assert ck.get("fire_target", 0.0) == a.fire_target, ck.get("fire_target")
         print("RESUME", json.dumps({"step": step}), flush=True)
     else:
         ident = identity(S, torch.from_numpy(first))
@@ -268,11 +347,12 @@ def main() -> int:
 
     def save(path: Path) -> None:
         tmp = path.with_suffix(".tmp")
-        torch.save({"arm": "n", "k": K, "tau": TAU, "total": total, "step": step, "model": S.state_dict(),
-                    "opt": opt.state_dict(), "scaler": scaler.state_dict(), "log": log, "vals": vals}, tmp)
+        torch.save({"arm": arm, "k": K, "tau": TAU, "total": total, "step": step, "model": S.state_dict(),
+                    "opt": opt.state_dict(), "scaler": scaler.state_dict(), "log": log, "vals": vals, "lam": lam,
+                    "fire_target": a.fire_target}, tmp)
         os.replace(tmp, path)
 
-    end = MVE_STEPS if a.mve else total
+    end = a.mve_steps if a.mve else total
     while step < end:
         if not a.mve and (time.time() - t_session > a.cap_h * 3600 or (a.stop_at and step == a.stop_at)):
             save(a.out / "ckpt.pt")
@@ -284,11 +364,14 @@ def main() -> int:
         mid, mlp, m = anchored(S, ids, segs, tid, tlp, lpt, TAU)
         t_anchor = time.time() - t1
         S.fire_by_layer()                        # the anchor's pass runs with the branch off: nothing is counted
+        if a.fire_target:                        # lambda * mean over (token, layer) of g, in the scaled objective
+            S.set_pen(scaler.get_scale() * lam / (len(ids) * len(AUX_LAYERS)))
         loss, npos = S.loss(ids, segs, mid, mlp)
         if not torch.isfinite(loss):
             save(a.out / "ckpt.pt")
             return finish("VOID: non-finite loss", {"step": step, "total": total, "log": log, "vals": vals}, 4)
         scaler.scale(loss / npos).backward()
+        S.set_pen(0.0)
         scaler.unscale_(opt)
         gn = float(torch.nn.utils.clip_grad_norm_(params, S4.CLIP))
         scaler.step(opt)
@@ -297,6 +380,10 @@ def main() -> int:
         e = {"step": step, "loss": round(float(loss) / npos, 5), "pos": npos, "anchored": round(float(m.float().mean()), 4),
              "lr": opt.param_groups[0]["lr"], "gnorm": round(gn, 4), "scale": scaler.get_scale(), **S.sel_step(),
              "s_anchor": round(t_anchor, 3), "s": round(time.time() - t1, 3), "mem": S4.host_mem()}
+        if a.fire_target:                        # ReMoE's rule: raise lambda while the fire share is above target
+            e["lam"] = lam
+            e["pen"] = round(lam * e["g_mean"], 6)
+            lam = lam * ALPHA if e["fire"] > a.fire_target else lam / ALPHA if e["fire"] < a.fire_target else lam
         e["mem"]["gpu"] = [round(torch.cuda.max_memory_allocated(i) / 2**30, 2) for i in range(2)]
         log.append(e)
         step += 1

@@ -6,7 +6,8 @@ S4's evaluator (`c50_s4_eval.score`, `generate`), with v0's GGUF as the base, on
 - gsm8k, chat: A4's panels, whole (plain draws: no donor-gap item is left out).
 Arms: v0 (the base alone), n (`c50_t2_n.NStudent` with --weights; --n-mode shuffle for the control), e2 (S4's LoRA
 r48 on v0, with the E2 training's weights). The record holds the GGUF's and the weights' sha256 and, for n, the share
-of (token, layer) pairs where the branch fired, per panel and per layer.
+of (token, layer) pairs where the branch fired, per panel and per layer; on the documents it also writes
+`docs.fire.u8`, the number of layers (0-19) where the branch fired at each scored position, aligned with `docs.pos.bin`.
 
     python -I benchmarks/chatbot50/c50_t2_n_eval.py --gguf V0 --arm v0|n|e2 [--weights final.pt] [--n-mode full|shuffle]
         --a4-inputs DIR --fresh DIR --split S.json --out DIR [--panels ...] [--limit N] [--cpu]
@@ -20,6 +21,7 @@ import sys
 import time
 from pathlib import Path
 
+import numpy as np
 import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -104,11 +106,29 @@ def main() -> int:
             rows = rows[:a.limit]
         if a.arm == "n":
             S.fire_by_layer()
+        trace = [] if a.arm == "n" and p == "docs" else None
+        if trace is not None:
+            for ax in S.aux.values():
+                ax.trace = trace
         kind, max_new = E.PANELS[p]
         if kind == "score":
             r = E.score(S, None, rows)
             r.tofile(a.out / f"{p}.pos.bin")
             n = int(len(r))
+        if trace is not None:
+            # one forward per batch, layers 1-19 in order, no checkpoint: 19 masks per batch, over whole sequences
+            for ax in S.aux.values():
+                ax.trace = None
+            L = len(S.aux)
+            assert len(trace) % L == 0
+            tok = torch.cat([torch.stack(trace[j:j + L]).sum(0) for j in range(0, len(trace), L)]).numpy()
+            lens = np.array([len(x[1]) for x in rows])
+            assert lens.sum() == len(tok), (lens.sum(), len(tok))
+            keep = np.ones(len(tok), dtype=bool)
+            keep[np.cumsum(lens) - 1] = False             # a sequence's last token predicts nothing
+            fc = tok[keep].astype(np.uint8)
+            assert len(fc) == len(r), (len(fc), len(r))
+            fc.tofile(a.out / "docs.fire.u8")
         else:
             g = E.generate(S, None, rows, max_new)
             (a.out / f"{p}.jsonl").write_text("".join(json.dumps(x) + "\n" for x in g), encoding="utf-8")
