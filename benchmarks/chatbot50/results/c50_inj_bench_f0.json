@@ -1,0 +1,110 @@
+{
+ "cell": "C50 injection, protocol step 1b",
+ "tool": "llama-batched-bench, build b11040 CUDA 12.4",
+ "model": "ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf (sha256 5348c73f...)",
+ "args": "-c 8192 -b 2048 -ub 512 -npp 128 -ntg 64 -npl 1,4,16,32 -ngl 99 --cpu-moe -t 6",
+ "machine": "Ryzen 5 3600X, 80 GB, RTX 3060 12 GB; uncontended, three runs back to back",
+ "runs": [
+  {
+   "log": "bench_f0.log",
+   "sha256": "e6ece8bb0acc420845eee9b52a71b9799dc77abdd7cefe74933f6102db9c9c59",
+   "rows": [
+    {
+     "B": 1,
+     "pp_tok_s": 15.53,
+     "tg_tok_s": 12.76
+    },
+    {
+     "B": 4,
+     "pp_tok_s": 75.21,
+     "tg_tok_s": 16.74
+    },
+    {
+     "B": 16,
+     "pp_tok_s": 104.31,
+     "tg_tok_s": 24.14
+    },
+    {
+     "B": 32,
+     "pp_tok_s": 112.11,
+     "tg_tok_s": 16.8
+    }
+   ]
+  },
+  {
+   "log": "bench_f0_r2.log",
+   "sha256": "723e07083eccddd9e1e713f77e89b04aec78e26cc5d33d7409bb8774686d1e0e",
+   "rows": [
+    {
+     "B": 1,
+     "pp_tok_s": 15.34,
+     "tg_tok_s": 12.45
+    },
+    {
+     "B": 4,
+     "pp_tok_s": 75.32,
+     "tg_tok_s": 16.71
+    },
+    {
+     "B": 16,
+     "pp_tok_s": 104.74,
+     "tg_tok_s": 24.37
+    },
+    {
+     "B": 32,
+     "pp_tok_s": 112.07,
+     "tg_tok_s": 16.83
+    }
+   ]
+  },
+  {
+   "log": "bench_f0_r3.log",
+   "sha256": "a02a9464120b3433858fd2011743ec3c536054dd701bef0a7774a35e8f2f6347",
+   "rows": [
+    {
+     "B": 1,
+     "pp_tok_s": 14.67,
+     "tg_tok_s": 11.88
+    },
+    {
+     "B": 4,
+     "pp_tok_s": 75.02,
+     "tg_tok_s": 16.77
+    },
+    {
+     "B": 16,
+     "pp_tok_s": 103.83,
+     "tg_tok_s": 24.11
+    },
+    {
+     "B": 32,
+     "pp_tok_s": 110.56,
+     "tg_tok_s": 16.53
+    }
+   ]
+  }
+ ],
+ "tg_tok_s_by_parallel": {
+  "1": {
+   "tg_min": 11.88,
+   "tg_max": 12.76,
+   "n": 3
+  },
+  "4": {
+   "tg_min": 16.71,
+   "tg_max": 16.77,
+   "n": 3
+  },
+  "16": {
+   "tg_min": 24.11,
+   "tg_max": 24.37,
+   "n": 3
+  },
+  "32": {
+   "tg_min": 16.53,
+   "tg_max": 16.83,
+   "n": 3
+  }
+ },
+ "best_aggregate_over_single": 1.89
+}
