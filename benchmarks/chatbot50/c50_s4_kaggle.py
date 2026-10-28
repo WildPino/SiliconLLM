@@ -57,7 +57,7 @@ REFS.update({f"fresh/{n}": C / f"t1/fresh/inputs/{n}" for n in
              ("nq.tsv", "tqa.tsv", "mmlu.tsv", "arc.tsv", "manifest.json")})
 # C50 injection cell: the inputs `c50_inj_data.py` writes (whichever exist when the code dataset is staged)
 INJ = C / "inj"
-REFS.update({f"inj/{n}": INJ / n for n in ("qa.tsv", "known.tsv", "known.jsonl", "manifest.json", "params.json",
+REFS.update({f"inj/{n}": INJ / n for n in ("qa.tsv", "qa_new.tsv", "known.tsv", "known.jsonl", "manifest.json", "params.json",
                                            "split_typed.json", "train_E.jsonl", "train_S.jsonl", "train_QA1.jsonl",
                                            "train_dev_E.jsonl", "eval_rew.tsv", "eval_orig.tsv", "eval_cloze.tsv",
                                            "eval_open.tsv", "eval_open_rew.tsv")} if INJ.exists() else {})

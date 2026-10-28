@@ -6,7 +6,9 @@ Design: docs/research/CHATBOT50_ROADMAP_20261016/C50_INJECTION_REVIEW_20261027.m
          chunks of 40 prompts that are skipped once COMPLETE (so a stopped run resumes)
   pool   the candidate facts: S2's donor-gap nq and tqa items (F0 right, T0 wrong), plus the same rule on T1 part 2b's
          fresh nq and tqa items (F0's answers from `gen`); the known-item panel (fresh items v0 answered right, not in
-         the pool); prompts for v0's 8 samples and for F0's first passage (from the question alone)
+         the pool); prompts for v0's 8 samples and for F0's first passage (from the question alone). If inj/fresh2
+         exists (the step-4 extension, rows 1200..1799), its F0-right, T0-wrong items are appended as new facts and
+         their prompts go to qa_new.tsv and p1_new.tsv; earlier facts keep their numbers
   split  the filters, the same for every item: v0 right in 0 of 8 samples at temperature 0.7, and F0's first passage
          holding a gold alias. Facts sharing a normalized gold or question form one cluster. Then a seeded split of
          the clusters, stratified by panel: about 15 dev facts per panel (the lr pilot's), the rest alternately
@@ -205,15 +207,36 @@ def cmd_pool(a) -> int:
                              "aliases": fmeta[i]["aliases"], "qa_ids": fids[i]})
             elif right["v0"][i]:
                 known.append({"src": "fresh", "panel": p, "item": i, "aliases": fmeta[i]["aliases"], "qa_ids": fids[i]})
+    # step-4 extension (inj/fresh2, rows 1200..1799): the same F0-right, T0-wrong rule, appended after every earlier
+    # fact so facts 0..n-1 keep their numbers, v0 draws and F0 passages; the known panel does not change
+    first = len(pool)
+    ext = d / "fresh2"
+    if (ext / "inputs").exists():
+        for p in PANELS:
+            fmeta = {m["item"]: m for m in read_jsonl(ext / "inputs" / f"{p}_meta.jsonl")}
+            fids = read_tsv(ext / "inputs" / f"{p}.tsv")
+            right = {arm: {i: qa_check(T.dec(g), fmeta[i]["aliases"])["match"] for i, g in gens(ext / arm / p).items()}
+                     for arm in ("t0", "f0")}
+            assert set(right["f0"]) == set(right["t0"]) == set(fmeta), p
+            for i in sorted(fmeta):
+                if right["f0"][i] and not right["t0"][i]:
+                    pool.append({"src": "fresh2", "panel": p, "item": i, "question": fmeta[i]["question"],
+                                 "aliases": fmeta[i]["aliases"], "qa_ids": fids[i]})
+        old = read_jsonl(d / "pool.jsonl")
+        old = [(r["src"], r["panel"], r["item"]) for r in old if r["src"] != "fresh2"]
+        assert old == [(r["src"], r["panel"], r["item"]) for r in pool[:first]], "the earlier facts changed"
     for k, r in enumerate(pool):
         r["fact"] = k
+    if first < len(pool):
+        write_tsv(d / "qa_new.tsv", [(r["fact"], r["qa_ids"]) for r in pool[first:]])
+        write_tsv(d / "p1_new.tsv", [(r["fact"], T.chat(P1.format(q=r["question"]))) for r in pool[first:]])
     write_jsonl(d / "pool.jsonl", pool)
     write_jsonl(d / "known.jsonl", [{**r, "k": k} for k, r in enumerate(known)])
     write_tsv(d / "qa.tsv", [(r["fact"], r["qa_ids"]) for r in pool])
     write_tsv(d / "known.tsv", [(k, r["qa_ids"]) for k, r in enumerate(known)])
     write_tsv(d / "p1.tsv", [(r["fact"], T.chat(P1.format(q=r["question"]))) for r in pool])
     rec = {"pool": len(pool), "by": {f"{s}:{p}": sum(r["src"] == s and r["panel"] == p for r in pool)
-                                     for s in ("s2", "fresh") for p in PANELS}, "known": len(known)}
+                                     for s in ("s2", "fresh", "fresh2") for p in PANELS}, "known": len(known)}
     print("POOL", json.dumps(rec), flush=True)
     return 0
 
@@ -225,6 +248,13 @@ def cmd_split(a) -> int:
     pool = read_jsonl(d / "pool.jsonl")
     samp = {r["item"]: r["gens"] for r in read_jsonl(d / "v0_sample" / "qa.samples.jsonl")}
     p1 = gens(d / "f0_p1")
+    if (d / "qa_new.tsv").exists():           # the extension's facts: sampled and written apart, then merged
+        new = set(read_tsv(d / "qa_new.tsv"))
+        s_new = {r["item"]: r["gens"] for r in read_jsonl(d / "v0_sample_new" / "qa.samples.jsonl")}
+        p_new = gens(d / "f0_p1_new")
+        assert set(s_new) == set(p_new) == new and not new & (set(samp) | set(p1)), "extension files"
+        samp.update(s_new)
+        p1.update(p_new)
     keep, why = [], {"v0_knows": 0, "p1_no_alias": 0}
     for r in pool:
         assert len(samp[r["fact"]]) == SAMPLES, r["fact"]

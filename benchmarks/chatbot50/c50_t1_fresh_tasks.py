@@ -12,6 +12,10 @@ An item is dropped whole, before anything is scored, if
 Kept items are numbered 0..n-1 in source order; the meta keeps the source row.
 
     python -I benchmarks/chatbot50/c50_t1_fresh_tasks.py --out E:/.../t1/fresh/inputs
+    python -I benchmarks/chatbot50/c50_t1_fresh_tasks.py --injection-extension --out E:/.../inj/fresh2/inputs
+
+--injection-extension (the injection cell's step-4 remedy, C50_INJECTION_PROTOCOL_20261027.md): nq and tqa only, rows
+1200..1799, the same corpus rule, and duplicates checked against S2's inputs and addendum 2's.
 """
 from __future__ import annotations
 
@@ -45,7 +49,11 @@ def ids_of(line: str) -> np.ndarray:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
+    ap.add_argument("--injection-extension", action="store_true")
     a = ap.parse_args()
+    if a.injection_extension:
+        ROWS.update({"nq": (1200, 1800), "tqa": (1200, 1800)})
+        OLD["fresh"] = CAMPAIGN / "t1/fresh/inputs"
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
@@ -96,8 +104,13 @@ def main() -> int:
         raise SystemExit("the contamination check does not discriminate")
 
     old_lines = {p: {ln.split("\t", 1)[1] for ln in (d / f"{p}.tsv").read_text(encoding="ascii").splitlines()}
-                 for p, d in OLD.items()}
-    manifest = {"cell": "C50-T1 addendum 2 fresh inputs", "rows": ROWS, "sources": pins,
+                 for p, d in OLD.items() if p != "fresh"}
+    if "fresh" in OLD:
+        for p in ("nq", "tqa"):
+            old_lines[p] |= {ln.split("\t", 1)[1] for ln in
+                             (OLD["fresh"] / f"{p}.tsv").read_text(encoding="ascii").splitlines()}
+    manifest = {"cell": "C50 injection, step-4 extension inputs" if a.injection_extension else
+                "C50-T1 addendum 2 fresh inputs", "rows": ROWS, "sources": pins,
                 "tokenizer_sha256": sha256_file(S2T.SRC / "tokenizer.json"),
                 "chat_template_sha256": S2T.sha256_bytes(cfg["chat_template"].encode("utf-8")),
                 "stop_ids": S2T.STOP_IDS, "qa_prompt": S2T.QA_PROMPT, "corpus": str(CORPUS),
@@ -144,6 +157,10 @@ def main() -> int:
                     "aliases": sorted(set(x["answer"]["aliases"]) | {x["answer"]["value"]})})
                   for r, x in enumerate(tqa) if lo <= r < hi])
 
+    if a.injection_extension:
+        manifest["wall_s"] = round(time.time() - t0, 1)
+        (out / "manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False), encoding="utf-8")
+        return 0
     lo, hi = ROWS["mmlu"]
     mm = pq.read_table(srcs["mmlu_all_test.parquet"]).to_pylist()
     seen: dict[str, int] = {}

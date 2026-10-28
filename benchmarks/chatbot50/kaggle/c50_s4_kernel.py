@@ -152,6 +152,7 @@ elif TASK.startswith("inj-"):
     # C50 injection cell, on v0. The inputs are refs/inj (`c50_inj_data.py build`); the dev pilot's and the MVE's picks
     # are refs/inj/params.json. Tasks:
     #   inj-sample                    v0's 8 draws per pool question (the "v0 does not know" filter)
+    #   inj-sample2                   the same on the step-4 extension's new facts (refs/inj/qa_new.tsv)
     #   inj-mve                       arm e's lambda0 grid (`c50_inj_train.py --mve`)
     #   inj-dev-<e|l>-<lr>            the dev pilot: train on the dev facts at this lr, then evaluate
     #   inj-train-<arm>-<seed>[+resume]  arm e|edense|s|qa1|l, seed 1 or 2, lr and lambda0 from params.json
@@ -190,6 +191,12 @@ elif TASK.startswith("inj-"):
         cmd = [sys.executable, "-c", "print('SMOKE COMPLETE')"]
     elif name == "sample":
         cmd = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0), "--arm", "v0", "--inputs", str(inj),
+               "--out", str(out / "eval"), "--sample", "8", "--temp", "0.7"]
+    elif name == "sample2":                   # the step-4 extension's new facts (refs/inj/qa_new.tsv), the same rule
+        new = out / "inputs_new"
+        new.mkdir(parents=True, exist_ok=True)
+        (new / "qa.tsv").write_bytes((inj / "qa_new.tsv").read_bytes())
+        cmd = [sys.executable, "-u", str(code / "c50_inj_eval.py"), "--gguf", str(v0), "--arm", "v0", "--inputs", str(new),
                "--out", str(out / "eval"), "--sample", "8", "--temp", "0.7"]
     elif name == "mve":
         cmd = [sys.executable, "-u", str(code / "c50_inj_train.py"), "--arm", "e", "--mve", "--lr", "3e-4",

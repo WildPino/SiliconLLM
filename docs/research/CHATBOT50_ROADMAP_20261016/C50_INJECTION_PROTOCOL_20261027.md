@@ -168,3 +168,16 @@ protocol and the code. Verdict: "register after fixes". All objections were take
 | 16 | step 5 had no output folders | note | written above |
 | 17 | the MDE claim did not match the rule | note | the power is given at 0.15 and at 0.11 |
 | 18 | exposures differed by fact | note | each fact's documents are cycled up to the largest count, so every fact gets 100 |
+
+## Amendment, 28 October: step 4 STOPped, the extension
+
+- **Measured:** 182 of 424 facts kept (v0 knows 185, F0's first passage holds no alias 57); halves 76 / 75 / dev 31.
+- **The remedy the design names:** NQ-open and TriviaQA rows 1200..1799, the same corpus and duplicate rule (now also
+  against addendum 2's rows), T0 and F0 answers from the same generator (`c50_inj_data.py gen`, max-new 32).
+- **Earlier facts do not change:** new facts are numbered from 424 on, `pool` asserts the first 424 are unchanged, and
+  their v0 draws and F0 passages are reused. The new facts get the same rule in their own run (`inj-sample2`: 8 draws
+  at 0.7, seeded; the random stream differs because the batch differs) and their own F0 passages (`f0_p1_new`).
+- **The split runs again on all facts.** Nothing was trained or read on the halves, so reshuffling costs nothing.
+- **Prediction:** the fresh panel kept 92 of 1,200 items (7.7%), so about +92 facts and about 121 per half. If a half
+  is still under 100, rows 1800..2399 follow under the same rule.
+- **Budget:** F0 on 1,200 more items is about 2 h locally (the measured 250 s per 40 prompts).
