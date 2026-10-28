@@ -126,9 +126,10 @@ elif TASK.startswith("t2"):
     else:
         raise SystemExit(f"unknown TASK {TASK}")
 elif TASK.startswith("m-"):
-    # C50 cell M (the metric): m-<s4|t2>-<arm>[_<mode>][+smoke]. One pass per arm: the temperature fit on the
-    # validation shards and the documents' target log-probabilities at every temperature (`c50_m_eval.py`).
-    name = TASK[2:].removesuffix("+smoke")
+    # C50 cell M (the metric): m-<s4|t2>-<arm>[_<mode>][+smoke|+post]. One pass per arm: the temperature fit on the
+    # validation shards and the documents' target log-probabilities at every temperature (`c50_m_eval.py`); +post =
+    # part 2, on A4-bis's 72 post-release documents (refs/a4bis_post/docs.tsv) instead of S4's 36.
+    name = TASK[2:].removesuffix("+smoke").removesuffix("+post")
     fam, _, rest = name.partition("-")
     arm, _, mode = rest.partition("_")
     g = gguf if fam == "s4" else find("t1_a1_q4_k_m.gguf")
@@ -145,6 +146,8 @@ elif TASK.startswith("m-"):
         cmd += ["--n-mode", mode]
     if TASK.endswith("+smoke"):
         cmd += ["--limit", "2"]
+    if TASK.endswith("+post"):
+        cmd += ["--docs-tsv", str(code / "refs/a4bis_post/docs.tsv")]
 elif TASK.startswith("inj-"):
     # C50 injection cell, on v0. The inputs are refs/inj (`c50_inj_data.py build`); the dev pilot's and the MVE's picks
     # are refs/inj/params.json. Tasks:

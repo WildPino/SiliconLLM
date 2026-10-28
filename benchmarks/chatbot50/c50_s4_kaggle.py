@@ -61,6 +61,7 @@ REFS.update({f"inj/{n}": INJ / n for n in ("qa.tsv", "known.tsv", "known.jsonl",
                                            "split_typed.json", "train_E.jsonl", "train_S.jsonl", "train_QA1.jsonl",
                                            "train_dev_E.jsonl", "eval_rew.tsv", "eval_orig.tsv", "eval_cloze.tsv",
                                            "eval_open.tsv", "eval_open_rew.tsv")} if INJ.exists() else {})
+REFS["a4bis_post/docs.tsv"] = C / "a4bis_post/inputs/docs.tsv"      # C50 cell M part 2: the 72 post-release documents
 REFS.update({f"inj_smoke/{p.name}": p for p in sorted((C / "inj_smoke").glob("*")) if p.is_file()}
             if (C / "inj_smoke").exists() else {})
 EXTRA = {"v0": ("c50-t2-v0", C / "t1/t1_a1_q4_k_m.gguf")}
