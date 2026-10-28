@@ -154,6 +154,26 @@ def cmd_upload(a: argparse.Namespace) -> int:
     return r.returncode
 
 
+def cmd_verify(a: argparse.Namespace) -> int:
+    """The account's current version of a dataset holds every file of the CANONICAL staging (the first account's folder),
+    with its size; subfolders are zipped on upload and listed unzipped. Each account stages in its own folder, and on 28
+    October two accounts uploaded folders staged days before (only the first account's had been restaged): a check
+    against the account's own folder would have passed them."""
+    folder = STAGE / a.which
+    want = {p.relative_to(folder).as_posix(): p.stat().st_size for p in folder.rglob("*")
+            if p.is_file() and p.name != "dataset-metadata.json"}
+    r = kaggle_ops.kaggle(ACCT, "datasets", "files", f"{OWNER}/{DATASETS.get(a.which) or EXTRA[a.which][0]}",
+                          "--page-size", "1000", check=False)
+    have = {}
+    for ln in r.stdout.splitlines():
+        f = ln.split()
+        if len(f) >= 2 and f[1].isdigit():
+            have[f[0]] = int(f[1])
+    bad = sorted(k for k, s in want.items() if have.get(k) != s)
+    print(f"{ACCT} {a.which}: {len(want)} staged, {len(have)} listed, {len(bad)} missing or of another size", bad[:20])
+    return 0 if not bad else 1
+
+
 def cmd_push(a: argparse.Namespace) -> int:
     k = STAGE / f"kernel_{OWNER}_{a.task}"
     task = a.run or a.task
@@ -203,6 +223,9 @@ if __name__ == "__main__":
     u.add_argument("--new", action="store_true")
     u.add_argument("-m", "--message", default="new version")
     u.set_defaults(f=cmd_upload)
+    v = sub.add_parser("verify")
+    v.add_argument("which", choices=list(DATASETS) + list(EXTRA))
+    v.set_defaults(f=cmd_verify)
     for n, f in (("push", cmd_push), ("status", cmd_status), ("output", cmd_output)):
         p = sub.add_parser(n)
         p.add_argument("task", help="the kernel's name after c50-s4-")
