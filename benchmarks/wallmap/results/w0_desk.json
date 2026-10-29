@@ -1,0 +1,988 @@
+{
+ "constants": {
+  "BW": 32000000000.0,
+  "T_FIXED_per_20_layers": 0.0027,
+  "bytes_per_weight": {
+   "nibble": 0.25,
+   "byte": 0.5,
+   "trit5": 0.2,
+   "sub1": 0.1,
+   "int8": 1.0625,
+   "bf16": 2.0
+  },
+  "R_ternary_weights_per_s": {
+   "packed": 46160000000.0,
+   "lutblk": 61640000000.0
+  },
+  "ring_state_fp32_per_linear_layer": {
+   "mini": 262144,
+   "flash": 524288
+  }
+ },
+ "scenarios": {
+  "today_q4km": {
+   "forms": {},
+   "kv": [
+    2,
+    1.0
+   ]
+  },
+  "ptq_safe": {
+   "forms": {
+    "router": "bf16"
+   },
+   "kv": [
+    1.0625,
+    1.0
+   ]
+  },
+  "ring_linear_ptq": {
+   "forms": {
+    "router": "bf16"
+   },
+   "kv": [
+    1.0625,
+    "ring"
+   ]
+  },
+  "all_ternary_nibble": {
+   "forms": {
+    "attention": "nibble",
+    "shared": "nibble",
+    "dense_ffn": "nibble",
+    "routed": "nibble",
+    "head": "nibble",
+    "router": "int8"
+   },
+   "kv": [
+    1.0625,
+    "ring"
+   ]
+  },
+  "all_ternary_trit5": {
+   "forms": {
+    "attention": "trit5",
+    "shared": "trit5",
+    "dense_ffn": "trit5",
+    "routed": "trit5",
+    "head": "trit5",
+    "router": "int8"
+   },
+   "kv": [
+    1.0625,
+    "ring"
+   ]
+  },
+  "likely_experts_2bit": {
+   "forms": {
+    "routed": "nibble",
+    "router": "int8"
+   },
+   "kv": [
+    1.0625,
+    1.0
+   ]
+  },
+  "experts_sub1_rest_nibble": {
+   "forms": {
+    "attention": "nibble",
+    "shared": "nibble",
+    "dense_ffn": "nibble",
+    "head": "nibble",
+    "routed": "sub1",
+    "router": "int8"
+   },
+   "kv": [
+    1.0625,
+    "ring"
+   ]
+  }
+ },
+ "rows": [
+  {
+   "ctx": 2048,
+   "scenario": "today_q4km",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 39845888.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 83886080.0
+    },
+    "total": 867238016.0,
+    "tok_s": 33.55570925561759,
+    "tok_s_wide_fixed": 33.55570925561759,
+    "tok_s_packed": 33.55570925561759,
+    "tok_s_lutblk": 33.55570925561759
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 130023424.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 134217728.0
+    },
+    "total": 3753641216.0,
+    "tok_s": 8.222244776753227,
+    "tok_s_wide_fixed": 7.940207821282564,
+    "tok_s_packed": 8.222244776753227,
+    "tok_s_lutblk": 8.222244776753227
+   },
+   "size_ratio": 0.24503266237404095
+  },
+  {
+   "ctx": 2048,
+   "scenario": "ptq_safe",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 19922944.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 44564480.0
+    },
+    "total": 807993472.0,
+    "tok_s": 35.77843645084207,
+    "tok_s_wide_fixed": 35.77843645084207,
+    "tok_s_packed": 35.77843645084207,
+    "tok_s_lutblk": 35.77843645084207
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 65011712.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 71303168.0
+    },
+    "total": 3625714944.0,
+    "tok_s": 8.501695816261078,
+    "tok_s_wide_fixed": 8.200512906000014,
+    "tok_s_packed": 8.501695816261078,
+    "tok_s_lutblk": 8.501695816261078
+   },
+   "size_ratio": 0.23762066371855062
+  },
+  {
+   "ctx": 2048,
+   "scenario": "ring_linear_ptq",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 19922944.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 33554432
+    },
+    "total": 805896320.0,
+    "tok_s": 35.86252602722826,
+    "tok_s_wide_fixed": 35.86252602722826,
+    "tok_s_packed": 35.86252602722826,
+    "tok_s_lutblk": 35.86252602722826
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 65011712.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 117440512
+    },
+    "total": 3680765184.0,
+    "tok_s": 8.37914547329402,
+    "tok_s_wide_fixed": 8.08643349403341,
+    "tok_s_packed": 8.37914547329402,
+    "tok_s_lutblk": 8.37914547329402
+   },
+   "size_ratio": 0.23364627095515353
+  },
+  {
+   "ctx": 2048,
+   "scenario": "all_ternary_nibble",
+   "mini": {
+    "bytes": {
+     "attention": 52428800.0,
+     "shared": 14942208.0,
+     "dense_ffn": 7864320.0,
+     "router": 10584064.0,
+     "routed": 119537664.0,
+     "head": 80478208.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 33554432
+    },
+    "total": 328679552.0,
+    "tok_s": 77.09365553136185,
+    "tok_s_wide_fixed": 77.09365553136185,
+    "tok_s_packed": 35.433902629364404,
+    "tok_s_lutblk": 44.9812366530418
+   },
+   "flash": {
+    "bytes": {
+     "attention": 301989888.0,
+     "shared": 97517568.0,
+     "dense_ffn": 28311552.0,
+     "router": 34537472.0,
+     "routed": 780140544.0,
+     "head": 160956416.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 117440512
+    },
+    "total": 1530938624.0,
+    "tok_s": 19.171105800118372,
+    "tok_s_wide_fixed": 17.70480815848891,
+    "tok_s_packed": 7.812086483212051,
+    "tok_s_lutblk": 10.181622684129643
+   },
+   "size_ratio": 0.24867293771430427
+  },
+  {
+   "ctx": 2048,
+   "scenario": "all_ternary_trit5",
+   "mini": {
+    "bytes": {
+     "attention": 41943040.0,
+     "shared": 11953766.4,
+     "dense_ffn": 6291456.0,
+     "router": 10584064.0,
+     "routed": 95630131.2,
+     "head": 64382566.400000006,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 33554432
+    },
+    "total": 273629312.0,
+    "tok_s": 88.88165194727256,
+    "tok_s_wide_fixed": 88.88165194727256,
+    "tok_s_packed": 35.433902629364404,
+    "tok_s_lutblk": 44.9812366530418
+   },
+   "flash": {
+    "bytes": {
+     "attention": 241591910.4,
+     "shared": 78014054.4,
+     "dense_ffn": 22649241.6,
+     "router": 34537472.0,
+     "routed": 624112435.2,
+     "head": 128765132.80000001,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 117440512
+    },
+    "total": 1257155430.4,
+    "tok_s": 22.932567573929184,
+    "tok_s_wide_fixed": 20.865454309212076,
+    "tok_s_packed": 7.812086483212051,
+    "tok_s_lutblk": 10.181622684129643
+   },
+   "size_ratio": 0.25801239143860105
+  },
+  {
+   "ctx": 2048,
+   "scenario": "likely_experts_2bit",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 10584064.0,
+     "routed": 119537664.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 44564480.0
+    },
+    "total": 629768320.0,
+    "tok_s": 44.682233361006524,
+    "tok_s_wide_fixed": 44.682233361006524,
+    "tok_s_packed": 34.47888540533326,
+    "tok_s_lutblk": 37.876123832387826
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 34537472.0,
+     "routed": 780140544.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 71303168.0
+    },
+    "total": 2490303744.0,
+    "tok_s": 12.174041262598061,
+    "tok_s_wide_fixed": 11.565775630059505,
+    "tok_s_packed": 7.976659227858225,
+    "tok_s_lutblk": 9.226096302567965
+   },
+   "size_ratio": 0.2724582087076729
+  },
+  {
+   "ctx": 2048,
+   "scenario": "experts_sub1_rest_nibble",
+   "mini": {
+    "bytes": {
+     "attention": 52428800.0,
+     "shared": 14942208.0,
+     "dense_ffn": 7864320.0,
+     "router": 10584064.0,
+     "routed": 47815065.6,
+     "head": 80478208.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 33554432
+    },
+    "total": 256956953.6,
+    "tok_s": 93.19747179863144,
+    "tok_s_wide_fixed": 93.19747179863144,
+    "tok_s_packed": 35.433902629364404,
+    "tok_s_lutblk": 44.9812366530418
+   },
+   "flash": {
+    "bytes": {
+     "attention": 301989888.0,
+     "shared": 97517568.0,
+     "dense_ffn": 28311552.0,
+     "router": 34537472.0,
+     "routed": 312056217.6,
+     "head": 160956416.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 8912896.0,
+     "ring_state": 117440512
+    },
+    "total": 1062854297.6,
+    "tok_s": 26.642371097707894,
+    "tok_s_wide_fixed": 23.89246662117286,
+    "tok_s_packed": 7.812086483212051,
+    "tok_s_lutblk": 10.181622684129644
+   },
+   "size_ratio": 0.2858701055246772
+  },
+  {
+   "ctx": 8192,
+   "scenario": "today_q4km",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 39845888.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 335544320.0
+    },
+    "total": 1118896256.0,
+    "tok_s": 26.54948925685537,
+    "tok_s_wide_fixed": 26.54948925685537,
+    "tok_s_packed": 26.54948925685537,
+    "tok_s_lutblk": 26.54948925685537
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 130023424.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 536870912.0
+    },
+    "total": 4156294400.0,
+    "tok_s": 7.451331627475146,
+    "tok_s_wide_fixed": 7.218955243921278,
+    "tok_s_packed": 7.451331627475146,
+    "tok_s_lutblk": 7.451331627475146
+   },
+   "size_ratio": 0.28065819102531814
+  },
+  {
+   "ctx": 8192,
+   "scenario": "ptq_safe",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 19922944.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 178257920.0
+    },
+    "total": 941686912.0,
+    "tok_s": 31.125773148642125,
+    "tok_s_wide_fixed": 31.125773148642125,
+    "tok_s_packed": 31.125773148642125,
+    "tok_s_lutblk": 31.125773148642125
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 65011712.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 285212672.0
+    },
+    "total": 3839624448.0,
+    "tok_s": 8.044517458630104,
+    "tok_s_wide_fixed": 7.774341104378117,
+    "tok_s_packed": 8.044517458630104,
+    "tok_s_lutblk": 8.044517458630104
+   },
+   "size_ratio": 0.2584519722679097
+  },
+  {
+   "ctx": 8192,
+   "scenario": "ring_linear_ptq",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 19922944.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 33554432
+    },
+    "total": 832635008.0,
+    "tok_s": 34.81913063316082,
+    "tok_s_wide_fixed": 34.81913063316082,
+    "tok_s_packed": 34.81913063316082,
+    "tok_s_lutblk": 34.81913063316082
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 65011712.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 117440512
+    },
+    "total": 3707503872.0,
+    "tok_s": 8.320886950632577,
+    "tok_s_wide_fixed": 8.032161029792443,
+    "tok_s_packed": 8.320886950632577,
+    "tok_s_lutblk": 8.320886950632577
+   },
+   "size_ratio": 0.23897457516380333
+  },
+  {
+   "ctx": 8192,
+   "scenario": "all_ternary_nibble",
+   "mini": {
+    "bytes": {
+     "attention": 52428800.0,
+     "shared": 14942208.0,
+     "dense_ffn": 7864320.0,
+     "router": 10584064.0,
+     "routed": 119537664.0,
+     "head": 80478208.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 33554432
+    },
+    "total": 355418240.0,
+    "tok_s": 72.42797400125444,
+    "tok_s_wide_fixed": 72.42797400125444,
+    "tok_s_packed": 34.4149448695785,
+    "tok_s_lutblk": 43.35183196607573
+   },
+   "flash": {
+    "bytes": {
+     "attention": 301989888.0,
+     "shared": 97517568.0,
+     "dense_ffn": 28311552.0,
+     "router": 34537472.0,
+     "routed": 780140544.0,
+     "head": 160956416.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 117440512
+    },
+    "total": 1557677312.0,
+    "tok_s": 18.868844473473953,
+    "tok_s_wide_fixed": 17.44670415707505,
+    "tok_s_packed": 7.761422598279401,
+    "tok_s_lutblk": 10.095732222488062
+   },
+   "size_ratio": 0.2605187392532497
+  },
+  {
+   "ctx": 8192,
+   "scenario": "all_ternary_trit5",
+   "mini": {
+    "bytes": {
+     "attention": 41943040.0,
+     "shared": 11953766.4,
+     "dense_ffn": 6291456.0,
+     "router": 10584064.0,
+     "routed": 95630131.2,
+     "head": 64382566.400000006,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 33554432
+    },
+    "total": 300368000.0,
+    "tok_s": 82.7369379059281,
+    "tok_s_wide_fixed": 82.7369379059281,
+    "tok_s_packed": 34.4149448695785,
+    "tok_s_lutblk": 43.35183196607573
+   },
+   "flash": {
+    "bytes": {
+     "attention": 241591910.4,
+     "shared": 78014054.4,
+     "dense_ffn": 22649241.6,
+     "router": 34537472.0,
+     "routed": 624112435.2,
+     "head": 128765132.80000001,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 117440512
+    },
+    "total": 1283894118.4,
+    "tok_s": 22.50139391635033,
+    "tok_s_wide_fixed": 20.50790231820343,
+    "tok_s_packed": 7.761422598279401,
+    "tok_s_lutblk": 10.095732222488062
+   },
+   "size_ratio": 0.2719630975699683
+  },
+  {
+   "ctx": 8192,
+   "scenario": "likely_experts_2bit",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 10584064.0,
+     "routed": 119537664.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 178257920.0
+    },
+    "total": 763461760.0,
+    "tok_s": 37.653182559949514,
+    "tok_s_wide_fixed": 37.653182559949514,
+    "tok_s_packed": 30.137567986125234,
+    "tok_s_lutblk": 32.70135045246276
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 34537472.0,
+     "routed": 780140544.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 285212672.0
+    },
+    "total": 2704213248.0,
+    "tok_s": 11.25788085433446,
+    "tok_s_wide_fixed": 10.735757536093832,
+    "tok_s_packed": 7.572863897005319,
+    "tok_s_lutblk": 8.690145257966709
+   },
+   "size_ratio": 0.29898882614796835
+  },
+  {
+   "ctx": 8192,
+   "scenario": "experts_sub1_rest_nibble",
+   "mini": {
+    "bytes": {
+     "attention": 52428800.0,
+     "shared": 14942208.0,
+     "dense_ffn": 7864320.0,
+     "router": 10584064.0,
+     "routed": 47815065.6,
+     "head": 80478208.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 33554432
+    },
+    "total": 283695641.6,
+    "tok_s": 86.46413630178776,
+    "tok_s_wide_fixed": 86.46413630178776,
+    "tok_s_packed": 34.41494486957849,
+    "tok_s_lutblk": 43.35183196607572
+   },
+   "flash": {
+    "bytes": {
+     "attention": 301989888.0,
+     "shared": 97517568.0,
+     "dense_ffn": 28311552.0,
+     "router": 34537472.0,
+     "routed": 312056217.6,
+     "head": 160956416.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 35651584.0,
+     "ring_state": 117440512
+    },
+    "total": 1089592985.6,
+    "tok_s": 26.062176513658898,
+    "tok_s_wide_fixed": 23.42480990204569,
+    "tok_s_packed": 7.761422598279401,
+    "tok_s_lutblk": 10.095732222488063
+   },
+   "size_ratio": 0.3014218105723451
+  },
+  {
+   "ctx": 32768,
+   "scenario": "today_q4km",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 39845888.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 1342177280.0
+    },
+    "total": 2125529216.0,
+    "tok_s": 14.467009056405539,
+    "tok_s_wide_fixed": 14.467009056405539,
+    "tok_s_packed": 14.467009056405539,
+    "tok_s_lutblk": 14.467009056405539
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 130023424.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 2147483648.0
+    },
+    "total": 5766907136.0,
+    "tok_s": 5.419001298869583,
+    "tok_s_wide_fixed": 5.295043868591244,
+    "tok_s_packed": 5.419001298869583,
+    "tok_s_lutblk": 5.419001298869583
+   },
+   "size_ratio": 0.3745764779534868
+  },
+  {
+   "ctx": 32768,
+   "scenario": "ptq_safe",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 19922944.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 713031680.0
+    },
+    "total": 1476460672.0,
+    "tok_s": 20.4752736909359,
+    "tok_s_wide_fixed": 20.4752736909359,
+    "tok_s_packed": 20.4752736909359,
+    "tok_s_lutblk": 20.4752736909359
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 65011712.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 1140850688.0
+    },
+    "total": 4695262464.0,
+    "tok_s": 6.620457988453816,
+    "tok_s_wide_fixed": 6.436375220902834,
+    "tok_s_packed": 6.620457988453816,
+    "tok_s_lutblk": 6.620457988453816
+   },
+   "size_ratio": 0.32333916939945934
+  },
+  {
+   "ctx": 32768,
+   "scenario": "ring_linear_ptq",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 19922944.0,
+     "routed": 288423936.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 33554432
+    },
+    "total": 939589760.0,
+    "tok_s": 31.18939510663342,
+    "tok_s_wide_fixed": 31.18939510663342,
+    "tok_s_packed": 31.18939510663342,
+    "tok_s_lutblk": 31.18939510663342
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 65011712.0,
+     "routed": 1885077504.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 117440512
+    },
+    "total": 3814458624.0,
+    "tok_s": 8.095734849528462,
+    "tok_s_wide_fixed": 7.822165752443223,
+    "tok_s_packed": 8.095734849528462,
+    "tok_s_lutblk": 8.095734849528462
+   },
+   "size_ratio": 0.2595669079778545
+  },
+  {
+   "ctx": 32768,
+   "scenario": "all_ternary_nibble",
+   "mini": {
+    "bytes": {
+     "attention": 52428800.0,
+     "shared": 14942208.0,
+     "dense_ffn": 7864320.0,
+     "router": 10584064.0,
+     "routed": 119537664.0,
+     "head": 80478208.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 33554432
+    },
+    "total": 462372992.0,
+    "tok_s": 58.311907594752775,
+    "tok_s_wide_fixed": 58.311907594752775,
+    "tok_s_packed": 30.86469313448139,
+    "tok_s_lutblk": 37.86528841910232
+   },
+   "flash": {
+    "bytes": {
+     "attention": 301989888.0,
+     "shared": 97517568.0,
+     "dense_ffn": 28311552.0,
+     "router": 34537472.0,
+     "routed": 780140544.0,
+     "head": 160956416.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 117440512
+    },
+    "total": 1664632064.0,
+    "tok_s": 17.74945690211771,
+    "tok_s_wide_fixed": 16.485395456282117,
+    "tok_s_packed": 7.565172328310752,
+    "tok_s_lutblk": 9.766188508106477
+   },
+   "size_ratio": 0.3043882053296933
+  },
+  {
+   "ctx": 32768,
+   "scenario": "all_ternary_trit5",
+   "mini": {
+    "bytes": {
+     "attention": 41943040.0,
+     "shared": 11953766.4,
+     "dense_ffn": 6291456.0,
+     "router": 10584064.0,
+     "routed": 95630131.2,
+     "head": 64382566.400000006,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 33554432
+    },
+    "total": 407322752.0,
+    "tok_s": 64.81370337982722,
+    "tok_s_wide_fixed": 64.81370337982722,
+    "tok_s_packed": 30.86469313448139,
+    "tok_s_lutblk": 37.86528841910232
+   },
+   "flash": {
+    "bytes": {
+     "attention": 241591910.4,
+     "shared": 78014054.4,
+     "dense_ffn": 22649241.6,
+     "router": 34537472.0,
+     "routed": 624112435.2,
+     "head": 128765132.80000001,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 117440512
+    },
+    "total": 1390848870.4,
+    "tok_s": 20.92749520283213,
+    "tok_s_wide_fixed": 19.19237444279547,
+    "tok_s_packed": 7.565172328310752,
+    "tok_s_lutblk": 9.766188508106477
+   },
+   "size_ratio": 0.3228868913752837
+  },
+  {
+   "ctx": 32768,
+   "scenario": "likely_experts_2bit",
+   "mini": {
+    "bytes": {
+     "attention": 134184960.0,
+     "shared": 36052992.0,
+     "dense_ffn": 20398080.0,
+     "router": 10584064.0,
+     "routed": 119537664.0,
+     "head": 264069120.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 713031680.0
+    },
+    "total": 1298235520.0,
+    "tok_s": 23.11077502908491,
+    "tok_s_wide_fixed": 23.11077502908491,
+    "tok_s_packed": 20.042948936909404,
+    "tok_s_lutblk": 21.14546825799594
+   },
+   "flash": {
+    "bytes": {
+     "attention": 765984768.0,
+     "shared": 235634688.0,
+     "dense_ffn": 73433088.0,
+     "router": 34537472.0,
+     "routed": 780140544.0,
+     "head": 528138240.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 1140850688.0
+    },
+    "total": 3559851264.0,
+    "tok_s": 8.653112569587465,
+    "tok_s_wide_fixed": 8.341302613850607,
+    "tok_s_packed": 6.297660429453736,
+    "tok_s_lutblk": 7.051611152399812
+   },
+   "size_ratio": 0.3744189694502899
+  },
+  {
+   "ctx": 32768,
+   "scenario": "experts_sub1_rest_nibble",
+   "mini": {
+    "bytes": {
+     "attention": 52428800.0,
+     "shared": 14942208.0,
+     "dense_ffn": 7864320.0,
+     "router": 10584064.0,
+     "routed": 47815065.6,
+     "head": 80478208.0,
+     "small": 375808.0,
+     "embedding": 1152.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 33554432
+    },
+    "total": 390650393.6,
+    "tok_s": 67.07886719999553,
+    "tok_s_wide_fixed": 67.07886719999553,
+    "tok_s_packed": 30.86469313448139,
+    "tok_s_lutblk": 37.86528841910232
+   },
+   "flash": {
+    "bytes": {
+     "attention": 301989888.0,
+     "shared": 97517568.0,
+     "dense_ffn": 28311552.0,
+     "router": 34537472.0,
+     "routed": 312056217.6,
+     "head": 160956416.0,
+     "small": 1129472.0,
+     "embedding": 2304.0,
+     "kv_cache": 142606336.0,
+     "ring_state": 117440512
+    },
+    "total": 1196547737.6,
+    "tok_s": 23.973849248523393,
+    "tok_s_wide_fixed": 21.72396295275302,
+    "tok_s_packed": 7.565172328310752,
+    "tok_s_lutblk": 9.76618850810648
+   },
+   "size_ratio": 0.35739794437859845
+  }
+ ]
+}

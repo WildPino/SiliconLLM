@@ -1,0 +1,310 @@
+{
+ "rows": {
+  "inclusionAI_Ling-mini-2.0": {
+   "family": "Ling 2.0",
+   "label": "mini",
+   "attention": 209715200,
+   "dense_ffn": 31457280,
+   "shared": 59768832,
+   "router": 9961472,
+   "routed_total": 15300820992,
+   "head": 321912832,
+   "embedding_row": 2048,
+   "routed_active": 478150656.0,
+   "active": 1110968320.0,
+   "core_active": 632817664.0,
+   "total": 16255549440,
+   "kv_elems_per_pos_full": 20480,
+   "kv_elems_sliding_total": 0,
+   "layers": 20,
+   "desk_nibble_ctx2048": {
+    "bytes": 369721856.0,
+    "kv_bytes": 83886080,
+    "tok_s": 70.1566907594097
+   },
+   "E": 256,
+   "k": 8,
+   "approximations": []
+  },
+  "inclusionAI_Ling-flash-2.0": {
+   "family": "Ling 2.0",
+   "label": "flash",
+   "attention": 1207959552,
+   "dense_ffn": 113246208,
+   "shared": 390070272,
+   "router": 32505856,
+   "routed_total": 99857989632,
+   "head": 643825664,
+   "embedding_row": 4096,
+   "routed_active": 3120562176.0,
+   "active": 5508173824.0,
+   "core_active": 2387611648.0,
+   "total": 102889422848,
+   "kv_elems_per_pos_full": 32768,
+   "kv_elems_sliding_total": 0,
+   "layers": 32,
+   "desk_nibble_ctx2048": {
+    "bytes": 1537672192.0,
+    "kv_bytes": 134217728,
+    "tok_s": 19.094079124641873
+   },
+   "E": 256,
+   "k": 8,
+   "approximations": []
+  },
+  "inclusionAI_Ling-1T": {
+   "family": "Ling 2.0",
+   "label": "1T",
+   "attention": 12079595520,
+   "dense_ffn": 1811939328,
+   "shared": 3825205248,
+   "router": 159383552,
+   "routed_total": 979252543488,
+   "head": 1287651328,
+   "embedding_row": 8192,
+   "routed_active": 30601641984.0,
+   "active": 49765425152.0,
+   "core_active": 19163783168.0,
+   "total": 999703969792,
+   "kv_elems_per_pos_full": 163840,
+   "kv_elems_sliding_total": 0,
+   "layers": 80,
+   "desk_nibble_ctx2048": {
+    "bytes": 13241944064.0,
+    "kv_bytes": 671088640,
+    "tok_s": 2.3550981582303407
+   },
+   "E": 256,
+   "k": 8,
+   "approximations": []
+  },
+  "openai_gpt-oss-20b": {
+   "family": "gpt-oss",
+   "label": "20b",
+   "attention": 637009920,
+   "dense_ffn": 0,
+   "shared": 0,
+   "router": 2211840,
+   "routed_total": 19110297600,
+   "head": 579133440,
+   "embedding_row": 2880,
+   "routed_active": 2388787200.0,
+   "active": 3607145280.0,
+   "core_active": 1218358080.0,
+   "total": 20907786240,
+   "kv_elems_per_pos_full": 12288,
+   "kv_elems_sliding_total": 1572864,
+   "layers": 24,
+   "desk_nibble_ctx2048": {
+    "bytes": 957060816.0,
+    "kv_bytes": 53477376,
+    "tok_s": 30.167595624980645
+   },
+   "E": 32,
+   "k": 4,
+   "approximations": [
+    "gpt-oss biases omitted (attention, router and experts carry biases: small)"
+   ]
+  },
+  "openai_gpt-oss-120b": {
+   "family": "gpt-oss",
+   "label": "120b",
+   "attention": 955514880,
+   "dense_ffn": 0,
+   "shared": 0,
+   "router": 13271040,
+   "routed_total": 114661785600,
+   "head": 579133440,
+   "embedding_row": 2880,
+   "routed_active": 3583180800.0,
+   "active": 5131103040.0,
+   "core_active": 1547922240.0,
+   "total": 116788838400,
+   "kv_elems_per_pos_full": 18432,
+   "kv_elems_sliding_total": 2359296,
+   "layers": 36,
+   "desk_nibble_ctx2048": {
+    "bytes": 1373774544.0,
+    "kv_bytes": 80216064,
+    "tok_s": 20.92468068074138
+   },
+   "E": 128,
+   "k": 4,
+   "approximations": [
+    "gpt-oss biases omitted (attention, router and experts carry biases: small)"
+   ]
+  },
+  "Qwen_Qwen3-30B-A3B": {
+   "family": "Qwen3",
+   "label": "30B-A3B",
+   "attention": 905969664,
+   "dense_ffn": 0,
+   "shared": 0,
+   "router": 12582912,
+   "routed_total": 28991029248,
+   "head": 311164928,
+   "embedding_row": 2048,
+   "routed_active": 1811939328.0,
+   "active": 3041658880.0,
+   "core_active": 1229719552.0,
+   "total": 30531911680,
+   "kv_elems_per_pos_full": 49152,
+   "kv_elems_sliding_total": 0,
+   "layers": 48,
+   "desk_nibble_ctx2048": {
+    "bytes": 971964928.0,
+    "kv_bytes": 201326592,
+    "tok_s": 27.134167386988363
+   },
+   "E": 128,
+   "k": 8,
+   "approximations": []
+  },
+  "Qwen_Qwen3-235B-A22B": {
+   "family": "Qwen3",
+   "label": "235B-A22B",
+   "attention": 6702497792,
+   "dense_ffn": 0,
+   "shared": 0,
+   "router": 49283072,
+   "routed_total": 227096395776,
+   "head": 622329856,
+   "embedding_row": 4096,
+   "routed_active": 14193524736.0,
+   "active": 21567639552.0,
+   "core_active": 7374114816.0,
+   "total": 235092836352,
+   "kv_elems_per_pos_full": 96256,
+   "kv_elems_sliding_total": 0,
+   "layers": 94,
+   "desk_nibble_ctx2048": {
+    "bytes": 5826216960.0,
+    "kv_bytes": 394264576,
+    "tok_s": 5.134543524703932
+   },
+   "E": 128,
+   "k": 8,
+   "approximations": []
+  },
+  "Qwen_Qwen3-Next-80B-A3B-Instruct": {
+   "family": "Qwen3-Next",
+   "label": "80B-A3B",
+   "attention": 1539833856,
+   "dense_ffn": 0,
+   "shared": 150994944,
+   "router": 50331648,
+   "routed_total": 77309411328,
+   "head": 311164928,
+   "embedding_row": 2048,
+   "routed_active": 1509949440.0,
+   "active": 3562276864.0,
+   "core_active": 2052327424.0,
+   "total": 79672901632,
+   "kv_elems_per_pos_full": 12288,
+   "kv_elems_sliding_total": 0,
+   "layers": 48,
+   "desk_nibble_ctx2048": {
+    "bytes": 981795328.0,
+    "kv_bytes": 50331648,
+    "tok_s": 26.909857145255963
+   },
+   "E": 512,
+   "k": 10,
+   "approximations": [
+    "linear-attention projections from the config (q,k,v,z,b,a and out); conv and norms omitted"
+   ]
+  }
+ },
+ "control": {
+  "mini": {
+   "attention": {
+    "gguf": 209715200,
+    "config": 209715200,
+    "rel": 0.0
+   },
+   "dense_ffn": {
+    "gguf": 31457280,
+    "config": 31457280,
+    "rel": 0.0
+   },
+   "shared": {
+    "gguf": 59768832,
+    "config": 59768832,
+    "rel": 0.0
+   },
+   "router": {
+    "gguf": 9961472,
+    "config": 9961472,
+    "rel": 0.0
+   },
+   "routed": {
+    "gguf": 15300820992,
+    "config": 15300820992,
+    "rel": 0.0
+   },
+   "head": {
+    "gguf": 321912832,
+    "config": 321912832,
+    "rel": 0.0
+   }
+  },
+  "flash": {
+   "attention": {
+    "gguf": 1207959552,
+    "config": 1207959552,
+    "rel": 0.0
+   },
+   "dense_ffn": {
+    "gguf": 113246208,
+    "config": 113246208,
+    "rel": 0.0
+   },
+   "shared": {
+    "gguf": 390070272,
+    "config": 390070272,
+    "rel": 0.0
+   },
+   "router": {
+    "gguf": 32505856,
+    "config": 32505856,
+    "rel": 0.0
+   },
+   "routed": {
+    "gguf": 99857989632,
+    "config": 99857989632,
+    "rel": 0.0
+   },
+   "head": {
+    "gguf": 643825664,
+    "config": 643825664,
+    "rel": 0.0
+   }
+  }
+ },
+ "ratios": {
+  "Ling 2.0": {
+   "total": 6.32949524270279,
+   "active": 4.957993603273944,
+   "core": 3.7729851485308727,
+   "desk_speed": 0.2721633377794533
+  },
+  "Ling 2.0 (1T)": {
+   "total": 61.49924205773262,
+   "active": 44.79463928548385,
+   "core": 30.283262080370754,
+   "desk_speed": 0.033569116968568895
+  },
+  "gpt-oss": {
+   "total": 5.5859016855913675,
+   "active": 1.4224830556311832,
+   "core": 1.2704986041542072,
+   "desk_speed": 0.6936144643696577
+  },
+  "Qwen3": {
+   "total": 7.699905555078561,
+   "active": 7.090748963933786,
+   "core": 5.996582557386223,
+   "desk_speed": 0.18922797414326034
+  }
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "models": [
+  {
+   "model": "mini",
+   "bf16": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-bf16.gguf",
+   "quant": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "bf16_header_sha256": "a879d288e7940ab04a6ebc24ffd829292605649aae1b8bac6297b934246307b7",
+   "quant_header_sha256": "47e97796da633b6c870ed216ff4be430226b0247fd26b95aa701c46814ebed9d",
+   "hparams": {
+    "block_count": 20,
+    "context_length": 32768,
+    "embedding_length": 2048,
+    "feed_forward_length": 5120,
+    "attention.head_count": 16,
+    "attention.head_count_kv": 4,
+    "rope.freq_base": 600000.0,
+    "attention.layer_norm_rms_epsilon": 9.999999974752427e-07,
+    "expert_count": 256,
+    "expert_used_count": 8,
+    "expert_group_count": 8,
+    "expert_group_used_count": 4,
+    "expert_gating_func": 2,
+    "attention.key_length": 128,
+    "attention.value_length": 128,
+    "rope.dimension_count": 64,
+    "leading_dense_block_count": 1,
+    "vocab_size": 157184,
+    "expert_feed_forward_length": 512,
+    "expert_shared_feed_forward_length": 512,
+    "expert_weights_scale": 2.5,
+    "expert_shared_count": 1,
+    "expert_weights_norm": true,
+    "nextn_predict_layers": 0
+   },
+   "params": {
+    "routed": 15300820992,
+    "embedding": 321912832,
+    "attention": 209715200,
+    "shared": 59768832,
+    "head": 321912832,
+    "small": 93952,
+    "dense_ffn": 31457280,
+    "router": 9961472,
+    "kv_cache": 0
+   },
+   "params_total": 16255643392,
+   "params_active_per_token": 1111062272.0,
+   "stored_bytes": {
+    "routed": 9229565952,
+    "embedding": 181075968,
+    "attention": 134184960,
+    "shared": 36052992,
+    "head": 264069120,
+    "small": 375808,
+    "dense_ffn": 20398080,
+    "router": 39845888
+   },
+   "stored_total": 9905568768,
+   "types_by_organ": {
+    "routed": {
+     "Q6_K": 1981808640,
+     "Q4_K": 7247757312
+    },
+    "embedding": {
+     "Q4_K": 181075968
+    },
+    "attention": {
+     "Q4_K": 82575360,
+     "Q6_K": 51609600
+    },
+    "shared": {
+     "Q4_K": 28311552,
+     "Q6_K": 7741440
+    },
+    "head": {
+     "Q6_K": 264069120
+    },
+    "small": {
+     "F32": 375808
+    },
+    "dense_ffn": {
+     "Q6_K": 8601600,
+     "Q4_K": 11796480
+    },
+    "router": {
+     "F32": 39845888
+    }
+   },
+   "weight_bytes_per_token": {
+    "routed": 288423936.0,
+    "embedding": 1152.0,
+    "attention": 134184960.0,
+    "shared": 36052992.0,
+    "head": 264069120.0,
+    "small": 375808.0,
+    "dense_ffn": 20398080.0,
+    "router": 39845888.0
+   },
+   "kv_bytes_per_position": 40960,
+   "by_context": {
+    "2048": {
+     "bytes_per_token": {
+      "routed": 288423936.0,
+      "embedding": 1152.0,
+      "attention": 134184960.0,
+      "shared": 36052992.0,
+      "head": 264069120.0,
+      "small": 375808.0,
+      "dense_ffn": 20398080.0,
+      "router": 39845888.0,
+      "kv_cache": 83886080
+     },
+     "total": 867238016.0
+    },
+    "8192": {
+     "bytes_per_token": {
+      "routed": 288423936.0,
+      "embedding": 1152.0,
+      "attention": 134184960.0,
+      "shared": 36052992.0,
+      "head": 264069120.0,
+      "small": 375808.0,
+      "dense_ffn": 20398080.0,
+      "router": 39845888.0,
+      "kv_cache": 335544320
+     },
+     "total": 1118896256.0
+    },
+    "32768": {
+     "bytes_per_token": {
+      "routed": 288423936.0,
+      "embedding": 1152.0,
+      "attention": 134184960.0,
+      "shared": 36052992.0,
+      "head": 264069120.0,
+      "small": 375808.0,
+      "dense_ffn": 20398080.0,
+      "router": 39845888.0,
+      "kv_cache": 1342177280
+     },
+     "total": 2125529216.0
+    }
+   }
+  },
+  {
+   "model": "flash",
+   "bf16": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-flash-2.0-96f9b7a-bf16.gguf",
+   "quant": "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-flash-2.0-96f9b7a-q4_k_m-noimatrix.gguf",
+   "bf16_header_sha256": "46293e5be29110de108cb65dd05b9c71d0d5cd85c3294f784572dde39a4a1572",
+   "quant_header_sha256": "a9a92ddb12b6820b62821053ee358f29bfbc53b9cae59c4cb9f97e083eddd09e",
+   "hparams": {
+    "block_count": 32,
+    "context_length": 32768,
+    "embedding_length": 4096,
+    "feed_forward_length": 9216,
+    "attention.head_count": 32,
+    "attention.head_count_kv": 4,
+    "rope.freq_base": 600000.0,
+    "attention.layer_norm_rms_epsilon": 9.999999974752427e-07,
+    "expert_count": 256,
+    "expert_used_count": 8,
+    "expert_group_count": 8,
+    "expert_group_used_count": 4,
+    "expert_gating_func": 2,
+    "attention.key_length": 128,
+    "attention.value_length": 128,
+    "rope.dimension_count": 64,
+    "leading_dense_block_count": 1,
+    "vocab_size": 157184,
+    "expert_feed_forward_length": 1024,
+    "expert_shared_feed_forward_length": 1024,
+    "expert_weights_scale": 2.5,
+    "expert_shared_count": 1,
+    "expert_weights_norm": true
+   },
+   "params": {
+    "routed": 99857989632,
+    "embedding": 643825664,
+    "attention": 1207959552,
+    "small": 282368,
+    "dense_ffn": 113246208,
+    "router": 32505856,
+    "shared": 390070272,
+    "head": 643825664,
+    "kv_cache": 0
+   },
+   "params_total": 102889705216,
+   "params_active_per_token": 5508456192.0,
+   "stored_bytes": {
+    "routed": 60322480128,
+    "embedding": 362151936,
+    "attention": 765984768,
+    "small": 1129472,
+    "dense_ffn": 73433088,
+    "router": 130023424,
+    "shared": 235634688,
+    "head": 528138240
+   },
+   "stored_total": 62418975744,
+   "types_by_organ": {
+    "routed": {
+     "Q6_K": 13212057600,
+     "Q4_K": 47110422528
+    },
+    "embedding": {
+     "Q4_K": 362151936
+    },
+    "attention": {
+     "Q4_K": 490733568,
+     "Q6_K": 275251200
+    },
+    "small": {
+     "F32": 1129472
+    },
+    "dense_ffn": {
+     "Q6_K": 30965760,
+     "Q4_K": 42467328
+    },
+    "router": {
+     "F32": 130023424
+    },
+    "shared": {
+     "Q6_K": 51609600,
+     "Q4_K": 184025088
+    },
+    "head": {
+     "Q6_K": 528138240
+    }
+   },
+   "weight_bytes_per_token": {
+    "routed": 1885077504.0,
+    "embedding": 2304.0,
+    "attention": 765984768.0,
+    "small": 1129472.0,
+    "dense_ffn": 73433088.0,
+    "router": 130023424.0,
+    "shared": 235634688.0,
+    "head": 528138240.0
+   },
+   "kv_bytes_per_position": 65536,
+   "by_context": {
+    "2048": {
+     "bytes_per_token": {
+      "routed": 1885077504.0,
+      "embedding": 2304.0,
+      "attention": 765984768.0,
+      "small": 1129472.0,
+      "dense_ffn": 73433088.0,
+      "router": 130023424.0,
+      "shared": 235634688.0,
+      "head": 528138240.0,
+      "kv_cache": 134217728
+     },
+     "total": 3753641216.0
+    },
+    "8192": {
+     "bytes_per_token": {
+      "routed": 1885077504.0,
+      "embedding": 2304.0,
+      "attention": 765984768.0,
+      "small": 1129472.0,
+      "dense_ffn": 73433088.0,
+      "router": 130023424.0,
+      "shared": 235634688.0,
+      "head": 528138240.0,
+      "kv_cache": 536870912
+     },
+     "total": 4156294400.0
+    },
+    "32768": {
+     "bytes_per_token": {
+      "routed": 1885077504.0,
+      "embedding": 2304.0,
+      "attention": 765984768.0,
+      "small": 1129472.0,
+      "dense_ffn": 73433088.0,
+      "router": 130023424.0,
+      "shared": 235634688.0,
+      "head": 528138240.0,
+      "kv_cache": 2147483648
+     },
+     "total": 5766907136.0
+    }
+   }
+  }
+ ]
+}

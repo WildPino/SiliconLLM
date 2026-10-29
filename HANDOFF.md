@@ -287,3 +287,4 @@ freeze file; `gh auth login`; check `nvidia-smi`; check `git -C D:/_THINGS/Proge
   `bin/c50_s3_teacher_avx2.exe` reproduces S2's scores bit for bit.
 - **The drives:** only C: is NVMe (500 GB); D: and E: are USB. F0 BF16 (206 GB, on E:) runs only on a few tokens
   (~37 min for a 4-token input).
+**29 October, stage 0:** the wall map protocol is pushed (`docs/research/WALL_MAP_20261029/`, code in `benchmarks/wallmap/`). ik_llama.cpp must be the `build-native-ua` build (alignment flag), or its FA crashes. The reference-speed run waits for the user's go (idle box, ~4-5 h). The §12 last row now ends `| PROTOCOL |`.
