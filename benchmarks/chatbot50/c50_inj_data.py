@@ -241,20 +241,27 @@ def cmd_pool(a) -> int:
     return 0
 
 
-# ---------------------------------------------------------------- split
-def cmd_split(a) -> int:
-    d = Path(a.dir)
-    T = Tok()
-    pool = read_jsonl(d / "pool.jsonl")
+def samples_and_p1(d: Path) -> tuple[dict[int, list[list[int]]], dict[int, list[int]]]:
+    """v0's 8 draws and F0's first passage for every pool fact; the step-4 extension's facts were sampled and written
+    apart (v0_sample_new, f0_p1_new) and are merged here, never overlapping the earlier ones."""
     samp = {r["item"]: r["gens"] for r in read_jsonl(d / "v0_sample" / "qa.samples.jsonl")}
     p1 = gens(d / "f0_p1")
-    if (d / "qa_new.tsv").exists():           # the extension's facts: sampled and written apart, then merged
+    if (d / "qa_new.tsv").exists():
         new = set(read_tsv(d / "qa_new.tsv"))
         s_new = {r["item"]: r["gens"] for r in read_jsonl(d / "v0_sample_new" / "qa.samples.jsonl")}
         p_new = gens(d / "f0_p1_new")
         assert set(s_new) == set(p_new) == new and not new & (set(samp) | set(p1)), "extension files"
         samp.update(s_new)
         p1.update(p_new)
+    return samp, p1
+
+
+# ---------------------------------------------------------------- split
+def cmd_split(a) -> int:
+    d = Path(a.dir)
+    T = Tok()
+    pool = read_jsonl(d / "pool.jsonl")
+    samp, p1 = samples_and_p1(d)
     keep, why = [], {"v0_knows": 0, "p1_no_alias": 0}
     for r in pool:
         assert len(samp[r["fact"]]) == SAMPLES, r["fact"]
@@ -379,7 +386,7 @@ def cmd_build(a) -> int:
     facts = {f["fact"]: f for f in sp["facts"]}
     inj = [f for f in sp["facts"] if f["half"] == "injected"]
     dev = [f for f in sp["facts"] if f["half"] == "dev"]
-    p1, more, typ = gens(d / "f0_p1"), gens(d / "f0_more"), gens(d / "f0_type")
+    p1, more, typ = samples_and_p1(d)[1], gens(d / "f0_more"), gens(d / "f0_type")
     rw = {"f0": gens(d / "f0_reword"), "t0": gens(d / "t0_reword")}
     for f in sp["facts"]:
         w = (T.dec(typ[f["fact"]]).strip().split() or ["OTHER"])[0].strip(".,:;*").upper()

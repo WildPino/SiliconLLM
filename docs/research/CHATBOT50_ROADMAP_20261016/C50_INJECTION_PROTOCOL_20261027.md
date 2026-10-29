@@ -181,3 +181,20 @@ protocol and the code. Verdict: "register after fixes". All objections were take
 - **Prediction:** the fresh panel kept 92 of 1,200 items (7.7%), so about +92 facts and about 121 per half. If a half
   is still under 100, rows 1800..2399 follow under the same rule.
 - **Budget:** F0 on 1,200 more items is about 2 h locally (the measured 250 s per 40 prompts).
+
+## Amendment, 29 October: step 6 measured, before anything trains
+
+- **Built:** 121 injected / 117 twin / 32 dev facts; E 523 passages (22,833 tokens), S 515, QA1 121.
+- **The rewording filter keeps 84 of the injected half's 242 rewordings, 90 of the twin half's 234.** Near copies are
+  153 and 139 of the rejections, alias 5 and 5.
+  - **Facts with at least one valid rewording: 58 of 121 injected, 58 of 117 twin.** The primary rests on these.
+- **Power, recomputed with the measured counts:** the SE of E - 0 is about 0.059, not 0.04.
+  - P(pass) is about 0.72 at a true 0.15 and about 0.47 at 0.11 (it was 0.89 and 0.60).
+  - A FAIL is then read against a detectable effect of about 0.17.
+- **Trivial control on the filter:** the same near-copy rule flags 65% of the ORIGINAL questions against their own
+  passages (79 of 121 injected, 75 of 117 twin), about the rate it flags rewordings. It mostly selects facts whose
+  subject name is short, and does so the same way in both halves, so Delta stays unbiased.
+  - A narrower variant was costed and not adopted: it ignores shared 4-grams made only of the question's own words.
+    It recovers about 7 to 18 facts per half, too few to change the primary's filter after the review.
+  - The orig and cloze sets cover all facts, and are reported as the protocol says.
+- **Not changed:** every rule, threshold and arm. Nothing has been trained or scored on the halves.
