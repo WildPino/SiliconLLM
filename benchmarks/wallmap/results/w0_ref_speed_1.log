@@ -1,0 +1,30 @@
+check mini llama/fa_off ppl=3.6899 rel=0.0 pass=True wall=198s
+check mini llama/fa_on ppl=3.6119 rel=-0.021138784248895703 pass=True wall=78s
+check mini ik/fa0 ppl=3.6177 rel=-0.019566925932952173 pass=True wall=47s
+check mini ik/fa1 ppl=3.6324 rel=-0.015583078132198724 pass=True wall=41s
+check mini ik/fa0_moe ppl=3.5642 rel=-0.034065963847258796 pass=True wall=40s
+check mini ik/fa1_moe ppl=3.6196 rel=-0.019052006829453405 pass=True wall=39s
+check mini PLANTED ppl=4.2219 rel=0.14417734897964696 fires=True
+check flash llama/fa_off ppl=3.3047 rel=0.0 pass=True wall=297s
+check flash llama/fa_on ppl=3.3205 rel=0.00478106938602596 pass=True wall=278s
+check flash ik/fa0 ppl=3.3214 rel=0.005053408781432456 pass=True wall=168s
+check flash ik/fa1 ppl=3.3132 rel=0.002572094289950755 pass=True wall=143s
+check flash ik/fa0_moe ppl=3.2917 rel=-0.003933791266983344 pass=True wall=171s
+check flash ik/fa1_moe ppl=3.3315 rel=0.008109661996550388 pass=True wall=174s
+preflight mean=3.09% admissible=True
+r0 llama/fa_off/mini VOID foreign=11.72% tok/s(d0,d2048)=[17.15, 16.75] page_in=233s wall=101s
+r0 llama/fa_off/mini VOID foreign=6.86% tok/s(d0,d2048)=[18.36, 17.16] page_in=3s wall=94s
+r0 llama/fa_off/mini VOID foreign=4.74% tok/s(d0,d2048)=[18.68, 17.45] page_in=3s wall=92s
+r0 llama/fa_off/mini OK foreign=4.13% tok/s(d0,d2048)=[18.72, 17.52] page_in=3s wall=91s
+r0 llama/fa_on/mini OK foreign=4.05% tok/s(d0,d2048)=[19.72, 16.07] page_in=3s wall=92s
+r0 ik/fa0/mini VOID foreign=6.34% tok/s(d0,d2048)=[24.27, 22.65] page_in=3s wall=104s
+r0 ik/fa0/mini OK foreign=3.87% tok/s(d0,d2048)=[24.46, 23.46] page_in=3s wall=96s
+r0 ik/fa1/mini OK foreign=3.92% tok/s(d0,d2048)=[24.97, 22.56] page_in=3s wall=95s
+r0 ik/fa0_moe/mini OK foreign=4.00% tok/s(d0,d2048)=[26.5, 24.31] page_in=3s wall=96s
+r0 ik/fa1_moe/mini OK foreign=4.08% tok/s(d0,d2048)=[26.92, 23.27] page_in=3s wall=96s
+r0 llama/fa_off/flash VOID foreign=8.30% tok/s(d0,d2048)=[5.49, 6.05] page_in=49s wall=392s
+r0 llama/fa_off/flash VOID foreign=7.64% tok/s(d0,d2048)=[5.59, 6.1] page_in=37s wall=397s
+r0 llama/fa_off/flash VOID foreign=6.38% tok/s(d0,d2048)=[5.7, 6.17] page_in=38s wall=385s
+r0 llama/fa_off/flash VOID foreign=6.19% tok/s(d0,d2048)=[5.77, 6.13] page_in=43s wall=397s
+r0 llama/fa_off/flash VOID foreign=6.27% tok/s(d0,d2048)=[5.74, 6.17] page_in=37s wall=382s
+r0 llama/fa_off/flash VOID foreign=5.70% tok/s(d0,d2048)=[5.69, 6.18] page_in=37s wall=383s

@@ -91,6 +91,19 @@ llama.cpp `fa_off` on the same file.
 **Cost.** About 4-5 h of an idle machine: the check ~25 min; then ~100 s per Ling-mini process and ~8-10 min per
 Ling-flash process, plus page-in. **The run needs the user's go**, and is pushed before it starts.
 
+**Amendment, 29 October, after run 1.** Run 1 went VOID: every Ling-mini cell passed in round 0, then
+llama.cpp `fa_off` on Ling-flash read 5.70-8.30% foreign occupancy in 6 processes, more than 5 replacements. Record:
+`results/w0_ref_speed_1.json` and its log.
+- **Not paging.** A diagnostic loaded the same cell without mmap (`-lm none`) and with it: 6.20% and 6.26% foreign,
+  6.29 and 6.22 tok/s at depth 2048 (`w0_ref_diag_loadmode.py`).
+- **Not moving the rate.** Across the 6 VOID processes the rate moved 4% at depth 0 (5.49-5.77) and 2% at depth 2048
+  (6.05-6.18). The effects this stage decides on are 30% or more.
+- **Change.** The flash cells get a bar of 9%: above the 8.30% read with the box otherwise quiet, and below what a
+  real second program adds. The pre-flight and the Ling-mini cells keep 4.39%. Everything else is unchanged, and run
+  2 starts from the beginning.
+- **What it costs.** A flash process with up to ~9% foreign load is admitted. Each process's foreign figure stays in
+  the record next to its rate.
+
 ## Trivial control (rule 3)
 
 The desk model's own prediction for the unconverted Q4_K_M file sits next to each measurement. On Ling-mini:

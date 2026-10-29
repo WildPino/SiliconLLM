@@ -66,6 +66,10 @@ CELLS = [
 COMMON = ["-t", "6", "-p", "0", "-n", "128", "-r", "5", "-o", "json"]
 DEPTH_ARGS = {"llama": ["-d", "0,2048"], "ik": ["-gp", "2048,128"]}
 ROUNDS, OCC_BAR, MAX_REPLACEMENTS, PREFLIGHT_SECONDS = 3, 4.39, 5, 45
+# amendment of 29 October (run 1 VOID): Ling-flash processes raise the box's foreign occupancy by themselves, with or
+# without mmap (6.20% / 6.26%, w0_ref_diag_loadmode.json); six fa_off processes read 5.70-8.30% while their rate moved
+# 4% (depth 0) and 2% (depth 2048). The flash cells get their own bar; the pre-flight and Ling-mini keep 4.39
+OCC_BAR_FILE = {"mini": OCC_BAR, "flash": 9.0}
 # correctness check: 4 chunks of 256 tokens, one token per ubatch; the bar sits above the spread of valid
 # configurations measured on 29 October on Ling-mini (3.564..3.690, 3.4% from the reference) and below the planted
 # wrong model (+14.4%)
@@ -178,7 +182,7 @@ def one_process(engine: str, flags: list[str], file: str, want: dict) -> dict:
     if not ok:
         rec["status"] = "FAILED"
         return rec
-    rec["status"] = "VOID" if not (foreign == foreign and foreign < OCC_BAR) else "OK"
+    rec["status"] = "VOID" if not (foreign == foreign and foreign < OCC_BAR_FILE[file]) else "OK"
     return rec
 
 
@@ -190,7 +194,7 @@ def main() -> int:
     a = ap.parse_args()
     out_path = Path(a.out)
     report = {"cell": "wall map item 6, reference speeds", "started": time.strftime("%Y-%m-%dT%H:%M:%S"),
-              "occ_bar_pct": OCC_BAR, "common": COMMON, "depth_args": DEPTH_ARGS, "cells": [c[:3] for c in CELLS],
+              "occ_bar_pct": OCC_BAR, "occ_bar_by_file": OCC_BAR_FILE, "common": COMMON, "depth_args": DEPTH_ARGS, "cells": [c[:3] for c in CELLS],
               "dry": a.dry, "exe_sha256": {f"{k}/{t}": sha256(v[t]) for k, v in ENGINES.items() for t in ("bench", "ppl")},
               "ppl_text_sha256": sha256(PPL_TEXT), "processes": []}
 
