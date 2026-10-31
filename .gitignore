@@ -229,3 +229,19 @@ benchmarks/donor_adaptation/engine/results/e43_vocab/*.txt
 !/benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_attention_stage_diagnostic_20260921/pinned_reference/prefill8/Qcur-0.full.f32le
 !/benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_kqv_out_diagnostic_20260921/products/latent.f32le
 !/benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_layer1_q6_cross_input_20260923/diagnostic/reference_routed_current_q6.f32le
+
+# Model weights never go into git, repo-wide on purpose (the one by-type exception): documents pin them by sha256.
+*.gguf
+*.safetensors
+
+# native_expert_scaling banks and bf16/fp32 weight dumps: over GitHub's 100 MB limit, kept on disk only. Anchored to the
+# folder and to the dump names so the tracked fixtures/context/shared_table .bin stay visible.
+/benchmarks/donor_adaptation/s1/results/native_expert_scaling/*_bank.bin
+/benchmarks/donor_adaptation/s1/results/native_expert_scaling/*_bf16.bin
+/benchmarks/donor_adaptation/s1/results/native_expert_scaling/*_fp32.bin
+/benchmarks/donor_adaptation/s1/results/native_expert_scaling/meth129_r8_head_sidecar.bin
+/benchmarks/donor_adaptation/s1/results/native_expert_scaling/meth129_bad_head_magic.bin
+
+# The one .npz and the one .npy over 100 MB: exact paths, so the sibling .npz/.npy stay visible.
+/benchmarks/donor_adaptation/s1/_h2i_bundle_v4/h0_trained3.npz
+/docs/research/NATIVE_EXPERT_SCALING_20260925/meth161_source_route_trace.children.npy
