@@ -1,0 +1,640 @@
+{
+ "checks": {
+  "1 c50 scorer = recorded A4 P0": true,
+  "2 s1 no-hook = c50 scorer": true,
+  "3 s1 none = no-hook": true,
+  "4 top6 = native top-6": true,
+  "4 top4 = native top-4": true,
+  "4 top2 = native top-2": true,
+  "5 random acts (top-1 agreement lower by >= 0.02)": true,
+  "6 scorer MOE counts": true,
+  "7 nq s1 no-hook = c50 generator": true,
+  "8 nq none = no-hook": true,
+  "9 nq top4 = native top-4 (decode path)": true,
+  "10 nq decode-only keeps 4 on decode, more overall, and acts": true,
+  "6 nq generator MOE counts": true,
+  "7 gsm s1 no-hook = c50 generator": true,
+  "8 gsm none = no-hook": true,
+  "9 gsm top4 = native top-4 (decode path)": true,
+  "10 gsm decode-only keeps 4 on decode, more overall, and acts": true,
+  "6 gsm generator MOE counts": true
+ },
+ "pass": true,
+ "exe_sha256": {
+  "s1_llama_score_avx2.exe": "fe82227fc5264f89bb80b346f4393d447ae27e04e7d37f6d9bdaa197d28b0b3e",
+  "s1_llama_generate_avx2.exe": "50bd8aac0eaa4d693e2f449609b622413b90b4199d7a412117ce35aac2b7c11e",
+  "c50_llama_score_avx2.exe": "e76140d7fba117c977c28d90c333dbce810b8ed0760b7bdf1524922f8a0bea90",
+  "c50_llama_generate_avx2.exe": "f5314b4180dd9ab611fba399b35065c54a550cf6e38881db2825e58861040b04"
+ },
+ "c50": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\c50"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 dump=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "DONE positions=6915 wall_s=112.0"
+  ]
+ },
+ "nohook": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nohook",
+   "--no-hook"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=6915 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE positions=6915 wall_s=128.0"
+  ]
+ },
+ "none": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\none",
+   "--top",
+   "32"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=6915 tensors=285 slots=1051080 kept=1051080 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=100910 tokens_seen=131385",
+   "DONE positions=6915 wall_s=109.8"
+  ]
+ },
+ "native6": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\native6",
+   "--no-hook",
+   "--override-experts",
+   "6"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 override_experts=6 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=6915 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE positions=6915 wall_s=101.0"
+  ]
+ },
+ "top6": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\top6",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "6"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=top moe_k=6 moe_p=0.0000 moe_seed=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=6 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=6915 tensors=285 slots=1051080 kept=788310 mean_kept=6.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=100046 tokens_seen=131385",
+   "DONE positions=6915 wall_s=107.7"
+  ]
+ },
+ "native4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\native4",
+   "--no-hook",
+   "--override-experts",
+   "4"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 override_experts=4 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=6915 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE positions=6915 wall_s=96.1"
+  ]
+ },
+ "top4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\top4",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "4"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=4 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=6915 tensors=285 slots=1051080 kept=525540 mean_kept=4.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=99239 tokens_seen=131385",
+   "DONE positions=6915 wall_s=107.1"
+  ]
+ },
+ "native2": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\native2",
+   "--no-hook",
+   "--override-experts",
+   "2"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 override_experts=2 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=6915 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE positions=6915 wall_s=88.3"
+  ]
+ },
+ "top2": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\top2",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "2"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=top moe_k=2 moe_p=0.0000 moe_seed=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=2 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=6915 tensors=285 slots=1051080 kept=262770 mean_kept=2.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=97222 tokens_seen=131385",
+   "DONE positions=6915 wall_s=107.2"
+  ]
+ },
+ "rnd4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_score_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\rnd4",
+   "--moe-mode",
+   "random",
+   "--moe-k",
+   "4",
+   "--moe-seed",
+   "20261030"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=random moe_k=4 moe_p=0.0000 moe_seed=20261030 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=random k=4 p=0.0000 seed=20261030 decode_only=0 n_expert_used=8 layers=19 input_tokens=6915 tensors=285 slots=1051080 kept=525540 mean_kept=4.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=98870 tokens_seen=131385",
+   "DONE positions=6915 wall_s=108.8"
+  ]
+ },
+ "docs_top1_agreement": {
+  "top4": 0.9243673174258857,
+  "rnd4": 0.8351409978308026
+ },
+ "nq_c50": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq20.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "32",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq_c50"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=20 prompt_tokens=872 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "DONE items=20 generated=240 wall_s=19.9"
+  ]
+ },
+ "nq_nohook": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq20.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "32",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq_nohook",
+   "--no-hook"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=20 prompt_tokens=872 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=1092 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE items=20 generated=240 wall_s=19.7"
+  ]
+ },
+ "nq_none": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq20.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "32",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq_none"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=20 prompt_tokens=872 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=1092 tensors=4560 slots=159168 kept=159168 mean_kept=8.0000 decode_slots=33440 decode_mean_kept=8.0000 misordered=14849 tokens_seen=19896",
+   "DONE items=20 generated=240 wall_s=20.1"
+  ]
+ },
+ "nq_native4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq20.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "32",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq_native4",
+   "--no-hook",
+   "--override-experts",
+   "4"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=20 prompt_tokens=872 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=4 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=1294 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE items=20 generated=442 wall_s=26.6"
+  ]
+ },
+ "nq_top4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq20.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "32",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq_top4",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "4"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=20 prompt_tokens=872 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=4 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=1294 tensors=8398 slots=189872 kept=94936 mean_kept=4.0000 decode_slots=64144 decode_mean_kept=4.0000 misordered=17544 tokens_seen=23734",
+   "DONE items=20 generated=442 wall_s=31.8"
+  ]
+ },
+ "nq_top4d": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq20.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "32",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\nq_top4d",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "4",
+   "--moe-decode-only"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=20 prompt_tokens=872 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 decode_only=1 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=1055 tensors=3857 slots=153544 kept=139636 mean_kept=7.2754 decode_slots=27816 decode_mean_kept=4.0000 misordered=14311 tokens_seen=19193",
+   "DONE items=20 generated=203 wall_s=18.2"
+  ]
+ },
+ "gsm_c50": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\chatbot50\\bin\\c50_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm5.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "128",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm_c50"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=5 prompt_tokens=496 max_new=128 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "DONE items=5 generated=607 wall_s=37.4"
+  ]
+ },
+ "gsm_nohook": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm5.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "128",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm_nohook",
+   "--no-hook"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=5 prompt_tokens=496 max_new=128 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=1098 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE items=5 generated=607 wall_s=37.4"
+  ]
+ },
+ "gsm_none": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm5.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "128",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm_none"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=5 prompt_tokens=496 max_new=128 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=1098 tensors=11533 slots=162968 kept=162968 mean_kept=8.0000 decode_slots=91504 decode_mean_kept=8.0000 misordered=15769 tokens_seen=20371",
+   "DONE items=5 generated=607 wall_s=37.8"
+  ]
+ },
+ "gsm_native4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm5.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "128",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm_native4",
+   "--no-hook",
+   "--override-experts",
+   "4"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=5 prompt_tokens=496 max_new=128 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=0 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=4 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=0 layers=0 input_tokens=1131 tensors=0 slots=0 kept=0 mean_kept=0.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=0 tokens_seen=0",
+   "DONE items=5 generated=640 wall_s=34.3"
+  ]
+ },
+ "gsm_top4": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm5.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "128",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm_top4",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "4"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=5 prompt_tokens=496 max_new=128 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 decode_only=0 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=4 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=1131 tensors=12160 slots=167984 kept=83992 mean_kept=4.0000 decode_slots=96520 decode_mean_kept=4.0000 misordered=16298 tokens_seen=20998",
+   "DONE items=5 generated=640 wall_s=39.8"
+  ]
+ },
+ "gsm_top4d": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage1\\bin\\s1_llama_generate_avx2.exe",
+   "--model",
+   "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--prompts",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm5.tsv",
+   "--ctx",
+   "4096",
+   "--max-new",
+   "128",
+   "--stop",
+   "156892,156895",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage1\\dry3\\gsm_top4d",
+   "--moe-mode",
+   "top",
+   "--moe-k",
+   "4",
+   "--moe-decode-only"
+  ],
+  "returncode": 0,
+  "lines": [
+   "CONFIG model=E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\gguf\\ling-mini-2.0-a810f64-q4_k_m.gguf n_vocab=157184 items=5 prompt_tokens=496 max_new=128 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 decode_only=1 override_experts=0 max_projected_s=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]",
+   "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=1130 tensors=12141 slots=167832 kept=119648 mean_kept=5.7032 decode_slots=96368 decode_mean_kept=4.0000 misordered=16348 tokens_seen=20979",
+   "DONE items=5 generated=639 wall_s=40.1"
+  ]
+ }
+}
