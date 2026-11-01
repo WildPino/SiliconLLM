@@ -56,8 +56,10 @@ PAIRS = {"top4": "rnd4", "topw4": "rnd4", "top6": "rnd6", "top2": "rnd2", "topp"
 REC = np.dtype([("doc", "<i4"), ("pos", "<i4"), ("target", "<i4"), ("top1", "<i4"),
                 ("logp_target", "<f4"), ("logp_top1", "<f4"), ("lse", "<f8")])
 TOP_K = 32
+# The tool writes K x (int32 id, float logp) pairs after each head (s1_llama_score.cpp, struct Entry).  The first
+# version of this reader took them as K ids then K logps; the check in docs_metrics() now fails on that layout.
 TOP = np.dtype([("doc", "<i4"), ("pos", "<i4"), ("target", "<i4"), ("top1", "<i4"), ("logp_target", "<f4"),
-                ("k", "<i4"), ("lse", "<f8"), ("ids", "<i4", (TOP_K,)), ("logp", "<f4", (TOP_K,))])
+                ("k", "<i4"), ("lse", "<f8"), ("ent", [("id", "<i4"), ("logp", "<f4")], (TOP_K,))])
 CHATBOT50 = Path(__file__).resolve().parents[1] / "chatbot50"
 
 
@@ -157,9 +159,12 @@ def docs_metrics(work: Path, arm: str) -> dict:
     if arm != "ref" and (work / arm / "docs.top.bin").exists() and arm != "top4d":
         rt = np.fromfile(work / "ref" / "docs.top.bin", dtype=TOP)
         at = np.fromfile(work / arm / "docs.top.bin", dtype=TOP)
-        if len(rt) != len(r) or len(at) != len(r) or np.any(rt["ids"] != at["ids"]):
+        if len(rt) != len(r) or len(at) != len(r) or np.any(rt["ent"]["id"] != at["ent"]["id"]):
             raise SystemExit(f"{arm}: top-32 partitions differ from ref")
-        lr, la = rt["logp"].astype(np.float64), at["logp"].astype(np.float64)
+        if (np.any(rt["ent"]["id"][:, 0] != r["top1"]) or np.any(rt["ent"]["logp"][:, 0] != r["logp_top1"])
+                or np.any(np.diff(rt["ent"]["logp"], axis=1) > 0)):
+            raise SystemExit("ref docs.top.bin: first entry is not pos.bin's top-1, or entries are not by logp")
+        lr, la = rt["ent"]["logp"].astype(np.float64), at["ent"]["logp"].astype(np.float64)
         pr = np.exp(lr)
         rest_r = np.clip(1.0 - pr.sum(1), 1e-12, None)
         rest_a = np.clip(1.0 - np.exp(la).sum(1), 1e-12, None)

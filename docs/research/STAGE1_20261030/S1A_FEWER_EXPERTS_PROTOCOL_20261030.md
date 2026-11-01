@@ -202,6 +202,8 @@ What run 3 shows:
 The arms run one at a time, in the order ref, replay, top4, rnd4, topw4, top4d, topp, rndp, top6, rnd6, top2, rnd2. Then
 `c50_s2_checks.py` scores each arm, and `s1_verdict.py` applies the rule. It is a quality run, not a timing.
 
+**Addendum 1 (2026-11-01, after the run, before the verdict).** The run finished in one session, 84 of 84 panels COMPLETE (31-10 08:34 to 01-11 12:58); `s1_autoresume.ps1` was attached and never had to relaunch. ref reproduces C50-S2's recorded T0 scores item for item on all six panels (0 differing items). The first verdict call stopped at `replay: top-32 partitions differ from ref`: the verdict's reader took each `docs.top.bin` record as 32 ids then 32 logps, while the tool writes 32 (id, logp) pairs. The reader is fixed and now refuses ref's file unless its first entry is `pos.bin`'s top-1 with the same logp and the entries fall by logp (the old layout fails this check, the new passes). It touches only the reported KL on the top-32 partition; the decision rule, the scores and the selftest (PASS) are unchanged.
+
 ## Independent review (rule 6, before the push)
 
 A fresh reviewer read the thesis, the stage design, this protocol and its code. It confirmed four things:
