@@ -1,0 +1,394 @@
+{
+ "ref_points": 55.188596491228076,
+ "arms": {
+  "ref": {
+   "points": 55.188596491228076,
+   "delta": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "label": "WITHIN SHARE",
+   "chat_ok": true,
+   "chat_passes": 28,
+   "degenerate": 0,
+   "fits": true,
+   "fits_share": true,
+   "panels": {
+    "nq": 28.999999999999996,
+    "tqa": 48.66666666666667,
+    "gsm8k": 81.0,
+    "arc": 53.166666666666664,
+    "mmlu": 49.29824561403508,
+    "chat": 70.0
+   },
+   "docs": {
+    "top1_agreement": 1.0,
+    "dbpb": 0.0,
+    "dbpb_ci95": [
+     0.0,
+     0.0
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.0
+   },
+   "moe": {
+    "mean_kept": 8.0,
+    "decode_mean_kept": 8.0,
+    "misordered_share": 0.7397076572202855
+   }
+  },
+  "top4": {
+   "points": 47.69590643274853,
+   "delta": -7.492690058479546,
+   "ci95": [
+    -10.627412280701758,
+    -4.377083333333331
+   ],
+   "label": "UNDECIDED",
+   "chat_ok": true,
+   "chat_passes": 25,
+   "degenerate": 0,
+   "fits": false,
+   "fits_share": false,
+   "panels": {
+    "nq": 22.666666666666664,
+    "tqa": 40.0,
+    "gsm8k": 66.0,
+    "arc": 48.16666666666667,
+    "mmlu": 46.8421052631579,
+    "chat": 62.5
+   },
+   "docs": {
+    "top1_agreement": 0.7938598077873844,
+    "dbpb": 0.07923275289047396,
+    "dbpb_ci95": [
+     0.0672956624457974,
+     0.09290711646705682
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.4082215238193259,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 4.0,
+    "decode_mean_kept": 4.0,
+    "misordered_share": 0.7434349465223054
+   }
+  },
+  "top4d": {
+   "points": 50.35526315789473,
+   "delta": -4.833333333333343,
+   "ci95": [
+    -7.527777777777779,
+    -2.1666666666666785
+   ],
+   "label": "UNDECIDED",
+   "chat_ok": false,
+   "chat_passes": 22,
+   "degenerate": 0,
+   "fits": false,
+   "fits_share": false,
+   "panels": {
+    "nq": 26.166666666666664,
+    "tqa": 46.5,
+    "gsm8k": 72.0,
+    "arc": 53.166666666666664,
+    "mmlu": 49.29824561403508,
+    "chat": 55.00000000000001
+   },
+   "docs": {
+    "top1_agreement": 1.0,
+    "dbpb": 0.0,
+    "dbpb_ci95": [
+     0.0,
+     0.0
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.0
+   },
+   "moe": {
+    "mean_kept": 6.363520836637569,
+    "decode_mean_kept": 4.0,
+    "misordered_share": 0.7690656489782891
+   }
+  },
+  "top4m16": {
+   "points": 53.453216374269005,
+   "delta": -1.735380116959071,
+   "ci95": [
+    -4.641885964912285,
+    1.2178362573099408
+   ],
+   "label": "WITHIN BUDGET",
+   "chat_ok": true,
+   "chat_passes": 30,
+   "degenerate": 0,
+   "fits": true,
+   "fits_share": false,
+   "panels": {
+    "nq": 22.833333333333332,
+    "tqa": 41.833333333333336,
+    "gsm8k": 80.0,
+    "arc": 53.333333333333336,
+    "mmlu": 47.719298245614034,
+    "chat": 75.0
+   },
+   "mass": {
+    "against": "top4",
+    "margin": 5.757309941520475,
+    "ci95": [
+     1.954641812865489,
+     9.49126461988304
+    ],
+    "helps": true
+   },
+   "control": {
+    "arm": "rnd4m16",
+    "margin": 38.00877192982456,
+    "ci95": [
+     33.91955409356725,
+     41.77777777777778
+    ],
+    "outcome": "BEATS CONTROL"
+   },
+   "docs": {
+    "top1_agreement": 0.7968804640113832,
+    "dbpb": -0.012022528099336984,
+    "dbpb_ci95": [
+     -0.030059571223657572,
+     0.005377051897242436
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.41692982540949747,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 4.0,
+    "decode_mean_kept": 4.0,
+    "misordered_share": 0.7507384587349749
+   },
+   "mass_lines": {
+    "nq": [
+     "MASS mass_k=16 rows=548987 mean_factor=0.701095"
+    ],
+    "tqa": [
+     "MASS mass_k=16 rows=577647 mean_factor=0.701288"
+    ],
+    "gsm8k": [
+     "MASS mass_k=16 rows=695577 mean_factor=0.700627"
+    ],
+    "arc": [
+     "MASS mass_k=16 rows=1686231 mean_factor=0.720829"
+    ],
+    "mmlu": [
+     "MASS mass_k=16 rows=2457004 mean_factor=0.716509"
+    ],
+    "docs": [
+     "MASS mass_k=16 rows=3151302 mean_factor=0.707731"
+    ],
+    "chat": [
+     "MASS mass_k=16 rows=69615 mean_factor=0.719352"
+    ]
+   }
+  },
+  "rnd4m16": {
+   "points": 15.444444444444445,
+   "delta": -39.74415204678363,
+   "ci95": [
+    -43.867032163742685,
+    -35.399086257309946
+   ],
+   "label": "OVER BUDGET",
+   "chat_ok": false,
+   "chat_passes": 10,
+   "degenerate": 28,
+   "fits": false,
+   "fits_share": false,
+   "panels": {
+    "nq": 2.166666666666667,
+    "tqa": 7.000000000000001,
+    "gsm8k": 2.0,
+    "arc": 26.5,
+    "mmlu": 30.0,
+    "chat": 25.0
+   },
+   "docs": {
+    "top1_agreement": 0.5499161933702323,
+    "dbpb": 0.4475813708337664,
+    "dbpb_ci95": [
+     0.4006627305533658,
+     0.49781729302612115
+    ],
+    "documents": 72,
+    "kl_top32_nats": 2.0440517194325207,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 4.0,
+    "decode_mean_kept": 4.0,
+    "misordered_share": 0.7963610444333136
+   },
+   "mass_lines": {
+    "nq": [
+     "MASS mass_k=16 rows=596145 mean_factor=0.680445"
+    ],
+    "tqa": [
+     "MASS mass_k=16 rows=624007 mean_factor=0.682849"
+    ],
+    "gsm8k": [
+     "MASS mass_k=16 rows=567916 mean_factor=0.665829"
+    ],
+    "arc": [
+     "MASS mass_k=16 rows=1686231 mean_factor=0.688083"
+    ],
+    "mmlu": [
+     "MASS mass_k=16 rows=2457004 mean_factor=0.686469"
+    ],
+    "docs": [
+     "MASS mass_k=16 rows=3151302 mean_factor=0.673437"
+    ],
+    "chat": [
+     "MASS mass_k=16 rows=87114 mean_factor=0.663639"
+    ]
+   }
+  },
+  "top4m8": {
+   "points": 52.280701754385966,
+   "delta": -2.9078947368421098,
+   "ci95": [
+    -5.453289473684209,
+    -0.45906432748537895
+   ],
+   "label": "UNDECIDED",
+   "chat_ok": true,
+   "chat_passes": 26,
+   "degenerate": 0,
+   "fits": false,
+   "fits_share": false,
+   "panels": {
+    "nq": 24.833333333333332,
+    "tqa": 44.666666666666664,
+    "gsm8k": 80.0,
+    "arc": 52.166666666666664,
+    "mmlu": 47.01754385964912,
+    "chat": 65.0
+   },
+   "mass": {
+    "against": "top4",
+    "margin": 4.584795321637436,
+    "ci95": [
+     1.2923976608187147,
+     7.864071637426896
+    ],
+    "helps": true
+   },
+   "docs": {
+    "top1_agreement": 0.8623219862774181,
+    "dbpb": 0.00733965657733991,
+    "dbpb_ci95": [
+     -0.0016158913317953702,
+     0.015373406629416698
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.18462170757569737,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 4.0,
+    "decode_mean_kept": 4.0,
+    "misordered_share": 0.7423258520657184
+   },
+   "mass_lines": {
+    "nq": [
+     "MASS mass_k=8 rows=576537 mean_factor=1.000000"
+    ],
+    "tqa": [
+     "MASS mass_k=8 rows=590149 mean_factor=1.000000"
+    ],
+    "gsm8k": [
+     "MASS mass_k=8 rows=709257 mean_factor=1.000000"
+    ],
+    "arc": [
+     "MASS mass_k=8 rows=1686231 mean_factor=1.000000"
+    ],
+    "mmlu": [
+     "MASS mass_k=8 rows=2457004 mean_factor=1.000000"
+    ],
+    "docs": [
+     "MASS mass_k=8 rows=3151302 mean_factor=1.000000"
+    ],
+    "chat": [
+     "MASS mass_k=8 rows=71002 mean_factor=1.000000"
+    ]
+   }
+  },
+  "top4dm16": {
+   "points": 56.16081871345029,
+   "delta": 0.9722222222222143,
+   "ci95": [
+    -0.44444444444444287,
+    2.5833333333333286
+   ],
+   "label": "WITHIN SHARE",
+   "chat_ok": true,
+   "chat_passes": 30,
+   "degenerate": 0,
+   "fits": true,
+   "fits_share": true,
+   "panels": {
+    "nq": 27.500000000000004,
+    "tqa": 47.0,
+    "gsm8k": 85.0,
+    "arc": 53.166666666666664,
+    "mmlu": 49.29824561403508,
+    "chat": 75.0
+   },
+   "mass": {
+    "against": "top4d",
+    "margin": 5.805555555555557,
+    "ci95": [
+     2.8611111111111143,
+     8.805555555555557
+    ],
+    "helps": true
+   },
+   "docs": {
+    "top1_agreement": 1.0,
+    "dbpb": 0.0,
+    "dbpb_ci95": [
+     0.0,
+     0.0
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.0,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 6.54801592379856,
+    "decode_mean_kept": 4.0,
+    "misordered_share": 0.7690650954562375
+   },
+   "mass_lines": {
+    "nq": [
+     "MASS mass_k=16 rows=583890 mean_factor=0.946330"
+    ],
+    "tqa": [
+     "MASS mass_k=16 rows=590225 mean_factor=0.970196"
+    ],
+    "gsm8k": [
+     "MASS mass_k=16 rows=659363 mean_factor=0.776077"
+    ],
+    "arc": null,
+    "mmlu": null,
+    "docs": null,
+    "chat": [
+     "MASS mass_k=16 rows=49741 mean_factor=0.850627"
+    ]
+   }
+  }
+ },
+ "k4_form": "decode-only, k2 = 16 (top4dm16)",
+ "training_k": 2,
+ "start": "top4m16"
+}
