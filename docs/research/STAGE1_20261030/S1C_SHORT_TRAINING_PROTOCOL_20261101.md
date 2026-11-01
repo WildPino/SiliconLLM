@@ -139,3 +139,17 @@ at Ling-mini's scale, and flash is bigger:
 | a dynamic k (ZEDA's zero experts), or k = 3 | not here | k = 3 is not in the stage's series (6, 4, 2); ZEDA's dynamic k needs the group loss and far more data |
 | several lrs, epochs or k₂ on the panel | not here | lr is picked on held-out corpus tokens only; k₂ = 16 is part 1b's winner, not tuned at k = 2 |
 | an independent reviewer | not needed by rule 6 | ~2.3 GPU-h, no new primary metric |
+
+## Addendum 1 (2026-11-01, before any panel or training result): memory
+
+- **What happened:** the first launch of step 1 and of the lr pick was stopped by the session's low-memory guard
+  before any panel completed. The lr pick held a whole layer's working set for 1.5 M tokens in RAM: both streams,
+  inputs, targets and the stored bases, about 6 GB each, plus copies made by concatenation. Together with the panel
+  run it ran the machine out of memory.
+- **The change, in `s1t_train.py`:**
+  - inputs and targets go into buffers allocated once, and the target's energy is summed while they fill;
+  - the bases (attention residual plus shared expert) are no longer stored but recomputed at propagation from the
+    loaded layer;
+  - the computation is the same: the 40k-token smoke test gives the same errors to within bf16 noise (layer 1
+    trained 0.28154 against 0.28168).
+- **The order of the runs:** step 1 and the training run one after the other, not side by side.

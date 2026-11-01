@@ -56,6 +56,13 @@ def load_corpus(n_train: int, n_held: int) -> tuple[list[list[int]], list[list[i
     return tr, he
 
 
+def student_pre(w: dict, x: torch.Tensor, cs) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Frozen part of a MoE layer on the student stream: (attention residual a, MoE input u, shared expert out, fp32)."""
+    aa = x + M.attention(w, M.rms(x, w["input_layernorm.weight"]), cs)
+    u = M.rms(aa, w["post_attention_layernorm.weight"])
+    return aa, u, M.mlp(u, *(w[f"mlp.shared_experts.{p}.weight"] for p in EXP)).float()
+
+
 def downstream_gain2(W: M.Weights, i: int) -> torch.Tensor:
     """Mean of g^2 over every RMSNorm that reads the residual stream after layer i (the error's weight per dim)."""
     names = [f"model.layers.{j}.{n}.weight" for j in range(i + 1, M.N_LAYER)
@@ -116,22 +123,25 @@ def main() -> int:
                 hs = [h.clone() for h in ht]
                 del w
                 continue
-            us, rs, base, tok_ms = [], [], [], []
-            carried = sum(float((hs[j].float() - ht[j].float()).pow(2).sum()) for j in range(len(seqs)))
+            # one buffer each, filled in place (RAM: the layer's inputs and targets are ~6 GB each at 1.5 M tokens)
+            n_all = sum(map(len, seqs))
+            u_all = torch.empty(n_all, M.D, dtype=torch.bfloat16)
+            r_all = torch.empty(n_all, M.D, dtype=torch.bfloat16)
+            inv_ms = torch.empty(n_all)
+            carried, r_sq, off = 0.0, 0.0, 0
             for j in range(len(seqs)):
-                t_new = M.layer_forward(i, w, ht[j].to(dev), cs(len(ht[j])), M.Form())
-                x = hs[j].to(dev)
-                aa = x + M.attention(w, M.rms(x, w["input_layernorm.weight"]), cs(len(x)))
-                u = M.rms(aa, w["post_attention_layernorm.weight"])
-                sh = M.mlp(u, *(w[f"mlp.shared_experts.{p}.weight"] for p in EXP)).float()
-                rs.append((t_new.float() - aa.float() - sh).to(torch.bfloat16).cpu())
-                tok_ms.append(t_new.float().pow(2).mean(-1).cpu())
-                us.append(u.cpu())
-                base.append((aa.float() + sh).to(torch.bfloat16).cpu())
+                n = len(seqs[j])
+                carried += float((hs[j].float() - ht[j].float()).pow(2).sum())
+                t_new = M.layer_forward(i, w, ht[j].to(dev), cs(n), M.Form())
+                aa, u, sh = student_pre(w, hs[j].to(dev), cs(n))
+                r = (t_new.float() - aa.float() - sh).to(torch.bfloat16)
+                r_sq += float(r.float().pow(2).sum())
+                r_all[off:off + n] = r.cpu()
+                inv_ms[off:off + n] = 1.0 / t_new.float().pow(2).mean(-1).cpu()
+                u_all[off:off + n] = u.cpu()
                 ht[j] = t_new.cpu()
-        u_all, r_all, inv_ms = torch.cat(us), torch.cat(rs), 1.0 / torch.cat(tok_ms)
+                off += n
         gw = downstream_gain2(W, i).to(dev)
-        del us, rs
         held = slice(n_tr, None)
         bias = w["mlp.gate.expert_bias"]
         orig = {"gate": w["mlp.gate.weight"].float().cpu(), **{p: w[f"mlp.experts.{p}"].cpu() for p in EXP}}
@@ -185,8 +195,7 @@ def main() -> int:
 
         hrows = slice(n_tr, len(u_all))
         p0 = {k: v.to(dev) for k, v in fresh().items()}
-        n_all = len(u_all)
-        rec = {"target_ms": float(r_all.float().pow(2).mean()), "carried_ms": carried / (n_all * M.D),
+        rec = {"target_ms": r_sq / (n_all * M.D), "carried_ms": carried / (n_all * M.D),
                "rel_k8_orig": rel(p0, M.Form(), hrows), "rel_form_orig": rel(p0, form, hrows)}
         del p0
         if len(lrs) > 1:
@@ -210,14 +219,11 @@ def main() -> int:
                     **{f"mlp.experts.{q}": p[q].detach().to(torch.bfloat16).cpu() for q in EXP}}, a.out / f"layer_{i}.pt")
         with torch.no_grad():
             eg, eu, ed = (p[q].to(torch.bfloat16).unbind(0) for q in EXP)
-            off = 0
-            for j in range(len(seqs)):
-                n = len(hs[j])
-                u = u_all[off:off + n].to(dev)
+            for j in range(len(seqs)):          # attention and shared expert recomputed: no stored bases
+                aa, u, sh = student_pre(wl, hs[j].to(dev), cs(len(hs[j])))
                 ids, wts = M.route(u, p["gate"], bias, form)
-                hs[j] = (base[j].to(dev).float() + M.routed(u, ids, wts, eg, eu, ed)).to(torch.bfloat16).cpu()
-                off += n
-        del p, wl, u_all, r_all, inv_ms, base, orig
+                hs[j] = (aa.float() + sh + M.routed(u, ids, wts, eg, eu, ed)).to(torch.bfloat16).cpu()
+        del p, wl, u_all, r_all, inv_ms, orig
         torch.cuda.empty_cache()
         rec["seconds"] = round(time.time() - t0, 1)
         log["layers"][i] = rec
