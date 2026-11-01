@@ -41,7 +41,7 @@ namespace {
 
 struct Options {
     std::string model, ids, out, ref_top, mode = "none";
-    int threads = 6, ubatch = 512, ctx = 4096, top = 0, moe_k = 0, override_experts = 0;
+    int threads = 6, ubatch = 512, ctx = 4096, top = 0, moe_k = 0, override_experts = 0, moe_mass = 0;
     double moe_p = 0.0;
     unsigned long long moe_seed = 0;
     bool no_hook = false;
@@ -114,13 +114,14 @@ int main(int argc, char ** argv) {
         else if (a == "--moe-k") o.moe_k = std::stoi(next());
         else if (a == "--moe-p") o.moe_p = std::stod(next());
         else if (a == "--moe-seed") o.moe_seed = std::stoull(next());
+        else if (a == "--moe-mass") o.moe_mass = std::stoi(next());
         else if (a == "--no-hook") o.no_hook = true;
         else if (a == "--override-experts") o.override_experts = std::stoi(next());
         else if (a == "--max-projected-s") o.max_projected_s = std::stod(next());
         else throw std::runtime_error("unknown argument " + a);
     }
     if (o.model.empty() || o.ids.empty() || o.out.empty() || !s1::valid_mode(o.mode) || o.top < 0 || o.top > 4096
-        || (!o.ref_top.empty() && o.top == 0) || (o.no_hook && o.mode != "none")) {
+        || (!o.ref_top.empty() && o.top == 0) || o.moe_mass < 0 || (o.no_hook && o.moe_mass) || (o.no_hook && o.mode != "none")) {
         fprintf(stderr, "usage: --model GGUF --ids FILE --out PREFIX [--top K [--ref-top FILE]] [--moe-mode M --moe-k K "
                         "--moe-p P --moe-seed S | --no-hook] [--override-experts K] [--threads N] [--ubatch N] [--ctx N]\n");
         return 2;
@@ -151,6 +152,7 @@ int main(int argc, char ** argv) {
     hook.k = o.moe_k;
     hook.p = o.moe_p;
     hook.seed = o.moe_seed;
+    hook.mass_k = o.moe_mass;
     llama_context_params cp = llama_context_default_params();
     cp.n_ctx = static_cast<uint32_t>(o.ctx);
     cp.n_batch = static_cast<uint32_t>(o.ubatch);
@@ -178,10 +180,10 @@ int main(int argc, char ** argv) {
         positions += d.second.size() - 1;
     }
     printf("CONFIG model=%s n_vocab=%d docs=%zu positions=%zu threads=%d ubatch=%d ctx=%d flash_attn=disabled "
-           "kv=f16 top=%d ref_top=%s hook=%d moe_mode=%s moe_k=%d moe_p=%.4f moe_seed=%llu override_experts=%d "
+           "kv=f16 top=%d ref_top=%s hook=%d moe_mode=%s moe_k=%d moe_p=%.4f moe_seed=%llu moe_mass=%d override_experts=%d "
            "max_projected_s=%.0f system_info=[%s]\n", o.model.c_str(), n_vocab, docs.size(), positions, o.threads,
            o.ubatch, o.ctx, o.top, o.ref_top.empty() ? "-" : o.ref_top.c_str(), o.no_hook ? 0 : 1, o.mode.c_str(),
-           o.moe_k, o.moe_p, o.moe_seed, o.override_experts, o.max_projected_s, llama_print_system_info());
+           o.moe_k, o.moe_p, o.moe_seed, o.moe_mass, o.override_experts, o.max_projected_s, llama_print_system_info());
     fflush(stdout);
 
     FILE * fpos = fopen((o.out + ".pos.bin").c_str(), "wb");
@@ -270,7 +272,7 @@ int main(int argc, char ** argv) {
        << ",\"positions\":" << positions << ",\"threads\":" << o.threads << ",\"ubatch\":" << o.ubatch
        << ",\"ctx\":" << o.ctx << ",\"flash_attn\":\"disabled\",\"kv\":\"f16\",\"top\":" << o.top
        << ",\"hook\":" << (o.no_hook ? 0 : 1) << ",\"moe_mode\":\"" << o.mode << "\",\"moe_k\":" << o.moe_k
-       << ",\"moe_p\":" << o.moe_p << ",\"moe_seed\":" << o.moe_seed << ",\"override_experts\":" << o.override_experts
+       << ",\"moe_p\":" << o.moe_p << ",\"moe_seed\":" << o.moe_seed << ",\"moe_mass\":" << o.moe_mass << ",\"override_experts\":" << o.override_experts
        << ",\"moe_tensors\":" << hook.tensors << ",\"moe_slots\":" << hook.slots << ",\"moe_kept\":" << hook.kept
        << ",\"wall_s\":" << wall << "}\n";
     printf("DONE positions=%zu wall_s=%.1f\n", positions, wall);

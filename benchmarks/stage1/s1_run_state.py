@@ -4,6 +4,7 @@ DONE                    every arm has every panel COMPLETE
 RESUME <done>/<total>   only missing, interrupted or budget-stopped panels are left: a relaunch resumes them
 HOLD <done>/<total> ..  a VOID or STOPPED panel is left: it waits for a person, not for a relaunch
 CORRUPT                 the report does not parse (e.g. the machine went down while it was being written)
+Usage: s1_run_state.py REPORT [RUNNER_MODULE]   (s1_run by default; s1m_run for part 1b)
 """
 from __future__ import annotations
 
@@ -12,7 +13,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import s1_run  # noqa: E402  (constants only; main() is guarded)
+import importlib  # noqa: E402
+
+s1_run = importlib.import_module(sys.argv[2] if len(sys.argv) > 2 else "s1_run")  # constants only; main() is guarded
 
 
 def main() -> int:
