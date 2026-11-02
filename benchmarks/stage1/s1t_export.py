@@ -8,7 +8,10 @@ blk.L.ffn_gate_inp.weight in f32), and runs the same quantize command.
     check     the bf16 GGUF's tensors equal the HF checkpoint's, byte for byte (layout of the stacks), for every layer
     patch     --trained DIR (layer_L.pt files from s1t_train.py; none = the untrained control) -> --out-bf16, --out-q4
 Control registered with the protocol: `patch` without --trained must give P0's sha256.
-Usage: python -I s1t_export.py check | patch [--trained DIR] --out-bf16 F --out-q4 F --json F
+Stage 1 (b), --ternary: the trained layers' routed experts are quantized to TQ2_0 instead (s * q in bf16, one scale per
+256-weight block, so TQ2_0's block maximum is s and the conversion is exact); the output is read back and every such
+tensor must dequantize to the trained values bit for bit (ternary_exact).
+Usage: python -I s1t_export.py check | patch [--trained DIR] [--ternary] --out-bf16 F --out-q4 F --json F
 """
 from __future__ import annotations
 
@@ -80,15 +83,33 @@ def check() -> dict:
     return {"all_equal": all(out.values()), "n": len(out), "unequal": [k for k, v in out.items() if not v]}
 
 
-def patch(trained: str, out_bf16: Path, out_q4: Path) -> dict:
+def ternary_exact(out_q4: Path, trained: str, layers: list[int]) -> dict:
+    """Stage 1 (b) control: every TQ2_0 expert tensor of the output dequantizes to the trained s * q, bit for bit."""
+    r = gguf.GGUFReader(str(out_q4))
+    by = {t.name: t for t in r.tensors}
+    out = {}
+    for i in layers:
+        st = torch.load(Path(trained) / f"layer_{i}.pt", map_location="cpu", weights_only=True)
+        for g in ("ffn_gate_exps", "ffn_up_exps", "ffn_down_exps"):
+            t = by[f"blk.{i}.{g}.weight"]
+            ok = t.tensor_type.name == "TQ2_0"
+            if ok:
+                got = gguf.quants.dequantize(t.data, t.tensor_type).reshape(st[HF[g]].shape)
+                ok = bool(np.array_equal(got, st[HF[g]].float().numpy()))
+            out[f"{i}.{g}"] = ok
+    return {"all_exact": all(out.values()), "n": len(out), "not_exact": [k for k, v in out.items() if not v]}
+
+
+def patch(trained: str, out_bf16: Path, out_q4: Path, ternary: bool = False) -> dict:
     t0 = time.time()
     shutil.copyfile(BF16, out_bf16)
-    changed = []
+    changed, layers = [], []
     if trained:
         tt = tensors()
         with out_bf16.open("r+b") as f:
             for p in sorted(Path(trained).glob("layer_*.pt")):
                 i = int(p.stem.split("_")[1])
+                layers.append(i)
                 st = torch.load(p, map_location="cpu", weights_only=True)
                 for g, h in HF.items():
                     off, n, kind = tt[f"blk.{i}.{g}.weight"]
@@ -98,15 +119,22 @@ def patch(trained: str, out_bf16: Path, out_q4: Path) -> dict:
                     f.write(b)
                     changed.append(f"blk.{i}.{g}.weight")
     # forward slashes, as P0 was made: the imatrix path is written into the output's metadata (quantize.imatrix.file)
-    cmd = [str(QUANTIZE), "--imatrix", IMATRIX.as_posix(), out_bf16.as_posix(), out_q4.as_posix(), "Q4_K_M", "6"]
+    cmd = [str(QUANTIZE), "--imatrix", IMATRIX.as_posix()]
+    if ternary:                 # stage 1 (b): the trained layers' routed experts go to TQ2_0 (block 256 = the groups)
+        for i in sorted(layers):
+            cmd += ["--tensor-type", rf"blk\.{i}\.ffn_(gate|up|down)_exps=tq2_0"]
+    cmd += [out_bf16.as_posix(), out_q4.as_posix(), "Q4_K_M", "6"]
     env = {**os.environ, "PATH": os.pathsep.join([str(QUANTIZE.parent), str(RUNTIME), os.environ.get("PATH", "")])}
     q = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", env=env)
     (out_q4.parent / (out_q4.name + ".quantize.log")).write_text(q.stdout + q.stderr, encoding="utf-8")
     if q.returncode:
         raise SystemExit(f"quantize failed ({q.returncode})")
     s = sha256(out_q4)
-    return {"trained": trained or None, "changed_tensors": len(changed), "bf16": str(out_bf16), "q4": str(out_q4),
-            "q4_sha256": s, "equals_p0": s == P0_SHA, "seconds": round(time.time() - t0, 1), "cmd": cmd}
+    rec = {"trained": trained or None, "changed_tensors": len(changed), "bf16": str(out_bf16), "q4": str(out_q4),
+           "q4_sha256": s, "equals_p0": s == P0_SHA, "seconds": round(time.time() - t0, 1), "cmd": cmd}
+    if ternary:
+        rec["ternary_exact"] = ternary_exact(out_q4, trained, layers)
+    return rec
 
 
 def main() -> int:
@@ -116,8 +144,9 @@ def main() -> int:
     ap.add_argument("--out-bf16", type=Path)
     ap.add_argument("--out-q4", type=Path)
     ap.add_argument("--json", type=Path)
+    ap.add_argument("--ternary", action="store_true", help="stage 1 (b): the trained layers' experts as TQ2_0")
     a = ap.parse_args()
-    r = check() if a.what == "check" else patch(a.trained, a.out_bf16, a.out_q4)
+    r = check() if a.what == "check" else patch(a.trained, a.out_bf16, a.out_q4, a.ternary)
     print(json.dumps(r))
     if a.json:
         a.json.write_text(json.dumps(r, indent=1) + "\n", encoding="utf-8")
