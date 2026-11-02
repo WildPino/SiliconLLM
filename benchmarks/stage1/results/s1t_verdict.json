@@ -1,0 +1,130 @@
+{
+ "ref_points": 55.188596491228076,
+ "untrained": "top2dm16",
+ "arms": {
+  "ref": {
+   "points": 55.188596491228076,
+   "delta": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "label": "WITHIN SHARE",
+   "chat_ok": true,
+   "chat_passes": 28,
+   "degenerate": 0,
+   "fits": true,
+   "fits_share": true,
+   "panels": {
+    "nq": 28.999999999999996,
+    "tqa": 48.66666666666667,
+    "gsm8k": 81.0,
+    "arc": 53.166666666666664,
+    "mmlu": 49.29824561403508,
+    "chat": 70.0
+   },
+   "docs": {
+    "top1_agreement": 1.0,
+    "dbpb": 0.0,
+    "dbpb_ci95": [
+     0.0,
+     0.0
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.0
+   },
+   "moe": {
+    "mean_kept": 8.0,
+    "decode_mean_kept": 8.0,
+    "misordered_share": 0.7397076572202855
+   }
+  },
+  "top2dm16": {
+   "points": 51.85526315789474,
+   "delta": -3.3333333333333357,
+   "ci95": [
+    -6.305555555555564,
+    -0.36111111111111427
+   ],
+   "label": "UNDECIDED",
+   "chat_ok": true,
+   "chat_passes": 25,
+   "degenerate": 0,
+   "fits": false,
+   "fits_share": false,
+   "panels": {
+    "nq": 23.666666666666668,
+    "tqa": 45.5,
+    "gsm8k": 77.0,
+    "arc": 53.166666666666664,
+    "mmlu": 49.29824561403508,
+    "chat": 62.5
+   },
+   "docs": {
+    "top1_agreement": 1.0,
+    "dbpb": 0.0,
+    "dbpb_ci95": [
+     0.0,
+     0.0
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.0,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 5.8420253921314815,
+    "decode_mean_kept": 2.0,
+    "misordered_share": 0.7711388026678552
+   }
+  },
+  "trained": {
+   "points": 49.561403508771924,
+   "delta": -5.627192982456151,
+   "ci95": [
+    -9.114071637426896,
+    -2.103654970760232
+   ],
+   "label": "UNDECIDED",
+   "chat_ok": false,
+   "chat_passes": 20,
+   "degenerate": 2,
+   "fits": false,
+   "fits_share": false,
+   "panels": {
+    "nq": 25.0,
+    "tqa": 43.333333333333336,
+    "gsm8k": 79.0,
+    "arc": 52.666666666666664,
+    "mmlu": 47.368421052631575,
+    "chat": 50.0
+   },
+   "training": {
+    "against": "top2dm16",
+    "margin": -2.2938596491228154,
+    "ci95": [
+     -5.831871345029235,
+     1.3552997076023416
+    ],
+    "helps": false
+   },
+   "docs": {
+    "top1_agreement": 0.8332248067624112,
+    "dbpb": 0.09230755625938675,
+    "dbpb_ci95": [
+     0.07197102111347868,
+     0.11482542622184931
+    ],
+    "documents": 72,
+    "kl_top32_nats": 0.32031660970182724,
+    "ref_rest_mass": 0.01468263542232748
+   },
+   "moe": {
+    "mean_kept": 7.4889129514183415,
+    "decode_mean_kept": 2.0,
+    "misordered_share": 0.6990460382196447
+   }
+  }
+ },
+ "step2_runs": true,
+ "outcome": "k = 2 does not fit"
+}
