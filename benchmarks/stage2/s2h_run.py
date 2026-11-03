@@ -25,6 +25,7 @@ import s1_run  # noqa: E402
 from s1_run import INPUTS, MAX_PROJECTED_S, PANELS, STOP, check_inputs, sha256  # noqa: E402
 
 s1_run.ARMS["k8"] = ("none", 0, False, False)
+CELL = "S2H-head-ternary"
 ARMS = {"head_tern_col": ("docs", "chat"), "head_tern_im": ("docs",), "head_shuf": ("docs",)}
 
 
@@ -40,7 +41,7 @@ def main() -> int:
     man = {k: check_inputs(p) for k, p in INPUTS.items()}
     outp = Path(args.out)
     report = json.loads(outp.read_text(encoding="utf-8")) if outp.exists() else {
-        "cell": "S2H-head-ternary", "inputs_manifest_sha256": man, "arms": {}}
+        "cell": CELL, "inputs_manifest_sha256": man, "arms": {}}
     if report["inputs_manifest_sha256"] != man:
         raise SystemExit("inputs changed since the run began")
     if not (work / "ref" / "docs.top.bin").exists():
