@@ -305,3 +305,5 @@ freeze file; `gh auth login`; check `nvidia-smi`; check `git -C D:/_THINGS/Proge
 **3 November, stage 2 test 2: PROTOCOL.** `docs/research/STAGE2_20261103/S2B_ONE_ORGAN_TERNARY_PROTOCOL_20261103.md`. Chain `bash benchmarks/stage2/s2o_chain.sh` (resumable: a step whose record exists is skipped); work in `C:/SiliconLLM_fast/s2o/`, models kept in `E:/SiliconLLM_Artifacts/stage2/s2o/models/`, logs in `.../s2o/logs/`. Test 1's models moved to `E:/SiliconLLM_Artifacts/stage2/s2h/models/`.
 
 **3 November, stage 2 test 3: PROTOCOL.** `docs/research/STAGE2_20261103/S2C_LAYER6_DIAGNOSIS_PROTOCOL_20261103.md`. Runs after test 2's chain, alone: `python -I benchmarks/stage2/s2c_layer6.py --json benchmarks/stage2/results/s2c_layer6.json`, then `s2c_verdict.py`. Needs `C:/SiliconLLM_fast/s1b_tern` and `s1b_ph`.
+
+**3 November, stage 2 test 5: PROTOCOL.** `docs/research/STAGE2_20261103/S2E_ENGINES_PROTOCOL_20261103.md`. Needs an idle machine and the go: `python -I benchmarks/stage2/s2e_engines.py --out benchmarks/stage2/results/s2e_run.json`, then `python -I benchmarks/stage2/s2f_rate.py --json benchmarks/stage2/results/s2f_rate.json` (test 4), then the verdicts.

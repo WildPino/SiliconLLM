@@ -1,0 +1,40 @@
+{
+ "config": {
+  "warmup": 1,
+  "steps": 1,
+  "seed": 20261103,
+  "json": "C:\\Users\\Giorgio\\AppData\\Local\\Temp\\claude\\D---THINGS-Progetti-SiliconLLM\\e9133806-7e4a-4882-86c6-aa07e2c184e9\\scratchpad\\rate_smoke.json",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "torch": "2.11.0+cu128"
+ },
+ "shapes": {
+  "mini": {
+   "d": 2048,
+   "f": 512,
+   "chunk_experts": 64,
+   "tokens_per_step": 8192,
+   "block_s_per_step": 0.1759,
+   "block_ms_per_token_layer": 0.1718,
+   "frozen_s_per_step": 0.0516,
+   "frozen_ms_per_token_layer": 0.0504,
+   "scales_s_per_step": 0.0913,
+   "scales_ms_per_token_layer": 0.0892,
+   "max_mem_gb": 4.62,
+   "valid": true
+  },
+  "flash": {
+   "d": 4096,
+   "f": 1024,
+   "chunk_experts": 32,
+   "tokens_per_step": 4096,
+   "block_s_per_step": 0.2965,
+   "block_ms_per_token_layer": 0.579,
+   "frozen_s_per_step": 0.0341,
+   "frozen_ms_per_token_layer": 0.0666,
+   "scales_s_per_step": 0.1015,
+   "scales_ms_per_token_layer": 0.1982,
+   "max_mem_gb": 9.05,
+   "valid": true
+  }
+ }
+}
