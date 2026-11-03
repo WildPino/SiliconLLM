@@ -299,3 +299,5 @@ freeze file; `gh auth login`; check `nvidia-smi`; check `git -C D:/_THINGS/Proge
 **3 November, stage 1 (c): RESULT and stage 1 DELIVERY.** `S1E_TERNARY_KERNEL_RESULT_20261103.md`: BETWEEN, IQ2_BN 113.34 G weights/s on the experts. `S1_DELIVERY_20261103.md`: ceiling 10.8 tok/s with the surviving levers, 25.6 with every organ ternary. Binaries in `C:/SiliconLLM_fast/s1k/`. Waiting for a decision on stage 2 before any spending.
 
 **3 November, stage 2 test 1: PROTOCOL.** `docs/research/STAGE2_20261103/S2A_HEAD_TERNARY_PROTOCOL_20261103.md`: the head ternary untrained. Builds in `C:/SiliconLLM_fast/s2h/` (head imatrix there too); runner `benchmarks/stage2/s2h_run.py`, verdict `s2h_verdict.py`.
+
+**3 November, stage 2 test 1: RESULT.** `docs/research/STAGE2_20261103/S2A_HEAD_TERNARY_RESULT_20261103.md`: HEAD NEEDS TRAINING (top-1 0.646 / 0.698 untrained). VOID first builds in `E:/SiliconLLM_Artifacts/stage2/s2h/void1/`. Next: test 2, one organ at a time trained alone (`benchmarks/stage2/s2o_*.py`).
