@@ -7,7 +7,9 @@ chat_check): passes and degenerate rollouts (C50-A4's rollout_flags).
 Controls, before any label:
     C1 planted:  head_shuf's top-1 agreement < 0.10, so the panel sees the head;
     C2 builds:   every build record has the head exact in TQ2_0, the final norm's gain as built and every other
-                 tensor equal to P0's.
+                 tensor equal to P0's; and, read here from the files, not from the build: P0's final-norm gain over
+                 each file's equals c = rms^alpha from the imatrix (C2_gain, max relative error < 1e-6).  The first
+                 run's C2 lacked this and passed a head_tern_col whose gain was never divided by c.
 A failed control makes the run VOID.
 The head's share of the 5-point budget is 1 point (one of five organs).  Stage 1's top6 arm cost -0.96 points with
 document top-1 0.898 and KL 0.094, so the share reads on the documents as:
@@ -34,9 +36,11 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[0] / "stage1"))
 sys.path.insert(0, str(HERE.parents[0] / "chatbot50"))
+sys.path.insert(0, str(HERE))
 
 FIT_TOP1, FIT_KL = 0.90, 0.10
 PLANTED_TOP1 = 0.10
+GAIN_TOL = 1e-6
 CHAT_MARGIN, DEGEN_MARGIN = 4, 3
 ARMS = ("head_tern_col", "head_tern_im", "head_shuf")
 BUILDS = ("tern_im", "tern_col", "shuf")
@@ -55,10 +59,23 @@ def chat(work: Path, arm: str) -> dict:
     return {"passes": passes, "degenerate": degenerate, "n": len(rows)}
 
 
+def gain_ratio_err(q4: Path, imatrix: Path, alpha: float) -> float:
+    """max |P0 gain / file gain / c - 1|, c from the imatrix and alpha by s2h_head's own scale_of."""
+    import numpy as np
+    import torch
+    from s2h_head import P0, gguf, input_ms, scale_of
+    def g(p):
+        t = {t.name: t for t in gguf.GGUFReader(str(p)).tensors}["output_norm.weight"]
+        return np.frombuffer(np.asarray(t.data).tobytes(), "<f4").astype(np.float64)
+    c = scale_of(torch.from_numpy(input_ms(imatrix)).float(), alpha).double().numpy()
+    return float(np.abs(g(P0) / g(q4) / c - 1).max())
+
+
 def decide(docs: dict, chats: dict, builds: dict) -> dict:
     c1 = docs["head_shuf"]["top1_agreement"] < PLANTED_TOP1
     c2 = all(b["head_tq2_0_exact"] and b["output_norm_exact"] and not b["other_tensors_differ"]
-             and b["p0_sha256_checked"] for b in builds.values()) and set(builds) == set(BUILDS)
+             and b["p0_sha256_checked"] and b["gain_ratio_err"] < GAIN_TOL
+             for b in builds.values()) and set(builds) == set(BUILDS)
     out = {"controls": {"C1_shuf_top1": docs["head_shuf"]["top1_agreement"], "C1": c1, "C2": c2}}
     if not (c1 and c2):
         out["outcome"] = "VOID"
@@ -76,10 +93,12 @@ def selftest() -> int:
     def d(top1, kl):
         return {"top1_agreement": top1, "kl_top32_nats": kl, "dbpb": 0.0}
 
-    ok = {"head_tq2_0_exact": True, "output_norm_exact": True, "other_tensors_differ": [], "p0_sha256_checked": True}
+    ok = {"head_tq2_0_exact": True, "output_norm_exact": True, "other_tensors_differ": [], "p0_sha256_checked": True,
+          "gain_ratio_err": 0.0}
     ok_b = {a: ok for a in BUILDS}
     bad_b = dict(ok_b, tern_col=dict(ok, head_tq2_0_exact=False))
     bad_g = dict(ok_b, tern_col=dict(ok, output_norm_exact=False))
+    bad_c = dict(ok_b, tern_col=dict(ok, gain_ratio_err=0.8))   # the first run's defect: gain not divided by c
     chats = lambda p, g: {"ref": {"passes": 28, "degenerate": 0}, "head_tern_col": {"passes": p, "degenerate": g}}  # noqa: E731
     docs = lambda t, k, s=0.001: {"head_tern_col": d(t, k), "head_tern_im": d(t - 0.05, k * 2), "head_shuf": d(s, 9.0)}  # noqa: E731
     cases = {  # name: (docs, chats, builds, outcome)
@@ -91,6 +110,7 @@ def selftest() -> int:
         "planted not seen": (docs(0.93, 0.06, s=0.5), chats(27, 0), ok_b, "VOID"),
         "build not exact": (docs(0.93, 0.06), chats(27, 0), bad_b, "VOID"),
         "gain not as built": (docs(0.93, 0.06), chats(27, 0), bad_g, "VOID"),
+        "gain not P0 / c": (docs(0.93, 0.06), chats(27, 0), bad_c, "VOID"),
     }
     bad = 0
     for name, (dc, ch, bu, want) in cases.items():
@@ -121,10 +141,13 @@ def main() -> int:
             raise SystemExit(f"{arm}: not every panel COMPLETE")
     builds = {b: json.loads((Path(a.builds) / f"s2h_build_{b}.json").read_text(encoding="utf-8"))
               for b in BUILDS}
+    for b in builds.values():
+        b["gain_ratio_err"] = gain_ratio_err(Path(b["q4"]), Path(b["imatrix"]), b["alpha"])
     docs = {arm: docs_metrics(work, arm) for arm in ARMS + ("replay",)}
     chats = {arm: chat(work, arm) for arm in ("ref", "head_tern_col")}
     out = decide(docs, chats, builds)
     out.update(docs=docs, chat=chats, alpha=builds["tern_col"]["alpha"],
+               gain_ratio_err={b: v["gain_ratio_err"] for b, v in builds.items()},
                row_stats={b: v["row_stats"] for b, v in builds.items()})
     Path(a.json).write_text(json.dumps(out, indent=1), encoding="utf-8")
     for arm, m in docs.items():

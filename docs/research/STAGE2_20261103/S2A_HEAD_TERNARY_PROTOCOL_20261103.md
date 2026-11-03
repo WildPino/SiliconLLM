@@ -150,3 +150,37 @@ CPU only, about 4 h:
 - one chat panel: about 3 min.
 
 The stage plan estimated 1 h. The difference is the full document panel per arm.
+
+## Amendment 1 (2026-11-03, after the first run, before the rerun)
+
+**The first run of head_tern_col and head_shuf is VOID.**
+- The defect: `s2h_head.py` divided the final norm's gain by c only for α > 0, a leftover of the grid on [0, 1]. At
+  α = −0.35 the rows were fit to W diag(c), but the gain stayed P0's. The file was not the registered model.
+- Why C2 passed it: C2 compared the file's gain with the built one, not with the intended one.
+- The records are kept:
+  - `s2h_build_{tern_col,shuf}_void1.json`, `s2h_verdict_void1.json`;
+  - `void.run1` in `s2h_run.json`;
+  - the files, in `E:/SiliconLLM_Artifacts/stage2/s2h/void1`.
+- The first verdict read NEEDS TRAINING (head_tern_col top-1 0.602, KL 1.29, chat 0/40 with 7 degenerate; head_shuf
+  top-1 0.00002). Those numbers belong to the wrong model and judge nothing.
+
+**head_tern_im's panel stands.** At α = 0, c = 1, so the gain is unchanged, which is what α = 0 asks. Its file passes
+the new check, and its result was seen before the rerun:
+- document top-1 0.698;
+- KL 0.827;
+- dBPB +0.280 [+0.256, +0.304].
+
+**The fix:**
+- the gain is g / c at every α;
+- the build records the error of P0's gain over the file's against c;
+- a new control, C2_gain, sits in `s2h_verdict.py`:
+  - it reads both gains from the files, not from the build;
+  - it rebuilds c from the imatrix and α with the build's own `scale_of`;
+  - it requires max |g_P0 / g_file / c − 1| < 1e-6.
+- Run on the first run's files, the new check scores the VOID builds at 1.88 and head_tern_im at 0. The selftest has a
+  case for this defect (9 cases, PASS).
+
+**The rerun:**
+- head_tern_col and head_shuf are rebuilt with the fix;
+- head_tern_col runs the documents and chat panels again, head_shuf the documents panel again;
+- the decision rule and the predictions stay as registered.

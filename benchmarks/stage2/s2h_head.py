@@ -25,7 +25,8 @@ heuristic.
 IQ2_BN keeps the scale as an f32 per row and the codes as {-1, 0, 1}, so it holds these rows exactly.  The panel's
 llama.cpp has no IQ2_BN; TQ2_0 holds them exactly too (its fp16 block maximum is s, and a bf16 s is an fp16 value).
 Checks written to the build record: output.weight in the output file is TQ2_0 and dequantizes to the built rows bit
-for bit; output_norm.weight equals the built gain; every other tensor equals P0's, byte for byte.
+for bit; output_norm.weight equals the built gain, and P0's gain over it gives back c (gain_is_p0_over_c); every
+other tensor equals P0's, byte for byte.
 
 Usage:
     python -I benchmarks/stage2/s2h_head.py imatrix --out C:/SiliconLLM_fast/s2h/head-imatrix.gguf
@@ -144,7 +145,7 @@ def build(arm: str, imatrix: Path, out_dir: Path) -> dict:
     h = torch.from_numpy(input_ms(imatrix)).float()
     alpha, grid = (0.0, None) if arm == "tern_im" else col_alpha(u, h)
     c = scale_of(h, alpha)
-    new_gain = (torch.from_numpy(gain) / c).numpy().astype("<f4") if alpha > 0 else gain
+    new_gain = (torch.from_numpy(gain) / c).numpy().astype("<f4")   # every alpha; c = 1 at alpha 0
     out = np.empty_like(u)
     st = {"density": [], "rel_err": [], "rel_err_weighted": []}
     for r0 in range(0, rows, CHUNK):
@@ -178,13 +179,17 @@ def build(arm: str, imatrix: Path, out_dir: Path) -> dict:
     want = (out.astype(np.uint32) << 16).view(np.float32)
     head_exact = (o.tensor_type.name == "TQ2_0"
                   and bool(np.array_equal(gguf.quants.dequantize(o.data, o.tensor_type).reshape(rows, cols), want)))
-    gain_exact = bool(np.array_equal(np.frombuffer(np.asarray(got["output_norm.weight"].data).tobytes(), "<f4"),
-                                     new_gain))
+    file_gain = np.frombuffer(np.asarray(got["output_norm.weight"].data).tobytes(), "<f4")
+    gain_exact = bool(np.array_equal(file_gain, new_gain))
+    # independent of how new_gain was made: P0's gain over the file's must give back c, the scale the rows were fit with
+    p0_gain = np.frombuffer(np.asarray(ref["output_norm.weight"].data).tobytes(), "<f4").astype(np.float64)
+    gain_ratio_err = float(np.abs(p0_gain / file_gain.astype(np.float64) / c.double().numpy() - 1).max())
     others = [n for n in ref if n not in ("output.weight", "output_norm.weight")]
     differ = [n for n in others if got[n].tensor_type != ref[n].tensor_type
               or np.asarray(got[n].data).tobytes() != np.asarray(ref[n].data).tobytes()]
     return {"arm": arm, "imatrix": str(imatrix), "seed": SEED, "alpha": alpha, "alpha_grid_weighted_err": grid,
-            "gain_changed": bool(alpha > 0), "rows": rows, "cols": cols, "row_stats": stats, "q4": str(q4),
+            "gain_changed": bool(not np.array_equal(new_gain, gain)), "gain_ratio_err": gain_ratio_err,
+            "gain_is_p0_over_c": gain_ratio_err < 1e-6, "rows": rows, "cols": cols, "row_stats": stats, "q4": str(q4),
             "q4_sha256": sha256(q4), "p0_sha256_checked": sha256(P0) == P0_SHA, "head_tq2_0_exact": head_exact,
             "output_norm_exact": gain_exact, "other_tensors": len(others), "other_tensors_differ": differ,
             "seconds": round(time.time() - t0, 1)}
