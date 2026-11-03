@@ -1,0 +1,64 @@
+{
+ "config": {
+  "k": 8,
+  "mass": 0,
+  "tokens": 1500000,
+  "heldout": 75000,
+  "lr": 0.001,
+  "lr_grid": "",
+  "epochs": 1.0,
+  "batch": 4096,
+  "layers": "10-10",
+  "seed": 20261101,
+  "keep8": 0.0,
+  "ternary": 256,
+  "alone": true,
+  "out": "C:\\SiliconLLM_fast\\s1b_l10",
+  "json": "benchmarks\\stage1\\results\\s1b_l10.json"
+ },
+ "train_tokens": 1500050,
+ "heldout_tokens": 75077,
+ "sequences": [
+  4279,
+  210
+ ],
+ "layers": {
+  "10": {
+   "target_ms": 0.8621700898284052,
+   "carried_ms": 0.0,
+   "rel_k8_orig": 0.35228981028165823,
+   "rel_form_orig": 0.35228981028165823,
+   "lr": 0.001,
+   "outlier_groups": {
+    "gate_proj": 177,
+    "up_proj": 75,
+    "down_proj": 63
+   },
+   "loss_every_20": [
+    0.295533,
+    0.227315,
+    0.212196,
+    0.203088,
+    0.197158,
+    0.197331,
+    0.194519,
+    0.191255,
+    0.187184,
+    0.184781,
+    0.187183,
+    0.183561,
+    0.182816,
+    0.181604,
+    0.182038,
+    0.181813,
+    0.183987,
+    0.178681,
+    0.181187
+   ],
+   "rel_form_trained": 0.22749446809434162,
+   "rel_k8_trained": 0.22749446809434162,
+   "rel_form_trained_trainrows": 0.21433615508990217,
+   "seconds": 1350.7
+  }
+ }
+}

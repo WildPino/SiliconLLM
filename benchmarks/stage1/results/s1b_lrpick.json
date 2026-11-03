@@ -1,0 +1,69 @@
+{
+ "config": {
+  "k": 8,
+  "mass": 0,
+  "tokens": 1500000,
+  "heldout": 75000,
+  "lr": 0.003,
+  "lr_grid": "1e-3,3e-3,1e-2",
+  "epochs": 1.0,
+  "batch": 4096,
+  "layers": "1-1",
+  "seed": 20261101,
+  "keep8": 0.0,
+  "ternary": 256,
+  "alone": false,
+  "out": "C:\\SiliconLLM_fast\\s1b_lrpick",
+  "json": "benchmarks\\stage1\\results\\s1b_lrpick.json"
+ },
+ "train_tokens": 1500050,
+ "heldout_tokens": 75077,
+ "sequences": [
+  4279,
+  210
+ ],
+ "layers": {
+  "1": {
+   "target_ms": 51.415223218327554,
+   "carried_ms": 0.0,
+   "rel_k8_orig": 0.25433610520630345,
+   "rel_form_orig": 0.25433610520630345,
+   "lr_grid": {
+    "0.001": 0.1102600395021589,
+    "0.003": 0.1111420524837237,
+    "0.01": 0.1390951034943218
+   },
+   "lr": 0.001,
+   "outlier_groups": {
+    "gate_proj": 17,
+    "up_proj": 5,
+    "down_proj": 44
+   },
+   "loss_every_20": [
+    0.247752,
+    0.176282,
+    0.150732,
+    0.141974,
+    0.13185,
+    0.127357,
+    0.122401,
+    0.117855,
+    0.115758,
+    0.113898,
+    0.112315,
+    0.111526,
+    0.108479,
+    0.108689,
+    0.104496,
+    0.105601,
+    0.103455,
+    0.102259,
+    0.103095
+   ],
+   "rel_form_trained": 0.11066259617375046,
+   "rel_k8_trained": 0.1106625957452507,
+   "rel_form_trained_trainrows": 0.10425453238177683,
+   "seconds": 2541.1
+  }
+ }
+}
