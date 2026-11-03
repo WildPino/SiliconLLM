@@ -303,3 +303,5 @@ freeze file; `gh auth login`; check `nvidia-smi`; check `git -C D:/_THINGS/Proge
 **3 November, stage 2 test 1: RESULT.** `docs/research/STAGE2_20261103/S2A_HEAD_TERNARY_RESULT_20261103.md`: HEAD NEEDS TRAINING (top-1 0.646 / 0.698 untrained). VOID first builds in `E:/SiliconLLM_Artifacts/stage2/s2h/void1/`. Next: test 2, one organ at a time trained alone (`benchmarks/stage2/s2o_*.py`).
 
 **3 November, stage 2 test 2: PROTOCOL.** `docs/research/STAGE2_20261103/S2B_ONE_ORGAN_TERNARY_PROTOCOL_20261103.md`. Chain `bash benchmarks/stage2/s2o_chain.sh` (resumable: a step whose record exists is skipped); work in `C:/SiliconLLM_fast/s2o/`, models kept in `E:/SiliconLLM_Artifacts/stage2/s2o/models/`, logs in `.../s2o/logs/`. Test 1's models moved to `E:/SiliconLLM_Artifacts/stage2/s2h/models/`.
+
+**3 November, stage 2 test 3: PROTOCOL.** `docs/research/STAGE2_20261103/S2C_LAYER6_DIAGNOSIS_PROTOCOL_20261103.md`. Runs after test 2's chain, alone: `python -I benchmarks/stage2/s2c_layer6.py --json benchmarks/stage2/results/s2c_layer6.json`, then `s2c_verdict.py`. Needs `C:/SiliconLLM_fast/s1b_tern` and `s1b_ph`.
