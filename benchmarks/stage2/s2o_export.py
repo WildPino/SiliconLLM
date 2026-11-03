@@ -83,23 +83,30 @@ def export(organ: str, trained: Path, out_q4: Path, shuffle: str) -> dict:
         g = gguf_name(layer, n)
         cmd += (["--output-tensor-type", "tq2_0"] if g == "output.weight"
                 else ["--tensor-type", g.replace(".", r"\.").removesuffix(r"\.weight") + "=tq2_0"])
-    cmd += [bf.as_posix(), out_q4.as_posix(), "Q4_K_M", "6"]
+    # Amendment 1: a manual type skips llama-quantize's per-layer counters (i_attention_wv, i_ffn_down, ...), which
+    # shifts Q4_K_M's mixture on the later layers of the same class (org_attn's first export: blk.11/13/14/16
+    # attn_qkv).  Every other quantized tensor is pinned to P0's type by exact name, so none goes through the mixture.
+    ref = {t.name: t for t in gguf.GGUFReader(str(P0)).tensors}
+    changed = {gguf_name(layer, n) for n in names} | ({"output_norm.weight"} if organ == "head" else set())
+    pins = out_q4.with_name(out_q4.stem + "-pins.txt")
+    pins.write_text("".join(f"^{n.replace('.', chr(92) + '.')}$={t.tensor_type.name.lower()}\n" for n, t in ref.items()
+                            if n not in changed and t.tensor_type.name not in ("F32", "F16", "BF16")), encoding="ascii")
+    cmd += ["--tensor-type-file", pins.as_posix(), bf.as_posix(), out_q4.as_posix(), "Q4_K_M", "6"]
     run(cmd, out_q4.with_name(out_q4.name + ".quantize.log"))
     bf.unlink()
     got = {t.name: t for t in gguf.GGUFReader(str(out_q4)).tensors}
-    ref = {t.name: t for t in gguf.GGUFReader(str(P0)).tensors}
     exact = {}
     for n, v in new.items():
         t = got[gguf_name(layer, n)]
         exact[n] = t.tensor_type.name == "TQ2_0" and bool(np.array_equal(
             gguf.quants.dequantize(t.data, t.tensor_type).reshape(v.shape), v.float().numpy()))
-    changed = {gguf_name(layer, n) for n in names} | ({"output_norm.weight"} if organ == "head" else set())
     rec = {"organ": organ, "layer": layer, "trained": str(trained), "shuffled": shuffle or None, "seed": SEED,
            "layout_checked": layout, "tq2_0_exact": exact, "all_exact": all(exact.values())}
     if organ == "head":
         fg = np.frombuffer(np.asarray(got["output_norm.weight"].data).tobytes(), "<f4").astype(np.float64)
         pg = np.frombuffer(np.asarray(ref["output_norm.weight"].data).tobytes(), "<f4").astype(np.float64)
         rec["gain_ratio_err"] = float(np.abs(pg / fg / st["column_scale"].double().numpy() - 1).max())
+    rec["pinned_tensors"] = len(pins.read_text(encoding="ascii").splitlines())
     others = [n for n in ref if n not in changed]
     rec["other_tensors"] = len(others)
     rec["other_tensors_differ"] = [n for n in others if got[n].tensor_type != ref[n].tensor_type

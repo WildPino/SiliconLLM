@@ -67,6 +67,23 @@ the organ zeroed: 0 is the original, 1 is the organ removed.
 
 The dry runs' records are in `benchmarks/stage2/results/s2o_dry/`.
 
+## Amendment 1 (2026-11-03, before any panel of org_attn)
+
+- **What C2 caught:** org_attn's first export changed four tensors outside the organ: attn_qkv of blocks 11, 13, 14
+  and 16. Every other check passed.
+- **Cause, in llama.cpp `5b335f4`'s `src/llama-quant.cpp`:**
+  - a manual `--tensor-type` skips `llama_tensor_get_type_impl`, which advances the per-layer counters (here
+    `i_attention_wv`);
+  - Q4_K_M's `use_more_bits` then picks the later layers of the same class one step off.
+- **Fix in `s2o_export.py`:** every other quantized tensor is pinned to P0's type by exact name, with
+  `--tensor-type-file`. No tensor goes through the mixture, and C2 is unchanged.
+- **What stands and what is VOID:**
+  - The chain was stopped before any org_attn panel was written.
+  - The first export is VOID and kept: `s2o_export_org_attn_void1.json`, with the file in
+    `E:/SiliconLLM_Artifacts/stage2/s2o/void1/`.
+  - org_dense's export passed C2 with no other tensor changed, so it stands.
+  - The trainings stand: they do not depend on the export.
+
 ## Design
 
 | Arm | Organ, layer | Trained tensors | Panels |
