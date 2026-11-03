@@ -1,0 +1,160 @@
+{
+ "note": "DESK-MODEL, Ling-flash, context 2048, decode-only k = 4",
+ "rates_g_weights_per_s": {
+  "iq2_bn": {
+   "routed": 113.34,
+   "shared": 77.92,
+   "attention": 155.63,
+   "dense_ffn": 155.63,
+   "head": 155.63
+  },
+  "tq2_0": {
+   "routed": 107.01,
+   "shared": 58.44,
+   "attention": 110.41,
+   "dense_ffn": 110.41,
+   "head": 110.41
+  },
+  "q2_K_routed": 88.56
+ },
+ "rows": {
+  "all organs ternary, at the wall, ring-linear (stage 0's scenario)": {
+   "mb_per_token": 1140.868352,
+   "ms": {
+    "attention": 9.437184,
+    "shared": 3.047424,
+    "dense_ffn": 0.884736,
+    "router": 1.079296,
+    "routed": 12.189696,
+    "head": 5.029888,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 0.278528,
+    "ring_state": 3.670016
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 39.972136,
+   "tok_s": 25.017427139745546
+  },
+  "all organs ternary, at the wall, full q8_0 KV": {
+   "mb_per_token": 1085.818112,
+   "ms": {
+    "attention": 9.437184,
+    "shared": 3.047424,
+    "dense_ffn": 0.884736,
+    "router": 1.079296,
+    "routed": 12.189696,
+    "head": 5.029888,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 2.228224
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 38.25181599999999,
+   "tok_s": 26.14254967659575
+  },
+  "all organs ternary, IQ2_BN measured, ring-linear": {
+   "mb_per_token": 1140.868352,
+   "ms": {
+    "attention": 7.76173971599306,
+    "shared": 5.0060353182751545,
+    "dense_ffn": 0.7276630983743494,
+    "router": 1.079296,
+    "routed": 13.766376283748015,
+    "head": 4.1368994666838015,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 0.278528,
+    "ring_state": 3.670016
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 40.781921883074375,
+   "tok_s": 24.520668811712564
+  },
+  "all organs ternary, IQ2_BN measured, full q8_0 KV": {
+   "mb_per_token": 1085.818112,
+   "ms": {
+    "attention": 7.76173971599306,
+    "shared": 5.0060353182751545,
+    "dense_ffn": 0.7276630983743494,
+    "router": 1.079296,
+    "routed": 13.766376283748015,
+    "head": 4.1368994666838015,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 2.228224
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 39.06160188307438,
+   "tok_s": 25.600588603441423
+  },
+  "all organs ternary, TQ2_0 measured, full q8_0 KV": {
+   "mb_per_token": 1085.818112,
+   "ms": {
+    "attention": 10.940671605832804,
+    "shared": 6.674713757700205,
+    "dense_ffn": 1.0256879630468254,
+    "router": 1.079296,
+    "routed": 14.580703560414914,
+    "head": 5.8312260121365815,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 2.228224
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 46.71589089913133,
+   "tok_s": 21.40599228128163
+  },
+  "experts Q2_K measured, the rest ternary IQ2_BN measured, full q8_0 KV": {
+   "mb_per_token": 1085.818112,
+   "ms": {
+    "attention": 7.76173971599306,
+    "shared": 5.0060353182751545,
+    "dense_ffn": 0.7276630983743494,
+    "router": 1.079296,
+    "routed": 17.618350135501355,
+    "head": 4.1368994666838015,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 2.228224
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 42.91357573482772,
+   "tok_s": 23.302649170491332
+  },
+  "experts ternary IQ2_BN measured, the rest as stored (Q4_K_M, full f16 KV)": {
+   "mb_per_token": 2163.148032,
+   "ms": {
+    "attention": 23.937024,
+    "shared": 7.363584,
+    "dense_ffn": 2.294784,
+    "router": 1.079296,
+    "routed": 13.766376283748015,
+    "head": 16.50432,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 4.194304000000001
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 73.49505628374801,
+   "tok_s": 13.606357360136213
+  },
+  "k = 4 alone: Q4_K_M as stored, full f16 KV": {
+   "mb_per_token": 2811.102464,
+   "ms": {
+    "attention": 23.937024,
+    "shared": 7.363584,
+    "dense_ffn": 2.294784,
+    "router": 4.063232,
+    "routed": 29.454336,
+    "head": 16.50432,
+    "small": 0.035296,
+    "embedding": 7.2e-05,
+    "kv_cache": 4.194304000000001
+   },
+   "fixed_ms": 4.32,
+   "ms_per_token": 92.16695200000001,
+   "tok_s": 10.849875994597282
+  }
+ }
+}

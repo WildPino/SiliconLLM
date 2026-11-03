@@ -1,0 +1,414 @@
+{
+ "controls": {
+  "C1_wall_gbs": 37.17,
+  "C1": true,
+  "C2_resident_over_stream": 1.352116624614522,
+  "C2": true
+ },
+ "formats": {
+  "llama.cpp|tq2_0": {
+   "experts": {
+    "rounds": 3,
+    "gweights_per_s": 107.01,
+    "min": 104.99,
+    "max": 107.54,
+    "gbytes_per_s": 27.59,
+    "bytes_per_weight": 0.2578,
+    "checked": true,
+    "cell": "experts"
+   },
+   "attn": {
+    "rounds": 3,
+    "gweights_per_s": 110.41,
+    "min": 109.92,
+    "max": 110.57,
+    "gbytes_per_s": 28.46,
+    "bytes_per_weight": 0.2578,
+    "checked": true,
+    "cell": "attn"
+   }
+  },
+  "llama.cpp|tq1_0": {
+   "experts": {
+    "rounds": 3,
+    "gweights_per_s": 107.93,
+    "min": 107.82,
+    "max": 108.0,
+    "gbytes_per_s": 22.77,
+    "bytes_per_weight": 0.2109,
+    "checked": true,
+    "cell": "experts"
+   },
+   "attn": {
+    "rounds": 3,
+    "gweights_per_s": 112.08,
+    "min": 111.63,
+    "max": 112.38,
+    "gbytes_per_s": 23.64,
+    "bytes_per_weight": 0.2109,
+    "checked": true,
+    "cell": "attn"
+   }
+  },
+  "ik_llama.cpp|iq2_bn": {
+   "experts": {
+    "rounds": 3,
+    "gweights_per_s": 113.34,
+    "min": 112.65,
+    "max": 113.72,
+    "gbytes_per_s": 28.56,
+    "bytes_per_weight": 0.252,
+    "checked": true,
+    "cell": "experts"
+   },
+   "attn": {
+    "rounds": 2,
+    "gweights_per_s": 155.63,
+    "min": 155.59,
+    "max": 155.67,
+    "gbytes_per_s": 39.06,
+    "bytes_per_weight": 0.251,
+    "checked": true,
+    "cell": "attn"
+   }
+  },
+  "ik_llama.cpp|iq1_bn": {
+   "experts": {
+    "rounds": 2,
+    "gweights_per_s": 53.735,
+    "min": 53.72,
+    "max": 53.75,
+    "gbytes_per_s": 10.965,
+    "bytes_per_weight": 0.2041,
+    "checked": true,
+    "cell": "experts"
+   },
+   "attn": {
+    "rounds": 3,
+    "gweights_per_s": 61.09,
+    "min": 61.07,
+    "max": 61.13,
+    "gbytes_per_s": 12.44,
+    "bytes_per_weight": 0.2036,
+    "checked": true,
+    "cell": "attn"
+   }
+  },
+  "bitnet.cpp/tl2|tl2": {
+   "experts": {
+    "rounds": 2,
+    "gweights_per_s": 56.985,
+    "min": 56.8,
+    "max": 57.17,
+    "gbytes_per_s": 12.170000000000002,
+    "bytes_per_weight": 0.2135,
+    "checked": true,
+    "cell": "experts2d"
+   },
+   "attn": {
+    "rounds": 3,
+    "gweights_per_s": 117.75,
+    "min": 117.39,
+    "max": 118.43,
+    "gbytes_per_s": 24.84,
+    "bytes_per_weight": 0.2109,
+    "checked": true,
+    "cell": "attn"
+   }
+  },
+  "bitnet.cpp|i2_s": {
+   "attn": {
+    "rounds": 3,
+    "gweights_per_s": 48.82,
+    "min": 47.57,
+    "max": 50.75,
+    "gbytes_per_s": 12.21,
+    "bytes_per_weight": 0.25,
+    "checked": true,
+    "cell": "attn"
+   },
+   "experts": {
+    "rounds": 3,
+    "gweights_per_s": 19.38,
+    "min": 17.34,
+    "max": 21.7,
+    "gbytes_per_s": 4.84,
+    "bytes_per_weight": 0.25,
+    "checked": true,
+    "cell": "experts2d"
+   }
+  },
+  "ik_llama.cpp|iq2_bn_r4": {
+   "experts": {
+    "rounds": 3,
+    "gweights_per_s": 115.31,
+    "min": 115.21,
+    "max": 115.31,
+    "gbytes_per_s": 29.05,
+    "bytes_per_weight": 0.252,
+    "checked": false,
+    "cell": "experts"
+   }
+  }
+ },
+ "best": {
+  "format": "ik_llama.cpp|iq2_bn",
+  "rounds": 3,
+  "gweights_per_s": 113.34,
+  "min": 112.65,
+  "max": 113.72,
+  "gbytes_per_s": 28.56,
+  "bytes_per_weight": 0.252,
+  "checked": true,
+  "cell": "experts"
+ },
+ "outcome": "BETWEEN",
+ "attn_best": {
+  "format": "ik_llama.cpp|iq2_bn",
+  "rounds": 2,
+  "gweights_per_s": 155.63,
+  "min": 155.59,
+  "max": 155.67,
+  "gbytes_per_s": 39.06,
+  "bytes_per_weight": 0.251,
+  "checked": true,
+  "cell": "attn",
+  "label": "PASS"
+ },
+ "summary": {
+  "llama.cpp|tq2_0|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 107.01,
+   "min": 104.99,
+   "max": 107.54,
+   "gbytes_per_s": 27.59,
+   "bytes_per_weight": 0.2578,
+   "checked": true
+  },
+  "llama.cpp|tq1_0|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 107.93,
+   "min": 107.82,
+   "max": 108.0,
+   "gbytes_per_s": 22.77,
+   "bytes_per_weight": 0.2109,
+   "checked": true
+  },
+  "llama.cpp|q2_K|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 88.56,
+   "min": 88.24,
+   "max": 89.04,
+   "gbytes_per_s": 29.06,
+   "bytes_per_weight": 0.3281,
+   "checked": true
+  },
+  "llama.cpp|q8_0|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 34.99,
+   "min": 34.96,
+   "max": 35.04,
+   "gbytes_per_s": 37.17,
+   "bytes_per_weight": 1.0625,
+   "checked": true
+  },
+  "ik_llama.cpp|iq2_bn|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 113.34,
+   "min": 112.65,
+   "max": 113.72,
+   "gbytes_per_s": 28.56,
+   "bytes_per_weight": 0.252,
+   "checked": true
+  },
+  "ik_llama.cpp|iq1_bn|experts|stream": {
+   "rounds": 2,
+   "gweights_per_s": 53.735,
+   "min": 53.72,
+   "max": 53.75,
+   "gbytes_per_s": 10.965,
+   "bytes_per_weight": 0.2041,
+   "checked": true
+  },
+  "ik_llama.cpp|q4_K|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 61.59,
+   "min": 61.55,
+   "max": 61.66,
+   "gbytes_per_s": 34.64,
+   "bytes_per_weight": 0.5625,
+   "checked": true
+  },
+  "llama.cpp|tq2_0|experts2d|stream": {
+   "rounds": 3,
+   "gweights_per_s": 58.44,
+   "min": 58.06,
+   "max": 58.6,
+   "gbytes_per_s": 15.07,
+   "bytes_per_weight": 0.2578,
+   "checked": true
+  },
+  "ik_llama.cpp|iq2_bn|experts2d|stream": {
+   "rounds": 3,
+   "gweights_per_s": 77.92,
+   "min": 77.92,
+   "max": 78.06,
+   "gbytes_per_s": 19.63,
+   "bytes_per_weight": 0.252,
+   "checked": true
+  },
+  "bitnet.cpp/tl2|tl2|experts2d|stream": {
+   "rounds": 2,
+   "gweights_per_s": 56.985,
+   "min": 56.8,
+   "max": 57.17,
+   "gbytes_per_s": 12.170000000000002,
+   "bytes_per_weight": 0.2135,
+   "checked": true
+  },
+  "llama.cpp|tq2_0|attn|stream": {
+   "rounds": 3,
+   "gweights_per_s": 110.41,
+   "min": 109.92,
+   "max": 110.57,
+   "gbytes_per_s": 28.46,
+   "bytes_per_weight": 0.2578,
+   "checked": true
+  },
+  "llama.cpp|tq1_0|attn|stream": {
+   "rounds": 3,
+   "gweights_per_s": 112.08,
+   "min": 111.63,
+   "max": 112.38,
+   "gbytes_per_s": 23.64,
+   "bytes_per_weight": 0.2109,
+   "checked": true
+  },
+  "ik_llama.cpp|iq2_bn|attn|stream": {
+   "rounds": 2,
+   "gweights_per_s": 155.63,
+   "min": 155.59,
+   "max": 155.67,
+   "gbytes_per_s": 39.06,
+   "bytes_per_weight": 0.251,
+   "checked": true
+  },
+  "ik_llama.cpp|iq1_bn|attn|stream": {
+   "rounds": 3,
+   "gweights_per_s": 61.09,
+   "min": 61.07,
+   "max": 61.13,
+   "gbytes_per_s": 12.44,
+   "bytes_per_weight": 0.2036,
+   "checked": true
+  },
+  "bitnet.cpp|i2_s|attn|stream": {
+   "rounds": 3,
+   "gweights_per_s": 48.82,
+   "min": 47.57,
+   "max": 50.75,
+   "gbytes_per_s": 12.21,
+   "bytes_per_weight": 0.25,
+   "checked": true
+  },
+  "bitnet.cpp/tl2|tl2|attn|stream": {
+   "rounds": 3,
+   "gweights_per_s": 117.75,
+   "min": 117.39,
+   "max": 118.43,
+   "gbytes_per_s": 24.84,
+   "bytes_per_weight": 0.2109,
+   "checked": true
+  },
+  "llama.cpp|tq2_0|experts|resident": {
+   "rounds": 3,
+   "gweights_per_s": 144.69,
+   "min": 142.83,
+   "max": 144.82,
+   "gbytes_per_s": 37.3,
+   "bytes_per_weight": 0.2578,
+   "checked": true
+  },
+  "llama.cpp|tq1_0|experts|resident": {
+   "rounds": 3,
+   "gweights_per_s": 101.46,
+   "min": 101.46,
+   "max": 101.86,
+   "gbytes_per_s": 21.4,
+   "bytes_per_weight": 0.2109,
+   "checked": true
+  },
+  "bitnet.cpp|i2_s|experts2d|resident": {
+   "rounds": 3,
+   "gweights_per_s": 26.01,
+   "min": 18.56,
+   "max": 33.84,
+   "gbytes_per_s": 6.5,
+   "bytes_per_weight": 0.25,
+   "checked": true
+  },
+  "bitnet.cpp/tl2|tl2|experts2d|resident": {
+   "rounds": 2,
+   "gweights_per_s": 55.045,
+   "min": 53.66,
+   "max": 56.43,
+   "gbytes_per_s": 11.755,
+   "bytes_per_weight": 0.2135,
+   "checked": true
+  },
+  "ik_llama.cpp|iq2_bn_r4|experts|stream": {
+   "rounds": 3,
+   "gweights_per_s": 115.31,
+   "min": 115.21,
+   "max": 115.31,
+   "gbytes_per_s": 29.05,
+   "bytes_per_weight": 0.252,
+   "checked": false
+  },
+  "llama.cpp|q4_K|attn|stream": {
+   "rounds": 3,
+   "gweights_per_s": 61.03,
+   "min": 60.99,
+   "max": 61.27,
+   "gbytes_per_s": 34.33,
+   "bytes_per_weight": 0.5625,
+   "checked": true
+  },
+  "ik_llama.cpp|iq2_bn|experts|resident": {
+   "rounds": 3,
+   "gweights_per_s": 146.33,
+   "min": 146.27,
+   "max": 146.48,
+   "gbytes_per_s": 36.87,
+   "bytes_per_weight": 0.252,
+   "checked": true
+  },
+  "ik_llama.cpp|iq1_bn|experts|resident": {
+   "rounds": 3,
+   "gweights_per_s": 80.3,
+   "min": 80.14,
+   "max": 80.44,
+   "gbytes_per_s": 16.39,
+   "bytes_per_weight": 0.2041,
+   "checked": true
+  },
+  "llama.cpp|q4_K|experts|stream": {
+   "rounds": 2,
+   "gweights_per_s": 60.18,
+   "min": 59.99,
+   "max": 60.37,
+   "gbytes_per_s": 33.855000000000004,
+   "bytes_per_weight": 0.5625,
+   "checked": true
+  },
+  "bitnet.cpp|i2_s|experts2d|stream": {
+   "rounds": 3,
+   "gweights_per_s": 19.38,
+   "min": 17.34,
+   "max": 21.7,
+   "gbytes_per_s": 4.84,
+   "bytes_per_weight": 0.25,
+   "checked": true
+  }
+ }
+}
