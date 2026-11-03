@@ -1,0 +1,38 @@
+{
+ "organ": "exps",
+ "layer": 10,
+ "train_tokens": 30000,
+ "heldout_tokens": 9485,
+ "prefix_seconds": 48.8,
+ "data_seconds": 57.6,
+ "outlier_rows": {
+  "mlp.experts.gate_proj": 0,
+  "mlp.experts.up_proj": 0,
+  "mlp.experts.down_proj": 0
+ },
+ "heldout": {
+  "orig": {
+   "loss": 9.042558446330149e-05
+  },
+  "posthoc": {
+   "loss": 0.29077225656464156
+  },
+  "zero": {
+   "loss": 0.8628195449434963
+  },
+  "trained": {
+   "loss": 0.2508046376937681
+  }
+ },
+ "lr_grid": {
+  "0.001": {
+   "loss": 0.2508046376937681,
+   "loss_every_20": [
+    0.273954
+   ],
+   "seconds": 27.9
+  }
+ },
+ "lr": 0.001,
+ "seconds": 130.7
+}

@@ -1,0 +1,47 @@
+{
+ "organ": "head",
+ "layer": 20,
+ "train_tokens": 30000,
+ "heldout_tokens": 9485,
+ "prefix_seconds": 115.0,
+ "data_seconds": 116.3,
+ "outlier_rows": {
+  "lm_head.weight": 0
+ },
+ "heldout": {
+  "orig": {
+   "loss": 0.0,
+   "top1_agreement": 1.0
+  },
+  "posthoc": {
+   "loss": 0.7086416627585291,
+   "top1_agreement": 0.6895097522403796
+  },
+  "trained": {
+   "loss": 0.32405994196093957,
+   "top1_agreement": 0.796309963099631
+  }
+ },
+ "lr_grid": {
+  "0.001": {
+   "loss": 0.45497298494539073,
+   "top1_agreement": 0.7693199789140749,
+   "loss_every_20": [
+    0.673195,
+    0.435255
+   ],
+   "seconds": 13.6
+  },
+  "0.003": {
+   "loss": 0.32405994196093957,
+   "top1_agreement": 0.796309963099631,
+   "loss_every_20": [
+    0.669724,
+    0.251569
+   ],
+   "seconds": 12.5
+  }
+ },
+ "lr": 0.003,
+ "seconds": 162.7
+}

@@ -1,0 +1,45 @@
+{
+ "organ": "shexp",
+ "layer": 10,
+ "train_tokens": 30000,
+ "heldout_tokens": 9485,
+ "prefix_seconds": 65.7,
+ "data_seconds": 76.8,
+ "outlier_rows": {
+  "mlp.shared_experts.gate_proj.weight": 152,
+  "mlp.shared_experts.up_proj.weight": 64,
+  "mlp.shared_experts.down_proj.weight": 0
+ },
+ "heldout": {
+  "orig": {
+   "loss": 8.400238983619822e-05
+  },
+  "posthoc": {
+   "loss": 0.3022950924002125
+  },
+  "zero": {
+   "loss": 0.40520269205900766
+  },
+  "trained": {
+   "loss": 0.2844092594804296
+  }
+ },
+ "lr_grid": {
+  "0.001": {
+   "loss": 0.2947605484965983,
+   "loss_every_20": [
+    0.324042
+   ],
+   "seconds": 2.3
+  },
+  "0.003": {
+   "loss": 0.2844092594804296,
+   "loss_every_20": [
+    0.321485
+   ],
+   "seconds": 0.3
+  }
+ },
+ "lr": 0.003,
+ "seconds": 79.6
+}

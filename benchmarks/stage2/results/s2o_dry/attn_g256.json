@@ -1,0 +1,37 @@
+{
+ "organ": "attn",
+ "layer": 10,
+ "train_tokens": 30000,
+ "heldout_tokens": 9485,
+ "prefix_seconds": 48.0,
+ "data_seconds": 52.6,
+ "outlier_rows": {
+  "attention.query_key_value.weight": 0,
+  "attention.dense.weight": 0
+ },
+ "heldout": {
+  "orig": {
+   "loss": 0.0
+  },
+  "posthoc": {
+   "loss": 0.522003683392852
+  },
+  "zero": {
+   "loss": 0.8735388547166373
+  },
+  "trained": {
+   "loss": 0.3793408861899288
+  }
+ },
+ "lr_grid": {
+  "0.003": {
+   "loss": 0.3793408861899288,
+   "loss_every_20": [
+    0.512195
+   ],
+   "seconds": 10.3
+  }
+ },
+ "lr": 0.003,
+ "seconds": 66.2
+}
