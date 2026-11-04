@@ -2,6 +2,17 @@
 
 2026-11-04. Ling-mini, quality only, no training. It runs after test 2b's chain, alone on the CPU.
 
+## Amendment 1 (2026-11-04, before any arm of this test ran)
+
+- **Cell 2 cannot pass:** wsvd256 misses 6.77 per 1,000 on the documents (test 2b, amendment 1). The judged arm is x15
+  against r15, by the rule below.
+- **x9 and r9 run anyway, as reported arms,** after the four already queued. The question is whether layers 9-19 bring
+  the quality back on the panel, as they did on dev (0.75 against x15's 0.51).
+- **Registered outcomes unchanged:** `s2x_verdict.py` reports x9 with its margin against r9 and judges x15 only (selftest
+  PASS, 11 cases). x9 costs 2.27 ms on the desk against 1.12 ms of room: it fits the line only if something else pays
+  1.15 ms.
+- **Cost:** about 6 h more of CPU.
+
 ## Question
 
 Stage 1 (b)'s ternary experts cost −8.52 points. In each token, read the slot with the highest routing weight from the
@@ -55,8 +66,8 @@ ggml's own row products. No change to llama.cpp. Router and weights stay the con
 | --- | --- | --- | ---: | --- |
 | x15 | top | 15-19 (26%) | 1.03 | judged if only cell 1 passes |
 | r15 | random | 15-19 | | its control |
-| x9 | top | 9-19 (58%) | 2.27 | judged if cell 2 passes |
-| r9 | random | 9-19 | | its control, run only then |
+| x9 | top | 9-19 (58%) | 2.27 | judged if cell 2 passes; else reported (amendment 1) |
+| r9 | random | 9-19 | | its control |
 | x19 | top | 1-19 | 3.92 | reported: the upper end |
 | x15k4 | top, k = 4, k₂ = 16 on generated tokens | 15-19 | 1.03 | reported: the ceiling's own routing |
 

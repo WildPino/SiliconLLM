@@ -68,9 +68,11 @@ def decide(arms: dict, degenerate: dict, untrained: bool, controls: dict) -> dic
     judged, control = ("x9", "r9") if untrained else ("x15", "r15")
     ok = controls_ok(controls)
     j = score(arms, judged, control, degenerate)
+    # Amendment 1: when x15 is judged, x9 and r9 run as reported arms; they change no outcome.
     out = {"judged": judged, "control": control, "controls": ok, "arm": j,
            "control_arm": score(arms, control, None, degenerate),
-           "reported": {a: score(arms, a, None, degenerate) for a in ("x19", "x15k4") if a in arms}}
+           "reported": {a: score(arms, a, "r9" if a == "x9" and "r9" in arms else None, degenerate)
+                        for a in ("x9", "r9", "x19", "x15k4") if a in arms and a not in (judged, control)}}
     if not all(ok.values()):
         out["outcome"] = "VOID"
     elif j["fits"] and j["beats_control"]:
@@ -107,6 +109,7 @@ def selftest() -> int:
         ("control as good", dict(ref=ref, x15=lose(1.0, 4, 2), r15=lose(1.0, 5, 2)), False, deg, good, "LITTLE COMES BACK"),
         ("chat fails: half at best", dict(ref=ref, x15=lose(1.0, 4, 8), r15=lose(9.0, 5, 8)), False, deg, good, "HALF COMES BACK"),
         ("the other cell", dict(ref=ref, x9=lose(1.0, 4, 2), r9=lose(8.0, 5, 6)), True, deg, good, "EXACT WHERE IT WEIGHS CLOSES THE EXPERTS"),
+        ("reported x9 changes nothing", dict(ref=ref, x15=lose(7.0, 4, 6), r15=lose(8.0, 5, 8), x9=lose(1.0, 6, 2), r9=lose(8.0, 7, 6)), False, deg, good, "LITTLE COMES BACK"),
         ("off differs", dict(ref=ref, x15=lose(1.0, 4, 2), r15=lose(8.0, 5, 6)), False, deg, dict(good, off_equals_tern=False), "VOID"),
         ("replay differs", dict(ref=ref, x15=lose(1.0, 4, 2), r15=lose(8.0, 5, 6)), False, deg, dict(good, tern_all_equals_p0_all=False), "VOID"),
         ("slot error", dict(ref=ref, x15=lose(1.0, 4, 2), r15=lose(8.0, 5, 6)), False, deg, dict(good, p0_all_mean_slot_rel_err=0.01), "VOID"),
