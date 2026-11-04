@@ -217,3 +217,16 @@ A fresh reviewer read the thesis, this protocol, the code and the dev sweep. Ten
 Dumps of documents, generated answers and ternary-expert documents: about 3 h. Sweeps: 15 min. Each cell's panels run two
 contexts: about 3 h. All on the CPU, one at a time, about 9 h in all. The flash sweep comes after, about 6 h of CPU. No
 GPU beyond the sweeps.
+
+## Amendment 1 (2026-11-04, before tern_im's panels and before any verdict)
+
+Cell 2 cannot pass: wsvd256 misses 6.77 per 1,000 on the documents at K = 4,096 (dev: 0.48). "What a result changes" names
+the alternative: tern_im's cell, with its own panels. They are added as a third arm, two_pass_i, reported and not judged,
+so the registered outcomes do not change.
+
+- **Cell:** tern_im, K = 4,096, tail offset off. Offset and K come from dev (KL 0.0169 against 0.0257 with it), as the
+  protocol's table shows, not from the documents.
+- **Read against the same line.** On the sweeps it misses 0.33 on the documents, 0.27 on generated positions and 0.25 on
+  ternary-expert states, per 1,000 at K = 4,096.
+- **Desk ceiling:** 25.19 tok/s.
+- Cell 2's panels still run, as registered.

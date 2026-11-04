@@ -36,6 +36,8 @@ PREFIX_DOCS, PLANT_K = 2, 1024                 # the controls' prefix and the pl
 # a preview differs from P0 only in output.weight; the plant, test 1's shuffled head, also in output_norm.weight
 PREVIEWS = {"tern_tr": (WORK / "m" / "org_head.gguf", "cba1156d07ffd2b4862d92154777b753ac268106166523130221eef22519ce8d"),
             "wsvd256": (WORK / "m" / "wsvd256-q4.gguf", "1d2ab05e164dbccd66f5b85766893255bf087ece8ee1a62a8a49373e4794ef73"),
+            "tern_im": (Path("E:/SiliconLLM_Artifacts/stage2/s2h/models/head_tern_im-q4.gguf"),
+                        "ef30374e6fbcd9addda4f9074fe9a4dc2a3badf8d61ffeaff7c24792593040f0"),
             "plant": (Path("E:/SiliconLLM_Artifacts/stage2/s2h/models/head_shuf-q4.gguf"), "4cbbd37d21df00261c9a163cdcdbd896bc1f02765ec74d51f5f608cab12fb17f")}
 POS_RECORD = 32                                # doc, pos, target, top1, lp_t, lp_1, lse
 TOP_RECORD = 32 + 32 * 8                       # the head, then 32 entries of id and logp
