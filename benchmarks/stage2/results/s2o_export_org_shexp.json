@@ -1,0 +1,42 @@
+{
+ "organ": "shexp",
+ "layer": 10,
+ "trained": "C:\\SiliconLLM_fast\\s2o\\shexp",
+ "shuffled": null,
+ "seed": 20261103,
+ "layout_checked": {
+  "mlp.shared_experts.gate_proj.weight": true,
+  "mlp.shared_experts.up_proj.weight": true,
+  "mlp.shared_experts.down_proj.weight": true
+ },
+ "tq2_0_exact": {
+  "mlp.shared_experts.gate_proj.weight": true,
+  "mlp.shared_experts.up_proj.weight": true,
+  "mlp.shared_experts.down_proj.weight": true
+ },
+ "all_exact": true,
+ "pinned_tensors": 156,
+ "other_tensors": 275,
+ "other_tensors_differ": [],
+ "q4": "C:\\SiliconLLM_fast\\s2o\\org_shexp-q4.gguf",
+ "q4_sha256": "5e7b1a22a367fdb555c610ee127df415832b12e7eb9b0da1de98b5e2bd4c9912",
+ "p0_sha256_checked": true,
+ "cmd": [
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-quantize.exe",
+  "--imatrix",
+  "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/gguf/ling-mini-2.0-a810f64-imatrix-fit24.gguf",
+  "--tensor-type",
+  "blk\\.10\\.ffn_gate_shexp=tq2_0",
+  "--tensor-type",
+  "blk\\.10\\.ffn_up_shexp=tq2_0",
+  "--tensor-type",
+  "blk\\.10\\.ffn_down_shexp=tq2_0",
+  "--tensor-type-file",
+  "C:/SiliconLLM_fast/s2o/org_shexp-q4-pins.txt",
+  "C:/SiliconLLM_fast/s2o/org_shexp-q4-bf16.gguf",
+  "C:/SiliconLLM_fast/s2o/org_shexp-q4.gguf",
+  "Q4_K_M",
+  "6"
+ ],
+ "seconds": 1311.2
+}

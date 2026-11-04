@@ -1,0 +1,126 @@
+{
+ "controls": {
+  "C1_planted_top1": 0.8603263032232391,
+  "C1_planted_kl": 0.1905858043097062,
+  "C1": true,
+  "C2": true
+ },
+ "labels": {
+  "org_attn": "ONE LAYER WITHIN THE SHARE",
+  "org_shexp": "ONE LAYER WITHIN THE SHARE",
+  "org_exps": "ONE LAYER WITHIN THE SHARE",
+  "org_dense": "FITS",
+  "org_head": "DOES NOT FIT"
+ },
+ "outcome": "AN ORGAN DOES NOT STAY TERNARY WITH THIS TRAINING",
+ "over": [
+  "org_head"
+ ],
+ "docs": {
+  "org_attn": {
+   "top1_agreement": 0.9325929409494869,
+   "dbpb": 0.0025548915545747907,
+   "dbpb_ci95": [
+    0.0006317047335317889,
+    0.00439421678386546
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.04053907583110954,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "org_shexp": {
+   "top1_agreement": 0.9409313991486693,
+   "dbpb": 0.009014733678024743,
+   "dbpb_ci95": [
+    0.006959518471041332,
+    0.011198256966254906
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.0313130292336849,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "org_exps": {
+   "top1_agreement": 0.9386583704132451,
+   "dbpb": -0.0009155856924183908,
+   "dbpb_ci95": [
+    -0.0028309580428386156,
+    0.0008335597047302735
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.033230321604853445,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "org_dense": {
+   "top1_agreement": 0.9197265130412763,
+   "dbpb": 0.004715591471940853,
+   "dbpb_ci95": [
+    0.0005000842961073919,
+    0.008923491373436024
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.06405342055416284,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "org_head": {
+   "top1_agreement": 0.820382495869961,
+   "dbpb": 0.029348300056275298,
+   "dbpb_ci95": [
+    0.024899791408444717,
+    0.03424204018451232
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.25064302417104484,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "org_attn_shuf": {
+   "top1_agreement": 0.8603263032232391,
+   "dbpb": 0.0031753065061509637,
+   "dbpb_ci95": [
+    -0.005262699932328525,
+    0.01136588458429374
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.1905858043097062,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "replay": {
+   "top1_agreement": 1.0,
+   "dbpb": 1.2478943006093917e-07,
+   "dbpb_ci95": [
+    0.0,
+    3.7436829018281753e-07
+   ],
+   "documents": 72,
+   "kl_top32_nats": 3.77901199141661e-10,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "tern_l10": {
+   "top1_agreement": 0.9378926551628501,
+   "dbpb": -0.0006773409103891522,
+   "dbpb_ci95": [
+    -0.0026426187400136227,
+    0.001002934961651227
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.034417140230568896,
+   "ref_rest_mass": 0.01468263542232748
+  }
+ },
+ "chat": {
+  "ref": {
+   "passes": 28,
+   "degenerate": 0,
+   "n": 40
+  },
+  "org_dense": {
+   "passes": 28,
+   "degenerate": 0,
+   "n": 40
+  },
+  "org_head": {
+   "passes": 26,
+   "degenerate": 1,
+   "n": 40
+  }
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "organ": "attn",
+ "layer": 10,
+ "trained": "C:\\SiliconLLM_fast\\s2o\\attn",
+ "shuffled": "attention.dense.weight",
+ "seed": 20261103,
+ "layout_checked": {
+  "attention.query_key_value.weight": true,
+  "attention.dense.weight": true
+ },
+ "tq2_0_exact": {
+  "attention.query_key_value.weight": true,
+  "attention.dense.weight": true
+ },
+ "all_exact": true,
+ "pinned_tensors": 157,
+ "other_tensors": 276,
+ "other_tensors_differ": [],
+ "q4": "C:\\SiliconLLM_fast\\s2o\\org_attn_shuf-q4.gguf",
+ "q4_sha256": "fba0c58d7f5c3a78fb8debe8fdd60192c559eccd99739f649e9c6b31b719bf27",
+ "p0_sha256_checked": true,
+ "cmd": [
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\tools\\llama.cpp-5b335f4\\build-avx2\\bin\\llama-quantize.exe",
+  "--imatrix",
+  "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/gguf/ling-mini-2.0-a810f64-imatrix-fit24.gguf",
+  "--tensor-type",
+  "blk\\.10\\.attn_qkv=tq2_0",
+  "--tensor-type",
+  "blk\\.10\\.attn_output=tq2_0",
+  "--tensor-type-file",
+  "C:/SiliconLLM_fast/s2o/org_attn_shuf-q4-pins.txt",
+  "C:/SiliconLLM_fast/s2o/org_attn_shuf-q4-bf16.gguf",
+  "C:/SiliconLLM_fast/s2o/org_attn_shuf-q4.gguf",
+  "Q4_K_M",
+  "6"
+ ],
+ "seconds": 1065.7
+}
