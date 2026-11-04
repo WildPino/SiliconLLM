@@ -1,0 +1,84 @@
+{
+ "cell": "S2T-two-pass-head",
+ "dumps": {
+  "fit": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2t_llama_score_avx2.exe",
+    "--model",
+    "C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf",
+    "--ids",
+    "C:\\SiliconLLM_fast\\s2t\\sets\\fit.tsv",
+    "--out",
+    "C:\\SiliconLLM_fast\\s2t\\h\\fit",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--ctx",
+    "8192",
+    "--top",
+    "32",
+    "--moe-mode",
+    "none",
+    "--dump-h",
+    "C:\\SiliconLLM_fast\\s2t\\h\\fit.h.f32"
+   ],
+   "exe_sha256": "40e84ec995f0b95e807fad8b921824ef51de30b894abe9c6acb2432201e4dc5e",
+   "returncode": 0,
+   "wall_s": 3972.6,
+   "config": [
+    "CONFIG model=C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf n_vocab=157184 docs=441 positions=149564 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=0 dump_h=C:\\SiliconLLM_fast\\s2t\\h\\fit.h.f32 preview=- two_pass_k=0 tail_offset=1 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "two_pass": [],
+   "stdout_tail": [
+    "FIRST_DOC positions=844 wall_s=22.6 projected_s=4000",
+    "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=149564 tensors=10773 slots=22733728 kept=22733728 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2071735 tokens_seen=2841716",
+    "DONE positions=149564 wall_s=3957.1"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\nllama_init_from_model: model default pooling_type is [-1], but [0] was specified\n",
+   "status": "COMPLETE",
+   "ids_sha256": "8d409623da6b001888d0cb5548e502b58a081496320b30b5c6d07bef56f03f9e",
+   "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"
+  },
+  "dev": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2t_llama_score_avx2.exe",
+    "--model",
+    "C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf",
+    "--ids",
+    "C:\\SiliconLLM_fast\\s2t\\sets\\dev.tsv",
+    "--out",
+    "C:\\SiliconLLM_fast\\s2t\\h\\dev",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--ctx",
+    "8192",
+    "--top",
+    "32",
+    "--moe-mode",
+    "none",
+    "--dump-h",
+    "C:\\SiliconLLM_fast\\s2t\\h\\dev.h.f32"
+   ],
+   "exe_sha256": "40e84ec995f0b95e807fad8b921824ef51de30b894abe9c6acb2432201e4dc5e",
+   "returncode": 0,
+   "wall_s": 1658.7,
+   "config": [
+    "CONFIG model=C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf n_vocab=157184 docs=210 positions=74867 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=0 dump_h=C:\\SiliconLLM_fast\\s2t\\h\\dev.h.f32 preview=- two_pass_k=0 tail_offset=1 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "two_pass": [],
+   "stdout_tail": [
+    "FIRST_DOC positions=115 wall_s=3.4 projected_s=2187",
+    "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=74867 tensors=5282 slots=11379784 kept=11379784 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1040308 tokens_seen=1422473",
+    "DONE positions=74867 wall_s=1643.8"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\nllama_init_from_model: model default pooling_type is [-1], but [0] was specified\n",
+   "status": "COMPLETE",
+   "ids_sha256": "68f0776053768597802342d2441b784d5d8f3f3a53945c9d37adbe325110f60e",
+   "model_sha256": "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"
+  }
+ },
+ "arms": {}
+}

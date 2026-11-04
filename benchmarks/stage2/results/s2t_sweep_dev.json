@@ -1,0 +1,2124 @@
+{
+ "set": "dev",
+ "positions": 74867,
+ "strata": {
+  "all": 74867,
+  "hard": 15757,
+  "rare": 8417
+ },
+ "ks": [
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+  1024,
+  2048,
+  4096
+ ],
+ "exact_row_bytes": 1680,
+ "random_miss_per_1000": {
+  "16": 999.898,
+  "32": 999.796,
+  "64": 999.593,
+  "128": 999.186,
+  "256": 998.371,
+  "512": 996.743,
+  "1024": 993.485,
+  "2048": 986.971,
+  "4096": 973.941
+ },
+ "previews": {
+  "exact": {
+   "16": {
+    "bytes_per_token": 264096000,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.5,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "32": {
+    "bytes_per_token": 264122880,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.98629,
+    "top32_whole": 0.60403,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "64": {
+    "bytes_per_token": 264176640,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "128": {
+    "bytes_per_token": 264284160,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "256": {
+    "bytes_per_token": 264499200,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "512": {
+    "bytes_per_token": 264929280,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "1024": {
+    "bytes_per_token": 265789440,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "2048": {
+    "bytes_per_token": 267509760,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "4096": {
+    "bytes_per_token": 270950400,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   }
+  },
+  "tern_tr": {
+   "16": {
+    "bytes_per_token": 81133824,
+    "miss_per_1000": {
+     "all": 2.858,
+     "hard": 13.137,
+     "rare": 13.9
+    },
+    "top32_cover": 0.46181,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 17.751,
+    "worst_doc": 130
+   },
+   "32": {
+    "bytes_per_token": 81160704,
+    "miss_per_1000": {
+     "all": 0.548,
+     "hard": 2.475,
+     "rare": 3.327
+    },
+    "top32_cover": 0.73786,
+    "top32_whole": 3e-05,
+    "worst_doc_per_1000": 5.917,
+    "worst_doc": 130
+   },
+   "64": {
+    "bytes_per_token": 81214464,
+    "miss_per_1000": {
+     "all": 0.147,
+     "hard": 0.635,
+     "rare": 1.069
+    },
+    "top32_cover": 0.91019,
+    "top32_whole": 0.15705,
+    "worst_doc_per_1000": 3.155,
+    "worst_doc": 168
+   },
+   "128": {
+    "bytes_per_token": 81321984,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.97319,
+    "top32_whole": 0.58182,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "256": {
+    "bytes_per_token": 81537024,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99221,
+    "top32_whole": 0.84128,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "512": {
+    "bytes_per_token": 81967104,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99782,
+    "top32_whole": 0.9466,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "1024": {
+    "bytes_per_token": 82827264,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99943,
+    "top32_whole": 0.98416,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "2048": {
+    "bytes_per_token": 84547584,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99985,
+    "top32_whole": 0.99543,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "4096": {
+    "bytes_per_token": 87988224,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99997,
+    "top32_whole": 0.99901,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   }
+  },
+  "shuf": {
+   "16": {
+    "bytes_per_token": 81133824,
+    "miss_per_1000": {
+     "all": 999.92,
+     "hard": 1000.0,
+     "rare": 999.881
+    },
+    "top32_cover": 7e-05,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 209
+   },
+   "32": {
+    "bytes_per_token": 81160704,
+    "miss_per_1000": {
+     "all": 999.88,
+     "hard": 999.937,
+     "rare": 999.881
+    },
+    "top32_cover": 0.00016,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 209
+   },
+   "64": {
+    "bytes_per_token": 81214464,
+    "miss_per_1000": {
+     "all": 999.666,
+     "hard": 999.746,
+     "rare": 999.287
+    },
+    "top32_cover": 0.00036,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 209
+   },
+   "128": {
+    "bytes_per_token": 81321984,
+    "miss_per_1000": {
+     "all": 999.386,
+     "hard": 999.492,
+     "rare": 998.931
+    },
+    "top32_cover": 0.00079,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 209
+   },
+   "256": {
+    "bytes_per_token": 81537024,
+    "miss_per_1000": {
+     "all": 998.357,
+     "hard": 998.477,
+     "rare": 998.099
+    },
+    "top32_cover": 0.00164,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 209
+   },
+   "512": {
+    "bytes_per_token": 81967104,
+    "miss_per_1000": {
+     "all": 996.06,
+     "hard": 996.7,
+     "rare": 996.673
+    },
+    "top32_cover": 0.00336,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 209
+   },
+   "1024": {
+    "bytes_per_token": 82827264,
+    "miss_per_1000": {
+     "all": 991.759,
+     "hard": 993.463,
+     "rare": 994.178
+    },
+    "top32_cover": 0.0068,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 207
+   },
+   "2048": {
+    "bytes_per_token": 84547584,
+    "miss_per_1000": {
+     "all": 983.651,
+     "hard": 987.053,
+     "rare": 986.218
+    },
+    "top32_cover": 0.01344,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 207
+   },
+   "4096": {
+    "bytes_per_token": 87988224,
+    "miss_per_1000": {
+     "all": 966.941,
+     "hard": 960.081,
+     "rare": 973.387
+    },
+    "top32_cover": 0.02707,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 994.536,
+    "worst_doc": 79
+   }
+  },
+  "tern_im": {
+   "16": {
+    "bytes_per_token": 81133824,
+    "miss_per_1000": {
+     "all": 33.74,
+     "hard": 123.564,
+     "rare": 63.324
+    },
+    "top32_cover": 0.41331,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 86.957,
+    "worst_doc": 201
+   },
+   "32": {
+    "bytes_per_token": 81160704,
+    "miss_per_1000": {
+     "all": 14.466,
+     "hard": 55.912,
+     "rare": 34.216
+    },
+    "top32_cover": 0.64017,
+    "top32_whole": 3e-05,
+    "worst_doc_per_1000": 38.095,
+    "worst_doc": 5
+   },
+   "64": {
+    "bytes_per_token": 81214464,
+    "miss_per_1000": {
+     "all": 7.573,
+     "hard": 30.209,
+     "rare": 19.247
+    },
+    "top32_cover": 0.81939,
+    "top32_whole": 0.02494,
+    "worst_doc_per_1000": 29.412,
+    "worst_doc": 18
+   },
+   "128": {
+    "bytes_per_token": 81321984,
+    "miss_per_1000": {
+     "all": 4.702,
+     "hard": 18.976,
+     "rare": 9.98
+    },
+    "top32_cover": 0.91672,
+    "top32_whole": 0.22421,
+    "worst_doc_per_1000": 21.429,
+    "worst_doc": 5
+   },
+   "256": {
+    "bytes_per_token": 81537024,
+    "miss_per_1000": {
+     "all": 3.54,
+     "hard": 14.851,
+     "rare": 4.752
+    },
+    "top32_cover": 0.96087,
+    "top32_whole": 0.49879,
+    "worst_doc_per_1000": 15.873,
+    "worst_doc": 179
+   },
+   "512": {
+    "bytes_per_token": 81967104,
+    "miss_per_1000": {
+     "all": 3.192,
+     "hard": 14.026,
+     "rare": 2.851
+    },
+    "top32_cover": 0.98038,
+    "top32_whole": 0.70231,
+    "worst_doc_per_1000": 15.873,
+    "worst_doc": 179
+   },
+   "1024": {
+    "bytes_per_token": 82827264,
+    "miss_per_1000": {
+     "all": 2.939,
+     "hard": 13.518,
+     "rare": 1.069
+    },
+    "top32_cover": 0.98935,
+    "top32_whole": 0.82715,
+    "worst_doc_per_1000": 15.873,
+    "worst_doc": 179
+   },
+   "2048": {
+    "bytes_per_token": 84547584,
+    "miss_per_1000": {
+     "all": 2.898,
+     "hard": 13.454,
+     "rare": 0.713
+    },
+    "top32_cover": 0.99323,
+    "top32_whole": 0.90053,
+    "worst_doc_per_1000": 15.873,
+    "worst_doc": 179
+   },
+   "4096": {
+    "bytes_per_token": 87988224,
+    "miss_per_1000": {
+     "all": 0.401,
+     "hard": 1.714,
+     "rare": 0.356
+    },
+    "top32_cover": 0.99545,
+    "top32_whole": 0.94198,
+    "worst_doc_per_1000": 5.917,
+    "worst_doc": 130
+   }
+  },
+  "sign": {
+   "16": {
+    "bytes_per_token": 40894720,
+    "miss_per_1000": {
+     "all": 95.756,
+     "hard": 286.984,
+     "rare": 76.037
+    },
+    "top32_cover": 0.35175,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 226.087,
+    "worst_doc": 201
+   },
+   "32": {
+    "bytes_per_token": 40921600,
+    "miss_per_1000": {
+     "all": 63.887,
+     "hard": 201.434,
+     "rare": 42.414
+    },
+    "top32_cover": 0.52353,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 178.261,
+    "worst_doc": 201
+   },
+   "64": {
+    "bytes_per_token": 40975360,
+    "miss_per_1000": {
+     "all": 41.487,
+     "hard": 139.747,
+     "rare": 21.266
+    },
+    "top32_cover": 0.68353,
+    "top32_whole": 0.00158,
+    "worst_doc_per_1000": 130.435,
+    "worst_doc": 201
+   },
+   "128": {
+    "bytes_per_token": 41082880,
+    "miss_per_1000": {
+     "all": 25.205,
+     "hard": 93.165,
+     "rare": 9.623
+    },
+    "top32_cover": 0.80687,
+    "top32_whole": 0.03546,
+    "worst_doc_per_1000": 78.261,
+    "worst_doc": 201
+   },
+   "256": {
+    "bytes_per_token": 41297920,
+    "miss_per_1000": {
+     "all": 14.506,
+     "hard": 60.291,
+     "rare": 4.039
+    },
+    "top32_cover": 0.89033,
+    "top32_whole": 0.15568,
+    "worst_doc_per_1000": 52.174,
+    "worst_doc": 201
+   },
+   "512": {
+    "bytes_per_token": 41728000,
+    "miss_per_1000": {
+     "all": 7.8,
+     "hard": 35.413,
+     "rare": 1.901
+    },
+    "top32_cover": 0.94171,
+    "top32_whole": 0.37046,
+    "worst_doc_per_1000": 31.746,
+    "worst_doc": 179
+   },
+   "1024": {
+    "bytes_per_token": 42588160,
+    "miss_per_1000": {
+     "all": 5.824,
+     "hard": 27.353,
+     "rare": 0.713
+    },
+    "top32_cover": 0.97041,
+    "top32_whole": 0.61131,
+    "worst_doc_per_1000": 31.746,
+    "worst_doc": 179
+   },
+   "2048": {
+    "bytes_per_token": 44308480,
+    "miss_per_1000": {
+     "all": 5.102,
+     "hard": 24.243,
+     "rare": 0.238
+    },
+    "top32_cover": 0.98546,
+    "top32_whole": 0.79709,
+    "worst_doc_per_1000": 31.746,
+    "worst_doc": 179
+   },
+   "4096": {
+    "bytes_per_token": 47749120,
+    "miss_per_1000": {
+     "all": 2.832,
+     "hard": 13.454,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99246,
+    "top32_whole": 0.91271,
+    "worst_doc_per_1000": 15.873,
+    "worst_doc": 179
+   }
+  },
+  "int4": {
+   "16": {
+    "bytes_per_token": 161612032,
+    "miss_per_1000": {
+     "all": 0.027,
+     "hard": 0.127,
+     "rare": 0.0
+    },
+    "top32_cover": 0.49855,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 0.977,
+    "worst_doc": 85
+   },
+   "32": {
+    "bytes_per_token": 161638912,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.90311,
+    "top32_whole": 0.01606,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "64": {
+    "bytes_per_token": 161692672,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99799,
+    "top32_whole": 0.94757,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "128": {
+    "bytes_per_token": 161800192,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 0.99998,
+    "top32_whole": 0.99944,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "256": {
+    "bytes_per_token": 162015232,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 0.99999,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "512": {
+    "bytes_per_token": 162445312,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 0.99999,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "1024": {
+    "bytes_per_token": 163305472,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 0.99999,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "2048": {
+    "bytes_per_token": 165025792,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 0.99999,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   },
+   "4096": {
+    "bytes_per_token": 168466432,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 0.99999,
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 209
+   }
+  },
+  "svd32": {
+   "16": {
+    "bytes_per_token": 5816576,
+    "miss_per_1000": {
+     "all": 717.446,
+     "hard": 839.119,
+     "rare": 976.951
+    },
+    "top32_cover": 0.09091,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 852.956,
+    "worst_doc": 26
+   },
+   "32": {
+    "bytes_per_token": 5843456,
+    "miss_per_1000": {
+     "all": 628.394,
+     "hard": 781.113,
+     "rare": 959.012
+    },
+    "top32_cover": 0.14208,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 788.471,
+    "worst_doc": 132
+   },
+   "64": {
+    "bytes_per_token": 5897216,
+    "miss_per_1000": {
+     "all": 521.511,
+     "hard": 690.043,
+     "rare": 929.785
+    },
+    "top32_cover": 0.21143,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 707.143,
+    "worst_doc": 5
+   },
+   "128": {
+    "bytes_per_token": 6004736,
+    "miss_per_1000": {
+     "all": 434.838,
+     "hard": 593.324,
+     "rare": 891.291
+    },
+    "top32_cover": 0.28358,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 635.714,
+    "worst_doc": 5
+   },
+   "256": {
+    "bytes_per_token": 6219776,
+    "miss_per_1000": {
+     "all": 346.949,
+     "hard": 504.157,
+     "rare": 834.383
+    },
+    "top32_cover": 0.36596,
+    "top32_whole": 0.00013,
+    "worst_doc_per_1000": 526.19,
+    "worst_doc": 5
+   },
+   "512": {
+    "bytes_per_token": 6649856,
+    "miss_per_1000": {
+     "all": 264.375,
+     "hard": 408.707,
+     "rare": 752.643
+    },
+    "top32_cover": 0.45808,
+    "top32_whole": 0.00053,
+    "worst_doc_per_1000": 438.538,
+    "worst_doc": 10
+   },
+   "1024": {
+    "bytes_per_token": 7510016,
+    "miss_per_1000": {
+     "all": 188.281,
+     "hard": 302.723,
+     "rare": 643.46
+    },
+    "top32_cover": 0.55701,
+    "top32_whole": 0.00204,
+    "worst_doc_per_1000": 322.259,
+    "worst_doc": 10
+   },
+   "2048": {
+    "bytes_per_token": 9230336,
+    "miss_per_1000": {
+     "all": 125.035,
+     "hard": 208.352,
+     "rare": 509.92
+    },
+    "top32_cover": 0.66273,
+    "top32_whole": 0.00801,
+    "worst_doc_per_1000": 223.81,
+    "worst_doc": 5
+   },
+   "4096": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 73.838,
+     "hard": 131.116,
+     "rare": 354.639
+    },
+    "top32_cover": 0.76799,
+    "top32_whole": 0.03003,
+    "worst_doc_per_1000": 148.265,
+    "worst_doc": 168
+   }
+  },
+  "wsvd32": {
+   "16": {
+    "bytes_per_token": 5816576,
+    "miss_per_1000": {
+     "all": 445.163,
+     "hard": 525.036,
+     "rare": 998.099
+    },
+    "top32_cover": 0.21966,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 642.857,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 5843456,
+    "miss_per_1000": {
+     "all": 376.361,
+     "hard": 454.782,
+     "rare": 994.06
+    },
+    "top32_cover": 0.30988,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 557.143,
+    "worst_doc": 5
+   },
+   "64": {
+    "bytes_per_token": 5897216,
+    "miss_per_1000": {
+     "all": 313.048,
+     "hard": 382.687,
+     "rare": 980.634
+    },
+    "top32_cover": 0.40678,
+    "top32_whole": 1e-05,
+    "worst_doc_per_1000": 460.905,
+    "worst_doc": 188
+   },
+   "128": {
+    "bytes_per_token": 6004736,
+    "miss_per_1000": {
+     "all": 248.748,
+     "hard": 314.527,
+     "rare": 941.784
+    },
+    "top32_cover": 0.50666,
+    "top32_whole": 0.00198,
+    "worst_doc_per_1000": 415.638,
+    "worst_doc": 188
+   },
+   "256": {
+    "bytes_per_token": 6219776,
+    "miss_per_1000": {
+     "all": 188.0,
+     "hard": 239.766,
+     "rare": 860.639
+    },
+    "top32_cover": 0.60339,
+    "top32_whole": 0.01264,
+    "worst_doc_per_1000": 353.909,
+    "worst_doc": 188
+   },
+   "512": {
+    "bytes_per_token": 6649856,
+    "miss_per_1000": {
+     "all": 133.53,
+     "hard": 173.002,
+     "rare": 731.021
+    },
+    "top32_cover": 0.69341,
+    "top32_whole": 0.04109,
+    "worst_doc_per_1000": 298.354,
+    "worst_doc": 188
+   },
+   "1024": {
+    "bytes_per_token": 7510016,
+    "miss_per_1000": {
+     "all": 86.66,
+     "hard": 110.3,
+     "rare": 539.028
+    },
+    "top32_cover": 0.77588,
+    "top32_whole": 0.09414,
+    "worst_doc_per_1000": 220.165,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 9230336,
+    "miss_per_1000": {
+     "all": 49.715,
+     "hard": 63.147,
+     "rare": 336.581
+    },
+    "top32_cover": 0.84614,
+    "top32_whole": 0.19004,
+    "worst_doc_per_1000": 146.091,
+    "worst_doc": 188
+   },
+   "4096": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 23.882,
+     "hard": 29.066,
+     "rare": 171.082
+    },
+    "top32_cover": 0.90048,
+    "top32_whole": 0.32544,
+    "worst_doc_per_1000": 97.792,
+    "worst_doc": 168
+   }
+  },
+  "svd64": {
+   "16": {
+    "bytes_per_token": 10977536,
+    "miss_per_1000": {
+     "all": 675.318,
+     "hard": 829.092,
+     "rare": 870.857
+    },
+    "top32_cover": 0.0985,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 821.429,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 11004416,
+    "miss_per_1000": {
+     "all": 560.501,
+     "hard": 750.777,
+     "rare": 817.631
+    },
+    "top32_cover": 0.1576,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 730.952,
+    "worst_doc": 5
+   },
+   "64": {
+    "bytes_per_token": 11058176,
+    "miss_per_1000": {
+     "all": 444.842,
+     "hard": 659.58,
+     "rare": 747.297
+    },
+    "top32_cover": 0.23685,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 633.136,
+    "worst_doc": 130
+   },
+   "128": {
+    "bytes_per_token": 11165696,
+    "miss_per_1000": {
+     "all": 343.609,
+     "hard": 553.278,
+     "rare": 667.934
+    },
+    "top32_cover": 0.32485,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 507.463,
+    "worst_doc": 174
+   },
+   "256": {
+    "bytes_per_token": 11380736,
+    "miss_per_1000": {
+     "all": 254.505,
+     "hard": 444.882,
+     "rare": 572.769
+    },
+    "top32_cover": 0.423,
+    "top32_whole": 0.00021,
+    "worst_doc_per_1000": 395.349,
+    "worst_doc": 10
+   },
+   "512": {
+    "bytes_per_token": 11810816,
+    "miss_per_1000": {
+     "all": 175.111,
+     "hard": 328.045,
+     "rare": 462.279
+    },
+    "top32_cover": 0.53083,
+    "top32_whole": 0.00108,
+    "worst_doc_per_1000": 302.381,
+    "worst_doc": 5
+   },
+   "1024": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 109.581,
+     "hard": 214.0,
+     "rare": 347.986
+    },
+    "top32_cover": 0.64303,
+    "top32_whole": 0.0051,
+    "worst_doc_per_1000": 193.49,
+    "worst_doc": 31
+   },
+   "2048": {
+    "bytes_per_token": 14391296,
+    "miss_per_1000": {
+     "all": 62.765,
+     "hard": 127.943,
+     "rare": 236.07
+    },
+    "top32_cover": 0.75047,
+    "top32_whole": 0.02225,
+    "worst_doc_per_1000": 132.007,
+    "worst_doc": 31
+   },
+   "4096": {
+    "bytes_per_token": 17831936,
+    "miss_per_1000": {
+     "all": 32.431,
+     "hard": 73.174,
+     "rare": 141.737
+    },
+    "top32_cover": 0.84303,
+    "top32_whole": 0.08524,
+    "worst_doc_per_1000": 74.141,
+    "worst_doc": 31
+   }
+  },
+  "wsvd64": {
+   "16": {
+    "bytes_per_token": 10977536,
+    "miss_per_1000": {
+     "all": 364.794,
+     "hard": 474.329,
+     "rare": 968.635
+    },
+    "top32_cover": 0.25084,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 547.619,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 11004416,
+    "miss_per_1000": {
+     "all": 290.903,
+     "hard": 399.061,
+     "rare": 933.943
+    },
+    "top32_cover": 0.3589,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 459.524,
+    "worst_doc": 5
+   },
+   "64": {
+    "bytes_per_token": 11058176,
+    "miss_per_1000": {
+     "all": 226.415,
+     "hard": 327.029,
+     "rare": 865.867
+    },
+    "top32_cover": 0.46974,
+    "top32_whole": 0.00015,
+    "worst_doc_per_1000": 372.428,
+    "worst_doc": 188
+   },
+   "128": {
+    "bytes_per_token": 11165696,
+    "miss_per_1000": {
+     "all": 166.522,
+     "hard": 253.729,
+     "rare": 758.94
+    },
+    "top32_cover": 0.57722,
+    "top32_whole": 0.005,
+    "worst_doc_per_1000": 333.333,
+    "worst_doc": 188
+   },
+   "256": {
+    "bytes_per_token": 11380736,
+    "miss_per_1000": {
+     "all": 114.91,
+     "hard": 182.205,
+     "rare": 610.312
+    },
+    "top32_cover": 0.67657,
+    "top32_whole": 0.02761,
+    "worst_doc_per_1000": 267.49,
+    "worst_doc": 188
+   },
+   "512": {
+    "bytes_per_token": 11810816,
+    "miss_per_1000": {
+     "all": 73.624,
+     "hard": 121.724,
+     "rare": 442.557
+    },
+    "top32_cover": 0.76487,
+    "top32_whole": 0.08042,
+    "worst_doc_per_1000": 213.992,
+    "worst_doc": 188
+   },
+   "1024": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 41.433,
+     "hard": 69.683,
+     "rare": 275.514
+    },
+    "top32_cover": 0.83905,
+    "top32_whole": 0.16631,
+    "worst_doc_per_1000": 150.206,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 14391296,
+    "miss_per_1000": {
+     "all": 20.864,
+     "hard": 34.144,
+     "rare": 148.747
+    },
+    "top32_cover": 0.89646,
+    "top32_whole": 0.29466,
+    "worst_doc_per_1000": 102.881,
+    "worst_doc": 188
+   },
+   "4096": {
+    "bytes_per_token": 17831936,
+    "miss_per_1000": {
+     "all": 9.029,
+     "hard": 12.185,
+     "rare": 66.057
+    },
+    "top32_cover": 0.93725,
+    "top32_whole": 0.45652,
+    "worst_doc_per_1000": 51.44,
+    "worst_doc": 188
+   }
+  },
+  "svd128": {
+   "16": {
+    "bytes_per_token": 21299456,
+    "miss_per_1000": {
+     "all": 580.429,
+     "hard": 775.021,
+     "rare": 642.39
+    },
+    "top32_cover": 0.12171,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 754.762,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 21326336,
+    "miss_per_1000": {
+     "all": 451.467,
+     "hard": 668.782,
+     "rare": 555.186
+    },
+    "top32_cover": 0.19466,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 635.714,
+    "worst_doc": 5
+   },
+   "64": {
+    "bytes_per_token": 21380096,
+    "miss_per_1000": {
+     "all": 340.404,
+     "hard": 565.78,
+     "rare": 465.724
+    },
+    "top32_cover": 0.29055,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 533.333,
+    "worst_doc": 5
+   },
+   "128": {
+    "bytes_per_token": 21487616,
+    "miss_per_1000": {
+     "all": 254.251,
+     "hard": 463.794,
+     "rare": 375.668
+    },
+    "top32_cover": 0.3962,
+    "top32_whole": 4e-05,
+    "worst_doc_per_1000": 402.985,
+    "worst_doc": 174
+   },
+   "256": {
+    "bytes_per_token": 21702656,
+    "miss_per_1000": {
+     "all": 180.974,
+     "hard": 352.288,
+     "rare": 292.028
+    },
+    "top32_cover": 0.50691,
+    "top32_whole": 0.00068,
+    "worst_doc_per_1000": 305.292,
+    "worst_doc": 174
+   },
+   "512": {
+    "bytes_per_token": 22132736,
+    "miss_per_1000": {
+     "all": 120.293,
+     "hard": 249.096,
+     "rare": 211.833
+    },
+    "top32_cover": 0.62139,
+    "top32_whole": 0.00315,
+    "worst_doc_per_1000": 230.952,
+    "worst_doc": 5
+   },
+   "1024": {
+    "bytes_per_token": 22992896,
+    "miss_per_1000": {
+     "all": 72.876,
+     "hard": 158.342,
+     "rare": 144.232
+    },
+    "top32_cover": 0.73036,
+    "top32_whole": 0.01537,
+    "worst_doc_per_1000": 142.857,
+    "worst_doc": 5
+   },
+   "2048": {
+    "bytes_per_token": 24713216,
+    "miss_per_1000": {
+     "all": 38.281,
+     "hard": 82.186,
+     "rare": 85.304
+    },
+    "top32_cover": 0.82471,
+    "top32_whole": 0.0652,
+    "worst_doc_per_1000": 88.911,
+    "worst_doc": 62
+   },
+   "4096": {
+    "bytes_per_token": 28153856,
+    "miss_per_1000": {
+     "all": 17.364,
+     "hard": 39.221,
+     "rare": 47.285
+    },
+    "top32_cover": 0.89755,
+    "top32_whole": 0.19301,
+    "worst_doc_per_1000": 47.619,
+    "worst_doc": 5
+   }
+  },
+  "wsvd128": {
+   "16": {
+    "bytes_per_token": 21299456,
+    "miss_per_1000": {
+     "all": 250.885,
+     "hard": 407.438,
+     "rare": 799.216
+    },
+    "top32_cover": 0.28903,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 438.095,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 21326336,
+    "miss_per_1000": {
+     "all": 188.147,
+     "hard": 327.41,
+     "rare": 703.576
+    },
+    "top32_cover": 0.41943,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 345.679,
+    "worst_doc": 188
+   },
+   "64": {
+    "bytes_per_token": 21380096,
+    "miss_per_1000": {
+     "all": 133.063,
+     "hard": 247.763,
+     "rare": 578.235
+    },
+    "top32_cover": 0.547,
+    "top32_whole": 0.0013,
+    "worst_doc_per_1000": 286.008,
+    "worst_doc": 188
+   },
+   "128": {
+    "bytes_per_token": 21487616,
+    "miss_per_1000": {
+     "all": 88.09,
+     "hard": 175.097,
+     "rare": 445.289
+    },
+    "top32_cover": 0.66282,
+    "top32_whole": 0.01711,
+    "worst_doc_per_1000": 240.741,
+    "worst_doc": 188
+   },
+   "256": {
+    "bytes_per_token": 21702656,
+    "miss_per_1000": {
+     "all": 54.897,
+     "hard": 113.918,
+     "rare": 313.77
+    },
+    "top32_cover": 0.76253,
+    "top32_whole": 0.0661,
+    "worst_doc_per_1000": 203.704,
+    "worst_doc": 188
+   },
+   "512": {
+    "bytes_per_token": 22132736,
+    "miss_per_1000": {
+     "all": 31.162,
+     "hard": 66.447,
+     "rare": 194.25
+    },
+    "top32_cover": 0.84332,
+    "top32_whole": 0.15828,
+    "worst_doc_per_1000": 135.802,
+    "worst_doc": 188
+   },
+   "1024": {
+    "bytes_per_token": 22992896,
+    "miss_per_1000": {
+     "all": 15.614,
+     "hard": 32.24,
+     "rare": 102.174
+    },
+    "top32_cover": 0.90338,
+    "top32_whole": 0.29467,
+    "worst_doc_per_1000": 94.65,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 24713216,
+    "miss_per_1000": {
+     "all": 6.572,
+     "hard": 12.502,
+     "rare": 44.909
+    },
+    "top32_cover": 0.94436,
+    "top32_whole": 0.4709,
+    "worst_doc_per_1000": 45.267,
+    "worst_doc": 188
+   },
+   "4096": {
+    "bytes_per_token": 28153856,
+    "miss_per_1000": {
+     "all": 2.337,
+     "hard": 3.935,
+     "rare": 15.445
+    },
+    "top32_cover": 0.96992,
+    "top32_whole": 0.64231,
+    "worst_doc_per_1000": 18.116,
+    "worst_doc": 28
+   }
+  },
+  "svd256": {
+   "16": {
+    "bytes_per_token": 41943296,
+    "miss_per_1000": {
+     "all": 451.427,
+     "hard": 647.458,
+     "rare": 381.609
+    },
+    "top32_cover": 0.17583,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 604.762,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 41970176,
+    "miss_per_1000": {
+     "all": 333.765,
+     "hard": 530.875,
+     "rare": 302.602
+    },
+    "top32_cover": 0.27162,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 497.041,
+    "worst_doc": 130
+   },
+   "64": {
+    "bytes_per_token": 42023936,
+    "miss_per_1000": {
+     "all": 244.353,
+     "hard": 436.949,
+     "rare": 234.644
+    },
+    "top32_cover": 0.38574,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 437.87,
+    "worst_doc": 130
+   },
+   "128": {
+    "bytes_per_token": 42131456,
+    "miss_per_1000": {
+     "all": 181.255,
+     "hard": 353.874,
+     "rare": 179.518
+    },
+    "top32_cover": 0.50396,
+    "top32_whole": 0.00013,
+    "worst_doc_per_1000": 325.444,
+    "worst_doc": 130
+   },
+   "256": {
+    "bytes_per_token": 42346496,
+    "miss_per_1000": {
+     "all": 130.124,
+     "hard": 273.593,
+     "rare": 130.331
+    },
+    "top32_cover": 0.62032,
+    "top32_whole": 0.00255,
+    "worst_doc_per_1000": 238.806,
+    "worst_doc": 174
+   },
+   "512": {
+    "bytes_per_token": 42776576,
+    "miss_per_1000": {
+     "all": 86.834,
+     "hard": 195.532,
+     "rare": 87.68
+    },
+    "top32_cover": 0.72751,
+    "top32_whole": 0.01547,
+    "worst_doc_per_1000": 187.246,
+    "worst_doc": 174
+   },
+   "1024": {
+    "bytes_per_token": 43636736,
+    "miss_per_1000": {
+     "all": 51.438,
+     "hard": 123.501,
+     "rare": 53.107
+    },
+    "top32_cover": 0.81954,
+    "top32_whole": 0.0657,
+    "worst_doc_per_1000": 124.83,
+    "worst_doc": 174
+   },
+   "2048": {
+    "bytes_per_token": 45357056,
+    "miss_per_1000": {
+     "all": 28.33,
+     "hard": 71.587,
+     "rare": 29.939
+    },
+    "top32_cover": 0.89108,
+    "top32_whole": 0.19047,
+    "worst_doc_per_1000": 73.27,
+    "worst_doc": 174
+   },
+   "4096": {
+    "bytes_per_token": 48797696,
+    "miss_per_1000": {
+     "all": 13.811,
+     "hard": 37.761,
+     "rare": 14.376
+    },
+    "top32_cover": 0.94056,
+    "top32_whole": 0.39414,
+    "worst_doc_per_1000": 36.364,
+    "worst_doc": 70
+   }
+  },
+  "wsvd256": {
+   "16": {
+    "bytes_per_token": 41943296,
+    "miss_per_1000": {
+     "all": 148.69,
+     "hard": 310.402,
+     "rare": 529.405
+    },
+    "top32_cover": 0.34031,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 310.7,
+    "worst_doc": 188
+   },
+   "32": {
+    "bytes_per_token": 41970176,
+    "miss_per_1000": {
+     "all": 99.991,
+     "hard": 223.456,
+     "rare": 413.093
+    },
+    "top32_cover": 0.50305,
+    "top32_whole": 1e-05,
+    "worst_doc_per_1000": 248.971,
+    "worst_doc": 188
+   },
+   "64": {
+    "bytes_per_token": 42023936,
+    "miss_per_1000": {
+     "all": 64.194,
+     "hard": 155.36,
+     "rare": 305.097
+    },
+    "top32_cover": 0.65086,
+    "top32_whole": 0.009,
+    "worst_doc_per_1000": 172.84,
+    "worst_doc": 188
+   },
+   "128": {
+    "bytes_per_token": 42131456,
+    "miss_per_1000": {
+     "all": 38.148,
+     "hard": 93.927,
+     "rare": 205.299
+    },
+    "top32_cover": 0.77085,
+    "top32_whole": 0.06175,
+    "worst_doc_per_1000": 131.687,
+    "worst_doc": 188
+   },
+   "256": {
+    "bytes_per_token": 42346496,
+    "miss_per_1000": {
+     "all": 21.558,
+     "hard": 54.515,
+     "rare": 126.411
+    },
+    "top32_cover": 0.85978,
+    "top32_whole": 0.1806,
+    "worst_doc_per_1000": 90.535,
+    "worst_doc": 188
+   },
+   "512": {
+    "bytes_per_token": 42776576,
+    "miss_per_1000": {
+     "all": 9.964,
+     "hard": 24.751,
+     "rare": 60.354
+    },
+    "top32_cover": 0.9202,
+    "top32_whole": 0.3515,
+    "worst_doc_per_1000": 53.498,
+    "worst_doc": 188
+   },
+   "1024": {
+    "bytes_per_token": 43636736,
+    "miss_per_1000": {
+     "all": 4.221,
+     "hard": 9.647,
+     "rare": 25.068
+    },
+    "top32_cover": 0.95782,
+    "top32_whole": 0.54762,
+    "worst_doc_per_1000": 32.922,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 45357056,
+    "miss_per_1000": {
+     "all": 1.603,
+     "hard": 3.3,
+     "rare": 10.574
+    },
+    "top32_cover": 0.97929,
+    "top32_whole": 0.7224,
+    "worst_doc_per_1000": 11.364,
+    "worst_doc": 94
+   },
+   "4096": {
+    "bytes_per_token": 48797696,
+    "miss_per_1000": {
+     "all": 0.481,
+     "hard": 1.079,
+     "rare": 3.327
+    },
+    "top32_cover": 0.9905,
+    "top32_whole": 0.84897,
+    "worst_doc_per_1000": 11.364,
+    "worst_doc": 94
+   }
+  },
+  "svd512": {
+   "16": {
+    "bytes_per_token": 83230976,
+    "miss_per_1000": {
+     "all": 349.42,
+     "hard": 523.894,
+     "rare": 171.201
+    },
+    "top32_cover": 0.23984,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 508.876,
+    "worst_doc": 130
+   },
+   "32": {
+    "bytes_per_token": 83257856,
+    "miss_per_1000": {
+     "all": 252.327,
+     "hard": 423.367,
+     "rare": 126.054
+    },
+    "top32_cover": 0.36071,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 431.953,
+    "worst_doc": 130
+   },
+   "64": {
+    "bytes_per_token": 83311616,
+    "miss_per_1000": {
+     "all": 184.233,
+     "hard": 343.403,
+     "rare": 91.125
+    },
+    "top32_cover": 0.4932,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 390.533,
+    "worst_doc": 130
+   },
+   "128": {
+    "bytes_per_token": 83419136,
+    "miss_per_1000": {
+     "all": 134.478,
+     "hard": 274.862,
+     "rare": 61.899
+    },
+    "top32_cover": 0.62017,
+    "top32_whole": 0.0014,
+    "worst_doc_per_1000": 307.692,
+    "worst_doc": 130
+   },
+   "256": {
+    "bytes_per_token": 83634176,
+    "miss_per_1000": {
+     "all": 93.927,
+     "hard": 208.288,
+     "rare": 40.87
+    },
+    "top32_cover": 0.73185,
+    "top32_whole": 0.01584,
+    "worst_doc_per_1000": 199.457,
+    "worst_doc": 174
+   },
+   "512": {
+    "bytes_per_token": 84064256,
+    "miss_per_1000": {
+     "all": 61.656,
+     "hard": 148.188,
+     "rare": 25.306
+    },
+    "top32_cover": 0.82341,
+    "top32_whole": 0.07481,
+    "worst_doc_per_1000": 151.967,
+    "worst_doc": 174
+   },
+   "1024": {
+    "bytes_per_token": 84924416,
+    "miss_per_1000": {
+     "all": 33.206,
+     "hard": 79.711,
+     "rare": 14.257
+    },
+    "top32_cover": 0.89262,
+    "top32_whole": 0.20555,
+    "worst_doc_per_1000": 92.266,
+    "worst_doc": 174
+   },
+   "2048": {
+    "bytes_per_token": 86644736,
+    "miss_per_1000": {
+     "all": 15.093,
+     "hard": 35.476,
+     "rare": 5.346
+    },
+    "top32_cover": 0.94057,
+    "top32_whole": 0.39483,
+    "worst_doc_per_1000": 44.944,
+    "worst_doc": 62
+   },
+   "4096": {
+    "bytes_per_token": 90085376,
+    "miss_per_1000": {
+     "all": 5.757,
+     "hard": 12.566,
+     "rare": 1.663
+    },
+    "top32_cover": 0.96925,
+    "top32_whole": 0.61156,
+    "worst_doc_per_1000": 30.435,
+    "worst_doc": 16
+   }
+  },
+  "wsvd512": {
+   "16": {
+    "bytes_per_token": 83230976,
+    "miss_per_1000": {
+     "all": 65.369,
+     "hard": 175.351,
+     "rare": 255.079
+    },
+    "top32_cover": 0.40103,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 146.091,
+    "worst_doc": 188
+   },
+   "32": {
+    "bytes_per_token": 83257856,
+    "miss_per_1000": {
+     "all": 38.255,
+     "hard": 107.698,
+     "rare": 170.369
+    },
+    "top32_cover": 0.6124,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 104.938,
+    "worst_doc": 188
+   },
+   "64": {
+    "bytes_per_token": 83311616,
+    "miss_per_1000": {
+     "all": 21.184,
+     "hard": 62.893,
+     "rare": 108.709
+    },
+    "top32_cover": 0.77902,
+    "top32_whole": 0.04393,
+    "worst_doc_per_1000": 65.844,
+    "worst_doc": 188
+   },
+   "128": {
+    "bytes_per_token": 83419136,
+    "miss_per_1000": {
+     "all": 10.432,
+     "hard": 31.478,
+     "rare": 57.621
+    },
+    "top32_cover": 0.88397,
+    "top32_whole": 0.21271,
+    "worst_doc_per_1000": 41.152,
+    "worst_doc": 188
+   },
+   "256": {
+    "bytes_per_token": 83634176,
+    "miss_per_1000": {
+     "all": 4.822,
+     "hard": 14.343,
+     "rare": 26.969
+    },
+    "top32_cover": 0.9432,
+    "top32_whole": 0.44821,
+    "worst_doc_per_1000": 20.576,
+    "worst_doc": 188
+   },
+   "512": {
+    "bytes_per_token": 84064256,
+    "miss_per_1000": {
+     "all": 1.937,
+     "hard": 5.648,
+     "rare": 11.287
+    },
+    "top32_cover": 0.97391,
+    "top32_whole": 0.66872,
+    "worst_doc_per_1000": 12.658,
+    "worst_doc": 92
+   },
+   "1024": {
+    "bytes_per_token": 84924416,
+    "miss_per_1000": {
+     "all": 0.641,
+     "hard": 1.587,
+     "rare": 4.277
+    },
+    "top32_cover": 0.98882,
+    "top32_whole": 0.82568,
+    "worst_doc_per_1000": 11.364,
+    "worst_doc": 94
+   },
+   "2048": {
+    "bytes_per_token": 86644736,
+    "miss_per_1000": {
+     "all": 0.227,
+     "hard": 0.698,
+     "rare": 1.307
+    },
+    "top32_cover": 0.99555,
+    "top32_whole": 0.91789,
+    "worst_doc_per_1000": 5.102,
+    "worst_doc": 11
+   },
+   "4096": {
+    "bytes_per_token": 90085376,
+    "miss_per_1000": {
+     "all": 0.067,
+     "hard": 0.19,
+     "rare": 0.238
+    },
+    "top32_cover": 0.99839,
+    "top32_whole": 0.96627,
+    "worst_doc_per_1000": 4.975,
+    "worst_doc": 160
+   }
+  },
+  "freq": {
+   "16": {
+    "bytes_per_token": 26880,
+    "miss_per_1000": {
+     "all": 627.673,
+     "hard": 729.707,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.10652,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 739.13,
+    "worst_doc": 136
+   },
+   "32": {
+    "bytes_per_token": 53760,
+    "miss_per_1000": {
+     "all": 531.69,
+     "hard": 642.254,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.16385,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 690.476,
+    "worst_doc": 5
+   },
+   "64": {
+    "bytes_per_token": 107520,
+    "miss_per_1000": {
+     "all": 458.894,
+     "hard": 570.413,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.20887,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 611.905,
+    "worst_doc": 5
+   },
+   "128": {
+    "bytes_per_token": 215040,
+    "miss_per_1000": {
+     "all": 403.622,
+     "hard": 509.678,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.26931,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 557.252,
+    "worst_doc": 61
+   },
+   "256": {
+    "bytes_per_token": 430080,
+    "miss_per_1000": {
+     "all": 353.721,
+     "hard": 453.576,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.32887,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 519.084,
+    "worst_doc": 61
+   },
+   "512": {
+    "bytes_per_token": 860160,
+    "miss_per_1000": {
+     "all": 313.73,
+     "hard": 402.932,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.38649,
+    "top32_whole": 3e-05,
+    "worst_doc_per_1000": 462.069,
+    "worst_doc": 65
+   },
+   "1024": {
+    "bytes_per_token": 1720320,
+    "miss_per_1000": {
+     "all": 266.593,
+     "hard": 347.02,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.4534,
+    "top32_whole": 0.00016,
+    "worst_doc_per_1000": 419.753,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 3440640,
+    "miss_per_1000": {
+     "all": 223.663,
+     "hard": 290.791,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.5254,
+    "top32_whole": 0.0008,
+    "worst_doc_per_1000": 351.145,
+    "worst_doc": 61
+   },
+   "4096": {
+    "bytes_per_token": 6881280,
+    "miss_per_1000": {
+     "all": 165.093,
+     "hard": 220.473,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.60612,
+    "top32_whole": 0.00346,
+    "worst_doc_per_1000": 290.123,
+    "worst_doc": 188
+   }
+  },
+  "clus64": {
+   "16": {
+    "bytes_per_token": 289024,
+    "miss_per_1000": {
+     "all": 438.965,
+     "hard": 559.942,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.16958,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 628.571,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 315904,
+    "miss_per_1000": {
+     "all": 387.046,
+     "hard": 503.84,
+     "rare": 999.881
+    },
+    "top32_cover": 0.23306,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 559.304,
+    "worst_doc": 180
+   },
+   "64": {
+    "bytes_per_token": 369664,
+    "miss_per_1000": {
+     "all": 344.731,
+     "hard": 455.417,
+     "rare": 999.525
+    },
+    "top32_cover": 0.30992,
+    "top32_whole": 0.00434,
+    "worst_doc_per_1000": 530.874,
+    "worst_doc": 108
+   },
+   "128": {
+    "bytes_per_token": 477184,
+    "miss_per_1000": {
+     "all": 302.563,
+     "hard": 399.124,
+     "rare": 999.168
+    },
+    "top32_cover": 0.39196,
+    "top32_whole": 0.01065,
+    "worst_doc_per_1000": 474.739,
+    "worst_doc": 108
+   },
+   "256": {
+    "bytes_per_token": 692224,
+    "miss_per_1000": {
+     "all": 262.278,
+     "hard": 347.972,
+     "rare": 993.584
+    },
+    "top32_cover": 0.49128,
+    "top32_whole": 0.02265,
+    "worst_doc_per_1000": 444.266,
+    "worst_doc": 108
+   },
+   "512": {
+    "bytes_per_token": 1122304,
+    "miss_per_1000": {
+     "all": 216.651,
+     "hard": 295.615,
+     "rare": 969.704
+    },
+    "top32_cover": 0.58759,
+    "top32_whole": 0.05669,
+    "worst_doc_per_1000": 368.083,
+    "worst_doc": 108
+   },
+   "1024": {
+    "bytes_per_token": 1982464,
+    "miss_per_1000": {
+     "all": 168.846,
+     "hard": 228.216,
+     "rare": 882.619
+    },
+    "top32_cover": 0.68241,
+    "top32_whole": 0.10942,
+    "worst_doc_per_1000": 314.815,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 3702784,
+    "miss_per_1000": {
+     "all": 116.113,
+     "hard": 157.644,
+     "rare": 712.724
+    },
+    "top32_cover": 0.77507,
+    "top32_whole": 0.17506,
+    "worst_doc_per_1000": 238.683,
+    "worst_doc": 188
+   },
+   "4096": {
+    "bytes_per_token": 7143424,
+    "miss_per_1000": {
+     "all": 74.332,
+     "hard": 100.971,
+     "rare": 514.197
+    },
+    "top32_cover": 0.84938,
+    "top32_whole": 0.24405,
+    "worst_doc_per_1000": 180.832,
+    "worst_doc": 31
+   }
+  },
+  "clus256": {
+   "16": {
+    "bytes_per_token": 1075456,
+    "miss_per_1000": {
+     "all": 412.051,
+     "hard": 538.237,
+     "rare": 1000.0
+    },
+    "top32_cover": 0.18284,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 602.381,
+    "worst_doc": 5
+   },
+   "32": {
+    "bytes_per_token": 1102336,
+    "miss_per_1000": {
+     "all": 366.543,
+     "hard": 491.401,
+     "rare": 999.762
+    },
+    "top32_cover": 0.261,
+    "top32_whole": 0.0,
+    "worst_doc_per_1000": 558.14,
+    "worst_doc": 108
+   },
+   "64": {
+    "bytes_per_token": 1156096,
+    "miss_per_1000": {
+     "all": 324.455,
+     "hard": 434.918,
+     "rare": 998.574
+    },
+    "top32_cover": 0.35159,
+    "top32_whole": 0.0068,
+    "worst_doc_per_1000": 523.657,
+    "worst_doc": 108
+   },
+   "128": {
+    "bytes_per_token": 1263616,
+    "miss_per_1000": {
+     "all": 284.852,
+     "hard": 382.497,
+     "rare": 990.971
+    },
+    "top32_cover": 0.44977,
+    "top32_whole": 0.01652,
+    "worst_doc_per_1000": 452.285,
+    "worst_doc": 108
+   },
+   "256": {
+    "bytes_per_token": 1478656,
+    "miss_per_1000": {
+     "all": 238.369,
+     "hard": 319.541,
+     "rare": 965.665
+    },
+    "top32_cover": 0.55303,
+    "top32_whole": 0.03923,
+    "worst_doc_per_1000": 397.119,
+    "worst_doc": 188
+   },
+   "512": {
+    "bytes_per_token": 1908736,
+    "miss_per_1000": {
+     "all": 189.416,
+     "hard": 251.063,
+     "rare": 884.876
+    },
+    "top32_cover": 0.64702,
+    "top32_whole": 0.07891,
+    "worst_doc_per_1000": 351.852,
+    "worst_doc": 188
+   },
+   "1024": {
+    "bytes_per_token": 2768896,
+    "miss_per_1000": {
+     "all": 135.988,
+     "hard": 183.791,
+     "rare": 746.941
+    },
+    "top32_cover": 0.735,
+    "top32_whole": 0.12557,
+    "worst_doc_per_1000": 273.663,
+    "worst_doc": 188
+   },
+   "2048": {
+    "bytes_per_token": 4489216,
+    "miss_per_1000": {
+     "all": 94.808,
+     "hard": 130.609,
+     "rare": 591.66
+    },
+    "top32_cover": 0.80397,
+    "top32_whole": 0.17559,
+    "worst_doc_per_1000": 220.165,
+    "worst_doc": 188
+   },
+   "4096": {
+    "bytes_per_token": 7929856,
+    "miss_per_1000": {
+     "all": 62.204,
+     "hard": 86.12,
+     "rare": 423.429
+    },
+    "top32_cover": 0.85686,
+    "top32_whole": 0.22278,
+    "worst_doc_per_1000": 162.749,
+    "worst_doc": 31
+   }
+  }
+ }
+}
