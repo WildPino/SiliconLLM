@@ -1,0 +1,59 @@
+{
+ "note": "DESK-MODEL, Ling-flash, context 2048, decode-only k = 4, head in two passes K = 1,024, full q8_0 KV",
+ "rows": {
+  "all ternary": {
+   "ms_per_token": 39.37,
+   "tok_s": 25.4,
+   "organ_ms": {
+    "attention": 7.76,
+    "shared": 5.01,
+    "dense_ffn": 0.73
+   }
+  },
+  "attention stored": {
+   "ms_per_token": 55.54,
+   "tok_s": 18.0,
+   "organ_ms": {
+    "attention": 23.94,
+    "shared": 5.01,
+    "dense_ffn": 0.73
+   }
+  },
+  "shared expert stored": {
+   "ms_per_token": 41.73,
+   "tok_s": 23.97,
+   "organ_ms": {
+    "attention": 7.76,
+    "shared": 7.36,
+    "dense_ffn": 0.73
+   }
+  },
+  "dense FFN stored": {
+   "ms_per_token": 40.94,
+   "tok_s": 24.43,
+   "organ_ms": {
+    "attention": 7.76,
+    "shared": 5.01,
+    "dense_ffn": 2.29
+   }
+  },
+  "shared + dense FFN stored": {
+   "ms_per_token": 43.29,
+   "tok_s": 23.1,
+   "organ_ms": {
+    "attention": 7.76,
+    "shared": 7.36,
+    "dense_ffn": 2.29
+   }
+  },
+  "attention + shared + dense FFN stored": {
+   "ms_per_token": 59.47,
+   "tok_s": 16.82,
+   "organ_ms": {
+    "attention": 23.94,
+    "shared": 7.36,
+    "dense_ffn": 2.29
+   }
+  }
+ }
+}

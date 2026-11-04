@@ -15,8 +15,9 @@ Arms:  st_attn     attention (fused QKV, output projection), layers 0-19;
        st_both     both; attention and FFN of a layer train together, on the same block output;
        st_attn_hi  attention, layers 10-19, on the original stream up to layer 10.  (st_attn_lo needs no training: it is
                    st_attn's layers 0-9, the trainer being sequential.)
-lr per tensor, test 2's picks: attention 1e-3, shared expert 3e-3, dense FFN 1e-3.  One epoch, Adafactor, about 4,096
-tokens of whole sequences per step, 1.5 M tokens train and 75 k are held out.
+lr per tensor: test 2's picks (attention 1e-3, shared expert 3e-3, dense FFN 1e-3) times --lr-scale, which the lr pick sets:
+st_both's layers 0-1, then layer 2 from that stream at each scale (--pick-from DIR writes no student stream).  One epoch,
+Adafactor, about 4,096 tokens of whole sequences per step, 1.5 M tokens train and 75 k are held out.
 Logged per layer on held-out tokens: the block loss with the original weights on the student stream (what the carried
 error alone costs), post-hoc, trained; after the move, the error of H_s against the teacher, plain and in the norms' space.
 Resumable: after each layer it saves layer_<i>.pt and the student stream; a killed run restarts at the next layer.
@@ -49,7 +50,7 @@ ARMS = {"st_attn": ("attn", 0, 19), "st_ffn": ("ffn", 0, 19), "st_both": ("both"
 LR_ATTN, LR_SHARED, LR_DENSE = 1e-3, 3e-3, 1e-3
 
 
-def organ_names(kind: str, i: int) -> dict[str, float]:
+def organ_names(kind: str, i: int, scale: float = 1.0) -> dict[str, float]:
     """tensor name in the layer -> lr."""
     out: dict[str, float] = {}
     if kind in ("attn", "both"):
@@ -59,7 +60,7 @@ def organ_names(kind: str, i: int) -> dict[str, float]:
             out.update({f"mlp.{p}.weight": LR_DENSE for p in EXP})
         else:
             out.update({f"mlp.shared_experts.{p}.weight": LR_SHARED for p in EXP})
-    return out
+    return {k: v * scale for k, v in out.items()}
 
 
 def write_flat(path: Path, h: torch.Tensor) -> None:
@@ -152,10 +153,11 @@ def train(a: argparse.Namespace) -> int:
     print("CONFIG", json.dumps({"cmd": "train", "arm": a.arm, "kind": kind, "layers": [lo, hi], "resume_after": done,
                                 "positions": n, "train_positions": n_tr, "batch": a.batch, "seed": a.seed, "group": "row",
                                 "init": "lloyd", "outlier": 0, "lr": {"attn": LR_ATTN, "shared": LR_SHARED, "dense": LR_DENSE},
+                                "lr_scale": a.lr_scale, "pick_from": str(a.pick_from) if a.pick_from else None,
                                 "dir": str(a.dir), "torch": torch.__version__}), flush=True)
     dev = torch.device("cuda")
     W = M.Weights()
-    hs = read_flat(flat, n) if done >= lo else read_flat(a.dir / f"h_{lo}.bin", n)
+    hs = read_flat(a.pick_from / "student.bin", n) if a.pick_from else read_flat(flat, n) if done >= lo else read_flat(a.dir / f"h_{lo}.bin", n)
     css: dict = {}
 
     def cs(m):
@@ -165,7 +167,7 @@ def train(a: argparse.Namespace) -> int:
 
     for i in range(done + 1, hi + 1):
         t0 = time.time()
-        names = organ_names(kind, i)
+        names = organ_names(kind, i, a.lr_scale)
         torch.manual_seed(a.seed + i)
         gen = torch.Generator().manual_seed(a.seed + i)
         wl = M.to(W.layer(i), dev)
@@ -242,8 +244,9 @@ def train(a: argparse.Namespace) -> int:
             rec["stream_ms"] = float((d - t).pow(2).mean())
             rec["stream_norm_err"] = float((((nrm(d) - nrm(t)) ** 2) * gw.cpu()).mean())
             rec["stream_cos"] = float(torch.nn.functional.cosine_similarity(d, t, dim=-1).mean())
-        write_flat(flat, hs)
-        state.write_text(json.dumps({"layer": i}) + "\n", encoding="utf-8")
+        if not a.pick_from:
+            write_flat(flat, hs)
+            state.write_text(json.dumps({"layer": i}) + "\n", encoding="utf-8")
         rec["seconds"] = round(time.time() - t0, 1)
         log["layers"][str(i)] = rec
         a.json.write_text(json.dumps(log, indent=1) + "\n", encoding="utf-8")
@@ -267,6 +270,8 @@ def main() -> int:
     r.add_argument("--out", type=Path, required=True)
     r.add_argument("--json", type=Path, required=True)
     r.add_argument("--layers", default="", help="dry runs only: a part of the arm's layers")
+    r.add_argument("--lr-scale", type=float, default=1.0)
+    r.add_argument("--pick-from", type=Path, help="lr pick only: the student stream to start from")
     r.add_argument("--batch", type=int, default=4096)
     r.add_argument("--seed", type=int, default=20261104)
     r.set_defaults(fn=train)
