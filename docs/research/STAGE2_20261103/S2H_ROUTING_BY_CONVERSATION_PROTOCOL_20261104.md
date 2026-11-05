@@ -12,7 +12,7 @@ other experts need not sit in RAM until a trigger calls them.
 With every expert in RAM this buys no speed: a token still reads k experts per layer. What it can buy is memory. On Ling-flash
 at 2 bits the experts weigh about 26 GB, and 30% of them about 8 GB. A miss reads one expert, 3.1 MB, from an SSD at about
 3 GB/s: about 1 ms on the desk. At k = 4 a token has 124 slots, so a miss rate m costs 124·m ms. The room under 24.7 is
-1.12 ms: coverage must reach 99%. At 97% the cost is 3.7 ms, about 22.5 tok/s. Nothing here is a measured SSD.
+1.12 ms: coverage must reach 99%. At 97% the cost is 3.7 ms: 39.37 + 3.7 = 43.07 ms, about 23.2 tok/s. Nothing here is a measured SSD.
 
 ## Literature (read in the papers, except where marked)
 
