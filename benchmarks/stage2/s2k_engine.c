@@ -82,6 +82,28 @@ static void step_fixed(void) {
     act_prepare(&S.xa, GT_Q4_K, D);
 }
 
+/* --cell corr: the fourth code's -0.5 * s * sum(x) per row, on one thread, as the upper bound of a term the engine would fold into its jobs: per layer, the sum of
+ * the input and of k = 4 expert inputs, then gate and up (2 x 1024 rows) and down (4096 rows) of each expert; every layer holds its own scales and outputs. */
+#define CROWS ((2u * FFE + D) * 4u)
+static float *c_s, *c_y;
+
+static void step_corr(void) {
+    unsigned l, e, r, i;
+    for (l = 0; l < NL; ++l) {
+        float *s = c_s + (size_t)l * CROWS, *y = c_y + (size_t)l * CROWS;
+        float sx = 0.0f;
+        for (i = 0; i < D; ++i) sx += S.x[i];
+        for (e = 0; e < 4; ++e) {
+            float se = 0.0f;
+            for (i = 0; i < FFE; ++i) se += S.gu[(size_t)e * FFE + i];
+            for (r = 0; r < 2 * FFE; ++r) y[r] -= 0.5f * s[r] * sx;
+            s += 2 * FFE; y += 2 * FFE;
+            for (r = 0; r < D; ++r) y[r] -= 0.5f * s[r] * se;
+            s += D; y += D;
+        }
+    }
+}
+
 int main(int argc, char **argv) {
     const char *cell = "kv", *kv = "f16";
     unsigned ctx = 2048, steps = 64, i, e;
@@ -101,8 +123,14 @@ int main(int argc, char **argv) {
     for (i = 0; i < HD; ++i) head_w[i] = 1.0f;
     g_ku = 4;
     for (e = 0; e <= NU; ++e) act_prepare(&Eact[e], GT_Q4_K, FFE), act_prepare(&S.ea[e], GT_Q4_K, FFE);
+    if (!strcmp(cell, "corr")) {
+        c_s = malloc(sizeof(float) * (size_t)NL * CROWS);
+        c_y = malloc(sizeof(float) * (size_t)NL * CROWS);
+        noise(c_s, (size_t)NL * CROWS);
+        noise(c_y, (size_t)NL * CROWS);
+    }
     if (!strcmp(cell, "kv")) {
-        size_t nb = !strcmp(kv, "q8_0") ? (size_t)NL * MAXCTX * NKV * KVROW : (size_t)NL * MAXCTX * NKV * HD * 2, b;
+        size_t nb =!strcmp(kv, "q8_0") ? (size_t)NL * MAXCTX * NKV * KVROW : (size_t)NL * MAXCTX * NKV * HD * 2, b;
         uint8_t *k = VirtualAlloc(NULL, nb, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE), *v = VirtualAlloc(NULL, nb, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
         if (!strcmp(kv, "q8_0")) {
             g_kvq8 = 1; S.kq = k; S.vq = v;
@@ -120,6 +148,7 @@ int main(int argc, char **argv) {
     for (i = 0; i < steps + 8; ++i) {
         double t0 = now_s();
         if (!strcmp(cell, "kv")) step_kv(ctx);
+        else if (!strcmp(cell, "corr")) step_corr();
         else step_fixed();
         if (i >= 8) t[i - 8] = now_s() - t0;
     }

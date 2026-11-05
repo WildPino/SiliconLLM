@@ -96,6 +96,43 @@ class Tern(torch.autograd.Function):
         return (g * inside).view(e, o, i), gs
 
 
+class Bal(torch.autograd.Function):
+    """The fourth code's form: w = s * q with q in {-1.5, -0.5, 0.5, 1.5}, the same group scale and estimators as Tern.  Groups marked `big` keep Tern's
+    grid: with no zero, an outlier's scale would write +-0.5 s on all its neighbours."""
+
+    @staticmethod
+    def grid(x, big):
+        return torch.where(big.unsqueeze(-1), x.clamp(-1, 1).round(), (x.floor() + 0.5).clamp(-1.5, 1.5))
+
+    @staticmethod
+    def forward(ctx, w, s, big):
+        ctx.save_for_backward(w, s, big)
+        e, o, i = w.shape
+        x = w.view(e, o, s.shape[-1], -1) / torch.where(s > 0, s, 1.0).unsqueeze(-1)
+        return (Bal.grid(x, big) * s.to(torch.bfloat16).float().unsqueeze(-1)).view(e, o, i).to(torch.bfloat16)
+
+    @staticmethod
+    def backward(ctx, g):
+        w, s, big = ctx.saved_tensors
+        e, o, i = w.shape
+        g = g.float().view(e, o, s.shape[-1], -1)
+        x = w.view(e, o, s.shape[-1], -1) / torch.where(s > 0, s, 1.0).unsqueeze(-1)
+        edge = torch.where(big, 1.0, 1.5).unsqueeze(-1)
+        inside = (x.abs() <= edge).float() * (s > 0).float().unsqueeze(-1)
+        gs = (g * (Bal.grid(x, big) - x * inside)).sum(-1)
+        return (g * inside).view(e, o, i), gs, None
+
+
+def bal_scale(w: torch.Tensor, grp: int, big: torch.Tensor, tern: torch.Tensor, iters: int = 6) -> torch.Tensor:
+    """Least-squares scale of the four-level grid per group (Lloyd).  Outlier groups keep Tern's scale, all-zero groups stay 0."""
+    a = w.float().view(*w.shape[:-1], w.shape[-1] // grp, grp)
+    s = a.abs().mean(-1)
+    for _ in range(iters):
+        q = (a / torch.where(s > 0, s, 1.0).unsqueeze(-1)).floor_().add_(0.5).clamp_(-1.5, 1.5)
+        s = (a * q).sum(-1) / q.pow(2).sum(-1).clamp_min(1e-12)
+    return torch.where(big, tern, s)
+
+
 def twn_scale(w: torch.Tensor, grp: int) -> torch.Tensor:
     """Least-squares ternary scale per group (TWN): threshold 0.7 mean|w|, scale = mean |w| above it."""
     a = w.float().abs().view(*w.shape[:-1], w.shape[-1] // grp, grp)
@@ -139,6 +176,7 @@ def main() -> int:
     ap.add_argument("--keep8", type=float, default=0.0,
                     help="weight of a second term: the same loss at k = 8 with the trained weights (decode-only forms)")
     ap.add_argument("--ternary", type=int, default=0, help="group size of ternary experts (0 = not ternary)")
+    ap.add_argument("--bal", action="store_true", help="with --ternary G: the fourth code's grid instead of ternary (S2K)")
     ap.add_argument("--alone", action="store_true", help="the layers before --layers stay as the original model")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--json", type=Path, required=True)
@@ -213,6 +251,8 @@ def main() -> int:
         torch.cuda.empty_cache()
 
         def experts(params):
+            if a.bal:
+                return (Bal.apply(params[p], params["s_" + p], params["big_" + p]).unbind(0) for p in EXP)
             if a.ternary:
                 return (Tern.apply(params[p], params["s_" + p]).unbind(0) for p in EXP)
             return (params[p].to(torch.bfloat16).unbind(0) for p in EXP)
@@ -250,6 +290,9 @@ def main() -> int:
                 d = {"gate": orig["gate"].to(dev), **{p: torch.nn.Parameter(orig[p].float().to(dev)) for p in EXP}}
                 for p in EXP:
                     s, big = init_scale(orig[p].to(dev), a.ternary)
+                    if a.bal:
+                        s = bal_scale(orig[p].to(dev), a.ternary, big, s)
+                        d["big_" + p] = big
                     d["s_" + p] = torch.nn.Parameter(s)
                     d["s_" + p].register_hook(lambda g, big=big: g.masked_fill(big, 0.0))
                     outliers[p] = int(big.sum())
@@ -302,7 +345,15 @@ def main() -> int:
         rec["rel_k8_trained"] = rel(p, M.Form(), hrows)
         rec["rel_form_trained_trainrows"] = rel(p, form, slice(0, min(n_tr, 200_000)))
         with torch.no_grad():
-            if a.ternary:
+            if a.bal:
+                eb = dict(zip(EXP, experts(p)))
+                torch.save({"mlp.gate.weight": p["gate"].detach().cpu(),
+                            **{f"mlp.experts.{q}": torch.stack(eb[q]).cpu() for q in EXP},
+                            **{f"ternary_scale.{q}": p["s_" + q].detach().to(torch.bfloat16).cpu() for q in EXP},
+                            **{f"bal_big.{q}": p["big_" + q].cpu() for q in EXP}},
+                           a.out / f"layer_{i}.pt")
+                del eb
+            elif a.ternary:
                 torch.save({"mlp.gate.weight": p["gate"].detach().cpu(),
                             **{f"mlp.experts.{q}": Tern.apply(p[q], p["s_" + q]).cpu() for q in EXP},
                             **{f"ternary_scale.{q}": p["s_" + q].detach().to(torch.bfloat16).cpu() for q in EXP}},

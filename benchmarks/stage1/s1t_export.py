@@ -100,7 +100,71 @@ def ternary_exact(out_q4: Path, trained: str, layers: list[int]) -> dict:
     return {"all_exact": all(out.values()), "n": len(out), "not_exact": [k for k, v in out.items() if not v]}
 
 
-def patch(trained: str, out_bf16: Path, out_q4: Path, ternary: bool = False) -> dict:
+def bal_levels(st: dict, h: str) -> tuple[torch.Tensor, torch.Tensor]:
+    """The trained stack back as Q4_0 fields, group 256 in blocks of 32: (d per block fp32, q in -3..3 per weight).  Four-level groups: d = s / 2, q = 2 * level;
+    outlier groups: d = s, q = level.  Q4_0 holds both without error, unless d leaves fp16's normal range."""
+    w = st[h].float()
+    key = h.split(".")[-1]
+    s = st[f"ternary_scale.{key}"].float()
+    big = st[f"bal_big.{key}"]
+    d = torch.where(big, s, s / 2).unsqueeze(-1)
+    x = w.view(*s.shape, -1) / torch.where(d > 0, d, 1.0)
+    return d.expand(*s.shape, 8), x.round()
+
+
+BF16_HALF_ULP = 2.0 ** -8
+
+
+def bal_blocks(d: torch.Tensor, q: torch.Tensor) -> tuple[np.ndarray, int]:
+    """Q4_0 blocks (fp16 d, then x[j] | x[j + 16] << 4) and how many d fall under fp16's normal range."""
+    dd = d.reshape(-1).numpy().astype(np.float16)
+    n = (q.reshape(-1, 32).numpy() + 8).astype(np.uint8)
+    b = np.empty((n.shape[0], 18), dtype=np.uint8)
+    b[:, :2] = dd.view(np.uint8).reshape(-1, 2)
+    b[:, 2:] = n[:, :16] | (n[:, 16:] << 4)
+    return b, int(((dd != 0) & (np.abs(dd) < 2.0 ** -14)).sum())
+
+
+def bal_error(got: np.ndarray, want: np.ndarray) -> float:
+    """Worst relative error per weight; a zero must stay a zero."""
+    nz = want != 0
+    return float(max(np.abs(got[nz] / want[nz] - 1).max() if nz.any() else 0.0, np.inf if np.any(got[~nz] != 0) else 0.0))
+
+
+def write_bal(out_q4: Path, trained: str, layers: list[int]) -> dict:
+    """The quantizer rounds Q4_0 by the block's maximum and would miss this grid, so the trained tensors' bytes are written over its output, and read back."""
+    r = gguf.GGUFReader(str(out_q4))
+    by = {t.name: (t.tensor_type.name, int(t.data_offset), int(t.n_bytes)) for t in r.tensors}
+    del r                       # its map must be closed before the file is written
+    out, under = {}, 0
+    with out_q4.open("r+b") as f:
+        for i in layers:
+            st = torch.load(Path(trained) / f"layer_{i}.pt", map_location="cpu", weights_only=True)
+            for g in ("ffn_gate_exps", "ffn_up_exps", "ffn_down_exps"):
+                name = f"blk.{i}.{g}.weight"
+                kind, offset, size = by[name]
+                if kind != "Q4_0":
+                    raise SystemExit(f"{name} is {kind}")
+                blocks, low = bal_blocks(*bal_levels(st, HF[g]))
+                under += low
+                if blocks.nbytes != size:
+                    raise SystemExit(f"{name}: {blocks.nbytes} bytes against {size}")
+                f.seek(offset)
+                f.write(blocks.tobytes())
+                out[f"{i}.{g}"] = name
+    r2 = gguf.GGUFReader(str(out_q4))
+    by2 = {t.name: t for t in r2.tensors}
+    worst = 0.0
+    for i in layers:                # per weight: the file against the stored bf16 s * level, which rounds 1.5 s
+        st = torch.load(Path(trained) / f"layer_{i}.pt", map_location="cpu", weights_only=True)
+        for g in ("ffn_gate_exps", "ffn_up_exps", "ffn_down_exps"):
+            got = gguf.quants.dequantize(by2[f"blk.{i}.{g}.weight"].data, by2[f"blk.{i}.{g}.weight"].tensor_type).reshape(st[HF[g]].shape)
+            want = st[HF[g]].float().numpy()
+            worst = max(worst, bal_error(got, want))
+    return {"tensors": len(out), "blocks_under_fp16_normal": under, "worst_rel_per_weight": worst, "exact_to_bf16": worst <= BF16_HALF_ULP}
+
+
+def patch(trained: str, out_bf16: Path, out_q4: Path, ternary: bool = False, bal: bool = False) -> dict:
     t0 = time.time()
     shutil.copyfile(BF16, out_bf16)
     changed, layers = [], []
@@ -123,14 +187,18 @@ def patch(trained: str, out_bf16: Path, out_q4: Path, ternary: bool = False) -> 
     if ternary:                 # stage 1 (b): the trained layers' routed experts go to TQ2_0 (block 256 = the groups)
         for i in sorted(layers):
             cmd += ["--tensor-type", rf"blk\.{i}\.ffn_(gate|up|down)_exps=tq2_0"]
+    if bal:                     # the fourth code, quality only: Q4_0 holds the grid exactly; write_bal puts the bytes
+        for i in sorted(layers):
+            cmd += ["--tensor-type", rf"blk\.{i}\.ffn_(gate|up|down)_exps=q4_0"]
     cmd += [out_bf16.as_posix(), out_q4.as_posix(), "Q4_K_M", "6"]
     env = {**os.environ, "PATH": os.pathsep.join([str(QUANTIZE.parent), str(RUNTIME), os.environ.get("PATH", "")])}
     q = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", env=env)
     (out_q4.parent / (out_q4.name + ".quantize.log")).write_text(q.stdout + q.stderr, encoding="utf-8")
     if q.returncode:
         raise SystemExit(f"quantize failed ({q.returncode})")
+    bal_rec = write_bal(out_q4, trained, sorted(layers)) if bal else None
     s = sha256(out_q4)
-    rec = {"trained": trained or None, "changed_tensors": len(changed), "bf16": str(out_bf16), "q4": str(out_q4),
+    rec = {"bal_exact": bal_rec, "trained": trained or None, "changed_tensors": len(changed), "bf16": str(out_bf16), "q4": str(out_q4),
            "q4_sha256": s, "equals_p0": s == P0_SHA, "seconds": round(time.time() - t0, 1), "cmd": cmd}
     if ternary:
         rec["ternary_exact"] = ternary_exact(out_q4, trained, layers)
@@ -145,8 +213,9 @@ def main() -> int:
     ap.add_argument("--out-q4", type=Path)
     ap.add_argument("--json", type=Path)
     ap.add_argument("--ternary", action="store_true", help="stage 1 (b): the trained layers' experts as TQ2_0")
+    ap.add_argument("--bal", action="store_true", help="the fourth code: the trained layers' experts as exact Q4_0")
     a = ap.parse_args()
-    r = check() if a.what == "check" else patch(a.trained, a.out_bf16, a.out_q4, a.ternary)
+    r = check() if a.what == "check" else patch(a.trained, a.out_bf16, a.out_q4, a.ternary, a.bal)
     print(json.dumps(r))
     if a.json:
         a.json.write_text(json.dumps(r, indent=1) + "\n", encoding="utf-8")

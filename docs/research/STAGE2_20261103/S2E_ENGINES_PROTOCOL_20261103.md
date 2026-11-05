@@ -163,3 +163,19 @@ two quantities. The organs are means of steps in the 5 processes with laps (mean
 without laps (27.83). Of the 0.98 ms, about 0.70 is mean against median (the laps' processes have median 28.12) and about 0.30 is the laps' own cost.
 Organ shares stand; organ milliseconds read about 3.4% high against the rate. The desk takes neither, it uses bytes and rates. Above, 7.07 of 27.8
 mixes the two: on one scale, 7.07 of 28.80 predicts 0.80 as well, so no line moves.
+## Amendment 3 (2026-11-05, a second idle session, not launched)
+
+Before any attention kernel of ours: what ik_llama.cpp's attention does at flash's shape. And the fourth code's correction, in time. `s2l_cells.py`, `s2l_attn.c`, `s2k_engine.c --cell corr`; 5 arms, 3 rounds, reported, no label.
+
+| Arm | What | Predicted (ms per token, 32 layers) |
+| --- | --- | --- |
+| fa_f16, fa_q8 | `ggml_flash_attn_ext`, 32 heads on 4, context 2048, f16 and q8_0 | 5-14, 5-14 |
+| mm_f16 | ik without flash attention, f16 | 7-16 |
+| fa_f16_512 | the control, context 512 | under 0.6 of fa_f16 |
+| corr | −0.5·s·sum(x) on every expert row, one thread: an upper bound, the engine folds it into its jobs | 0.2-0.6 |
+
+- **Check:** seven heads of the first layer against a double attention on the dequantized cache, and against the wrong KV head. Smoke: rel_err ≤ 0.006, wrong ≥ 1.28. VOID if rel_err ≥ 0.05, wrong ≤ 0.5, or the control fails.
+- **What it changes:** if ik reads under 5.15 ms, its kernel is the route, with its licence, and no kernel of ours is needed. If between 5.15 and the engine's 8.96, it says how far a known kernel gets. If at or above the engine's, the kernel is ours to write.
+- **Takes from the design:** no mask, one token, random cache: a real graph adds the mask and the KV write. The heads are ik's graph op, not its whole server path.
+- **Parts specific to Ling:** the shape. The method needs a ggml build.
+- **Session:** about 10 min on an idle machine.
