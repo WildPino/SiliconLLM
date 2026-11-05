@@ -26,9 +26,9 @@ Block loss by layer (test 2c's loss, one organ at a time):
 - **Kernel:** code 3 reads +2. On 30 cases (IQ2_BN and IQ2_BN_R4, five shapes, batches 1, 4, 9) relative error is 0.0063-0.0096 for four, neg and
   bal, against tern's 0.0064-0.0085. The planted miss reads 0.51-0.63. It holds.
 - **Planted:** each form's quantizer recovers 100% of weights on its own grid, at the noise's error. Identity passes.
-- **Trivial, and it matters.** The experts' output gain with bal is 0.377-0.384; the Gaussian twin's is 0.365-0.386. So the gain on experts is
-  what any bell shape gives at equal bytes, no more. It is real, and it carries no finding about Ling. Attention and shared stay under their twin
-  (asym 0.29-0.33 and 0.27-0.31 against 0.37-0.39): their inputs have large channels, which plain row error ignores.
+- **Trivial, and it matters.** On one expert's gate per layer, the output gain with bal is 0.377-0.384; the Gaussian twin's is 0.365-0.377. So the gain on experts
+  is what any bell shape gives at equal bytes, no more. It is real, and it carries no finding about Ling. Attention's QKV and the shared gate stay under
+  their twins (bal 0.32-0.34 and 0.26-0.30 against 0.37-0.39): their inputs have large channels, which plain row error ignores.
 - **Bal on attention is the worst form,** with the least weight error (0.128 against 0.200). The dry run's reading holds: no zero, so small weights on
   large input channels become ±0.5·s. Weight error does not rank forms here.
 
