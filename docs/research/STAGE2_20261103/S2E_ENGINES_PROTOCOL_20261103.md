@@ -127,3 +127,39 @@ so the compiler does not enter any comparison.
   k = 4 and 3 change every position's read, as decode-only k would.
 - **Parts specific to Ling:** the job count and the 256 experts; the method needs only a thread pool and a top-k MoE.
 - **Session:** about 1 h more, 2.5-3 h in all.
+
+## Amendment 2 (2026-11-05, before any run of the session)
+
+Seven cells for what the desk budget still assumes at flash's shapes (`s2k_cells.py`; `s2k_bench.c` on ik_llama.cpp's kernels; `s2k_engine.c`,
+`c50_engine.c` itself built with `C50_FLASH_SHAPES`, no model read, default build unchanged). They run last in the session: 18 arms, 3 rounds,
+rotated. ms = 32 layers, streaming. Predictions are mine; the dry run is contended and only proves the arms run.
+
+| Cell | Arms | Closes | Predicted |
+| --- | --- | --- | --- |
+| 1. K and V alone | Q4_K, IQ2_BN on 512 × 4096 | what exact K and V cost | 1.1-2.0 / 0.5-0.9 ms |
+| 2. QKV in two calls | 5120 × 4096 fused; 4096 + 1024 in IQ2_BN; 1024 in Q4_K | the price of a mixed attention | 4.4-5.2 / 4.8-5.6 / 6.0-8.0 ms |
+| 3. Formats above 2 bits | IQ2_KS, IQ3_KS, Q3_K, IQ2_KL on 4096 × 4096 | what an organ pays one step up | 70-110, 55-80, 55-80, 45-70 G weights/s |
+| 4. Fixed term, shared expert | every weightless step, at 32 layers; shared's three matrices | the desk's 4.32 ms; 5.17 ms | 3.5-6 ms; 4.9-5.5 ms |
+| 5. KV, 32 heads on 4, context 2048 | f16, q8_0; f16 at 512 as control | the desk's 2.2 ms | f16 10-17 ms, q8_0 7-15 ms |
+| 6. Router | 256 × 4096, Q8_0, the budget's int8 | the desk's 1.05 ms | 1.1-2.0 ms |
+| 7. All four codes | IQ2_BN written with four codes, against three, on 4096² and the shared expert | whether the code costs time | ratio 0.97-1.03 |
+
+- **Already measured, not redone:** Q4_K on 4096² (61.03 G weights/s). IQ2_BN on 4096² (155.63) and the 2-D shared expert (77.92) enter only as
+  cell 7's same-session reference, and repeat stage 1's numbers.
+- **The risk is cell 5.** The desk charges bytes at the wall. S0 read mini's KV at 16.1 GB/s, under the wall, and flash does 3.2 times mini's
+  attention arithmetic on 1.6 times its bytes. Above 3.3 ms in q8_0 the room of 1.12 ms is gone, and the ceiling needs a faster attention
+  kernel. That row goes in the delivery either way. The 2.2 ms stays a desk number until this cell reads.
+- **Reported, no label.** VOID if a kernel's check fails (rel_err ≥ 0.05, wrong rows ≤ 0.5), if the KV at 512 does not take under 0.6 of the KV at
+  2048, or if the fixed term did not run 7 jobs per layer. q8_0 slower than f16 is a result, not a VOID. Occupancy, replacements and CONFIG as above.
+- **Dry (`s2k_cells_dry.json`, contended):** 18 arms run, rel_err ≤ 0.0098, wrong rows ≥ 1.33, 224 jobs per step.
+- **Takes from the design:** weights in the kernels' cells are random, not Ling's, since the rate does not depend on the values (E45). The fixed
+  term runs empty jobs, so it does not see barriers waiting on uneven work. The KV cell reads a filled cache without writing it. The 2-D chain has no
+  routed experts beside it, while the engine runs the shared expert in the routed job.
+- **Parts specific to Ling:** every shape, 32 heads on 4 and k = 4. The method needs only a kernel library.
+- **Session:** about 10 min more, about 3 h in all.
+
+**Correction to the budget's 27.8 ms (S0, `c50_s0_run_1.json`, context 2048).** The organs sum to 28.80 ms; the rate rows give 27.82 ms. They are
+two quantities. The organs are means of steps in the 5 processes with laps (mean step 28.82 ms). The rate is the median of the 10 processes
+without laps (27.83). Of the 0.98 ms, about 0.70 is mean against median (the laps' processes have median 28.12) and about 0.30 is the laps' own cost.
+Organ shares stand; organ milliseconds read about 3.4% high against the rate. The desk takes neither, it uses bytes and rates. Above, 7.07 of 27.8
+mixes the two: on one scale, 7.07 of 28.80 predicts 0.80 as well, so no line moves.

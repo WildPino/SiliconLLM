@@ -63,8 +63,19 @@
 
 #define NT_MAX 32
 static int g_nt = 6;   /* H2: worker threads, one per physical core (--threads; default 6, the 3600X) */
+#ifdef C50_FLASH_SHAPES   /* stage 2 test 5, amendment 2: s2k_engine.c only; no model of these shapes is read */
+#define D 4096U
+#define NH 32U
+#define NL 32U
+#define FFE 1024U
+#define FFD 9216U
+#else
 #define D 2048U
 #define NH 16U
+#define NL 20U
+#define FFE 512U
+#define FFD 5120U
+#endif
 #define NKV 4U
 #define HD 128U
 #define ROT 64U
@@ -73,9 +84,6 @@ static int g_nt = 6;   /* H2: worker threads, one per physical core (--threads; 
 #define NU 8U
 #define NG 8U
 #define TG 4U
-#define FFE 512U
-#define FFD 5120U
-#define NL 20U
 #define VOCAB 157184U
 #define MAXCTX 8192U
 #define QKV_ROWS ((NH + 2 * NKV) * HD)
