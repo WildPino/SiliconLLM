@@ -3,6 +3,11 @@
 2026-11-04. Ling-mini, one RTX 3060, block-wise training as stage 1 (b). It runs beside tests 2b and 3b, and stops during
 the idle session.
 
+## lr pick (2026-11-05, by the registered rule, before any arm)
+
+Layer 2 of the stack, held-out block loss: scale 0.3 gives 0.3076, scale 1 gives 0.2677, scale 3 gives 0.2601. **Scale 3**
+for every arm: attention 3e-3, shared expert 9e-3, dense FFN 3e-3. It is the grid's upper edge, so a higher lr stays untested.
+Layers 0-1 train again at this scale. Records: `results/s2s_pick_*.json`.
 ## Question
 
 Attention, the shared expert and the dense FFN are read by every token, so no router can choose where to read them exact.
