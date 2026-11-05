@@ -119,3 +119,19 @@ and the rule need only a top-k MoE.
 ## Cost
 
 About 3 h per arm, four or five arms: 12-15 h of CPU after test 2b. No GPU.
+
+## Amendment 2 (2026-11-05, after the verdict; reported arms, the outcome stands)
+
+x19's −1.61 is at k = 8, while its 3.92 ms and the ceiling are at k = 4, and that depth has no random control. Three reported arms, before the stage's delivery:
+
+| Arm | What | Predicted Δ |
+| --- | --- | --- |
+| x19k4 | top expert exact, layers 1-19, k = 4 | −5.5 to −3 |
+| r19 | random expert exact, layers 1-19, k = 8 | −5 to −2.5; x19 beats it, 60% |
+| t4 | all ternary, k = 4; it did not exist | −12.5 to −10.5 |
+
+- **From here, every number on the experts set against the ceiling is read at k = 4.** t4 is the starting point beside −8.52. x15k4 and x19k4 report what they bring back from t4.
+- **k = 4 acts on generated tokens only:** arc, mmlu and docs are the k = 8 arm's, byte for byte, as x15k4 against x15 shows. They are copied, not rerun (`s2x_run.py`, `BASE`).
+- **Takes from the design:** the k = 4 arms run decode-only, k₂ = 16, as x15k4 did; r19's random slot has one seed.
+- **What it changes:** if x19k4 keeps Δ ≥ −4.26 and x19 beats r19, an exact slot at full depth stays a priced option in the delivery. If not, it leaves. Reported: test 3b's outcome stays LITTLE COMES BACK.
+- **Parts specific to Ling:** as above.

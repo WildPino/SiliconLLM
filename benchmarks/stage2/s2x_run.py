@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -34,7 +35,12 @@ PREFIX = 2
 POS, TOP = 32, 32 + 32 * 8
 # arm -> (mode, layers, k = 4 on generated tokens)
 ARMS = {"x15": ("top", "15-19", False), "r15": ("random", "15-19", False), "x19": ("top", "1-19", False),
-        "x15k4": ("top", "15-19", True), "x9": ("top", "9-19", False), "r9": ("random", "9-19", False)}
+        "x15k4": ("top", "15-19", True), "x9": ("top", "9-19", False), "r9": ("random", "9-19", False),
+        # amendment 2, reported; "off" = no exact slot.  The fourth code's arms read --model.
+        "x19k4": ("top", "1-19", True), "r19": ("random", "1-19", False), "t4": ("off", "-", True),
+        "bal": ("off", "-", False), "bal4": ("off", "-", True)}
+# k = 4 acts on generated tokens only, so an arm's score panels are its k = 8 arm's, byte for byte (x15k4 against x15: arc, mmlu, docs).  Copied.
+BASE = {"x19k4": "x19", "t4": "tern", "bal4": "bal"}
 
 
 def launch(cmd: list[str], need: list[str]) -> dict:
@@ -64,7 +70,7 @@ def pins() -> None:
 
 
 def exact(mode: str, layers: str) -> list[str]:
-    return ["--exact-from", str(P0), "--exact-mode", mode, "--exact-layers", layers]
+    return [] if mode == "off" else ["--exact-from", str(P0), "--exact-mode", mode, "--exact-layers", layers]
 
 
 def arm(a: argparse.Namespace) -> int:
@@ -74,14 +80,28 @@ def arm(a: argparse.Namespace) -> int:
     if report["inputs_manifest_sha256"] != man:
         raise SystemExit("inputs changed since the run began")
     pins()
+    model = TERN
+    if a.arm in ("bal", "bal4"):
+        if not a.model or sha256(a.model) != a.model_sha:
+            raise SystemExit("the fourth code's arms need --model and its --model-sha")
+        model = a.model
     mode, layers, k4 = ARMS[a.arm]
-    rec = report["arms"].setdefault(a.arm, {"panels": {}, "mode": mode, "layers": layers, "k4": k4})
+    rec = report["arms"].setdefault(a.arm, {"panels": {}, "mode": mode, "layers": layers, "k4": k4, "model": str(model)})
     (WORK / a.arm).mkdir(parents=True, exist_ok=True)
     for panel, src, tool, extra in PANELS:
         if rec["panels"].get(panel, {}).get("status") == "COMPLETE":
             continue
+        if tool == "score" and a.arm in BASE:
+            got = list((WORK / BASE[a.arm]).glob(f"{panel}.*"))
+            if not got:
+                raise SystemExit(f"{BASE[a.arm]} has no {panel}")
+            for f in got:
+                shutil.copyfile(f, WORK / a.arm / f.name)
+            rec["panels"][panel] = {"status": "COMPLETE", "copied_from": BASE[a.arm], "files": sorted(f.name for f in got)}
+            save(a.out, report)
+            continue
         exe, flag = (SCORE, "--ids") if tool == "score" else (GEN, "--prompts")
-        cmd = [str(exe), "--model", str(TERN), flag, str(INPUTS[src] / f"{panel}.tsv"), "--out", str(WORK / a.arm / panel),
+        cmd = [str(exe), "--model", str(model), flag, str(INPUTS[src] / f"{panel}.tsv"), "--out", str(WORK / a.arm / panel),
                "--threads", "6", "--ubatch", "512", "--max-projected-s", str(3 * MAX_PROJECTED_S)] + extra + exact(mode, layers)
         if k4 and tool == "generate":
             cmd += ["--moe-mode", "top", "--moe-k", "4", "--moe-mass", "16", "--moe-decode-only"]
@@ -91,12 +111,13 @@ def arm(a: argparse.Namespace) -> int:
             cmd += ["--ref-top", str(WORK / "ref" / "docs.top.bin")]
         if tool == "generate":
             cmd += ["--stop", STOP]
-        need = [f"exact_mode={mode} ", f"exact_layers={layers} ", f"exact_from={P0} ", f"model={TERN} ", "hook=1 ", "flash_attn=disabled"]
+        need = [f"model={model} ", "flash_attn=disabled"] + ([] if mode == "off" else [f"exact_mode={mode} ", f"exact_layers={layers} ", f"exact_from={P0} ", "hook=1 "])
         r = launch(cmd, need)
-        if r["status"] == "COMPLETE" and len(r["mix"]) != 1:
-            r["status"] = "STOPPED: no MIX line"
-        if r["status"] == "COMPLETE" and f"mode={mode} " not in r["mix"][0]:
-            r["status"] = "STOPPED: MIX does not confirm the mode"
+        if mode != "off":
+            if r["status"] == "COMPLETE" and len(r["mix"]) != 1:
+                r["status"] = "STOPPED: no MIX line"
+            if r["status"] == "COMPLETE" and f"mode={mode} " not in r["mix"][0]:
+                r["status"] = "STOPPED: MIX does not confirm the mode"
         rec["panels"][panel] = r
         save(a.out, report)
         print(a.arm, panel, r["status"], r["wall_s"], r["mix"], flush=True)
@@ -155,6 +176,8 @@ def main() -> int:
     p = sp.add_parser("arm")
     p.add_argument("--arm", required=True, choices=sorted(ARMS))
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--model", type=Path, help="the fourth code's arms only")
+    p.add_argument("--model-sha", default="")
     p.set_defaults(fn=arm)
     c = sp.add_parser("controls")
     c.add_argument("--out", type=Path, required=True)

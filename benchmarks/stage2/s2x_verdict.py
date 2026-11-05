@@ -26,7 +26,7 @@ HALF = TERN_DELTA / 2
 SLOT_ERR = 1e-3                # the energy-weighted and the mean relative error of a slot read from the context's own file
 PLANT_DROP = 0.10              # the planted read's top-1 against tern's
 MS_ALL = 3.92                  # one exact slot in every MoE layer of Ling-flash, desk
-LAYERS = {"x15": 5, "x9": 11, "x19": 19, "x15k4": 5}
+LAYERS = {"x15": 5, "x9": 11, "x19": 19, "x15k4": 5, "x19k4": 19}
 
 
 def score(arms: dict, name: str, control: str | None, degenerate: dict) -> dict:
@@ -71,8 +71,12 @@ def decide(arms: dict, degenerate: dict, untrained: bool, controls: dict) -> dic
     # Amendment 1: when x15 is judged, x9 and r9 run as reported arms; they change no outcome.
     out = {"judged": judged, "control": control, "controls": ok, "arm": j,
            "control_arm": score(arms, control, None, degenerate),
-           "reported": {a: score(arms, a, "r9" if a == "x9" and "r9" in arms else None, degenerate)
-                        for a in ("x9", "r9", "x19", "x15k4") if a in arms and a not in (judged, control)}}
+           "reported": {a: score(arms, a, {"x9": "r9", "x19": "r19"}.get(a) if {"x9": "r9", "x19": "r19"}.get(a) in arms else None, degenerate)
+                        for a in ("x9", "r9", "x19", "x15k4", "x19k4", "r19", "t4") if a in arms and a not in (judged, control)}}
+    if "t4" in out["reported"]:                 # amendment 2: what the ceiling reads starts from all ternary at k = 4, not from the -8.52
+        for a in ("x15k4", "x19k4"):
+            if a in out["reported"]:
+                out["reported"][a]["back_from_t4"] = out["reported"][a]["delta"] - out["reported"]["t4"]["delta"]
     if not all(ok.values()):
         out["outcome"] = "VOID"
     elif j["fits"] and j["beats_control"]:
@@ -137,7 +141,7 @@ def main() -> int:
         raise SystemExit("test 2b did not pass: no milliseconds to spend")
     untrained = head["second_label"] == "THE UNTRAINED PREVIEW PASSES TOO"
     run = json.loads(a.run.read_text(encoding="utf-8"))
-    names = [x for x in run["arms"] if all(p.get("status") == "COMPLETE" for p in run["arms"][x]["panels"].values())
+    names = [x for x in run["arms"] if x not in ("bal", "bal4") and all(p.get("status") == "COMPLETE" for p in run["arms"][x]["panels"].values())
              and len(run["arms"][x]["panels"]) == 7]
     arms = {x: {p: vec(json.loads((a.scores_dir / f"{x}.json").read_text(encoding="utf-8")), p) for p in PANELS}
             for x in ["ref"] + names}
