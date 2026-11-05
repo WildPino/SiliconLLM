@@ -28,7 +28,7 @@ between sessions is not explained, which is why the ratio comes from one session
 
 bar3 > bar1 did not hold: 31.35 against 32.63 ms. Processes fall in two groups about 1.7 ms apart (base 30.92..32.71, k4 25.40..27.07), which is more than the
 barrier's cost. The barrier cell says nothing. Kept as VOID, not rerun: the fixed term below answers the same question.
-Read only as an indication, on this VOID run: `--kv q8_0` adds 1.58 ms, the opposite of the −1.4 to −1.9 predicted, and agrees with cell 5. k = 4 saves 5.64 ms and
+Read only as an indication, on this VOID run: `--kv q8_0` adds 1.58 ms, the opposite of the −0.4 to −1.9 predicted, and agrees with cell 5. k = 4 saves 5.64 ms and
 k = 3 saves 6.97, above the predicted −4 to −4.5 and −5.2 to −6.6.
 
 ## Amendment 2: every control holds (ms at 32 layers, 3 rounds)
@@ -81,7 +81,7 @@ Those hours sit inside the budget, and the rates are measured; flash's quality u
 
 ## Parts specific to Ling
 
-The shapes, 32 heads on 4, k = 4, and the 1.54× on this file. The finding that a decode KV at 8 query heads per KV head needs its own kernel is general.
+The shapes, 32 heads on 4, k = 4, and the 1.54× on this file. That this attention code is arithmetic-bound at this ratio of query to KV heads should hold on other models with the same ratio; it was not measured on any.
 
 ## What this changes
 
