@@ -131,6 +131,8 @@ def report(a: argparse.Namespace) -> int:
            "split_cost_ms": ms["qkv_two"] - ms["qkv_one"], "four_over_tern": {"square": ms["sq_four"] / ms["sq_tern"], "ffn": ms["ff_four"] / ms["shared"]},
            "kernel_checks": checks, "kv_moves_with_context": kv_moves, "fixed_jobs": jobs}
     print(json.dumps(out, indent=1))
+    if a.json:
+        a.json.write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
     return 0
 
 
@@ -143,6 +145,7 @@ def main() -> int:
     r.set_defaults(fn=run)
     q = sp.add_parser("report")
     q.add_argument("--run", type=Path, required=True)
+    q.add_argument("--json", type=Path)
     q.set_defaults(fn=report)
     a = ap.parse_args()
     return a.fn(a)
