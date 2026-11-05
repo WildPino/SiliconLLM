@@ -50,7 +50,7 @@ With ternary experts' states: +0.0038 [+0.0030, +0.0049], miss 0.
 ## What the pass is, and what it is not
 
 - **The tail is calibrated for the line, not for the truth.** It holds 2.8 times the exact mass (0.0067 against 0.0024). The arm with the right mass on dev leaves the line.
-  The tail's mass is too small in that arm where a target falls in the tail, because the preview ranks those words low. So the two constants trade a worse total for a better score of the target.
+  A likely reading, not tested: the preview ranks the true targets too low inside the tail, and the extra mass pays for that.
 - **Reading the target's row shows the gap:** with the true mass, the exact target gives −0.0005.
 - **New text is of the same kind** as the panel's, from the same builder. Text after the model's release was not tried.
 

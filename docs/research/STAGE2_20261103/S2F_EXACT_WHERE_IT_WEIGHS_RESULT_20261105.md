@@ -15,11 +15,11 @@ The judged arm x15 brings back 0.85 of the 8.52 points that ternary experts lose
 | x15k4, reported | as x15, k = 4 | −10.45 [−14.59, −6.18] | 22 | −1.93 | 1.03 | 0.770 / 0.588 / +0.052 |
 
 x15 against r15: −0.28 [−2.45, +1.79]. The line was Δ ≥ −4.26 and beating the control. Controls hold: off, replay, slot error, plant.
-Predictions: x15 −6 to −3.5, miss; LITTLE 35%; r15 −9 to −7, just above; x19 −4 to −1.5, just above. x9 and r9, reported, are still running and will be added.
+Predictions: x15 −6 to −3.5, miss; LITTLE 35%; r15 −9 to −7, hit; x19 −4 to −1.5, hit. x9 and r9, reported, are still running and will be added.
 
 ## What it says
 
-- **Likelihood moved, the panels did not.** x15 lifts top-1 and halves r15's dBPB gap, but gives the same points as a random expert. A gain on likelihood alone would have misled here.
+- **Likelihood moved, the panels did not.** x15 beats r15 on top-1 (0.770 against 0.748) and dBPB (+0.052 against +0.090), but gives the same points. A gain on likelihood alone would have misled here.
 - **The damage is spread over layers.** Five layers bring back 10%; nineteen bring back 81%, at chat 28, and that arm fits the quality budget.
 - **x19 costs 3.92 ms.** On the idle session's ceiling that gives 19.6-20.7 tok/s, against 21.27-22.57 without it. Exact experts do not fit under 24.7.
 - **k = 4 on top of ternary hurts:** gsm8k falls to 66 from 81, and the arm is over budget.
