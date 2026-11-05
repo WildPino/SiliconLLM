@@ -36,7 +36,8 @@ namespace {
 
 struct Options {
     std::string model, prompts, out, mode = "none", preview;
-    int threads = 6, ubatch = 512, ctx = 4096, max_new = 256, moe_k = 0, override_experts = 0, moe_mass = 0, two_pass_k = 0, tail_offset = 1;
+    int threads = 6, ubatch = 512, ctx = 4096, max_new = 256, moe_k = 0, override_experts = 0, moe_mass = 0, two_pass_k = 0, tail_offset = 1, tail_affine = 0;
+    float tail_a = 1.0f, tail_b = 0.0f;
     double moe_p = 0.0;
     unsigned long long moe_seed = 0;
     bool no_hook = false, decode_only = false;
@@ -118,6 +119,9 @@ int main(int argc, char ** argv) {
         else if (a == "--preview") o.preview = next();
         else if (a == "--two-pass-k") o.two_pass_k = std::stoi(next());
         else if (a == "--tail-offset") o.tail_offset = std::stoi(next());
+        else if (a == "--tail-affine") o.tail_affine = std::stoi(next());
+        else if (a == "--tail-a") o.tail_a = std::stof(next());
+        else if (a == "--tail-b") o.tail_b = std::stof(next());
         else throw std::runtime_error("unknown argument " + a);
     }
     if (o.model.empty() || o.prompts.empty() || o.out.empty() || o.max_new < 1 || !s1::valid_mode(o.mode)
@@ -184,6 +188,9 @@ int main(int argc, char ** argv) {
         if (!pctx) throw std::runtime_error("preview context init failed");
         tp.k = o.two_pass_k;
         tp.tail_offset = o.tail_offset != 0;
+        tp.tail_affine = o.tail_affine != 0;
+        tp.tail_a = o.tail_a;
+        tp.tail_b = o.tail_b;
     }
 
     size_t prompt_tokens = 0;
@@ -200,10 +207,10 @@ int main(int argc, char ** argv) {
     for (size_t k = 0; k < o.stop.size(); ++k) stop_s += (k ? "," : "") + std::to_string(o.stop[k]);
     printf("CONFIG model=%s n_vocab=%d items=%zu prompt_tokens=%zu max_new=%d stop=%s greedy=lowest_id_ties "
            "threads=%d ubatch=%d ctx=%d flash_attn=disabled kv=f16 hook=%d moe_mode=%s moe_k=%d moe_p=%.4f "
-           "moe_seed=%llu moe_mass=%d decode_only=%d override_experts=%d max_projected_s=%.0f preview=%s two_pass_k=%d tail_offset=%d system_info=[%s]\n", o.model.c_str(),
+           "moe_seed=%llu moe_mass=%d decode_only=%d override_experts=%d max_projected_s=%.0f preview=%s two_pass_k=%d tail_offset=%d tail_affine=%d tail_a=%.7g tail_b=%.7g system_info=[%s]\n", o.model.c_str(),
            n_vocab, items.size(), prompt_tokens, o.max_new, stop_s.c_str(), o.threads, o.ubatch, o.ctx, o.no_hook ? 0 : 1,
            o.mode.c_str(), o.moe_k, o.moe_p, o.moe_seed, o.moe_mass, o.decode_only ? 1 : 0, o.override_experts, o.max_projected_s,
-           o.preview.empty() ? "-" : o.preview.c_str(), o.two_pass_k, o.tail_offset, llama_print_system_info());
+           o.preview.empty() ? "-" : o.preview.c_str(), o.two_pass_k, o.tail_offset, o.tail_affine, o.tail_a, o.tail_b, llama_print_system_info());
     fflush(stdout);
 
     FILE * fo = fopen((o.out + ".jsonl").c_str(), "wb");

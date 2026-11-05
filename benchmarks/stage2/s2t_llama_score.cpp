@@ -46,7 +46,8 @@ namespace {
 
 struct Options {
     std::string model, ids, out, ref_top, mode = "none", dump_h, preview;
-    int threads = 6, ubatch = 512, ctx = 4096, top = 0, moe_k = 0, override_experts = 0, moe_mass = 0, two_pass_k = 0, tail_offset = 1;
+    int threads = 6, ubatch = 512, ctx = 4096, top = 0, moe_k = 0, override_experts = 0, moe_mass = 0, two_pass_k = 0, tail_offset = 1, tail_affine = 0;
+    float tail_a = 1.0f, tail_b = 0.0f;
     double moe_p = 0.0;
     unsigned long long moe_seed = 0;
     bool no_hook = false;
@@ -127,6 +128,9 @@ int main(int argc, char ** argv) {
         else if (a == "--preview") o.preview = next();
         else if (a == "--two-pass-k") o.two_pass_k = std::stoi(next());
         else if (a == "--tail-offset") o.tail_offset = std::stoi(next());
+        else if (a == "--tail-affine") o.tail_affine = std::stoi(next());
+        else if (a == "--tail-a") o.tail_a = std::stof(next());
+        else if (a == "--tail-b") o.tail_b = std::stof(next());
         else throw std::runtime_error("unknown argument " + a);
     }
     if (o.model.empty() || o.ids.empty() || o.out.empty() || !s1::valid_mode(o.mode) || o.top < 0 || o.top > 4096
@@ -200,6 +204,9 @@ int main(int argc, char ** argv) {
         if (!pctx) throw std::runtime_error("preview context init failed");
         tp.k = o.two_pass_k;
         tp.tail_offset = o.tail_offset != 0;
+        tp.tail_affine = o.tail_affine != 0;
+        tp.tail_a = o.tail_a;
+        tp.tail_b = o.tail_b;
     }
 
     size_t positions = 0;
@@ -212,10 +219,10 @@ int main(int argc, char ** argv) {
     }
     printf("CONFIG model=%s n_vocab=%d docs=%zu positions=%zu threads=%d ubatch=%d ctx=%d flash_attn=disabled "
            "kv=f16 top=%d ref_top=%s hook=%d moe_mode=%s moe_k=%d moe_p=%.4f moe_seed=%llu moe_mass=%d override_experts=%d "
-           "max_projected_s=%.0f dump_h=%s preview=%s two_pass_k=%d tail_offset=%d system_info=[%s]\n", o.model.c_str(), n_vocab, docs.size(), positions, o.threads,
+           "max_projected_s=%.0f dump_h=%s preview=%s two_pass_k=%d tail_offset=%d tail_affine=%d tail_a=%.7g tail_b=%.7g system_info=[%s]\n", o.model.c_str(), n_vocab, docs.size(), positions, o.threads,
            o.ubatch, o.ctx, o.top, o.ref_top.empty() ? "-" : o.ref_top.c_str(), o.no_hook ? 0 : 1, o.mode.c_str(),
            o.moe_k, o.moe_p, o.moe_seed, o.moe_mass, o.override_experts, o.max_projected_s, o.dump_h.empty() ? "-" : o.dump_h.c_str(),
-           o.preview.empty() ? "-" : o.preview.c_str(), o.two_pass_k, o.tail_offset, llama_print_system_info());
+           o.preview.empty() ? "-" : o.preview.c_str(), o.two_pass_k, o.tail_offset, o.tail_affine, o.tail_a, o.tail_b, llama_print_system_info());
     fflush(stdout);
 
     FILE * fpos = fopen((o.out + ".pos.bin").c_str(), "wb");

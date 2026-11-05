@@ -15,6 +15,8 @@ namespace s2t {
 struct TwoPass {
     int k = 0;
     bool tail_offset = true;
+    bool tail_affine = false;             // test 2b-bis: the tail is a * preview + b, two constants from dev; the offset is not used
+    float tail_a = 1.0f, tail_b = 0.0f;
     uint64_t positions = 0, missed = 0;   // the exact head's argmax outside the candidates
     std::vector<int> order;
     std::vector<float> z;
@@ -32,7 +34,8 @@ struct TwoPass {
         double diff = 0.0;
         for (int i = 0; i < k; ++i) diff += static_cast<double>(exact[order[i]]) - preview[order[i]];
         const float off = tail_offset ? static_cast<float>(diff / k) : 0.0f;
-        for (int v = 0; v < n_vocab; ++v) z[v] = preview[v] + off;
+        if (tail_affine) for (int v = 0; v < n_vocab; ++v) z[v] = tail_a * preview[v] + tail_b;
+        else for (int v = 0; v < n_vocab; ++v) z[v] = preview[v] + off;
         int arg = order[0];
         for (int i = 0; i < k; ++i) {
             const int c = order[i];

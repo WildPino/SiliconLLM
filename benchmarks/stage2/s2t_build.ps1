@@ -1,5 +1,6 @@
-﻿# Builds stage 2 test 2b's panel tools against the pinned llama.cpp static libraries (5b335f4, AVX2), as
+# Builds stage 2 test 2b's panel tools against the pinned llama.cpp static libraries (5b335f4, AVX2), as
 # benchmarks/stage1/s1_build.sh does, with the WinLibs g++ 15.2 they were built with.
+param([string]$Prefix = 's2t')
 $ErrorActionPreference = 'Stop'
 $T = 'E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/tools/llama.cpp-5b335f4'
 $gxx = (Get-ChildItem "$env:LOCALAPPDATA/Microsoft/WinGet/Packages/BrechtSanders.WinLibs*/mingw64/bin/g++.exe").FullName
@@ -11,7 +12,7 @@ New-Item -ItemType Directory -Force (Join-Path $here 'bin') | Out-Null
 foreach ($tool in 's2t_llama_score', 's2t_llama_generate') {
     & $gxx -O2 -std=c++17 "-I$T/include" "-I$T/ggml/include" "-I$here" "-I$s1" (Join-Path $here "$tool.cpp") `
         "$T/build-avx2/src/libllama.a" "$T/build-avx2/ggml/src/ggml.a" "$T/build-avx2/ggml/src/ggml-cpu.a" `
-        "$T/build-avx2/ggml/src/ggml-base.a" -fopenmp -static -o (Join-Path $here "bin/${tool}_avx2.exe")
+        "$T/build-avx2/ggml/src/ggml-base.a" -fopenmp -static -o (Join-Path $here "bin/$($tool.Replace('s2t', $Prefix))_avx2.exe")
     if ($LASTEXITCODE) { throw "build failed: $tool" }
-    (Get-FileHash (Join-Path $here "bin/${tool}_avx2.exe") -Algorithm SHA256).Hash.ToLower()
+    (Get-FileHash (Join-Path $here "bin/$($tool.Replace('s2t', $Prefix))_avx2.exe") -Algorithm SHA256).Hash.ToLower()
 }
