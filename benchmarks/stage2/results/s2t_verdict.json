@@ -1,0 +1,97 @@
+{
+ "controls": {
+  "C1_planted_miss": 976.558,
+  "C1": true,
+  "C2_freq_miss": 402.597,
+  "C2_near_miss": 17.304,
+  "C2": true,
+  "C3_parity": {
+   "docs": 0.0,
+   "gen": 0.0,
+   "tern": 0.0
+  },
+  "C3": true,
+  "C4": true,
+  "identity": true
+ },
+ "first": {
+  "cell": {
+   "preview": "tern_tr",
+   "k": 1024,
+   "tail_offset": 1
+  },
+  "miss_per_1000": {
+   "docs_kernel": 0.0,
+   "docs_4096": 0.0,
+   "generated": 0.0,
+   "generated_4096": 0.0,
+   "tern": 0.0,
+   "tern_4096": 0.0
+  },
+  "identity": true,
+  "miss_kernel_ci95": [
+   0.0,
+   0.0
+  ],
+  "kl_full_vocab": 0.00337,
+  "recall_within": true,
+  "panels_within": false,
+  "docs": {
+   "top1_agreement": 1.0,
+   "dbpb": 0.011376794601437028,
+   "dbpb_ci95": [
+    0.008974484231886366,
+    0.013944388230366311
+   ],
+   "documents": 72,
+   "kl_top32_nats": 8.71097466968986e-05,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "chat": {
+   "passes": 28,
+   "degenerate": 0,
+   "n": 40
+  }
+ },
+ "second": {
+  "cell": {
+   "preview": "wsvd256",
+   "k": 4096,
+   "tail_offset": 1
+  },
+  "miss_per_1000": {
+   "docs_kernel": 6.770852174751896,
+   "docs_4096": 6.771,
+   "generated": 1.57,
+   "generated_4096": 1.57,
+   "tern": 1.96,
+   "tern_4096": 1.96
+  },
+  "identity": true,
+  "miss_kernel_ci95": [
+   4.98,
+   8.776
+  ],
+  "kl_full_vocab": 0.14806,
+  "recall_within": false,
+  "panels_within": false,
+  "docs": {
+   "top1_agreement": 0.9932291478252481,
+   "dbpb": 0.07368873036358997,
+   "dbpb_ci95": [
+    0.05690040165725639,
+    0.09258879408524938
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.14398773819467375,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "chat": {
+   "passes": 28,
+   "degenerate": 0,
+   "n": 40
+  }
+ },
+ "outcome": "FAIL: THE PANELS LEAVE THE LINE",
+ "second_label": "ONLY THE TRAINED PREVIEW IS WITHIN THE LINE"
+}

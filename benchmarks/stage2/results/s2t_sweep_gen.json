@@ -1,0 +1,6746 @@
+{
+ "set": "gen",
+ "positions": 105353,
+ "strata": {
+  "all": 105353,
+  "hard": 31742,
+  "rare": 17167,
+  "generated": 40122,
+  "generated_nq": 7797,
+  "generated_tqa": 4371,
+  "generated_gsm8k": 25875,
+  "generated_chat": 2079
+ },
+ "ks": [
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+  1024,
+  2048,
+  4096
+ ],
+ "exact_row_bytes": 1680,
+ "random_miss_per_1000": {
+  "16": 999.898,
+  "32": 999.796,
+  "64": 999.593,
+  "128": 999.186,
+  "256": 998.371,
+  "512": 996.743,
+  "1024": 993.485,
+  "2048": 986.971,
+  "4096": 973.941
+ },
+ "previews": {
+  "exact": {
+   "16": {
+    "bytes_per_token": 264096000,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.5,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 264122880,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.98659,
+    "top32_whole": 0.60756,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 264176640,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 264284160,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 264499200,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 264929280,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 265789440,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 267509760,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 270950400,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 1.0,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   }
+  },
+  "tern_tr": {
+   "16": {
+    "bytes_per_token": 81133824,
+    "miss_per_1000": {
+     "all": 3.075,
+     "hard": 9.672,
+     "rare": 8.912,
+     "generated": 1.296,
+     "generated_nq": 2.95,
+     "generated_tqa": 5.491,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 2.405
+    },
+    "top32_cover": 0.43875,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     2.713,
+     3.526
+    ],
+    "worst_doc_per_1000": 65.574,
+    "worst_doc": 200458,
+    "items_touched": {
+     "nq": [
+      21,
+      600
+     ],
+     "tqa": [
+      22,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      5,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 81160704,
+    "miss_per_1000": {
+     "all": 1.12,
+     "hard": 3.591,
+     "rare": 3.262,
+     "generated": 0.449,
+     "generated_nq": 0.898,
+     "generated_tqa": 2.059,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.962
+    },
+    "top32_cover": 0.69565,
+    "top32_whole": 1e-05,
+    "miss_ci95": [
+     0.917,
+     1.353
+    ],
+    "worst_doc_per_1000": 36.364,
+    "worst_doc": 100070,
+    "items_touched": {
+     "nq": [
+      6,
+      600
+     ],
+     "tqa": [
+      7,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      2,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 81214464,
+    "miss_per_1000": {
+     "all": 0.437,
+     "hard": 1.355,
+     "rare": 1.34,
+     "generated": 0.125,
+     "generated_nq": 0.128,
+     "generated_tqa": 0.686,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.481
+    },
+    "top32_cover": 0.86712,
+    "top32_whole": 0.11691,
+    "miss_ci95": [
+     0.319,
+     0.576
+    ],
+    "worst_doc_per_1000": 32.787,
+    "worst_doc": 200458,
+    "items_touched": {
+     "nq": [
+      1,
+      600
+     ],
+     "tqa": [
+      3,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      1,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 81321984,
+    "miss_per_1000": {
+     "all": 0.133,
+     "hard": 0.41,
+     "rare": 0.641,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.94258,
+    "top32_whole": 0.4802,
+    "miss_ci95": [
+     0.068,
+     0.207
+    ],
+    "worst_doc_per_1000": 22.727,
+    "worst_doc": 100297,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 81537024,
+    "miss_per_1000": {
+     "all": 0.095,
+     "hard": 0.315,
+     "rare": 0.466,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.97754,
+    "top32_whole": 0.71218,
+    "miss_ci95": [
+     0.045,
+     0.158
+    ],
+    "worst_doc_per_1000": 22.727,
+    "worst_doc": 100297,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 81967104,
+    "miss_per_1000": {
+     "all": 0.009,
+     "hard": 0.032,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99284,
+    "top32_whole": 0.85951,
+    "miss_ci95": [
+     0.0,
+     0.03
+    ],
+    "worst_doc_per_1000": 18.519,
+    "worst_doc": 200069,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 82827264,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99694,
+    "top32_whole": 0.92175,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 84547584,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.9989,
+    "top32_whole": 0.96573,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 87988224,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99952,
+    "top32_whole": 0.98474,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   }
+  },
+  "shuf": {
+   "16": {
+    "bytes_per_token": 81133824,
+    "miss_per_1000": {
+     "all": 999.981,
+     "hard": 999.968,
+     "rare": 1000.0,
+     "generated": 1000.0,
+     "generated_nq": 1000.0,
+     "generated_tqa": 1000.0,
+     "generated_gsm8k": 1000.0,
+     "generated_chat": 1000.0
+    },
+    "top32_cover": 6e-05,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     999.952,
+     1000.0
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 81160704,
+    "miss_per_1000": {
+     "all": 999.972,
+     "hard": 999.937,
+     "rare": 1000.0,
+     "generated": 1000.0,
+     "generated_nq": 1000.0,
+     "generated_tqa": 1000.0,
+     "generated_gsm8k": 1000.0,
+     "generated_chat": 1000.0
+    },
+    "top32_cover": 0.00011,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     999.934,
+     1000.0
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 81214464,
+    "miss_per_1000": {
+     "all": 999.896,
+     "hard": 999.905,
+     "rare": 1000.0,
+     "generated": 999.925,
+     "generated_nq": 999.872,
+     "generated_tqa": 1000.0,
+     "generated_gsm8k": 999.923,
+     "generated_chat": 1000.0
+    },
+    "top32_cover": 0.00026,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     999.831,
+     999.953
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 81321984,
+    "miss_per_1000": {
+     "all": 999.715,
+     "hard": 999.842,
+     "rare": 999.767,
+     "generated": 999.726,
+     "generated_nq": 999.743,
+     "generated_tqa": 999.771,
+     "generated_gsm8k": 999.691,
+     "generated_chat": 1000.0
+    },
+    "top32_cover": 0.00051,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     999.598,
+     999.818
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 81537024,
+    "miss_per_1000": {
+     "all": 999.393,
+     "hard": 999.716,
+     "rare": 999.359,
+     "generated": 999.227,
+     "generated_nq": 999.359,
+     "generated_tqa": 999.542,
+     "generated_gsm8k": 999.111,
+     "generated_chat": 999.519
+    },
+    "top32_cover": 0.001,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     999.222,
+     999.563
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 81967104,
+    "miss_per_1000": {
+     "all": 998.272,
+     "hard": 999.338,
+     "rare": 998.019,
+     "generated": 997.283,
+     "generated_nq": 998.333,
+     "generated_tqa": 997.483,
+     "generated_gsm8k": 996.87,
+     "generated_chat": 998.076
+    },
+    "top32_cover": 0.0028,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     997.989,
+     998.558
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 82827264,
+    "miss_per_1000": {
+     "all": 995.928,
+     "hard": 998.645,
+     "rare": 995.165,
+     "generated": 993.395,
+     "generated_nq": 994.613,
+     "generated_tqa": 993.594,
+     "generated_gsm8k": 992.85,
+     "generated_chat": 995.19
+    },
+    "top32_cover": 0.00649,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     995.452,
+     996.415
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 84547584,
+    "miss_per_1000": {
+     "all": 991.04,
+     "hard": 997.228,
+     "rare": 987.301,
+     "generated": 985.469,
+     "generated_nq": 986.405,
+     "generated_tqa": 988.103,
+     "generated_gsm8k": 984.502,
+     "generated_chat": 988.456
+    },
+    "top32_cover": 0.01326,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     990.34,
+     991.787
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100001,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 87988224,
+    "miss_per_1000": {
+     "all": 980.684,
+     "hard": 993.668,
+     "rare": 969.36,
+     "generated": 970.216,
+     "generated_nq": 972.938,
+     "generated_tqa": 976.207,
+     "generated_gsm8k": 968.0,
+     "generated_chat": 974.988
+    },
+    "top32_cover": 0.02753,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     979.629,
+     981.776
+    ],
+    "worst_doc_per_1000": 1000.0,
+    "worst_doc": 100001,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "tern_im": {
+   "16": {
+    "bytes_per_token": 81133824,
+    "miss_per_1000": {
+     "all": 94.207,
+     "hard": 208.966,
+     "rare": 102.988,
+     "generated": 39.33,
+     "generated_nq": 88.367,
+     "generated_tqa": 165.408,
+     "generated_gsm8k": 3.594,
+     "generated_chat": 35.113
+    },
+    "top32_cover": 0.37363,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     89.052,
+     99.829
+    ],
+    "worst_doc_per_1000": 266.667,
+    "worst_doc": 100594,
+    "items_touched": {
+     "nq": [
+      553,
+      600
+     ],
+     "tqa": [
+      588,
+      600
+     ],
+     "gsm8k": [
+      83,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 81160704,
+    "miss_per_1000": {
+     "all": 74.53,
+     "hard": 152.322,
+     "rare": 91.688,
+     "generated": 36.14,
+     "generated_nq": 80.416,
+     "generated_tqa": 154.427,
+     "generated_gsm8k": 3.362,
+     "generated_chat": 29.341
+    },
+    "top32_cover": 0.57643,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     70.526,
+     78.936
+    ],
+    "worst_doc_per_1000": 196.078,
+    "worst_doc": 100053,
+    "items_touched": {
+     "nq": [
+      543,
+      600
+     ],
+     "tqa": [
+      585,
+      600
+     ],
+     "gsm8k": [
+      82,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 81214464,
+    "miss_per_1000": {
+     "all": 69.414,
+     "hard": 140.413,
+     "rare": 83.998,
+     "generated": 33.797,
+     "generated_nq": 74.131,
+     "generated_tqa": 146.191,
+     "generated_gsm8k": 3.169,
+     "generated_chat": 27.417
+    },
+    "top32_cover": 0.74247,
+    "top32_whole": 0.03375,
+    "miss_ci95": [
+     65.666,
+     73.659
+    ],
+    "worst_doc_per_1000": 181.818,
+    "worst_doc": 100002,
+    "items_touched": {
+     "nq": [
+      534,
+      600
+     ],
+     "tqa": [
+      583,
+      600
+     ],
+     "gsm8k": [
+      82,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 81321984,
+    "miss_per_1000": {
+     "all": 66.253,
+     "hard": 134.207,
+     "rare": 79.513,
+     "generated": 32.301,
+     "generated_nq": 71.181,
+     "generated_tqa": 139.556,
+     "generated_gsm8k": 3.169,
+     "generated_chat": 23.569
+    },
+    "top32_cover": 0.83711,
+    "top32_whole": 0.19237,
+    "miss_ci95": [
+     62.662,
+     70.26
+    ],
+    "worst_doc_per_1000": 162.791,
+    "worst_doc": 100214,
+    "items_touched": {
+     "nq": [
+      532,
+      600
+     ],
+     "tqa": [
+      582,
+      600
+     ],
+     "gsm8k": [
+      82,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 81537024,
+    "miss_per_1000": {
+     "all": 47.099,
+     "hard": 88.432,
+     "rare": 49.455,
+     "generated": 19.864,
+     "generated_nq": 48.993,
+     "generated_tqa": 80.531,
+     "generated_gsm8k": 0.696,
+     "generated_chat": 21.645
+    },
+    "top32_cover": 0.89809,
+    "top32_whole": 0.41778,
+    "miss_ci95": [
+     44.479,
+     49.916
+    ],
+    "worst_doc_per_1000": 139.535,
+    "worst_doc": 200153,
+    "items_touched": {
+     "nq": [
+      370,
+      600
+     ],
+     "tqa": [
+      343,
+      600
+     ],
+     "gsm8k": [
+      18,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 81967104,
+    "miss_per_1000": {
+     "all": 43.188,
+     "hard": 85.974,
+     "rare": 29.825,
+     "generated": 12.013,
+     "generated_nq": 33.09,
+     "generated_tqa": 42.782,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 17.797
+    },
+    "top32_cover": 0.93644,
+    "top32_whole": 0.58266,
+    "miss_ci95": [
+     40.858,
+     45.839
+    ],
+    "worst_doc_per_1000": 122.449,
+    "worst_doc": 200059,
+    "items_touched": {
+     "nq": [
+      251,
+      600
+     ],
+     "tqa": [
+      185,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      32,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 82827264,
+    "miss_per_1000": {
+     "all": 14.864,
+     "hard": 42.845,
+     "rare": 12.99,
+     "generated": 5.035,
+     "generated_nq": 16.032,
+     "generated_tqa": 12.125,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 11.544
+    },
+    "top32_cover": 0.9588,
+    "top32_whole": 0.72582,
+    "miss_ci95": [
+     14.002,
+     15.798
+    ],
+    "worst_doc_per_1000": 61.224,
+    "worst_doc": 200059,
+    "items_touched": {
+     "nq": [
+      124,
+      600
+     ],
+     "tqa": [
+      53,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      21,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 84547584,
+    "miss_per_1000": {
+     "all": 13.469,
+     "hard": 42.656,
+     "rare": 4.485,
+     "generated": 1.52,
+     "generated_nq": 5.002,
+     "generated_tqa": 2.517,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 5.291
+    },
+    "top32_cover": 0.9736,
+    "top32_whole": 0.81893,
+    "miss_ci95": [
+     12.718,
+     14.298
+    ],
+    "worst_doc_per_1000": 48.387,
+    "worst_doc": 100501,
+    "items_touched": {
+     "nq": [
+      38,
+      600
+     ],
+     "tqa": [
+      11,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      10,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 87988224,
+    "miss_per_1000": {
+     "all": 12.918,
+     "hard": 42.53,
+     "rare": 1.165,
+     "generated": 0.274,
+     "generated_nq": 0.641,
+     "generated_tqa": 0.458,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 1.924
+    },
+    "top32_cover": 0.98225,
+    "top32_whole": 0.8618,
+    "miss_ci95": [
+     12.212,
+     13.701
+    ],
+    "worst_doc_per_1000": 44.444,
+    "worst_doc": 200436,
+    "items_touched": {
+     "nq": [
+      5,
+      600
+     ],
+     "tqa": [
+      2,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      3,
+      40
+     ]
+    }
+   }
+  },
+  "sign": {
+   "16": {
+    "bytes_per_token": 40894720,
+    "miss_per_1000": {
+     "all": 132.583,
+     "hard": 269.485,
+     "rare": 29.766,
+     "generated": 18.668,
+     "generated_nq": 54.765,
+     "generated_tqa": 59.483,
+     "generated_gsm8k": 1.585,
+     "generated_chat": 10.101
+    },
+    "top32_cover": 0.3287,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     125.702,
+     140.335
+    ],
+    "worst_doc_per_1000": 314.286,
+    "worst_doc": 400031,
+    "items_touched": {
+     "nq": [
+      271,
+      600
+     ],
+     "tqa": [
+      170,
+      600
+     ],
+     "gsm8k": [
+      24,
+      100
+     ],
+     "chat": [
+      12,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 40921600,
+    "miss_per_1000": {
+     "all": 104.496,
+     "hard": 243.62,
+     "rare": 17.417,
+     "generated": 11.191,
+     "generated_nq": 35.27,
+     "generated_tqa": 37.062,
+     "generated_gsm8k": 0.155,
+     "generated_chat": 3.848
+    },
+    "top32_cover": 0.49454,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     98.603,
+     110.928
+    ],
+    "worst_doc_per_1000": 250.0,
+    "worst_doc": 100344,
+    "items_touched": {
+     "nq": [
+      195,
+      600
+     ],
+     "tqa": [
+      122,
+      600
+     ],
+     "gsm8k": [
+      3,
+      100
+     ],
+     "chat": [
+      6,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 40975360,
+    "miss_per_1000": {
+     "all": 93.116,
+     "hard": 226.514,
+     "rare": 9.262,
+     "generated": 6.007,
+     "generated_nq": 18.597,
+     "generated_tqa": 21.505,
+     "generated_gsm8k": 0.039,
+     "generated_chat": 0.481
+    },
+    "top32_cover": 0.64291,
+    "top32_whole": 0.00351,
+    "miss_ci95": [
+     87.802,
+     99.011
+    ],
+    "worst_doc_per_1000": 228.571,
+    "worst_doc": 400031,
+    "items_touched": {
+     "nq": [
+      112,
+      600
+     ],
+     "tqa": [
+      79,
+      600
+     ],
+     "gsm8k": [
+      1,
+      100
+     ],
+     "chat": [
+      1,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 41082880,
+    "miss_per_1000": {
+     "all": 82.845,
+     "hard": 208.903,
+     "rare": 4.66,
+     "generated": 2.667,
+     "generated_nq": 8.08,
+     "generated_tqa": 9.838,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.481
+    },
+    "top32_cover": 0.7546,
+    "top32_whole": 0.0531,
+    "miss_ci95": [
+     78.077,
+     88.113
+    ],
+    "worst_doc_per_1000": 213.115,
+    "worst_doc": 200458,
+    "items_touched": {
+     "nq": [
+      52,
+      600
+     ],
+     "tqa": [
+      38,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      1,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 41297920,
+    "miss_per_1000": {
+     "all": 37.36,
+     "hard": 108.657,
+     "rare": 2.214,
+     "generated": 0.922,
+     "generated_nq": 2.18,
+     "generated_tqa": 4.576,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.83365,
+    "top32_whole": 0.17453,
+    "miss_ci95": [
+     35.149,
+     39.875
+    ],
+    "worst_doc_per_1000": 136.364,
+    "worst_doc": 100087,
+    "items_touched": {
+     "nq": [
+      14,
+      600
+     ],
+     "tqa": [
+      18,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 41728000,
+    "miss_per_1000": {
+     "all": 20.218,
+     "hard": 55.164,
+     "rare": 1.107,
+     "generated": 0.349,
+     "generated_nq": 0.77,
+     "generated_tqa": 1.83,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.88905,
+    "top32_whole": 0.35655,
+    "miss_ci95": [
+     18.938,
+     21.603
+    ],
+    "worst_doc_per_1000": 90.909,
+    "worst_doc": 100087,
+    "items_touched": {
+     "nq": [
+      5,
+      600
+     ],
+     "tqa": [
+      8,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 42588160,
+    "miss_per_1000": {
+     "all": 17.949,
+     "hard": 49.871,
+     "rare": 0.117,
+     "generated": 0.075,
+     "generated_nq": 0.128,
+     "generated_tqa": 0.458,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.92761,
+    "top32_whole": 0.54702,
+    "miss_ci95": [
+     16.838,
+     19.175
+    ],
+    "worst_doc_per_1000": 86.957,
+    "worst_doc": 200066,
+    "items_touched": {
+     "nq": [
+      1,
+      600
+     ],
+     "tqa": [
+      2,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 44308480,
+    "miss_per_1000": {
+     "all": 16.127,
+     "hard": 47.571,
+     "rare": 0.058,
+     "generated": 0.05,
+     "generated_nq": 0.128,
+     "generated_tqa": 0.229,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.95707,
+    "top32_whole": 0.69554,
+    "miss_ci95": [
+     15.159,
+     17.202
+    ],
+    "worst_doc_per_1000": 69.767,
+    "worst_doc": 200439,
+    "items_touched": {
+     "nq": [
+      1,
+      600
+     ],
+     "tqa": [
+      1,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 47749120,
+    "miss_per_1000": {
+     "all": 14.01,
+     "hard": 45.082,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.97243,
+    "top32_whole": 0.78431,
+    "miss_ci95": [
+     13.203,
+     14.882
+    ],
+    "worst_doc_per_1000": 69.767,
+    "worst_doc": 200439,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   }
+  },
+  "int4": {
+   "16": {
+    "bytes_per_token": 161612032,
+    "miss_per_1000": {
+     "all": 3.066,
+     "hard": 0.914,
+     "rare": 18.815,
+     "generated": 8.001,
+     "generated_nq": 22.573,
+     "generated_tqa": 28.598,
+     "generated_gsm8k": 0.039,
+     "generated_chat": 9.139
+    },
+    "top32_cover": 0.49658,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     2.701,
+     3.459
+    ],
+    "worst_doc_per_1000": 32.258,
+    "worst_doc": 100501,
+    "items_touched": {
+     "nq": [
+      175,
+      600
+     ],
+     "tqa": [
+      122,
+      600
+     ],
+     "gsm8k": [
+      1,
+      100
+     ],
+     "chat": [
+      18,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 161638912,
+    "miss_per_1000": {
+     "all": 0.959,
+     "hard": 0.599,
+     "rare": 5.883,
+     "generated": 2.467,
+     "generated_nq": 7.567,
+     "generated_tqa": 6.406,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 5.772
+    },
+    "top32_cover": 0.88834,
+    "top32_whole": 0.012,
+    "miss_ci95": [
+     0.764,
+     1.16
+    ],
+    "worst_doc_per_1000": 32.258,
+    "worst_doc": 100501,
+    "items_touched": {
+     "nq": [
+      58,
+      600
+     ],
+     "tqa": [
+      27,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      11,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 161692672,
+    "miss_per_1000": {
+     "all": 0.332,
+     "hard": 0.284,
+     "rare": 2.039,
+     "generated": 0.872,
+     "generated_nq": 2.565,
+     "generated_tqa": 1.83,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 3.367
+    },
+    "top32_cover": 0.99147,
+    "top32_whole": 0.87486,
+    "miss_ci95": [
+     0.223,
+     0.45
+    ],
+    "worst_doc_per_1000": 22.222,
+    "worst_doc": 100052,
+    "items_touched": {
+     "nq": [
+      20,
+      600
+     ],
+     "tqa": [
+      8,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      6,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 161800192,
+    "miss_per_1000": {
+     "all": 0.085,
+     "hard": 0.158,
+     "rare": 0.524,
+     "generated": 0.224,
+     "generated_nq": 0.385,
+     "generated_tqa": 0.686,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 1.443
+    },
+    "top32_cover": 0.99822,
+    "top32_whole": 0.96788,
+    "miss_ci95": [
+     0.036,
+     0.147
+    ],
+    "worst_doc_per_1000": 22.222,
+    "worst_doc": 100052,
+    "items_touched": {
+     "nq": [
+      3,
+      600
+     ],
+     "tqa": [
+      3,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      3,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 162015232,
+    "miss_per_1000": {
+     "all": 0.009,
+     "hard": 0.0,
+     "rare": 0.058,
+     "generated": 0.025,
+     "generated_nq": 0.128,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99948,
+    "top32_whole": 0.99525,
+    "miss_ci95": [
+     0.0,
+     0.029
+    ],
+    "worst_doc_per_1000": 22.222,
+    "worst_doc": 100052,
+    "items_touched": {
+     "nq": [
+      1,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 162445312,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.9995,
+    "top32_whole": 0.99596,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 163305472,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99952,
+    "top32_whole": 0.99663,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 165025792,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99999,
+    "top32_whole": 0.99968,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 168466432,
+    "miss_per_1000": {
+     "all": 0.0,
+     "hard": 0.0,
+     "rare": 0.0,
+     "generated": 0.0,
+     "generated_nq": 0.0,
+     "generated_tqa": 0.0,
+     "generated_gsm8k": 0.0,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 1.0,
+    "top32_whole": 0.99996,
+    "miss_ci95": [
+     0.0,
+     0.0
+    ],
+    "worst_doc_per_1000": 0.0,
+    "worst_doc": 100000,
+    "items_touched": {
+     "nq": [
+      0,
+      600
+     ],
+     "tqa": [
+      0,
+      600
+     ],
+     "gsm8k": [
+      0,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   }
+  },
+  "svd32": {
+   "16": {
+    "bytes_per_token": 5816576,
+    "miss_per_1000": {
+     "all": 676.507,
+     "hard": 756.915,
+     "rare": 980.661,
+     "generated": 689.921,
+     "generated_nq": 795.691,
+     "generated_tqa": 859.3,
+     "generated_gsm8k": 619.594,
+     "generated_chat": 812.41
+    },
+    "top32_cover": 0.09069,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     672.19,
+     680.521
+    ],
+    "worst_doc_per_1000": 854.701,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 5843456,
+    "miss_per_1000": {
+     "all": 614.999,
+     "hard": 738.611,
+     "rare": 945.36,
+     "generated": 587.334,
+     "generated_nq": 715.916,
+     "generated_tqa": 802.334,
+     "generated_gsm8k": 499.014,
+     "generated_chat": 752.285
+    },
+    "top32_cover": 0.14281,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     608.494,
+     621.419
+    ],
+    "worst_doc_per_1000": 800.0,
+    "worst_doc": 400003,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 5897216,
+    "miss_per_1000": {
+     "all": 529.676,
+     "hard": 663.789,
+     "rare": 914.72,
+     "generated": 497.383,
+     "generated_nq": 620.752,
+     "generated_tqa": 724.319,
+     "generated_gsm8k": 407.884,
+     "generated_chat": 671.477
+    },
+    "top32_cover": 0.20904,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     522.719,
+     536.718
+    ],
+    "worst_doc_per_1000": 750.0,
+    "worst_doc": 400003,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 6004736,
+    "miss_per_1000": {
+     "all": 444.885,
+     "hard": 561.653,
+     "rare": 716.782,
+     "generated": 422.86,
+     "generated_nq": 554.059,
+     "generated_tqa": 667.811,
+     "generated_gsm8k": 327.961,
+     "generated_chat": 596.922
+    },
+    "top32_cover": 0.28777,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     438.147,
+     451.886
+    ],
+    "worst_doc_per_1000": 677.419,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 6219776,
+    "miss_per_1000": {
+     "all": 370.402,
+     "hard": 462.006,
+     "rare": 667.443,
+     "generated": 343.353,
+     "generated_nq": 489.291,
+     "generated_tqa": 603.066,
+     "generated_gsm8k": 241.778,
+     "generated_chat": 514.19
+    },
+    "top32_cover": 0.37417,
+    "top32_whole": 3e-05,
+    "miss_ci95": [
+     363.177,
+     377.943
+    ],
+    "worst_doc_per_1000": 620.968,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 6649856,
+    "miss_per_1000": {
+     "all": 317.4,
+     "hard": 434.598,
+     "rare": 595.095,
+     "generated": 272.643,
+     "generated_nq": 421.059,
+     "generated_tqa": 533.745,
+     "generated_gsm8k": 170.744,
+     "generated_chat": 435.305
+    },
+    "top32_cover": 0.46556,
+    "top32_whole": 0.00041,
+    "miss_ci95": [
+     308.581,
+     326.758
+    ],
+    "worst_doc_per_1000": 564.516,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 7510016,
+    "miss_per_1000": {
+     "all": 249.172,
+     "hard": 356.783,
+     "rare": 515.524,
+     "generated": 205.673,
+     "generated_nq": 347.057,
+     "generated_tqa": 448.868,
+     "generated_gsm8k": 110.068,
+     "generated_chat": 354.016
+    },
+    "top32_cover": 0.55844,
+    "top32_whole": 0.01417,
+    "miss_ci95": [
+     240.818,
+     257.985
+    ],
+    "worst_doc_per_1000": 467.066,
+    "worst_doc": 400008,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 9230336,
+    "miss_per_1000": {
+     "all": 176.407,
+     "hard": 279.787,
+     "rare": 424.768,
+     "generated": 147.824,
+     "generated_nq": 268.18,
+     "generated_tqa": 365.82,
+     "generated_gsm8k": 63.923,
+     "generated_chat": 282.347
+    },
+    "top32_cover": 0.65639,
+    "top32_whole": 0.02979,
+    "miss_ci95": [
+     169.368,
+     184.043
+    ],
+    "worst_doc_per_1000": 407.186,
+    "worst_doc": 400008,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 128.909,
+     "hard": 210.636,
+     "rare": 348.168,
+     "generated": 104.855,
+     "generated_nq": 193.023,
+     "generated_tqa": 287.577,
+     "generated_gsm8k": 37.681,
+     "generated_chat": 226.07
+    },
+    "top32_cover": 0.74967,
+    "top32_whole": 0.06616,
+    "miss_ci95": [
+     122.97,
+     135.267
+    ],
+    "worst_doc_per_1000": 335.329,
+    "worst_doc": 400008,
+    "items_touched": {
+     "nq": [
+      596,
+      600
+     ],
+     "tqa": [
+      598,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "wsvd32": {
+   "16": {
+    "bytes_per_token": 5816576,
+    "miss_per_1000": {
+     "all": 510.759,
+     "hard": 574.381,
+     "rare": 995.456,
+     "generated": 499.576,
+     "generated_nq": 583.301,
+     "generated_tqa": 708.991,
+     "generated_gsm8k": 421.372,
+     "generated_chat": 718.615
+    },
+    "top32_cover": 0.18213,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     504.007,
+     517.564
+    ],
+    "worst_doc_per_1000": 822.581,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 5843456,
+    "miss_per_1000": {
+     "all": 410.306,
+     "hard": 439.292,
+     "rare": 965.923,
+     "generated": 411.62,
+     "generated_nq": 531.871,
+     "generated_tqa": 656.143,
+     "generated_gsm8k": 313.855,
+     "generated_chat": 663.3
+    },
+    "top32_cover": 0.26314,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     403.283,
+     417.56
+    ],
+    "worst_doc_per_1000": 790.323,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 5897216,
+    "miss_per_1000": {
+     "all": 343.123,
+     "hard": 368.408,
+     "rare": 931.613,
+     "generated": 335.851,
+     "generated_nq": 475.311,
+     "generated_tqa": 588.652,
+     "generated_gsm8k": 230.184,
+     "generated_chat": 596.441
+    },
+    "top32_cover": 0.35614,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     335.433,
+     351.168
+    ],
+    "worst_doc_per_1000": 725.806,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      595,
+      600
+     ],
+     "tqa": [
+      596,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 6004736,
+    "miss_per_1000": {
+     "all": 265.631,
+     "hard": 261.546,
+     "rare": 784.528,
+     "generated": 258.163,
+     "generated_nq": 404.13,
+     "generated_tqa": 505.148,
+     "generated_gsm8k": 150.3,
+     "generated_chat": 533.911
+    },
+    "top32_cover": 0.45671,
+    "top32_whole": 9e-05,
+    "miss_ci95": [
+     257.632,
+     273.831
+    ],
+    "worst_doc_per_1000": 661.29,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      572,
+      600
+     ],
+     "tqa": [
+      586,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 6219776,
+    "miss_per_1000": {
+     "all": 184.428,
+     "hard": 159.158,
+     "rare": 620.085,
+     "generated": 189.173,
+     "generated_nq": 319.867,
+     "generated_tqa": 408.831,
+     "generated_gsm8k": 92.522,
+     "generated_chat": 440.115
+    },
+    "top32_cover": 0.56035,
+    "top32_whole": 0.00107,
+    "miss_ci95": [
+     177.865,
+     191.507
+    ],
+    "worst_doc_per_1000": 604.839,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      520,
+      600
+     ],
+     "tqa": [
+      575,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 6649856,
+    "miss_per_1000": {
+     "all": 133.902,
+     "hard": 98.166,
+     "rare": 514.883,
+     "generated": 130.028,
+     "generated_nq": 235.09,
+     "generated_tqa": 294.441,
+     "generated_gsm8k": 52.986,
+     "generated_chat": 349.206
+    },
+    "top32_cover": 0.65946,
+    "top32_whole": 0.03039,
+    "miss_ci95": [
+     128.12,
+     140.131
+    ],
+    "worst_doc_per_1000": 516.129,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      477,
+      600
+     ],
+     "tqa": [
+      531,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 7510016,
+    "miss_per_1000": {
+     "all": 90.771,
+     "hard": 41.207,
+     "rare": 404.672,
+     "generated": 84.218,
+     "generated_nq": 152.366,
+     "generated_tqa": 195.379,
+     "generated_gsm8k": 29.488,
+     "generated_chat": 276.094
+    },
+    "top32_cover": 0.74363,
+    "top32_whole": 0.05789,
+    "miss_ci95": [
+     86.04,
+     95.941
+    ],
+    "worst_doc_per_1000": 443.548,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      413,
+      600
+     ],
+     "tqa": [
+      449,
+      600
+     ],
+     "gsm8k": [
+      98,
+      100
+     ],
+     "chat": [
+      34,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 9230336,
+    "miss_per_1000": {
+     "all": 42.514,
+     "hard": 26.873,
+     "rare": 223.51,
+     "generated": 49.574,
+     "generated_nq": 90.163,
+     "generated_tqa": 115.992,
+     "generated_gsm8k": 14.145,
+     "generated_chat": 198.653
+    },
+    "top32_cover": 0.81846,
+    "top32_whole": 0.14991,
+    "miss_ci95": [
+     39.599,
+     45.633
+    ],
+    "worst_doc_per_1000": 354.839,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      340,
+      600
+     ],
+     "tqa": [
+      345,
+      600
+     ],
+     "gsm8k": [
+      88,
+      100
+     ],
+     "chat": [
+      24,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 24.071,
+     "hard": 15.815,
+     "rare": 130.25,
+     "generated": 25.971,
+     "generated_nq": 44.504,
+     "generated_tqa": 60.627,
+     "generated_gsm8k": 6.222,
+     "generated_chat": 129.389
+    },
+    "top32_cover": 0.87477,
+    "top32_whole": 0.24173,
+    "miss_ci95": [
+     22.044,
+     26.276
+    ],
+    "worst_doc_per_1000": 214.286,
+    "worst_doc": 400003,
+    "items_touched": {
+     "nq": [
+      229,
+      600
+     ],
+     "tqa": [
+      218,
+      600
+     ],
+     "gsm8k": [
+      68,
+      100
+     ],
+     "chat": [
+      22,
+      40
+     ]
+    }
+   }
+  },
+  "svd64": {
+   "16": {
+    "bytes_per_token": 10977536,
+    "miss_per_1000": {
+     "all": 658.463,
+     "hard": 797.555,
+     "rare": 916.409,
+     "generated": 624.595,
+     "generated_nq": 753.88,
+     "generated_tqa": 803.02,
+     "generated_gsm8k": 546.396,
+     "generated_chat": 737.855
+    },
+    "top32_cover": 0.09603,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     652.688,
+     664.382
+    ],
+    "worst_doc_per_1000": 813.953,
+    "worst_doc": 400035,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 11004416,
+    "miss_per_1000": {
+     "all": 573.396,
+     "hard": 723.08,
+     "rare": 862.236,
+     "generated": 510.343,
+     "generated_nq": 656.278,
+     "generated_tqa": 733.013,
+     "generated_gsm8k": 417.275,
+     "generated_chat": 653.199
+    },
+    "top32_cover": 0.15337,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     565.254,
+     581.529
+    ],
+    "worst_doc_per_1000": 769.231,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 11058176,
+    "miss_per_1000": {
+     "all": 470.599,
+     "hard": 655.85,
+     "rare": 740.024,
+     "generated": 406.062,
+     "generated_nq": 541.362,
+     "generated_tqa": 635.781,
+     "generated_gsm8k": 314.628,
+     "generated_chat": 553.632
+    },
+    "top32_cover": 0.23365,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     462.665,
+     478.776
+    ],
+    "worst_doc_per_1000": 672.727,
+    "worst_doc": 200061,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 11165696,
+    "miss_per_1000": {
+     "all": 377.977,
+     "hard": 512.318,
+     "rare": 609.949,
+     "generated": 320.074,
+     "generated_nq": 453.508,
+     "generated_tqa": 550.217,
+     "generated_gsm8k": 229.101,
+     "generated_chat": 468.013
+    },
+    "top32_cover": 0.31656,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     370.157,
+     386.194
+    ],
+    "worst_doc_per_1000": 596.774,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      599,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 11380736,
+    "miss_per_1000": {
+     "all": 323.019,
+     "hard": 482.137,
+     "rare": 548.145,
+     "generated": 244.903,
+     "generated_nq": 374.118,
+     "generated_tqa": 472.661,
+     "generated_gsm8k": 156.908,
+     "generated_chat": 376.623
+    },
+    "top32_cover": 0.4098,
+    "top32_whole": 7e-05,
+    "miss_ci95": [
+     313.59,
+     332.977
+    ],
+    "worst_doc_per_1000": 542.373,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      598,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 11810816,
+    "miss_per_1000": {
+     "all": 258.721,
+     "hard": 405.047,
+     "rare": 478.301,
+     "generated": 182.718,
+     "generated_nq": 304.861,
+     "generated_tqa": 403.569,
+     "generated_gsm8k": 98.705,
+     "generated_chat": 305.916
+    },
+    "top32_cover": 0.51783,
+    "top32_whole": 0.00054,
+    "miss_ci95": [
+     248.982,
+     269.037
+    ],
+    "worst_doc_per_1000": 490.909,
+    "worst_doc": 200222,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      598,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 193.246,
+     "hard": 332.147,
+     "rare": 408.691,
+     "generated": 133.219,
+     "generated_nq": 239.195,
+     "generated_tqa": 333.562,
+     "generated_gsm8k": 58.744,
+     "generated_chat": 241.462
+    },
+    "top32_cover": 0.62749,
+    "top32_whole": 0.01521,
+    "miss_ci95": [
+     185.109,
+     202.251
+    ],
+    "worst_doc_per_1000": 400.0,
+    "worst_doc": 100028,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      597,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 14391296,
+    "miss_per_1000": {
+     "all": 133.124,
+     "hard": 225.096,
+     "rare": 326.673,
+     "generated": 95.334,
+     "generated_nq": 178.274,
+     "generated_tqa": 265.157,
+     "generated_gsm8k": 34.705,
+     "generated_chat": 181.818
+    },
+    "top32_cover": 0.71915,
+    "top32_whole": 0.04594,
+    "miss_ci95": [
+     126.812,
+     140.199
+    ],
+    "worst_doc_per_1000": 306.122,
+    "worst_doc": 100109,
+    "items_touched": {
+     "nq": [
+      592,
+      600
+     ],
+     "tqa": [
+      594,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 17831936,
+    "miss_per_1000": {
+     "all": 82.807,
+     "hard": 120.282,
+     "rare": 258.752,
+     "generated": 67.32,
+     "generated_nq": 123.894,
+     "generated_tqa": 210.021,
+     "generated_gsm8k": 21.372,
+     "generated_chat": 126.984
+    },
+    "top32_cover": 0.8093,
+    "top32_whole": 0.09396,
+    "miss_ci95": [
+     78.934,
+     87.243
+    ],
+    "worst_doc_per_1000": 231.707,
+    "worst_doc": 400014,
+    "items_touched": {
+     "nq": [
+      579,
+      600
+     ],
+     "tqa": [
+      592,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "wsvd64": {
+   "16": {
+    "bytes_per_token": 10977536,
+    "miss_per_1000": {
+     "all": 408.522,
+     "hard": 482.358,
+     "rare": 944.836,
+     "generated": 376.302,
+     "generated_nq": 504.681,
+     "generated_tqa": 608.785,
+     "generated_gsm8k": 278.995,
+     "generated_chat": 617.124
+    },
+    "top32_cover": 0.22016,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     400.658,
+     416.746
+    ],
+    "worst_doc_per_1000": 758.065,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      592,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 11004416,
+    "miss_per_1000": {
+     "all": 340.095,
+     "hard": 417.46,
+     "rare": 884.837,
+     "generated": 290.339,
+     "generated_nq": 430.55,
+     "generated_tqa": 523.908,
+     "generated_gsm8k": 188.599,
+     "generated_chat": 539.683
+    },
+    "top32_cover": 0.31325,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     330.839,
+     349.759
+    ],
+    "worst_doc_per_1000": 709.677,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      575,
+      600
+     ],
+     "tqa": [
+      588,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 11058176,
+    "miss_per_1000": {
+     "all": 249.988,
+     "hard": 268.509,
+     "rare": 735.19,
+     "generated": 215.019,
+     "generated_nq": 346.544,
+     "generated_tqa": 432.853,
+     "generated_gsm8k": 119.42,
+     "generated_chat": 453.583
+    },
+    "top32_cover": 0.41876,
+    "top32_whole": 1e-05,
+    "miss_ci95": [
+     241.793,
+     258.873
+    ],
+    "worst_doc_per_1000": 612.903,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      537,
+      600
+     ],
+     "tqa": [
+      579,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 11165696,
+    "miss_per_1000": {
+     "all": 191.793,
+     "hard": 241.793,
+     "rare": 562.649,
+     "generated": 150.092,
+     "generated_nq": 260.998,
+     "generated_tqa": 328.758,
+     "generated_gsm8k": 68.406,
+     "generated_chat": 375.18
+    },
+    "top32_cover": 0.5265,
+    "top32_whole": 0.00035,
+    "miss_ci95": [
+     183.827,
+     200.399
+    ],
+    "worst_doc_per_1000": 532.934,
+    "worst_doc": 400008,
+    "items_touched": {
+     "nq": [
+      493,
+      600
+     ],
+     "tqa": [
+      553,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      37,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 11380736,
+    "miss_per_1000": {
+     "all": 123.243,
+     "hard": 104.94,
+     "rare": 462.108,
+     "generated": 101.914,
+     "generated_nq": 180.069,
+     "generated_tqa": 231.984,
+     "generated_gsm8k": 41.159,
+     "generated_chat": 291.486
+    },
+    "top32_cover": 0.63476,
+    "top32_whole": 0.02781,
+    "miss_ci95": [
+     117.755,
+     129.448
+    ],
+    "worst_doc_per_1000": 451.613,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      444,
+      600
+     ],
+     "tqa": [
+      497,
+      600
+     ],
+     "gsm8k": [
+      99,
+      100
+     ],
+     "chat": [
+      37,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 11810816,
+    "miss_per_1000": {
+     "all": 71.996,
+     "hard": 46.122,
+     "rare": 358.944,
+     "generated": 65.874,
+     "generated_nq": 114.018,
+     "generated_tqa": 148.25,
+     "generated_gsm8k": 25.005,
+     "generated_chat": 220.779
+    },
+    "top32_cover": 0.72794,
+    "top32_whole": 0.06454,
+    "miss_ci95": [
+     68.325,
+     76.021
+    ],
+    "worst_doc_per_1000": 346.774,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      386,
+      600
+     ],
+     "tqa": [
+      400,
+      600
+     ],
+     "gsm8k": [
+      94,
+      100
+     ],
+     "chat": [
+      31,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 12670976,
+    "miss_per_1000": {
+     "all": 50.241,
+     "hard": 31.063,
+     "rare": 265.393,
+     "generated": 39.704,
+     "generated_nq": 65.025,
+     "generated_tqa": 90.826,
+     "generated_gsm8k": 14.454,
+     "generated_chat": 151.515
+    },
+    "top32_cover": 0.80891,
+    "top32_whole": 0.14032,
+    "miss_ci95": [
+     47.412,
+     53.344
+    ],
+    "worst_doc_per_1000": 282.258,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      289,
+      600
+     ],
+     "tqa": [
+      290,
+      600
+     ],
+     "gsm8k": [
+      87,
+      100
+     ],
+     "chat": [
+      24,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 14391296,
+    "miss_per_1000": {
+     "all": 20.778,
+     "hard": 18.65,
+     "rare": 107.648,
+     "generated": 21.509,
+     "generated_nq": 30.909,
+     "generated_tqa": 45.756,
+     "generated_gsm8k": 8.618,
+     "generated_chat": 95.719
+    },
+    "top32_cover": 0.86838,
+    "top32_whole": 0.23953,
+    "miss_ci95": [
+     19.204,
+     22.423
+    ],
+    "worst_doc_per_1000": 177.419,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      176,
+      600
+     ],
+     "tqa": [
+      167,
+      600
+     ],
+     "gsm8k": [
+      76,
+      100
+     ],
+     "chat": [
+      21,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 17831936,
+    "miss_per_1000": {
+     "all": 9.957,
+     "hard": 9.861,
+     "rare": 52.659,
+     "generated": 10.094,
+     "generated_nq": 13.338,
+     "generated_tqa": 18.76,
+     "generated_gsm8k": 4.213,
+     "generated_chat": 52.91
+    },
+    "top32_cover": 0.91242,
+    "top32_whole": 0.35316,
+    "miss_ci95": [
+     8.947,
+     11.014
+    ],
+    "worst_doc_per_1000": 125.0,
+    "worst_doc": 100586,
+    "items_touched": {
+     "nq": [
+      82,
+      600
+     ],
+     "tqa": [
+      77,
+      600
+     ],
+     "gsm8k": [
+      52,
+      100
+     ],
+     "chat": [
+      16,
+      40
+     ]
+    }
+   }
+  },
+  "svd128": {
+   "16": {
+    "bytes_per_token": 21299456,
+    "miss_per_1000": {
+     "all": 598.578,
+     "hard": 785.552,
+     "rare": 798.684,
+     "generated": 509.322,
+     "generated_nq": 632.423,
+     "generated_tqa": 668.954,
+     "generated_gsm8k": 437.14,
+     "generated_chat": 610.39
+    },
+    "top32_cover": 0.11679,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     590.551,
+     606.943
+    ],
+    "worst_doc_per_1000": 770.833,
+    "worst_doc": 100522,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      598,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 21326336,
+    "miss_per_1000": {
+     "all": 522.092,
+     "hard": 745.385,
+     "rare": 748.704,
+     "generated": 399.781,
+     "generated_nq": 517.378,
+     "generated_tqa": 574.468,
+     "generated_gsm8k": 325.179,
+     "generated_chat": 519.962
+    },
+    "top32_cover": 0.18094,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     512.227,
+     532.342
+    ],
+    "worst_doc_per_1000": 729.167,
+    "worst_doc": 100522,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      597,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 21380096,
+    "miss_per_1000": {
+     "all": 419.57,
+     "hard": 674.375,
+     "rare": 622.473,
+     "generated": 298.839,
+     "generated_nq": 404.515,
+     "generated_tqa": 468.314,
+     "generated_gsm8k": 227.749,
+     "generated_chat": 430.976
+    },
+    "top32_cover": 0.27093,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     410.005,
+     429.793
+    ],
+    "worst_doc_per_1000": 633.333,
+    "worst_doc": 100510,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      597,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 21487616,
+    "miss_per_1000": {
+     "all": 316.061,
+     "hard": 481.98,
+     "rare": 492.049,
+     "generated": 224.49,
+     "generated_nq": 323.714,
+     "generated_tqa": 395.79,
+     "generated_gsm8k": 156.135,
+     "generated_chat": 342.953
+    },
+    "top32_cover": 0.37361,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     307.81,
+     324.818
+    ],
+    "worst_doc_per_1000": 525.424,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      597,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 21702656,
+    "miss_per_1000": {
+     "all": 260.306,
+     "hard": 410.497,
+     "rare": 440.555,
+     "generated": 167.713,
+     "generated_nq": 256.381,
+     "generated_tqa": 336.536,
+     "generated_gsm8k": 104.58,
+     "generated_chat": 265.993
+    },
+    "top32_cover": 0.4792,
+    "top32_whole": 0.00024,
+    "miss_ci95": [
+     251.718,
+     269.373
+    ],
+    "worst_doc_per_1000": 491.525,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      596,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 22132736,
+    "miss_per_1000": {
+     "all": 177.745,
+     "hard": 266.083,
+     "rare": 387.022,
+     "generated": 125.044,
+     "generated_nq": 202.257,
+     "generated_tqa": 280.485,
+     "generated_gsm8k": 69.372,
+     "generated_chat": 201.539
+    },
+    "top32_cover": 0.5964,
+    "top32_whole": 0.01457,
+    "miss_ci95": [
+     171.482,
+     184.21
+    ],
+    "worst_doc_per_1000": 381.818,
+    "worst_doc": 200222,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 22992896,
+    "miss_per_1000": {
+     "all": 145.615,
+     "hard": 234.358,
+     "rare": 333.489,
+     "generated": 92.468,
+     "generated_nq": 157.881,
+     "generated_tqa": 231.297,
+     "generated_gsm8k": 44.251,
+     "generated_chat": 155.363
+    },
+    "top32_cover": 0.70021,
+    "top32_whole": 0.03185,
+    "miss_ci95": [
+     139.508,
+     152.407
+    ],
+    "worst_doc_per_1000": 333.333,
+    "worst_doc": 100422,
+    "items_touched": {
+     "nq": [
+      592,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 24713216,
+    "miss_per_1000": {
+     "all": 83.794,
+     "hard": 88.778,
+     "rare": 283.859,
+     "generated": 68.342,
+     "generated_nq": 121.2,
+     "generated_tqa": 190.117,
+     "generated_gsm8k": 28.019,
+     "generated_chat": 115.921
+    },
+    "top32_cover": 0.79599,
+    "top32_whole": 0.06526,
+    "miss_ci95": [
+     80.101,
+     87.857
+    ],
+    "worst_doc_per_1000": 224.49,
+    "worst_doc": 100109,
+    "items_touched": {
+     "nq": [
+      583,
+      600
+     ],
+     "tqa": [
+      591,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 28153856,
+    "miss_per_1000": {
+     "all": 61.602,
+     "hard": 66.316,
+     "rare": 221.005,
+     "generated": 52.34,
+     "generated_nq": 96.447,
+     "generated_tqa": 167.467,
+     "generated_gsm8k": 18.087,
+     "generated_chat": 71.188
+    },
+    "top32_cover": 0.87078,
+    "top32_whole": 0.16575,
+    "miss_ci95": [
+     58.533,
+     65.007
+    ],
+    "worst_doc_per_1000": 170.213,
+    "worst_doc": 100278,
+    "items_touched": {
+     "nq": [
+      562,
+      600
+     ],
+     "tqa": [
+      584,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "wsvd128": {
+   "16": {
+    "bytes_per_token": 21299456,
+    "miss_per_1000": {
+     "all": 325.98,
+     "hard": 459.769,
+     "rare": 809.227,
+     "generated": 231.693,
+     "generated_nq": 346.928,
+     "generated_tqa": 422.329,
+     "generated_gsm8k": 147.633,
+     "generated_chat": 444.925
+    },
+    "top32_cover": 0.25358,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     315.575,
+     336.845
+    ],
+    "worst_doc_per_1000": 596.774,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      552,
+      600
+     ],
+     "tqa": [
+      579,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 21326336,
+    "miss_per_1000": {
+     "all": 251.991,
+     "hard": 354.515,
+     "rare": 724.53,
+     "generated": 161.856,
+     "generated_nq": 259.972,
+     "generated_tqa": 323.038,
+     "generated_gsm8k": 89.391,
+     "generated_chat": 356.902
+    },
+    "top32_cover": 0.36795,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     242.269,
+     262.18
+    ],
+    "worst_doc_per_1000": 548.387,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      508,
+      600
+     ],
+     "tqa": [
+      552,
+      600
+     ],
+     "gsm8k": [
+      99,
+      100
+     ],
+     "chat": [
+      39,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 21380096,
+    "miss_per_1000": {
+     "all": 183.146,
+     "hard": 242.392,
+     "rare": 546.688,
+     "generated": 108.245,
+     "generated_nq": 181.095,
+     "generated_tqa": 229.009,
+     "generated_gsm8k": 53.333,
+     "generated_chat": 264.55
+    },
+    "top32_cover": 0.4854,
+    "top32_whole": 0.01278,
+    "miss_ci95": [
+     175.158,
+     191.606
+    ],
+    "worst_doc_per_1000": 419.355,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      456,
+      600
+     ],
+     "tqa": [
+      506,
+      600
+     ],
+     "gsm8k": [
+      96,
+      100
+     ],
+     "chat": [
+      31,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 21487616,
+    "miss_per_1000": {
+     "all": 114.776,
+     "hard": 181.211,
+     "rare": 357.721,
+     "generated": 70.585,
+     "generated_nq": 118.122,
+     "generated_tqa": 152.597,
+     "generated_gsm8k": 32.232,
+     "generated_chat": 197.21
+    },
+    "top32_cover": 0.60844,
+    "top32_whole": 0.02556,
+    "miss_ci95": [
+     109.621,
+     120.522
+    ],
+    "worst_doc_per_1000": 338.71,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      380,
+      600
+     ],
+     "tqa": [
+      414,
+      600
+     ],
+     "gsm8k": [
+      93,
+      100
+     ],
+     "chat": [
+      30,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 21702656,
+    "miss_per_1000": {
+     "all": 67.858,
+     "hard": 86.1,
+     "rare": 266.208,
+     "generated": 44.988,
+     "generated_nq": 71.822,
+     "generated_tqa": 96.774,
+     "generated_gsm8k": 20.715,
+     "generated_chat": 137.566
+    },
+    "top32_cover": 0.71689,
+    "top32_whole": 0.03484,
+    "miss_ci95": [
+     64.716,
+     71.392
+    ],
+    "worst_doc_per_1000": 274.194,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      296,
+      600
+     ],
+     "tqa": [
+      304,
+      600
+     ],
+     "gsm8k": [
+      90,
+      100
+     ],
+     "chat": [
+      19,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 22132736,
+    "miss_per_1000": {
+     "all": 26.862,
+     "hard": 30.779,
+     "rare": 121.046,
+     "generated": 27.441,
+     "generated_nq": 39.502,
+     "generated_tqa": 57.424,
+     "generated_gsm8k": 13.411,
+     "generated_chat": 93.795
+    },
+    "top32_cover": 0.80658,
+    "top32_whole": 0.12225,
+    "miss_ci95": [
+     25.177,
+     28.485
+    ],
+    "worst_doc_per_1000": 188.525,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      197,
+      600
+     ],
+     "tqa": [
+      201,
+      600
+     ],
+     "gsm8k": [
+      83,
+      100
+     ],
+     "chat": [
+      18,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 22992896,
+    "miss_per_1000": {
+     "all": 16.155,
+     "hard": 19.69,
+     "rare": 74.62,
+     "generated": 15.528,
+     "generated_nq": 19.879,
+     "generated_tqa": 32.029,
+     "generated_gsm8k": 8.116,
+     "generated_chat": 56.758
+    },
+    "top32_cover": 0.87066,
+    "top32_whole": 0.214,
+    "miss_ci95": [
+     15.037,
+     17.265
+    ],
+    "worst_doc_per_1000": 139.344,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      121,
+      600
+     ],
+     "tqa": [
+      119,
+      600
+     ],
+     "gsm8k": [
+      70,
+      100
+     ],
+     "chat": [
+      17,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 24713216,
+    "miss_per_1000": {
+     "all": 9.283,
+     "hard": 12.129,
+     "rare": 44.038,
+     "generated": 8.574,
+     "generated_nq": 8.08,
+     "generated_tqa": 17.159,
+     "generated_gsm8k": 4.792,
+     "generated_chat": 39.442
+    },
+    "top32_cover": 0.91835,
+    "top32_whole": 0.37375,
+    "miss_ci95": [
+     8.491,
+     10.091
+    ],
+    "worst_doc_per_1000": 114.754,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      57,
+      600
+     ],
+     "tqa": [
+      69,
+      600
+     ],
+     "gsm8k": [
+      55,
+      100
+     ],
+     "chat": [
+      15,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 28153856,
+    "miss_per_1000": {
+     "all": 4.765,
+     "hard": 6.458,
+     "rare": 23.184,
+     "generated": 4.287,
+     "generated_nq": 3.206,
+     "generated_tqa": 6.863,
+     "generated_gsm8k": 2.937,
+     "generated_chat": 19.721
+    },
+    "top32_cover": 0.95049,
+    "top32_whole": 0.52565,
+    "miss_ci95": [
+     4.275,
+     5.274
+    ],
+    "worst_doc_per_1000": 81.967,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      24,
+      600
+     ],
+     "tqa": [
+      29,
+      600
+     ],
+     "gsm8k": [
+      45,
+      100
+     ],
+     "chat": [
+      13,
+      40
+     ]
+    }
+   }
+  },
+  "svd256": {
+   "16": {
+    "bytes_per_token": 41943296,
+    "miss_per_1000": {
+     "all": 520.327,
+     "hard": 746.298,
+     "rare": 677.055,
+     "generated": 385.15,
+     "generated_nq": 480.185,
+     "generated_tqa": 509.723,
+     "generated_gsm8k": 330.435,
+     "generated_chat": 447.811
+    },
+    "top32_cover": 0.15706,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     510.978,
+     530.75
+    ],
+    "worst_doc_per_1000": 750.0,
+    "worst_doc": 100326,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      597,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 41970176,
+    "miss_per_1000": {
+     "all": 434.027,
+     "hard": 668.357,
+     "rare": 630.57,
+     "generated": 280.37,
+     "generated_nq": 371.425,
+     "generated_tqa": 425.074,
+     "generated_gsm8k": 221.758,
+     "generated_chat": 364.117
+    },
+    "top32_cover": 0.24367,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     423.073,
+     445.672
+    ],
+    "worst_doc_per_1000": 673.913,
+    "worst_doc": 100134,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      596,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 42023936,
+    "miss_per_1000": {
+     "all": 309.901,
+     "hard": 484.248,
+     "rare": 430.244,
+     "generated": 204.526,
+     "generated_nq": 287.931,
+     "generated_tqa": 353.466,
+     "generated_gsm8k": 147.44,
+     "generated_chat": 289.081
+    },
+    "top32_cover": 0.35082,
+    "top32_whole": 1e-05,
+    "miss_ci95": [
+     301.781,
+     318.577
+    ],
+    "worst_doc_per_1000": 534.483,
+    "worst_doc": 200126,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 42131456,
+    "miss_per_1000": {
+     "all": 243.382,
+     "hard": 375.055,
+     "rare": 389.41,
+     "generated": 152.734,
+     "generated_nq": 224.702,
+     "generated_tqa": 295.356,
+     "generated_gsm8k": 101.681,
+     "generated_chat": 218.374
+    },
+    "top32_cover": 0.47014,
+    "top32_whole": 0.00013,
+    "miss_ci95": [
+     235.802,
+     251.229
+    ],
+    "worst_doc_per_1000": 491.525,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 42346496,
+    "miss_per_1000": {
+     "all": 162.236,
+     "hard": 221.19,
+     "rare": 348.226,
+     "generated": 118.09,
+     "generated_nq": 181.48,
+     "generated_tqa": 256.234,
+     "generated_gsm8k": 72.348,
+     "generated_chat": 159.211
+    },
+    "top32_cover": 0.59472,
+    "top32_whole": 0.00128,
+    "miss_ci95": [
+     157.069,
+     167.632
+    ],
+    "worst_doc_per_1000": 372.881,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      596,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 42776576,
+    "miss_per_1000": {
+     "all": 111.093,
+     "hard": 114.927,
+     "rare": 307.043,
+     "generated": 89.951,
+     "generated_nq": 149.288,
+     "generated_tqa": 224.663,
+     "generated_gsm8k": 47.807,
+     "generated_chat": 108.706
+    },
+    "top32_cover": 0.70585,
+    "top32_whole": 0.03169,
+    "miss_ci95": [
+     107.063,
+     115.311
+    ],
+    "worst_doc_per_1000": 322.034,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      589,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 43636736,
+    "miss_per_1000": {
+     "all": 89.271,
+     "hard": 94.102,
+     "rare": 266.441,
+     "generated": 69.114,
+     "generated_nq": 122.355,
+     "generated_tqa": 193.548,
+     "generated_gsm8k": 31.961,
+     "generated_chat": 70.226
+    },
+    "top32_cover": 0.79474,
+    "top32_whole": 0.07812,
+    "miss_ci95": [
+     85.544,
+     93.41
+    ],
+    "worst_doc_per_1000": 229.167,
+    "worst_doc": 200085,
+    "items_touched": {
+     "nq": [
+      577,
+      600
+     ],
+     "tqa": [
+      593,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 45357056,
+    "miss_per_1000": {
+     "all": 67.373,
+     "hard": 72.806,
+     "rare": 213.608,
+     "generated": 54.085,
+     "generated_nq": 100.551,
+     "generated_tqa": 167.467,
+     "generated_gsm8k": 21.527,
+     "generated_chat": 46.657
+    },
+    "top32_cover": 0.87336,
+    "top32_whole": 0.18074,
+    "miss_ci95": [
+     64.179,
+     71.005
+    ],
+    "worst_doc_per_1000": 208.333,
+    "worst_doc": 200596,
+    "items_touched": {
+     "nq": [
+      563,
+      600
+     ],
+     "tqa": [
+      588,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 48797696,
+    "miss_per_1000": {
+     "all": 52.614,
+     "hard": 57.967,
+     "rare": 178.365,
+     "generated": 44.016,
+     "generated_nq": 86.444,
+     "generated_tqa": 146.191,
+     "generated_gsm8k": 14.531,
+     "generated_chat": 37.037
+    },
+    "top32_cover": 0.92539,
+    "top32_whole": 0.37197,
+    "miss_ci95": [
+     49.93,
+     55.568
+    ],
+    "worst_doc_per_1000": 166.667,
+    "worst_doc": 100219,
+    "items_touched": {
+     "nq": [
+      541,
+      600
+     ],
+     "tqa": [
+      564,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "wsvd256": {
+   "16": {
+    "bytes_per_token": 41943296,
+    "miss_per_1000": {
+     "all": 227.777,
+     "hard": 389.831,
+     "rare": 626.085,
+     "generated": 120.208,
+     "generated_nq": 178.274,
+     "generated_tqa": 230.382,
+     "generated_gsm8k": 73.585,
+     "generated_chat": 251.082
+    },
+    "top32_cover": 0.30446,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     218.691,
+     237.61
+    ],
+    "worst_doc_per_1000": 437.5,
+    "worst_doc": 100522,
+    "items_touched": {
+     "nq": [
+      466,
+      600
+     ],
+     "tqa": [
+      492,
+      600
+     ],
+     "gsm8k": [
+      97,
+      100
+     ],
+     "chat": [
+      31,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 41970176,
+    "miss_per_1000": {
+     "all": 154.091,
+     "hard": 287.127,
+     "rare": 455.409,
+     "generated": 78.037,
+     "generated_nq": 111.453,
+     "generated_tqa": 150.08,
+     "generated_gsm8k": 47.15,
+     "generated_chat": 185.666
+    },
+    "top32_cover": 0.44648,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     147.637,
+     161.175
+    ],
+    "worst_doc_per_1000": 354.839,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      381,
+      600
+     ],
+     "tqa": [
+      388,
+      600
+     ],
+     "gsm8k": [
+      94,
+      100
+     ],
+     "chat": [
+      27,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 42023936,
+    "miss_per_1000": {
+     "all": 100.946,
+     "hard": 177.336,
+     "rare": 293.936,
+     "generated": 51.493,
+     "generated_nq": 73.746,
+     "generated_tqa": 97.918,
+     "generated_gsm8k": 30.415,
+     "generated_chat": 132.756
+    },
+    "top32_cover": 0.58475,
+    "top32_whole": 0.01322,
+    "miss_ci95": [
+     96.392,
+     106.104
+    ],
+    "worst_doc_per_1000": 270.833,
+    "worst_doc": 100559,
+    "items_touched": {
+     "nq": [
+      299,
+      600
+     ],
+     "tqa": [
+      293,
+      600
+     ],
+     "gsm8k": [
+      91,
+      100
+     ],
+     "chat": [
+      21,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 42131456,
+    "miss_per_1000": {
+     "all": 33.763,
+     "hard": 42.782,
+     "rare": 143.356,
+     "generated": 32.227,
+     "generated_nq": 44.633,
+     "generated_tqa": 61.542,
+     "generated_gsm8k": 19.324,
+     "generated_chat": 84.656
+    },
+    "top32_cover": 0.71026,
+    "top32_whole": 0.04504,
+    "miss_ci95": [
+     32.064,
+     35.529
+    ],
+    "worst_doc_per_1000": 172.131,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      211,
+      600
+     ],
+     "tqa": [
+      206,
+      600
+     ],
+     "gsm8k": [
+      90,
+      100
+     ],
+     "chat": [
+      18,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 42346496,
+    "miss_per_1000": {
+     "all": 20.996,
+     "hard": 28.039,
+     "rare": 92.62,
+     "generated": 20.014,
+     "generated_nq": 25.779,
+     "generated_tqa": 35.69,
+     "generated_gsm8k": 12.792,
+     "generated_chat": 55.315
+    },
+    "top32_cover": 0.81302,
+    "top32_whole": 0.10251,
+    "miss_ci95": [
+     19.789,
+     22.221
+    ],
+    "worst_doc_per_1000": 122.951,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      137,
+      600
+     ],
+     "tqa": [
+      132,
+      600
+     ],
+     "gsm8k": [
+      81,
+      100
+     ],
+     "chat": [
+      16,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 42776576,
+    "miss_per_1000": {
+     "all": 12.909,
+     "hard": 17.894,
+     "rare": 58.018,
+     "generated": 12.013,
+     "generated_nq": 13.21,
+     "generated_tqa": 22.649,
+     "generated_gsm8k": 8.271,
+     "generated_chat": 31.746
+    },
+    "top32_cover": 0.88304,
+    "top32_whole": 0.23364,
+    "miss_ci95": [
+     12.043,
+     13.787
+    ],
+    "worst_doc_per_1000": 100.0,
+    "worst_doc": 400006,
+    "items_touched": {
+     "nq": [
+      83,
+      600
+     ],
+     "tqa": [
+      85,
+      600
+     ],
+     "gsm8k": [
+      70,
+      100
+     ],
+     "chat": [
+      15,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 43636736,
+    "miss_per_1000": {
+     "all": 6.967,
+     "hard": 10.302,
+     "rare": 32.737,
+     "generated": 6.43,
+     "generated_nq": 6.797,
+     "generated_tqa": 12.812,
+     "generated_gsm8k": 4.329,
+     "generated_chat": 17.797
+    },
+    "top32_cover": 0.93106,
+    "top32_whole": 0.38844,
+    "miss_ci95": [
+     6.387,
+     7.593
+    ],
+    "worst_doc_per_1000": 100.0,
+    "worst_doc": 400006,
+    "items_touched": {
+     "nq": [
+      50,
+      600
+     ],
+     "tqa": [
+      50,
+      600
+     ],
+     "gsm8k": [
+      53,
+      100
+     ],
+     "chat": [
+      13,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 45357056,
+    "miss_per_1000": {
+     "all": 3.474,
+     "hard": 5.104,
+     "rare": 17.126,
+     "generated": 3.365,
+     "generated_nq": 2.693,
+     "generated_tqa": 5.262,
+     "generated_gsm8k": 2.705,
+     "generated_chat": 10.101
+    },
+    "top32_cover": 0.95971,
+    "top32_whole": 0.54307,
+    "miss_ci95": [
+     3.1,
+     3.879
+    ],
+    "worst_doc_per_1000": 57.377,
+    "worst_doc": 400009,
+    "items_touched": {
+     "nq": [
+      20,
+      600
+     ],
+     "tqa": [
+      23,
+      600
+     ],
+     "gsm8k": [
+      38,
+      100
+     ],
+     "chat": [
+      10,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 48797696,
+    "miss_per_1000": {
+     "all": 1.642,
+     "hard": 2.646,
+     "rare": 8.505,
+     "generated": 1.57,
+     "generated_nq": 0.641,
+     "generated_tqa": 2.517,
+     "generated_gsm8k": 1.353,
+     "generated_chat": 5.772
+    },
+    "top32_cover": 0.97976,
+    "top32_whole": 0.75061,
+    "miss_ci95": [
+     1.398,
+     1.909
+    ],
+    "worst_doc_per_1000": 47.619,
+    "worst_doc": 400005,
+    "items_touched": {
+     "nq": [
+      5,
+      600
+     ],
+     "tqa": [
+      11,
+      600
+     ],
+     "gsm8k": [
+      23,
+      100
+     ],
+     "chat": [
+      9,
+      40
+     ]
+    }
+   }
+  },
+  "svd512": {
+   "16": {
+    "bytes_per_token": 83230976,
+    "miss_per_1000": {
+     "all": 427.022,
+     "hard": 628.757,
+     "rare": 551.873,
+     "generated": 271.198,
+     "generated_nq": 358.471,
+     "generated_tqa": 397.621,
+     "generated_gsm8k": 222.725,
+     "generated_chat": 281.385
+    },
+    "top32_cover": 0.21372,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     417.102,
+     438.282
+    ],
+    "worst_doc_per_1000": 688.889,
+    "worst_doc": 100158,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      596,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 83257856,
+    "miss_per_1000": {
+     "all": 291.885,
+     "hard": 431.762,
+     "rare": 360.517,
+     "generated": 193.51,
+     "generated_nq": 276.388,
+     "generated_tqa": 335.164,
+     "generated_gsm8k": 142.918,
+     "generated_chat": 214.526
+    },
+    "top32_cover": 0.32795,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     284.488,
+     299.619
+    ],
+    "worst_doc_per_1000": 531.646,
+    "worst_doc": 200579,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      596,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 83311616,
+    "miss_per_1000": {
+     "all": 200.412,
+     "hard": 284.859,
+     "rare": 328.712,
+     "generated": 141.593,
+     "generated_nq": 217.263,
+     "generated_tqa": 279.112,
+     "generated_gsm8k": 94.57,
+     "generated_chat": 153.92
+    },
+    "top32_cover": 0.45781,
+    "top32_whole": 9e-05,
+    "miss_ci95": [
+     195.21,
+     205.811
+    ],
+    "worst_doc_per_1000": 389.831,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      597,
+      600
+     ],
+     "tqa": [
+      596,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 83419136,
+    "miss_per_1000": {
+     "all": 169.165,
+     "hard": 258.805,
+     "rare": 300.111,
+     "generated": 107.771,
+     "generated_nq": 176.735,
+     "generated_tqa": 242.507,
+     "generated_gsm8k": 64.309,
+     "generated_chat": 106.782
+    },
+    "top32_cover": 0.59001,
+    "top32_whole": 0.00167,
+    "miss_ci95": [
+     163.574,
+     175.085
+    ],
+    "worst_doc_per_1000": 326.531,
+    "worst_doc": 100381,
+    "items_touched": {
+     "nq": [
+      595,
+      600
+     ],
+     "tqa": [
+      595,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 83634176,
+    "miss_per_1000": {
+     "all": 120.86,
+     "hard": 153.834,
+     "rare": 275.063,
+     "generated": 85.539,
+     "generated_nq": 147.621,
+     "generated_tqa": 214.367,
+     "generated_gsm8k": 46.647,
+     "generated_chat": 65.897
+    },
+    "top32_cover": 0.71137,
+    "top32_whole": 0.00831,
+    "miss_ci95": [
+     116.515,
+     125.729
+    ],
+    "worst_doc_per_1000": 271.186,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      590,
+      600
+     ],
+     "tqa": [
+      594,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 84064256,
+    "miss_per_1000": {
+     "all": 88.351,
+     "hard": 91.992,
+     "rare": 245.121,
+     "generated": 67.32,
+     "generated_nq": 123.766,
+     "generated_tqa": 189.888,
+     "generated_gsm8k": 31.266,
+     "generated_chat": 46.657
+    },
+    "top32_cover": 0.80427,
+    "top32_whole": 0.07474,
+    "miss_ci95": [
+     84.688,
+     92.403
+    ],
+    "worst_doc_per_1000": 237.288,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      579,
+      600
+     ],
+     "tqa": [
+      594,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 84924416,
+    "miss_per_1000": {
+     "all": 70.724,
+     "hard": 74.223,
+     "rare": 206.501,
+     "generated": 54.434,
+     "generated_nq": 105.169,
+     "generated_tqa": 169.298,
+     "generated_gsm8k": 21.372,
+     "generated_chat": 34.151
+    },
+    "top32_cover": 0.87515,
+    "top32_whole": 0.18472,
+    "miss_ci95": [
+     67.389,
+     74.463
+    ],
+    "worst_doc_per_1000": 220.339,
+    "worst_doc": 200241,
+    "items_touched": {
+     "nq": [
+      564,
+      600
+     ],
+     "tqa": [
+      591,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 86644736,
+    "miss_per_1000": {
+     "all": 57.35,
+     "hard": 62.283,
+     "rare": 173.938,
+     "generated": 45.436,
+     "generated_nq": 92.087,
+     "generated_tqa": 149.394,
+     "generated_gsm8k": 15.304,
+     "generated_chat": 26.936
+    },
+    "top32_cover": 0.92726,
+    "top32_whole": 0.36854,
+    "miss_ci95": [
+     54.432,
+     60.637
+    ],
+    "worst_doc_per_1000": 181.818,
+    "worst_doc": 100127,
+    "items_touched": {
+     "nq": [
+      545,
+      600
+     ],
+     "tqa": [
+      569,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 90085376,
+    "miss_per_1000": {
+     "all": 34.427,
+     "hard": 54.974,
+     "rare": 69.902,
+     "generated": 34.345,
+     "generated_nq": 73.746,
+     "generated_tqa": 116.678,
+     "generated_gsm8k": 9.43,
+     "generated_chat": 23.569
+    },
+    "top32_cover": 0.96038,
+    "top32_whole": 0.57719,
+    "miss_ci95": [
+     32.442,
+     36.643
+    ],
+    "worst_doc_per_1000": 136.364,
+    "worst_doc": 100127,
+    "items_touched": {
+     "nq": [
+      493,
+      600
+     ],
+     "tqa": [
+      475,
+      600
+     ],
+     "gsm8k": [
+      95,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "wsvd512": {
+   "16": {
+    "bytes_per_token": 83230976,
+    "miss_per_1000": {
+     "all": 102.199,
+     "hard": 233.98,
+     "rare": 265.043,
+     "generated": 48.701,
+     "generated_nq": 70.155,
+     "generated_tqa": 91.741,
+     "generated_gsm8k": 31.304,
+     "generated_chat": 94.276
+    },
+    "top32_cover": 0.36513,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     97.697,
+     107.084
+    ],
+    "worst_doc_per_1000": 274.51,
+    "worst_doc": 100422,
+    "items_touched": {
+     "nq": [
+      286,
+      600
+     ],
+     "tqa": [
+      266,
+      600
+     ],
+     "gsm8k": [
+      93,
+      100
+     ],
+     "chat": [
+      23,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 83257856,
+    "miss_per_1000": {
+     "all": 81.621,
+     "hard": 208.147,
+     "rare": 205.336,
+     "generated": 30.183,
+     "generated_nq": 40.015,
+     "generated_tqa": 53.306,
+     "generated_gsm8k": 20.986,
+     "generated_chat": 59.163
+    },
+    "top32_cover": 0.54743,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     77.628,
+     85.917
+    ],
+    "worst_doc_per_1000": 235.294,
+    "worst_doc": 100422,
+    "items_touched": {
+     "nq": [
+      184,
+      600
+     ],
+     "tqa": [
+      169,
+      600
+     ],
+     "gsm8k": [
+      89,
+      100
+     ],
+     "chat": [
+      16,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 83311616,
+    "miss_per_1000": {
+     "all": 32.757,
+     "hard": 71.136,
+     "rare": 84.697,
+     "generated": 19.117,
+     "generated_nq": 24.24,
+     "generated_tqa": 32.944,
+     "generated_gsm8k": 13.758,
+     "generated_chat": 37.518
+    },
+    "top32_cover": 0.70719,
+    "top32_whole": 0.01788,
+    "miss_ci95": [
+     31.136,
+     34.458
+    ],
+    "worst_doc_per_1000": 137.255,
+    "worst_doc": 100422,
+    "items_touched": {
+     "nq": [
+      131,
+      600
+     ],
+     "tqa": [
+      118,
+      600
+     ],
+     "gsm8k": [
+      82,
+      100
+     ],
+     "chat": [
+      14,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 83419136,
+    "miss_per_1000": {
+     "all": 12.339,
+     "hard": 20.635,
+     "rare": 50.912,
+     "generated": 10.667,
+     "generated_nq": 13.338,
+     "generated_tqa": 18.074,
+     "generated_gsm8k": 7.691,
+     "generated_chat": 22.126
+    },
+    "top32_cover": 0.82826,
+    "top32_whole": 0.12072,
+    "miss_ci95": [
+     11.526,
+     13.21
+    ],
+    "worst_doc_per_1000": 90.909,
+    "worst_doc": 200222,
+    "items_touched": {
+     "nq": [
+      81,
+      600
+     ],
+     "tqa": [
+      70,
+      600
+     ],
+     "gsm8k": [
+      66,
+      100
+     ],
+     "chat": [
+      14,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 83634176,
+    "miss_per_1000": {
+     "all": 6.255,
+     "hard": 11.121,
+     "rare": 27.611,
+     "generated": 5.359,
+     "generated_nq": 5.515,
+     "generated_tqa": 9.151,
+     "generated_gsm8k": 4.097,
+     "generated_chat": 12.506
+    },
+    "top32_cover": 0.90659,
+    "top32_whole": 0.30305,
+    "miss_ci95": [
+     5.733,
+     6.816
+    ],
+    "worst_doc_per_1000": 86.957,
+    "worst_doc": 100059,
+    "items_touched": {
+     "nq": [
+      40,
+      600
+     ],
+     "tqa": [
+      39,
+      600
+     ],
+     "gsm8k": [
+      50,
+      100
+     ],
+     "chat": [
+      13,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 84064256,
+    "miss_per_1000": {
+     "all": 2.914,
+     "hard": 5.387,
+     "rare": 14.039,
+     "generated": 2.418,
+     "generated_nq": 2.18,
+     "generated_tqa": 4.347,
+     "generated_gsm8k": 2.087,
+     "generated_chat": 3.367
+    },
+    "top32_cover": 0.95031,
+    "top32_whole": 0.45751,
+    "miss_ci95": [
+     2.588,
+     3.269
+    ],
+    "worst_doc_per_1000": 47.619,
+    "worst_doc": 400005,
+    "items_touched": {
+     "nq": [
+      16,
+      600
+     ],
+     "tqa": [
+      19,
+      600
+     ],
+     "gsm8k": [
+      34,
+      100
+     ],
+     "chat": [
+      6,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 84924416,
+    "miss_per_1000": {
+     "all": 1.291,
+     "hard": 2.646,
+     "rare": 6.524,
+     "generated": 1.022,
+     "generated_nq": 1.026,
+     "generated_tqa": 1.83,
+     "generated_gsm8k": 0.812,
+     "generated_chat": 1.924
+    },
+    "top32_cover": 0.97308,
+    "top32_whole": 0.65618,
+    "miss_ci95": [
+     1.085,
+     1.507
+    ],
+    "worst_doc_per_1000": 42.553,
+    "worst_doc": 200000,
+    "items_touched": {
+     "nq": [
+      7,
+      600
+     ],
+     "tqa": [
+      8,
+      600
+     ],
+     "gsm8k": [
+      18,
+      100
+     ],
+     "chat": [
+      3,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 86644736,
+    "miss_per_1000": {
+     "all": 0.399,
+     "hard": 0.693,
+     "rare": 2.039,
+     "generated": 0.449,
+     "generated_nq": 0.128,
+     "generated_tqa": 1.373,
+     "generated_gsm8k": 0.309,
+     "generated_chat": 1.443
+    },
+    "top32_cover": 0.98608,
+    "top32_whole": 0.80611,
+    "miss_ci95": [
+     0.284,
+     0.532
+    ],
+    "worst_doc_per_1000": 22.222,
+    "worst_doc": 200152,
+    "items_touched": {
+     "nq": [
+      1,
+      600
+     ],
+     "tqa": [
+      6,
+      600
+     ],
+     "gsm8k": [
+      7,
+      100
+     ],
+     "chat": [
+      2,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 90085376,
+    "miss_per_1000": {
+     "all": 0.123,
+     "hard": 0.221,
+     "rare": 0.641,
+     "generated": 0.15,
+     "generated_nq": 0.128,
+     "generated_tqa": 0.458,
+     "generated_gsm8k": 0.116,
+     "generated_chat": 0.0
+    },
+    "top32_cover": 0.99386,
+    "top32_whole": 0.90034,
+    "miss_ci95": [
+     0.056,
+     0.205
+    ],
+    "worst_doc_per_1000": 22.222,
+    "worst_doc": 200436,
+    "items_touched": {
+     "nq": [
+      1,
+      600
+     ],
+     "tqa": [
+      2,
+      600
+     ],
+     "gsm8k": [
+      2,
+      100
+     ],
+     "chat": [
+      0,
+      40
+     ]
+    }
+   }
+  },
+  "freq": {
+   "16": {
+    "bytes_per_token": 26880,
+    "miss_per_1000": {
+     "all": 626.418,
+     "hard": 661.458,
+     "rare": 1000.0,
+     "generated": 657.495,
+     "generated_nq": 715.788,
+     "generated_tqa": 824.983,
+     "generated_gsm8k": 598.145,
+     "generated_chat": 825.397
+    },
+    "top32_cover": 0.10191,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     621.615,
+     630.752
+    ],
+    "worst_doc_per_1000": 896.552,
+    "worst_doc": 400012,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 53760,
+    "miss_per_1000": {
+     "all": 549.742,
+     "hard": 639.153,
+     "rare": 1000.0,
+     "generated": 557.923,
+     "generated_nq": 628.062,
+     "generated_tqa": 759.78,
+     "generated_gsm8k": 485.256,
+     "generated_chat": 774.892
+    },
+    "top32_cover": 0.15831,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     543.879,
+     555.271
+    ],
+    "worst_doc_per_1000": 871.795,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 107520,
+    "miss_per_1000": {
+     "all": 490.646,
+     "hard": 583.108,
+     "rare": 1000.0,
+     "generated": 505.433,
+     "generated_nq": 588.431,
+     "generated_tqa": 727.751,
+     "generated_gsm8k": 422.918,
+     "generated_chat": 753.728
+    },
+    "top32_cover": 0.19504,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     484.443,
+     496.751
+    ],
+    "worst_doc_per_1000": 871.795,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 215040,
+    "miss_per_1000": {
+     "all": 462.132,
+     "hard": 565.339,
+     "rare": 1000.0,
+     "generated": 464.658,
+     "generated_nq": 564.448,
+     "generated_tqa": 701.213,
+     "generated_gsm8k": 373.565,
+     "generated_chat": 726.792
+    },
+    "top32_cover": 0.23775,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     454.939,
+     469.314
+    ],
+    "worst_doc_per_1000": 863.248,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 430080,
+    "miss_per_1000": {
+     "all": 405.076,
+     "hard": 477.223,
+     "rare": 1000.0,
+     "generated": 434.475,
+     "generated_nq": 535.719,
+     "generated_tqa": 669.412,
+     "generated_gsm8k": 343.188,
+     "generated_chat": 696.97
+    },
+    "top32_cover": 0.27967,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     398.523,
+     411.304
+    ],
+    "worst_doc_per_1000": 854.701,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 860160,
+    "miss_per_1000": {
+     "all": 365.941,
+     "hard": 424.17,
+     "rare": 1000.0,
+     "generated": 394.447,
+     "generated_nq": 488.649,
+     "generated_tqa": 621.139,
+     "generated_gsm8k": 308.058,
+     "generated_chat": 639.731
+    },
+    "top32_cover": 0.32993,
+    "top32_whole": 1e-05,
+    "miss_ci95": [
+     359.485,
+     372.302
+    ],
+    "worst_doc_per_1000": 794.872,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 1720320,
+    "miss_per_1000": {
+     "all": 333.745,
+     "hard": 401.739,
+     "rare": 1000.0,
+     "generated": 355.964,
+     "generated_nq": 442.35,
+     "generated_tqa": 565.774,
+     "generated_gsm8k": 276.367,
+     "generated_chat": 581.53
+    },
+    "top32_cover": 0.38372,
+    "top32_whole": 4e-05,
+    "miss_ci95": [
+     327.221,
+     340.365
+    ],
+    "worst_doc_per_1000": 743.902,
+    "worst_doc": 400014,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 3440640,
+    "miss_per_1000": {
+     "all": 306.266,
+     "hard": 377.922,
+     "rare": 1000.0,
+     "generated": 323.912,
+     "generated_nq": 394.382,
+     "generated_tqa": 518.646,
+     "generated_gsm8k": 252.947,
+     "generated_chat": 533.43
+    },
+    "top32_cover": 0.43968,
+    "top32_whole": 0.00021,
+    "miss_ci95": [
+     299.864,
+     312.648
+    ],
+    "worst_doc_per_1000": 695.122,
+    "worst_doc": 400014,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 6881280,
+    "miss_per_1000": {
+     "all": 217.27,
+     "hard": 163.506,
+     "rare": 1000.0,
+     "generated": 276.307,
+     "generated_nq": 337.694,
+     "generated_tqa": 449.096,
+     "generated_gsm8k": 212.908,
+     "generated_chat": 471.861
+    },
+    "top32_cover": 0.50981,
+    "top32_whole": 0.00076,
+    "miss_ci95": [
+     212.312,
+     222.023
+    ],
+    "worst_doc_per_1000": 597.561,
+    "worst_doc": 400014,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   }
+  },
+  "clus64": {
+   "16": {
+    "bytes_per_token": 289024,
+    "miss_per_1000": {
+     "all": 494.718,
+     "hard": 517.8,
+     "rare": 1000.0,
+     "generated": 530.557,
+     "generated_nq": 607.028,
+     "generated_tqa": 732.327,
+     "generated_gsm8k": 452.019,
+     "generated_chat": 797.018
+    },
+    "top32_cover": 0.14715,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     488.828,
+     500.341
+    ],
+    "worst_doc_per_1000": 897.436,
+    "worst_doc": 400017,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 315904,
+    "miss_per_1000": {
+     "all": 467.884,
+     "hard": 505.482,
+     "rare": 999.942,
+     "generated": 487.538,
+     "generated_nq": 565.859,
+     "generated_tqa": 697.094,
+     "generated_gsm8k": 406.493,
+     "generated_chat": 761.905
+    },
+    "top32_cover": 0.19766,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     461.495,
+     474.175
+    ],
+    "worst_doc_per_1000": 871.795,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 369664,
+    "miss_per_1000": {
+     "all": 418.052,
+     "hard": 489.541,
+     "rare": 983.398,
+     "generated": 438.089,
+     "generated_nq": 520.328,
+     "generated_tqa": 655.228,
+     "generated_gsm8k": 352.502,
+     "generated_chat": 738.336
+    },
+    "top32_cover": 0.26002,
+    "top32_whole": 0.01272,
+    "miss_ci95": [
+     411.502,
+     424.695
+    ],
+    "worst_doc_per_1000": 838.71,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 477184,
+    "miss_per_1000": {
+     "all": 364.812,
+     "hard": 390.555,
+     "rare": 977.515,
+     "generated": 396.241,
+     "generated_nq": 477.107,
+     "generated_tqa": 603.294,
+     "generated_gsm8k": 312.85,
+     "generated_chat": 695.527
+    },
+    "top32_cover": 0.33258,
+    "top32_whole": 0.01297,
+    "miss_ci95": [
+     358.607,
+     370.991
+    ],
+    "worst_doc_per_1000": 830.645,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 692224,
+    "miss_per_1000": {
+     "all": 309.36,
+     "hard": 329.248,
+     "rare": 923.749,
+     "generated": 324.884,
+     "generated_nq": 431.32,
+     "generated_tqa": 553.191,
+     "generated_gsm8k": 229.295,
+     "generated_chat": 635.402
+    },
+    "top32_cover": 0.42691,
+    "top32_whole": 0.01407,
+    "miss_ci95": [
+     302.259,
+     316.488
+    ],
+    "worst_doc_per_1000": 774.194,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      599,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 1122304,
+    "miss_per_1000": {
+     "all": 261.976,
+     "hard": 268.729,
+     "rare": 894.682,
+     "generated": 272.27,
+     "generated_nq": 380.659,
+     "generated_tqa": 499.199,
+     "generated_gsm8k": 177.855,
+     "generated_chat": 563.733
+    },
+    "top32_cover": 0.50661,
+    "top32_whole": 0.03116,
+    "miss_ci95": [
+     254.942,
+     269.113
+    ],
+    "worst_doc_per_1000": 701.613,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 1982464,
+    "miss_per_1000": {
+     "all": 200.554,
+     "hard": 206.036,
+     "rare": 778.762,
+     "generated": 184.487,
+     "generated_nq": 280.749,
+     "generated_tqa": 334.935,
+     "generated_gsm8k": 105.043,
+     "generated_chat": 495.911
+    },
+    "top32_cover": 0.59615,
+    "top32_whole": 0.04196,
+    "miss_ci95": [
+     193.443,
+     207.64
+    ],
+    "worst_doc_per_1000": 637.097,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      510,
+      600
+     ],
+     "tqa": [
+      526,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 3702784,
+    "miss_per_1000": {
+     "all": 147.514,
+     "hard": 180.014,
+     "rare": 624.337,
+     "generated": 130.328,
+     "generated_nq": 209.953,
+     "generated_tqa": 251.201,
+     "generated_gsm8k": 63.304,
+     "generated_chat": 411.736
+    },
+    "top32_cover": 0.68565,
+    "top32_whole": 0.08491,
+    "miss_ci95": [
+     141.158,
+     154.235
+    ],
+    "worst_doc_per_1000": 548.387,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      482,
+      600
+     ],
+     "tqa": [
+      484,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 7143424,
+    "miss_per_1000": {
+     "all": 81.602,
+     "hard": 83.423,
+     "rare": 436.36,
+     "generated": 82.349,
+     "generated_nq": 126.202,
+     "generated_tqa": 140.471,
+     "generated_gsm8k": 40.734,
+     "generated_chat": 313.612
+    },
+    "top32_cover": 0.75997,
+    "top32_whole": 0.11085,
+    "miss_ci95": [
+     77.33,
+     86.154
+    ],
+    "worst_doc_per_1000": 475.806,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      427,
+      600
+     ],
+     "tqa": [
+      381,
+      600
+     ],
+     "gsm8k": [
+      99,
+      100
+     ],
+     "chat": [
+      34,
+      40
+     ]
+    }
+   }
+  },
+  "clus256": {
+   "16": {
+    "bytes_per_token": 1075456,
+    "miss_per_1000": {
+     "all": 511.556,
+     "hard": 561.811,
+     "rare": 997.961,
+     "generated": 503.963,
+     "generated_nq": 584.327,
+     "generated_tqa": 721.345,
+     "generated_gsm8k": 423.111,
+     "generated_chat": 751.804
+    },
+    "top32_cover": 0.15738,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     503.917,
+     519.008
+    ],
+    "worst_doc_per_1000": 888.889,
+    "worst_doc": 400010,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "32": {
+    "bytes_per_token": 1102336,
+    "miss_per_1000": {
+     "all": 453.513,
+     "hard": 465.314,
+     "rare": 996.214,
+     "generated": 463.387,
+     "generated_nq": 539.053,
+     "generated_tqa": 682.681,
+     "generated_gsm8k": 384.348,
+     "generated_chat": 702.261
+    },
+    "top32_cover": 0.22424,
+    "top32_whole": 0.0,
+    "miss_ci95": [
+     447.001,
+     460.313
+    ],
+    "worst_doc_per_1000": 809.816,
+    "worst_doc": 400016,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "64": {
+    "bytes_per_token": 1156096,
+    "miss_per_1000": {
+     "all": 406.092,
+     "hard": 403.251,
+     "rare": 980.661,
+     "generated": 412.392,
+     "generated_nq": 501.86,
+     "generated_tqa": 636.468,
+     "generated_gsm8k": 328.928,
+     "generated_chat": 644.541
+    },
+    "top32_cover": 0.29925,
+    "top32_whole": 0.01274,
+    "miss_ci95": [
+     399.592,
+     412.794
+    ],
+    "worst_doc_per_1000": 750.0,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      600,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "128": {
+    "bytes_per_token": 1263616,
+    "miss_per_1000": {
+     "all": 352.092,
+     "hard": 348.245,
+     "rare": 961.671,
+     "generated": 360.949,
+     "generated_nq": 458.125,
+     "generated_tqa": 579.959,
+     "generated_gsm8k": 277.217,
+     "generated_chat": 578.163
+    },
+    "top32_cover": 0.377,
+    "top32_whole": 0.01362,
+    "miss_ci95": [
+     346.165,
+     358.198
+    ],
+    "worst_doc_per_1000": 695.122,
+    "worst_doc": 400014,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "256": {
+    "bytes_per_token": 1478656,
+    "miss_per_1000": {
+     "all": 284.985,
+     "hard": 289.553,
+     "rare": 926.37,
+     "generated": 294.901,
+     "generated_nq": 406.567,
+     "generated_tqa": 521.62,
+     "generated_gsm8k": 205.179,
+     "generated_chat": 516.114
+    },
+    "top32_cover": 0.46033,
+    "top32_whole": 0.01644,
+    "miss_ci95": [
+     278.792,
+     291.379
+    ],
+    "worst_doc_per_1000": 620.968,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      598,
+      600
+     ],
+     "tqa": [
+      600,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "512": {
+    "bytes_per_token": 1908736,
+    "miss_per_1000": {
+     "all": 226.581,
+     "hard": 222.859,
+     "rare": 824.198,
+     "generated": 219.605,
+     "generated_nq": 314.095,
+     "generated_tqa": 380.92,
+     "generated_gsm8k": 146.048,
+     "generated_chat": 441.558
+    },
+    "top32_cover": 0.54185,
+    "top32_whole": 0.03364,
+    "miss_ci95": [
+     220.488,
+     232.819
+    ],
+    "worst_doc_per_1000": 564.516,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      500,
+      600
+     ],
+     "tqa": [
+      555,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "1024": {
+    "bytes_per_token": 2768896,
+    "miss_per_1000": {
+     "all": 170.94,
+     "hard": 191.04,
+     "rare": 667.152,
+     "generated": 167.988,
+     "generated_nq": 242.529,
+     "generated_tqa": 298.559,
+     "generated_gsm8k": 108.329,
+     "generated_chat": 356.421
+    },
+    "top32_cover": 0.62534,
+    "top32_whole": 0.04341,
+    "miss_ci95": [
+     165.67,
+     176.406
+    ],
+    "worst_doc_per_1000": 435.484,
+    "worst_doc": 400015,
+    "items_touched": {
+     "nq": [
+      487,
+      600
+     ],
+     "tqa": [
+      517,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      40,
+      40
+     ]
+    }
+   },
+   "2048": {
+    "bytes_per_token": 4489216,
+    "miss_per_1000": {
+     "all": 113.789,
+     "hard": 134.711,
+     "rare": 481.214,
+     "generated": 113.429,
+     "generated_nq": 167.757,
+     "generated_tqa": 199.268,
+     "generated_gsm8k": 69.797,
+     "generated_chat": 272.246
+    },
+    "top32_cover": 0.69354,
+    "top32_whole": 0.06746,
+    "miss_ci95": [
+     109.898,
+     117.993
+    ],
+    "worst_doc_per_1000": 367.347,
+    "worst_doc": 400001,
+    "items_touched": {
+     "nq": [
+      445,
+      600
+     ],
+     "tqa": [
+      442,
+      600
+     ],
+     "gsm8k": [
+      100,
+      100
+     ],
+     "chat": [
+      37,
+      40
+     ]
+    }
+   },
+   "4096": {
+    "bytes_per_token": 7929856,
+    "miss_per_1000": {
+     "all": 82.029,
+     "hard": 119.715,
+     "rare": 349.916,
+     "generated": 85.414,
+     "generated_nq": 118.764,
+     "generated_tqa": 141.158,
+     "generated_gsm8k": 54.531,
+     "generated_chat": 227.513
+    },
+    "top32_cover": 0.74775,
+    "top32_whole": 0.09412,
+    "miss_ci95": [
+     78.815,
+     85.256
+    ],
+    "worst_doc_per_1000": 296.0,
+    "worst_doc": 400019,
+    "items_touched": {
+     "nq": [
+      391,
+      600
+     ],
+     "tqa": [
+      369,
+      600
+     ],
+     "gsm8k": [
+      99,
+      100
+     ],
+     "chat": [
+      33,
+      40
+     ]
+    }
+   }
+  }
+ }
+}
