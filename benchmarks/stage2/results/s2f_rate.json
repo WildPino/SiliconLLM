@@ -1,0 +1,40 @@
+{
+ "config": {
+  "warmup": 3,
+  "steps": 10,
+  "seed": 20261103,
+  "json": "benchmarks\\stage2\\results\\s2f_rate.json",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "torch": "2.11.0+cu128"
+ },
+ "shapes": {
+  "mini": {
+   "d": 2048,
+   "f": 512,
+   "chunk_experts": 64,
+   "tokens_per_step": 8192,
+   "block_s_per_step": 0.1648,
+   "block_ms_per_token_layer": 0.1609,
+   "frozen_s_per_step": 0.0545,
+   "frozen_ms_per_token_layer": 0.0532,
+   "scales_s_per_step": 0.0804,
+   "scales_ms_per_token_layer": 0.0785,
+   "max_mem_gb": 4.62,
+   "valid": true
+  },
+  "flash": {
+   "d": 4096,
+   "f": 1024,
+   "chunk_experts": 32,
+   "tokens_per_step": 4096,
+   "block_s_per_step": 0.2865,
+   "block_ms_per_token_layer": 0.5596,
+   "frozen_s_per_step": 0.0323,
+   "frozen_ms_per_token_layer": 0.0632,
+   "scales_s_per_step": 0.0953,
+   "scales_ms_per_token_layer": 0.1862,
+   "max_mem_gb": 9.05,
+   "valid": true
+  }
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "flash": {
+  "moe_layers": 31,
+  "d": 4096,
+  "f": 1024,
+  "experts": 256,
+  "k": 8,
+  "params_total": 102889705216,
+  "params_matrices": 102213091328,
+  "active": 5508456192.0,
+  "ternary_gb": 25.55,
+  "bf16_gb": 205.8,
+  "scales": 49423872
+ },
+ "machines": {
+  "kaggle_t4x2": {
+   "gpu": 30.0,
+   "gpu_each": 15.0,
+   "host": 32.21225472,
+   "disk": 20.0
+  },
+  "local": {
+   "gpu": 12.0,
+   "host": 85.89934592
+  }
+ },
+ "rates": {
+  "fast_flops": 8000000000000.0,
+  "slow_flops": 143629994566,
+  "s1b_seconds": 29962.4,
+  "s1b_ms_per_token_layer": 1.051,
+  "measured": {
+   "file": "benchmarks\\stage2\\results\\s2f_rate.json",
+   "gpu": "NVIDIA GeForce RTX 3060",
+   "block": 0.5596,
+   "frozen": 0.0632,
+   "scales": 0.1862,
+   "other_active": 2387894016.0
+  }
+ },
+ "methods": {
+  "M1_blockwise_sequential": {
+   "gpu_gb": 7.8,
+   "chunk_experts": 64,
+   "host_gb_1500000": 49.2,
+   "hours_fast_1500000": 2.1,
+   "hours_slow_1500000": 54.3,
+   "host_gb_16777216": 549.8,
+   "hours_fast_16777216": 23.3,
+   "hours_slow_16777216": 607.5,
+   "teacher_read_gb": 205.8,
+   "hours_measured_1500000": 7.7,
+   "hours_measured_16777216": 86.4
+  },
+  "M2_e2e_scales": {
+   "gpu_gb": 28.8,
+   "fits_t4x2": true,
+   "margin_t4x2_gb": 1.2,
+   "fits_3060_resident": false,
+   "host_local_gb": 27.6,
+   "stream_gb_per_pass_3060": 25.6,
+   "hours_fast_1500000": 1.7,
+   "hours_slow_1500000": 95.9,
+   "hours_fast_16777216": 19.3,
+   "hours_slow_16777216": 1072.4,
+   "hours_measured_1500000": 3.2,
+   "hours_measured_16777216": 35.2
+  },
+  "M3_e2e_latent_windows": {
+   "window_experts": 16,
+   "windows": 496,
+   "gpu_gb": 30.4,
+   "hours_fast_1500000": 843.0
+  },
+  "M4_full_qat": {
+   "state_gb_min": 412.0,
+   "fits_host_local": false,
+   "disk_traffic_gb_per_step": 617.0
+  },
+  "M5_blockwise_downstream": {
+   "downstream_blocks": 4,
+   "gpu_gb": 11.1,
+   "hours_fast_1500000": 8.8,
+   "hours_fast_16777216": 97.9,
+   "hours_measured_1500000": 11.1,
+   "hours_measured_16777216": 124.0
+  }
+ }
+}

@@ -1,0 +1,73 @@
+{
+ "rows": {
+  "attention": {
+   "desk": 7.762,
+   "now": 7.762,
+   "measured": false
+  },
+  "shared": {
+   "desk": 5.006,
+   "now": 5.254,
+   "measured": true
+  },
+  "dense_ffn": {
+   "desk": 0.728,
+   "now": 0.728,
+   "measured": false
+  },
+  "router": {
+   "desk": 1.079,
+   "now": 0.875,
+   "measured": true
+  },
+  "routed": {
+   "desk": 13.766,
+   "now": 13.766,
+   "measured": false
+  },
+  "small": {
+   "desk": 0.035,
+   "now": 0.035,
+   "measured": false
+  },
+  "embedding": {
+   "desk": 0.0,
+   "now": 0.0,
+   "measured": false
+  },
+  "kv_cache": {
+   "desk": 2.228,
+   "now": 11.668,
+   "measured": true
+  },
+  "fixed": {
+   "desk": 4.32,
+   "now": 2.411,
+   "measured": true
+  },
+  "preview": {
+   "desk": 4.137,
+   "now": 4.137,
+   "measured": false
+  },
+  "gather": {
+   "desk": 0.108,
+   "now": 0.177,
+   "measured": true
+  },
+  "select": {
+   "desk": 0.2,
+   "now": 0.195,
+   "measured": true
+  }
+ },
+ "extra_ms": 0.0,
+ "desk_ms": 39.37,
+ "desk_tok_s": 25.4,
+ "ms": 47.01,
+ "tok_s": 21.27,
+ "line": 24.7,
+ "room_ms": -6.52,
+ "kv_f16_ms": 8.964,
+ "note": "cell 1, K = 1,024; rows not marked measured are DESK-MODEL; a sum of cells, not a run on flash"
+}
