@@ -204,7 +204,7 @@ static DWORD WINAPI worker_main(LPVOID p) {
     }
 }
 
-static void run(job_fn fn, void *arg) {
+static void run_once(job_fn fn, void *arg) {
     g_fn = fn;
     g_arg = arg;
     g_done = 0;
@@ -212,6 +212,20 @@ static void run(job_fn fn, void *arg) {
     InterlockedIncrement(&g_gen);
     fn(0, arg);
     while (g_done < g_nt - 1) _mm_pause();
+}
+
+/* Stage 2 test 5, default off: --barrier-extra N follows every job with N empty ones, so the time per barrier reads as
+   the step's growth over the jobs counted in g_runs.  --kv q8_0 keeps K and V as Q8_0 blocks along the head; --experts-used
+   N runs the first N slots of the selection, for timing only: weights are not renormalized. */
+static int g_barrier_extra, g_kvq8;
+static unsigned g_ku = NU;
+static uint64_t g_runs;
+static void empty_job(int tid, void *arg) { (void)tid; (void)arg; }
+static void run(job_fn fn, void *arg) {
+    int i;
+    run_once(fn, arg);
+    ++g_runs;
+    for (i = 0; i < g_barrier_extra; ++i) run_once(empty_job, NULL);
 }
 
 static void pick_cores(void) {
@@ -297,9 +311,12 @@ static void matvec(const wt *w, act_t *a, float *out, uint64_t rows) {
    chunk order, so the output does not depend on --threads; thread t runs chunks t, t + g_nt, ... */
 #define ATT_CHUNKS 6
 #define POS_PER_WORKER ((MAXCTX + ATT_CHUNKS - 1) / ATT_CHUNKS + 8)
+#define KVB 34U                  /* bytes of a Q8_0 block */
+#define KVROW (HD / 32 * KVB)    /* bytes of one position of one KV head */
 typedef struct {
     const float *q;              /* NH x HD, normed and rotated */
     const uint16_t *kc, *vc;     /* [MAXCTX][NKV][HD] F16 */
+    const uint8_t *kq, *vq;      /* --kv q8_0: [MAXCTX][NKV][HD / 32] blocks of a F16 scale and 32 int8 */
     unsigned npos;
     float m[ATT_CHUNKS][NH], l[ATT_CHUNKS][NH], acc[ATT_CHUNKS][NH][HD];
     float sc[ATT_CHUNKS][NH][POS_PER_WORKER];
@@ -313,6 +330,23 @@ static void att_chunk(att_job *a, int tid) {
     for (kv = 0; kv < NKV; ++kv) {
         for (pos = p0; pos < p1; ++pos) {
             const uint16_t *k = a->kc + ((size_t)pos * NKV + kv) * HD;
+            if (a->kq) {
+                const uint8_t *kb = a->kq + ((size_t)pos * NKV + kv) * KVROW;
+                __m256 q8[4] = {_mm256_setzero_ps(), _mm256_setzero_ps(), _mm256_setzero_ps(), _mm256_setzero_ps()};
+                unsigned b;
+                for (b = 0; b < HD / 32; ++b, kb += KVB) {
+                    uint16_t hs;
+                    __m256 dv;
+                    memcpy(&hs, kb, 2);
+                    dv = _mm256_set1_ps(c50_h2f(hs));
+                    for (d = 0; d < 32; d += 8) {
+                        const __m256 kk = _mm256_mul_ps(dv, _mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_loadl_epi64((const __m128i *)(kb + 2 + d)))));
+                        for (h = 0; h < G; ++h) q8[h] = _mm256_fmadd_ps(_mm256_loadu_ps(a->q + (kv * G + h) * HD + b * 32 + d), kk, q8[h]);
+                    }
+                }
+                for (h = 0; h < G; ++h) a->sc[tid][kv * G + h][pos - p0] = c50_hsum_float_8(q8[h]) * scale;
+                continue;
+            }
             __m256 s8[4] = {_mm256_setzero_ps(), _mm256_setzero_ps(), _mm256_setzero_ps(), _mm256_setzero_ps()};
             for (d = 0; d < HD; d += 8) {
                 const __m256 kk = _mm256_cvtph_ps(_mm_loadu_si128((const __m128i *)(k + d)));
@@ -338,6 +372,25 @@ static void att_chunk(att_job *a, int tid) {
     for (kv = 0; kv < NKV; ++kv) {
         for (pos = p0; pos < p1; ++pos) {
             const uint16_t *v = a->vc + ((size_t)pos * NKV + kv) * HD;
+            if (a->vq) {
+                const uint8_t *vb = a->vq + ((size_t)pos * NKV + kv) * KVROW;
+                unsigned b;
+                for (b = 0; b < HD / 32; ++b, vb += KVB) {
+                    uint16_t hs;
+                    __m256 dv;
+                    memcpy(&hs, vb, 2);
+                    dv = _mm256_set1_ps(c50_h2f(hs));
+                    for (d = 0; d < 32; d += 8) {
+                        const __m256 vv = _mm256_mul_ps(dv, _mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_loadl_epi64((const __m128i *)(vb + 2 + d)))));
+                        for (h = 0; h < G; ++h) {
+                            float *acc = a->acc[tid][kv * G + h] + b * 32 + d;
+                            _mm256_storeu_ps(acc, _mm256_fmadd_ps(_mm256_set1_ps(a->sc[tid][kv * G + h][pos - p0]), vv,
+                                                                  _mm256_loadu_ps(acc)));
+                        }
+                    }
+                }
+                continue;
+            }
             for (d = 0; d < HD; d += 8) {
                 const __m256 vv = _mm256_cvtph_ps(_mm_loadu_si128((const __m128i *)(v + d)));
                 for (h = 0; h < G; ++h) {
@@ -450,9 +503,25 @@ typedef struct {
     act_t xa, ea[NU + 1];
     att_job att;
     uint16_t *kc, *vc;            /* [NL][MAXCTX][NKV][HD] */
+    uint8_t *kq, *vq;             /* --kv q8_0: [NL][MAXCTX][NKV][KVROW] */
     float *logits;                /* VOCAB */
     float eps, rope_base, wscale;
 } state_t;
+
+/* ggml's quantize_row_q8_0 on one row of NKV * HD values: amax / 127 per 32, round to nearest */
+static void kv_q8_row(uint8_t *dst, const float *x) {
+    unsigned b, i;
+    for (b = 0; b < NKV * HD / 32; ++b, x += 32, dst += KVB) {
+        float amax = 0.0f, dsc, id;
+        uint16_t hs;
+        for (i = 0; i < 32; ++i) if (fabsf(x[i]) > amax) amax = fabsf(x[i]);
+        dsc = amax / 127.0f;
+        id = dsc != 0.0f ? 1.0f / dsc : 0.0f;
+        hs = _cvtss_sh(dsc, 0);
+        memcpy(dst, &hs, 2);
+        for (i = 0; i < 32; ++i) ((int8_t *)dst)[2 + i] = (int8_t)lrintf(x[i] * id);
+    }
+}
 
 typedef struct { float *gu; act_t *ea; unsigned ff, n; } swiglu_job;
 static void swiglu_worker(int tid, void *p) {
@@ -489,6 +558,13 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
             rope(v);
         }
         lap(O_ATTN);
+        st->att.kq = st->att.vq = NULL;
+        if (g_kvq8) {
+            st->att.kq = st->kq + (size_t)l * MAXCTX * NKV * KVROW;
+            st->att.vq = st->vq + (size_t)l * MAXCTX * NKV * KVROW;
+            kv_q8_row(st->kq + ((size_t)l * MAXCTX + pos) * NKV * KVROW, st->qkv + NH * HD);
+            kv_q8_row(st->vq + ((size_t)l * MAXCTX + pos) * NKV * KVROW, st->qkv + (NH + NKV) * HD);
+        } else
         for (i = 0; i < NKV * HD; ++i) {
             kc[(size_t)pos * NKV * HD + i] = _cvtss_sh(st->qkv[NH * HD + i], 0);
             vc[(size_t)pos * NKV * HD + i] = _cvtss_sh(st->qkv[(NH + NKV) * HD + i], 0);
@@ -543,46 +619,46 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
             act_prepare(&st->xa, L->sup.type, D);
             lap(O_OTHER);
             /* gate/up: segment 2e = gate of expert e, 2e+1 = up; 2NU, 2NU+1 = shared */
-            m.rows_per_seg = FFE; m.nseg = 2 * (NU + 1); m.cols = D; m.out = st->gu;
-            for (e = 0; e < NU; ++e) {
+            m.rows_per_seg = FFE; m.nseg = 2 * (g_ku + 1); m.cols = D; m.out = st->gu;
+            for (e = 0; e < g_ku; ++e) {
                 m.w[2 * e] = &L->gate; m.r0[2 * e] = (uint64_t)sel[e] * FFE; m.act[2 * e] = &st->xa;
                 m.w[2 * e + 1] = &L->up; m.r0[2 * e + 1] = (uint64_t)sel[e] * FFE; m.act[2 * e + 1] = &st->xa;
             }
-            m.w[2 * NU] = &L->sgate; m.w[2 * NU + 1] = &L->sup; m.act[2 * NU] = m.act[2 * NU + 1] = &st->xa;
+            m.w[2 * g_ku] = &L->sgate; m.w[2 * g_ku + 1] = &L->sup; m.act[2 * g_ku] = m.act[2 * g_ku + 1] = &st->xa;
             if (!g_organs) {
                 run(mv_worker, &m);
-                sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = NU + 1;
+                sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = g_ku + 1;
                 run(swiglu_worker, &sj);
-                for (e = 0; e < NU; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
-                act_prepare(&st->ea[NU], L->sdown.type, FFE);
+                for (e = 0; e < g_ku; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
+                act_prepare(&st->ea[g_ku], L->sdown.type, FFE);
             } else {   /* S0: the same rows in two jobs, routed (segments 0..2NU-1) then shared */
                 mv_job ms = m;
-                m.nseg = 2 * NU;
+                m.nseg = 2 * g_ku;
                 run(mv_worker, &m);
-                sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = NU;
+                sj.gu = st->gu; sj.ea = st->ea; sj.ff = FFE; sj.n = g_ku;
                 run(swiglu_worker, &sj);
-                for (e = 0; e < NU; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
+                for (e = 0; e < g_ku; ++e) act_prepare(&st->ea[e], L->down.type, FFE);
                 lap(O_ROUTED);
-                ms.nseg = 2; ms.out = st->gu + (size_t)2 * NU * FFE;
-                ms.w[0] = ms.w[2 * NU]; ms.w[1] = ms.w[2 * NU + 1]; ms.r0[0] = ms.r0[1] = 0;
+                ms.nseg = 2; ms.out = st->gu + (size_t)2 * g_ku * FFE;
+                ms.w[0] = ms.w[2 * g_ku]; ms.w[1] = ms.w[2 * g_ku + 1]; ms.r0[0] = ms.r0[1] = 0;
                 ms.act[0] = ms.act[1] = &st->xa;
                 run(mv_worker, &ms);
-                sj.gu = st->gu + (size_t)2 * NU * FFE; sj.ea = &st->ea[NU]; sj.n = 1;
+                sj.gu = st->gu + (size_t)2 * g_ku * FFE; sj.ea = &st->ea[g_ku]; sj.n = 1;
                 run(swiglu_worker, &sj);
-                act_prepare(&st->ea[NU], L->sdown.type, FFE);
+                act_prepare(&st->ea[g_ku], L->sdown.type, FFE);
                 lap(O_SHARED);
             }
             memset(&m, 0, sizeof m);
-            m.rows_per_seg = D; m.nseg = NU + 1; m.cols = FFE; m.out = st->y;
-            for (e = 0; e < NU; ++e) { m.w[e] = &L->down; m.r0[e] = (uint64_t)sel[e] * D; m.act[e] = &st->ea[e]; }
-            m.w[NU] = &L->sdown; m.act[NU] = &st->ea[NU];
+            m.rows_per_seg = D; m.nseg = g_ku + 1; m.cols = FFE; m.out = st->y;
+            for (e = 0; e < g_ku; ++e) { m.w[e] = &L->down; m.r0[e] = (uint64_t)sel[e] * D; m.act[e] = &st->ea[e]; }
+            m.w[g_ku] = &L->sdown; m.act[g_ku] = &st->ea[g_ku];
             if (!g_organs) run(mv_worker, &m);
             else {
                 mv_job ms;
                 memset(&ms, 0, sizeof ms);
-                ms.rows_per_seg = D; ms.nseg = 1; ms.cols = FFE; ms.out = st->y + (size_t)NU * D;
-                ms.w[0] = &L->sdown; ms.act[0] = &st->ea[NU];
-                m.nseg = NU;
+                ms.rows_per_seg = D; ms.nseg = 1; ms.cols = FFE; ms.out = st->y + (size_t)g_ku * D;
+                ms.w[0] = &L->sdown; ms.act[0] = &st->ea[g_ku];
+                m.nseg = g_ku;
                 run(mv_worker, &m);
                 lap(O_ROUTED);
                 run(mv_worker, &ms);
@@ -590,8 +666,8 @@ static void forward(const model_t *md, state_t *st, int token, unsigned pos) {
             }
             for (i = 0; i < D; ++i) {
                 float s = 0.0f;
-                for (e = 0; e < NU; ++e) s += w[e] * st->y[(size_t)e * D + i];
-                x[i] += s + st->y[(size_t)NU * D + i];
+                for (e = 0; e < g_ku; ++e) s += w[e] * st->y[(size_t)e * D + i];
+                x[i] += s + st->y[(size_t)g_ku * D + i];
             }
             lap(O_OTHER);
         }
@@ -879,8 +955,8 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
     while (read_line_ids(fi, &doc, &ids, &n, &cap)) {
         if (n < ctx + nsteps) continue;
         printf("CONFIG engine=c50_engine mode=bench model=%s doc=%d ctx=%u steps=%u threads=%d cores=%s "
-               "kv=f16 types=[%s] mem=%s prio=%s organs=%d experts=%u router=%s hash=%d plant=%s\n", model_path, doc, ctx, nsteps,
-               g_nt, g_cores, types, g_mem_name[g_mem],
+               "kv=%s barrier_extra=%d experts_used=%u types=[%s] mem=%s prio=%s organs=%d experts=%u router=%s hash=%d plant=%s\n", model_path, doc, ctx, nsteps,
+               g_nt, g_cores, g_kvq8 ? "q8_0" : "f16", g_barrier_extra, g_ku, types, g_mem_name[g_mem],
                g_prio ? "high" : "normal", g_organs, g_ne, g_rbf16 ? "bf16" : "f32", g_hash,
 #ifdef C50_PLANT_HEAD_TWICE
                "head_twice"
@@ -893,6 +969,7 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
         for (p = 0; p < ctx; ++p) forward(md, st, ids[p], p);
         t_pre = now_s() - t_pre;
         memset(g_ot, 0, sizeof g_ot);
+        g_runs = 0;
         for (p = 0; p < nsteps; ++p) {
             double t0 = now_s();
             forward(md, st, ids[ctx + p], ctx + p);
@@ -900,7 +977,7 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
             sum_t += t[p];
             organ_bytes(md, ctx + p, ob);
             for (k = 0; k < NORG; ++k) bytes[k] += ob[k] / nsteps;
-            for (l = 1; l < NL; ++l) for (k = 0; k < (int)NU; ++k) ++cnt[(size_t)l * g_ne + st->last_sel[l][k]];
+            for (l = 1; l < NL; ++l) for (k = 0; k < (int)NU; ++k) ++cnt[(size_t)l * g_ne + st->last_sel[l][k]];   /* the full selection */
         }
         for (l = 1; l < NL; ++l)
             for (e = 0; e < g_ne; ++e) {
@@ -915,6 +992,7 @@ static int bench(const model_t *md, state_t *st, FILE *fi, unsigned ctx, unsigne
                "\"max_step_s\":%.6f,\"median_tok_s\":%.3f,\"mean_step_s\":%.6f,\"peak_working_set_bytes\":%llu,"
                "\"peak_commit_bytes\":%llu,\"organs\":%d", ctx, nsteps, t_pre, med, t[0], t[nsteps - 1], 1.0 / med,
                sum_t / nsteps, (unsigned long long)pmc.PeakWorkingSetSize, (unsigned long long)pmc.PeakPagefileUsage, g_organs);
+        printf(",\"jobs_per_step\":%.2f", (double)g_runs / nsteps);
         /* S1: the share of the pool's (layer, slot) pairs selected at least once, and of selections on copy 0 */
         printf(",\"experts\":%u,\"sel_distinct_frac\":%.5f,\"sel_copy0_frac\":%.5f", g_ne,
                (double)distinct / ((NL - 1) * g_ne), (double)copy0 / ((double)(NL - 1) * NU * nsteps));
@@ -968,6 +1046,16 @@ int main(int argc, char **argv) {
             if (g_nt < 1 || g_nt > NT_MAX) { fprintf(stderr, "--threads must be 1..%d\n", NT_MAX); return 2; }
         }
         else if (!strcmp(argv[i], "--hash-copies")) g_hash = 1;
+        else if (!strcmp(argv[i], "--barrier-extra") && i + 1 < argc) g_barrier_extra = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "--experts-used") && i + 1 < argc) {
+            g_ku = (unsigned)atoi(argv[++i]);
+            if (g_ku < 1 || g_ku > NU) { fprintf(stderr, "--experts-used must be in [1, %u]\n", NU); return 2; }
+        }
+        else if (!strcmp(argv[i], "--kv") && i + 1 < argc) {
+            ++i;
+            g_kvq8 = !strcmp(argv[i], "q8_0") ? 1 : !strcmp(argv[i], "f16") ? 0 : -1;
+            if (g_kvq8 < 0) { fprintf(stderr, "--kv must be f16 or q8_0\n"); return 2; }
+        }
         else if (!strcmp(argv[i], "--router") && i + 1 < argc) {
             ++i;
             g_rbf16 = !strcmp(argv[i], "f32") ? 0 : !strcmp(argv[i], "bf16") ? 1 : -1;
@@ -991,6 +1079,11 @@ int main(int argc, char **argv) {
     st = calloc(1, sizeof *st);
     st->kc = VirtualAlloc(NULL, (size_t)NL * MAXCTX * NKV * HD * 2, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
     st->vc = VirtualAlloc(NULL, (size_t)NL * MAXCTX * NKV * HD * 2, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+    if (g_kvq8) {
+        st->kq = VirtualAlloc(NULL, (size_t)NL * MAXCTX * NKV * KVROW, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+        st->vq = VirtualAlloc(NULL, (size_t)NL * MAXCTX * NKV * KVROW, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+        if (!st->kq || !st->vq) { fprintf(stderr, "allocation failed\n"); return 2; }
+    }
     st->logits = malloc(sizeof(float) * VOCAB);
     row = malloc(sizeof(float) * VOCAB);
     st->eps = gguf_f(&md->g, "bailingmoe2.attention.layer_norm_rms_epsilon");

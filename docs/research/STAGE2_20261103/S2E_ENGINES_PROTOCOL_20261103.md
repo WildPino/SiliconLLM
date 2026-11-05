@@ -104,3 +104,26 @@ About 1.5 h on an idle machine:
 
 In the same idle session, after this run: test 4's training-rate microbenchmark (`s2f_rate.py`, about 2 min of GPU,
 dry run in `s2f_rate_dry.json`).
+
+## Amendment 1 (2026-11-05, before any run of the session)
+
+Three cells close the desk budget's uncertainty, on one build of `c50_engine.c` with default-off options
+(`bin/c50_engine_s2e.exe`, `s2e_cells.py`, clang 19.1.7, because gcc cannot compile the file's target attributes). They run
+after the seven arms, in the same session: 6 arms, 5 rounds, rotated; a `base` arm of the same build is every cell's reference,
+so the compiler does not enter any comparison.
+
+| Cell | Options | Closes | Predicted |
+| --- | --- | --- | --- |
+| Barriers | `--barrier-extra 1`, `3`: empty `run()` after each job | the desk's fixed 2.70 ms per 20 layers | 2-6 µs per job, 0.3-0.8 ms of 27.8 ms |
+| KV in q8_0 | `--kv q8_0` | S0 read the KV at 16.1 GB/s while the desk charges 32 | KV organ 5.36 ms → 3.5-5 ms |
+| 4 and 3 experts | `--experts-used 4`, `3`: time only, weights not renormalized | how the routed read scales with k | −4 to −4.5 ms; −5.2 to −6.6 ms |
+
+- **Reported, no label.** VOID unless bar3 > bar1 > base > k4 > k3 in ms per step. Occupancy, replacements and CONFIG as above.
+- **Check before registration:** on 499 positions the build with options off, and with one extra barrier, gives logits equal to
+  S0's byte for byte. `--kv q8_0` differs, as it must: top-1 0.970, KL 0.0195 against f16. It is a timing cell only.
+- **Also in the session:** `s2t_gather_time` (`--threads 6 --reps 200`), the selection and the gather of test 2b. Contended, they
+  read 1.2-1.9 ms and 0.34 ms against the desk's 0.2 and 0.11.
+- **Takes from the design:** q8_0 here quantizes on write in the engine's own rows, not the kernel the ternary engine would use;
+  k = 4 and 3 change every position's read, as decode-only k would.
+- **Parts specific to Ling:** the job count and the 256 experts; the method needs only a thread pool and a top-k MoE.
+- **Session:** about 1 h more, 2.5-3 h in all.
