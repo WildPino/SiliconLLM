@@ -1,6 +1,133 @@
 {
  "cell": "S2U-tail",
- "panels": {},
+ "panels": {
+  "docs": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2u_llama_score_avx2.exe",
+    "--model",
+    "C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf",
+    "--ids",
+    "E:\\SiliconLLM_Artifacts\\stage2\\s2u\\inputs\\reserved.tsv",
+    "--ctx",
+    "8192",
+    "--top",
+    "32",
+    "--ref-top",
+    "E:\\SiliconLLM_Artifacts\\stage2\\s2u\\ref\\docs.top.bin",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\stage2\\s2u\\two_pass_a\\docs",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--moe-mode",
+    "none",
+    "--preview",
+    "C:\\SiliconLLM_fast\\s2t\\m\\org_head.gguf",
+    "--two-pass-k",
+    "1024",
+    "--tail-offset",
+    "1",
+    "--tail-affine",
+    "1",
+    "--tail-a",
+    "1.4662615170665212",
+    "--tail-b",
+    "1.379534003995996"
+   ],
+   "exe_sha256": "1e78d333bb18a4b18549fde914286dd1835c1bc600a4850bbd3369b0039131dc",
+   "returncode": 0,
+   "wall_s": 9415.1,
+   "config": [
+    "CONFIG model=C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf n_vocab=157184 docs=96 positions=219570 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=E:\\SiliconLLM_Artifacts\\stage2\\s2u\\ref\\docs.top.bin hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=10800 dump_h=- preview=C:\\SiliconLLM_fast\\s2t\\m\\org_head.gguf two_pass_k=1024 tail_offset=1 tail_affine=1 tail_a=1.466262 tail_b=1.379534 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "two_pass": [
+    "TWOPASS k=1024 tail_offset=1 positions=219570 missed=1"
+   ],
+   "stdout_tail": [
+    "TWOPASS k=1024 tail_offset=1 positions=219570 missed=1",
+    "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=219570 tensors=9044 slots=33374640 kept=33374640 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=3100039 tokens_seen=4171830",
+    "DONE positions=219570 wall_s=9325.0"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\nload: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..............................................................\n",
+   "status": "COMPLETE",
+   "fit": {
+    "preview": "tern_tr",
+    "k": 1024,
+    "fit_rows": 20000,
+    "a": 1.4662615170665212,
+    "b": 1.379534003995996,
+    "b_mass": -0.6915353577332981,
+    "dev_tail_mass_true": 0.002444596901021185,
+    "dev_tail_mass_affine": 0.008615239159301569,
+    "dev_tail_mass_b_mass": 0.002444596901021186
+   }
+  },
+  "chat": {
+   "cmd": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2u_llama_generate_avx2.exe",
+    "--model",
+    "C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf",
+    "--prompts",
+    "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\chat.tsv",
+    "--max-new",
+    "256",
+    "--stop",
+    "156892,156895",
+    "--out",
+    "E:\\SiliconLLM_Artifacts\\stage2\\s2u\\two_pass_a\\chat",
+    "--threads",
+    "6",
+    "--ubatch",
+    "512",
+    "--max-projected-s",
+    "10800",
+    "--moe-mode",
+    "none",
+    "--preview",
+    "C:\\SiliconLLM_fast\\s2t\\m\\org_head.gguf",
+    "--two-pass-k",
+    "1024",
+    "--tail-offset",
+    "1",
+    "--tail-affine",
+    "1",
+    "--tail-a",
+    "1.4662615170665212",
+    "--tail-b",
+    "1.379534003995996"
+   ],
+   "exe_sha256": "23c83fbb38e86a824a96b493cb4b73cb5649ffe84782a56f0f0f91e3ea15c3c9",
+   "returncode": 0,
+   "wall_s": 452.6,
+   "config": [
+    "CONFIG model=C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf n_vocab=157184 items=40 prompt_tokens=1219 max_new=256 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 decode_only=0 override_experts=0 max_projected_s=10800 preview=C:\\SiliconLLM_fast\\s2t\\m\\org_head.gguf two_pass_k=1024 tail_offset=1 tail_affine=1 tail_a=1.466262 tail_b=1.379534 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+   ],
+   "two_pass": [
+    "TWOPASS k=1024 tail_offset=1 positions=2079 missed=0"
+   ],
+   "stdout_tail": [
+    "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=3258 tensors=39501 slots=485784 kept=485784 mean_kept=8.0000 decode_slots=309928 decode_mean_kept=8.0000 misordered=46355 tokens_seen=60723",
+    "TWOPASS k=1024 tail_offset=1 positions=2079 missed=0",
+    "DONE items=40 generated=2079 wall_s=425.3"
+   ],
+   "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\nload: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..............................................................\n",
+   "status": "COMPLETE",
+   "fit": {
+    "preview": "tern_tr",
+    "k": 1024,
+    "fit_rows": 20000,
+    "a": 1.4662615170665212,
+    "b": 1.379534003995996,
+    "b_mass": -0.6915353577332981,
+    "dev_tail_mass_true": 0.002444596901021185,
+    "dev_tail_mass_affine": 0.008615239159301569,
+    "dev_tail_mass_b_mass": 0.002444596901021186
+   }
+  }
+ },
  "sets": {
   "documents": 96,
   "by_category": {
@@ -14,5 +141,293 @@
   "panel_lines": 72,
   "documents_sharing_a_run": 3,
   "ngram": 32
+ },
+ "dump": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2u_llama_score_avx2.exe",
+   "--model",
+   "C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf",
+   "--ids",
+   "E:\\SiliconLLM_Artifacts\\stage2\\s2u\\inputs\\reserved.tsv",
+   "--out",
+   "C:\\SiliconLLM_fast\\s2t\\h\\reserved",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--ctx",
+   "8192",
+   "--top",
+   "32",
+   "--moe-mode",
+   "none",
+   "--dump-h",
+   "C:\\SiliconLLM_fast\\s2t\\h\\reserved.h.f32"
+  ],
+  "exe_sha256": "1e78d333bb18a4b18549fde914286dd1835c1bc600a4850bbd3369b0039131dc",
+  "returncode": 0,
+  "wall_s": 5358.1,
+  "config": [
+   "CONFIG model=C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf n_vocab=157184 docs=96 positions=219570 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=0 dump_h=C:\\SiliconLLM_fast\\s2t\\h\\reserved.h.f32 preview=- two_pass_k=0 tail_offset=1 tail_affine=0 tail_a=1 tail_b=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+  ],
+  "two_pass": [],
+  "stdout_tail": [
+   "FIRST_DOC positions=2345 wall_s=55.1 projected_s=5160",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=219570 tensors=9044 slots=33374640 kept=33374640 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=3100039 tokens_seen=4171830",
+   "DONE positions=219570 wall_s=5340.2"
+  ],
+  "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\nllama_init_from_model: model default pooling_type is [-1], but [0] was specified\n",
+  "status": "COMPLETE"
+ },
+ "replay": {
+  "cmd": [
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2u_llama_score_avx2.exe",
+   "--model",
+   "C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf",
+   "--ids",
+   "C:\\SiliconLLM_fast\\s2t\\sets\\docs2.tsv",
+   "--ctx",
+   "8192",
+   "--top",
+   "32",
+   "--ref-top",
+   "C:\\SiliconLLM_fast\\s2t\\sets\\docs2.top.bin",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage2\\s2u\\replay2\\docs",
+   "--threads",
+   "6",
+   "--ubatch",
+   "512",
+   "--max-projected-s",
+   "10800",
+   "--moe-mode",
+   "none",
+   "--preview",
+   "C:\\SiliconLLM_fast\\s2t\\m\\org_head.gguf",
+   "--two-pass-k",
+   "1024",
+   "--tail-offset",
+   "1"
+  ],
+  "exe_sha256": "1e78d333bb18a4b18549fde914286dd1835c1bc600a4850bbd3369b0039131dc",
+  "returncode": 0,
+  "wall_s": 321.8,
+  "config": [
+   "CONFIG model=C:\\SiliconLLM_fast\\s2t\\m\\p0.gguf n_vocab=157184 docs=2 positions=6915 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=C:\\SiliconLLM_fast\\s2t\\sets\\docs2.top.bin hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=10800 dump_h=- preview=C:\\SiliconLLM_fast\\s2t\\m\\org_head.gguf two_pass_k=1024 tail_offset=1 tail_affine=0 tail_a=1 tail_b=0 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+  ],
+  "two_pass": [
+   "TWOPASS k=1024 tail_offset=1 positions=6915 missed=0"
+  ],
+  "stdout_tail": [
+   "TWOPASS k=1024 tail_offset=1 positions=6915 missed=0",
+   "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=6915 tensors=285 slots=1051080 kept=1051080 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=100910 tokens_seen=131385",
+   "DONE positions=6915 wall_s=291.0"
+  ],
+  "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n.................................................................\nload: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..............................................................\n",
+  "status": "COMPLETE",
+  "equal_to_two_pass": true
+ },
+ "float": {
+  "reserved": {
+   "positions": 219570,
+   "documents": 96,
+   "miss_per_1000": 0.00910871248349046,
+   "exact_tail_mass": {
+    "mean": 0.0023717177344751896,
+    "p50": 5.364418029785156e-07,
+    "p99": 0.05711340785026547,
+    "max": 0.5933634638786316
+   },
+   "tails": {
+    "affine": {
+     "dbpb": 0.0032971830493742915,
+     "ci95": [
+      0.0021220476601578058,
+      0.004760252478532846
+     ],
+     "kl_full_vocab": 0.006149433554666942,
+     "tail_mass": 0.0067182089446123795
+    },
+    "mass": {
+     "dbpb": 0.012344607484598,
+     "ci95": [
+      0.009671675727017484,
+      0.015432254296975818
+     ],
+     "kl_full_vocab": 0.00430172593003238,
+     "tail_mass": 0.0011987034681200921
+    },
+    "offset": {
+     "dbpb": 0.011450002515250529,
+     "ci95": [
+      0.009197285490092586,
+      0.013935601831931696
+     ],
+     "kl_full_vocab": 0.003866259289292376,
+     "tail_mass": 0.0018412223353913427
+    },
+    "plant": {
+     "dbpb": 0.017320303039918546,
+     "ci95": [
+      0.013723310375502507,
+      0.0214109787404631
+     ],
+     "kl_full_vocab": 0.005750288202731504,
+     "tail_mass": 0.0005157091029925919
+    },
+    "row_affine": {
+     "dbpb": 0.0022384818366033422,
+     "ci95": [
+      0.0018504118385897534,
+      0.0026718326105346275
+     ],
+     "kl_full_vocab": null,
+     "tail_mass": null
+    },
+    "row_mass": {
+     "dbpb": -0.00048550600629813267,
+     "ci95": [
+      -0.0008168993751862741,
+      -0.0002485359930139336
+     ],
+     "kl_full_vocab": null,
+     "tail_mass": null
+    }
+   }
+  },
+  "docs": {
+   "positions": 165858,
+   "documents": 72,
+   "miss_per_1000": 0.0,
+   "exact_tail_mass": {
+    "mean": 0.0021157614766101718,
+    "p50": 7.748603820800781e-07,
+    "p99": 0.0505267441272732,
+    "max": 0.5428820848464966
+   },
+   "tails": {
+    "affine": {
+     "dbpb": 0.002365222378648599,
+     "ci95": [
+      0.0016824480977988918,
+      0.0031143115806182555
+     ],
+     "kl_full_vocab": 0.005732039456189393,
+     "tail_mass": 0.006606548902754957
+    },
+    "mass": {
+     "dbpb": 0.011926169317018924,
+     "ci95": [
+      0.009228407381078364,
+      0.014947192535374756
+     ],
+     "kl_full_vocab": 0.003517263193331477,
+     "tail_mass": 0.0011485399190659855
+    },
+    "offset": {
+     "dbpb": 0.011406737846653485,
+     "ci95": [
+      0.009031227871397351,
+      0.01397324143744554
+     ],
+     "kl_full_vocab": 0.0033669855457506065,
+     "tail_mass": 0.0016764499024533302
+    },
+    "plant": {
+     "dbpb": 0.017123834262333333,
+     "ci95": [
+      0.013304569349769804,
+      0.02139869796937595
+     ],
+     "kl_full_vocab": 0.0047645655852155975,
+     "tail_mass": 0.0004863282284788785
+    },
+    "row_affine": {
+     "dbpb": 0.002268160602304757,
+     "ci95": [
+      0.0018024902214891167,
+      0.002799112090313989
+     ],
+     "kl_full_vocab": null,
+     "tail_mass": null
+    },
+    "row_mass": {
+     "dbpb": -0.00040897319511023534,
+     "ci95": [
+      -0.0005991486467873606,
+      -0.00025931247236846047
+     ],
+     "kl_full_vocab": null,
+     "tail_mass": null
+    }
+   }
+  },
+  "tern": {
+   "positions": 165858,
+   "documents": 72,
+   "miss_per_1000": 0.0,
+   "exact_tail_mass": {
+    "mean": 0.005323606030026682,
+    "p50": 1.1205673217773438e-05,
+    "p99": 0.1238864004611969,
+    "max": 0.6449652910232544
+   },
+   "tails": {
+    "affine": {
+     "dbpb": 0.003845697921876291,
+     "ci95": [
+      0.002950419349154836,
+      0.0049245816688292055
+     ],
+     "kl_full_vocab": 0.011361810611087993,
+     "tail_mass": 0.014439916838990575
+    },
+    "mass": {
+     "dbpb": 0.012621850322223245,
+     "ci95": [
+      0.010017934628515846,
+      0.015396276090543672
+     ],
+     "kl_full_vocab": 0.00748890166509783,
+     "tail_mass": 0.0026856342260025865
+    },
+    "offset": {
+     "dbpb": 0.009405086043685075,
+     "ci95": [
+      0.0076492984586316246,
+      0.011254814259149672
+     ],
+     "kl_full_vocab": 0.006631224080750059,
+     "tail_mass": 0.005148718554280533
+    },
+    "plant": {
+     "dbpb": 0.01858648058113257,
+     "ci95": [
+      0.014784958730738571,
+      0.02265652458425494
+     ],
+     "kl_full_vocab": 0.010749756063393524,
+     "tail_mass": 0.001143847543783383
+    },
+    "row_affine": {
+     "dbpb": 0.004887125916901186,
+     "ci95": [
+      0.0035175743690391277,
+      0.006509013776705519
+     ],
+     "kl_full_vocab": null,
+     "tail_mass": null
+    },
+    "row_mass": {
+     "dbpb": -0.0011591255297681798,
+     "ci95": [
+      -0.0016669721260288385,
+      -0.0007610861442294244
+     ],
+     "kl_full_vocab": null,
+     "tail_mass": null
+    }
+   }
+  }
  }
 }
