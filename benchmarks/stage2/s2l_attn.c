@@ -1,5 +1,5 @@
 // Stage 2: ik_llama.cpp's attention at Ling-flash's shape, one token at a time: 32 query heads on 4 KV heads, head size 128, 32 layers, context --ctx.
-// Every layer holds its own K and V.  --path fa runs ggml_flash_attn_ext, on f16 or q8_0 K and V; --path mm runs ik's path without flash attention
+// Every layer holds its own K and V.  --path fa runs ggml_flash_attn_ext with an all-zero f16 mask (ik's kernel returns to the generic path on a NULL mask), on f16 or q8_0 K and V; --path mm runs ik's path without flash attention
 // (K·Q, softmax, V·KQ) on f16, with V stored transposed as the graph wants it.
 // Check: the first layer's output, all heads, against a double attention on the dequantized cache; and against the wrong KV head, far off.
 //
@@ -106,10 +106,12 @@ int main(int argc, char ** argv) {
         if (l < 2) { fill(ks[l]); fill(vs[l]); }
         else { memcpy(ks[l]->data, ks[l % 2]->data, ggml_nbytes(ks[l])); memcpy(vs[l]->data, vs[l % 2]->data, ggml_nbytes(vs[l])); }
     }
+    struct ggml_tensor * mask = ggml_new_tensor_2d(ctx0, GGML_TYPE_F16, ctx, GGML_PAD(1, GGML_KQ_MASK_PAD));
+    memset(mask->data, 0, ggml_nbytes(mask));
     struct ggml_cgraph * gf = ggml_new_graph_custom(ctx0, NL * 8 + 16, false);
     for (int l = 0; l < NL; l++) {
         if (fa) {
-            os[l] = ggml_flash_attn_ext(ctx0, q, ks[l], vs[l], NULL, scale, 0.0f, 0.0f);
+            os[l] = ggml_flash_attn_ext(ctx0, q, ks[l], vs[l], mask, scale, 0.0f, 0.0f);
         } else {
             struct ggml_tensor * kq = ggml_mul_mat(ctx0, ks[l], q);                 // [ctx, 1, NH]
             kq = ggml_soft_max_ext(ctx0, kq, NULL, scale, 0.0f);
