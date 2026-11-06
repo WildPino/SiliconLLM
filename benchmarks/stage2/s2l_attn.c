@@ -3,7 +3,7 @@
 // (K·Q, softmax, V·KQ) on f16, with V stored transposed as the graph wants it.
 // Check: the first layer's output, all heads, against a double attention on the dequantized cache; and against the wrong KV head, far off.
 //
-// Build: gcc -O2 -Wall -fopenmp s2l_attn.c -I<ik>/ggml/include <ik>/build-native/ggml/src/libggml.a -lstdc++ -lm -static -o bin/s2l_attn.exe
+// Build: gcc -O2 -Wall -fopenmp -Wa,-muse-unaligned-vector-move s2l_attn.c -I<ik>/ggml/include <ik>/build-fa/ggml/src/libggml.a -lstdc++ -lm -static -o bin/s2l_attn.exe
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -23,6 +23,10 @@ static float uni(void) { return (float)((xs() >> 11) * (1.0 / 9007199254740992.0
 static float gauss(void) { return sqrtf(-2.0f * logf(uni() + 1e-12f)) * cosf(6.2831853f * uni()); }
 static double now(void) { struct timespec t; clock_gettime(CLOCK_MONOTONIC, &t); return t.tv_sec + 1e-9 * t.tv_nsec; }
 static int cmp_d(const void * a, const void * b) { double x = *(const double *)a, y = *(const double *)b; return (x > y) - (x < y); }
+
+// 64-byte aligned, as the CPU backend's buffers are: ik's kernels load aligned, and a context's own 16-byte tensors crash them
+static void * al64(size_t n) { return (void *)(((uintptr_t)malloc(n + 128) + 63) & ~(uintptr_t)63); }
+static struct ggml_tensor * place(struct ggml_tensor * t) { t->data = al64(ggml_nbytes(t)); return t; }
 
 static void fill(struct ggml_tensor * t) {
     const int64_t row = t->ne[0], rows = ggml_nrows(t);
@@ -94,19 +98,19 @@ int main(int argc, char ** argv) {
     const float scale = 1.0f / sqrtf((float)HD);
     const size_t per = ggml_row_size(kt, HD) * (size_t)ctx * NKV;
     size_t mem = 2 * per * NL + (size_t)NL * 16 * (ggml_tensor_overhead() + (size_t)NH * ctx * 4 + 65536) + (size_t)256 * 1024 * 1024;
-    struct ggml_init_params ip = { mem, NULL, false };
+    struct ggml_init_params ip = { mem, NULL, true };
     struct ggml_context * ctx0 = ggml_init(ip);
-    struct ggml_tensor * q = ggml_new_tensor_3d(ctx0, GGML_TYPE_F32, HD, 1, NH);
+    struct ggml_tensor * q = place(ggml_new_tensor_3d(ctx0, GGML_TYPE_F32, HD, 1, NH));
     for (int i = 0; i < HD * NH; i++) ((float *)q->data)[i] = gauss();
     struct ggml_tensor * ks[NL], * vs[NL], * os[NL];
     double t0 = now();
     for (int l = 0; l < NL; l++) {
-        ks[l] = ggml_new_tensor_3d(ctx0, kt, HD, ctx, NKV);
-        vs[l] = fa ? ggml_new_tensor_3d(ctx0, kt, HD, ctx, NKV) : ggml_new_tensor_3d(ctx0, kt, ctx, HD, NKV);
+        ks[l] = place(ggml_new_tensor_3d(ctx0, kt, HD, ctx, NKV));
+        vs[l] = place(fa ? ggml_new_tensor_3d(ctx0, kt, HD, ctx, NKV) : ggml_new_tensor_3d(ctx0, kt, ctx, HD, NKV));
         if (l < 2) { fill(ks[l]); fill(vs[l]); }
         else { memcpy(ks[l]->data, ks[l % 2]->data, ggml_nbytes(ks[l])); memcpy(vs[l]->data, vs[l % 2]->data, ggml_nbytes(vs[l])); }
     }
-    struct ggml_tensor * mask = ggml_new_tensor_2d(ctx0, GGML_TYPE_F16, ctx, GGML_PAD(1, GGML_KQ_MASK_PAD));
+    struct ggml_tensor * mask = place(ggml_new_tensor_2d(ctx0, GGML_TYPE_F16, ctx, GGML_PAD(1, GGML_KQ_MASK_PAD)));
     memset(mask->data, 0, ggml_nbytes(mask));
     struct ggml_cgraph * gf = ggml_new_graph_custom(ctx0, NL * 8 + 16, false);
     for (int l = 0; l < NL; l++) {
@@ -119,13 +123,14 @@ int main(int argc, char ** argv) {
         }
         ggml_build_forward_expand(gf, os[l]);
     }
+    for (struct ggml_tensor * t = ggml_get_first_tensor(ctx0); t; t = ggml_get_next_tensor(ctx0, t)) if (!t->data) place(t);
     const double bytes = 2.0 * per * NL;
     printf("CONFIG {\"path\": \"%s\", \"kv\": \"%s\", \"ctx\": %d, \"nh\": %d, \"nkv\": %d, \"hd\": %d, \"nl\": %d, \"threads\": %d, \"tokens\": %d, \"reps\": %d, \"mb\": %.1f}\n",
            path, kvs, ctx, NH, NKV, HD, NL, threads, T, R, bytes / 1e6);
     printf("filled %.1f s\n", now() - t0);
     fflush(stdout);
     struct ggml_cplan plan = ggml_graph_plan(gf, threads);
-    plan.work_data = malloc(plan.work_size + 64);
+    plan.work_data = al64(plan.work_size);
     double * ms = malloc(sizeof(double) * R);
     for (int rep = -1; rep < R; rep++) {
         double a = now();

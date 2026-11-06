@@ -24,6 +24,7 @@ import e44_interval as E44  # noqa: E402
 
 ATTN, ENGINE = HERE / "bin" / "s2l_attn.exe", HERE / "bin" / "s2k_engine.exe"
 ROUNDS = 3
+NULL_MASK_MS = 33.56  # the generic path, first run: ik's kernel must beat it
 ARMS = {"fa_f16": ("fa", "f16", 2048), "fa_q8": ("fa", "q8_0", 2048), "mm_f16": ("mm", "f16", 2048), "fa_f16_512": ("fa", "f16", 512), "corr": None}
 
 
@@ -101,7 +102,7 @@ def report(a: argparse.Namespace) -> int:
         return 1
     ms = {x: st.median(p["ms_median"] for p in v) for x, v in by.items()}
     checks = all(p["rel_err"] < 0.05 and p["rel_err_wrong"] > 0.5 for x in ARMS if ARMS[x] for p in by[x])
-    moves = ms["fa_f16_512"] < 0.6 * ms["fa_f16"]
+    moves = ms["fa_f16_512"] < 0.6 * ms["fa_f16"] and ms["fa_f16"] < NULL_MASK_MS
     out = {"status": r.get("verdict_input") if checks and moves else "VOID: a control failed", "ms": ms, "min_max": {x: [min(p["ms_median"] for p in v), max(p["ms_median"] for p in v)] for x, v in by.items()},
            "checks": checks, "moves_with_context": moves, "line_ms": 5.15, "engine_ms": {"f16": 8.96, "q8_0": 11.67}}
     print(json.dumps(out, indent=1))
