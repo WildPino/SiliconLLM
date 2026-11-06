@@ -87,3 +87,21 @@ The shapes, 32 heads on 4, k = 4, and the 1.54× on this file. That this attenti
 
 - **The stage's delivery counts the engine's lead as measured,** as registered for LARGER.
 - **The line is not reached by quality work alone.** The next limit is the attention kernel. The stage's delivery will carry it with one recommendation.
+
+## Amendment 3: ik's attention at flash's shape (2026-11-06, ms at 32 layers, 3 rounds)
+
+Controls hold: rel_err at most 0.0063, the wrong KV head 1.3 or more, context 512 at 0.44 of 2048, fa_f16 under the NULL-mask time. Records: `results/s2l_cells.json`, `s2l_report.json`; the first run, on ggml's generic path, is `s2l_cells_nomask.json` (33.56, 47.06 ms).
+
+| Arm | ms, min..max | Engine | Predicted |
+| --- | --- | ---: | --- |
+| ik flash, q8_0 | **5.95, 5.94..6.24** | 11.67 | 5-14, hit |
+| ik flash, f16 | 7.24, 7.22..7.28 | 8.96 | 5-14, hit |
+| ik without flash, f16 | 9.00, 8.98..9.06 | 8.96 | 7-16, hit |
+| ik flash, f16, context 512 | 3.16, 3.15..3.22 | | control |
+| −0.5·s·sum(x), one thread | 0.25, 0.24..0.26 | | 0.2-0.6, hit |
+
+- **A known kernel gets within 0.80 ms of the line.** By the registered reading, 5.95 falls between 5.15 and 8.96: it says how far a known kernel gets. It is 2.0 times faster than the engine's q8_0 and 1.5 times faster than the engine's f16.
+- **The ceiling with ik's q8_0 row in place of the engine's:** 47.01 − 11.67 + 5.95 = 41.29 ms, **24.22 tok/s**, against 24.7 (40.49 ms). In f16, 42.58 ms, 23.49 tok/s. This is a sum of cells: ik's kernel ran in ggml's thread pool, not the engine's, and nothing was ported.
+- **In ik q8_0 beats f16, the reverse of the engine.** At 11 GB/s neither reads at memory speed; why q8_0 is faster is not explained.
+- **The correction costs 0.25 ms on one thread,** an upper bound for a term folded into the jobs.
+- **ik's flash path needs a mask, and crashed here when built with plain GCC flags.** It ran once the assembler option for unaligned moves was on. The engines' comparison above used ik without flash attention: its 25.13 tok/s at mini's shape may leave a faster ik untimed.
