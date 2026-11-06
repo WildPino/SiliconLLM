@@ -1,10 +1,10 @@
 """Stage 2's last chains, as registered in S2G (test 2c) and S2K (the fourth code, step 2).  Resumable: a step whose output exists is skipped.
 
     gpu    after test 2c's trainings: ph_both's weights; the scale-10 reading on layer 2; bal's lr pick on stage 1's grid, the projection, the training,
-           the exact export, the panels at k = 8 and 4.  It stops if the pick projects past 10 h of GPU.
+           the exact export, the panels at k = 8 and 4.  It stops if the pick projects past 10 h of GPU, unless --no-limit (S2K, amendment 1).
     panels after test 2c's trainings: each arm's export on E:, then its panels.  ph_both waits for its weights.
 
-Usage: python -I benchmarks/stage2/s2_tail_chain.py gpu|panels
+Usage: python -I benchmarks/stage2/s2_tail_chain.py gpu [--no-limit] | panels
 """
 from __future__ import annotations
 
@@ -57,7 +57,7 @@ def gpu() -> None:
     rec = json.loads(pick.read_text(encoding="utf-8"))["layers"]["1"]
     projected = rec["seconds"] * (1 + TERN_TRAIN_S / TERN_PICK_S)
     print("PROJECTED GPU", round(projected), "s; lr", rec["lr"], rec["lr_grid"], flush=True)
-    if projected > GPU_LIMIT_S:
+    if projected > GPU_LIMIT_S and "--no-limit" not in sys.argv:
         raise SystemExit("the pick projects past 10 h of GPU: stopped for the user's decision")
     train = R / "s2v_train.json"
     done = json.loads(train.read_text(encoding="utf-8")).get("layers", {}) if train.exists() else {}

@@ -2,6 +2,10 @@
 
 2026-11-05. For stage 2, part 2. Ling-mini. GPU after test 2c's trainings, then CPU for the panels.
 
+## Amendment 1 (2026-11-06, before the training)
+
+The chain stopped at its limit: lr 0.001, projection 14.6 h, with the pick run beside the CPU chains (4,114 s against stage 1's 2,541 s). It was decided to run the training to its end with no limit, alone on the GPU after the idle cells: s2_tail_chain.py gpu --no-limit. Expected about 8.3 h, 9.5 h with the pick; the real time goes in the result. Nothing else changes.
+
 ## Question
 
 Step 1 found the routed experts' block loss 38% lower with {−1.5, −0.5, 0.5, 1.5} than with ternary, before any training, and equal to what a Gaussian gives. At equal bytes and equal training, does that survive on the panels?
