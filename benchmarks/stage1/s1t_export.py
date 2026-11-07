@@ -108,7 +108,7 @@ def bal_levels(st: dict, h: str) -> tuple[torch.Tensor, torch.Tensor]:
     s = st[f"ternary_scale.{key}"].float()
     big = st[f"bal_big.{key}"]
     d = torch.where(big, s, s / 2).unsqueeze(-1)
-    x = w.view(*s.shape, -1) / torch.where(d > 0, d, 1.0)
+    x = w.view(*s.shape, -1) / torch.where(d != 0, d, 1.0)    # a trained scale can cross zero: layer 6 holds one negative group
     return d.expand(*s.shape, 8), x.round()
 
 
