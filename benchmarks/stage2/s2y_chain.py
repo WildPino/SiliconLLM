@@ -1,6 +1,7 @@
-"""S2L's two chains, resumable.  gpu: the two trainings, one after the other.  cpu: the arms that need no training, then each trained arm as it ends.
+"""S2L's chains, resumable.  gpu: the two trainings, one after the other.  cpu: the arms that need no training, then each trained arm as it ends.
+extra (amendment 1), after cpu: asym's lr pick on layer 2, then the same values in other containers.
 
-Usage: python -I benchmarks/stage2/s2y_chain.py gpu | cpu
+Usage: python -I benchmarks/stage2/s2y_chain.py gpu | cpu | extra
 """
 from __future__ import annotations
 
@@ -19,7 +20,8 @@ SCORES = "E:/SiliconLLM_Artifacts/stage1/s1a"
 A4, S2 = "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a4/inputs", "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/s2/inputs"
 PY = sys.executable
 SEED2 = 20261107
-FULL = ("as_both", "st_both2", "stk4")
+FULL = ("as_both", "st_both2", "stk4", "tq40", "tq404", "sb_q40")
+CPU_LOG = Path("C:/SiliconLLM_fast/s2y_cpu.out.log")
 
 
 def step(*cmd: str) -> None:
@@ -43,7 +45,8 @@ def gpu() -> None:
 
 
 def arm(name: str, *extra: str) -> None:
-    js, q4 = R / f"s2y_export_{name}.json", Y / "q4" / f"{name}.gguf"
+    file = "tq40" if name == "tq404" else name
+    js, q4 = R / f"s2y_export_{file}.json", Y / "q4" / f"{file}.gguf"
     if not js.exists():
         step("benchmarks/stage2/s2y_export.py", "--arm", name, "--out-q4", str(q4), "--json", str(js), *extra)
     sha = json.loads(js.read_text(encoding="utf-8"))["q4_sha256"]
@@ -92,5 +95,18 @@ def cpu() -> None:
     print("CPU CHAIN DONE", flush=True)
 
 
+def extra() -> None:
+    while "CPU CHAIN DONE" not in CPU_LOG.read_text(encoding="utf-8", errors="replace"):
+        time.sleep(60)
+    for scale in ("1", "3", "10"):
+        js = R / f"s2y_pick_{scale}.json"
+        if not js.exists():
+            step("benchmarks/stage2/s2s_train.py", "train", "--arm", "st_both", "--dir", TEACHER, "--layers", "2-2", "--lr-scale", scale, "--form", "asym",
+                 "--pick-from", "C:/SiliconLLM_fast/s2s/pick_base", "--out", str(Y / f"pick_{scale}"), "--json", str(js))
+    for name in ("tq40", "tq404", "sb_q40", "sb_bf", "ff_bf", "ff_keeprnd2"):
+        arm(name)
+    print("EXTRA CHAIN DONE", flush=True)
+
+
 if __name__ == "__main__":
-    {"gpu": gpu, "cpu": cpu}[sys.argv[1]]()
+    {"gpu": gpu, "cpu": cpu, "extra": extra}[sys.argv[1]]()

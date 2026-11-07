@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -16,7 +17,10 @@ from s2x_run import GEN, INPUTS, MAX_PROJECTED_S, PANELS, SCORE, STOP, WORK, che
 
 FULL = ("nq", "tqa", "gsm8k", "arc", "mmlu", "docs", "chat")
 ARMS = {"as_both": FULL, "st_both2": FULL, "stk4": FULL, "ff_nodense": ("docs", "chat"), "ff_noearly": ("docs", "chat"), "ff_nolate": ("docs", "chat"),
-        "ff_keepout": ("docs", "chat"), "ff_keeprnd": ("docs", "chat"), "ks_org": ("docs",)}
+        "ff_keepout": ("docs", "chat"), "ff_keeprnd": ("docs", "chat"), "ks_org": ("docs", "chat"),
+        # amendment 1: the same values in another container.  tq404 is tq40 at k = 4; its score panels are copied, as test 3b's.
+        "tq40": FULL, "tq404": ("nq", "tqa", "gsm8k", "chat"), "sb_q40": FULL, "sb_bf": ("docs", "chat"), "ff_bf": ("docs", "chat"), "ff_keeprnd2": ("docs", "chat")}
+K4 = ("stk4", "tq404")
 UA = {t: x.with_name(x.name.replace("_avx2", "_ua_avx2")) for t, x in (("score", SCORE), ("generate", GEN))}
 
 
@@ -35,13 +39,17 @@ def main() -> int:
         raise SystemExit("the model differs from its pin")
     rec = report["arms"].setdefault(a.arm, {"panels": {}, "panel_set": list(ARMS[a.arm]), "model": str(a.model), "model_sha256": a.model_sha})
     (WORK / a.arm).mkdir(parents=True, exist_ok=True)
+    if a.arm == "tq404":
+        for p in ("arc", "mmlu", "docs"):
+            for x in (WORK / "tq40").glob(f"{p}.*"):
+                shutil.copyfile(x, WORK / a.arm / x.name)
     for panel, src, tool, extra in PANELS:
         if panel not in ARMS[a.arm] or rec["panels"].get(panel, {}).get("status") == "COMPLETE":
             continue
         flag = "--ids" if tool == "score" else "--prompts"
         cmd = [str(UA[tool]), "--model", str(a.model), flag, str(INPUTS[src] / f"{panel}.tsv"), "--out", str(WORK / a.arm / panel), "--threads", "6", "--ubatch", "512",
                "--max-projected-s", str(3 * MAX_PROJECTED_S)] + extra
-        k4 = a.arm == "stk4" and tool == "generate"
+        k4 = a.arm in K4 and tool == "generate"
         cmd += ["--moe-mode", "top", "--moe-k", "4", "--moe-mass", "16", "--moe-decode-only"] if k4 else ["--moe-mode", "none"]
         if panel == "docs":
             cmd += ["--ref-top", str(WORK / "ref" / "docs.top.bin")]

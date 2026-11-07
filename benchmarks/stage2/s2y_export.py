@@ -8,6 +8,12 @@ back to the intended values, and every other tensor must equal the reference fil
     ff_keepout  st_ffn with its outlier groups (experts' rule: group 256, max over 8 times the TWN scale) back to the original values, as BF16.
     ff_keeprnd  the same, the same number of groups per tensor, drawn at random: outliers' trivial control.
     ks_org      attention, shared expert and dense FFN at ik_llama.cpp's IQ2_KS values with the imatrix, held in BF16 (llama.cpp does not read IQ2_KS), no training.
+Amendment 1, the same values in another container, because each type multiplies by activations of its own precision (TQ2_0 Q8_K, Q4_0 Q8_0, BF16 BF16):
+    tq40        test (b)'s ternary experts as Q4_0: bal's container.  Reference: tern-q4.
+    sb_q40      st_both's values as Q4_0: as_both's container.
+    sb_bf       st_both's values as BF16: ks_org's container.
+    ff_bf       st_ffn's values as BF16: ff_keepout's container.
+    ff_keeprnd2 ff_keeprnd's second draw.
 
 Usage: python -I benchmarks/stage2/s2y_export.py --arm A --out-q4 F --json F [--ks-bf16 F]
        python -I benchmarks/stage2/s2y_export.py --outliers F     counts the outlier groups of every organ; reads st_ffn and the checkpoint
@@ -39,6 +45,7 @@ OUT = Path("E:/SiliconLLM_Artifacts/stage2")
 Y = OUT / "s2y"
 BAL_Q4, BAL_BF16 = OUT / "s2v" / "bal-q4.gguf", OUT / "s2v" / "bal-bf16.gguf"
 GROUP, SEED = 256, 20261107
+TERN_BF16, TERN_Q4 = Path("C:/SiliconLLM_fast/export/tern-bf16.gguf"), Path("C:/SiliconLLM_fast/export/tern-q4.gguf")
 
 
 def trained(d: Path, layers: list[int] | None = None) -> dict[tuple[int, str], dict]:
@@ -54,16 +61,27 @@ def trained(d: Path, layers: list[int] | None = None) -> dict[tuple[int, str], d
 
 
 def asym_blocks(e: dict) -> tuple[np.ndarray, int]:
-    w, s, g = e["w"].float(), e["s"].float().reshape(-1, 1), e["g"].float().reshape(-1, 1)
-    d = s * g
+    w, s = e["w"].float(), e["s"].float().reshape(-1, 1)
+    d = s if e["g"] is None else s * e["g"].float().reshape(-1, 1)
     q = (w / d).round()
     if q.min() < -8 or q.max() > 7 or not torch.equal((q * d).to(torch.bfloat16), e["w"]):
         raise SystemExit("asym: the stored weights are not s * sign * level")
     return bal_blocks(d.expand(-1, w.shape[1] // 32).contiguous(), q)
 
 
-def compose(new: dict[str, torch.Tensor], kind: str, out_q4: Path, base: Path = BF16, ref: Path = P0, over: dict[str, bytes] | None = None) -> dict:
-    """new: GGUF name -> values; kind: their type in the file; over: bytes written on the output afterwards."""
+def tern_blocks(a: np.ndarray) -> np.ndarray:
+    """A ternary tensor, s * {-1, 0, 1} per group of 256, as Q4_0 blocks: d = s, the group's maximum."""
+    w = torch.from_numpy(a.copy()).view(torch.bfloat16).float().view(-1, GROUP)
+    s = w.abs().amax(-1, keepdim=True)
+    q = (w / torch.where(s > 0, s, 1.0)).round()
+    if q.abs().max() > 1 or not torch.equal((q * s).to(torch.bfloat16), w.to(torch.bfloat16)):
+        raise SystemExit("the tensor is not ternary per group of 256")
+    return bal_blocks(s.expand(-1, GROUP // 32).contiguous(), q)[0]
+
+
+def compose(new: dict[str, torch.Tensor], kind: str, out_q4: Path, base: Path = BF16, ref: Path = P0, over: dict[str, bytes] | None = None, retype: dict[str, str] | None = None) -> dict:
+    """new: GGUF name -> values; kind: their type in the file; over: bytes written on the output afterwards; retype: tensors whose type differs from ref's, checked by the caller."""
+    retype = retype or {}
     t0 = time.time()
     tt = tensors()
     bf = out_q4.with_name(out_q4.stem + "-bf16.gguf")
@@ -79,9 +97,11 @@ def compose(new: dict[str, torch.Tensor], kind: str, out_q4: Path, base: Path = 
     cmd = [str(BIN / "llama-quantize.exe"), "--imatrix", IMATRIX.as_posix()]
     for g in sorted(new):
         cmd += ["--tensor-type", g.replace(".", r"\.").removesuffix(r"\.weight") + "=" + kind]
+    for g, k in sorted(retype.items()):
+        cmd += ["--tensor-type", g.replace(".", r"\.").removesuffix(r"\.weight") + "=" + k]
     pins = out_q4.with_name(out_q4.stem + "-pins.txt")
     pins.write_text("".join(f"^{n.replace('.', chr(92) + '.')}$={t.tensor_type.name.lower()}\n" for n, t in r0.items()
-                            if n not in new and t.tensor_type.name not in ("F32", "F16", "BF16")), encoding="ascii")
+                            if n not in new and n not in retype and t.tensor_type.name not in ("F32", "F16", "BF16")), encoding="ascii")
     cmd += ["--tensor-type-file", pins.as_posix(), bf.as_posix(), out_q4.as_posix(), "Q4_K_M", "6"]
     run(cmd, out_q4.with_name(out_q4.name + ".quantize.log"))
     bf.unlink()
@@ -100,7 +120,7 @@ def compose(new: dict[str, torch.Tensor], kind: str, out_q4: Path, base: Path = 
         if ok:
             ok = bool(np.array_equal(gguf.quants.dequantize(t.data, t.tensor_type).reshape(-1), v.float().numpy().reshape(-1)))
         exact[g] = ok
-    others = [n for n in r0 if n not in new]
+    others = [n for n in r0 if n not in new and n not in retype]
     return {"changed": len(new), "kind": kind, "exact": exact, "all_exact": all(exact.values()), "other_tensors": len(others), "reference": str(ref),
             "other_tensors_differ": [n for n in others if got[n].tensor_type != r0[n].tensor_type or np.asarray(got[n].data).tobytes() != np.asarray(r0[n].data).tobytes()],
             "q4": str(out_q4), "q4_sha256": sha256(out_q4), "cmd": cmd, "seconds": round(time.time() - t0, 1)}
@@ -112,9 +132,9 @@ def outliers(w: torch.Tensor) -> torch.Tensor:
     return w.float().abs().view(*w.shape[:-1], -1, GROUP).amax(-1) > OUTLIER * s
 
 
-def mixed(random: bool) -> tuple[dict[str, torch.Tensor], dict]:
+def mixed(random: bool, seed: int = SEED) -> tuple[dict[str, torch.Tensor], dict]:
     """st_ffn's tensors with some groups back to the original values."""
-    W, gen = M.Weights(), torch.Generator().manual_seed(SEED)
+    W, gen = M.Weights(), torch.Generator().manual_seed(seed)
     new, count = {}, {}
     for (i, n), e in trained(S2S / "st_ffn").items():
         hf = f"model.layers.{i}.{n}"
@@ -176,10 +196,33 @@ def main() -> int:
     elif a.arm in ("ff_nodense", "ff_noearly", "ff_nolate"):
         keep = {"ff_nodense": list(range(1, 20)), "ff_noearly": [0] + list(range(10, 20)), "ff_nolate": list(range(0, 10))}[a.arm]
         rec = compose({gguf_name(i, n): e["w"] for (i, n), e in trained(S2S / "st_ffn", keep).items()}, "tq2_0", a.out_q4)
-    elif a.arm in ("ff_keepout", "ff_keeprnd"):
-        new, count = mixed(a.arm == "ff_keeprnd")
+    elif a.arm in ("ff_keepout", "ff_keeprnd", "ff_keeprnd2"):
+        new, count = mixed(a.arm != "ff_keepout", SEED + 1 if a.arm == "ff_keeprnd2" else SEED)
         rec = compose(new, "bf16", a.out_q4)
         extra = {"groups": count}
+    elif a.arm == "tq40":
+        tt = tensors()
+        names = [g for g in tt if "_exps" in g and tt[g][2] == "BF16" and not g.startswith("blk.0.")]
+        over = {}
+        with TERN_BF16.open("rb") as f:
+            for g in names:
+                off, nb, _ = tt[g]
+                f.seek(off)
+                over[g] = tern_blocks(np.frombuffer(f.read(nb), dtype=np.int16)).tobytes()
+        rec = compose({}, "q4_0", a.out_q4, base=TERN_BF16, ref=TERN_Q4, over=over, retype={g: "q4_0" for g in names})
+        got = {t.name: t for t in gguf.GGUFReader(str(a.out_q4)).tensors}
+        want = {t.name: t for t in gguf.GGUFReader(str(TERN_Q4)).tensors}
+        same = {}
+        for g in names:
+            x, y = gguf.quants.dequantize(got[g].data, got[g].tensor_type), gguf.quants.dequantize(want[g].data, want[g].tensor_type)
+            same[g] = got[g].tensor_type.name == "Q4_0" and bool(np.array_equal(x.reshape(-1), y.reshape(-1)))
+        rec["exact"], rec["all_exact"] = same, all(same.values())
+    elif a.arm == "sb_q40":
+        t = trained(S2S / "st_both")
+        new = {gguf_name(i, n): e["w"] for (i, n), e in t.items()}
+        rec = compose(new, "q4_0", a.out_q4, over={gguf_name(i, n): asym_blocks(e)[0].tobytes() for (i, n), e in t.items()})
+    elif a.arm in ("sb_bf", "ff_bf"):
+        rec = compose({gguf_name(i, n): e["w"] for (i, n), e in trained(S2S / ("st_both" if a.arm == "sb_bf" else "st_ffn")).items()}, "bf16", a.out_q4)
     elif a.arm == "ks_org":
         r = {t.name: t for t in gguf.GGUFReader(str(a.ks_bf16)).tensors}
         names = [gguf_name(i, n) for i in range(M.N_LAYER) for n in organ_names("both", i)]

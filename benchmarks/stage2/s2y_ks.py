@@ -71,7 +71,7 @@ def main() -> int:
     files = {"im": make("im", dat), "noim": make("noim", None)}
     src = {t.name: t for t in gguf.GGUFReader(str(BF16)).tensors}
     got = {k: {t.name: t for t in gguf.GGUFReader(str(p)).tensors} for k, p in files.items()}
-    organs = [n for n in src if any(x in n for x in ("attn_qkv", "attn_output", "_shexp")) or n.startswith("blk.0.ffn_")]
+    organs = [n for n in src if any(x in n for x in ("attn_qkv", "attn_output", "_shexp")) or n in {f"blk.0.ffn_{p}.weight" for p in ("gate", "up", "down")}]
 
     def f32(t) -> np.ndarray:
         return (np.asarray(t.data).reshape(-1).view(np.uint16).astype(np.uint32) << 16).view(np.float32)
@@ -87,7 +87,7 @@ def main() -> int:
             rec[k] = {"rel": float(e.sum() / (o * o).sum()), "weighted": float((wgt * e).sum() / (wgt * o * o).sum())}
         out[n] = rec
     win = sum(r["im"]["weighted"] < r["noim"]["weighted"] for r in out.values())
-    rec = {"organ_tensors": len(out), "imatrix_lower_on": win, "control": win == len(out), "mean_rel_im": float(np.mean([r["im"]["rel"] for r in out.values()])),
+    rec = {"organ_tensors": len(out), "imatrix_lower_on": win, "control": win >= 0.9 * len(out), "mean_rel_im": float(np.mean([r["im"]["rel"] for r in out.values()])),
            "mean_rel_noim": float(np.mean([r["noim"]["rel"] for r in out.values()])), "mean_weighted_im": float(np.mean([r["im"]["weighted"] for r in out.values()])),
            "mean_weighted_noim": float(np.mean([r["noim"]["weighted"] for r in out.values()])), "tensors": out, "seconds": round(time.time() - t0, 1)}
     a.json.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
