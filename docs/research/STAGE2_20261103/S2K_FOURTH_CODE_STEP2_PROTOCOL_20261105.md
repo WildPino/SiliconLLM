@@ -10,6 +10,10 @@ The chain stopped at its limit: lr 0.001, projection 14.6 h, with the pick run b
 
 The export failed its control: worst error 1.0 against 0.0039, so that export is VOID, kept as `results/s2v_export_void1.json`. One group fails of 19 layers' experts: layer 6, up_proj, expert 175, row 161, columns 1024-1279. Its trained scale crossed zero to −1.0e-5, and `bal_levels` divided only by positive scales, so it wrote zeros in place of ±5e-6 and ±1.5e-5. The code was wrong, not the rule. The fix divides by any scale that is not zero; d = −5.07e-6 is held exactly as an fp16 subnormal. The control stays as registered, and the export runs again. Worst error on every other block was 0.00385. Training took 12.57 h, past amendment 1's 8.3 h, with other jobs on the GPU for part of it. Nothing else changes.
 
+## Amendment 3 (2026-11-07, before any panel output)
+
+The re-export passes the control as registered: worst error 0.00385, sha `ec017f92`. The panel tool then crashed on bal's first panel, with no output: `ggml_gemv_q4_0_8x8_q8_0` stores to an unaligned stack slot, a path only a Q4_0 model reaches, and the same compiler fault seen in ik's flash path (S2E, amendment 3). `s2x_build_ua.ps1` rebuilds ggml-cpu alone with `-Wa,-muse-unaligned-vector-move`, and bal and bal4 use those binaries. Control, run on P0: outputs byte-equal to the pinned binaries on 30 nq items, 30 arc items and 6 chat items (`.jsonl`, `.pos.bin`). Weights, panels and the line do not change.
+
 ## Question
 
 Step 1 found the routed experts' block loss 38% lower with {−1.5, −0.5, 0.5, 1.5} than with ternary, before any training, and equal to what a Gaussian gives. At equal bytes and equal training, does that survive on the panels?

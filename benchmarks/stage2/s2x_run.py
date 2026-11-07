@@ -101,6 +101,8 @@ def arm(a: argparse.Namespace) -> int:
             save(a.out, report)
             continue
         exe, flag = (SCORE, "--ids") if tool == "score" else (GEN, "--prompts")
+        if a.arm in ("bal", "bal4"):    # S2K, amendment 3: Q4_0's repacked path needs the build with unaligned moves
+            exe = exe.with_name(exe.name.replace("_avx2", "_ua_avx2"))
         cmd = [str(exe), "--model", str(model), flag, str(INPUTS[src] / f"{panel}.tsv"), "--out", str(WORK / a.arm / panel),
                "--threads", "6", "--ubatch", "512", "--max-projected-s", str(3 * MAX_PROJECTED_S)] + extra + exact(mode, layers)
         if k4 and tool == "generate":
