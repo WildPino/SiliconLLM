@@ -59,6 +59,8 @@ The correction −0.5·s·sum(x) costs 0.25 ms on one thread at flash's shape, a
 
 The panels read Q4_0 holding the same values, so no 2-bit format has run. Bal here has a scale per 256 weights and a flag on 5,588 outlier groups; IQ2_BN has a scale per row and no flag. Row scales cost ternary experts nothing (test 2), and nothing has measured that on bal. Mini at 1.5 M positions is not flash.
 
+**Open, 2026-11-07:** "same values" is not same arithmetic. Q4_0 multiplies by Q8_0 activations and TQ2_0 by Q8_K, so the margin mixes the grid with activation precision, by an unmeasured amount. S2L, amendment 1, measures it: ternary experts as Q4_0 (tq40, tq404). If bal4 − tq404's CI95 reaches 0, PAYS becomes NOT SHOWN.
+
 ## Thesis line
 
 The bytes do not change. At k = 4 the experts' loss falls from −11.97 to −4.74 for at most 0.25 ms. It does not reach the line alone: the organs are still out, and the budget has almost nothing left for them.
