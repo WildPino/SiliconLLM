@@ -50,6 +50,40 @@ ARMS = {"st_attn": ("attn", 0, 19), "st_ffn": ("ffn", 0, 19), "st_both": ("both"
 LR_ATTN, LR_SHARED, LR_DENSE = 1e-3, 3e-3, 1e-3
 
 
+class Asym(torch.autograd.Function):
+    """S2L's grid: w [1, O, I], s [1, O, 1], sign g [1, O, 1] -> bf16 s * g * clamp(round(g * w / s), -1, 2).  The estimators are Tern's: STE for w, LSQ for s."""
+
+    @staticmethod
+    def forward(ctx, w, s, g):
+        ctx.save_for_backward(w, s, g)
+        x = w * g / torch.where(s > 0, s, 1.0)
+        return (x.clamp_(-1, 2).round_() * (s.to(torch.bfloat16).float() * g)).to(torch.bfloat16)
+
+    @staticmethod
+    def backward(ctx, go):
+        w, s, g = ctx.saved_tensors
+        go = go.float()
+        x = w * g / torch.where(s > 0, s, 1.0)
+        inside = ((x >= -1) & (x <= 2) & (s > 0)).float()
+        return go * inside, (go * g * (x.clamp(-1, 2).round() - x * inside)).sum(-1, keepdim=True), None
+
+
+def asym_init(w: torch.Tensor, iters: int = 16) -> tuple[torch.Tensor, torch.Tensor]:
+    """w [1, O, I] -> (s, g) [1, O, 1]: Lloyd on {-1, 0, 1, 2} for w and for -w, the better sign per row (S2I's q_asym)."""
+    f = w.float()
+
+    def fit(a):
+        s = a.pow(2).mean(-1, keepdim=True).sqrt().clamp_min(1e-20)
+        for _ in range(iters):
+            q = (a / s).round().clamp(-1, 2)
+            s = ((a * q).sum(-1, keepdim=True) / q.pow(2).sum(-1, keepdim=True).clamp_min(1e-20)).clamp_min(1e-20)
+        return s, (a - (a / s).round().clamp(-1, 2) * s).pow(2).sum(-1, keepdim=True)
+    sp, ep = fit(f)
+    sn, en = fit(-f)
+    pos = ep <= en
+    return torch.where(pos, sp, sn), torch.where(pos, 1.0, -1.0)
+
+
 def organ_names(kind: str, i: int, scale: float = 1.0) -> dict[str, float]:
     """tensor name in the layer -> lr."""
     out: dict[str, float] = {}
@@ -153,7 +187,7 @@ def train(a: argparse.Namespace) -> int:
     print("CONFIG", json.dumps({"cmd": "train", "arm": a.arm, "kind": kind, "layers": [lo, hi], "resume_after": done,
                                 "positions": n, "train_positions": n_tr, "batch": a.batch, "seed": a.seed, "group": "row",
                                 "init": "lloyd", "outlier": 0, "lr": {"attn": LR_ATTN, "shared": LR_SHARED, "dense": LR_DENSE},
-                                "lr_scale": a.lr_scale, "pick_from": str(a.pick_from) if a.pick_from else None,
+                                "lr_scale": a.lr_scale, "form": a.form, "pick_from": str(a.pick_from) if a.pick_from else None,
                                 "dir": str(a.dir), "torch": torch.__version__}), flush=True)
     dev = torch.device("cuda")
     W = M.Weights()
@@ -174,17 +208,25 @@ def train(a: argparse.Namespace) -> int:
         gw = downstream_gain2(W, i).to(dev)
         tt = read_flat(a.dir / f"h_{i + 1}.bin", n)
         orig = {k: wl[k].unsqueeze(0).cpu() for k in names}
+        sign: dict = {}
 
         def start():
             p = {}
             for k, w in orig.items():
-                s, _ = init_row_scale(w.to(dev), "lloyd", 0.0, 0)
+                if a.form == "asym":
+                    s, sign[k] = asym_init(w.to(dev))
+                else:
+                    s, _ = init_row_scale(w.to(dev), "lloyd", 0.0, 0)
                 p[k] = torch.nn.Parameter(w.float().to(dev))
                 p["s:" + k] = torch.nn.Parameter(s)
             return p
 
         def weights(p, tern=True):
-            return {k: (Tern.apply(p[k], p["s:" + k])[0] if tern else orig[k][0].to(dev)) for k in names}
+            if not tern:
+                return {k: orig[k][0].to(dev) for k in names}
+            if a.form == "asym":
+                return {k: Asym.apply(p[k], p["s:" + k], sign[k])[0] for k in names}
+            return {k: Tern.apply(p[k], p["s:" + k])[0] for k in names}
 
         def seq_loss(wt, j):
             x = hs[offs[j]:offs[j + 1]].to(dev)
@@ -234,6 +276,8 @@ def train(a: argparse.Namespace) -> int:
         for k in names:
             save[k] = wt[k].cpu()
             save["ternary_scale:" + k] = p["s:" + k].detach().to(torch.bfloat16).cpu()
+            if a.form == "asym":
+                save["sign:" + k] = sign[k].cpu()
         torch.save(save, a.out / f"layer_{i}.pt")
         with torch.no_grad():
             w2 = {**wl, **wt}
@@ -274,6 +318,7 @@ def main() -> int:
     r.add_argument("--pick-from", type=Path, help="lr pick only: the student stream to start from")
     r.add_argument("--batch", type=int, default=4096)
     r.add_argument("--seed", type=int, default=20261104)
+    r.add_argument("--form", choices=("tern", "asym"), default="tern", help="the organs' grid (S2L)")
     r.set_defaults(fn=train)
     q = sp.add_parser("posthoc")
     q.add_argument("--arm", required=True, choices=sorted(ARMS))
