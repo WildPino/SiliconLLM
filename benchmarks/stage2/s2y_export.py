@@ -79,17 +79,19 @@ def tern_blocks(a: np.ndarray) -> np.ndarray:
     return bal_blocks(s.expand(-1, GROUP // 32).contiguous(), q)[0]
 
 
-def compose(new: dict[str, torch.Tensor], kind: str, out_q4: Path, base: Path = BF16, ref: Path = P0, over: dict[str, bytes] | None = None, retype: dict[str, str] | None = None) -> dict:
-    """new: GGUF name -> values; kind: their type in the file; over: bytes written on the output afterwards; retype: tensors whose type differs from ref's, checked by the caller."""
+def compose(new: dict[str, torch.Tensor], kind: str, out_q4: Path, base: Path = BF16, ref: Path = P0, over: dict[str, bytes] | None = None, retype: dict[str, str] | None = None,
+            pre: dict[str, torch.Tensor] | None = None) -> dict:
+    """new: GGUF name -> values; kind: their type in the file; over: bytes written on the output afterwards; retype: tensors whose type differs from ref's, checked by the caller;
+    pre (S2M): values written into the BF16 copy before quantizing, typed by retype, checked by the caller."""
     retype = retype or {}
     t0 = time.time()
     tt = tensors()
     bf = out_q4.with_name(out_q4.stem + "-bf16.gguf")
     shutil.copyfile(base, bf)
     with bf.open("r+b") as f:
-        for g, v in new.items():
+        for g, v in {**(pre or {}), **new}.items():
             off, nb, k = tt[g]
-            b = as_bytes(v, k)
+            b = v() if callable(v) else as_bytes(v, k)    # a callable gives the bytes itself, read when needed
             assert len(b) == nb, g
             f.seek(off)
             f.write(b)
