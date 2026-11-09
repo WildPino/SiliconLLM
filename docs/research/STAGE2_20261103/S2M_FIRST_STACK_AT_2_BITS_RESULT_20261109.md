@@ -6,6 +6,8 @@
 
 All three sections valid. **The stack is OVER BUDGET and still WORSE THAN ITS PARTS: THE COMPOUNDING, NOT THE FORMAT.** ks_org alone is UNDECIDED and keeps its chat. Bal's training against IQ2_KS on the experts: NOT SHOWN.
 
+**Amendment 1 (below) reads the excess again: with ks_org at k = 4, the stack ADDS UP (−0.02). The −4.41 was the organs losing at k = 4, not stacking.**
+
 | Section | Label | Number |
 | --- | --- | --- |
 | ks_org | **UNDECIDED**, chat gate passes | −3.02 [−5.73, −0.31], chat 30; over as_both +4.73 [+1.07, +8.39] |
@@ -53,7 +55,7 @@ No arm was trained together. Organs in BF16 and experts in Q8_0 stand in for IQ2
 
 ## Thesis line
 
-No configuration at 2 bits but the head fits: the best, ks_stk4, is −12.18 at **43.05 ms, 23.23 tok/s** on the desk (sum of cells), against the 40.49 line. ks_all4 is −14.09 at 44.32 ms. Both miss on quality before speed. A joint training must win back the 4.41 of compounding and about 3 more to reach −5.
+No configuration at 2 bits but the head fits: the best, ks_stk4, is −12.18 at **43.05 ms, 23.23 tok/s** on the desk (sum of cells), against the 40.49 line. ks_all4 is −14.09 at 44.32 ms. Both miss on quality before speed. Stage 1's label puts −5 on the CI95's lower end: with a half-width near 4, WITHIN BUDGET needs a point near −1, about 11 points over ks_stk4. (Corrected 2026-11-09; it first read "about 3 more to reach −5", which took −5 as a point.)
 
 ## Parts specific to Ling
 
@@ -64,3 +66,26 @@ The numbers, the shared expert, one dense layer, the fused QKV, the 9 uncalibrat
 **Part 2 trains this stack together, as registered for OVER and THE COMPOUNDING: the organs start from IQ2_KS's values, bal's experts stay in place, at k = 4, with the budget on the whole stack and generation at k = 4 in the loss's reach. Bal stays (NOT SHOWN), at 0.25 ms. Its protocol, over 10 h of GPU, goes to an independent reviewer before it is pushed.** Its line: the trained stack WITHIN BUDGET with the chat gate, or at least the excess no longer WORSE.
 
 **What would disprove it:** the trained stack still OVER BUDGET with an excess at or below −3.80. Then training does not undo the compounding at this scale, and the organs cannot all go to 2 bits: the next cut keeps one of them stored.
+
+## Amendment 1, result: ks_org at k = 4
+
+Protocol's amendment 1; `s2z_k4_verdict.json`, `s2z_k4_run.json`. Valid: the panels complete on ks_org's file, the 7 copied score files equal ks_org's.
+
+| Line | Label | Number |
+| --- | --- | --- |
+| ks_org4 | **UNDECIDED**, chat gate fails | −7.41 [−10.90, −3.99], chat 22, 1 degenerate |
+| Organs at k = 4, ks_org4 − ks_org | **THE ORGANS LOSE AT k = 4** | −4.39 [−7.44, −1.42] |
+| Excess at k = 4, ks_stk4 − bal4 − ks_org4 | **IT ADDS UP** | −0.02 [−4.53, +4.54]; sum of parts −12.16 |
+| The same, k = 4 counted once (+ top4dm16) | IT ADDS UP | +0.95 [−3.42, +5.41] |
+
+ks_org4, nq / tqa / gsm8k / chat: 22.8 / 41.5 / 69 / 55, against ks_org's 25.3 / 42.3 / 72 / 75 at k = 8. Most of the loss is chat: 30 passes become 22.
+
+**What it says:** the stack at 2 bits is the sum of bal4 and the organs at k = 4. Nothing compounds beyond that. The organs' 2 bits cost −3.02 at k = 8 and −7.41 at k = 4, while P0 alone at k = 4 is +0.97: k = 4 hurts the organs at IQ2_KS, not the model. As registered, the training's target becomes ks_org4's loss with bal's experts in place.
+
+| Prediction | Predicted | Read | |
+| --- | --- | --- | --- |
+| ks_org4 | Δ −6 to −2 | −7.41 | miss by 1.41, worse |
+| Organs at k = 4 | −3 to +1; DOES NOT MOVE 60%, LOSE 35% | −4.39; LOSE | miss by 1.39; 35% |
+| Excess at k = 4 | −3 to +1; ADDS UP 60% | −0.02; ADDS UP | hit; 60% |
+
+**What this does not say:** why k = 4 hurts the organs (the imatrix was fitted at k = 8, and decode at k = 4 feeds the organs another distribution: a reason, not measured). One seed. The chat panel has 40 items.
