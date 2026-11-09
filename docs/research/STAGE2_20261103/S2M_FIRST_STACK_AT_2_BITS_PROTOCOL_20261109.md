@@ -87,3 +87,12 @@ The numbers, the 9 slots without calibration, the shared expert, one dense layer
 ## Cost
 
 CPU about 13 h: ks_org's five panels 2.5 h; ks_stk4 1 h of export and 3.5 h of panels; IQ2_KS on the experts about 2 h beside it; ks_all4 1.5 h and 4.5 h. About 90 GB on E:.
+
+## Amendment 1 (2026-11-09, after the result): ks_org at k = 4
+
+Decided on the result, before the training's protocol. ks_org ran at k = 8, while bal4 and ks_stk4 generate at k = 4: the excess of −4.41 mixes k = 4 with the organs.
+
+- **Arm ks_org4:** ks_org's file (sha `db9d8c3a`), nq, tqa, gsm8k and chat generated at k = 4 in bal4's form (top 4, mass 16, decode only). arc, mmlu and documents are scored, do not depend on k, and are ks_org's, copied, as tq404's. Record `s2z_k4_run.json`; chain `s2z_chain.py k4`; CPU about 1.5 h.
+- **Lines (`s2z_k4_verdict.py`, selftest PASS 5):** stage 1's label and chat gate on ks_org4. Organs at k = 4, ks_org4 − ks_org with a paired CI95: **THE ORGANS LOSE AT k = 4** (upper < 0), **GAIN** (lower > 0), **k = 4 DOES NOT MOVE THE ORGANS**. Excess at k = 4, ks_stk4 − bal4 − ks_org4: S2M's three labels. Reported beside it, the same plus P0 at k = 4 in bal4's form (stage 1's top4dm16, +0.97), which counts k = 4 once. VOID if ks_org4's panels are incomplete, its file is not ks_org's, or a copied file differs from ks_org's.
+- **Predictions:** ks_org4 Δ −6 to −2; ks_org4 − ks_org −3 to +1, DOES NOT MOVE 60%, LOSE 35%; excess at k = 4 −3 to +1, ADDS UP 60%, WORSE 35%.
+- **What it changes in the training's protocol:** WORSE at k = 4: the stack compounds beyond the organs' own cost at k = 4, and the training's target is the whole excess. ADDS UP: the excess was the organs at k = 4, and the training's target is ks_org4's loss with bal's experts in place. Either way the arm's outcome is in the protocol before its push.

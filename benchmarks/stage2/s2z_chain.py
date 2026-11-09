@@ -1,6 +1,8 @@
 """S2M's chains, resumable.  quant: IQ2_KS on the experts (s2z_ks.py).  cpu: ks_org's five panels, ks_stk4, then ks_all4 once quant has written its record.
 
-Usage: python -I benchmarks/stage2/s2z_chain.py quant | cpu
+k4 (amendment 1): ks_org4's panels.
+
+Usage: python -I benchmarks/stage2/s2z_chain.py quant | cpu | k4
 """
 from __future__ import annotations
 
@@ -26,9 +28,9 @@ def step(*cmd: str) -> None:
         raise SystemExit(f"stopped ({r.returncode}): {' '.join(cmd)}")
 
 
-def panels(name: str, q4: Path, js: Path) -> None:
+def panels(name: str, q4: Path, js: Path, out: str = "s2z_run.json") -> None:
     sha = json.loads(js.read_text(encoding="utf-8"))["q4_sha256"]
-    step("benchmarks/stage2/s2z_run.py", "--arm", name, "--model", str(q4), "--model-sha", sha, "--out", str(R / "s2z_run.json"))
+    step("benchmarks/stage2/s2z_run.py", "--arm", name, "--model", str(q4), "--model-sha", sha, "--out", str(R / out))
     step("benchmarks/chatbot50/c50_s2_checks.py", "--a4-inputs", A4, "--s2-inputs", S2, "--arm-a4", f"{SCORES}/{name}", "--arm-s2", f"{SCORES}/{name}", "--out", f"{SCORES}/scores/{name}.json")
 
 
@@ -56,5 +58,11 @@ def cpu() -> None:
     print("S2M CHAIN DONE", flush=True)
 
 
+def k4() -> None:
+    """Amendment 1: ks_org's file generating at k = 4, as bal4."""
+    panels("ks_org4", Y / "q4" / "ks_org.gguf", R / "s2y_export_ks_org.json", "s2z_k4_run.json")
+    print("S2M K4 DONE", flush=True)
+
+
 if __name__ == "__main__":
-    {"quant": quant, "cpu": cpu}[sys.argv[1]]()
+    {"quant": quant, "cpu": cpu, "k4": k4}[sys.argv[1]]()

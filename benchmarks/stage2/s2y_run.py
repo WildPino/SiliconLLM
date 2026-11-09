@@ -21,6 +21,7 @@ ARMS = {"as_both": FULL, "st_both2": FULL, "stk4": FULL, "ff_nodense": ("docs", 
         # amendment 1: the same values in another container.  tq404 is tq40 at k = 4; its score panels are copied, as test 3b's.
         "tq40": FULL, "tq404": ("nq", "tqa", "gsm8k", "chat"), "sb_q40": FULL, "sb_bf": ("docs", "chat"), "ff_bf": ("docs", "chat"), "ff_keeprnd2": ("docs", "chat")}
 K4 = ("stk4", "tq404")
+COPY = {"tq404": "tq40"}    # an arm at k = 4 takes its score panels, which do not depend on k, from its k = 8 twin
 UA = {t: x.with_name(x.name.replace("_avx2", "_ua_avx2")) for t, x in (("score", SCORE), ("generate", GEN))}
 
 
@@ -39,9 +40,9 @@ def main() -> int:
         raise SystemExit("the model differs from its pin")
     rec = report["arms"].setdefault(a.arm, {"panels": {}, "panel_set": list(ARMS[a.arm]), "model": str(a.model), "model_sha256": a.model_sha})
     (WORK / a.arm).mkdir(parents=True, exist_ok=True)
-    if a.arm == "tq404":
+    if a.arm in COPY:
         for p in ("arc", "mmlu", "docs"):
-            for x in (WORK / "tq40").glob(f"{p}.*"):
+            for x in (WORK / COPY[a.arm]).glob(f"{p}.*"):
                 shutil.copyfile(x, WORK / a.arm / x.name)
     for panel, src, tool, extra in PANELS:
         if panel not in ARMS[a.arm] or rec["panels"].get(panel, {}).get("status") == "COMPLETE":
