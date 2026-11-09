@@ -61,6 +61,8 @@ The panels read Q4_0 holding the same values, so no 2-bit format has run. Bal he
 
 **Open, 2026-11-07:** "same values" is not same arithmetic. Q4_0 multiplies by Q8_0 activations and TQ2_0 by Q8_K, so the margin mixes the grid with activation precision, by an unmeasured amount. S2L, amendment 1, measures it: ternary experts as Q4_0 (tq40, tq404). If bal4 − tq404's CI95 reaches 0, PAYS becomes NOT SHOWN.
 
+**Closed, 2026-11-09 (S2L result):** bal4 − tq404 +6.97 [+3.97, +9.99], BAL STANDS IN ITS OWN CONTAINER; the container moves ternary by +0.25 [−1.00, +1.53]. PAYS stands. The noise between two seeds of an organ training was 1.90 points.
+
 ## Thesis line
 
 The bytes do not change. At k = 4 the experts' loss falls from −11.97 to −4.74 for at most 0.25 ms. It does not reach the line alone: the organs are still out, and the budget has almost nothing left for them.
