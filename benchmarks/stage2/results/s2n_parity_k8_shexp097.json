@@ -1,0 +1,62 @@
+{
+ "config": {
+  "ks": "E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf",
+  "teacher": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\teacher",
+  "shape": {
+   "layers": 20,
+   "d": 2048,
+   "heads": 16,
+   "heads_kv": 4,
+   "head_dim": 128,
+   "rot": 64,
+   "dense_f": 5120,
+   "experts": 256,
+   "expert_f": 512,
+   "shared_f": 512,
+   "vocab": 157184,
+   "groups": 8,
+   "groups_kept": 4,
+   "k_native": 8,
+   "route_scale": 2.5,
+   "eps": 1e-06,
+   "theta": 600000.0,
+   "expert_chunk": 64
+  },
+  "seq": 2048,
+  "seqs_per_step": 2,
+  "prefill": 64,
+  "lrs": [
+   0.001,
+   0.003,
+   0.01
+  ],
+  "seed": 20261109,
+  "torch": "2.11.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "argv": [
+   "--parity",
+   "--form",
+   "k8",
+   "--llama-pos",
+   "E:/SiliconLLM_Artifacts/stage1/s1a/ks_stk4/docs.pos.bin",
+   "--json",
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\results\\s2n_parity_k8_shexp097.json",
+   "--plant",
+   "shexp097"
+  ]
+ },
+ "form": "k8",
+ "plant": "shexp097",
+ "llama_pos": "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ks_stk4\\docs.pos.bin",
+ "positions": 165858,
+ "top1_agreement": 0.9623292213821462,
+ "kl_to_ref": 0.8068268113789056,
+ "llama_kl_to_ref": 0.783578010160056,
+ "kl_ratio": 1.0296700531630547,
+ "exception_blocks": 8094,
+ "floors": {
+  "top1": 0.95,
+  "kl": 0.05
+ },
+ "parity": true
+}

@@ -1,0 +1,110 @@
+{
+ "config": {
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "torch": "2.11.0+cu128",
+  "python": "3.12.10",
+  "shape": {
+   "layers": 32,
+   "d": 4096,
+   "heads": 32,
+   "heads_kv": 4,
+   "head_dim": 128,
+   "rot": 64,
+   "dense_f": 9216,
+   "experts": 256,
+   "expert_f": 1024,
+   "shared_f": 1024,
+   "vocab": 157184,
+   "groups": 8,
+   "groups_kept": 4,
+   "k_native": 8,
+   "route_scale": 2.5,
+   "eps": 1e-06,
+   "theta": 600000.0,
+   "expert_chunk": 16
+  },
+  "tokens_per_step": 4096,
+  "micro_sequences": 1,
+  "steps": 5,
+  "warm": 2,
+  "layers": 32,
+  "form": "k = 8",
+  "kinds": [
+   "row",
+   "grp"
+  ],
+  "organs": "bf16",
+  "packing": "documents of mean 350 positions, block-diagonal mask",
+  "routing": "sampled from s2n_route_hist.json",
+  "hist_busiest_over_mean_median": 13.409075107866594,
+  "limits": {
+   "gpu_gb": 11.5,
+   "host_gb": 70.0,
+   "hours": 240.0
+  }
+ },
+ "kinds": {
+  "row": {
+   "seconds": [
+    70.86493199999995,
+    70.8641705,
+    70.83489239999994,
+    71.0518879,
+    70.91691130000004
+   ],
+   "min": 70.83489239999994,
+   "median": 70.86493199999995,
+   "max": 71.0518879,
+   "hours_16_8M": 80.62854485333328,
+   "hours_16_8M_min_max": [
+    80.59436646399993,
+    80.84125912177777
+   ],
+   "gpu_peak_allocated_gb": 8.555081728,
+   "gpu_peak_reserved_gb": 9.9090432,
+   "host_peak_gb": 38.48226816,
+   "trainable": 49266941,
+   "busiest_over_mean": {
+    "median": 11.7578125,
+    "max": 19.3125
+   },
+   "unpacked_elements_per_step": 599147937792,
+   "unpack_seconds_per_step": 19.138641119998464,
+   "unpack_share_of_median": 0.2700721016708021,
+   "fits": true,
+   "hours_without_unpack": 58.85302429013503,
+   "fits_without_unpack": true
+  },
+  "grp": {
+   "seconds": [
+    496.7350922999999,
+    379.73376610000014,
+    411.27999880000016,
+    410.93531250000024,
+    422.78996860000007
+   ],
+   "min": 379.73376610000014,
+   "median": 411.27999880000016,
+   "max": 496.7350922999999,
+   "hours_16_8M": 467.94524307911126,
+   "hours_16_8M_min_max": [
+    432.0526405404446,
+    565.1741494613332
+   ],
+   "gpu_peak_allocated_gb": 13.465040384,
+   "gpu_peak_reserved_gb": 15.00512256,
+   "host_peak_gb": 40.90218496,
+   "trainable": 390578429,
+   "busiest_over_mean": {
+    "median": 11.71875,
+    "max": 19.390625
+   },
+   "unpacked_elements_per_step": 599147937792,
+   "unpack_seconds_per_step": 19.08672479987072,
+   "unpack_share_of_median": 0.04640810361690439,
+   "fits": false,
+   "hours_without_unpack": 446.22879175125837,
+   "fits_without_unpack": false
+  }
+ }
+}

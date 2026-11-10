@@ -1,0 +1,48 @@
+{
+ "cmd": [
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+  "--model",
+  "E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf",
+  "--ids",
+  "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\docs.tsv",
+  "--out",
+  "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\llama\\ks_stk4_k4m16\\docs",
+  "--threads",
+  "6",
+  "--ubatch",
+  "512",
+  "--max-projected-s",
+  "32400",
+  "--ctx",
+  "8192",
+  "--top",
+  "32",
+  "--moe-mode",
+  "top",
+  "--moe-k",
+  "4",
+  "--moe-mass",
+  "16",
+  "--ref-top",
+  "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin"
+ ],
+ "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+ "returncode": 0,
+ "wall_s": 3426.0,
+ "config": [
+  "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf n_vocab=157184 docs=72 positions=165858 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+ ],
+ "moe": [
+  "MOE mode=top k=4 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=12605208 mean_kept=4.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2467494 tokens_seen=3151302"
+ ],
+ "mix": [],
+ "stdout_tail": [
+  "MOE mode=top k=4 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=12605208 mean_kept=4.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2467494 tokens_seen=3151302",
+  "MASS mass_k=16 rows=3151302 mean_factor=0.680354",
+  "DONE positions=165858 wall_s=3416.7"
+ ],
+ "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+ "status": "COMPLETE",
+ "model_sha256": "b9140b17499a4e6818d68a0304a446d5ba868ebdad4a5a1215bdad5ae9f34289",
+ "inputs_manifest_sha256": "251943eaac680a05253c75f765620e50e87ef60c7780e84548b54e3d12fd2886"
+}

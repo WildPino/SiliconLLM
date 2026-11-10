@@ -1,0 +1,108 @@
+{
+ "config": {
+  "ks": "E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf",
+  "teacher": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\teacher",
+  "shape": {
+   "layers": 20,
+   "d": 2048,
+   "heads": 16,
+   "heads_kv": 4,
+   "head_dim": 128,
+   "rot": 64,
+   "dense_f": 5120,
+   "experts": 256,
+   "expert_f": 512,
+   "shared_f": 512,
+   "vocab": 157184,
+   "groups": 8,
+   "groups_kept": 4,
+   "k_native": 8,
+   "route_scale": 2.5,
+   "eps": 1e-06,
+   "theta": 600000.0,
+   "expert_chunk": 64
+  },
+  "seq": 2048,
+  "seqs_per_step": 2,
+  "prefill": 64,
+  "lrs": [
+   0.001,
+   0.003,
+   0.01
+  ],
+  "seed": 20261109,
+  "torch": "2.11.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "argv": [
+   "--arm",
+   "none",
+   "--out",
+   "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\dry\\none",
+   "--json",
+   "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\results\\s2n_dry_none.json"
+  ]
+ },
+ "arm": "none",
+ "before": {
+  "pick": {
+   "k8": {
+    "kl": 0.5885494916561268,
+    "top1": 0.7381139489194499,
+    "positions": 55990
+   },
+   "k4p": {
+    "kl": 0.8844880383575489,
+    "top1": 0.6804965172352205,
+    "positions": 55990
+   },
+   "mean_top1": 0.7093052330773353
+  },
+  "acts": {
+   "k8": {
+    "kl": 0.6177246232828435,
+    "top1": 0.749613637427996,
+    "positions": 42706
+   },
+   "k4p": {
+    "kl": 0.88020951497897,
+    "top1": 0.6989884325387533,
+    "positions": 42706
+   },
+   "mean_top1": 0.7243010349833747
+  }
+ },
+ "after": {
+  "pick": {
+   "k8": {
+    "kl": 0.5885494916561268,
+    "top1": 0.7381139489194499,
+    "positions": 55990
+   },
+   "k4p": {
+    "kl": 0.8844880383575489,
+    "top1": 0.6804965172352205,
+    "positions": 55990
+   },
+   "mean_top1": 0.7093052330773353
+  },
+  "acts": {
+   "k8": {
+    "kl": 0.6177246232828435,
+    "top1": 0.749613637427996,
+    "positions": 42706
+   },
+   "k4p": {
+    "kl": 0.88020951497897,
+    "top1": 0.6989884325387533,
+    "positions": 42706
+   },
+   "mean_top1": 0.7243010349833747
+  }
+ },
+ "train_docs": 4293,
+ "heldout_docs": [
+  143,
+  142
+ ],
+ "trainable": 0
+}
