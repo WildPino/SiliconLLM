@@ -34,6 +34,9 @@ logs/
 # so anchoring here costs no protection and buys a place decisions can be audited from.
 results/*
 !results/phase64_rung1/
+# Sparse Capacity: run records are small (JSONL) and are evidence, so they are committed; dry runs are not measurements.
+!results/sparse_capacity/
+results/sparse_capacity/f1b_dry_*/
 /memoria_stato_attuale.md
 /_transport/
 /benchmarks_old/
