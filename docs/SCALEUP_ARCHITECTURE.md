@@ -38,6 +38,13 @@ The honest compound across all terms remains **one-to-two orders of magnitude ov
 
 ## 2. The keystone design constraint (the number that sizes everything)
 
+> **Superseded as a hard wall by 64.1/64.1b (2026-07-06/12, `PHASE64_BUDGET.md` §4, "CONSTRAINT INVERSION").** The L3 limit was
+> measured as a slope, not a cliff, and in the trainable region speed has 12-130× slack. The binding constraint became the
+> **training budget** (~100-500M params practical on 2×T4), then data and quality per parameter. The ladder still kept the
+> D256 core (§9). The larger cores of later work (the ~10B roadmap, native expert scaling) came from external pretrained
+> models, not from this recipe. Whether a large expert bank can make up for a small trained core is not measured beyond
+> probe-4 (~22M). The text below is the July design record.
+
 **Active per-token weight slice ≤ 16 MB (L3), comfortably ≤ 8-12 MB (high plateau).** At the real LUT packing (~0.5 B/weight), that is:
 
 > **~24-32M active ternary params per token** (the compute-bound ceiling).

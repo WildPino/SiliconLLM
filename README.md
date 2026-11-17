@@ -65,6 +65,8 @@ A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are 
 
 But sparsity only pays if the *working set* fits the cache. A synthetic sweep on the real 3600X finds a sharp **step at 16 MB — the exact L3-per-CCX size** — below which the CPU is compute-bound at ~100 GB/s, and above which it falls off a cliff toward the ~28 GB/s DRAM floor. **This 16 MB is the keystone constraint** that sizes the entire architecture.
 
+> **Update (Phase 64.1, July 2026).** At the sizes this project can train, the 16 MB limit proved to be a slope rather than a wall, and speed has 12-130× headroom ([`docs/PHASE64_BUDGET.md`](docs/PHASE64_BUDGET.md) §4). The binding constraint is the **training budget** (~100-500M parameters on 2×T4), not the cache. Whether a large expert bank can make up for a small trained core is still unmeasured.
+
 <div align="center">
 <img src="assets/bench_cache_cliff.png" width="58%">
 <img src="assets/bench_compound.png" width="40%">
