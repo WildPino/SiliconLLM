@@ -5,6 +5,8 @@
 #
 # - Refuses unless the phase 1a verdict is PARI or VERDE (PLAN, phase 1a: a red flag is discussed before phase 2).
 #   After a red flag, --red-flag-go "<date: decision>" records the go given on F1A_RUNG1_GATE_RESULT.md.
+# - Futility rule (protocol section 10): after m1 s0 and m64 s0, sc2_verdict.py --futility decides; on STOP or VOID the
+#   chain launches nothing else. On CONTINUE nothing is read until the end.
 # - Waits while another trainer holds the GPU (S2N's GPU chain), never two trainers together.
 # - Skips a run whose result.json exists; otherwise launches it with --resume, so re-launching the chain after a crash
 #   or a freeze continues from the last checkpoint.
@@ -19,6 +21,7 @@ DATA = "E:/SiliconLLM_Artifacts/workspace/kaggle_rung1/main_run/data"
 CKPT = "E:/SiliconLLM_Artifacts/sparse_capacity/f2"
 ORDER = [("m1", 0), ("m64", 0), ("m4", 0), ("m16", 0), ("m1", 1), ("m64", 1), ("m4", 1), ("m16", 1),
          ("dense", 0), ("dense-fp", 0)]
+FUTILITY_AFTER = [("m1", 0), ("m64", 0)]   # the futility rule is applied once these two runs are done
 GPU_HOLDERS = ("s2n_chain.py gpu", "s2n_train.py", "s2n_chain.py second")
 CPU_HOLDERS = ("s2n_chain.py cpu", "s2n_run.py")
 
@@ -51,8 +54,18 @@ def main():
         r["time"] = time.strftime("%Y-%m-%d %H:%M:%S"); log.write(json.dumps(r) + "\n"); log.flush(); print(r, flush=True)
     emit(kind="gate_1a", verdict=[l for l in v.splitlines() if l.startswith("VERDICT")][0][:80],
          red_flag_go=a.red_flag_go if red else "")
-    for arm, seed in ORDER:
+    def gate_futility():
+        f = subprocess.run([sys.executable, os.path.join(HERE, "sc2_verdict.py"), "--futility"], cwd=ROOT,
+                           capture_output=True, text=True)
+        line = [l for l in f.stdout.splitlines() if l.startswith("FUTILITY")]
+        emit(kind="futility", outcome=line[0].split(" ")[1] if line else "ERROR", exit=f.returncode)
+        if f.returncode:
+            print(f.stdout + f.stderr, flush=True)
+            sys.exit("STOP: futility rule (protocol section 10), nothing else is launched")
+    for i, (arm, seed) in enumerate(ORDER):
         tag = f"f2_{arm}_s{seed}"
+        if ORDER[:i] == FUTILITY_AFTER:
+            gate_futility()
         if os.path.exists(os.path.join(ROOT, "results", "sparse_capacity", tag, "result.json")):
             emit(kind="skip", run=tag); continue
         while True:
