@@ -105,7 +105,10 @@ Sono due prove indipendenti, e ognuna puo chiudere una strada.
     se il programma continua solo per D-R.
 - **Costo:** ore, a macchina scarica, con il via dell'utente.
 
-### Fase 2: la prova piccola su E (ABBOZZO)
+### Fase 2: la prova piccola su E (PROTOCOLLO: [`F2_BANK_PROTOCOL.md`](F2_BANK_PROTOCOL.md))
+
+Il protocollo sostituisce i bracci e la base qui sotto (base m1 invece del denso, h8, fino a m64); il perche sta nel suo §8.
+
 
 - **Domande:** D-0 fatta bene, e D-R.
 - **Il nucleo e fisso,** con la forma del rung-1: D256 N96 L8 swa@5.
@@ -175,3 +178,4 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 | Data | Modifica |
 |---|---|
 | 2026-11-17 | Piano iniziale, fasi 0-5 |
+| 2026-11-18 | Dopo la 1b (GRIGIO, via dato): il metodo e lo streaming, il programma continua per D-R. La granularita (H2, §7) si decide nel protocollo della fase 2, non dopo: h8. |
