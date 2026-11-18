@@ -4,6 +4,7 @@
 #   python benchmarks/sparse_capacity/sc2_chain.py --after-1a <f1a verdict.txt> [--data-dir ...]
 #
 # - Refuses unless the phase 1a verdict is PARI or VERDE (PLAN, phase 1a: a red flag is discussed before phase 2).
+#   After a red flag, --red-flag-go "<date: decision>" records the go given on F1A_RUNG1_GATE_RESULT.md.
 # - Waits while another trainer holds the GPU (S2N's GPU chain), never two trainers together.
 # - Skips a run whose result.json exists; otherwise launches it with --resume, so re-launching the chain after a crash
 #   or a freeze continues from the last checkpoint.
@@ -38,13 +39,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--after-1a", required=True)
     ap.add_argument("--data-dir", default=DATA)
+    ap.add_argument("--red-flag-go", default="")
     a = ap.parse_args()
     v = open(a.after_1a, encoding="utf-8").read()
-    if not ("VERDICT: PARI" in v or "VERDICT: VERDE" in v):
-        sys.exit("REFUSED: the phase 1a verdict is not PARI or VERDE (PLAN: a red flag is discussed first)")
+    red = "VERDICT: BANDIERA ROSSA" in v
+    if not ("VERDICT: PARI" in v or "VERDICT: VERDE" in v or (red and a.red_flag_go.strip())):
+        sys.exit("REFUSED: the phase 1a verdict is not PARI or VERDE and no --red-flag-go was given "
+                 "(PLAN: a red flag is discussed first)")
     log = open(os.path.join(ROOT, "results", "sparse_capacity", "f2_chain.jsonl"), "a")
     def emit(**r):
         r["time"] = time.strftime("%Y-%m-%d %H:%M:%S"); log.write(json.dumps(r) + "\n"); log.flush(); print(r, flush=True)
+    emit(kind="gate_1a", verdict=[l for l in v.splitlines() if l.startswith("VERDICT")][0][:80],
+         red_flag_go=a.red_flag_go if red else "")
     for arm, seed in ORDER:
         tag = f"f2_{arm}_s{seed}"
         if os.path.exists(os.path.join(ROOT, "results", "sparse_capacity", tag, "result.json")):
