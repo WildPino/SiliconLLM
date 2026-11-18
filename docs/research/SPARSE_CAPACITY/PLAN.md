@@ -181,3 +181,4 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 | 2026-11-17 | Piano iniziale, fasi 0-5 |
 | 2026-11-18 | Dopo la 1b (GRIGIO, via dato): il metodo e lo streaming, il programma continua per D-R. La granularita (H2, §7) si decide nel protocollo della fase 2, non dopo: h8. |
 | 2026-11-18 | Via alla fase 2 con una modifica: una D-R piatta alla fase 2 non chiude la domanda sul ragionamento. A quella scala (nucleo 4,6 M, 60 M token) vale "non mostrato"; le sonde K e R restano letture nelle fasi 3 e 4. |
+| 2026-11-18 | Dopo la 1a (BANDIERA ROSSA), via alla fase 2 come registrata, con una regola di futilita: dopo m1 s0 e m64 s0, se BPB(m64) > BPB(m1) − 0,005 ci si ferma e si scrive il risultato. Nessun'altra lettura intermedia. |
