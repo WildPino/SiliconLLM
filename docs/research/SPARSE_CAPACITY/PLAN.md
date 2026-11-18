@@ -126,7 +126,8 @@ Il protocollo sostituisce i bracci e la base qui sotto (base m1 invece del denso
   protocollo, dopo l'audit della fase 0.
 - **Se va male:**
   - D-0 FAIL: il programma si chiude con un rapporto;
-  - D-0 PASS e D-R piatta: si continua solo per il metodo;
+  - D-0 PASS e D-R piatta: "non mostrato" a questa scala; si va avanti con il metodo, la domanda resta aperta e le
+    sonde K e R restano letture nelle fasi 3 e 4;
   - D-R viva: le fasi 3 e 4 la misurano di nuovo a banche piu grandi.
 
 ### Fase 3: il metodo (ABBOZZO)
@@ -179,3 +180,4 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 |---|---|
 | 2026-11-17 | Piano iniziale, fasi 0-5 |
 | 2026-11-18 | Dopo la 1b (GRIGIO, via dato): il metodo e lo streaming, il programma continua per D-R. La granularita (H2, §7) si decide nel protocollo della fase 2, non dopo: h8. |
+| 2026-11-18 | Via alla fase 2 con una modifica: una D-R piatta alla fase 2 non chiude la domanda sul ragionamento. A quella scala (nucleo 4,6 M, 60 M token) vale "non mostrato"; le sonde K e R restano letture nelle fasi 3 e 4. |

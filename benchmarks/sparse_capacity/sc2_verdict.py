@@ -106,14 +106,14 @@ def main():
     sr_pair = paired_se(R, "m1", "m64", "r_primary_items")
     sr = nanmax(sr_seed, sr_pair, binom_floor(R, "r_primary_items"))
 
-    print("\n  arm       BPB (seeds)        mean    top1    K prim  R prim  shuffl  lookah  walk   R ood   eff.exp")
+    print("\n  arm       active   BPB (seeds)        mean    top1    K prim  R prim  shuffl  lookah  walk   R ood   eff.exp")
     for a in GATE_ARMS + READ_ARMS:
         rs = [R[(a, s)] for s in SEEDS if (a, s) in R]
         if not rs: continue
         m = lambda f: statistics.mean(f(r) for r in rs)
         ood = [k_ for k_ in rs[0]["probes"]["r"] if k_ == "n12_L5"]
         ex = rs[0].get("experts")
-        print(f"  {a:<9} {' '.join(f'{r['val']['bpb']:.4f}' for r in rs):<18} {m(lambda r: r['val']['bpb']):.4f}  "
+        print(f"  {a:<9} {rs[0]['params']['active'] / 1e6:5.1f} M  {' '.join(f'{r['val']['bpb']:.4f}' for r in rs):<18} {m(lambda r: r['val']['bpb']):.4f}  "
               f"{m(lambda r: r['val']['top1']):.4f}  {m(lambda r: r['probes']['k_primary']):.3f}   "
               f"{m(lambda r: r['probes']['r_primary']):.3f}   {m(lambda r: r['probes']['r_primary_shuffled']):.3f}   "
               f"{m(lambda r: r['probes']['r_primary_lookahead']):.3f}   {m(lambda r: r['probes']['r_primary_walk']):.3f}  "
@@ -128,6 +128,8 @@ def main():
     print(f"\n  D-0: gain m1 -> m64 {gain:+.4f} BPB = {ratio(gain, sb):.1f} sigma; no step rises by more than 1 sigma: {mono}")
     print(f"       temperature control (half B): gain at T=1 {m1_['m1'] - m1_['m64']:+.4f}, at the fitted T "
           f"{gainT:+.4f} = {ratio(gainT, sb):.1f} sigma; top-1 gain {mt['m64'] - mt['m1']:+.4f}")
+    act = {a: R[(a, 0)]["params"]["active"] / 1e6 for a in GATE_ARMS if (a, 0) in R}
+    print("       active parameters, router included: " + ", ".join(f"{a} {v:.1f} M" for a, v in act.items()))
     d0 = "PASS" if (mono and gain >= 4 * sb and gainT >= 4 * sb) else "FAIL"
     # ---- K planted positive, then D-R
     k_up = mk["m64"] - mk["m1"]
@@ -159,7 +161,8 @@ def main():
     elif dr == "VIVA":
         print("  -> PLAN: phases 3 and 4 measure D-R again on larger banks")
     elif dr == "PIATTA":
-        print("  -> PLAN: the programme continues for the method only (phase 3)")
+        print("  -> not shown at this scale (4.6 M core, 60 M tokens): D-R stays open; the method goes on (phase 3),"
+              " K and R stay as readings in phases 3 and 4")
     else:
         print("  -> phase 3 may go on for the method; D-R needs a new probe before phase 4 (protocol section 6)")
 

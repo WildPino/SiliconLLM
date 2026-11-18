@@ -14,7 +14,7 @@ scritte qui prima dei run.
 
 Un PASS di D-0 dice che su questa architettura la banca lavora, e giustifica le fasi 3 e 4. Una D-R VIVA sarebbe il
 primo segnale, non una prova: le fasi 3 e 4 la rimisurano a banche piu grandi. Una D-R PIATTA e la predizione (§7), e
-cambia il programma: si continua solo per il metodo.
+a questa scala vale "non mostrato": la domanda resta aperta, e K e R restano come letture nelle fasi 3 e 4.
 
 ## 1. Cosa si allena
 
@@ -164,11 +164,13 @@ orientati casuali (ragionamento). Sono scritti come righe Python e mescolati al 
 | **D-0 PASS** | il BPB medio scende da m1 a m64 (nessun passo sale di oltre 1σ), il guadagno m1 → m64 e ≥ 4σ, e resta ≥ 4σ dopo la temperatura | si va avanti |
 | D-0 FAIL | altrimenti | prima di chiudere, un braccio h128 top-8 a m64 (§2); poi il rapporto |
 | **D-R VIVA** | K sale (m64 − m1 > 2σ_K), R e misurabile, e R(m64) − R(m1) ≥ 2σ_R | le fasi 3 e 4 la rimisurano a banche piu grandi |
-| D-R PIATTA | K sale, R misurabile, la differenza resta sotto 2σ_R | si continua solo per il metodo |
+| D-R PIATTA | K sale, R misurabile, la differenza resta sotto 2σ_R | "non mostrato" a questa scala (nucleo 4,6 M, 60 M token): la domanda sul ragionamento non si chiude. Il programma va avanti con il metodo (fase 3), e K e R restano letture nelle fasi 3 e 4 |
 | R NON MISURABILE | ne m1 ne m64 superano di 0,05 il controllo piu forte di R, oppure m1 e ≥ 0,95 | la fase 3 puo partire per il metodo; prima della fase 4 serve una sonda R nuova |
 | D-R NON LEGGIBILE | K non sale | la banca non memorizza: si guarda prima D-0 e il routing |
 
 **Letture che non sono gate:**
+- accanto al guadagno di D-0, i parametri attivi di ogni braccio, router compreso (da 11,2 M a m1 a 27,8 M a m64): il
+  verdetto li stampa nella tabella e nella riga di D-0;
 - top-1 e P62;
 - la curva del BPB ogni 1.000 passi;
 - K per rubrica, R per cella con i controlli, la cella n12 L5;
@@ -187,7 +189,8 @@ orientati casuali (ragionamento). Sono scritti come righe Python e mescolati al 
   NON MISURABILE.
 - **Precisione:** dense-fp sotto dense di 0,02-0,05 BPB; dense e m1 entro 0,02.
 - **La predizione e contro lo scopo di D-R (regola 5).** La decisione che cambia e scritta nel piano: con D-R PIATTA il
-  programma continua solo per il metodo, e le fasi 3 e 4 non portano una domanda sul ragionamento.
+  programma va avanti con il metodo, e D-R resta aperta come "non mostrato a questa scala". K e R restano letture nelle
+  fasi 3 e 4, dove la banca e piu grande.
 
 ## 8. Cosa toglie al design
 
