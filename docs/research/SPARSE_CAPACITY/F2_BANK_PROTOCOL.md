@@ -162,6 +162,7 @@ orientati casuali (ragionamento). Sono scritti come righe Python e mescolati al 
 |---|---|---|
 | VOID | un run mancante, da commit diversi, non pushato o con modifiche; valori non finiti; in uno strato di m4, m16 o m64 gli esperti effettivi sono meno del 25% di E; la verifica dello scorer K sopra l'1% | si corregge e si ripete |
 | **D-0 PASS** | il BPB medio scende da m1 a m64 (nessun passo sale di oltre 1σ), il guadagno m1 → m64 e ≥ 4σ, e resta ≥ 4σ dopo la temperatura | si va avanti |
+| FERMO PER FUTILITA | dopo m1 s0 e m64 s0, BPB(m64) > BPB(m1) − 0,005 (§10) | si scrive il risultato; vale la decisione di D-0 FAIL |
 | D-0 FAIL | altrimenti | prima di chiudere, un braccio h128 top-8 a m64 (§2); poi il rapporto |
 | **D-R VIVA** | K sale (m64 − m1 > 2σ_K), R e misurabile, e R(m64) − R(m1) ≥ 2σ_R | le fasi 3 e 4 la rimisurano a banche piu grandi |
 | D-R PIATTA | K sale, R misurabile, la differenza resta sotto 2σ_R | "non mostrato" a questa scala (nucleo 4,6 M, 60 M token): la domanda sul ragionamento non si chiude. Il programma va avanti con il metodo (fase 3), e K e R restano letture nelle fasi 3 e 4 |
@@ -242,8 +243,16 @@ sollevato 13 obiezioni.
     selftest fallisce (15 controlli). Stampa e salva il CONFIG.
   - Si ferma su un valore non finito.
   - Salva ogni 30 minuti; dopo un blocco si riparte con `--resume`.
-- **Ordine:** m1 s0, m64 s0, m4 s0, m16 s0, poi lo stesso con s1, e per ultimi dense e dense-fp. Nessuna lettura dei
-  gate prima della fine: le curve si registrano ma non si interpretano.
+- **Ordine:** m1 s0, m64 s0, m4 s0, m16 s0, poi lo stesso con s1, e per ultimi dense e dense-fp.
+- **Regola di futilita** (aggiunta con il via, prima dei run): dopo m1 s0 e m64 s0, se BPB(m64 s0) > BPB(m1 s0) − 0,005,
+  ci si ferma e si scrive il risultato senza lanciare il resto. Altrimenti si continua fino alla fine.
+  - La applica `sc2_verdict.py --futility`, chiamato dalla catena (`sc2_chain.py`). Se si continua, non stampa nessun
+    numero.
+  - E l'unica lettura intermedia. Le curve si registrano ma non si interpretano.
+  - La soglia e il pavimento di σ (R1). La predizione (§7) e un guadagno di 0,03-0,08, quindi la regola non dovrebbe
+    scattare.
+  - Se scatta: D-0 non e mostrato, con un seed e due bracci. Il risultato segue la riga D-0 FAIL del §6 (h128 top-8
+    prima di chiudere) e nulla parte senza via.
 - **Durata:** dai dry run (12 passi, forme vere, sulla 3060).
 
   | Braccio | dense | dense-fp | m1 | m4 | m16 | m64 |
