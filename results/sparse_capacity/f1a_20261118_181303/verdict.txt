@@ -1,0 +1,10 @@
+  stage  step     params    val(rec)  val(now)  P62 BPB   top-1    T fit  P62-B T=1  P62-B T fit
+  D      137328    10.92 M  0.90371   0.90371   1.02803   0.5929   1.00   1.04827    1.04827
+  E      173949    29.99 M  0.91770   0.91770   1.04412   0.5903   1.00   1.06453    1.06453
+  F      183104    29.99 M  0.80851   0.80851   0.92766   0.6230   1.00   0.94796    0.94796
+
+  E - D on P62: +0.01610 BPB = +3.2 sigma (half B, fitted T: +0.01626); top-1 -0.0026
+  F - D on P62: -0.10037 BPB = -20.1 sigma (reading: F is annealed at lr x0.1, D is not); top-1 +0.0301
+
+VALIDITY: ok
+VERDICT: BANDIERA ROSSA (the bank stage E is worse than dense D by more than 2 sigma on P62): talk before phase 2 (PLAN, phase 1a)
