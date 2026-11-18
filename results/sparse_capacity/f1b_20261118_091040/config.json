@@ -1,0 +1,228 @@
+{
+ "mode": "RUN",
+ "git_head": "256a52d4066c06cbff36cf679c82e653de574744",
+ "pushed": true,
+ "dirty_files": [],
+ "src_sha256": "1548319f6da3ffe7b7a19015d77d02079d71baab54ebf6635c26b254301d5312",
+ "dll_sha256": "6d7c1e651ff4cd84f9670cf6a61c1d7ac0e8823830a30bb98a778e8f3436e890",
+ "build": [
+  "C:\\Users\\Giorgio\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\gcc.EXE",
+  "-O3",
+  "-mavx2",
+  "-mfma",
+  "-march=znver2",
+  "-fopenmp",
+  "-shared",
+  "-o",
+  "D:\\_THINGS\\Progetti\\SiliconLLM_sparse\\benchmarks\\sparse_capacity\\bin\\sc1b_cpu.dll",
+  "D:\\_THINGS\\Progetti\\SiliconLLM_sparse\\benchmarks\\sparse_capacity\\sc1b_cpu.c",
+  "-lm"
+ ],
+ "python": "3.12.10",
+ "torch": "2.11.0+cu128",
+ "cuda": "12.8",
+ "gpu": "NVIDIA GeForce RTX 3060",
+ "gpu_state": "NVIDIA GeForce RTX 3060, 0 %, 1551 MiB, 12288 MiB, 610.88",
+ "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+ "nthr": 6,
+ "pin_stride": 2,
+ "pinned_threads": 6,
+ "omp_max": 12,
+ "cpu_busy_frac": 0.010503282275711179,
+ "D": 256,
+ "A": 1024,
+ "P_bank": 201326592,
+ "h_list": [
+  128,
+  8,
+  1
+ ],
+ "r_list": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128
+ ],
+ "E": {
+  "128": 2048,
+  "8": 32768,
+  "1": 262144
+ },
+ "arms": [
+  "C1",
+  "C2",
+  "C3",
+  "C3s",
+  "C3d",
+  "C4",
+  "C5",
+  "C6",
+  "S1",
+  "S2",
+  "S2s",
+  "S2d",
+  "S3",
+  "S4"
+ ],
+ "pairs": {
+  "f32-adam": [
+   "C4",
+   "S1"
+  ],
+  "f32-rowada": [
+   "C3",
+   "S2"
+  ],
+  "bf16-rowada": [
+   "C5",
+   "S3"
+  ],
+  "tern-rowada": [
+   "C6",
+   "S4"
+  ],
+  "f32-rowada-low": [
+   "C3s",
+   "S2s"
+  ],
+  "f32-rowada-full": [
+   "C3d",
+   "S2d"
+  ]
+ },
+ "gate_pairs": [
+  "f32-adam",
+  "f32-rowada",
+  "bf16-rowada",
+  "tern-rowada"
+ ],
+ "gate_h": [
+  8,
+  1
+ ],
+ "rho": {
+  "low": 0.065,
+  "mid": 0.5,
+  "full": 1.0
+ },
+ "mu_offset": {
+  "low": -0.6589903719217564,
+  "mid": 0.5449521356173603,
+  "full": 3.0,
+  "zero": -6.0
+ },
+ "chunk_bytes": 33554432,
+ "nslot": 4,
+ "look": 2,
+ "warmup": 1,
+ "reps": 4,
+ "rounds": 3,
+ "lr": 0.0001,
+ "eps": 1e-08,
+ "b1": 0.9,
+ "b2": 0.999,
+ "sigma_w": 0.02,
+ "dy_scale": 0.01,
+ "ram_ctl_mb": 2048,
+ "pcie_ctl_mb": 512,
+ "t_pool": 16384,
+ "groups": [
+  [
+   "C4",
+   "S1"
+  ],
+  [
+   "C3",
+   "S2"
+  ],
+  [
+   "C5",
+   "S3"
+  ],
+  [
+   "C6",
+   "S4"
+  ],
+  [
+   "C3s",
+   "S2s"
+  ],
+  [
+   "C3d",
+   "S2d"
+  ],
+  [
+   "C1"
+  ],
+  [
+   "C2"
+  ]
+ ],
+ "h1_skip": [
+  "C3d",
+  "S2d"
+ ],
+ "h1_primary_density": "full",
+ "rho_key_by_h": {
+  "128": {
+   "C1": "mid",
+   "C2": "mid",
+   "C3": "mid",
+   "C3s": "low",
+   "C3d": "full",
+   "C4": "mid",
+   "C5": "mid",
+   "C6": "mid",
+   "S1": "mid",
+   "S2": "mid",
+   "S2s": "low",
+   "S2d": "full",
+   "S3": "mid",
+   "S4": "mid"
+  },
+  "8": {
+   "C1": "mid",
+   "C2": "mid",
+   "C3": "mid",
+   "C3s": "low",
+   "C3d": "full",
+   "C4": "mid",
+   "C5": "mid",
+   "C6": "mid",
+   "S1": "mid",
+   "S2": "mid",
+   "S2s": "low",
+   "S2d": "full",
+   "S3": "mid",
+   "S4": "mid"
+  },
+  "1": {
+   "C1": "full",
+   "C2": "full",
+   "C3": "full",
+   "C3s": "low",
+   "C3d": "full",
+   "C4": "full",
+   "C5": "full",
+   "C6": "full",
+   "S1": "full",
+   "S2": "full",
+   "S2s": "low",
+   "S2d": "full",
+   "S3": "full",
+   "S4": "full"
+  }
+ },
+ "torch_threads": 1,
+ "omp_wait_policy": "PASSIVE",
+ "x0_tern": {
+  "low": 8.741253296567196,
+  "mid": 7.228580044417061,
+  "full": 39.79384374498146,
+  "zero": 79.58768748996292
+ }
+}
