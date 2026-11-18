@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # Sparse Capacity, phase 2 (D-0, D-R): the verdict, computed from the run directories without choosing anything.
 #   python benchmarks/sparse_capacity/sc2_verdict.py [results/sparse_capacity] [--dry]
-# Rules: docs/research/SPARSE_CAPACITY/F2_BANK_PROTOCOL.md, section 6 (registered before the runs).
+#   python benchmarks/sparse_capacity/sc2_verdict.py [results/sparse_capacity] --futility
+# Rules: docs/research/SPARSE_CAPACITY/F2_BANK_PROTOCOL.md, section 6 (registered before the runs); the futility rule
+# after m1 s0 and m64 s0, section 10. On CONTINUE it prints no number: no intermediate reading.
 import glob, json, math, os, statistics, sys
 
 GATE_ARMS = ("m1", "m4", "m16", "m64")   # m1 = the bank's quantization and gating with no extra capacity
@@ -18,6 +20,8 @@ def load(root, dry):
     out, skipped = {}, []
     for d in sorted(glob.glob(os.path.join(root, "f2_*"))):
         name = os.path.basename(d)
+        if not os.path.isdir(d):
+            continue
         if name.startswith("f2_dry_") != dry:
             continue
         p, c = os.path.join(d, "result.json"), os.path.join(d, "config.json")
@@ -69,10 +73,37 @@ def nanmax(*v):
     return max(v) if v else float("nan")
 
 
+FUTILITY_MARGIN = 0.005                  # stop if BPB(m64 s0) > BPB(m1 s0) - this
+
+
+def futility(root):
+    R, skipped = load(root, False)
+    a, b = R.get(("m1", 0)), R.get(("m64", 0))
+    bad = [f"missing run {k}" for k, r in (("m1 s0", a), ("m64 s0", b)) if r is None]
+    if not bad:
+        if a["git_head"] != b["git_head"]: bad.append("runs from different commits")
+        if not all(math.isfinite(r["val"]["bpb"]) for r in (a, b)): bad.append("non-finite BPB")
+        ex = b.get("experts")
+        if ex and ex["eff_min"] < EFF_MIN: bad.append(f"m64 s0: effective experts below {EFF_MIN:.0%} of E")
+    if bad:
+        print("FUTILITY: VOID (" + "; ".join(bad + skipped) + ")"); return 2
+    if b["val"]["bpb"] > a["val"]["bpb"] - FUTILITY_MARGIN:
+        for n, r in (("m1 s0", a), ("m64 s0", b)):
+            print(f"  {n}: BPB {r['val']['bpb']:.5f}  top-1 {r['val']['top1']:.4f}  "
+                  f"active {r['params']['active'] / 1e6:.1f} M")
+        print(f"FUTILITY: STOP (BPB m64 s0 - m1 s0 = {b['val']['bpb'] - a['val']['bpb']:+.5f} > -{FUTILITY_MARGIN}): "
+              "write the result, launch nothing else")
+        return 1
+    print("FUTILITY: CONTINUE (to the end, no other reading)")
+    return 0
+
+
 def main():
     args = [x for x in sys.argv[1:] if not x.startswith("--")]
     dry = "--dry" in sys.argv
     root = args[0] if args else os.path.join(os.path.dirname(__file__), "..", "..", "results", "sparse_capacity")
+    if "--futility" in sys.argv:
+        sys.exit(futility(root))
     R, skipped = load(root, dry)
     print(f"runs found: {sorted(R)}{'  (DRY: not a measurement, no reading)' if dry else ''}")
     for s_ in skipped: print("  skipped", s_)
