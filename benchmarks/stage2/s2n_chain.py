@@ -5,8 +5,9 @@ dry  (GPU, before the push): the teacher pass; mini's expert load for cell F; pa
 gpu  (after the push): the lr pick, then e2e_row, e2e_grp, glob, one at a time; after each, its export and the export check.
 cpu  (after the push): each arm's seven panels once its export check is in.
 second: e2e_row2, e2e_row's second data order: training, export, check, panels; run only if s2n_verdict.py says SECOND ORDER NEEDED.
+amend1: amendment 1, e2e_rowx (scales exp(tau + theta), lr 3e-3 with a cosine decay): training, export, check, panels.
 
-Usage: python -I benchmarks/stage2/s2n_chain.py dry | gpu | cpu | second
+Usage: python -I benchmarks/stage2/s2n_chain.py dry | gpu | cpu | second | amend1
 """
 from __future__ import annotations
 
@@ -74,10 +75,11 @@ def lr() -> float:
 
 
 def trained(arm: str) -> None:
-    """Training, export and export check of one arm (GPU)."""
+    """Training, export and export check of one arm (GPU).  e2e_rowx (amendment 1) runs at its registered lr, not the pick's."""
     js = R / f"s2n_train_{arm}.json"
     if not js.exists():
-        step("benchmarks/stage2/s2n_train.py", "--arm", arm, "--lr", f"{lr():g}", "--out", str(S / "train" / arm), "--json", str(js))
+        lr_arg = [] if arm == "e2e_rowx" else ["--lr", f"{lr():g}"]
+        step("benchmarks/stage2/s2n_train.py", "--arm", arm, *lr_arg, "--out", str(S / "train" / arm), "--json", str(js))
     ex, q4 = R / f"s2n_export_{arm}.json", S / "q4" / f"{arm}.gguf"
     if not ex.exists():
         step("benchmarks/stage2/s2n_export.py", "--arm", arm, "--scales", str(S / "train" / arm / "scales.pt"), "--out", str(q4), "--json", str(ex))
@@ -118,5 +120,12 @@ def second() -> None:
     print("S2N SECOND DONE", flush=True)
 
 
+def amend1() -> None:
+    """Amendment 1: e2e_rowx's training, export, check (GPU), then its seven panels and scores (CPU), in one chain."""
+    trained("e2e_rowx")
+    panels("e2e_rowx")
+    print("S2N AMEND1 DONE", flush=True)
+
+
 if __name__ == "__main__":
-    {"dry": dry, "gpu": gpu, "cpu": cpu, "second": second}[sys.argv[1]]()
+    {"dry": dry, "gpu": gpu, "cpu": cpu, "second": second, "amend1": amend1}[sys.argv[1]]()

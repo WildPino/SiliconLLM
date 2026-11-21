@@ -191,3 +191,23 @@ The numbers, the shared expert, one dense layer, the fused QKV, q/k norms per he
 ## Cost
 
 GPU, read so far: teacher 1.4 h; route shares 0.1 h; parity and plants 1.3 h; damage, first reading 0.9 h. Damage, second reading 0.4 h; third 0.8 h; fourth (damage, damage_ref) 1.1 h; F 1.0 h at an idle machine. Ahead: lr pick 1.4 h; e2e_row, e2e_grp, glob about 3.6 h each (366 steps of about 31 s, two held-out passes) with their export checks: about 18 h in all, one job at a time. CPU: panels about 5 h per arm, 15 h.
+
+## Amendment 1 (2026-11-21): e2e_row again, without the VOID's causes
+
+Decided on S2N's result (`S2N_STACK_TRAINED_TOGETHER_RESULT_20261121.md`): e2e_row and e2e_grp were VOID, with 5 expert scales ≤ 0 each. Their held-out acts peaked at 150 k positions, where the lr was picked, and fell by the end. glob, five scalars, read +3.12 [+0.51, +5.84] over ks_stk4.
+
+- **Arm e2e_rowx.** It is e2e_row with two changes; data, order, teacher, forms, export and panels are unchanged.
+  - **Positive scales by construction:** effective scale exp(τ + θ), with θ per row and τ per tensor, both starting at 0. A sign flip cannot happen. The control "Scales positive" stays as it is.
+  - **lr 3e-3 with a cosine decay to 0** over the run's 454 steps, instead of 1e-2 constant. The pick is not rerun.
+- **Adafactor:** torch's step is multiplied by max(eps2, RMS(parameter)). θ starts at 0, so eps2 is set to 1. A step then moves a scale's log by about lr, as a step moved a multiplier near 1 before (checked on CPU: 0.0017-0.003 per step against 0.003).
+- **Line (`s2n_verdict.py`, amendment_1):** e2e_rowx − glob, paired as all the others:
+  - **ROWS PAY** if lower > 0 and margin > 1.90: M2 per row enters flash's recipe at 80.6 h;
+  - else **ROWS DO NOT PAY**: M2 per row leaves the recipe, and flash takes the five scalars;
+  - **VOID** if either arm fails a control.
+- **Reported beside, for every trained arm (verdict, `gains`):**
+  - the gain on the training's own metrics: held-out acts top-1 at the end and at 150 k, KL at both forms, documents dBPB and top-1 agreement;
+  - the gain on the panels: points over ks_stk4 with CI, chat, degenerate answers.
+- **Prediction:** ROWS DO NOT PAY 65%, ROWS PAY 25%, VOID 10%. e2e_rowx over ks_stk4: +1 to +5.
+- **Thesis line:** none, as before; the stack stays out of budget whatever the label. The label decides 80.6 h of flash's recipe.
+- **Cost:** about 5 h of GPU (454 steps, two held-out passes, export and check) and about 5 h of CPU for the seven panels, under the reviewer's 10 h.
+- **Code:** `s2n_core.Mat(log=True)`, `s2n_train` (ROWX_LR, LOG_ARMS, COSINE_ARMS), `s2n_chain.py amend1`. Selftests: core 15 (log scales positive, with their gradient), verdict 36.

@@ -4,6 +4,7 @@
               per 256; the blocks outside that form or with another d (bal's zero blocks and a few more) kept as exact exceptions, counted per tensor;
               router F32; embeddings Q4_K and head Q6_K dequantized to bf16; norms F32 to bf16 (exact: they came from bf16).
     arms      e2e_row  organs and routed experts, one multiplier per row;   e2e_row2: the same, second data order (seed + 1);
+              e2e_rowx amendment 1: e2e_row with scales exp(tau + theta) and lr ROWX_LR decaying by a cosine to 0 (see ROWX_LR);
               e2e_grp  organs per row, routed experts per 256 (bal's own scales);
               glob     five scalars: attention, shared expert, dense FFN, routed gate/up, routed down;
               damage   a start whose shared-expert down rows of layers 5-14 are x DAMAGE, and only those rows' multipliers train;
@@ -34,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import sys
 import time
@@ -71,8 +73,12 @@ ORGANS = ("attn_qkv", "attn_output", "ffn_gate", "ffn_up", "ffn_down", "ffn_gate
 EXPERTS = ("ffn_gate_exps", "ffn_up_exps", "ffn_down_exps")
 GLOB = {"attn_qkv": "attn", "attn_output": "attn", "ffn_gate": "dense", "ffn_up": "dense", "ffn_down": "dense", "ffn_gate_shexp": "shared",
         "ffn_up_shexp": "shared", "ffn_down_shexp": "shared", "ffn_gate_exps": "routed_gu", "ffn_up_exps": "routed_gu", "ffn_down_exps": "routed_down"}
-ARMS = {"e2e_row": ("row", "row"), "e2e_row2": ("row", "row"), "e2e_grp": ("row", "grp"), "glob": ("glob", "glob"), "damage": ("row", "row"), "damage_ref": ("row", "row"),
+ARMS = {"e2e_row": ("row", "row"), "e2e_row2": ("row", "row"), "e2e_rowx": ("row", "row"), "e2e_grp": ("row", "grp"), "glob": ("glob", "glob"), "damage": ("row", "row"), "damage_ref": ("row", "row"),
         "none": ("none", "none")}
+# Amendment 1 (2026-11-21): e2e_rowx is e2e_row with the VOID's two causes removed.  Scales exp(tau + theta), positive by construction; lr
+# ROWX_LR with a cosine decay to 0 over the run (the lr was picked at 150 k positions and the run is 1.5 M).  Torch's Adafactor multiplies the step
+# by max(eps2, RMS(param)): theta starts at 0, so eps2 is set to 1 and a step moves theta (a scale's log) by about lr, as a step moved m near 1.
+ROWX_LR, LOG_ARMS, COSINE_ARMS = 3e-3, ("e2e_rowx",), ("e2e_rowx",)
 EXC: dict[str, int] = {}      # exceptions per expert tensor, reported
 # Parity floors.  Top-1 first written 0.97 before any measurement; k = 8 read 0.9676 on the dry run and the floor was set to 0.95 (protocol, controls).
 PARITY_TOP1, PARITY_KL = 0.95, 0.05
@@ -138,7 +144,7 @@ def load(dev, arm: str, pin: bool = True, path: Path = KS, plant: str | None = N
             if n == "ffn_down_shexp" and 5 <= i <= 14 and (arm == "damage" or plant == "shexp097"):
                 w = (w.float() * (DAMAGE if arm == "damage" else 0.97)).to(torch.bfloat16)
             h[n] = pm(w)
-            L.mats[n] = C.Mat(kind_org, tuple(w.shape), dev, glob=glob.get(GLOB[n]))
+            L.mats[n] = C.Mat(kind_org, tuple(w.shape), dev, glob=glob.get(GLOB[n]), log=arm in LOG_ARMS)
         if i >= 1:
             h["ffn_gate_inp"] = pm(f32(f"blk.{i}.ffn_gate_inp.weight").view(SH.experts, SH.d))
             h["exp_probs_b"] = pm(f32(f"blk.{i}.exp_probs_b.bias"))
@@ -150,7 +156,7 @@ def load(dev, arm: str, pin: bool = True, path: Path = KS, plant: str | None = N
                     exi, exv = exi[:0], exv[:0]
                 h[n] = (pm(p), pm(d), pm(exi), pm(exv))
                 EXC[f"{i}.{n}"] = int(exi.shape[0])
-                L.mats[n] = C.Mat(kind_exp, (SH.experts, int(t.shape[1]), int(t.shape[0])), dev, glob=glob.get(GLOB[n]))
+                L.mats[n] = C.Mat(kind_exp, (SH.experts, int(t.shape[1]), int(t.shape[0])), dev, glob=glob.get(GLOB[n]), log=arm in LOG_ARMS)
         layers.append(L)
 
     def deq(n):
@@ -246,7 +252,7 @@ def train(arm: str, lr: float | None, positions: int, out_dir: Path, dev, log=pr
         ev = {"pick": evaluate(model, ho_pick, dev), "acts": evaluate(model, ho_acts, dev)}
         log("held-out", json.dumps(ev))
         return {"arm": arm, "before": ev, "after": ev, "train_docs": len(tr), "heldout_docs": [len(ho_pick), len(ho_acts)], "trainable": 0}
-    opt = torch.optim.Adafactor(params, lr=lr)
+    opt = torch.optim.Adafactor(params, lr=lr, eps=(None, 1.0)) if arm in LOG_ARMS else torch.optim.Adafactor(params, lr=lr)
     order = list(range(len(tr)))
     random.Random(SEED + (1 if arm == "e2e_row2" else 0)).shuffle(order)      # e2e_row2: e2e_row's second data order
     ordered = [tr[i] for i in order]
@@ -263,6 +269,10 @@ def train(arm: str, lr: float | None, positions: int, out_dir: Path, dev, log=pr
         st["before"] = {"pick": evaluate(model, ho_pick, dev), "acts": evaluate(model, ho_acts, dev)}
         log("held-out before", json.dumps(st["before"]))
     t0 = time.time() - st["seconds"]
+    total_steps = -(-len(seqs) // SEQS_PER_STEP)
+
+    def lr_at(step: int) -> float:
+        return lr * 0.5 * (1 + math.cos(math.pi * step / total_steps)) if arm in COSINE_ARMS else lr
     while st["cursor"] < len(seqs) and st["seen"] < positions:
         group = seqs[st["cursor"]:st["cursor"] + SEQS_PER_STEP]
         built = [sequence(ordered, g[0], dev) for g in group]
@@ -272,6 +282,8 @@ def train(arm: str, lr: float | None, positions: int, out_dir: Path, dev, log=pr
             form = FORMS[TRAIN_FORMS[(st["cursor"] + j) % 2]]
             r = C.step(layers, embed, head, out_norm, tok, ids, lp, SH, form, dev, train=True, weight=nv / total, seg=seg)
             acc_kl, acc_agree = acc_kl + r["kl"], acc_agree + r["agree"]
+        for g in opt.param_groups:
+            g["lr"] = lr_at(st["step"])
         opt.step()
         opt.zero_grad(set_to_none=True)
         st["cursor"] += len(group)
@@ -301,11 +313,13 @@ def train(arm: str, lr: float | None, positions: int, out_dir: Path, dev, log=pr
         v = torch.cat([scales[k].reshape(-1).float() for k in keys])
         return {"n": v.numel(), "mean": float(v.mean()), "abs_dev_mean": float((v - 1).abs().mean()), "min": float(v.min()), "max": float(v.max()),
                 "nonpositive": int((v <= 0).sum()), "below_0_5": int((v < 0.5).sum()), "above_1_5": int((v > 1.5).sum())}
-    tensors = [float(m.t) for L in layers for m in L.mats.values() if m.kind in ("row", "grp") and m.t.requires_grad]
+    tensors = [float(torch.exp(m.t.detach()) if m.log else m.t.detach()) for L in layers for m in L.mats.values()
+               if m.kind in ("row", "grp") and m.t.requires_grad]
     dmg = [scales[f"{i}.ffn_down_shexp"] for i in range(5, 15) if f"{i}.ffn_down_shexp" in scales]
     rest = [scales[f"{i}.ffn_down_shexp"] for i in range(1, SH.layers) if not 5 <= i <= 14 and f"{i}.ffn_down_shexp" in scales]
     return {"arm": arm, "lr": lr, "positions": st["seen"], "steps": st["step"], "sequences": st["cursor"], "seconds": st["seconds"],
-            "reach": (lr or 0) * st["step"], "before": st["before"], "mid": st.get("mid"), "after": after, "curve": st["curve"], "train_docs": len(tr),
+            "reach": sum(lr_at(k) for k in range(st["step"])) if lr else 0, "schedule": "cosine to 0" if arm in COSINE_ARMS else "constant",
+            "parametrization": "exp(tau + theta)" if arm in LOG_ARMS else "t x m", "before": st["before"], "mid": st.get("mid"), "after": after, "curve": st["curve"], "train_docs": len(tr),
             "heldout_docs": [len(ho_pick), len(ho_acts)], "trainable": sum(q.numel() for q in params),
             "multipliers": summary(sorted(trained)),          # effective scales (t x m), trained tensors only
             "multipliers_by_class": {"organs": summary(sorted(k for k in trained if k.split(".", 1)[1] in ORGANS)),
@@ -414,7 +428,9 @@ def main() -> int:
         res["pick_acts"] = best["after"]["mean_top1"] - best["before"]["mean_top1"] >= ACTS_MARGIN
     else:
         a.out.mkdir(parents=True, exist_ok=True)
-        lr = DAMAGE_LR if a.arm in ("damage", "damage_ref") else a.lr
+        lr = DAMAGE_LR if a.arm in ("damage", "damage_ref") else ROWX_LR if a.arm in LOG_ARMS else a.lr
+        if a.arm in LOG_ARMS and a.lr is not None and a.lr != ROWX_LR:
+            raise SystemExit(f"{a.arm} runs at ROWX_LR = {ROWX_LR:g}, registered")
         pos = DAMAGE_POS if a.arm in ("damage", "damage_ref") else a.positions
         res = train(a.arm, lr, pos, a.out, dev, log=lambda *x: print(*x, flush=True))
     a.json.write_text(json.dumps({"config": cfg, **res}, indent=1) + "\n", encoding="utf-8")

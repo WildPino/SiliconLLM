@@ -10,6 +10,10 @@ Documents:    dBPB per document, e2e_row - ks_stk4, paired over documents: BETTE
 Granularity:  e2e_grp - e2e_row: GROUPS PAY (lower > 0 and margin > GAP), else NOT SHOWN.
 Trivial:      read only if E2E PAYS.  e2e_row - glob: ROWS PAY (lower > 0, margin > GAP); A GLOBAL GAIN DOES IT if glob - ks_stk4 >= 2/3 of e2e_row - ks_stk4;
               else NOT SHOWN.
+Amendment 1:  e2e_rowx (e2e_row with scales exp(tau + theta), lr 3e-3 decaying by a cosine) - glob, glob's +3.12 over ks_stk4 the bar: ROWS PAY
+              (lower > 0 and margin > GAP): M2 per row enters flash's recipe; else ROWS DO NOT PAY: it leaves, flash takes the five scalars.
+              VOID if either arm is invalid.  Beside it, per trained arm: the gain on the training's metrics (held-out acts top-1 and KL, documents)
+              next to the gain on the panels.
 Validity:     parity at k = 8 and k = 4 mass 16, recomputed here from the numbers and s2n_train's floors, else VOID; the planted k = 4 mass 0 must fail
               it, else PARITY NOT DISCRIMINATING (said); the subtle plants are reported with their size; damage and recovery (equivariance against damage_ref), else VOID; per arm: held-out
               'acts' top-1 up by ACTS_MARGIN, every effective scale positive, the export read back and kept by the export check, the panels complete on the exported file, else VOID.
@@ -33,7 +37,7 @@ sys.path.insert(0, str(HERE))
 from s1_verdict import CHAT_MARGIN, DEGEN_MARGIN, DRAWS, PANELS, REC, SEED, degenerate_count, docs_metrics, label, points, vec  # noqa: E402
 from s2z_verdict import GAP  # noqa: E402
 
-TRAINED = ("e2e_row", "e2e_grp", "glob", "e2e_row2")
+TRAINED = ("e2e_row", "e2e_grp", "glob", "e2e_row2", "e2e_rowx")
 GEN = ("nq", "tqa", "gsm8k", "chat")
 K8P = ("arc", "mmlu")
 DAMAGE = 0.8
@@ -80,6 +84,10 @@ def trivial(rows_m: float, rows_ci: list[float], glob_gain: float, row_gain: flo
     if rows_ci[0] > 0 and rows_m > GAP:
         return "ROWS PAY"
     return "A GLOBAL GAIN DOES IT" if row_gain > 0 and glob_gain >= 2 / 3 * row_gain else "NOT SHOWN"
+
+
+def rows_bar(m: float, ci: list[float]) -> str:
+    return "ROWS PAY" if ci[0] > 0 and m > GAP else "ROWS DO NOT PAY"
 
 
 def parity(rec: dict) -> bool:
@@ -132,7 +140,9 @@ def selftest() -> int:
              (damage({**acts(0.70, 0.83), "shexp_down_5_14_rows": [1.0, -0.2]}, {**acts(0.80, 0.84), "shexp_down_5_14_rows": [0.8, 1.0]},
                      acts(0.80, 0.80)), False),
              (damage({**acts(0.80, 0.84), "shexp_down_5_14_rows": [1.0, 1.25]}, {**acts(0.80, 0.84), "shexp_down_5_14_rows": [0.8, 1.0]},
-                     acts(0.80, 0.80)), False)]
+                     acts(0.80, 0.80)), False),
+             (rows_bar(2.5, [0.4, 4.6]), "ROWS PAY"), (rows_bar(1.5, [0.2, 2.8]), "ROWS DO NOT PAY"), (rows_bar(2.5, [-0.3, 5.3]), "ROWS DO NOT PAY"),
+             (rows_bar(-4.0, [-7.0, -1.0]), "ROWS DO NOT PAY")]
     bad = [i for i, (a, b) in enumerate(cases) if a != b]
     print("selftest", "PASS" if not bad else f"FAIL {bad}", len(cases))
     return 0 if not bad else 1
@@ -229,6 +239,23 @@ def main() -> int:
             rm, rci = delta["e2e_row"] - delta["glob"], ci(boot["e2e_row"] - boot["glob"])
             out["trivial"] = {"rows_over_glob": rm, "ci95": rci, "glob_gain": m["glob"], "row_gain": m["e2e_row"],
                               "label": trivial(rm, rci, m["glob"], m["e2e_row"]) if valid["glob"] else "VOID"}
+    def gains(x):
+        tr, d = rd(f"s2n_train_{x}.json"), out["docs"]
+        b, e = tr["before"]["acts"], tr["after"]["acts"]
+        return {"training": {"acts_top1": e["mean_top1"] - b["mean_top1"],
+                             "acts_top1_at_150k": (tr["mid"]["acts"]["mean_top1"] - b["mean_top1"]) if tr.get("mid") else None,
+                             "acts_kl_k8": e["k8"]["kl"] - b["k8"]["kl"], "acts_kl_k4p": e["k4p"]["kl"] - b["k4p"]["kl"],
+                             "documents_dbpb": d[x]["dbpb"] - d["ks_stk4"]["dbpb"],
+                             "documents_top1_agreement": d[x]["top1_agreement"] - d["ks_stk4"]["top1_agreement"]},
+                "panels": {"points": m[x], "ci95": mci[x], "chat": passes[x] - passes["ks_stk4"], "degenerate": deg[x] - deg["ks_stk4"]}}
+    out["gains"] = {x: gains(x) for x in have}
+    if "e2e_rowx" in have and "glob" in have:
+        rm, rci = delta["e2e_rowx"] - delta["glob"], ci(boot["e2e_rowx"] - boot["glob"])
+        out["amendment_1"] = {"rowx_over_glob": rm, "ci95": rci, "rowx_over_ks_stk4": m["e2e_rowx"], "glob_over_ks_stk4": m["glob"],
+                              "label": rows_bar(rm, rci) if valid["e2e_rowx"] and valid["glob"] else "VOID",
+                              "stage1_label": label(ci(boot["e2e_rowx"])),
+                              "excess": delta["e2e_rowx"] - delta["bal4"] - delta["ks_org"],
+                              "excess_ci95": ci(boot["e2e_rowx"] - boot["bal4"] - boot["ks_org"])}
     a.json.write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in out.items() if k not in ("panels", "ci95", "parity", "docs")}, indent=1))
     return 0

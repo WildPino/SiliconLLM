@@ -170,24 +170,26 @@ class Packed(torch.autograd.Function):
 class Mat:
     """One frozen matrix's trainable scales: kind 'row' | 'grp' | 'glob' | 'none'.  For stacked experts, p carries the expert axis first."""
 
-    def __init__(self, kind: str, shape: tuple = (), dev=None, glob: torch.Tensor | None = None):
-        self.kind, self.flat, self._glob = kind, None, None
+    def __init__(self, kind: str, shape: tuple = (), dev=None, glob: torch.Tensor | None = None, log: bool = False):
+        self.kind, self.flat, self._glob, self.log = kind, None, None, log
         if kind in ("row", "grp"):
             # held 1-D: Adafactor keeps one second moment per multiplier.  A 2-D or 3-D parameter gets a factored (row x column) estimate,
             # and a rarely routed expert's row then takes steps scaled by its small row average (S2N's dry run: up to 3.09 and sign flips).
             self.shape = tuple(shape[:-1]) if kind == "row" else (*shape[:-1], shape[-1] // 256)
-            self.flat = torch.ones(math.prod(self.shape), device=dev, requires_grad=True)
+            # log (S2N amendment 1, e2e_rowx): theta and tau start at 0 and the effective scale is exp(tau + theta), positive by construction.
+            init = torch.zeros if log else torch.ones
+            self.flat = init(math.prod(self.shape), device=dev, requires_grad=True)
             # one scalar per tensor over the multipliers: the effective scale is t x m.  A per-element normalized step moves a row by about lr
             # times its own gradient's signal-to-noise ratio, so a tensor-wide direction is slow through rows; t moves it at about lr per step.
-            self.t = torch.ones(1, device=dev, requires_grad=True)
+            self.t = init(1, device=dev, requires_grad=True)
         elif kind == "glob":
             self._glob = glob
 
     @property
     def p(self) -> torch.Tensor | None:
-        """The effective scales (t x m for row and grp), as the export writes them."""
+        """The effective scales (t x m for row and grp, exp(t + m) when log), as the export writes them."""
         if self.flat is not None:
-            return (self.t * self.flat).view(self.shape)
+            return (torch.exp(self.t + self.flat) if self.log else self.t * self.flat).view(self.shape)
         return self._glob
 
     def params(self) -> list[torch.Tensor]:

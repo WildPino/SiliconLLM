@@ -194,6 +194,15 @@ def selftest() -> int:
     t_all, _, _, _ = C.logits_kl(hid[v], head, nrm, tid[v], tlp[v], 1e-6, False)
     t_m, _, _, nv = C.logits_kl(hid, head, nrm, tid, tlp, 1e-6, False, v)
     ok["validity mask"] = abs(float(t_all) - float(t_m)) <= 1e-4 * abs(float(t_all)) and nv == 4
+    # amendment 1: log scales start at exactly 1, stay positive for any theta, and the chain rule reaches theta
+    m = C.Mat("row", (3, 8, 512), dev, log=True)
+    start_one = torch.equal(m.p, torch.ones(3, 8))
+    with torch.no_grad():
+        m.flat.copy_(torch.randn(24) * 30)
+        m.t.fill_(-5.0)
+    m.p.sum().backward()
+    ok["log scales positive, gradient exp(t + theta)"] = bool(start_one and (m.p > 0).all()
+                                                              and torch.allclose(m.flat.grad, torch.exp(m.t + m.flat).detach()))
     for k, v in ok.items():
         print("selftest", "ok  " if v else "FAIL", k)
     print("selftest", "PASS" if all(ok.values()) else "FAIL", len(ok))
