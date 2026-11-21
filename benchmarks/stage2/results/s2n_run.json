@@ -1,0 +1,948 @@
+{
+ "cell": "S2N-stack-trained-together",
+ "arms": {
+  "e2e_row": {
+   "panels": {
+    "nq": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\nq.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\nq",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "32",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 942.0,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 items=600 prompt_tokens=26059 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=34742 tensors=176377 slots=5077112 kept=4417204 mean_kept=6.9602 decode_slots=1319816 decode_mean_kept=4.0000 misordered=467733 tokens_seen=634639"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=34742 tensors=176377 slots=5077112 kept=4417204 mean_kept=6.9602 decode_slots=1319816 decode_mean_kept=4.0000 misordered=467733 tokens_seen=634639",
+      "MASS mass_k=16 rows=634639 mean_factor=0.928372",
+      "DONE items=600 generated=9283 wall_s=934.7"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "tqa": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\tqa.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\tqa",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "32",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 672.3,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 items=600 prompt_tokens=29300 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=34396 tensors=108224 slots=4998592 kept=4611296 mean_kept=7.3802 decode_slots=774592 decode_mean_kept=4.0000 misordered=460632 tokens_seen=624824"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=34396 tensors=108224 slots=4998592 kept=4611296 mean_kept=7.3802 decode_slots=774592 decode_mean_kept=4.0000 misordered=460632 tokens_seen=624824",
+      "MASS mass_k=16 rows=624824 mean_factor=0.956087",
+      "DONE items=600 generated=5696 wall_s=665.9"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "gsm8k": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\gsm8k.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\gsm8k",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "384",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 2045.7,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 items=100 prompt_tokens=9993 max_new=384 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=33984 tensors=457729 slots=5086424 kept=3263108 mean_kept=5.1323 decode_slots=3646632 decode_mean_kept=4.0000 misordered=502489 tokens_seen=635803"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=33984 tensors=457729 slots=5086424 kept=3263108 mean_kept=5.1323 decode_slots=3646632 decode_mean_kept=4.0000 misordered=502489 tokens_seen=635803",
+      "MASS mass_k=16 rows=635803 mean_factor=0.786022",
+      "DONE items=100 generated=24091 wall_s=2039.1"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "arc": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\arc.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\arc",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "4096",
+      "--moe-mode",
+      "none"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 1700.1,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 docs=2397 positions=88749 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=88749 tensors=45543 slots=13489848 kept=13489848 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1207618 tokens_seen=1686231"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=37 wall_s=0.9 projected_s=2065",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=88749 tensors=45543 slots=13489848 kept=13489848 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1207618 tokens_seen=1686231",
+      "DONE positions=88749 wall_s=1692.2"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "mmlu": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\mmlu.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\mmlu",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "4096",
+      "--moe-mode",
+      "none"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 2210.8,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 docs=2280 positions=129316 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=129316 tensors=43396 slots=19656032 kept=19656032 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1771884 tokens_seen=2457004"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=32 wall_s=0.8 projected_s=3173",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=129316 tensors=43396 slots=19656032 kept=19656032 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1771884 tokens_seen=2457004",
+      "DONE positions=129316 wall_s=2204.2"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "docs": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\docs.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\docs",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "8192",
+      "--top",
+      "32",
+      "--moe-mode",
+      "none",
+      "--ref-top",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 2725.7,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 docs=72 positions=165858 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=25210416 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2280294 tokens_seen=3151302"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=2299 wall_s=38.0 projected_s=2740",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=25210416 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2280294 tokens_seen=3151302",
+      "DONE positions=165858 wall_s=2719.1"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "chat": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\chat.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_row\\chat",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "256",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 432.9,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf n_vocab=157184 items=40 prompt_tokens=1219 max_new=256 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=6303 tensors=97356 slots=948624 kept=562240 mean_kept=4.7415 decode_slots=772768 decode_mean_kept=4.0000 misordered=89041 tokens_seen=118578"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=6303 tensors=97356 slots=948624 kept=562240 mean_kept=4.7415 decode_slots=772768 decode_mean_kept=4.0000 misordered=89041 tokens_seen=118578",
+      "MASS mass_k=16 rows=118578 mean_factor=0.770550",
+      "DONE items=40 generated=5124 wall_s=426.3"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    }
+   },
+   "panel_set": [
+    "nq",
+    "tqa",
+    "gsm8k",
+    "arc",
+    "mmlu",
+    "docs",
+    "chat"
+   ],
+   "model": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_row.gguf",
+   "model_sha256": "bc5d992ebd3ea0d3dc12b2925a8d94a7206e09b852aef3d01f427fa4ccac7b9e"
+  },
+  "e2e_grp": {
+   "panels": {
+    "nq": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\nq.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\nq",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "32",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 931.7,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 items=600 prompt_tokens=26059 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=33724 tensors=157035 slots=4922376 kept=4339836 mean_kept=7.0532 decode_slots=1165080 decode_mean_kept=4.0000 misordered=442664 tokens_seen=615297"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=33724 tensors=157035 slots=4922376 kept=4339836 mean_kept=7.0532 decode_slots=1165080 decode_mean_kept=4.0000 misordered=442664 tokens_seen=615297",
+      "MASS mass_k=16 rows=615297 mean_factor=0.935234",
+      "DONE items=600 generated=8265 wall_s=907.9"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "tqa": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\tqa.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\tqa",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "32",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 682.7,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 items=600 prompt_tokens=29300 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=33967 tensors=100073 slots=4933384 kept=4578692 mean_kept=7.4248 decode_slots=709384 decode_mean_kept=4.0000 misordered=444055 tokens_seen=616673"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=33967 tensors=100073 slots=4933384 kept=4578692 mean_kept=7.4248 decode_slots=709384 decode_mean_kept=4.0000 misordered=444055 tokens_seen=616673",
+      "MASS mass_k=16 rows=616673 mean_factor=0.959469",
+      "DONE items=600 generated=5267 wall_s=676.4"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "gsm8k": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\gsm8k.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\gsm8k",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "384",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 2017.1,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 items=100 prompt_tokens=9993 max_new=384 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=32991 tensors=438862 slots=4935488 kept=3187640 mean_kept=5.1669 decode_slots=3495696 decode_mean_kept=4.0000 misordered=486546 tokens_seen=616936"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=32991 tensors=438862 slots=4935488 kept=3187640 mean_kept=5.1669 decode_slots=3495696 decode_mean_kept=4.0000 misordered=486546 tokens_seen=616936",
+      "MASS mass_k=16 rows=616936 mean_factor=0.790890",
+      "DONE items=100 generated=23098 wall_s=2011.0"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "arc": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\arc.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\arc",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "4096",
+      "--moe-mode",
+      "none"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 1707.2,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 docs=2397 positions=88749 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=88749 tensors=45543 slots=13489848 kept=13489848 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1208957 tokens_seen=1686231"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=37 wall_s=0.8 projected_s=1906",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=88749 tensors=45543 slots=13489848 kept=13489848 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1208957 tokens_seen=1686231",
+      "DONE positions=88749 wall_s=1700.2"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "mmlu": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\mmlu.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\mmlu",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "4096",
+      "--moe-mode",
+      "none"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 3752.2,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 docs=2280 positions=129316 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=129316 tensors=43396 slots=19656032 kept=19656032 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1775013 tokens_seen=2457004"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=32 wall_s=1.0 projected_s=4134",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=129316 tensors=43396 slots=19656032 kept=19656032 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1775013 tokens_seen=2457004",
+      "DONE positions=129316 wall_s=3742.8"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "docs": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\docs.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\docs",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "8192",
+      "--top",
+      "32",
+      "--moe-mode",
+      "none",
+      "--ref-top",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 2788.8,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 docs=72 positions=165858 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=25210416 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2280757 tokens_seen=3151302"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=2299 wall_s=37.9 projected_s=2736",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=25210416 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2280757 tokens_seen=3151302",
+      "DONE positions=165858 wall_s=2782.6"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "chat": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\chat.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\e2e_grp\\chat",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "256",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 373.9,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf n_vocab=157184 items=40 prompt_tokens=1219 max_new=256 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=5882 tensors=89357 slots=884632 kept=530244 mean_kept=4.7952 decode_slots=708776 decode_mean_kept=4.0000 misordered=82476 tokens_seen=110579"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=5882 tensors=89357 slots=884632 kept=530244 mean_kept=4.7952 decode_slots=708776 decode_mean_kept=4.0000 misordered=82476 tokens_seen=110579",
+      "MASS mass_k=16 rows=110579 mean_factor=0.775602",
+      "DONE items=40 generated=4703 wall_s=366.2"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    }
+   },
+   "panel_set": [
+    "nq",
+    "tqa",
+    "gsm8k",
+    "arc",
+    "mmlu",
+    "docs",
+    "chat"
+   ],
+   "model": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\e2e_grp.gguf",
+   "model_sha256": "e56e7d222a0a15c33b9875f99a65dbb11c300e028dca49bfc524edc157a2ee94"
+  },
+  "glob": {
+   "panels": {
+    "nq": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\nq.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\nq",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "32",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 612.7,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 items=600 prompt_tokens=26059 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=31866 tensors=121733 slots=4639960 kept=4198628 mean_kept=7.2391 decode_slots=882664 decode_mean_kept=4.0000 misordered=425738 tokens_seen=579995"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=31866 tensors=121733 slots=4639960 kept=4198628 mean_kept=7.2391 decode_slots=882664 decode_mean_kept=4.0000 misordered=425738 tokens_seen=579995",
+      "MASS mass_k=16 rows=579995 mean_factor=0.945314",
+      "DONE items=600 generated=6407 wall_s=607.9"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "tqa": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\tqa.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\tqa",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "32",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 466.8,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 items=600 prompt_tokens=29300 max_new=32 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=32778 tensors=77482 slots=4752656 kept=4488328 mean_kept=7.5551 decode_slots=528656 decode_mean_kept=4.0000 misordered=436028 tokens_seen=594082"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=32778 tensors=77482 slots=4752656 kept=4488328 mean_kept=7.5551 decode_slots=528656 decode_mean_kept=4.0000 misordered=436028 tokens_seen=594082",
+      "MASS mass_k=16 rows=594082 mean_factor=0.967526",
+      "DONE items=600 generated=4078 wall_s=461.8"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "gsm8k": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\gsm8k.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\gsm8k",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "384",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 1588.8,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 items=100 prompt_tokens=9993 max_new=384 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=32652 tensors=432421 slots=4883960 kept=3161876 mean_kept=5.1792 decode_slots=3444168 decode_mean_kept=4.0000 misordered=493741 tokens_seen=610495"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=32652 tensors=432421 slots=4883960 kept=3161876 mean_kept=5.1792 decode_slots=3444168 decode_mean_kept=4.0000 misordered=493741 tokens_seen=610495",
+      "MASS mass_k=16 rows=610495 mean_factor=0.779868",
+      "DONE items=100 generated=22759 wall_s=1583.9"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "arc": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\arc.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\arc",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "4096",
+      "--moe-mode",
+      "none"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 1398.2,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 docs=2397 positions=88749 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=88749 tensors=45543 slots=13489848 kept=13489848 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1237513 tokens_seen=1686231"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=37 wall_s=0.7 projected_s=1730",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=88749 tensors=45543 slots=13489848 kept=13489848 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1237513 tokens_seen=1686231",
+      "DONE positions=88749 wall_s=1393.2"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "mmlu": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\s2\\inputs\\mmlu.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\mmlu",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "4096",
+      "--moe-mode",
+      "none"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 1915.4,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 docs=2280 positions=129316 threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 top=0 ref_top=- hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=129316 tensors=43396 slots=19656032 kept=19656032 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1806831 tokens_seen=2457004"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=32 wall_s=0.6 projected_s=2599",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=129316 tensors=43396 slots=19656032 kept=19656032 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=1806831 tokens_seen=2457004",
+      "DONE positions=129316 wall_s=1910.5"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "docs": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_score_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--ids",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\docs.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\docs",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--ctx",
+      "8192",
+      "--top",
+      "32",
+      "--moe-mode",
+      "none",
+      "--ref-top",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin"
+     ],
+     "exe_sha256": "200d7bcb2a4f788186fadd6f0c2892053e51b17fb8ad58ff5f299a52a91f1f02",
+     "returncode": 0,
+     "wall_s": 2349.6,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 docs=72 positions=165858 threads=6 ubatch=512 ctx=8192 flash_attn=disabled kv=f16 top=32 ref_top=E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ref\\docs.top.bin hook=1 moe_mode=none moe_k=0 moe_p=0.0000 moe_seed=0 moe_mass=0 override_experts=0 max_projected_s=32400 dump_h=- preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=25210416 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2338032 tokens_seen=3151302"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "FIRST_DOC positions=2299 wall_s=32.5 projected_s=2343",
+      "MOE mode=none k=0 p=0.0000 seed=0 decode_only=0 n_expert_used=8 layers=19 input_tokens=165858 tensors=6878 slots=25210416 kept=25210416 mean_kept=8.0000 decode_slots=0 decode_mean_kept=0.0000 misordered=2338032 tokens_seen=3151302",
+      "DONE positions=165858 wall_s=2344.6"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    },
+    "chat": {
+     "cmd": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\bin\\s2x_llama_generate_ua_avx2.exe",
+      "--model",
+      "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+      "--prompts",
+      "E:\\SiliconLLM_Artifacts\\campaigns\\chatbot50_20261016\\a4\\inputs\\chat.tsv",
+      "--out",
+      "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\glob\\chat",
+      "--threads",
+      "6",
+      "--ubatch",
+      "512",
+      "--max-projected-s",
+      "32400",
+      "--max-new",
+      "256",
+      "--moe-mode",
+      "top",
+      "--moe-k",
+      "4",
+      "--moe-mass",
+      "16",
+      "--moe-decode-only",
+      "--stop",
+      "156892,156895"
+     ],
+     "exe_sha256": "2413c9a126a100e512b073aa1b343cb16482a7307b4e29d429b7d3e0ca9888eb",
+     "returncode": 0,
+     "wall_s": 147.2,
+     "config": [
+      "CONFIG model=E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf n_vocab=157184 items=40 prompt_tokens=1219 max_new=256 stop=156892,156895 greedy=lowest_id_ties threads=6 ubatch=512 ctx=4096 flash_attn=disabled kv=f16 hook=1 moe_mode=top moe_k=4 moe_p=0.0000 moe_seed=0 moe_mass=16 decode_only=1 override_experts=0 max_projected_s=32400 preview=- two_pass_k=0 tail_offset=1 exact_from=- exact_mode=top exact_layers=- exact_seed=20261104 system_info=[CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | ]"
+     ],
+     "moe": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=3167 tensors=37772 slots=471952 kept=323904 mean_kept=5.4905 decode_slots=296096 decode_mean_kept=4.0000 misordered=45815 tokens_seen=58994"
+     ],
+     "mix": [],
+     "stdout_tail": [
+      "MOE mode=top k=4 p=0.0000 seed=0 decode_only=1 n_expert_used=8 layers=19 input_tokens=3167 tensors=37772 slots=471952 kept=323904 mean_kept=5.4905 decode_slots=296096 decode_mean_kept=4.0000 misordered=45815 tokens_seen=58994",
+      "MASS mass_k=16 rows=58994 mean_factor=0.811098",
+      "DONE items=40 generated=1988 wall_s=142.0"
+     ],
+     "stderr_tail": "load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect\n..................................................................\n",
+     "status": "COMPLETE"
+    }
+   },
+   "panel_set": [
+    "nq",
+    "tqa",
+    "gsm8k",
+    "arc",
+    "mmlu",
+    "docs",
+    "chat"
+   ],
+   "model": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\q4\\glob.gguf",
+   "model_sha256": "9b4112fbe67912dad4391723099beb67b42ff6d5d70acade695dc06a999c0045"
+  }
+ },
+ "inputs_manifest_sha256": {
+  "a4": "251943eaac680a05253c75f765620e50e87ef60c7780e84548b54e3d12fd2886",
+  "s2": "f99ce5225bc82dee90832bbb4a06b1cc3d22f4c530afc967a91722cb978de399"
+ }
+}

@@ -1,0 +1,462 @@
+{
+ "parity": {
+  "k8": {
+   "config": {
+    "ks": "E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf",
+    "teacher": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\teacher",
+    "shape": {
+     "layers": 20,
+     "d": 2048,
+     "heads": 16,
+     "heads_kv": 4,
+     "head_dim": 128,
+     "rot": 64,
+     "dense_f": 5120,
+     "experts": 256,
+     "expert_f": 512,
+     "shared_f": 512,
+     "vocab": 157184,
+     "groups": 8,
+     "groups_kept": 4,
+     "k_native": 8,
+     "route_scale": 2.5,
+     "eps": 1e-06,
+     "theta": 600000.0,
+     "expert_chunk": 64
+    },
+    "seq": 2048,
+    "seqs_per_step": 2,
+    "prefill": 64,
+    "lrs": [
+     0.001,
+     0.003,
+     0.01
+    ],
+    "seed": 20261109,
+    "torch": "2.11.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "argv": [
+     "--parity",
+     "--form",
+     "k8",
+     "--llama-pos",
+     "E:/SiliconLLM_Artifacts/stage1/s1a/ks_stk4/docs.pos.bin",
+     "--json",
+     "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\results\\s2n_parity_k8.json"
+    ]
+   },
+   "form": "k8",
+   "plant": null,
+   "llama_pos": "E:\\SiliconLLM_Artifacts\\stage1\\s1a\\ks_stk4\\docs.pos.bin",
+   "positions": 165858,
+   "top1_agreement": 0.9675987893258088,
+   "kl_to_ref": 0.7852251977730096,
+   "llama_kl_to_ref": 0.783578010160056,
+   "kl_ratio": 1.002102136088042,
+   "exception_blocks": 8094,
+   "floors": {
+    "top1": 0.95,
+    "kl": 0.05
+   },
+   "parity": true,
+   "parity_here": true
+  },
+  "k4m16": {
+   "config": {
+    "ks": "E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf",
+    "teacher": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\teacher",
+    "shape": {
+     "layers": 20,
+     "d": 2048,
+     "heads": 16,
+     "heads_kv": 4,
+     "head_dim": 128,
+     "rot": 64,
+     "dense_f": 5120,
+     "experts": 256,
+     "expert_f": 512,
+     "shared_f": 512,
+     "vocab": 157184,
+     "groups": 8,
+     "groups_kept": 4,
+     "k_native": 8,
+     "route_scale": 2.5,
+     "eps": 1e-06,
+     "theta": 600000.0,
+     "expert_chunk": 64
+    },
+    "seq": 2048,
+    "seqs_per_step": 2,
+    "prefill": 64,
+    "lrs": [
+     0.001,
+     0.003,
+     0.01
+    ],
+    "seed": 20261109,
+    "torch": "2.11.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "argv": [
+     "--parity",
+     "--form",
+     "k4m16",
+     "--llama-pos",
+     "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\llama\\ks_stk4_k4m16\\docs.pos.bin",
+     "--json",
+     "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\results\\s2n_parity_k4m16.json"
+    ]
+   },
+   "form": "k4m16",
+   "plant": null,
+   "llama_pos": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\llama\\ks_stk4_k4m16\\docs.pos.bin",
+   "positions": 165858,
+   "top1_agreement": 0.9747796307684887,
+   "kl_to_ref": 1.260505272619597,
+   "llama_kl_to_ref": 1.2576217465497335,
+   "kl_ratio": 1.0022928404965759,
+   "exception_blocks": 8094,
+   "floors": {
+    "top1": 0.95,
+    "kl": 0.05
+   },
+   "parity": true,
+   "parity_here": true
+  },
+  "k4m0": {
+   "config": {
+    "ks": "E:\\SiliconLLM_Artifacts\\stage2\\s2y\\q4\\ks_stk4.gguf",
+    "teacher": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\teacher",
+    "shape": {
+     "layers": 20,
+     "d": 2048,
+     "heads": 16,
+     "heads_kv": 4,
+     "head_dim": 128,
+     "rot": 64,
+     "dense_f": 5120,
+     "experts": 256,
+     "expert_f": 512,
+     "shared_f": 512,
+     "vocab": 157184,
+     "groups": 8,
+     "groups_kept": 4,
+     "k_native": 8,
+     "route_scale": 2.5,
+     "eps": 1e-06,
+     "theta": 600000.0,
+     "expert_chunk": 64
+    },
+    "seq": 2048,
+    "seqs_per_step": 2,
+    "prefill": 64,
+    "lrs": [
+     0.001,
+     0.003,
+     0.01
+    ],
+    "seed": 20261109,
+    "torch": "2.11.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "argv": [
+     "--parity",
+     "--form",
+     "k4m0",
+     "--llama-pos",
+     "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\llama\\ks_stk4_k4m16\\docs.pos.bin",
+     "--json",
+     "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\stage2\\results\\s2n_parity_k4m0.json"
+    ]
+   },
+   "form": "k4m0",
+   "plant": null,
+   "llama_pos": "E:\\SiliconLLM_Artifacts\\stage2\\s2n\\llama\\ks_stk4_k4m16\\docs.pos.bin",
+   "positions": 165858,
+   "top1_agreement": 0.6461189692387463,
+   "kl_to_ref": 1.0301270514623708,
+   "llama_kl_to_ref": 1.2576217465497335,
+   "kl_ratio": 0.8191072190732301,
+   "exception_blocks": 8094,
+   "floors": {
+    "top1": 0.95,
+    "kl": 0.05
+   },
+   "parity": false,
+   "parity_here": false
+  }
+ },
+ "parity_ok": true,
+ "planted": "CAUGHT",
+ "subtle_plants": {
+  "noexc": {
+   "top1_agreement": 0.8601816011286764,
+   "kl_ratio": 1.1752294879986562,
+   "caught": true
+  },
+  "shexp097": {
+   "top1_agreement": 0.9623292213821462,
+   "kl_ratio": 1.0296700531630547,
+   "caught": false
+  }
+ },
+ "damage_ok": true,
+ "checks": {
+  "e2e_row": {
+   "acts": true,
+   "scales_positive": false,
+   "export_read_back": true,
+   "export_kept": true,
+   "model_is_export": true,
+   "panels_complete": true
+  },
+  "e2e_grp": {
+   "acts": true,
+   "scales_positive": false,
+   "export_read_back": true,
+   "export_kept": true,
+   "model_is_export": true,
+   "panels_complete": true
+  },
+  "glob": {
+   "acts": true,
+   "scales_positive": true,
+   "export_read_back": true,
+   "export_kept": true,
+   "model_is_export": true,
+   "panels_complete": true
+  }
+ },
+ "valid": {
+  "e2e_row": false,
+  "e2e_grp": false,
+  "glob": true
+ },
+ "delta": {
+  "ks_stk4": -12.176900584795327,
+  "bal4": -4.742690058479546,
+  "ks_org": -3.0248538011695913,
+  "ks_org4": -7.413742690058484,
+  "e2e_row": -13.418128654970758,
+  "e2e_grp": -10.049707602339183,
+  "glob": -9.05409356725147
+ },
+ "ci95": {
+  "ks_stk4": [
+   -16.21652046783625,
+   -8.127119883040933
+  ],
+  "bal4": [
+   -8.317653508771924,
+   -1.1096491228070204
+  ],
+  "ks_org": [
+   -5.733918128654963,
+   -0.30840643274853363
+  ],
+  "ks_org4": [
+   -10.902119883040939,
+   -3.9881944444444457
+  ],
+  "e2e_row": [
+   -17.42547514619882,
+   -9.15935672514621
+  ],
+  "e2e_grp": [
+   -13.852339181286546,
+   -6.251461988304094
+  ],
+  "glob": [
+   -12.997112573099422,
+   -5.099159356725153
+  ]
+ },
+ "chat_passes": {
+  "ref": 28,
+  "ks_stk4": 22,
+  "bal4": 24,
+  "ks_org": 30,
+  "ks_org4": 22,
+  "e2e_row": 16,
+  "e2e_grp": 21,
+  "glob": 26
+ },
+ "degenerate": {
+  "ref": 0,
+  "ks_stk4": 1,
+  "bal4": 0,
+  "ks_org4": 1,
+  "e2e_row": 4,
+  "e2e_grp": 3,
+  "glob": 0
+ },
+ "panels": {
+  "ref": {
+   "nq": 28.999999999999996,
+   "tqa": 48.66666666666667,
+   "gsm8k": 81.0,
+   "arc": 53.166666666666664,
+   "mmlu": 49.29824561403508,
+   "chat": 70.0
+  },
+  "ks_stk4": {
+   "nq": 14.499999999999998,
+   "tqa": 31.5,
+   "gsm8k": 62.0,
+   "arc": 50.33333333333333,
+   "mmlu": 44.73684210526316,
+   "chat": 55.00000000000001
+  },
+  "bal4": {
+   "nq": 19.666666666666664,
+   "tqa": 37.5,
+   "gsm8k": 86.0,
+   "arc": 52.666666666666664,
+   "mmlu": 46.8421052631579,
+   "chat": 60.0
+  },
+  "ks_org": {
+   "nq": 25.333333333333336,
+   "tqa": 42.333333333333336,
+   "gsm8k": 72.0,
+   "arc": 52.0,
+   "mmlu": 46.31578947368421,
+   "chat": 75.0
+  },
+  "ks_org4": {
+   "nq": 22.833333333333332,
+   "tqa": 41.5,
+   "gsm8k": 69.0,
+   "arc": 52.0,
+   "mmlu": 46.31578947368421,
+   "chat": 55.00000000000001
+  },
+  "e2e_row": {
+   "nq": 14.833333333333334,
+   "tqa": 30.0,
+   "gsm8k": 75.0,
+   "arc": 48.333333333333336,
+   "mmlu": 42.45614035087719,
+   "chat": 40.0
+  },
+  "e2e_grp": {
+   "nq": 16.333333333333332,
+   "tqa": 32.5,
+   "gsm8k": 75.0,
+   "arc": 51.16666666666667,
+   "mmlu": 43.333333333333336,
+   "chat": 52.5
+  },
+  "glob": {
+   "nq": 15.333333333333332,
+   "tqa": 32.0,
+   "gsm8k": 67.0,
+   "arc": 51.33333333333333,
+   "mmlu": 46.14035087719298,
+   "chat": 65.0
+  }
+ },
+ "docs": {
+  "ks_stk4": {
+   "top1_agreement": 0.7226663772624775,
+   "dbpb": 0.11660853319131406,
+   "dbpb_ci95": [
+    0.09362537717156619,
+    0.1415980449378769
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.783578010160056,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "e2e_row": {
+   "top1_agreement": 0.7052056578518974,
+   "dbpb": 0.0687115751244431,
+   "dbpb_ci95": [
+    0.03166416390479769,
+    0.10715115143097044
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.8154538923147886,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "e2e_grp": {
+   "top1_agreement": 0.7152684826779534,
+   "dbpb": 0.060011837662293704,
+   "dbpb_ci95": [
+    0.021794460382131977,
+    0.1002453364150143
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.7793375821497608,
+   "ref_rest_mass": 0.01468263542232748
+  },
+  "glob": {
+   "top1_agreement": 0.730341617528247,
+   "dbpb": 0.10438714693571988,
+   "dbpb_ci95": [
+    0.08588957862249078,
+    0.12398746248205003
+   ],
+   "documents": 72,
+   "kl_top32_nats": 0.719636547170311,
+   "ref_rest_mass": 0.01468263542232748
+  }
+ },
+ "over_ks_stk4": {
+  "e2e_row": -1.2412280701754312,
+  "e2e_grp": 2.127192982456144,
+  "glob": 3.122807017543856
+ },
+ "over_ks_stk4_ci95": {
+  "e2e_row": [
+   -4.4094663742690035,
+   1.9561769005847867
+  ],
+  "e2e_grp": [
+   -0.969407894736841,
+   5.166739766081868
+  ],
+  "glob": [
+   0.5145833333333407,
+   5.840789473684218
+  ]
+ },
+ "e2e_row": {
+  "label": "VOID",
+  "chat_ok": false,
+  "training": "VOID",
+  "first_order": "NOT SHOWN",
+  "second_order": null,
+  "wins_back": -5.65058479532162,
+  "wins_back_ci95": [
+   -10.01758040935674,
+   -1.3040204678362597
+  ],
+  "wins_back_label": "VOID",
+  "ks_stk4_wins_back": -4.409356725146189,
+  "generation_k4": -0.7916666666666643,
+  "generation_k4_ci95": [
+   -5.458333333333336,
+   3.8333333333333357
+  ],
+  "generation_label": "VOID",
+  "k8_margin": -2.1403508771929864,
+  "k8_ci95": [
+   -4.346600877192985,
+   0.026425438596490384
+  ],
+  "k8": "VOID",
+  "documents_dbpb": -0.047896958066870936,
+  "documents_ci95": [
+   -0.07048340449288394,
+   -0.024671384597469898
+  ],
+  "documents": "VOID"
+ },
+ "granularity": {
+  "margin": 3.368421052631575,
+  "ci95": [
+   0.2850511695906443,
+   6.516118421052639
+  ],
+  "label": "VOID"
+ }
+}
