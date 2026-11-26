@@ -52,6 +52,20 @@ ragionamento.
   - Il gate della fase 4 chiede "il BPB scende ancora con log E, senza saturazione precoce". Questo e il primo segnale
     contro, a 60 M token.
   - Con piu token per esperto la curva puo riaprirsi: m64 vede 0,94 M token per esperto, m16 3,7 M. Non e misurato.
+- **Lettura delle curve (non un gate, aggiunta dopo il verdetto).** Si usa il BPB sul val delle curve (262k token, ogni
+  1.000 passi), con la media dei due seed:
+
+  | Passo | 1.000 | 2.000 | 3.000 | 4.000 | 5.000 | 6.000 | 7.000 | 7.324 |
+  |---|---|---|---|---|---|---|---|---|
+  | m4 − m16 | −0,0195 | −0,0001 | +0,0050 | +0,0096 | +0,0131 | +0,0129 | +0,0146 | +0,0152 |
+  | m16 − m64 | −0,0698 | −0,0085 | +0,0005 | +0,0016 | +0,0021 | +0,0044 | +0,0052 | +0,0055 |
+
+  - I distacchi crescono per tutto il run, in tutti e due i seed (m16 − m64 alla fine: 0,0051 e 0,0059), e non si
+    sono fermati al passo 7.324.
+  - Quindi l'appiattimento puo essere scarsita di token: le banche piu grandi partono piu lente e a 60 M token non
+    hanno ancora finito di staccarsi.
+  - Non lo prova. Il lr scende a coseno verso la fine, e una parte della crescita puo venire dalla ricetta.
+  - Per saperlo servono molti piu token per esperto: lo dice l'abbozzo della fase 4 nel piano.
 - **Banca piu router, non la sola banca** (§8). Da m1 a m64 i parametri attivi passano da 11,2 a 27,8 M, e 16,8 M sono
   il router. Manca un braccio a router congelato, quindi la parte del router nel guadagno non si separa.
 - **La bandiera rossa della 1a** era un indizio contro la banca dopo l'upcycle. Allenata da zero, contro una base con
