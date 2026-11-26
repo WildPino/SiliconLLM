@@ -1,0 +1,54 @@
+{
+ "ref_ckpt": "E:/SiliconLLM_Artifacts/sparse_capacity/f2/f2_m16_s0/last.pt",
+ "git_head": "3e568b252898e49af05f889eb2e0bea5a20c7f26",
+ "identity": [],
+ "one_step": [
+  {
+   "loss": 0.0,
+   "gnorm": 0.0,
+   "bank": 1.3397644238466455e-07,
+   "other": 0.0
+  },
+  {
+   "loss": 0.0,
+   "gnorm": 0.0,
+   "bank": 1.3397855980201712e-07,
+   "other": 0.0
+  },
+  {
+   "loss": 0.0,
+   "gnorm": 0.0,
+   "bank": 1.321345592941725e-07,
+   "other": 0.0
+  }
+ ],
+ "planted_negative": {
+  "loss": 0.0,
+  "bank": 0.0006106015644036233
+ },
+ "resume": {
+  "loss": 0.0,
+  "params": 0.0
+ },
+ "timings_median_s": {
+  "fwd_bwd": 6.019108650041744,
+  "gpu_adam": 0.0015310500166378915,
+  "host_adam": 0.08878340001683682,
+  "step": 6.110970699985046,
+  "fetch": 0.16698380012530833,
+  "grad_out": 0.060210950032342225,
+  "n_sel_min": 2048.0,
+  "n_sel_max": 2048.0,
+  "fetches_per_layer": 3.0
+ },
+ "tok_s_no_eval": 1340.5398916443908,
+ "host_bank_params": 100663296,
+ "counts": {
+  "total": 109499104,
+  "mlp": 104873984,
+  "bank": 100663296,
+  "router": 4210688,
+  "active": 15127264
+ },
+ "vram_max_alloc_GB": 10.955781936645508
+}
