@@ -142,6 +142,14 @@ Il protocollo sostituisce i bracci e la base qui sotto (base m1 invece del denso
 - Almeno una banca che non entra nella GPU (banca piu stato ≥ 20 GB), con gli stessi parametri attivi e la stessa soglia
   di token per esperto.
 - **Gate:** il BPB scende ancora con log E, senza saturazione precoce, e la sonda di ragionamento e riportata.
+- **Molti piu token per esperto della fase 2.** Nella fase 2 il guadagno si appiattisce da m16 a m64, ma i distacchi
+  fra le banche crescono per tutto il run ([`F2_BANK_RESULT.md`](F2_BANK_RESULT.md) §3). L'appiattimento puo essere
+  scarsita di token (m64: 0,94 M token per esperto). Per vedere se la curva si riapre, il budget di token per esperto
+  si fissa nel protocollo, molto sopra quello della fase 2.
+- **Router economico** (per esempio le chiavi prodotto di PEER, arXiv 2407.04153, al posto della scansione piena):
+  - serve comunque per banche grandi, perche la scansione piena cresce con E;
+  - toglie l'ambiguita della fase 2 fra router e banca: a m64 il router era 16,8 dei 27,8 M attivi.
+- **Prima della fase 4:** la sonda R nuova (F2, §5), come da piano.
 
 ### Fase 5: nel motore (ABBOZZO)
 
@@ -170,7 +178,7 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 | Fase A con 11 bracci, 4-6 settimane | 4 punti (denso, E32, E256, E2048) nella fase 2 | Prima le prove economiche; la fase 2 si dimensiona sull'esito della fase 1 |
 | H2 granularita (h8 contro h128) | rinviata dopo la fase 2 | Krajewski 2024: oltre G = 16 il costo del routing domina; si decide con l'esito della 1b |
 | H3 ternario contro bf16 | la precisione e decisa nel protocollo della fase 2 | Serve prima l'audit della fase 0 |
-| H5 router a chiavi prodotto contro scansione piena | rinviata | Non decide nessuna delle tre domande alla fase 2 |
+| H5 router a chiavi prodotto contro scansione piena | nella fase 4 (deciso dopo la fase 2) | Serve per banche grandi e separa il router dalla banca |
 | P1 "si spostano le attivazioni, non i pesi" | sostituita dalla misura 1b | Smentita a tavolino e da OOM nel regime di addestramento ([`LITERATURE.md`](LITERATURE.md) §3) |
 | Metrica unica, BPB | BPB piu le sonde di conoscenza e di ragionamento | Il BPB premia anche la conoscenza: da solo non risponde a D-R |
 
@@ -182,3 +190,4 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 | 2026-11-18 | Dopo la 1b (GRIGIO, via dato): il metodo e lo streaming, il programma continua per D-R. La granularita (H2, §7) si decide nel protocollo della fase 2, non dopo: h8. |
 | 2026-11-18 | Via alla fase 2 con una modifica: una D-R piatta alla fase 2 non chiude la domanda sul ragionamento. A quella scala (nucleo 4,6 M, 60 M token) vale "non mostrato"; le sonde K e R restano letture nelle fasi 3 e 4. |
 | 2026-11-18 | Dopo la 1a (BANDIERA ROSSA), via alla fase 2 come registrata, con una regola di futilita: dopo m1 s0 e m64 s0, se BPB(m64) > BPB(m1) − 0,005 ci si ferma e si scrive il risultato. Nessun'altra lettura intermedia. |
+| 2026-11-26 | Fine fase 2 (D-0 PASS, D-R non misurabile), via alla fase 3: m16 s0 con la banca nella RAM in streaming, gate del piano. Fase 4: molti piu token per esperto (i distacchi crescevano fino alla fine), router economico; sonda R nuova prima. |
