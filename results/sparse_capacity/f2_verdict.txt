@@ -1,0 +1,24 @@
+runs found: [('dense', 0), ('dense-fp', 0), ('m1', 0), ('m1', 1), ('m16', 0), ('m16', 1), ('m4', 0), ('m4', 1), ('m64', 0), ('m64', 1)]
+
+  arm       active   BPB (seeds)        mean    top1    K prim  R prim  shuffl  lookah  walk   R ood   eff.exp
+  m1         11.2 M  1.0378 1.0407      1.0392  0.6115  0.343   0.062   0.002   0.583   0.292  0.000   1.00
+  m4         12.0 M  1.0207 1.0176      1.0191  0.6173  0.346   0.026   0.001   0.583   0.292  0.000   0.99
+  m16        15.1 M  1.0039 1.0018      1.0029  0.6221  0.353   0.128   0.003   0.583   0.292  0.000   0.96
+  m64        27.8 M  0.9998 0.9975      0.9987  0.6229  0.357   0.190   0.004   0.583   0.292  0.001   0.91
+  dense      10.9 M  1.0409             1.0409  0.6117  0.347   0.250   0.001   0.583   0.292  0.004   -
+  dense-fp   10.9 M  1.0274             1.0274  0.6156  0.351   0.224   0.002   0.583   0.292  0.002   -
+
+  sigma BPB: measured 0.0019, used 0.0050 (floor 0.005); sigma K 0.0029; sigma R 0.1021 (seed 0.1021, paired items 0.0129)
+
+  D-0: gain m1 -> m64 +0.0406 BPB = 8.1 sigma; no step rises by more than 1 sigma: True
+       temperature control (half B): gain at T=1 +0.0437, at the fitted T +0.0437 = 8.7 sigma; top-1 gain +0.0114
+       active parameters, router included: m1 11.2 M, m4 12.0 M, m16 15.1 M, m64 27.8 M
+
+  K (planted positive): m64 - m1 +0.015 = 5.1 sigma (rises)
+  D-R: R primary m64 - m1 +0.128 = 1.2 sigma; strongest control 0.583; R measurable: False
+  reading dense: BPB 1.0409 (m1 1.0392)
+  reading dense-fp: BPB 1.0274 (m1 1.0392)
+
+VALIDITY: ok
+VERDICT: D-0 PASS; D-R NON MISURABILE (R at floor or ceiling, or not above its strongest control)
+  -> phase 3 may go on for the method; D-R needs a new probe before phase 4 (protocol section 6)
