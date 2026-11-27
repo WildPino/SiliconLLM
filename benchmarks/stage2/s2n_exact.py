@@ -43,6 +43,7 @@ ARMS = {"sx19": "1-19", "sx9": "9-19"}
 DESK_STACK, DESK_SLOT, LINE_MS = 43.05, {"sx19": 3.92, "sx9": 2.27}, 40.49      # S2M protocol; S2F protocol; 24.7 tok/s
 UA = {"score": SCORE.with_name(SCORE.name.replace("_avx2", "_ua_avx2")), "generate": GEN.with_name(GEN.name.replace("_avx2", "_ua_avx2"))}
 RECALL = ("nq", "tqa")
+GUARD_S = 24 * 3600     # stop threshold only: the hook's one-off P0 load sits in the first document's time, and the PC stays in use while it runs
 SCORES = Path("E:/SiliconLLM_Artifacts/stage1/s1a/scores")
 ROOT = HERE.parents[1]
 A4, S2 = "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/a4/inputs", "E:/SiliconLLM_Artifacts/campaigns/chatbot50_20261016/s2/inputs"
@@ -52,7 +53,7 @@ def command(arm: str, panel: str, src: str, tool: str, extra: list[str]) -> tupl
     flag = "--ids" if tool == "score" else "--prompts"
     layers = ARMS[arm]
     cmd = [str(UA[tool]), "--model", str(MODEL), flag, str(INPUTS[src] / f"{panel}.tsv"), "--out", str(WORK / arm / panel), "--threads", "6",
-           "--ubatch", "512", "--max-projected-s", str((6 if tool == "score" else 3) * MAX_PROJECTED_S)] + extra   # the hook's one-off P0 load sits in the first document's time
+           "--ubatch", "512", "--max-projected-s", str(GUARD_S)] + extra
     cmd += ["--exact-from", str(P0), "--exact-mode", "top", "--exact-layers", layers]
     k4 = tool == "generate"
     cmd += ["--moe-mode", "top", "--moe-k", "4", "--moe-mass", "16", "--moe-decode-only"] if k4 else ["--moe-mode", "none"]
