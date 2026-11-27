@@ -81,6 +81,39 @@ def answer_text(p, fmt):
     return f"{p['ans']}\n"
 
 
+# ------------------------------------------------------------------------------------- trained version (reading T)
+T_CELLS = [(m, d, False) for m in (2, 3, 4) for d in (1, 2, 3, 4)] + [(3, 2, True), (3, 3, True)]
+T_OOD = [(3, 6, False), (5, 4, False)]                   # never trained: procedure vs fragments (a reading)
+T_TEST_SEED, T_PER_CELL = 4711, 300
+
+
+def t_key(p):
+    return (tuple(p["lines"]), p["q"])
+
+
+def t_test_set(pool, per_cell=None, seed=T_TEST_SEED):
+    per_cell = per_cell or T_PER_CELL
+    rng = random.Random(seed); out, keys = [], set()
+    for cell in T_CELLS + T_OOD:
+        got = 0
+        while got < per_cell:
+            p = make_program(rng, cell[0], cell[1], pool, cell[2])
+            if t_key(p) in keys:
+                continue
+            keys.add(t_key(p)); out.append(p); got += 1
+    return out, keys
+
+
+def t_train_stream(pool, test_keys, seed):
+    """Endless trained programs, uniform over T_CELLS, never a test program, assert format with the answer."""
+    rng = random.Random(seed)
+    while True:
+        p = make_program(rng, *(lambda c: (c[0], c[1], pool, c[2]))(rng.choice(T_CELLS)))
+        if t_key(p) in test_keys:
+            continue
+        yield program_text(p, "assert") + answer_text(p, "assert") + "\n"
+
+
 # ------------------------------------------------------------------------------------------------- no-model controls
 def ctl_first(p, rng):
     return next(r for _, r in p["lines"] if isinstance(r, int))
