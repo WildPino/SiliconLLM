@@ -1,0 +1,54 @@
+{
+ "mode": "RUN",
+ "arm": "m16",
+ "seed": 0,
+ "method": "bank in host RAM (fp32 master, gradient, AdamW state), streamed; re-fetched in the backward",
+ "git_head": "130a22b6486d118201d1533c165b89c82106205b",
+ "pushed": true,
+ "dirty_files": [],
+ "src_sha256": {
+  "sc2_model.py": "a1f8f577a4c3d96a0a97950f57feddc337703e09e79f7fb4aaa7cde77e15f72d",
+  "sc2_probes.py": "9d10b86d2ecf0cfc4417642e9b5af45a06c0ff6e9e84d4c7986c81f4d2b176c3",
+  "sc2_train.py": "b3dc22f938af62f42c92da1e28f7c02c8b5a3b9dafee706abcdd856c6532c513",
+  "sc3_stream.py": "30f2350b507076d9bbe1ba671f1080174ed8075a3ab7328750d00e82e4fcc5c0",
+  "sc3_train.py": "992b0c7d4f5fa6fc9db39d2ea73e46cffba3fcfe02e9672431006e2e290a2365"
+ },
+ "python": "3.12.10",
+ "torch": "2.11.0+cu128",
+ "cuda": "12.8",
+ "gpu": "NVIDIA GeForce RTX 3060",
+ "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+ "host_threads": 6,
+ "params": {
+  "total": 109499104,
+  "mlp": 104873984,
+  "bank": 100663296,
+  "router": 4210688,
+  "active": 15127264
+ },
+ "host_bank_params": 100663296,
+ "pinned_stage_params": 12582912,
+ "steps": 7324,
+ "micro_batch": 16,
+ "accum": 1,
+ "tokens": 59998208,
+ "lr": 0.003,
+ "warmup": 200,
+ "lr_floor": 0.1,
+ "wd": 0.1,
+ "betas": [
+  0.9,
+  0.95
+ ],
+ "clip": 1.0,
+ "host_optimizer": "torch AdamW fused (CPU)",
+ "gpu_optimizer": "torch AdamW fused",
+ "tf32": false,
+ "data_dir": "E:/SiliconLLM_Artifacts/workspace/kaggle_rung1/main_run/data",
+ "ts_sha256_first256MiB": "ab2b0e8dd533d0f40a38af0f9e3ab380e66b30f825d7788014adf06d2cdec8f2",
+ "reference": "D:\\_THINGS\\Progetti\\SiliconLLM_sparse\\results\\sparse_capacity\\f2_m16_s0",
+ "reference_step0": {
+  "loss": 7.781007766723633,
+  "gnorm": 0.712310254573822
+ }
+}

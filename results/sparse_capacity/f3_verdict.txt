@@ -1,0 +1,16 @@
+  BPB val: stream 1.0034, reference 1.0039, diff -0.0005 = -0.1 sigma; top-1 +0.0005
+  temperature control (half B, fitted T): stream 1.0257, reference 1.0265
+  curve differences (stream - reference): {1000: 0.0009, 2000: -0.0042, 3000: -0.0034, 4000: -0.0015, 5000: 0.0006, 6000: -0.0006, 7000: -0.002, 7324: -0.0018}
+  pace: stream 1321 tok/s, reference 1363 tok/s, ratio 0.969 (hours 12.62 vs 12.23)
+  reading P62: stream 1.0501, reference 1.0499
+  reading K primary: stream 0.349, reference 0.350; R primary: stream 0.008, reference 0.254
+  step time, median over timed steps (s): {'fwd_bwd': 6.1007, 'gpu_adam': 0.0016, 'host_adam': 0.0935, 'step': 6.1948, 'fetch': 0.1756, 'grad_out': 0.0605, 'fetches_per_layer': 3} | experts per layer in U: min 2035, max 2048
+  method cost per step: fetch 0.176 (3 per layer) + gradients out 0.060 + host AdamW 0.093 = 0.330 s = 3.27 ns per bank parameter (100.7 M)
+  reading for phase 4 (linear, a LOWER BOUND on the cost: no VRAM pressure, every expert touched): bank + state 20 GB = 1.25 G parameters -> +4.1 s per step; against m1's GPU step (3.62 s, the active compute) the pace would be at most 0.47
+  reading for phase 4 (linear, a LOWER BOUND on the cost: no VRAM pressure, every expert touched): bank + state 40 GB = 2.50 G parameters -> +8.2 s per step; against m1's GPU step (3.62 s, the active compute) the pace would be at most 0.31
+
+VALIDITY: ok
+  equivalence (plan): |BPB diff| 0.0005 and worst curve diff 0.0042 vs 2 sigma 0.010 -> PASS
+  equivalence (strict, one-sided): BPB diff -0.0005 vs 0.0054 -> PASS
+  pace: 0.969 vs 0.5 -> PASS
+VERDICT: PASS (the method trains as the GPU-only trainer, at a pace above the gate): phase 4 may be detailed (PLAN)
