@@ -1,0 +1,8 @@
+Trace probe, calibration on m1 s0: planted positives (the scorer and the window work; next-token top-6 with probability)
+context: 512 tokens of validation code, a blank line, then the text below; tokenization of the answer checked equal in
+context and standalone for 2..39.
+lookup        "x = 17\nassert x == "                        -> '2' 0.116, 'x' 0.072, '3' 0.070, '4' 0.066, '1' 0.064, "'" 0.053
+repeat3       "assert q == 17\n" x3 + "assert q == "         -> '17' 0.626, '18' 0.085, '19' 0.048, '2' 0.032, '1' 0.027, '16' 0.018
+func          "def f():\n    return 17\n\n\nassert f() == "  -> '[' 0.303, "'" 0.108, '{' 0.084, "['" 0.060, '1' 0.045, "{'" 0.037
+lookup2       "count = 13\nprint(count)\nassert count == "  -> '3' 0.213, '1' 0.121, '2' 0.092, '0' 0.056, 'len(' 0.054, '20' 0.045
+R trained L1  phase-2 graph, "assert path(g, 1, 2) == "      -> '[' 0.999 ; after '[': '1,' 0.984 (the trained format is read)
