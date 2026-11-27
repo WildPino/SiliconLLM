@@ -83,6 +83,26 @@ class RtData:
 
 
 # ----------------------------------------------------------------------------------------------------------- probes
+@torch.no_grad()
+def score_tokens(model, items, dev, mb=32):
+    """Fraction of answer tokens predicted right (teacher-forced argmax), per item: a partial-credit reading of P."""
+    model.eval(); out = []
+    for i in range(0, len(items), mb):
+        ch = items[i:i + mb]; rows, spans = [], []
+        for ctx, ans in ch:
+            seq = (ctx + ans)[-(SEQ + 1):]; assert len(seq) == SEQ + 1
+            rows.append(seq); spans.append((SEQ + 1 - len(ans), len(ans)))
+        xy = torch.tensor(rows, device=dev)
+        with torch.autocast(dev.type, dtype=torch.bfloat16):
+            lg, _ = model(xy[:, :-1])
+        pred = lg.argmax(-1)
+        for j, (a0, na) in enumerate(spans):
+            out.append(float((pred[j, a0 - 1:a0 - 1 + na] == xy[j, a0:a0 + na]).float().mean()))
+    model.train()
+    return out
+
+
+
 def fill(data, gen, need, avoid=None):
     ctx = []
     while len(ctx) < need:
@@ -111,7 +131,7 @@ def eval_p(model, data, dev, mb, per_book=P_EVAL):
                 copy.append(x == y); mcr.append(PP.apply_rule(rule0, x) == y)
         ok = T.score_items(model, items, dev, mb)
         res[str(size)] = dict(acc=float(np.mean(ok)), n=len(ok), ctl_copy=float(np.mean(copy)), ctl_common_rule=float(np.mean(mcr)),
-                              common_rule_share=share)
+                              common_rule_share=share, tok_acc=float(np.mean(score_tokens(model, items, dev, mb))))
         allok.append(float(np.mean(ok)))
     if per_book is P_EVAL:
         items = []
@@ -119,6 +139,7 @@ def eval_p(model, data, dev, mb, per_book=P_EVAL):
             for x in sorted(data.ptest[nm]):
                 items.append((fill(data, data.pfill, SEQ + 1) + data.enc(PP.p_prefix(nm, x)), data.enc(PP.p_answer(PP.apply_rule(rule, x)))))
         res["unseen"] = float(np.mean(T.score_items(model, items, dev, mb)))
+        res["unseen_tok_acc"] = float(np.mean(score_tokens(model, items, dev, mb)))
         res["primary"] = float(np.mean(allok))
     return res
 
@@ -129,7 +150,10 @@ def eval_t(model, data, dev, mb, limit=None):
     items, cells, ctl = [], [], []
     crng = random.Random(3)
     for p in tests:
-        items.append((fill(data, data.tfill, SEQ + 1) + data.enc(TR.program_text(p, "assert")), data.enc(TR.answer_text(p, "assert"))))
+        # only the literal: in the stream it is followed by the blank line, which the BPE merges into one "
+
+" token
+        items.append((fill(data, data.tfill, SEQ + 1) + data.enc(TR.program_text(p, "assert")), data.enc(TR.answer_text(p, "assert"))[:1]))
         cells.append(f"m{p['m']}_d{p['d']}" + ("_rb" if p["rebind"] else ""))
         ctl.append({k: f(p, crng) == p["ans"] for k, f in TR.CONTROLS.items()})
     ok = T.score_items(model, items, dev, mb)
@@ -170,6 +194,7 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--selftest", action="store_true"); g.add_argument("--tune", action="store_true")
     g.add_argument("--run", action="store_true"); g.add_argument("--dry", action="store_true")
+    g.add_argument("--rescore", action="store_true", help="probes again on the final weights of a finished run")
     ap.add_argument("--arm", choices=list(T.ARMS), default="m1")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--data-dir", default="")
@@ -180,6 +205,8 @@ def main():
     torch.backends.cuda.matmul.allow_tf32 = False; torch.backends.cudnn.allow_tf32 = False
     if a.selftest:
         sys.exit(0 if selftest(dev) else 1)
+    if a.rescore:
+        rescore(a, dev); return
     if (a.tune or a.dry) and a.arm != "m1":
         sys.exit("REFUSED: the calibration looks at m1 only (user rule)")
     if a.run and not REGISTERED:
@@ -285,6 +312,25 @@ def main():
     wpath = os.path.join(ckpt_dir, "final_model.pt"); torch.save(model.state_dict(), wpath)
     T.emit(log, dict(kind="done", time=time.time(), final_weights_sha256=T.sha256(wpath)))
     print("RESULT", json.dumps(res)); print(f"DONE -> {run_dir}")
+
+
+def rescore(a, dev):
+    """The probes on the final weights of a finished run, with the code at this commit (written to result_rescore.json;
+    result.json stays as the run wrote it). m1 only until the registration, as the calibration."""
+    if a.arm != "m1" and not REGISTERED:
+        sys.exit("REFUSED: the calibration looks at m1 only (user rule)")
+    tag = f"rt_{a.arm}_s{a.seed}"; run_dir = os.path.join(a.out, tag)
+    wpath = os.path.join(RT_CKPT, tag, "final_model.pt")
+    done = [json.loads(l) for l in open(os.path.join(run_dir, "train.jsonl")) if '"done"' in l][-1]
+    if T.sha256(wpath) != done["final_weights_sha256"]:
+        sys.exit("REFUSED: final weights do not match the run's log")
+    arm = T.ARMS[a.arm]; data = RtData(a.data_dir, a.seed)
+    model = SM.Student(data.V, M=arm["M"], quant=arm["quant"]).to(dev)
+    model.load_state_dict(torch.load(wpath, map_location=dev, weights_only=True)); model.eval()
+    res = dict(arm=a.arm, seed=a.seed, git_head=T.git("rev-parse", "HEAD"), weights_sha256=done["final_weights_sha256"],
+               p=eval_p(model, data, dev, arm["mb"]), t=eval_t(model, data, dev, arm["mb"]))
+    json.dump(res, open(os.path.join(run_dir, "result_rescore.json"), "w"), indent=1)
+    print("RESCORE", json.dumps(res))
 
 
 if __name__ == "__main__":
