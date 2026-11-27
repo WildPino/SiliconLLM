@@ -175,5 +175,19 @@ vanno ricontrollate prima di citarle fuori.
 - In tutti e tre la quantizzazione nel trasferimento **cambia** la matematica. Qui no: la GPU usa gia solo il
   ternario e la scala per riga (`w_q`, gradiente straight-through g/s con s staccata). Mandare quei due e la stessa
   matematica.
-- Un lavoro che mandi pesi ternari con master fp32 altrove non e stato trovato. La ricerca va finita prima del
-  protocollo della fase 4.
+- **Il precedente piu vicino:** float8 all-gather in FSDP2 (PyTorch dev-discuss, 7 agosto 2024, weifengpy e altri;
+  torchao `float8/fsdp_utils.py`).
+  - Stesso principio: il forward usa gia il peso castato, quindi castarlo prima della comunicazione e "almost a 'free
+    lunch'".
+  - La scala si calcola dopo il passo dell'ottimizzatore (`precompute_float8_dynamic_scale_for_fsdp`). Risparmia "50%
+    bandwidth (vs bfloat16)".
+  - Numerica "on-par": sono curve, non uguaglianza bit a bit.
+  - La scala per riga e "highly exploratory", per il backward trasposto.
+  - Qui la differenza e stretta: ternario a 2 bit con una scala per riga, dall'host alla GPU (offload, non
+    all-gather), e la quantizzazione fusa nell'AdamW dell'host, uguale bit a bit a quello di torch (`sc4_adamw.py`).
+  - Il backward trasposto qui non e un problema: il gradiente straight-through e g/s, con s per riga, e la GPU ha gia
+    q e s.
+- **Ternary Backpropagation** (preprint 2026 su alphaxiv, solo la pagina della ricerca, non letto): toglie i master
+  fp32. E un'altra strada, che cambia la matematica.
+- Ricerca chiusa per la fase 4: nessun lavoro manda pesi ternari impacchettati dall'host alla GPU tenendo master e
+  AdamW sull'host.
