@@ -52,7 +52,7 @@ def command(arm: str, panel: str, src: str, tool: str, extra: list[str]) -> tupl
     flag = "--ids" if tool == "score" else "--prompts"
     layers = ARMS[arm]
     cmd = [str(UA[tool]), "--model", str(MODEL), flag, str(INPUTS[src] / f"{panel}.tsv"), "--out", str(WORK / arm / panel), "--threads", "6",
-           "--ubatch", "512", "--max-projected-s", str(3 * MAX_PROJECTED_S)] + extra
+           "--ubatch", "512", "--max-projected-s", str((6 if tool == "score" else 3) * MAX_PROJECTED_S)] + extra   # the hook's one-off P0 load sits in the first document's time
     cmd += ["--exact-from", str(P0), "--exact-mode", "top", "--exact-layers", layers]
     k4 = tool == "generate"
     cmd += ["--moe-mode", "top", "--moe-k", "4", "--moe-mass", "16", "--moe-decode-only"] if k4 else ["--moe-mode", "none"]
