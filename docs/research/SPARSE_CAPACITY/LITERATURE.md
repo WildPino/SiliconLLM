@@ -144,3 +144,36 @@ due misure separate, una di conoscenza e una di ragionamento.
 - MoP (Nguyen 2026), LazyTrain e MegaTrain, citati da OOM;
 - i sistemi d'inferenza che scelgono CPU o GPU per esperto;
 - il corpo di UltraMem e la parte finale di Clark.
+
+## Aggiunte del 2026-11-27
+
+**Per la sonda R nuova (tracciamento di variabili).** Testo letto sull'HTML di arXiv. Le parti segnate [sintesi]
+vanno ricontrollate prima di citarle fuori.
+- **Wu, Geiger, Milliere,** "How Do Transformers Learn Variable Binding in Symbolic Programs?", arXiv 2505.20896 (ICML
+  2025). Programmi di 17 righe `var = const | var = var`, catene fino a 4 salti con catene di distrazione.
+  - In addestramento passa per un'euristica di posizione: il letterale della prima riga, "over 90%" dei casi dove e
+    giusto.
+  - L'euristica funziona perche il generatore mette le radici delle catene lunghe in alto.
+  - Accuratezza: dal caso (~12%) a 56%, poi 99%.
+  - Il formato della sonda viene da qui, e le catene sono tutte della stessa profondita proprio contro quell'euristica.
+- **RULER** (Hsieh et al.), arXiv 2404.06654: compito di variable tracking (catene `VAR X2 = X1`). Modi di fallire:
+  copia dal contesto, variabili dell'altra catena [sintesi].
+- **Kim e Schuster,** "Entity Tracking in Language Models", arXiv 2305.02363: i casi banali (stato iniziale invariato,
+  62,7% in un dataset precedente) gonfiano il punteggio. Kim, Schuster, Toshniwal, arXiv 2405.21068: l'addestramento
+  sul codice migliora il tracciamento, con modelli da 7B in su.
+- **Zaremba e Sutskever,** "Learning to Execute", arXiv 1410.4615. Due modi di fallire: la memorizzazione (sez. 8) e
+  il teacher forcing, che gonfia l'accuratezza (sez. 6).
+- **CRUXEval,** arXiv 2401.03065: predizione dell'output di funzioni di 3-13 righe. Phi-1 (1,3B) fa circa il 23%
+  [sintesi, tabella 2].
+
+**Per la fase 4 (pesi quantizzati nel trasferimento):**
+- **ZeRO++,** arXiv 2306.10209, qwZ: pesi da FP16 a INT8 a blocchi nell'all-gather, con perdita di accuratezza se la
+  quantizzazione non e a blocchi (sez. 3.1).
+- **QSDP,** arXiv 2302.02390: pesi e gradienti a 8 bit, "biased estimators of the gradients, taken over quantized
+  weights" (sez. 1).
+- **OOM,** arXiv 2611.11364: niente quantizzazione nel trasferimento, i pesi viaggiano in BF16 [sintesi, sez. 7.6].
+- In tutti e tre la quantizzazione nel trasferimento **cambia** la matematica. Qui no: la GPU usa gia solo il
+  ternario e la scala per riga (`w_q`, gradiente straight-through g/s con s staccata). Mandare quei due e la stessa
+  matematica.
+- Un lavoro che mandi pesi ternari con master fp32 altrove non e stato trovato. La ricerca va finita prima del
+  protocollo della fase 4.
