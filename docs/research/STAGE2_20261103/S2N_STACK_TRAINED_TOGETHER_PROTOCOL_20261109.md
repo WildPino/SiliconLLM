@@ -211,3 +211,49 @@ Decided on S2N's result (`S2N_STACK_TRAINED_TOGETHER_RESULT_20261121.md`): e2e_r
 - **Thesis line:** none, as before; the stack stays out of budget whatever the label. The label decides 80.6 h of flash's recipe.
 - **Cost:** about 5 h of GPU (454 steps, two held-out passes, export and check) and about 5 h of CPU for the seven panels, under the reviewer's 10 h.
 - **Code:** `s2n_core.Mat(log=True)`, `s2n_train` (ROWX_LR, LOG_ARMS, COSINE_ARMS), `s2n_chain.py amend1`. Selftests: core 15 (log scales positive, with their gradient), verdict 36.
+
+## Amendment 2 (2026-11-27): e2e_rowx at 16.8 M positions. DRAFTED, REVIEWED, NOT LAUNCHED
+
+Asked on amendment 1's result (`6cae41e`). e2e_rowx unchanged, trained on 16.8 M positions instead of 1.5 M (flash's length in S2E), with a registered futility readout: a 1 − sqrt cooldown branched at 4.2 M. Before spending, the recall panels (nq, tqa) of the stack's parts were laid side by side.
+
+### Where the recall loss sits
+
+Measured panels only, paired against ref (`s2n_recall_parts.py`, `results/s2n_recall_parts.json`). Recall is the mean of nq and tqa; the rest is gsm8k, arc, mmlu and chat. Exact experts at k = 4 means stage 1's top4dm16, in bal4's form.
+
+| Arm | All | Recall | nq | tqa | Rest |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| top4dm16: exact experts, k = 4 | +0.97 | −1.58 [−3.00, −0.25] | −1.50 | −1.67 | +2.25 |
+| bal4: bal experts, k = 4 | −4.74 | −10.25 [−12.50, −8.08] | −9.33 | −11.17 | −1.99 |
+| ks_org: organs IQ2_KS, k = 8 | −3.02 | −5.00 [−7.08, −2.83] | −3.67 | −6.33 | −2.04 |
+| ks_org4: organs IQ2_KS, k = 4 | −7.41 | −6.67 [−8.75, −4.50] | −6.17 | −7.17 | −7.79 |
+| ks_stk4: stack, untrained | −12.18 | −15.83 [−18.17, −13.50] | −14.50 | −17.17 | −10.35 |
+| e2e_rowx: stack, trained | −5.16 | −12.83 [−15.17, −10.58] | −12.67 | −13.00 | −1.32 |
+
+- **On the untrained arms, recall adds up as points:**
+  - k = 4 costs 1.58.
+  - bal's codes cost 8.67 more.
+  - The organs cost 5.09 at k = 4.
+  - The sum is 15.34, against ks_stk4's 15.83. No CI was computed on the sum.
+- **The trained stack has its rest back, −1.32, but not its recall:**
+  - It won 3.0 of recall out of about 14.3.
+  - Recall is 4.28 of its −5.16.
+  - Its recall is worse than bal4's alone, so the parts' split after training is not known.
+
+### Review (rule 6), before registration
+
+A fresh reviewer had the thesis, the design and the draft. Two objections were blocking:
+
+1. **WITHIN BUDGET needs recall back to about −1.9, not −6.** With the rest at −1.32, the point near −1.5 that a lower end of −5 needs leaves recall at most 2 points under ref. That is top4dm16's level, with exact experts. The draft's own prediction (recall +0 to +3) gives about −4.2, UNDECIDED. Its 15% on WITHIN BUDGET was inconsistent; the draft's "about −6" was an arithmetic error.
+2. **Rule 5:** every outcome sends the next lever to the experts' recall. That lever changes the stack, so tokens bought on frozen bal codes do not carry to the stack that would ship. The only decision left would be flash's hours for M2, measured on a stack about to change.
+
+The reviewer also raised six objections that do not block on their own:
+- Held-out leakage: the extension's MetaMathQA rewrites held-out GSM8K-train documents, 84 of 142 acts documents by 13-gram.
+- A STOP read as the refutation, with seed noise left out of its error rates.
+- Total lr reach 7.6, above e2e_row's VOID 4.5.
+- The second data order dropped.
+- Positions per trainable scale: mini at 16.8 M gets about 3 times flash's.
+- A chain path that leaves the main run training past a STOP.
+
+They are kept for any rerun of the draft.
+
+**Status:** not registered, not launched. The draft and its code are held, uncommitted, pending a decision.
