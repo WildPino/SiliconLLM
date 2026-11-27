@@ -48,3 +48,37 @@ No arm brings the stack within budget. The best valid stack, glob, is −9.05 wi
 Either way, the stack stays out of budget. The next question is the experts at k = 4 (bal4 alone is −4.74), not the scales.
 
 **What would refute it:** a valid per-row rerun that ties or beats glob on the panels while keeping its acts gain. That would make the disconnect above an artifact of the unstable lr, not of per-row capacity.
+
+## Amendment 1 result (2026-11-27): ROWS PAY
+
+Protocol: amendment 1 (`b39db26`). e2e_rowx is e2e_row with scales exp(τ + θ) and lr 3e-3 decaying by a cosine to 0. It ran 454 steps over 1.50 M positions in 4.2 h of GPU, in one uninterrupted chain. Verdict: `s2n_verdict.json`, `amendment_1` and `gains` (selftest PASS 36).
+
+**Validity: holds.** Every control passes: no scale ≤ 0 (range 0.72-1.78, 3 over 1.5), acts gain, export read back, export keeps 0.0548 of the trained 0.0548, panels complete.
+
+| Arm | Valid | Δ vs ref | over ks_stk4 | chat | degenerate | acts top-1 (start 0.7243): at 150 k / end | acts KL k8 / k4p | docs dBPB, top-1 agreement |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
+| ks_stk4 | | −12.18 [−16.22, −8.13] | | 22 | 1 | | | +0.117, 0.723 |
+| e2e_row | VOID | −13.42 | −1.24 [−4.41, +1.96] | 16 | 4 | 0.7649 / 0.7577 | −0.142 / −0.353 | +0.069, 0.705 |
+| glob | valid | −9.05 | +3.12 [+0.51, +5.84] | 26 | 0 | 0.7326 / 0.7313 | +0.007 / −0.116 | +0.104, 0.730 |
+| **e2e_rowx** | **valid** | **−5.16 [−8.61, −1.77]** | **+7.02 [+3.89, +10.12]** | **28** | **0** | 0.7631 / **0.7791** | −0.224 / −0.420 | **+0.015**, 0.741 |
+
+- **The registered line:** e2e_rowx − glob = **+3.89 [+1.20, +6.62]**, lower > 0 and margin > 1.90: **ROWS PAY.** M2 per row enters flash's recipe at 80.6 h.
+- **Training metric and panels now agree.** e2e_rowx has the largest acts gain (+5.5 points, still rising at the end where e2e_row fell) and the largest panel gain. Its documents' top-1 agreement rises (0.723 → 0.741) where e2e_row's fell. The disconnect read on 2026-11-21 came from the unstable lr, as the refutation clause allowed.
+- **The excess, bal4 + ks_org as the parts:** **+2.61 [−1.21, +6.36]**, against ks_stk4's −4.42. Trained together, the stack is no worse than the sum of its parts. The TAPPE line's second branch holds.
+- **The stack is still out of budget:** stage 1's label is UNDECIDED (lower −8.61, the label needs −5). Chat is 28, the reference's own.
+- **Where the loss sits, per panel:**
+
+  | Arm | nq | tqa | gsm8k | arc | mmlu | chat |
+  | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+  | ref | 29.0 | 48.7 | 81.0 | 53.2 | 49.3 | 70.0 |
+  | ks_stk4 | 14.5 | 31.5 | 62.0 | 50.3 | 44.7 | 55.0 |
+  | e2e_rowx | 16.3 | 35.7 | 77.0 | 54.5 | 46.7 | 70.0 |
+
+  Generation at k = 4 and chat come back almost entirely; the closed-book questions (nq, tqa) do not, at −12.7 and −13.0 points.
+- **Predictions:** ROWS DO NOT PAY 65% (miss); e2e_rowx +1 to +5 over ks_stk4, read +7.02 (miss, above).
+
+**Thesis line.** This is the first trained 2-bit stack with every organ at 2 bits and k = 4 that sits near the budget: −5.16 with the reference's chat. It costs M2 per row, 80.6 h on flash at 16.8 M positions. This cell ran 1.5 M positions, one eleventh of that.
+
+**Recommendation: buy tokens.** Run e2e_rowx, unchanged, at flash's 16.8 M positions. That needs a teacher pass past the current 1.6 M positions on CPU, and about 47 h of GPU on mini, so it goes to the reviewer (rule 6). Judge it on stage 1's label with the chat gate, with nq + tqa read beside it. This is the TAPPE branch for "out, without the refutation".
+
+**What would refute it:** a 16.8 M run that gains less than 1.90 over this one. Then the remaining loss, which sits in closed-book recall, is not bought with tokens at this teacher. The next lever is then downstream blocks or one stored organ.
