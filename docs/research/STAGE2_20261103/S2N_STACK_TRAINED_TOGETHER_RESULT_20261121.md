@@ -82,3 +82,34 @@ Protocol: amendment 1 (`b39db26`). e2e_rowx is e2e_row with scales exp(τ + θ) 
 **Recommendation: buy tokens.** Run e2e_rowx, unchanged, at flash's 16.8 M positions. That needs a teacher pass past the current 1.6 M positions on CPU, and about 47 h of GPU on mini, so it goes to the reviewer (rule 6). Judge it on stage 1's label with the chat gate, with nq + tqa read beside it. This is the TAPPE branch for "out, without the refutation".
 
 **What would refute it:** a 16.8 M run that gains less than 1.90 over this one. Then the remaining loss, which sits in closed-book recall, is not bought with tokens at this teacher. The next lever is then downstream blocks or one stored organ.
+
+## Amendment 3 result (2026-11-27): the experts hold the recall, and the stack adds up
+
+The run was `s2n_split.py chain`, on CPU only. Results are in `s2n_split_verdict.json`, `s2n_split_export_rowx_{org,exp}.json` and `s2n_run.json`. Both arms are **valid**: each export reads back and every panel is complete.
+
+| Arm | Recall vs ref | All vs ref | Chat |
+| --- | ---: | ---: | ---: |
+| top4dm16: exact experts, k = 4 | −1.58 | +0.97 | 30 |
+| ks_org4: organs IQ2_KS | −6.67 | −7.41 | 22 |
+| rowx_org: ks_org4 with e2e_rowx's organ scales | −6.33 | −3.43 | 27 |
+| bal4: bal experts | −10.25 | −4.74 | 24 |
+| rowx_exp: bal4 with e2e_rowx's expert scales | −9.33 | −4.41 | 26 |
+| e2e_rowx: the stack, trained | −12.83 | −5.16 | 28 |
+
+- **Organ scales, recall:** +0.33 [−1.33, +2.00], **NOT SHOWN**. All panels: +3.98 [+0.54, +7.50]. The recovery on the rest of the panels comes from the organ scales.
+- **Expert scales, recall:** +0.92 [−0.33, +2.17], **NOT SHOWN**. All panels: +0.33 [−2.24, +2.91]. Scales on bal's frozen codes buy nothing measurable.
+- **Who holds it:** rowx_org − rowx_exp = +3.00 [+0.83, +5.25], **EXPERTS HOLD THE RECALL**.
+- **Interaction:** +1.25 [−1.33, +3.83], **ADDS UP**. The trained stack loses what its trained parts lose, and no more.
+- **Predictions:**
+  - organs NOT SHOWN 55%: hit;
+  - experts NOT SHOWN 60%: hit;
+  - EXPERTS HOLD 55%: hit;
+  - ADDS UP 60%: hit.
+
+**What it says.** Scales do not bring back recall in either part, so more positions of the same scales do not either. The registered row is EXPERTS HOLD, ADDS UP: **amendment 2 is dropped**, and the next lever is the experts' recall.
+
+**Recommendation: exact experts where they weigh, on the trained organs.** The cell is x19k4's experts under rowx_org's organs (IQ2_KS with e2e_rowx's organ scales), judged on stage 1's label with the chat gate, recall beside.
+
+**The additive estimate.** It is −3.43 + (−0.61) − 0.97, about −5.0 on all panels, and recall about −10.5. That is at the budget's edge, so the protocol states the decision each outcome changes (rule 5) before the run. Its cost is panels on CPU plus the RAM of the exact layers, with no training.
+
+**What would refute it:** the combination landing well below the additive estimate, which would mean the organ scales trained on bal experts do not carry over to exact ones. Then the organ scales are retrained with those experts in place, at 1.5 M positions (about 4 h of GPU).
