@@ -2,16 +2,17 @@
 # Sparse Capacity, the trained R probes (D-R): continued training of the ten phase-2 models with two new probes in the
 # stream. Protocol: docs/research/SPARSE_CAPACITY/RT_PROC_PROTOCOL.md.
 #
-#   P  "rubrica di procedure" (sc_proc.py): many named rules on digit strings, tested on inputs never seen with them
+#   P  "rubrica di procedure" (sc_proc.py): many named rules on digit strings, tested on inputs never seen with them;
+#      plus the explicit book (the rule written in the call): the planted positive for execution
 #   T  variable binding (sc_trace.py, trained version): a reading
 #   K  phase 2's phone book, kept in the stream: knowledge, read beside P
 #
-# Stream: 76% code, 4% K, 10% P, 10% T. 15 M tokens from the phase-2 state at step 7324 (weights and AdamW moments),
-# constant lr 3e-4 after 100 warmup steps. The same batches for every arm with the same seed.
+# Stream (second calibration): 76% code, 4% K, 12% named P, 4% explicit P, 4% T. 15 M tokens from the phase-2 state at
+# step 7324 (weights and AdamW moments), constant lr 3e-4 after 100 warmup steps. The same batches for every arm with the
+# same seed.
 #
-#   python benchmarks/sparse_capacity/sc_rt_train.py --selftest
 #   python benchmarks/sparse_capacity/sc_rt_train.py --tune --seed {0,1} --data-dir <m0>   (m1 only: the calibration)
-#   python benchmarks/sparse_capacity/sc_rt_train.py --run --arm <arm> --seed <s> --data-dir <m0>   (after registration)
+#   python benchmarks/sparse_capacity/sc_rt_train.py --run --arm <arm> --seed <s> --data-dir <m0>   (by stage, below)
 import argparse, json, math, os, platform, random, sys, time
 import numpy as np
 import torch, torch.nn.functional as F
@@ -26,14 +27,21 @@ import sc_trace as TR       # noqa: E402
 ROOT = T.ROOT
 F2_CKPT = "E:/SiliconLLM_Artifacts/sparse_capacity/f2"
 RT_CKPT = "E:/SiliconLLM_Artifacts/sparse_capacity/rt"
-REGISTERED = False            # set to True only in the commit that registers the calibration (protocol section 5)
+# Stages (protocol section 3), each set only in the commit that registers it:
+#   0  calibration: m1 only (--tune)
+#   1  the explicit book passed in m1: m64 s0 and s1 only (--run)
+#   2  named P in m64 above its strongest control: every arm
+STAGE = 0
+STAGE_ARMS = {0: (), 1: ("m64",), 2: tuple(T.ARMS)}
 TOKENS = 15_000_000
 LR, WARMUP = 3e-4, 100
-S_K, S_P, S_T = 0.04, 0.10, 0.10
-CURVE_EVERY = 250             # ~2 M tokens: probe curves (P on the small books, T, BPB on the curve val)
-P_EVAL = (256, 2048, 2048)    # functions scored per book (all, all, a fixed sample of 16384), P_TEST_PER_FN inputs each
-P_CURVE = (256, 512, 0)
+S_K, S_P, S_E, S_T = 0.04, 0.12, 0.04, 0.04
+CURVE_EVERY = 250             # ~2 M tokens: probe curves (P on the small books, explicit, T, BPB on the curve val)
+P_EVAL = (64, 512, 2048)      # functions scored per book (all, all, a fixed sample of 4096), P_TEST_PER_FN inputs each
+P_CURVE = (64, 128, 0)
+E_CURVE = 512                 # explicit held-out pairs scored in a curve (all PP.E_TEST at the end)
 SEQ = T.SEQ
+RUN = "rt2"                   # second calibration: run dirs rt2_<arm>_s<seed> (the first, rt_*, is kept as it ran)
 
 
 class RtData:
@@ -50,9 +58,12 @@ class RtData:
         s.seed = seed
         s.pgen = PP.p_train_stream(s.pbooks, s.ptest, 6000 + seed)
         s.tgen = TR.t_train_stream(s.pool, tkeys, 7000 + seed)
+        s.etest, ekeys = PP.e_test_set()
+        s.egen = PP.e_train_stream(ekeys, 6500 + seed)
         s.pfill = PP.p_train_stream(s.pbooks, s.ptest, 99)                 # context before a P test item
+        s.efill = PP.e_train_stream(ekeys, 99)
         s.tfill = TR.t_train_stream(s.pool, tkeys, 99)
-        s.rng = random.Random(8000 + seed); s.counts = dict(c=0, k=0, p=0, t=0); s.pn = s.tn = 0
+        s.rng = random.Random(8000 + seed); s.counts = dict(c=0, k=0, p=0, e=0, t=0); s.pn = s.en = s.tn = 0
 
     def _lines(s, gen, attr):
         out = []
@@ -67,19 +78,21 @@ class RtData:
             u = s.rng.random()
             if u < S_K: rows.append(s.d.k_seq()); s.counts["k"] += 1
             elif u < S_K + S_P: rows.append(s._lines(s.pgen, "pn")); s.counts["p"] += 1
-            elif u < S_K + S_P + S_T: rows.append(s._lines(s.tgen, "tn")); s.counts["t"] += 1
+            elif u < S_K + S_P + S_E: rows.append(s._lines(s.egen, "en")); s.counts["e"] += 1
+            elif u < S_K + S_P + S_E + S_T: rows.append(s._lines(s.tgen, "tn")); s.counts["t"] += 1
             else: rows.append(s.d.code_seq()); s.counts["c"] += 1
         return torch.from_numpy(np.stack(rows))
 
     def state(s):
-        return dict(rng=s.rng.getstate(), drng=s.d.rng.getstate(), nrng=s.d.nrng.bit_generator.state, pn=s.pn, tn=s.tn,
-                    counts=dict(s.counts))
+        return dict(rng=s.rng.getstate(), drng=s.d.rng.getstate(), nrng=s.d.nrng.bit_generator.state, pn=s.pn, en=s.en,
+                    tn=s.tn, counts=dict(s.counts))
 
     def restore(s, st):
         s.rng.setstate(st["rng"]); s.d.rng.setstate(st["drng"]); s.d.nrng.bit_generator.state = st["nrng"]
         for _ in range(st["pn"]): next(s.pgen)
+        for _ in range(st["en"]): next(s.egen)
         for _ in range(st["tn"]): next(s.tgen)
-        s.pn, s.tn, s.counts = st["pn"], st["tn"], dict(st["counts"])
+        s.pn, s.en, s.tn, s.counts = st["pn"], st["en"], st["tn"], dict(st["counts"])
 
 
 # ----------------------------------------------------------------------------------------------------------- probes
@@ -113,9 +126,36 @@ def fill(data, gen, need, avoid=None):
     return ctx
 
 
-def eval_p(model, data, dev, mb, per_book=P_EVAL):
+def eval_e(model, data, dev, mb, n=None):
+    """The explicit book (planted positive): exact match on held-out (rule, input) pairs. Controls: copy of the input,
+    the most common rule of the test set applied to every item (no model), and the model with another rule's name in
+    the call, scored against the true answer (does it read the name?)."""
+    tests = data.etest if n is None else data.etest[:n]
+    cnt = {}
+    for r, _ in tests:
+        cnt[PP.rule_key(r)] = cnt.get(PP.rule_key(r), 0) + 1
+    k0 = max(cnt, key=cnt.get); rule0 = next(r for r, _ in tests if PP.rule_key(r) == k0)
+    rng = random.Random(11)
+    items, wrong, copy, mcr = [], [], [], []
+    for rule, x in tests:
+        y = PP.apply_rule(rule, x); ans = data.enc(PP.p_answer(y))
+        ctx = fill(data, data.efill, SEQ + 1)
+        items.append((ctx + data.enc(PP.e_prefix(rule, x)), ans))
+        other = rule
+        while PP.rule_key(other) == PP.rule_key(rule):
+            other = tests[rng.randrange(len(tests))][0]
+        wrong.append((ctx + data.enc(PP.e_prefix(other, x)), ans))
+        copy.append(x == y); mcr.append(PP.apply_rule(rule0, x) == y)
+    ok = T.score_items(model, items, dev, mb)
+    return dict(acc=float(np.mean(ok)), n=len(ok), ctl_wrong_name=float(np.mean(T.score_items(model, wrong, dev, mb))),
+                ctl_copy=float(np.mean(copy)), ctl_common_rule=float(np.mean(mcr)),
+                tok_acc=float(np.mean(score_tokens(model, items, dev, mb))))
+
+
+def eval_p(model, data, dev, mb, per_book=None):
     """P per book: exact match of the answer on held-out inputs; the context never shows the tested function. Controls:
     unseen functions (model), copy of the input, the book's most common rule (no model)."""
+    full = per_book is None; per_book = per_book or P_EVAL
     res = {}; allok = []
     for bi, (size, n) in enumerate(zip(PP.P_SIZES, per_book)):
         if n == 0:
@@ -133,7 +173,7 @@ def eval_p(model, data, dev, mb, per_book=P_EVAL):
         res[str(size)] = dict(acc=float(np.mean(ok)), n=len(ok), ctl_copy=float(np.mean(copy)), ctl_common_rule=float(np.mean(mcr)),
                               common_rule_share=share, tok_acc=float(np.mean(score_tokens(model, items, dev, mb))))
         allok.append(float(np.mean(ok)))
-    if per_book is P_EVAL:
+    if full:
         items = []
         for nm, rule in data.punseen.items():
             for x in sorted(data.ptest[nm]):
@@ -207,17 +247,18 @@ def main():
         rescore(a, dev); return
     if (a.tune or a.dry) and a.arm != "m1":
         sys.exit("REFUSED: the calibration looks at m1 only (user rule)")
-    if a.run and not REGISTERED:
-        sys.exit("REFUSED: the calibration is not registered yet (protocol section 5)")
-    global CURVE_EVERY, P_EVAL, P_CURVE
+    if a.run and (a.arm not in STAGE_ARMS[STAGE] or (STAGE == 1 and a.seed not in (0, 1))):
+        sys.exit(f"REFUSED: stage {STAGE} does not allow {a.arm} s{a.seed} (protocol section 3)")
+    global CURVE_EVERY, P_EVAL, P_CURVE, E_CURVE
     arm = T.ARMS[a.arm]; accum = T.GLOBAL_SEQS // arm["mb"]
     steps = TOKENS // (SEQ * T.GLOBAL_SEQS)
-    tag = f"rt_{a.arm}_s{a.seed}"
+    tag = f"{RUN}_{a.arm}_s{a.seed}"
     if a.dry:                                     # smoke test of the whole path: not a measurement, never committed
-        steps, CURVE_EVERY, P_EVAL, P_CURVE = 8, 4, (16, 16, 16), (16, 16, 0)
+        steps, CURVE_EVERY, P_EVAL, P_CURVE, E_CURVE = 8, 4, (16, 16, 16), (16, 16, 0), 16
+        PP.E_TEST = 64
         T.VAL_TOK, T.VAL_CURVE_TOK, T.K_EVAL = 16_384, 8_192, (16, 16, 16)
         TR.T_PER_CELL = 4
-        tag = "rt_dry_" + tag[3:]
+        tag = f"{RUN}_dry_{a.arm}_s{a.seed}"
     run_dir = os.path.join(a.out, tag); ckpt_dir = os.path.join(RT_CKPT, tag)
     os.makedirs(run_dir, exist_ok=True); os.makedirs(ckpt_dir, exist_ok=True)
     ckpt_path = os.path.join(ckpt_dir, "last.pt")
@@ -236,11 +277,11 @@ def main():
     line_tok = float(np.mean([len(data.enc(PP.p_line(n, r, "3812"))) for n, r in list(data.pbooks[0].items())[:500]]))
     p_lines = TOKENS * S_P / line_tok
     cfg = dict(mode="DRY (not a measurement)" if a.dry else "TUNE" if a.tune else "RUN", arm=a.arm, seed=a.seed, git_head=head, pushed=(head == upstream),
-               dirty_files=dirty.splitlines(), src_sha256=srcs, registered=REGISTERED, start=f2, python=sys.version.split()[0],
+               dirty_files=dirty.splitlines(), src_sha256=srcs, stage=STAGE, start=f2, python=sys.version.split()[0],
                torch=torch.__version__, gpu=torch.cuda.get_device_name(0), cpu=platform.processor(), M=arm["M"],
                micro_batch=arm["mb"], accum=accum, tokens=steps * SEQ * T.GLOBAL_SEQS, steps=steps, lr=LR, warmup=WARMUP,
-               schedule="linear warmup then constant", wd=T.WD, betas=T.BETAS, clip=T.CLIP, shares=dict(k=S_K, p=S_P, t=S_T),
-               p_sizes=PP.P_SIZES, p_ops=len(PP.OPS), p_tokens_per_line=line_tok,
+               schedule="linear warmup then constant", wd=T.WD, betas=T.BETAS, clip=T.CLIP, shares=dict(k=S_K, p=S_P, e=S_E, t=S_T),
+               p_sizes=PP.P_SIZES, p_ops=len(PP.OPS), p_tokens_per_line=line_tok, p_digits_spaced=True, e_test=len(data.etest),
                p_exposures_per_function={str(n): p_lines / 3 / n for n in PP.P_SIZES}, t_cells=TR.T_CELLS, t_ood=TR.T_OOD,
                pool=data.pool, data_dir=a.data_dir, ts_sha256_first256MiB=data.ts_sha)
     for k, v in cfg.items():
@@ -250,6 +291,8 @@ def main():
     if head != upstream and not a.dry: refuse.append("HEAD is not pushed")
     if "3060" not in cfg["gpu"]: refuse.append("not the RTX 3060")
     if not selftest(dev): refuse.append("selftest failed")
+    if PP.check_tokens(data.enc): refuse.append("P digits are not one token each with this BPE")
+    if TR.check_tokens(data.enc, data.pool): refuse.append("T literals are not one token each with this BPE")
     if refuse:
         sys.exit("REFUSED: " + "; ".join(refuse))
     json.dump(cfg, open(os.path.join(run_dir, "config.json"), "w"), indent=1, default=str)
@@ -267,7 +310,8 @@ def main():
     val = data.ids[data.ntr:data.ntr + T.VAL_TOK + 1]; curve_val = val[:T.VAL_CURVE_TOK + 1]
     if start == 0:                                                           # the starting point, same code as the curves
         T.emit(log, dict(kind="curve", step=0, bpb=T.eval_stream(model, curve_val, data.el, dev, arm["mb"])["bpb"],
-                         p=eval_p(model, data, dev, arm["mb"], P_CURVE), t=eval_t(model, data, dev, arm["mb"], 600)))
+                         p=eval_p(model, data, dev, arm["mb"], P_CURVE), e=eval_e(model, data, dev, arm["mb"], E_CURVE),
+                         t=eval_t(model, data, dev, arm["mb"], 600)))
     t0 = time.time(); t_ck = time.time()
     train_sec = lambda: prev_sec + (time.time() - t0)
     model.train()
@@ -291,7 +335,8 @@ def main():
             print(f"step {i:5d}/{steps} loss {tot:.4f} gn {gn:.2f}", flush=True)
         if (i + 1) % CURVE_EVERY == 0 or i == steps - 1:
             T.emit(log, dict(kind="curve", step=i + 1, bpb=T.eval_stream(model, curve_val, data.el, dev, arm["mb"])["bpb"],
-                             p=eval_p(model, data, dev, arm["mb"], P_CURVE), t=eval_t(model, data, dev, arm["mb"], 600)))
+                             p=eval_p(model, data, dev, arm["mb"], P_CURVE), e=eval_e(model, data, dev, arm["mb"], E_CURVE),
+                         t=eval_t(model, data, dev, arm["mb"], 600)))
             model.train()
         if time.time() - t_ck > T.CKPT_MIN * 60 or i == steps - 1:
             torch.save(dict(model=model.state_dict(), opt=opt.state_dict(), step=i + 1, cfg_key=[a.arm, a.seed, head],
@@ -305,6 +350,7 @@ def main():
         res["p62"] = T.eval_stream(model, data.p62, data.el, dev, arm["mb"])
     res["k"] = eval_k(model, data, dev, arm["mb"])
     res["p"] = eval_p(model, data, dev, arm["mb"])
+    res["e"] = eval_e(model, data, dev, arm["mb"])
     res["t"] = eval_t(model, data, dev, arm["mb"])
     json.dump(res, open(os.path.join(run_dir, "result.json"), "w"), indent=1)
     wpath = os.path.join(ckpt_dir, "final_model.pt"); torch.save(model.state_dict(), wpath)
@@ -315,9 +361,9 @@ def main():
 def rescore(a, dev):
     """The probes on the final weights of a finished run, with the code at this commit (written to result_rescore.json;
     result.json stays as the run wrote it). m1 only until the registration, as the calibration."""
-    if a.arm != "m1" and not REGISTERED:
+    if a.arm != "m1" and a.arm not in STAGE_ARMS[STAGE]:
         sys.exit("REFUSED: the calibration looks at m1 only (user rule)")
-    tag = f"rt_{a.arm}_s{a.seed}"; run_dir = os.path.join(a.out, tag)
+    tag = f"{RUN}_{a.arm}_s{a.seed}"; run_dir = os.path.join(a.out, tag)
     wpath = os.path.join(RT_CKPT, tag, "final_model.pt")
     done = [json.loads(l) for l in open(os.path.join(run_dir, "train.jsonl")) if '"done"' in l][-1]
     if T.sha256(wpath) != done["final_weights_sha256"]:
@@ -326,7 +372,7 @@ def rescore(a, dev):
     model = SM.Student(data.V, M=arm["M"], quant=arm["quant"]).to(dev)
     model.load_state_dict(torch.load(wpath, map_location=dev, weights_only=True)); model.eval()
     res = dict(arm=a.arm, seed=a.seed, git_head=T.git("rev-parse", "HEAD"), weights_sha256=done["final_weights_sha256"],
-               p=eval_p(model, data, dev, arm["mb"]), t=eval_t(model, data, dev, arm["mb"]))
+               p=eval_p(model, data, dev, arm["mb"]), e=eval_e(model, data, dev, arm["mb"]), t=eval_t(model, data, dev, arm["mb"]))
     json.dump(res, open(os.path.join(run_dir, "result_rescore.json"), "w"), indent=1)
     print("RESCORE", json.dumps(res))
 

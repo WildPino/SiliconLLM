@@ -83,3 +83,25 @@ In [`LITERATURE.md`](LITERATURE.md), aggiunte del 2026-11-27. In breve:
   ottimo (circa 20 token per parametro).
 - **Nessuno dei sei** prova se una banca piu grande, a parametri attivi fissi, memorizzi **molte procedure** applicate
   a input nuovi. P sta in quel buco.
+
+## 5. Seconda taratura (2026-11-27, dopo [`RT_PROC_CALIB_RESULT.md`](RT_PROC_CALIB_RESULT.md))
+
+Sostituisce §2-§3 dove differisce. Fissata prima di vedere i numeri.
+- **Cifre separate da spazi** in tutte le varianti di P: `f_kqzvw("3 8 1 2") == "4 9 2 3"`. Ogni cifra e un token
+  (48-57) qualunque siano le vicine; il BPE fondeva le cifre a pezzi irregolari ("3812" -> 3|8|12). Controllato su
+  3.000 righe per tipo (`sc_proc.check_tokens`), e il runner rifiuta se fallisce. T non ne ha bisogno: i 29 letterali
+  sono gia un token ciascuno, uguale nella riga, nella risposta e dopo la domanda (`sc_trace.check_tokens`).
+- **Rubrica esplicita** (positivo piantato): la regola e scritta nella chiamata, `rot_1__add_3("3 8 1 2") == "1 4 5 6"`.
+  Test su 2.048 coppie (regola, input) mai allenate. Controlli: copia, regola piu frequente, e il modello con il nome
+  di un'altra regola nella chiamata (legge il nome?).
+- **Rubriche con nome:** N = 64, 512, 4.096; 4 input di test per funzione.
+- **Flusso:** 76% codice, 4% K, 12% P con nome, 4% P esplicita, 4% T. Run in `rt2_<braccio>_s<seed>`.
+- **Regola, a tappe** (`STAGE` nel runner, cambiata solo nel commit che registra la tappa):
+  - **tappa 0, m1 s0 e s1:** la rubrica esplicita deve stare sopra il suo controllo piu forte di almeno 0,10 e 4
+    errori standard binomiali, in tutti e due i seed. **Alla rubrica con nome non si chiede nulla in m1:** l'ipotesi e
+    che la banca renda possibile cio che la base non sa, e chiederlo a m1 censurerebbe proprio quell'esito;
+  - **se l'esplicita resta al caso:** D-R si chiude come "non misurabile a nucleo D256" e si scrive la raccomandazione
+    per la fase 4;
+  - **tappa 1, m64 s0 e s1** (dopo revisore e push): se P con nome in m64 non supera il suo controllo piu forte (4
+    errori standard, in tutti e due i seed, in almeno una rubrica), ci si ferma senza gli altri bracci;
+  - **tappa 2:** tutti i bracci.

@@ -87,6 +87,25 @@ T_OOD = [(3, 6, False), (5, 4, False)]                   # never trained: proced
 T_TEST_SEED, T_PER_CELL = 4711, 300
 
 
+def check_tokens(enc, pool):
+    """With the phase-2 BPE: every literal of the pool is ONE token, the same in an assignment line, in the answer and
+    after the question; every variable name is one token in its lines. The digit-merge problem of P does not arise
+    here (the pool keeps only one-token literals). Returns the number of failures."""
+    bad = 0
+    for n in pool:
+        a = enc(answer_text(dict(ans=n), "assert"))
+        line = enc(f"q = {n}\n")
+        if len(a) != 2 or a[0] not in line or len(line) != len(enc("q = 2\n")):
+            bad += 1
+        full = enc(f"assert q == {n}\n\n")
+        if enc("assert q == ")[-1] != full[len(enc("assert q == ")) - 1] or full[len(enc("assert q == "))] != a[0]:
+            bad += 1
+    for v in NAMES:
+        if len(enc(f"{v} = 7\n")) != len(enc("q = 7\n")) or len(enc(f"assert {v} == ")) != len(enc("assert q == ")):
+            bad += 1
+    return bad
+
+
 def t_key(p):
     return (tuple(p["lines"]), p["q"])
 
