@@ -37,7 +37,7 @@ from s1_verdict import CHAT_MARGIN, DEGEN_MARGIN, DRAWS, PANELS as JUDGED, SEED,
 
 MODEL = Path("E:/SiliconLLM_Artifacts/stage2/s2n/q4/e2e_rowx.gguf")
 MODEL_SHA = "cc047475472ab952729824894037a94e345c71724c07d06ae206d31331e387f1"     # s2n_export_e2e_rowx.json
-P0 = Path("E:/SiliconLLM_Artifacts/c_fast_archive/s2t/m/p0.gguf")                  # moved from C: on 2026-11-24, sha256 verified
+P0 = Path("C:/SiliconLLM_fast/s2t/m/p0.gguf")     # copied back to the SSD on 2026-11-27: read from E: (HDD) the hook trips the time guard
 P0_SHA = "44de73157f11165c0551fd06714f4f043913292a79b07683e6a34b11d3b0d2f4"         # s2x_run.P0_SHA
 ARMS = {"sx19": "1-19", "sx9": "9-19"}
 DESK_STACK, DESK_SLOT, LINE_MS = 43.05, {"sx19": 3.92, "sx9": 2.27}, 40.49      # S2M protocol; S2F protocol; 24.7 tok/s

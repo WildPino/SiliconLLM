@@ -399,3 +399,5 @@ No outcome reaches the line on speed. A PASS would put the first 2-bit stack wit
 **Cost:** about 7 h of CPU (x19 took 3.3 h and x9 3.6 h on the same seven panels) and no GPU. That is under the reviewer's 10 h, with no new primary metric.
 
 **Code:** `s2n_exact.py`, which holds the runner, verdict, selftest and chain (`python -I benchmarks/stage2/s2n_exact.py chain`).
+
+**Fix during the run (2026-11-27).** sx19's first four panels were COMPLETE. Its mmlu then stopped on the runner's time guard: the first document projected 38,048 s against 32,400. The hook reads P0's experts at random, and P0 then sat on E:, a hard disk. Test 3b read it from the SSD. P0 was copied back to the SSD (`C:/SiliconLLM_fast/s2t/m/p0.gguf`, the same sha256). Only the path changes, and the chain resumes from mmlu. No line, arm or guard changes, and the stopped record stays in `s2n_exact_run.json` history through this note.
