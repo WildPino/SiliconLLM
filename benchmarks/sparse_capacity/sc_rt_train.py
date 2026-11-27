@@ -150,9 +150,7 @@ def eval_t(model, data, dev, mb, limit=None):
     items, cells, ctl = [], [], []
     crng = random.Random(3)
     for p in tests:
-        # only the literal: in the stream it is followed by the blank line, which the BPE merges into one "
-
-" token
+        # only the literal: in the stream it is followed by the blank line, which the BPE merges into one token
         items.append((fill(data, data.tfill, SEQ + 1) + data.enc(TR.program_text(p, "assert")), data.enc(TR.answer_text(p, "assert"))[:1]))
         cells.append(f"m{p['m']}_d{p['d']}" + ("_rb" if p["rebind"] else ""))
         ctl.append({k: f(p, crng) == p["ans"] for k, f in TR.CONTROLS.items()})
