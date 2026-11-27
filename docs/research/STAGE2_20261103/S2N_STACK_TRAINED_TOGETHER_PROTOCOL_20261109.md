@@ -318,3 +318,84 @@ Recall is the mean of nq and tqa.
 | NOT SEPARATED, ADDS UP | Both parts. The recommendation names the cheaper lever per point. |
 
 **Cost:** about 5 h of CPU (two × seven panels, as e2e_rowx's 2.3 h) and no GPU. This is under the reviewer's 10 h, and the lines are on the panels already in use. A test of diagnosis, not of the thesis.
+
+## Amendment 4 (2026-11-27): the trained stack with the top expert exact where it weighs, at two depths
+
+This was decided on amendment 3's result (`8136f96`): EXPERTS HOLD THE RECALL, ADDS UP. Amendment 2 is dropped. The registered lever is the experts' recall, exact where they weigh. Two arms give two points of the ms / recall curve. CPU only, no training.
+
+### Arms (`s2n_exact.py`)
+
+| Arm | What it is | Slot desk ms |
+| --- | --- | ---: |
+| sx19 | e2e_rowx's file whole (IQ2_KS organs and bal experts, both with e2e_rowx's scales), top slot exact from P0 in layers 1-19: x19k4's form | 3.92 |
+| sx9 | the same, layers 9-19: x9's layers | 2.27 |
+
+- **How the slot is read.** It uses test 3b's hook (`s2x_mix_hook.h`) in the tools with unaligned moves, unchanged. The slot is recomputed from P0 on the stack's own `ffn_norm`, and the router stays the stack's.
+- **Routing.** Generation runs at k = 4 (mass 16, decode only), as e2e_rowx. arc, mmlu and docs score at k = 8 with the same slot.
+- **Checks on every process.** Its CONFIG and MIX lines must confirm the model, the mode and the layers.
+- **The other slots stay bal, not ternary as in x19k4.** bal is the stack's code, and bal under an exact slot has never been measured. x19k4 enters only the carry-over line.
+
+### Lines (`s2n_exact.py verdict`, paired bootstrap, stage 1's seed and draws)
+
+- **Per arm:** stage 1's label with the chat gate.
+- **The slot on the stack,** sx − e2e_rowx, on all panels and on recall (the mean of nq and tqa): **PAYS** (lower > 0), **COSTS** (upper < 0), or **NOT SHOWN**.
+- **Depth,** sx19 − sx9 on recall, with all panels beside: **DEPTH PAYS**, **DEPTH COSTS**, or **NOT SHOWN**.
+- **Carry-over,** all(sx19) − [all(rowx_org) + all(x19k4) − all(top4dm16)]: **BELOW THE PARTS** (upper < 0), **ABOVE THE PARTS** (lower > 0), or **ADDS UP**. The estimate is about −5.0 against ref. x19k4's other slots are ternary, worse than bal, so the estimate leans low.
+- **Desk:** ms and tok/s per arm, with points and recall per ms of slot.
+- **VOID** if:
+  - the model or P0 differs from its pin;
+  - a panel is not COMPLETE;
+  - a CONFIG or MIX line does not confirm the slot.
+- **Selftest:** PASS, 20 cases. It covers:
+  - planted gains and losses;
+  - a VOID arm;
+  - the chat gate;
+  - the commands at k = 4 and k = 8;
+  - a MIX line missing or naming the wrong mode.
+
+### Thesis line (rule 4): the desk ceiling with the slot
+
+The rows are sums of cells on the desk, not a run on flash. Each is the S2M row (ks_stk4: 43.05 ms, 23.23 tok/s) plus the slot's cost on flash's experts from test 3b (one exact slot in every MoE layer, +3.92 ms). The line is 24.7 tok/s, 40.49 ms.
+
+| Configuration | ms | tok/s | Over the line |
+| --- | ---: | ---: | ---: |
+| e2e_rowx, no slot | 43.05 | 23.23 | 2.56 ms |
+| sx9, slot in layers 9-19 | 45.32 | 22.07 | 4.83 ms |
+| sx19, slot in layers 1-19 | 46.97 | 21.29 | 6.48 ms |
+
+No outcome reaches the line on speed. A PASS would put the first 2-bit stack with every organ at 2 bits, at k = 4, within the quality budget, with the reference's chat. It would cost 2.27 or 3.92 ms that speed must then find.
+
+### What a result changes (rule 5)
+
+| Result | Quality | Speed |
+| --- | --- | --- |
+| sx9 fits (label and chat gate) | The quality line holds on mini at 2.27 ms of slot. The delivery writes sx9's form. | 4.83 ms to find. The next work is speed: ik's flash attention in the engine first (5.95 ms against the engine's 11.67). |
+| only sx19 fits | The quality line holds at 3.92 ms. The curve says whether a depth between is worth one more arm. | 6.48 ms to find, the same work with a larger target. |
+| neither fits, the slot PAYS | Still out. The curve gives points per ms. What is left sits in the organs' recall (rowx_org −6.33), so the next lever is one organ stored. | The slot's ms stay out of the ceiling until quality closes. |
+| the slot NOT SHOWN or COSTS | On bal, exact slots buy nothing and leave the delivery. The experts' recall goes to the codes: more positions of M1 on bal's codes. | The ceiling stays at 43.05 ms. |
+| carry-over BELOW THE PARTS | e2e_rowx's organ scales, trained on bal experts, do not carry over to exact slots. They are retrained with the slot in the training graph, at 1.5 M positions (about 4 h of GPU and new code). | Unchanged. |
+
+### Predictions
+
+| Line | Prediction |
+| --- | --- |
+| sx19 | Δ −1.5 to −4.5. WITHIN BUDGET 30%, UNDECIDED 65%. |
+| sx9 | Δ −2.5 to −5. WITHIN BUDGET 15%. |
+| The slot on recall | sx19 PAYS 70%, sx9 PAYS 50%. |
+| Depth | DEPTH PAYS 40%, NOT SHOWN 55%. |
+| Carry-over | ADDS UP 60%, ABOVE THE PARTS 30%. |
+
+### What this takes from the design (rule 1)
+
+| Element | This cell | Why |
+| --- | --- | --- |
+| Random-slot control | Not run on the stack | Top beat random on ternary at both depths (x19 over r19 +4.74, x9 over r9 +3.19). It would cost 7 h more of CPU. |
+| The slot's RAM | Not costed | The slot needs the stored experts of those layers in RAM beside the 2-bit ones. On flash this is a memory cost the ceiling above does not count, and the delivery has to state it. |
+| Seeds | One data order for the scales | As amendment 1. The 1.9-point seed gap is quoted beside every margin. |
+| Model | mini | The desk ms are flash's. Quality at flash's scale is not measured. |
+
+**Literature:** no new mechanism. The slot is test 3b's (HOBBIT, arXiv 2411.01433, §3.2, read there).
+
+**Cost:** about 7 h of CPU (x19 took 3.3 h and x9 3.6 h on the same seven panels) and no GPU. That is under the reviewer's 10 h, with no new primary metric.
+
+**Code:** `s2n_exact.py`, which holds the runner, verdict, selftest and chain (`python -I benchmarks/stage2/s2n_exact.py chain`).
