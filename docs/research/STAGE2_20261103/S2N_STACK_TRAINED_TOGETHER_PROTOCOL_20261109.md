@@ -257,3 +257,64 @@ The reviewer also raised six objections that do not block on their own:
 They are kept for any rerun of the draft.
 
 **Status:** not registered, not launched. The draft and its code are held, uncommitted, pending a decision.
+
+## Amendment 3 (2026-11-27): the trained stack split into its parts, CPU only
+
+Decided after amendment 2's review. Before any GPU is spent, the question is which part of e2e_rowx still holds the recall loss.
+
+### The 1.6 M teacher, checked first
+
+`s2n_contam.py`, `results/s2n_contam.json`. This is the review's check on the extension, run on the pass e2e_rowx trained on: 13-token windows of the training documents (the first 1.5 M positions) against every panel input and the held-out documents. Two rules are reported: the corpus's own (at least 8 tokens holding a letter) and every window.
+
+| Target | Corpus rule: hit | Every window: hit, windows covered |
+| --- | ---: | --- |
+| gsm8k (test), arc, chat, nq, mmlu panels | 0 | 0 |
+| docs panel | 0 / 72 | 1 / 72, 0.01% |
+| tqa panel | 0 / 600 | 1 / 600, 0.01% |
+| held-out pick | 2 / 143 | 9 / 143, 0.05% |
+| held-out acts | 8 / 142 | 14 / 142, 0.38% |
+
+- **The panels are clean.** The only two hits under the every-window rule are an edu document against one docs item and a wiki document against one tqa item.
+- **The first pass holds no MetaMathQA.** Its math is GSM8K train, while the panel's gsm8k is GSM8K test.
+- **Held-out acts:** one wiki document is 39% covered. The rest are GSM8K-train near-duplicates with 1-6% coverage.
+- **No reading of amendment 1 changes.** The recovery on the rest of the panels stands.
+
+### Arms
+
+Each arm is built by `s2n_split.py export`. The part's tensors are patched exactly as `s2n_export.py` patches them, and every tensor is read back.
+
+| Arm | What it is | Base it is compared to |
+| --- | --- | --- |
+| rowx_org | e2e_rowx's organ scales on ks_org's file: organs IQ2_KS in BF16, experts exact from P0 | ks_org4, the same file |
+| rowx_exp | e2e_rowx's expert scales on bal-q4's file: bal experts in Q4_0, organs exact from P0 | bal4, the same file |
+
+Both arms run all seven panels as e2e_rowx does (k = 4, mass 16, decode only; arc and mmlu at k = 8) through `s2n_run.py`. The chain is `s2n_split.py chain`. The selftest (5) catches one changed scale.
+
+### Lines (`s2n_split.py verdict`, paired bootstrap as stage 1's)
+
+Recall is the mean of nq and tqa.
+
+- **The part's recall:** rowx_P − base_P. **GAINS** (lower > 0), **LOSES** (upper < 0), **NOT SHOWN**. The all-panel gain is reported beside.
+- **Who holds it:** rowx_org − rowx_exp on recall. **EXPERTS HOLD THE RECALL** (lower > 0), **ORGANS HOLD THE RECALL** (upper < 0), **NOT SEPARATED**.
+- **Interaction:** recall(e2e_rowx) − [recall(rowx_org) + recall(rowx_exp) − recall(top4dm16)]. **THE STACK LOSES MORE** (upper < 0), **THE STACK LOSES LESS** (lower > 0), **ADDS UP**.
+- **VOID** if an export does not read back, or a part's panels are incomplete on its exported file.
+
+### Predictions
+
+| Line | Prediction |
+| --- | --- |
+| Organs' recall | NOT SHOWN 55%, GAINS 40% |
+| Experts' recall | NOT SHOWN 60%, GAINS 30% |
+| Who holds it | EXPERTS HOLD 55%, NOT SEPARATED 40% |
+| Interaction | ADDS UP 60%, THE STACK LOSES MORE 30% |
+
+### What a result changes
+
+| Result | Decision |
+| --- | --- |
+| EXPERTS HOLD, ADDS UP | The next lever is the experts' recall: exact where they weigh (x19k4 has recall at −5.75, at 3.92 ms) or more positions of M1 on bal's codes. Amendment 2 is dropped. |
+| ORGANS HOLD, ADDS UP | The next lever is the organs: one organ stored, the branch TAPPE names. |
+| THE STACK LOSES MORE | Recall is lost to the stack, beyond its trained parts. Tokens on the whole stack stay the purchase, with amendment 2 corrected per its review. |
+| NOT SEPARATED, ADDS UP | Both parts. The recommendation names the cheaper lever per point. |
+
+**Cost:** about 5 h of CPU (two × seven panels, as e2e_rowx's 2.3 h) and no GPU. This is under the reviewer's 10 h, and the lines are on the panels already in use. A test of diagnosis, not of the thesis.

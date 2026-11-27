@@ -1,0 +1,303 @@
+{
+ "train_docs": 4293,
+ "train_positions": 1501450,
+ "heldout_docs": [
+  143,
+  142
+ ],
+ "ngram": 13,
+ "min_letter_tokens": 8,
+ "rules": {
+  "letters": {
+   "gsm8k": {
+    "items": 100,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "arc": {
+    "items": 2397,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "chat": {
+    "items": 40,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "docs": {
+    "items": 72,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "nq": {
+    "items": 600,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "tqa": {
+    "items": 600,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "mmlu": {
+    "items": 2280,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "heldout_pick": {
+    "items": 143,
+    "hit": 2,
+    "windows_covered": 0.00022381378692927484,
+    "hit_items": [
+     4397,
+     4515
+    ],
+    "examples": [
+     {
+      "item": 4397,
+      "covered": 0.057,
+      "train_doc": 152,
+      "train_source": "math:gsm8k:3840:0"
+     },
+     {
+      "item": 4515,
+      "covered": 0.067,
+      "train_doc": 792,
+      "train_source": "math:gsm8k:4438:0"
+     }
+    ]
+   },
+   "heldout_acts": {
+    "items": 142,
+    "hit": 8,
+    "windows_covered": 0.003062621604093104,
+    "hit_items": [
+     4328,
+     4344,
+     4408,
+     4420,
+     4496,
+     4500,
+     4550,
+     4554
+    ],
+    "examples": [
+     {
+      "item": 4328,
+      "covered": 0.048,
+      "train_doc": 357,
+      "train_source": "math:gsm8k:4011:0"
+     },
+     {
+      "item": 4344,
+      "covered": 0.392,
+      "train_doc": 1600,
+      "train_source": "wiki:4981198:0"
+     },
+     {
+      "item": 4408,
+      "covered": 0.022,
+      "train_doc": 357,
+      "train_source": "math:gsm8k:4011:0"
+     },
+     {
+      "item": 4420,
+      "covered": 0.008,
+      "train_doc": 555,
+      "train_source": "math:gsm8k:7146:0"
+     },
+     {
+      "item": 4496,
+      "covered": 0.017,
+      "train_doc": 3095,
+      "train_source": "math:gsm8k:4931:0"
+     }
+    ]
+   }
+  },
+  "any": {
+   "gsm8k": {
+    "items": 100,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "arc": {
+    "items": 2397,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "chat": {
+    "items": 40,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "docs": {
+    "items": 72,
+    "hit": 1,
+    "windows_covered": 0.00012722183853731235,
+    "hit_items": [
+     11
+    ],
+    "examples": [
+     {
+      "item": 11,
+      "covered": 0.006,
+      "train_doc": 817,
+      "train_source": "edu:<urn:uuid:7a5fff76-6ccb-4d13-90dc-bad2c9614df9>:0"
+     }
+    ]
+   },
+   "nq": {
+    "items": 600,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "tqa": {
+    "items": 600,
+    "hit": 1,
+    "windows_covered": 0.00013574660633484164,
+    "hit_items": [
+     176
+    ],
+    "examples": [
+     {
+      "item": 176,
+      "covered": 0.068,
+      "train_doc": 1512,
+      "train_source": "wiki:4853779:0"
+     }
+    ]
+   },
+   "mmlu": {
+    "items": 2280,
+    "hit": 0,
+    "windows_covered": 0.0,
+    "hit_items": [],
+    "examples": []
+   },
+   "heldout_pick": {
+    "items": 143,
+    "hit": 9,
+    "windows_covered": 0.0005329216972637228,
+    "hit_items": [
+     4345,
+     4359,
+     4363,
+     4397,
+     4435,
+     4445,
+     4493,
+     4505,
+     4515
+    ],
+    "examples": [
+     {
+      "item": 4345,
+      "covered": 0.022,
+      "train_doc": 456,
+      "train_source": "math:gsm8k:3037:0"
+     },
+     {
+      "item": 4359,
+      "covered": 0.0,
+      "train_doc": 4292,
+      "train_source": "edu:<urn:uuid:c629d784-5e38-4f09-ae2c-96f202ea0f3a>:0"
+     },
+     {
+      "item": 4363,
+      "covered": 0.008,
+      "train_doc": 2718,
+      "train_source": "math:gsm8k:439:0"
+     },
+     {
+      "item": 4397,
+      "covered": 0.023,
+      "train_doc": 152,
+      "train_source": "math:gsm8k:3840:0"
+     },
+     {
+      "item": 4435,
+      "covered": 0.005,
+      "train_doc": 70,
+      "train_source": "wiki:4621859:0"
+     }
+    ]
+   },
+   "heldout_acts": {
+    "items": 142,
+    "hit": 14,
+    "windows_covered": 0.00379156134551818,
+    "hit_items": [
+     4308,
+     4310,
+     4328,
+     4336,
+     4344,
+     4402,
+     4408,
+     4420,
+     4496,
+     4500,
+     4512,
+     4524,
+     4550,
+     4554
+    ],
+    "examples": [
+     {
+      "item": 4308,
+      "covered": 0.017,
+      "train_doc": 1246,
+      "train_source": "math:gsm8k:3913:0"
+     },
+     {
+      "item": 4310,
+      "covered": 0.002,
+      "train_doc": 135,
+      "train_source": "wiki:4634965:0"
+     },
+     {
+      "item": 4328,
+      "covered": 0.057,
+      "train_doc": 357,
+      "train_source": "math:gsm8k:4011:0"
+     },
+     {
+      "item": 4336,
+      "covered": 0.019,
+      "train_doc": 3519,
+      "train_source": "math:gsm8k:6328:0"
+     },
+     {
+      "item": 4344,
+      "covered": 0.376,
+      "train_doc": 1600,
+      "train_source": "wiki:4981198:0"
+     }
+    ]
+   }
+  }
+ }
+}
