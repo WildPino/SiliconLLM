@@ -1,0 +1,173 @@
+{
+ "mode": "TUNE",
+ "arm": "m1",
+ "seed": 1,
+ "git_head": "a58aa5bd10cdef6821c5283067e06016ee9d6dec",
+ "pushed": true,
+ "dirty_files": [],
+ "src_sha256": {
+  "sc2_model.py": "a1f8f577a4c3d96a0a97950f57feddc337703e09e79f7fb4aaa7cde77e15f72d",
+  "sc2_probes.py": "9d10b86d2ecf0cfc4417642e9b5af45a06c0ff6e9e84d4c7986c81f4d2b176c3",
+  "sc2_train.py": "b3dc22f938af62f42c92da1e28f7c02c8b5a3b9dafee706abcdd856c6532c513",
+  "sc_proc.py": "0e3915616661c6b13e5e38a867efe1e6a1348ff8f579b8a89b39eb136c4fa713",
+  "sc_trace.py": "7d1d99a247e688de6142e60415d44cc3c2db71cfe1a9133900281fa1c4b5bee1",
+  "sc_rt_train.py": "c996d01902090f2cab9136c05ddf04b3dd2e891ef5ca460a08ff4cb21ad72620"
+ },
+ "stage": 0,
+ "start": "E:/SiliconLLM_Artifacts/sparse_capacity/f2\\f2_m1_s1\\last.pt",
+ "python": "3.12.10",
+ "torch": "2.11.0+cu128",
+ "gpu": "NVIDIA GeForce RTX 3060",
+ "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+ "M": 1,
+ "micro_batch": 16,
+ "accum": 1,
+ "tokens": 14999552,
+ "steps": 1831,
+ "lr": 0.0003,
+ "warmup": 100,
+ "schedule": "linear warmup then constant",
+ "wd": 0.1,
+ "betas": [
+  0.9,
+  0.95
+ ],
+ "clip": 1.0,
+ "shares": {
+  "k": 0.04,
+  "p": 0.12,
+  "e": 0.04,
+  "t": 0.04
+ },
+ "p_sizes": [
+  64,
+  512,
+  4096
+ ],
+ "p_ops": 36,
+ "p_tokens_per_line": 29.0625,
+ "p_digits_spaced": true,
+ "e_test": 2048,
+ "p_exposures_per_function": {
+  "64": 322.5806451612903,
+  "512": 40.32258064516129,
+  "4096": 5.040322580645161
+ },
+ "t_cells": [
+  [
+   2,
+   1,
+   false
+  ],
+  [
+   2,
+   2,
+   false
+  ],
+  [
+   2,
+   3,
+   false
+  ],
+  [
+   2,
+   4,
+   false
+  ],
+  [
+   3,
+   1,
+   false
+  ],
+  [
+   3,
+   2,
+   false
+  ],
+  [
+   3,
+   3,
+   false
+  ],
+  [
+   3,
+   4,
+   false
+  ],
+  [
+   4,
+   1,
+   false
+  ],
+  [
+   4,
+   2,
+   false
+  ],
+  [
+   4,
+   3,
+   false
+  ],
+  [
+   4,
+   4,
+   false
+  ],
+  [
+   3,
+   2,
+   true
+  ],
+  [
+   3,
+   3,
+   true
+  ]
+ ],
+ "t_ood": [
+  [
+   3,
+   6,
+   false
+  ],
+  [
+   5,
+   4,
+   false
+  ]
+ ],
+ "pool": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  24,
+  25,
+  30,
+  32,
+  50,
+  60,
+  64,
+  99,
+  100,
+  200
+ ],
+ "data_dir": "E:/SiliconLLM_Artifacts/workspace/kaggle_rung1/main_run/data",
+ "ts_sha256_first256MiB": "ab2b0e8dd533d0f40a38af0f9e3ab380e66b30f825d7788014adf06d2cdec8f2"
+}
