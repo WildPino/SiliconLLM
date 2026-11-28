@@ -137,7 +137,7 @@ Il protocollo sostituisce i bracci e la base qui sotto (base m1 invece del denso
   - equivalenza con l'addestramento solo-GPU su un braccio della fase 2: BPB entro 2σ, curve sovrapposte;
   - ritmo almeno al 50% di quello solo-GPU, a pari parametri attivi.
 
-### Fase 4: oltre la VRAM (ABBOZZO)
+### Fase 4: oltre la VRAM (PROTOCOLLO IN SCRITTURA)
 
 - Almeno una banca che non entra nella GPU (banca piu stato ≥ 20 GB), con gli stessi parametri attivi e la stessa soglia
   di token per esperto.
@@ -149,7 +149,15 @@ Il protocollo sostituisce i bracci e la base qui sotto (base m1 invece del denso
 - **Router economico** (per esempio le chiavi prodotto di PEER, arXiv 2407.04153, al posto della scansione piena):
   - serve comunque per banche grandi, perche la scansione piena cresce con E;
   - toglie l'ambiguita della fase 2 fra router e banca: a m64 il router era 16,8 dei 27,8 M attivi.
-- **Prima della fase 4:** la sonda R nuova (F2, §5), come da piano.
+- **Prima della fase 4:** la sonda R nuova (F2, §5), come da piano. Fatta: D-R non misurabile a nucleo D256
+  ([`RT_PROC_CALIB2_RESULT.md`](RT_PROC_CALIB2_RESULT.md)).
+- **Letture nel flusso:** K, la rubrica esplicita e P con nome (64 e 512), con le cifre separate. Non sono gate.
+- **Il gate su log E si legge a parita di router e di token:** almeno un braccio con una banca che entra nella GPU, lo
+  stesso router e gli stessi token del braccio oltre la VRAM. La serie della fase 2 (scansione piena, 60 M token) non
+  e confrontabile.
+- **Ripiego per D-R, registrato prima del run:** se nel run della fase 4 la rubrica esplicita non supera la regola
+  registrata (margine di almeno 0,10 e 4 errori standard sul controllo piu forte), dopo la fase 4 si apre una fase
+  dedicata a D-R con un nucleo piu grande, da dimensionare allora. D-R non si chiude: cambia scala.
 
 ### Fase 5: nel motore (ABBOZZO)
 
@@ -192,3 +200,4 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 | 2026-11-18 | Dopo la 1a (BANDIERA ROSSA), via alla fase 2 come registrata, con una regola di futilita: dopo m1 s0 e m64 s0, se BPB(m64) > BPB(m1) − 0,005 ci si ferma e si scrive il risultato. Nessun'altra lettura intermedia. |
 | 2026-11-26 | Fine fase 2 (D-0 PASS, D-R non misurabile), via alla fase 3: m16 s0 con la banca nella RAM in streaming, gate del piano. Fase 4: molti piu token per esperto (i distacchi crescevano fino alla fine), router economico; sonda R nuova prima. |
 | 2026-11-27 | Fine fase 3 (D-M PASS, 3,3 ns per parametro della banca). Proposto per la fase 4: togliere almeno meta del costo per parametro, e misurare il ritmo contro il passo di m1. Prossimo passo da piano: la sonda R nuova. |
+| 2026-11-28 | Dopo la seconda taratura delle sonde R (D-R non misurabile a nucleo D256), via alla fase 4 a nucleo D256 per D-M: banca ternaria sul bus (kernel fuso), bersaglio 20 GB, letture K / esplicita / P64-P512. Il gate su log E si legge a parita di router e token (un braccio piccolo nella GPU). Ripiego per D-R: se l'esplicita non passa nel run della fase 4, dopo si apre una fase D-R con un nucleo piu grande. |
