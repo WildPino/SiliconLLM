@@ -160,3 +160,38 @@ The slot can no longer pay for the rest. The 9-19 point is dominated: it costs c
 - **Cost:** about 3.5 h of CPU and a new export that mixes tensor types (organs exact, experts bal).
 
 **What would refute it:** the arm not beating sx19 on recall. The organs' recall would then sit in attention, whose stored form costs 16.17 ms. The quality line on mini would close only far from the speed line, and that is a decision on the stage's targets, not another cell.
+
+## Amendment 5 result (2026-11-28), test of mechanism: the FFN does not hold the remaining recall
+
+The run was `s2n_ffn.py chain`, on CPU only. Results are in `s2n_ffn_export.json`, `s2n_ffn_verdict.json` and the "sxf" record of `s2n_exact_run.json`. The cell is **valid**:
+- the export read back 60 patched tensors out of 278, with cosine to e2e_rowx's own between 0.921 and 0.947 (mean 0.936), and every other tensor byte-equal;
+- every panel is COMPLETE, and every MIX line confirms the slot in 19 layers.
+
+| Arm | Δ vs ref [CI95] | Label | Recall vs ref | Chat (ref 28) | nq | tqa | gsm8k | arc | mmlu |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| ref | | | | 28 | 29.0 | 48.7 | 81.0 | 53.2 | 49.3 |
+| sx19 | −2.48 [−6.10, +1.20] | UNDECIDED | −7.58 | 26 | 22.8 | 39.7 | 85.0 | 55.5 | 48.2 |
+| sxf | −4.35 [−7.79, −1.00] | UNDECIDED | −8.83 | 26, 1 degenerate | 21.5 | 38.5 | 77.0 | 55.7 | 47.4 |
+
+- **The FFN on recall:** sxf − sx19 −1.25 [−2.83, +0.33], **NOT SHOWN**. On all panels −1.87 [−5.23, +1.43]. With the FFN organs exact, recall gains at most 0.33 points.
+- **Reported:** sxf is UNDECIDED, with the chat gate passing. Its recall is −7.25 against top4dm16, and its desk cost is 50.89 ms, which is not a recipe row.
+- **Predictions:**
+
+  | Prediction | Outcome |
+  | --- | --- |
+  | THE FFN HOLDS RECALL 55%, gain +1 to +4 | miss: NOT SHOWN (40%), −1.25 |
+  | sxf UNDECIDED 60% | hit |
+
+**What it says.** The registered row is NOT SHOWN.
+- **Where the recall sits.** rowx_org put about 4.75 recall points on the organs. They are not in the FFN, so by elimination they sit in attention. No arm read attention directly.
+- **What exact FFN does.** Exact FFN values under scales trained beside IQ2_KS ones lean worse, mostly on gsm8k (85 to 77). That fits a trained form that has adapted to its neighbours. The CI does not separate it from zero.
+- **The stage's position on mini.** sx19 is its best point: −2.48, with chat in the gate, at 46.97 ms on the desk. It is UNDECIDED by about 1.1 points on the CI's lower end.
+- **What closing on mini would cost.** Attention's stored form costs 16.17 ms, so closing the quality line there would take sx19 to about 63 ms, far from the 40.49 line.
+
+As registered, the next step is a decision on the stage's targets, not another cell.
+
+**Recommendation: close stage 2 on mini with sx19 as its quality point, declared UNDECIDED, and move to speed.**
+- **Speed:** find sx19's 6.48 ms over the line.
+- **Quality:** attention's recall is carried as named debt and read on flash with the same panels and labels, where the thesis is judged.
+
+**What would refute it:** sx19's form on flash with the CI's upper end below −5, or failing the chat gate. Attention's form would then come back as the lever, costed at flash's ms.
