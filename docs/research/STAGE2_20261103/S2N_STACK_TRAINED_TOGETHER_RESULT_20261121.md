@@ -113,3 +113,50 @@ The run was `s2n_split.py chain`, on CPU only. Results are in `s2n_split_verdict
 **The additive estimate.** It is −3.43 + (−0.61) − 0.97, about −5.0 on all panels, and recall about −10.5. That is at the budget's edge, so the protocol states the decision each outcome changes (rule 5) before the run. Its cost is panels on CPU plus the RAM of the exact layers, with no training.
 
 **What would refute it:** the combination landing well below the additive estimate, which would mean the organ scales trained on bal experts do not carry over to exact ones. Then the organ scales are retrained with those experts in place, at 1.5 M positions (about 4 h of GPU).
+
+## Amendment 4 result (2026-11-28): the slot pays on recall, the stack is at −2.48 and still UNDECIDED
+
+The run was `s2n_exact.py chain`, on CPU only. Results are in `s2n_exact_verdict.json` and `s2n_exact_run.json`. Both arms are **valid**: every panel is COMPLETE, and every CONFIG and MIX line confirms the slot. Two runner stops happened before any line was read, both on the time guard; see the protocol's notes.
+
+| Arm | Δ vs ref [CI95] | Label | Recall vs ref | Chat (ref 28) | nq | tqa | gsm8k | arc | mmlu | Desk ms, tok/s |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| ref | | | | 28 | 29.0 | 48.7 | 81.0 | 53.2 | 49.3 | |
+| e2e_rowx | −5.16 [−8.61, −1.77] | UNDECIDED | −12.83 | 28 | 16.3 | 35.7 | 77.0 | 54.5 | 46.7 | 43.05, 23.23 |
+| **sx19** | **−2.48 [−6.10, +1.20]** | **UNDECIDED** | **−7.58** | 26 | 22.8 | 39.7 | 85.0 | 55.5 | 48.2 | 46.97, 21.29 |
+| sx9 | −6.98 [−10.69, −3.25] | UNDECIDED, chat gate fails | −10.58 | 20, 1 degenerate | 20.0 | 36.5 | 80.0 | 54.8 | 47.9 | 45.32, 22.07 |
+
+- **The slot on the stack:**
+  - sx19 recall +5.25 [+3.42, +7.08], **PAYS**. All panels +2.68 [−0.31, +5.79], NOT SHOWN.
+  - sx9 recall +2.25 [+0.67, +3.92], **PAYS**. All panels −1.82, NOT SHOWN, and its chat falls from 28 to 20.
+- **Depth:** sx19 − sx9 on recall +3.00 [+1.33, +4.67], **DEPTH PAYS**. On all panels +4.50 [+1.19, +7.81].
+- **The curve:**
+  - sx9: 0.99 recall points per ms of slot, and −0.80 points overall.
+  - sx19: 1.34 recall points per ms, and +0.68 points overall.
+
+  Early layers matter once the late ones are exact.
+- **Carry-over:** +2.53 [−1.31, +6.27] over the parts' estimate (−5.01), **ADDS UP**. e2e_rowx's organ scales hold under exact slots.
+- **Predictions:**
+
+  | Prediction | Outcome |
+  | --- | --- |
+  | sx19 Δ −1.5 to −4.5 | hit |
+  | sx19 UNDECIDED 65% | hit |
+  | sx9 Δ −2.5 to −5 | miss, worse |
+  | Slot PAYS on recall (70% and 50%) | hit |
+  | DEPTH PAYS 40% | hit |
+  | Carry-over ADDS UP 60% | hit |
+
+**What it says.** The registered row is "neither fits, the slot PAYS". sx19 is the best trained 2-bit stack measured so far: −2.48, with chat inside the gate. It misses WITHIN BUDGET by about 1.1 points on the CI's lower end. Recall still loses 7.58:
+- **Organs:** rowx_org's recall, −6.33 with every expert exact, puts about 4.75 of it on the organs beyond k = 4.
+- **Experts:** about 1.25 is left on the experts.
+
+The slot can no longer pay for the rest. The 9-19 point is dominated: it costs chat and gives nothing overall.
+
+**Speed.** sx19 is 6.48 ms over the 40.49 line on the desk. As registered, the slot's ms stay out of the ceiling until quality closes.
+
+**Recommendation: the organs' recall, at sx19, with the cheap organs first.** The cell is one CPU arm: sx19 with the FFN organs (shared expert and dense FFN) exact from P0, and attention kept at IQ2_KS with its scales.
+- **Desk cost:** +3.92 ms (the stored-FFN row of S2_DELIVERY_20261105.md, §5), so 50.89 ms and 19.65 tok/s.
+- **Lines:** stage 1's label with the chat gate. The gain over sx19 on recall and on all panels.
+- **Cost:** about 3.5 h of CPU and a new export that mixes tensor types (organs exact, experts bal).
+
+**What would refute it:** the arm not beating sx19 on recall. The organs' recall would then sit in attention, whose stored form costs 16.17 ms. The quality line on mini would close only far from the speed line, and that is a decision on the stage's targets, not another cell.
