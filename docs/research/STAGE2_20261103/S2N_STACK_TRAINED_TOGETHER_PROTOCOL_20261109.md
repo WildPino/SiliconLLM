@@ -405,3 +405,72 @@ No outcome reaches the line on speed. A PASS would put the first 2-bit stack wit
 **Second fix (2026-11-27).** mmlu stopped again with P0 on the SSD, projecting 36,338 s. The disk was not the cause. mmlu's first document has 32 positions, and the hook's one-off load of P0 sits in its time: 9.0 s, against 0.6 s for e2e_rowx. The projection multiplies that by 129,316 positions. x19's mmlu ran 2,444 s. The guard on the score panels of this cell goes from 32,400 s to 64,800 s. It is a stop threshold, not a line.
 
 **Guard, final (2026-11-27).** The PC stays in use during this cell, which is not a timing. Contention slows the panels and leaves their tokens unchanged. Every panel's stop threshold is set to 24 h, from sx9 on. sx19's running process keeps 64,800 s for its score panels and 32,400 s for generation.
+
+## Amendment 5 (2026-11-28): test of mechanism, does the FFN hold sx19's remaining recall?
+
+This was decided on amendment 4's result (`76e9b15`). sx19 is at −2.48, UNDECIDED. Its recall is −7.58, and about 4.75 of it sits on the organs. This cell is a **localization test, not a recipe candidate.** It asks which organ holds the recall. It does not ask whether the stack with that organ exact enters the recipe.
+
+### Arm (`s2n_ffn.py`)
+
+**sxf** is sx19 with the FFN organs exact:
+- **Which tensors:** the dense FFN of layer 0 (ffn_gate, ffn_up, ffn_down) and the shared expert of layers 1-19 (ffn_*_shexp).
+- **Their values:** P0's values, dequantized and held in BF16 (relative rounding 0.14%), in place of e2e_rowx's IQ2_KS with scales.
+- **Unchanged:** attention stays IQ2_KS with e2e_rowx's scales, routed experts stay bal with theirs, and the top slot is exact in layers 1-19.
+- **Panels:** the same commands as sx19, through `s2n_exact.py`.
+
+**Export check.** The export reads every tensor back:
+- the FFN organs against bf16(dequant(P0));
+- every other tensor against e2e_rowx's bytes;
+- each patched tensor's cosine with e2e_rowx's own must be ≥ 0.8. On five tensors it measured 0.935-0.947, and a shuffled one gives about 0.
+
+### Lines (`s2n_ffn.py verdict`)
+
+- **The FFN on recall,** sxf − sx19 on recall (mean of nq and tqa), with all panels beside: **THE FFN HOLDS RECALL** (lower > 0), **THE FFN COSTS RECALL** (upper < 0), or **NOT SHOWN**.
+- **Reported, not judged:**
+  - sxf's stage-1 label and chat gate;
+  - its recall against top4dm16;
+  - its desk ms (50.89, not a recipe row).
+- **VOID** if:
+  - the export does not read back;
+  - the model differs from its pin;
+  - a panel is not COMPLETE;
+  - a CONFIG or MIX line does not confirm the slot.
+- **Selftest:** PASS, 10 cases. It covers:
+  - the three labels and VOID;
+  - the chat gate;
+  - the export reading back;
+  - a planted shuffled tensor, which is caught.
+
+### Thesis line (rule 4)
+
+This is a test of mechanism, and no outcome moves the thesis by itself. It decides where the next lever goes on the organs, and on which organ the cheaper forms are tried. Its budget is a mechanism test's: about 3.5 h of CPU, with no GPU.
+
+### What a result changes (rule 5)
+
+| Result | Decision |
+| --- | --- |
+| THE FFN HOLDS RECALL | The next step is the cheapest form that keeps the recall on the FFN organs: more bits, or trained codes. The 3.92 ms of storing them exact enter the recipe only with a decision on the speed line. |
+| NOT SHOWN | The recall sits in attention, whose stored form costs 16.17 ms. The quality line on mini would close only far from the speed line. That is a decision on the stage's targets, not another cell. |
+| THE FFN COSTS RECALL | Read as NOT SHOWN for localization. Exact FFN values under scales trained with IQ2_KS ones would then be worse than the trained form, and the result says so. |
+
+### Predictions
+
+| Line | Prediction |
+| --- | --- |
+| The FFN on recall | THE FFN HOLDS RECALL 55%, NOT SHOWN 40%. Gain +1 to +4. |
+| sxf, reported | UNDECIDED 60%, WITHIN BUDGET 35%. |
+
+### What this takes from the design (rule 1)
+
+| Element | This cell | Why |
+| --- | --- | --- |
+| Exact form | P0's values held in BF16 | The file keeps e2e_rowx's types, so the patch is in place and read back byte for byte. The rounding is 0.14%, far under Q4_K's own error. |
+| Scales | Not retrained for exact FFN | Attention's and the experts' scales were trained beside IQ2_KS FFN. Amendment 4's carry-over (ADDS UP) says such scales hold when a part turns exact. |
+| Dense FFN and shared expert | Together, not apart | The question is the FFN against attention. Splitting them costs a second arm, and is worth it only if the FFN holds the recall. |
+| Seeds | One data order | As before, with the 1.9-point gap quoted beside. |
+
+**Literature:** no new mechanism.
+
+**Cost:** export about 5 min, panels about 3.5 h of CPU (sx19's took 4.6 h on a shared PC), no GPU. The time guard is 24 h.
+
+**Code:** `s2n_ffn.py`, which holds the export, verdict, selftest and chain (`python -I benchmarks/stage2/s2n_ffn.py chain`).
