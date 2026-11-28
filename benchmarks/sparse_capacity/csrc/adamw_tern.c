@@ -1,6 +1,8 @@
 /* Sparse Capacity, phase 4 (D-M): fused host AdamW + ternary re-quantization and 2-bit packing of the expert bank.
  *
  * One pass per row of an expert weight (the row of sc2_model.w_q: the last dim). For each row:
+ *   0. g = g * gscale (the clip coefficient, one fp32 product: what torch's clip_grad_norm_ does to .grad before the
+ *      optimizer reads it; gscale = 1 multiplies by 1, exact).
  *   1. AdamW exactly as torch 2.11's fused CPU kernel for float (aten/src/ATen/native/cpu/FusedAdamKernel.cpp, the
  *      vectorized ADAMW path): p *= f(1 - lr*wd); m = fmadd(f(1-b1), g - m, m); v = v*f(b2) + (f(1-b2)*g)*g;
  *      den = sqrt(v)/f(sqrt(bc2)) + f(eps); p = p + (f(-lr/bc1)*m)/den. Same operations, same rounding (AVX2 + FMA
@@ -24,12 +26,12 @@
 #endif
 
 static inline void adamw_row(float *p, const float *g, float *m, float *v, int64_t n,
-                             float wdmul, float c1, float b2, float c2, float bc2s, float eps, float negstep) {
+                             float gscale, float wdmul, float c1, float b2, float c2, float bc2s, float eps, float negstep) {
     const __m256 vw = _mm256_set1_ps(wdmul), vc1 = _mm256_set1_ps(c1), vb2 = _mm256_set1_ps(b2),
                  vc2 = _mm256_set1_ps(c2), vbc = _mm256_set1_ps(bc2s), veps = _mm256_set1_ps(eps),
-                 vst = _mm256_set1_ps(negstep);
+                 vst = _mm256_set1_ps(negstep), vgs = _mm256_set1_ps(gscale);
     for (int64_t d = 0; d < n; d += 8) {
-        __m256 P = _mm256_loadu_ps(p + d), G = _mm256_loadu_ps(g + d);
+        __m256 P = _mm256_loadu_ps(p + d), G = _mm256_mul_ps(_mm256_loadu_ps(g + d), vgs);
         P = _mm256_mul_ps(P, vw);
         __m256 M = _mm256_loadu_ps(m + d);
         M = _mm256_fmadd_ps(vc1, _mm256_sub_ps(G, M), M);                 /* lerp, weight < 0.5: base = m */
@@ -67,14 +69,14 @@ static inline void pack_row(const float *p, int64_t n, float s, uint8_t *out) {
 /* Fused: AdamW on every row, then the scale and the packed trits of the updated row. */
 EXPORT void adamw_tern(float *p, const float *g, float *m, float *v, int64_t rows, int64_t rowlen,
                        double lr, double beta1, double beta2, double wd, double eps, double bc1, double bc2,
-                       uint8_t *packed, float *scale, int nthreads) {
+                       float gscale, uint8_t *packed, float *scale, int nthreads) {
     /* bc1 = 1 - beta1^step, bc2 = 1 - beta2^step, computed by the caller in double with the same pow as torch's */
     float wdmul = (float)(1 - lr * wd), c1 = (float)(1 - beta1), b2 = (float)beta2, c2 = (float)(1 - beta2),
           bc2s = (float)sqrt(bc2), feps = (float)eps, negstep = (float)(-(lr / bc1));
     #pragma omp parallel for num_threads(nthreads) schedule(static)
     for (int64_t r = 0; r < rows; r++) {
         int64_t o = r * rowlen;
-        adamw_row(p + o, g + o, m + o, v + o, rowlen, wdmul, c1, b2, c2, bc2s, feps, negstep);
+        adamw_row(p + o, g + o, m + o, v + o, rowlen, gscale, wdmul, c1, b2, c2, bc2s, feps, negstep);
         if (packed) {
             float s = absmean_row(p + o, rowlen);
             scale[r] = s;

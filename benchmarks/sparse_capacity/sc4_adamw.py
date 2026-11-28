@@ -28,7 +28,7 @@ def build():
         os.add_dll_directory(os.path.dirname(gcc))                       # libgomp, libwinpthread
     lib = ctypes.CDLL(out)
     f, i64, d, P = ctypes.c_int, ctypes.c_int64, ctypes.c_double, ctypes.c_void_p
-    lib.adamw_tern.argtypes = [P, P, P, P, i64, i64, d, d, d, d, d, d, d, P, P, f]
+    lib.adamw_tern.argtypes = [P, P, P, P, i64, i64, d, d, d, d, d, d, d, ctypes.c_float, P, P, f]
     lib.tern_pack.argtypes = [P, i64, i64, P, P, f]
     return lib
 
@@ -48,12 +48,13 @@ def ptr(t):
     return ctypes.c_void_p(t.data_ptr())
 
 
-def step(p, g, m, v, stepno, lr, packed=None, scale=None, nthreads=6, betas=BETAS, wd=WD, eps=EPS):
-    """One AdamW step on (p, g, m, v), all fp32 CPU contiguous, rows = last dim; then (packed, scale) of the new p."""
+def step(p, g, m, v, stepno, lr, packed=None, scale=None, nthreads=6, betas=BETAS, wd=WD, eps=EPS, gscale=1.0):
+    """One AdamW step on (p, g * gscale, m, v), all fp32 CPU contiguous, rows = last dim; then (packed, scale) of the
+    new p. gscale is the clip coefficient (an fp32 value); g itself is not modified."""
     rowlen = p.shape[-1]; rows = p.numel() // rowlen
     assert rowlen % 8 == 0 and all(t.dtype == torch.float32 for t in (p, g, m, v))
     bc1, bc2 = 1 - betas[0] ** float(stepno), 1 - betas[1] ** float(stepno)
-    _lib().adamw_tern(ptr(p), ptr(g), ptr(m), ptr(v), rows, rowlen, lr, betas[0], betas[1], wd, eps, bc1, bc2,
+    _lib().adamw_tern(ptr(p), ptr(g), ptr(m), ptr(v), rows, rowlen, lr, betas[0], betas[1], wd, eps, bc1, bc2, float(gscale),
                       ptr(packed) if packed is not None else None, ptr(scale) if scale is not None else None, nthreads)
 
 
@@ -104,6 +105,15 @@ def selftest():
             check(f"{tag}: scale vs w_q on {dev} (max relative)", rel, 1e-6)
             check(f"{tag}: ternary flips vs w_q on {dev} away from the 0.5 boundary (count)", hard, 0)
             print(f"       ({int(flips.sum())} flips in all, of {p.numel()})")
+    # the clip coefficient inside the kernel = torch's clip (grad *= coef) then fused AdamW, bitwise
+    p0 = torch.randn(64, 256, generator=g0) * 0.02; gr = torch.randn(64, 256, generator=g0) * 1e-2
+    coef = torch.tensor(0.3712345, dtype=torch.float32)
+    ref = torch.nn.Parameter(p0.clone()); opt = torch.optim.AdamW([ref], lr=3e-3, betas=BETAS, weight_decay=WD, fused=True)
+    ref.grad = gr.clone(); torch._foreach_mul_([ref.grad], coef); opt.step()
+    a = p0.clone(); za, zb = torch.zeros_like(p0), torch.zeros_like(p0); g_keep = gr.clone()
+    step(a, gr, za, zb, 1, 3e-3, gscale=float(coef))
+    check("clip coefficient in the kernel vs clip then torch fused AdamW (max abs, bitwise = 0)", float((a - ref.data).abs().max()), 0)
+    check("the kernel leaves g unchanged (max abs)", float((gr - g_keep).abs().max()), 0)
     # planted negatives: a wrong beta2, and a skipped weight decay, must be seen
     p0 = torch.randn(64, 256, generator=g0) * 0.02; gr = torch.randn(64, 256, generator=g0) * 1e-2
     a = p0.clone(); b = p0.clone(); c = p0.clone()

@@ -191,3 +191,32 @@ vanno ricontrollate prima di citarle fuori.
   fp32. E un'altra strada, che cambia la matematica.
 - Ricerca chiusa per la fase 4: nessun lavoro manda pesi ternari impacchettati dall'host alla GPU tenendo master e
   AdamW sull'host.
+
+## Aggiunte del 2026-11-28: il router a chiavi prodotto (fase 4)
+
+Letto sul testo completo (ar5iv per PKM, HTML di arXiv per PEER e Memory Layers). I numeri vengono dalle tabelle
+citate.
+- **Product Key Memory** (Lample et al., arXiv 1907.05242).
+  - La ricerca: la query si divide in due meta; top-k su ciascuno dei due insiemi di sottochiavi, poi top-k fra le k²
+    combinazioni. "We are guaranteed that the k most similar keys in K are of the form..." (sez. 3.1): la ricerca e
+    esatta, perche il punteggio e una somma delle due meta.
+  - I pesi: softmax sui soli k punteggi scelti (eq. 2).
+  - **Modo noto di fallire:** l'uso delle chiavi crolla con memorie grandi. Rimedio: BatchNorm sulla query (sez. 3.1).
+    Tabella 2: senza BN l'uso e 98,97% a 65k chiavi, 64,4% a 262k e 25,8% a 1M; con BN 99,99%, 97,9% e 80,3%. Metriche
+    (sez. 4.2): la frazione di chiavi usate, e la KL fra il carico e l'uniforme.
+  - Teste multiple (sez. 3.3) e un lr piu alto per i valori, 1e-3 contro 2,5e-4 (sez. 4.3).
+- **PEER** (He, arXiv 2407.04153): 1024² esperti da un neurone, 8 teste da top-16, BatchNorm sulla query, nessuna
+  perdita di bilanciamento. Tabella 2: anche senza BN l'uso resta sopra il 99,8% fino a 1M esperti; la BN abbassa la KL
+  dall'uniforme (1,52 → 1,06 a 1M). Nessuna instabilita riportata.
+- **Memory Layers at Scale** (Berges et al., arXiv 2412.09764): softmax sui top-k (eq. 1), dimensione delle chiavi
+  meta di quella del modello, nessuna perdita di bilanciamento.
+  - **Modo noto di fallire:** "for large memory layers, training can become unstable, especially for small base
+    models" (sez. 3.1.4). Rimedio: qk-norm "when needed", senza dire quando.
+  - Il collo di bottiglia e la banda di memoria (sez. 1); i loro kernel CUDA sono 6 volte piu veloci di PyTorch.
+- **Cosa ne segue per la fase 4:**
+  - il router a chiavi prodotto calcola esattamente il gating della fase 2 (softmax su tutti gli E, top-k
+    rinormalizzato), perche la softmax di una somma si fattorizza; anche la perdita di bilanciamento si calcola esatta;
+  - a E = 32.768 (256 × 128) la tabella 2 di PKM, senza BN, sta sopra il 98%. Qui c'e in piu la perdita di bilanciamento
+    della fase 2: niente BN, e l'uso e la KL si leggono in ogni braccio;
+  - l'instabilita di Memory Layers riguarda proprio un nucleo piccolo con una memoria grande: si legge la norma del
+    gradiente, e un valore non finito ferma il run.
