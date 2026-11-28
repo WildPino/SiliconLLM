@@ -14,6 +14,9 @@ PACE_MIN = 0.5                # G1: tok/s of e32k / tok/s of the fastest GPU arm
 GAIN_MIN = 0.005              # G2: BPB(e8k) - BPB(e32k), on the whole val and on half B at the fitted temperature
 GAP_FROM, GAP_GROW = 14_000, 0.002          # G2 FAIL reading: curve gap e8k - e32k at the end minus at GAP_FROM
 EXPL_MARGIN, EXPL_SE = 0.10, 4.0            # D-R fallback rule (PLAN, phase 4): the explicit book in the e32k run
+NAMED_BOOKS = ("64", "512")                 # D-R reading, read only if the explicit book passes in e32k (protocol section 6):
+NAMED_CTL = (0.10, 4.0)                     #   e32k above its strongest control by >= 0.10 and >= 4 binomial SE, and
+NAMED_DIFF = (0.05, 4.0)                    #   e32k above e2k by >= 0.05 and >= 4 SE of the difference, in >= 1 book
 
 
 def load(name):
@@ -64,10 +67,17 @@ def main():
         say(f"G1 PACE: e32k {t[BIG]['tok_s']:.0f} tok/s / fastest GPU arm {ref:.0f} = {pace:.3f} (>= {PACE_MIN}) -> {'PASS' if g1 else 'FAIL'}")
         say(f"  reading: e32k / m1 (phase 2, dense, E = 128) {t[BIG]['tok_s']:.0f} / {t['m1']['tok_s']:.0f} = {t[BIG]['tok_s'] / t['m1']['tok_s']:.3f}; "
             f"e2k / m1 = {t['e2k']['tok_s'] / t['m1']['tok_s']:.3f} (the cost of the sparse computation alone)")
-        nh = load(f"f4_time_{BIG}_nohost_s0.json")
+        nh = load(f"f4_time_{BIG}_nohost_s0.json"); parts = load(f"f4_time_parts_{BIG}_s0.json")
         if nh:
-            say(f"  reading: exposed host cost (e32k step - e32k step with the host update skipped) "
-                f"{t[BIG]['step_s'] - nh['step_s']:.2f} s of {t[BIG]['step_s']:.2f} s")
+            exp_host = t[BIG]["step_s"] - nh["step_s"]
+            say(f"  reading: exposed host cost (e32k step - e32k step with the host update skipped) {exp_host:.2f} s of {t[BIG]['step_s']:.2f} s")
+            if parts and parts.get("official"):
+                m1s, dr, full = t["m1"]["step_s"], parts["delta_route_per_step_s"], t[BIG]["host"]["host_update"]
+                proj, proj_full = m1s + dr + exp_host, m1s + dr + full
+                say(f"  reading, projected pace if the sparse computation cost as much as m1's dense bank: m1 step {m1s:.2f} s "
+                    f"+ sparse routing over m1's router scan {dr:.2f} s + exposed host {exp_host:.2f} s = {proj:.2f} s -> "
+                    f"{m1s / proj:.3f} of m1; with the whole host update exposed ({full:.2f} s, the bound: a shorter forward "
+                    f"hides less) {proj_full:.2f} s -> {m1s / proj_full:.3f} of m1")
         for x in t:
             say(f"  {x}: step {t[x]['step_s']:.2f} s (min {t[x]['step_min']:.2f}, median {t[x]['step_median']:.2f}, max {t[x]['step_max']:.2f}); "
                 f"CPU load {t[x]['cpu_load_before']}/{t[x]['cpu_load_after']}%; other python: {len(t[x]['other_python'] or [])}")
@@ -118,6 +128,21 @@ def main():
         dr = marg >= EXPL_MARGIN and marg >= EXPL_SE * se
         say(f"D-R fallback (reading): explicit book in e32k {e['acc']:.3f}, strongest control {ctl:.3f}, margin {marg:+.3f} "
             f"({marg / se:.1f} SE) -> {'passes: D-R measurable at this core' if dr else 'does not pass: the D-R phase with a larger core opens after phase 4'}")
+        if not dr:
+            say("D-R named books (reading): not read, the explicit book did not pass in e32k")
+        else:
+            sig = []
+            for bk in NAMED_BOOKS:
+                pb, p2 = r[BIG]["p"][bk], r["e2k"]["p"][bk]
+                c = max(pb["ctl_copy"], pb["ctl_common_rule"], r[BIG]["p"]["unseen"]); n = pb["n"]
+                se_c = math.sqrt(max(c * (1 - c), 1e-9) / n); m_c = pb["acc"] - c
+                se_d = math.sqrt(max(pb["acc"] * (1 - pb["acc"]) / n + p2["acc"] * (1 - p2["acc"]) / p2["n"], 1e-9))
+                d = pb["acc"] - p2["acc"]
+                ok = m_c >= NAMED_CTL[0] and m_c >= NAMED_CTL[1] * se_c and d >= NAMED_DIFF[0] and d >= NAMED_DIFF[1] * se_d
+                sig.append(ok)
+                say(f"  P{bk}: e32k {pb['acc']:.3f} (n {n}), strongest control {c:.3f}, margin {m_c:+.3f} ({m_c / se_c:.1f} SE); "
+                    f"e2k {p2['acc']:.3f}, e32k - e2k {d:+.3f} ({d / se_d:.1f} SE) -> {'signal' if ok else 'no signal'}")
+            say(f"D-R named books (registered reading, not a gate of D-M): {'SIGNAL' if any(sig) else 'NO SIGNAL'}")
     if g0 is not None and g1 is not None:
         say(f"D-M (G0 and G1): {'PASS' if (g0 and g1) else 'FAIL'}")
     if g2 is not None:

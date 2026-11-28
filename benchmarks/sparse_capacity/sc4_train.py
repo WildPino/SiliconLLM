@@ -17,7 +17,7 @@
 #   python benchmarks/sparse_capacity/sc4_train.py --run --arm <arm> --data-dir <m0> [--resume]   (after registration)
 import argparse, json, math, os, platform, random, sys, time
 import numpy as np
-import torch, torch.nn.functional as F
+import torch, torch.nn as nn, torch.nn.functional as F
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -358,6 +358,49 @@ def pace_cell(a, dev, warm=20, n=200):
     return True
 
 
+def parts_cell(a, dev, warm=5, n=50):
+    """Reading for the projected pace (protocol section 4, G1): per layer and per step, the routing of the sparse path
+    (product-key router, load loss and the grouping by expert) against m1's router scan (softmax over 128, top-k,
+    load loss), each as forward + backward + the forward again (checkpoint recompute), at the run's shapes (N = 8,192
+    tokens, D = 256). Random inputs: the grouping sees a near-uniform routing."""
+    E = ARMS[a.arm]["E"]; N, D, k = SEQ * MB, SM.S0["D"], SM.ACTIVE // SM.H_EXP
+    head, upstream = T.git("rev-parse", "HEAD"), T.git("rev-parse", "@{u}")
+    dirty = T.git("status", "--porcelain", "--", "benchmarks/sparse_capacity", "docs/research/SPARSE_CAPACITY")
+    official = REGISTERED and head == upstream and not dirty and n == 50
+    torch.manual_seed(0)
+    x = torch.randn(N, D, device=dev)
+    pk = M4.PKRouter(D, E).to(dev)
+    m1r = nn.Linear(D, 128, bias=True).to(dev)
+    def sparse(grad):
+        with torch.set_grad_enabled(grad):
+            xr = x.requires_grad_(grad)
+            ti, tw, (p1, p2) = pk(xr, k); l, _ = pk.load(ti, p1, p2, k); M4.Layout(ti, E)
+            if grad:
+                (tw.sum() + l).backward()
+    def dense(grad):
+        with torch.set_grad_enabled(grad):
+            xr = x.requires_grad_(grad)
+            probs = torch.softmax(m1r(xr), dim=-1); tv, ti = probs.topk(k, dim=-1); tw = tv / tv.sum(-1, keepdim=True) * k
+            cnt = torch.bincount(ti.reshape(-1), minlength=128).float(); l = 128 * ((cnt / (N * k)) * probs.mean(0)).sum()
+            if grad:
+                (tw.sum() + l).backward()
+    def clock(f):
+        for _ in range(warm):
+            f(True); f(False)
+        torch.cuda.synchronize(); t0 = time.perf_counter()
+        for _ in range(n):
+            f(True); f(False)
+        torch.cuda.synchronize(); return (time.perf_counter() - t0) / n
+    ts, td = clock(sparse), clock(dense)
+    L = len(SM.Student(8, M=1).blocks)
+    out = dict(arm=a.arm, E=E, official=official, git_head=head, dirty=dirty.splitlines(), reps=n,
+               sparse_route_per_layer_s=ts, m1_route_per_layer_s=td, layers=L, delta_route_per_step_s=L * (ts - td),
+               cpu_load=cpu_load(), other_python=other_python(), gpu=torch.cuda.get_device_name(0), time=time.time())
+    path = os.path.join(a.out, f"f4_time_parts_{a.arm}_s{a.seed}" + ("" if official else "_dry") + ".json")
+    json.dump(out, open(path, "w"), indent=1); print("PARTS", json.dumps(out)); print("->", path)
+    return True
+
+
 def selftest(dev):
     ok = M4.selftest(dev) and KA.selftest() and PP.selftest()
     print("SELFTEST (phase 4)", "PASS" if ok else "FAIL")
@@ -371,6 +414,7 @@ def main():
     g.add_argument("--selftest", action="store_true"); g.add_argument("--dry", action="store_true")
     g.add_argument("--equiv", action="store_true"); g.add_argument("--run", action="store_true")
     g.add_argument("--time", action="store_true", help="the pace cell: 20 warm-up + 200 measured steps (machine free)")
+    g.add_argument("--time-parts", action="store_true", help="reading: the sparse routing against m1's router scan")
     ap.add_argument("--arm", choices=list(ARMS) + list(PACE_REF), default="e2k")
     ap.add_argument("--skip-host", action="store_true", help="pace cell, reading: the host update skipped (its exposed cost)")
     ap.add_argument("--from-ckpt", action="store_true", help="pace cell, reading: from the arm's run checkpoint (mid-run)")
@@ -392,6 +436,8 @@ def main():
         sys.exit("REFUSED: the protocol is not registered yet")
     if a.time:
         sys.exit(0 if pace_cell(a, dev, warm=20 if a.pace_n == 200 else 5, n=a.pace_n) else 1)
+    if a.time_parts:
+        sys.exit(0 if parts_cell(a, dev) else 1)
     if a.arm in PACE_REF:
         sys.exit("REFUSED: m1 is the pace cell's reference only")
     arm = ARMS[a.arm]

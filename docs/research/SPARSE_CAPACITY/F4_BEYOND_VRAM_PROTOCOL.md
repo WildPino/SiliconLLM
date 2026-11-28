@@ -111,8 +111,18 @@ somma |w| in un altro ordine rispetto a torch (fino a 2,7e-7 relativo), e AdamW 
   - **Accanto, letture:** il ritmo contro m1 della fase 2, misurato nella stessa cella; il costo dell'host esposto (il
     passo di e32k meno lo stesso passo con l'aggiornamento dell'host saltato); il ritmo a meta run, da un checkpoint e
     dalle finestre del run (§9, obiezioni 1 e 5).
+  - **Lettura del ritmo proiettato** (aggiunta il 2026-11-28, prima dei run): il ritmo se il calcolo sparso costasse
+    quanto il banco denso di m1. E il passo di m1, piu quanto il routing sparso aggiunge alla scansione del router di
+    m1, piu il costo dell'host esposto, a confronto con m1. Serve a sapere quanto pesera l'host quando il calcolo
+    sparso avra un kernel suo.
+    - Il routing sparso (router a chiavi prodotto, perdita di bilanciamento e raggruppamento per esperto) contro la
+      scansione di m1 si misura nella cella `--time-parts`. Forward, backward e il forward di nuovo (checkpointing),
+      per strato, alle forme del run. Dry: 82 ms contro 3,5 ms per strato, cioe 0,63 s a passo.
+    - Si riporta anche il limite con tutto l'aggiornamento dell'host esposto: con un forward piu corto la pipeline
+      nasconde meno.
   - La cella gira prima dei run lunghi: se G1 fallisce, i run non partono.
-- **D-M PASS = G0 e G1.**
+- **D-M PASS = G0 e G1.** Conduzione: G0 si legge dopo e2k; se fallisce, e32k ed e8k non partono e si scrive il
+  risultato.
 - **G2, log E (gate di fase).** Sul val della fase 2 (2 M token):
   - il BPB scende in modo monotono, e2k > e8k > e32k;
   - l'ultimo passo, BPB(e8k) − BPB(e32k), vale almeno 0,005, il pavimento σ della fase 2 (R1);
@@ -159,8 +169,8 @@ somma |w| in un altro ordine rispetto a torch (fino a 2,7e-7 relativo), e AdamW 
   e2k-h. Si aggiungono 15 curve da circa 7 minuti per braccio e i checkpoint (e32k: 18 GB, 2 minuti ogni 3 ore). In
   tutto **~220 h di GPU**, circa 9 giorni. La cella di ritmo a macchina libera dara i numeri veri.
 - **RAM dell'host per e32k:** 25,8 GB (6,4 GB di gradiente in memoria bloccata).
-- **Ordine:** le celle di ritmo (m1, e2k, e8k, e32k, e32k senza host) a macchina libera; poi e2k-h, e2k (G0 si legge
-  quando e2k passa il passo 4.000), e32k, e8k. I run lunghi non sono benchmark: possono convivere con lavori sulla
+- **Ordine** (`sc4_chain.py`): le celle di ritmo (m1, e2k, e8k, e32k, e32k senza host) e la cella del routing a
+  macchina libera; il verdetto del ritmo; poi e2k-h, e2k, il verdetto di G0, e32k, e8k. I run lunghi non sono benchmark: possono convivere con lavori sulla
   CPU, a costo di allungarsi.
 
 ## 6. Letture (non gate)
@@ -170,6 +180,15 @@ somma |w| in un altro ordine rispetto a torch (fino a 2,7e-7 relativo), e AdamW 
 - **Ripiego per D-R** (PLAN, fase 4): la regola della rubrica esplicita (margine di almeno 0,10 e 4 errori standard
   sul controllo piu forte) si applica al run di e32k. Se non passa, dopo la fase 4 si apre una fase D-R con un nucleo
   piu grande.
+- **Se l'esplicita passa in e32k, la regola su P con nome** (registrata il 2026-11-28, prima dei run; lettura, non gate
+  di D-M):
+  - per ciascuna rubrica con nome (64 e 512), sulle letture finali;
+  - P di e32k sta sopra il suo controllo piu forte (il massimo fra copia, regola piu frequente e funzioni mai viste)
+    di almeno 0,10 e di almeno 4 errori standard binomiali;
+  - e P di e32k sta sopra P di e2k di almeno 0,05 e di almeno 4 errori standard della differenza,
+    √(p₁(1−p₁)/n + p₂(1−p₂)/n). Con n = 256 (P64) servono circa 0,16, con n = 2.048 (P512) circa 0,06;
+  - **segnale D-R registrato** se le due condizioni valgono in almeno una rubrica. Si riportano tutte e due le
+    rubriche ed e8k accanto. Se l'esplicita non passa, la regola non si legge.
 
 ## 7. Letteratura e modi noti di fallire
 
