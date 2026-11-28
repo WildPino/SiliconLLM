@@ -269,8 +269,9 @@ def build(V, E, host_factory=None, seed=0):
     here alike, so that the core and router inits come from torch's global RNG in the same order in every arm."""
     m = SM.Student(V, M=1, quant=True)
     gen = torch.Generator().manual_seed(10_000 + seed)
+    Es = list(E) if isinstance(E, (list, tuple)) else [E] * len(m.blocks)   # a list: one E per layer (tests only)
     for li, blk in enumerate(m.blocks):
-        blk.mlp = PKBank(SM.S0["D"], E, host=host_factory(li, E) if host_factory else None, gen=gen)
+        blk.mlp = PKBank(SM.S0["D"], Es[li], host=host_factory(li, Es[li]) if host_factory else None, gen=gen)
     return m
 
 

@@ -137,7 +137,7 @@ Il protocollo sostituisce i bracci e la base qui sotto (base m1 invece del denso
   - equivalenza con l'addestramento solo-GPU su un braccio della fase 2: BPB entro 2σ, curve sovrapposte;
   - ritmo almeno al 50% di quello solo-GPU, a pari parametri attivi.
 
-### Fase 4: oltre la VRAM (PROTOCOLLO IN SCRITTURA)
+### Fase 4: oltre la VRAM (PROTOCOLLO REGISTRATO: [`F4_BEYOND_VRAM_PROTOCOL.md`](F4_BEYOND_VRAM_PROTOCOL.md))
 
 - Almeno una banca che non entra nella GPU (banca piu stato ≥ 20 GB), con gli stessi parametri attivi e la stessa soglia
   di token per esperto.
@@ -201,3 +201,4 @@ Questo piano parte da un charter iniziale. Cosa ne toglie, e perche:
 | 2026-11-26 | Fine fase 2 (D-0 PASS, D-R non misurabile), via alla fase 3: m16 s0 con la banca nella RAM in streaming, gate del piano. Fase 4: molti piu token per esperto (i distacchi crescevano fino alla fine), router economico; sonda R nuova prima. |
 | 2026-11-27 | Fine fase 3 (D-M PASS, 3,3 ns per parametro della banca). Proposto per la fase 4: togliere almeno meta del costo per parametro, e misurare il ritmo contro il passo di m1. Prossimo passo da piano: la sonda R nuova. |
 | 2026-11-28 | Dopo la seconda taratura delle sonde R (D-R non misurabile a nucleo D256), via alla fase 4 a nucleo D256 per D-M: banca ternaria sul bus (kernel fuso), bersaglio 20 GB, letture K / esplicita / P64-P512. Il gate su log E si legge a parita di router e token (un braccio piccolo nella GPU). Ripiego per D-R: se l'esplicita non passa nel run della fase 4, dopo si apre una fase D-R con un nucleo piu grande. |
+| 2026-11-28 | Protocollo della fase 4 registrato. Il ritmo (G1) si legge contro lo stesso codice sulla GPU, m1 resta una lettura (motivo nel protocollo, §8); aggiunta l'equivalenza lunga e2k-h (G0). D-M = G0 e G1; il gate su log E e G2. |

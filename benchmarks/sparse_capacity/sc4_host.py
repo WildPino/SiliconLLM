@@ -81,10 +81,9 @@ class HostWeights:
         G = [d / s.scale[n] for d, n in zip((dqg, dqu, dqd), NAMES)]
         s.norms = list(torch._foreach_norm(G, 2.0))
         for gr, n in zip(G, NAMES):
-            s.g[n].copy_(gr, non_blocking=True)
-        torch.cuda.current_stream().synchronize()
+            s.g[n].copy_(gr, non_blocking=True)                              # read on the host only after the step's sync
         if s.timed:
-            s.t["grad_out"] += time.perf_counter() - t0
+            torch.cuda.current_stream().synchronize(); s.t["grad_out"] += time.perf_counter() - t0
 
     def upload(s):
         t0 = time.perf_counter()
@@ -147,7 +146,7 @@ class Updater:
         def run():
             t0 = time.perf_counter()
             for li, hw in enumerate(s.hws):
-                hw.step(stepno, lr, gscale, betas, wd, eps, skip=(li == skip_layer))
+                hw.step(stepno, lr, gscale, betas, wd, eps, skip=(skip_layer == "all" or li == skip_layer))
                 hw.ready.set()
             s.last = dict(host_update=time.perf_counter() - t0, host_adam=sum(hw.t["host_adam"] for hw in s.hws))
         if sync:
